@@ -1,49 +1,36 @@
-# Rule: Channel Operations & Workspace Hygiene Protocol
+# Channel Operations & Workspace Layout (`R8–R12`, `R19`, `R28`, `R29`)
 
-Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md)
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Code: [`pipeline/storage.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/storage.py), [`pipeline/publish.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/publish.py)
 
----
+## R8–R10 — Metadata Contract
+- **R8 Title**: `en-US` (`TITLE_DESCRIPTION_LANGUAGE_CODE`); `neuro_diorama` uses 5-Archetype US Paradox Title `<= TITLE_MAX_CHARS_DIORAMA` (`R60`, zero all-caps spam, zero claims beyond DOI).
+- **R9 Description**: `DESCRIPTION_EDITORIAL_TEMPLATES` (`publish.py`): 1-line case hook, plain-English mechanism, `https://doi.org/<doi>`, `AI_DISCLOSURE_SENTENCE` (`R4`), `#Shorts`.
+- **R10 Hashtags**: Starts with `#Shorts` and `#Neuroscience` + pillar/topic tags.
 
-## R8 — Title Formula
-- English (`TITLE_DESCRIPTION_LANGUAGE_CODE`), length ≤ the title limit in production_constants.md (truncated by `PublishStage`; `TITLE_MAX_CHARS_DIORAMA` for Schema v6 `neuro_diorama` 2-Clause Paradox Titles per `R60` in [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md)).
-- Triangular hook: **[concrete action or number] + [anatomical / clinical anomaly] + [curiosity trigger]**, consistent with the setup/symptom narration (R42). No all-caps spam, no claims beyond the paper (R1).
-
-## R9 — Description
-Structured academic summary: case in one line, the mechanism chain in plain words, `https://doi.org/<doi>` link, AI-disclosure note, `#Shorts`.
-
-## R10 — Hashtags
-Exactly the hashtag count in production_constants.md, starting with `#Shorts` and `#Neuroscience`, then pillar/topic tags.
-
-## R11–R12 — Lossless Project Layout
-`BCI_Shorts_Channel/projects/<project_id>/` (managed by `ProjectStorage`, `pipeline/storage.py`):
-
-| Path | Contents |
+## R11–R12 — Project & Shared Workspace Layout (`ProjectStorage`)
+`BCI_Shorts_Channel/projects/<project_id>/`:
+| Path | Artifacts |
 |---|---|
-| `00_project_manifest.json` | status, `word_count`, `doi`, stage timestamps |
-| `01_ideation/` | `research_card.json` (`story_context`, `doi`, optional `visual_plan`) |
-| `02_script/` | `script.json` (`clip_narrations`), `script.md`, `qa_report.json` |
-| `03_visuals/` | optional `visual_plan.json`, `flow_all_in_one_prompts.json` (schema v4), `flow_provenance_receipt.json`, `flow_screenshots/`, `flow_native_clips/clip_1..clip_N.mp4` |
-| `04_audio/` | `audio_master.wav`, `subtitles.ass` |
-| `05_assembly/` | `final_shorts_1080x1920.mp4`, `edit_decision_list.json` (`neuro_diorama`), `asset_manifest.json` (R50), `probe_report.json`, `video_autopsy_report.json`, `dynamic_episode_qa_report.json` (R62), `posthoc_semantic_qa_report.json` + `posthoc_viewer_strips/` (R64), `master_qa_report.json` |
-| `06_publish/` | `metadata.json`, `thumbnail_var_A/B/C.png`, `ab_test_manifest.json`, `upload_receipt.json`, `community_receipt.json` |
+| `00_project_manifest.json` | Stage status, `word_count`, `doi`, timestamps (`R29` atomic temp-write auto-repair) |
+| `01_ideation/` | `research_card.json` (`story_context`, `doi`, `visual_plan`) |
+| `02_script/` | `script.json`, `script.md`, `qa_report.json` |
+| `03_visuals/` | `visual_plan.json`, `reference_image_specs.json`, `reference_images/`, `flow_all_in_one_prompts.json`, `flow_provenance_receipt.json`, `flow_native_clips/` |
+| `04_audio/` | `audio_master.wav`, `subtitles.ass`, `prosody_report.json` |
+| `05_assembly/` | `final_shorts_1080x1920.mp4`, `edit_decision_list.json`, `asset_manifest.json`, `probe_report.json`, `video_autopsy_report.json`, `dynamic_episode_qa_report.json`, `posthoc_semantic_qa_report.json`, `master_qa_report.json` |
+| `06_publish/` | `metadata.json`, `thumbnail_var_A/B/C.png`, `thumbnail_report.json`, `upload_receipt.json`, `community_receipt.json`, `related_video_receipt.json` |
 
-Clip count N = `CLIP_COUNT_MIN..CLIP_COUNT_MAX` (`DIORAMA_CLIP_COUNT_MIN..DIORAMA_CLIP_COUNT_MAX` for `neuro_diorama`); final duration bounds `FINAL_SHORTS_DURATION_MIN_SEC..FINAL_SHORTS_DURATION_MAX_SEC` (`DIORAMA_DURATION_MIN_SEC..DIORAMA_DURATION_MAX_SEC` for `neuro_diorama`).
+Shared directories under `BCI_Shorts_Channel/`:
+- `research_dossiers/<slug>/`: Schema v2 topic dossiers (`R44`).
+- `knowledge_base/`: `telemetry/` (`episodes_index.jsonl`, `clip_clarity_ledger.jsonl`, `qa_analytics_summary.json`) + `reusable_packs/` (`pipeline/knowledge_hub.py`, `R50-B`).
+- `asset_library/index.jsonl`: Reusable clip index (`pipeline/asset_manifest.py`, `R50`).
+- `database/`: Topic/prompt DB (`pipeline/prompts_db.py`).
+- `reports/daily/`: Studio KPI reports (`youtube-report`).
 
-## Shared Locations
-| Path | Purpose |
-|---|---|
-| `BCI_Shorts_Channel/knowledge_base/` | accumulated episode telemetry (`telemetry/episodes_index.jsonl`, `clip_clarity_ledger.jsonl`, `qa_analytics_summary.json`, `qa_analytics_report.md`), reusable asset packs (`reusable_packs/prompts_golden_bank.json`, `analogies_registry.json`, `brain_models_registry.json`, `locations_and_props_registry.json`), and dated parameter experiments (`experiments/`) managed by `pipeline/knowledge_hub.py` (`main.py kb`, R50-B) |
-| `BCI_Shorts_Channel/asset_library/` | per-clip longform reuse index (`index.jsonl`) populated by `pipeline/asset_manifest.py` (R50) |
-| `BCI_Shorts_Channel/database/` | topic → prompt database built by `pipeline/prompts_db.py` (`all_about_brain_3000_prompts.db`, `brain_1500_prompts_db.jsonl`, `psychology_1500_prompts_db.jsonl`, `database_manifest.json`) |
-| `BCI_Shorts_Channel/research/` | background research; docs 04 and 06 are superseded by visual_prompt_spec.md |
-| `BCI_Shorts_Channel/reports/` | daily studio reports (`/report_youtube`) |
+## Google Flow Room & FUSE Storage Hygiene
+- **Flow Workspace**: Canonical room name `AAB_<project_id>` (1 room per episode; delete temporary/orphan Flow rooms & assets after harvest). Workers bind dedicated `targetId` tabs (`allocate_dedicated_flow_project_tab`) and never steal/close sibling tabs.
+- **FUSE Mount**: `/home/canadaofbin/gdrive` is `fuse.rclone` — never create POSIX symlinks inside gdrive; use `rclone delete`/`rclone purge --fast-list` + local POSIX verification for bulk media cleanup.
 
-## R19 — Independent Conclusion Ending
-The final clip is a self-contained conclusion scene in the real environment (role `conclusion`, rising pull-back, R14-D) that opens with the R26 conclusion opener. It never returns to clip 1 framing, no loop tail, no centre-frame title text.
-
-## R28 — Test Hygiene
-- Tests live in `tests/` and `pipeline/test_*.py` (collected via `pytest.ini`; shared fixtures in `tests/conftest.py`).
-- Tests use temporary directories and clean up in `try…finally` / fixtures; they never read or write real project data on Drive.
-
-## R29 — Defensive Manifest & Recovery
-`ProjectStorage` auto-repairs missing stage keys with atomic temp-file writes; `PipelineOrchestrator.resume_project(project_id)` resumes from the last completed stage.
+## R19, R28, R29 — Ending, Test & Recovery Locks
+- **R19**: Independent elevated conclusion scene; zero loop-back to Clip 1, zero center-frame title overlay on v4/v5.
+- **R28**: Tests (`tests/`, `pytest.ini`) use `tmp_path` fixtures only and never create or mutate project folders inside `BCI_Shorts_Channel/projects/`.
+- **R29**: `ProjectStorage` uses atomic writes; `PipelineOrchestrator.resume_project(project_id)` resumes from last completed stage.

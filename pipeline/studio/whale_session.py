@@ -111,11 +111,13 @@ class WhaleSessionController:
 
     def get_tab_target(self, url_match_pattern: str, default_url: str | None = None) -> dict[str, Any]:
         """
-        Finds an open page target in Whale matching url_match_pattern via CDP HTTP API.
-        If none found and default_url is given, opens a new tab via PUT /json/new.
+        Finds an open page target in Whale matching url_match_pattern via CDP HTTP API
+        (skipping tabs actively leased by sibling workers).
+        If none found and default_url is given, opens a new background-leased tab.
         """
         import json
         import urllib.request
+        from pipeline.cdp_tab_lease import is_tab_leased_by_other, open_leased_cdp_tab
 
         try:
             res = urllib.request.urlopen(f"{self.cdp_url}/json/list", timeout=5).read().decode("utf-8")
@@ -129,7 +131,9 @@ class WhaleSessionController:
 
         matching = [
             t for t in targets
-            if t.get("type") == "page" and url_match_pattern.lower() in t.get("url", "").lower()
+            if t.get("type") == "page"
+            and url_match_pattern.lower() in t.get("url", "").lower()
+            and not is_tab_leased_by_other(str(t.get("id") or ""), cdp_port=self.cdp_port)
         ]
         for t in matching:
             if "UC4FeioYYv9X04Di07_MfZ7g" in t.get("url", ""):
@@ -138,11 +142,14 @@ class WhaleSessionController:
             return matching[0]
 
         if default_url:
-            import urllib.parse
-            encoded_url = urllib.parse.quote(default_url, safe="")
-            req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_url}", method="PUT")
-            res = urllib.request.urlopen(req, timeout=5).read().decode("utf-8")
-            return json.loads(res)
+            return open_leased_cdp_tab(
+                default_url,
+                purpose="studio_tab",
+                cdp_port=self.cdp_port,
+                cdp_host=self.cdp_host,
+                timeout=8.0,
+                background=True,
+            )
 
         raise RuntimeError(f"No tab matching '{url_match_pattern}' found in Whale browser.")
 
@@ -156,41 +163,52 @@ class WhaleSessionController:
 
     def open_temp_direct_client(self, target_url: str) -> tuple["DirectCDPClient", str]:
         """
-        Opens a dedicated temporary tab via PUT /json/new?<encoded_url> and returns
-        (DirectCDPClient, target_id) so callers can close ONLY that temporary tab
-        without hijacking or touching existing user tabs (R36-B).
+        Opens a dedicated background temporary tab with an active lease in `/tmp/aab_cdp_leases.json`
+        and returns `(DirectCDPClient, target_id)` so callers close ONLY that temporary tab
+        without hijacking focus or touching existing user/sibling tabs (R36-B).
         """
-        import json
-        import urllib.parse
-        import urllib.request
+        from pipeline.cdp_tab_lease import open_leased_cdp_tab
 
-        encoded_url = urllib.parse.quote(target_url, safe="")
         try:
-            req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_url}", method="PUT")
-            raw = urllib.request.urlopen(req, timeout=8).read().decode("utf-8")
+            target = open_leased_cdp_tab(
+                target_url,
+                purpose="studio_temp",
+                cdp_port=self.cdp_port,
+                cdp_host=self.cdp_host,
+                timeout=8.0,
+                background=True,
+            )
         except Exception as e:
             print(f"[WhaleSession] Could not open temp tab on {self.cdp_url}: {e}. Launching Whale...")
             self.launch_whale_with_cdp()
             time.sleep(2.0)
-            req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_url}", method="PUT")
-            raw = urllib.request.urlopen(req, timeout=8).read().decode("utf-8")
-        target = json.loads(raw)
+            target = open_leased_cdp_tab(
+                target_url,
+                purpose="studio_temp",
+                cdp_port=self.cdp_port,
+                cdp_host=self.cdp_host,
+                timeout=8.0,
+                background=True,
+            )
         ws_url = target.get("webSocketDebuggerUrl")
         target_id = str(target.get("id") or "")
         if not ws_url or not target_id:
             raise RuntimeError(f"Temporary tab for '{target_url}' missing webSocketDebuggerUrl or id.")
         return DirectCDPClient(ws_url), target_id
 
-    def close_tab_by_id(self, target_id: str) -> bool:
-        """Closes a specific CDP page target by exact target_id."""
+    def close_tab_by_id(self, target_id: str, *, owner_id: str | None = None) -> bool:
+        """Closes a pipeline-leased CDP page target by exact target_id (refuses unleased or foreign-owned tabs)."""
         if not target_id:
             return False
-        import urllib.request
-        try:
-            urllib.request.urlopen(f"{self.cdp_url}/json/close/{target_id}", timeout=5).read()
-            return True
-        except Exception:
-            return False
+        from pipeline.cdp_tab_lease import release_and_close_leased_tab
+
+        return release_and_close_leased_tab(
+            target_id,
+            owner_id=owner_id,
+            cdp_port=self.cdp_port,
+            cdp_host=self.cdp_host,
+            timeout=5.0,
+        )
 
     def recycle_studio_tab(
         self,
@@ -198,13 +216,18 @@ class WhaleSessionController:
         reopen_url: str | None = None,
     ) -> dict[str, Any]:
         """
-        Recycles a YouTube Studio tab via CDP HTTP endpoints (R36-B memory hygiene).
-        Strictly refuses to close any tab outside studio.youtube.com so active user tabs are untouched.
-        Opens the replacement Studio tab BEFORE closing the stale Studio tab.
+        Recycles a YouTube Studio tab via CDP endpoints (R36-B memory hygiene).
+        Strictly refuses to close any tab outside studio.youtube.com or any tab leased by another live worker.
+        Opens the replacement background Studio tab BEFORE closing the stale Studio tab.
         """
         import json
-        import urllib.parse
         import urllib.request
+        from pipeline.cdp_tab_lease import (
+            get_tab_lease,
+            is_tab_leased_by_other,
+            open_leased_cdp_tab,
+            release_and_close_leased_tab,
+        )
         from pipeline.studio.config import STUDIO_CONTENT_URL
 
         next_url = reopen_url or STUDIO_CONTENT_URL
@@ -217,24 +240,35 @@ class WhaleSessionController:
                 continue
             t_id = str(t.get("id") or "")
             t_url = str(t.get("url") or "").lower()
-            if "studio.youtube.com" not in t_url:
+            if "studio.youtube.com" not in t_url or not t_id:
                 continue
-            if target_id is None or t_id == target_id:
-                if t_id:
+            if is_tab_leased_by_other(t_id, cdp_port=self.cdp_port):
+                continue
+            lease = get_tab_lease(t_id, cdp_port=self.cdp_port)
+            if target_id is not None and t_id == target_id:
+                if lease is not None:
                     stale_studio_ids.append(t_id)
+            elif target_id is None and lease is not None and lease.get("created_by_pipeline"):
+                stale_studio_ids.append(t_id)
 
-        encoded_next = urllib.parse.quote(next_url, safe="")
-        req = urllib.request.Request(f"{self.cdp_url}/json/new?{encoded_next}", method="PUT")
-        new_raw = urllib.request.urlopen(req, timeout=8).read().decode("utf-8")
-        new_target = json.loads(new_raw)
+        new_target = open_leased_cdp_tab(
+            next_url,
+            purpose="studio_recycle",
+            cdp_port=self.cdp_port,
+            cdp_host=self.cdp_host,
+            timeout=8.0,
+            background=True,
+        )
         new_id = str(new_target.get("id") or "")
 
         for old_id in stale_studio_ids:
             if old_id and old_id != new_id:
-                try:
-                    urllib.request.urlopen(f"{self.cdp_url}/json/close/{old_id}", timeout=5).read()
-                except Exception:
-                    pass
+                release_and_close_leased_tab(
+                    old_id,
+                    cdp_port=self.cdp_port,
+                    cdp_host=self.cdp_host,
+                    timeout=5.0,
+                )
         return new_target
 
     @staticmethod
@@ -369,6 +403,10 @@ class DirectCDPClient:
         self.ws = await self._ctx.__aenter__()
         try:
             await self.send("Page.enable", timeout_sec=10.0)
+        except Exception:
+            pass
+        try:
+            await self.send("Emulation.setFocusEmulationEnabled", {"enabled": True}, timeout_sec=5.0)
         except Exception:
             pass
         return self
@@ -900,38 +938,84 @@ class DirectCDPClient:
         browser: Browser,
         url_match_pattern: str,
         default_url: str,
-        activate: bool = True
+        activate: bool = False
     ) -> Page:
         """
-        Discovers existing tab matching url_match_pattern across contexts;
-        if not found, navigates a new page to default_url.
+        Discovers existing tab matching url_match_pattern across contexts (skipping sibling-leased tabs);
+        if not found, opens a dedicated background-leased tab via CDP `Target.createTarget` (`background=True`)
+        without stealing foreground window focus (`activate` is ignored to enforce zero focus stealing).
         """
+        import asyncio
+        from pipeline.cdp_tab_lease import is_tab_leased_by_other, open_leased_cdp_tab
+
+        _ = activate
         context = browser.contexts[0] if browser.contexts else await browser.new_context()
 
-        # Scan existing pages
+        # Scan existing pages (skipping tabs leased by sibling workers)
         for page in context.pages:
-            if url_match_pattern.lower() in page.url.lower():
-                print(f"[WhaleSession] Reusing existing tab: {page.url[:80]}...")
-                if activate:
-                    try:
-                        await page.bring_to_front()
-                    except Exception:
-                        pass
-                return page
-
-        # No matching tab found; create new tab
-        print(f"[WhaleSession] Opening new tab for: {default_url}...")
-        page = await context.new_page()
-        await page.goto(default_url, wait_until="domcontentloaded", timeout=45000)
-        if activate:
+            if url_match_pattern.lower() not in page.url.lower():
+                continue
+            cdp_session = None
             try:
-                await page.bring_to_front()
+                cdp_session = await page.context.new_cdp_session(page)
+                t_info = await cdp_session.send("Target.getTargetInfo")
+                tid = str((t_info.get("targetInfo") or {}).get("targetId") or "")
+                if tid and is_tab_leased_by_other(tid, cdp_port=self.cdp_port):
+                    continue
+                await cdp_session.send("Emulation.setFocusEmulationEnabled", {"enabled": True})
             except Exception:
                 pass
-        return page
+            print(f"[WhaleSession] Reusing existing tab: {page.url[:80]}...")
+            return page
+
+        # No matching tab found; create background-leased tab via browser-level CDP Target.createTarget
+        print(f"[WhaleSession] Opening background-leased tab for: {default_url}...")
+        opened = open_leased_cdp_tab(
+            default_url,
+            purpose="studio_playwright",
+            cdp_port=self.cdp_port,
+            cdp_host=self.cdp_host,
+            timeout=8.0,
+            background=True,
+        )
+        new_tid = str(opened.get("id") or "")
+        matched_page: Page | None = None
+        for _ in range(25):
+            for ctx in browser.contexts:
+                for cand_page in ctx.pages:
+                    try:
+                        cdp_s = await cand_page.context.new_cdp_session(cand_page)
+                        t_info = await cdp_s.send("Target.getTargetInfo")
+                        cand_tid = str((t_info.get("targetInfo") or {}).get("targetId") or "")
+                        if new_tid and cand_tid == new_tid:
+                            await cdp_s.send("Emulation.setFocusEmulationEnabled", {"enabled": True})
+                            matched_page = cand_page
+                            break
+                    except Exception:
+                        continue
+                if matched_page is not None:
+                    break
+            if matched_page is not None:
+                break
+            await asyncio.sleep(0.2)
+
+        if matched_page is None:
+            raise RuntimeError(f"Playwright context did not attach to newly created background CDP tab {new_tid!r}")
+
+        try:
+            await matched_page.wait_for_load_state("domcontentloaded", timeout=45000)
+        except Exception:
+            pass
+        return matched_page
 
     async def close_extra_tabs(self, browser: Browser, keep_url_keywords: list[str]) -> int:
-        """Closes stray, blank or duplicate tabs not matching keep_url_keywords."""
+        """Closes stray, unleased blank tabs not matching keep_url_keywords (never closing leased worker tabs)."""
+        from pipeline.cdp_tab_lease import list_active_tab_leases
+
+        active_leases = list_active_tab_leases()
+        if active_leases:
+            # Never sweep about:blank tabs while sibling workers hold active leases
+            return 0
         closed_count = 0
         for ctx in browser.contexts:
             pages = list(ctx.pages)

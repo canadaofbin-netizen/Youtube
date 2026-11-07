@@ -64,16 +64,39 @@ async def eval_js(client: DirectCDPClient, expression: str, await_promise: bool 
     return res.get("result", {}).get("value")
 
 
-async def get_gemini_tab(port: int = 9222) -> dict[str, Any]:
-    with urllib.request.urlopen(f"http://127.0.0.1:{port}/json", timeout=5) as resp:
-        tabs = json.loads(resp.read().decode("utf-8"))
+async def get_gemini_tab(port: int = 9222, owner_id: str | None = None) -> dict[str, Any]:
+    from pipeline.cdp_tab_lease import (
+        default_process_owner_id,
+        get_tab_lease,
+        is_tab_leased_by_other,
+        open_leased_cdp_tab,
+    )
+
+    eff_owner = owner_id or default_process_owner_id("gemini_web_worker")
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/json/list", timeout=5) as resp:
+            tabs = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        tabs = []
+
     for t in tabs:
-        if t.get("type") == "page" and "gemini.google.com" in t.get("url", ""):
-            return t
-    for t in tabs:
-        if t.get("type") == "page":
-            return t
-    raise RuntimeError("No active CDP page tab found on port 9222")
+        if t.get("type") != "page" or "gemini.google.com" not in str(t.get("url") or "").lower():
+            continue
+        tid = str(t.get("id") or "")
+        if not tid or is_tab_leased_by_other(tid, owner_id=eff_owner, cdp_port=port):
+            continue
+        lease = get_tab_lease(tid, cdp_port=port)
+        if lease is not None:
+            return {**t, "lease_owner_id": eff_owner}
+
+    opened = open_leased_cdp_tab(
+        "https://gemini.google.com/app",
+        owner_id=eff_owner,
+        purpose="gemini_web_worker",
+        cdp_port=port,
+        background=True,
+    )
+    return {**opened, "lease_owner_id": eff_owner, "_opened_by_call": True}
 
 
 async def paste_png_into_editor(client: DirectCDPClient, png_path: Path, wait_sec: float = 2.2) -> bool:
@@ -125,51 +148,11 @@ async def navigate_to(client: DirectCDPClient, url: str, wait_sec: float = 5.0) 
 
 
 async def ensure_images_916_mode(client: DirectCDPClient, force_reload: bool = False) -> None:
-    """Ensures the tab is on `https://gemini.google.com/images` with `9:16` aspect ratio selected."""
-    cur_url = await eval_js(client, "location.href") or ""
-    if force_reload or "gemini.google.com" not in str(cur_url):
-        await navigate_to(client, "https://gemini.google.com/images", wait_sec=5.0)
-        await asyncio.sleep(1.5)
-
-    # Check if 9:16 button is already active or if Aspect ratio button exists
-    ar_pos = await eval_js(client, """
-    JSON.stringify((() => {
-        for (const el of document.querySelectorAll("button, mat-chip, [role=button]")) {
-            const r = el.getBoundingClientRect();
-            const txt = (el.innerText || "").trim();
-            const al = el.getAttribute("aria-label") || "";
-            if (r.width > 0 && (txt === "9:16" || al.includes("9:16"))) {
-                return {already_916: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
-            }
-            if (r.width > 0 && (txt.includes("Aspect ratio") || al.includes("Aspect ratio") || txt === "1:1" || txt === "16:9")) {
-                return {already_916: false, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
-            }
-        }
-        return null;
-    })())
-    """)
-    info = json.loads(ar_pos) if ar_pos else None
-    if info and not info.get("already_916"):
-        await cdp_click_xy(client, info["x"], info["y"])
-        await asyncio.sleep(1.2)
-        item_pos = await eval_js(client, """
-        JSON.stringify((() => {
-            const c = document.querySelector(".cdk-overlay-container");
-            if (!c) return null;
-            for (const el of c.querySelectorAll("button, [role=menuitem], [role=option], input-companion-item")) {
-                const r = el.getBoundingClientRect();
-                const txt = (el.innerText || "").trim();
-                if (r.width > 0 && txt.includes("9:16")) {
-                    return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
-                }
-            }
-            return null;
-        })())
-        """)
-        pt = json.loads(item_pos) if item_pos else None
-        if pt:
-            await cdp_click_xy(client, pt["x"], pt["y"])
-            await asyncio.sleep(1.0)
+    """Disabled: all reference images must be generated exclusively inside Google Flow Image mode."""
+    raise RuntimeError(
+        "Gemini Web App image generation (gemini.google.com/images) is permanently disabled; "
+        "all reference images must be generated exclusively in Google Flow Image mode (flow_image_generation)."
+    )
 
 
 async def generate_gemini_image(
@@ -180,129 +163,11 @@ async def generate_gemini_image(
     force_new_chat: bool = False,
     timeout_sec: int = 120,
 ) -> bool:
-    """
-    Generates a single 9:16 image in Gemini Web App (`https://gemini.google.com/images`),
-    upscales to 1080x1920, and writes to `out_path`.
-    """
-    await ensure_images_916_mode(client, force_reload=force_new_chat)
-
-    # Clear any leftover text in editor
-    await eval_js(client, """
-    (() => {
-        const ed = document.querySelector(".ql-editor");
-        if (ed) ed.innerHTML = "";
-    })()
-    """)
-    await asyncio.sleep(0.3)
-
-    # Paste up to 2 conditioning images (e.g. env plate + primary cast sheet)
-    if conditioning_paths:
-        for cp in conditioning_paths[:2]:
-            if cp and cp.exists():
-                await paste_png_into_editor(client, cp, wait_sec=2.0)
-
-    # Count existing AI-generated images before sending
-    before_srcs_raw = await eval_js(client, """
-    JSON.stringify(
-        Array.from(document.querySelectorAll("img"))
-            .filter(i => i.naturalWidth > 300 && i.naturalHeight > 300 && !(i.className || "").includes("preview") && !(i.alt || "").includes("Uploaded"))
-            .map(i => i.src)
+    """Disabled: all reference images must be generated exclusively inside Google Flow Image mode."""
+    raise RuntimeError(
+        "Gemini Web App image generation (gemini.google.com/images) is permanently disabled; "
+        "all reference images must be generated exclusively in Google Flow Image mode (flow_image_generation)."
     )
-    """)
-    before_srcs = set(json.loads(before_srcs_raw) if before_srcs_raw else [])
-
-    # Type prompt and click Send
-    await client.type_into([".ql-editor", "div[contenteditable=true]"], prompt)
-    await asyncio.sleep(0.8)
-    await client.click(["button[aria-label*='Send']", "button[aria-label*='submit']", "button.send-button"])
-
-    # Poll for new AI-generated image
-    t0 = time.time()
-    new_src = None
-    while time.time() - t0 < timeout_sec:
-        await asyncio.sleep(2.5)
-        state_raw = await eval_js(client, """
-        JSON.stringify((() => {
-            const imgs = Array.from(document.querySelectorAll("img"))
-                .filter(i => i.naturalWidth > 300 && i.naturalHeight > 300 && i.complete && !(i.className || "").includes("preview") && !(i.alt || "").includes("Uploaded"))
-                .map(i => ({src: i.src, w: i.naturalWidth, h: i.naturalHeight, alt: i.alt || "", cls: i.className || ""}));
-            const bodyTxt = document.body.innerText || "";
-            const busy = bodyTxt.includes("Creating your image") || bodyTxt.includes("Generating");
-            return {imgs, busy};
-        })())
-        """)
-        st = json.loads(state_raw) if state_raw else {"imgs": [], "busy": False}
-        for im in reversed(st["imgs"]):
-            if im["src"] not in before_srcs:
-                new_src = im["src"]
-                break
-        if new_src and not st["busy"]:
-            await asyncio.sleep(1.0)
-            break
-
-    if not new_src:
-        # Fallback: check if any new image regardless of aspect appeared
-        state_raw = await eval_js(client, """
-        JSON.stringify(
-            Array.from(document.querySelectorAll("img"))
-                .filter(i => i.naturalWidth > 300 && i.naturalHeight > 300 && i.complete)
-                .map(i => ({src: i.src, w: i.naturalWidth, h: i.naturalHeight}))
-        )
-        """)
-        imgs = json.loads(state_raw) if state_raw else []
-        for im in reversed(imgs):
-            if im["src"] not in before_srcs:
-                new_src = im["src"]
-                break
-
-    if not new_src:
-        return False
-
-    # Extract via HTML5 canvas
-    b64_png = await eval_js(client, f"""
-    (() => {{
-        const imgs = Array.from(document.querySelectorAll("img"))
-            .filter(i => i.src === "{new_src}" || (i.naturalWidth > 300 && i.naturalHeight > 300));
-        if (!imgs.length) return null;
-        const img = imgs[imgs.length - 1];
-        const c = document.createElement("canvas");
-        c.width = img.naturalWidth;
-        c.height = img.naturalHeight;
-        const ctx = c.getContext("2d");
-        ctx.drawImage(img, 0, 0);
-        return c.toDataURL("image/png");
-    }})()
-    """)
-    if not b64_png or not str(b64_png).startswith("data:image/png;base64,"):
-        return False
-
-    raw_bytes = base64.b64decode(str(b64_png).split(",", 1)[1])
-    arr = np.frombuffer(raw_bytes, dtype=np.uint8)
-    bgr = cv2.imdecode(arr, cv2.IMREAD_COLOR)
-    if bgr is None:
-        return False
-
-    # If Gemini generated a square or non-9:16 image despite 9:16 mode, center-crop to 9:16 before upscaling
-    h, w = bgr.shape[:2]
-    target_ratio = 9.0 / 16.0
-    cur_ratio = w / float(max(h, 1))
-    if abs(cur_ratio - target_ratio) > 0.03:
-        if cur_ratio > target_ratio:
-            new_w = int(round(h * target_ratio))
-            x0 = (w - new_w) // 2
-            bgr = bgr[:, x0:x0 + new_w]
-        else:
-            new_h = int(round(w / target_ratio))
-            y0 = (h - new_h) // 2
-            bgr = bgr[y0:y0 + new_h, :]
-
-    upscaled = cv2.resize(bgr, (1080, 1920), interpolation=cv2.INTER_LANCZOS4)
-    # Restore native high-frequency micro-contrast lost during 2x spatial upscaling
-    blurred = cv2.GaussianBlur(upscaled, (0, 0), sigmaX=1.2)
-    upscaled = cv2.addWeighted(upscaled, 1.55, blurred, -0.55, 0)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    cv2.imwrite(str(out_path), upscaled)
-    return out_path.exists() and out_path.stat().st_size > 30_000
 
 
 def soften_for_gemini_veo(prompt: str, is_diorama: bool = False) -> str:
@@ -350,7 +215,9 @@ async def generate_gemini_video(
     conditioned on `start_frame_path`, and downloads the MP4 to `out_mp4_path`.
     Returns `(success, status_reason)`.
     """
-    await client.send("Page.bringToFront", {})
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
+    await enable_background_focus_emulation(client)
     await navigate_to(client, "https://gemini.google.com/app", wait_sec=5.5)
     await asyncio.sleep(1.5)
 
@@ -643,100 +510,111 @@ async def generate_project_reference_pack(
     all_specs = specs_data.get("all_specs") or []
     prov = load_provenance(p_dir)
 
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation, release_and_close_leased_tab
+
     tab = await get_gemini_tab(port)
     results = {}
-    async with DirectCDPClient(tab["webSocketDebuggerUrl"]) as client:
-        first_turn = True
-        for spec in sorted(all_specs, key=lambda s: int(s.get("generation_order", 3))):
-            rid = spec["ref_id"]
-            fname = spec["filename"]
-            out_path = ref_dir / fname
+    try:
+        async with DirectCDPClient(tab["webSocketDebuggerUrl"]) as client:
+            await enable_background_focus_emulation(client)
+            first_turn = True
+            for spec in sorted(all_specs, key=lambda s: int(s.get("generation_order", 3))):
+                rid = spec["ref_id"]
+                fname = spec["filename"]
+                out_path = ref_dir / fname
 
-            if only_ref_ids is not None and rid not in only_ref_ids:
-                continue
-
-            # Skip if already generated via gemini_image_generation and passing Q1..Q7 (unless force=True)
-            if not force and out_path.exists() and prov.get(fname) == "gemini_image_generation":
-                qa_existing = inspect_single_reference_image(out_path, spec)
-                if qa_existing.get("passed"):
-                    print(f"[SKIP] {rid} already generated and passed Q1..Q7", flush=True)
-                    results[rid] = qa_existing
+                if only_ref_ids is not None and rid not in only_ref_ids:
                     continue
 
-            # Resolve conditioning images:
-            # - For brain_void/pull_out clips, condition on the first approved brain cutaway in the project (e.g. ref_clip_04) so 3D brain geometry stays locked!
-            # - For real_env clips, omit ref_env_master if scene_id != S1 so non-S1 rooms don't inherit S1 background.
-            cond_ids = spec.get("conditioned_on") or []
-            scene_id = str(spec.get("scene_id") or "")
-            setting = str(spec.get("setting") or "real_env")
-            is_brain = setting in {"drill_down", "brain_void", "pull_out"}
-            cond_paths: list[Path] = []
-            if is_brain:
-                for bspec in all_specs:
-                    if bspec.get("setting") in {"drill_down", "brain_void", "pull_out"} and bspec["ref_id"] != rid:
-                        bp = ref_dir / bspec["filename"]
-                        if bp.exists():
-                            qa_bp = inspect_single_reference_image(bp, bspec)
-                            if qa_bp.get("passed"):
-                                cond_paths.append(bp)
-                                break
-            else:
-                allow_env_master = scene_id in {"S1", "MASTER_CAST", "MASTER_PROP", ""}
-                cast_conds = [ref_dir / f"{cid}.png" for cid in cond_ids if cid.startswith("ref_cast_") and (ref_dir / f"{cid}.png").exists()]
-                other_conds = [
-                    ref_dir / f"{cid}.png"
-                    for cid in cond_ids
-                    if not cid.startswith("ref_cast_")
-                    and (allow_env_master or cid != "ref_env_master")
-                    and (ref_dir / f"{cid}.png").exists()
-                ]
-                for cp in (cast_conds + other_conds)[:2]:
-                    cond_paths.append(cp)
+                # Skip if already generated via gemini_image_generation and passing Q1..Q7 (unless force=True)
+                if not force and out_path.exists() and prov.get(fname) == "gemini_image_generation":
+                    qa_existing = inspect_single_reference_image(out_path, spec)
+                    if qa_existing.get("passed"):
+                        print(f"[SKIP] {rid} already generated and passed Q1..Q7", flush=True)
+                        results[rid] = qa_existing
+                        continue
 
-            prompt = spec["prompt"]
-            if spec.get("role") == "prop_master" and "porcelain" not in prompt.lower():
-                prompt = (
-                    prompt[:-1]
-                    + ", held steady by an articulated matte-white porcelain mannequin hand in bright studio daylight."
-                )
-
-            print(f"[GEN] {rid} (cond={[p.name for p in cond_paths]})...", flush=True)
-            for attempt in range(2):
-                cur_prompt = prompt
-                if attempt == 1:
-                    if is_brain:
-                        cur_prompt = (
-                            prompt[:-1]
-                            + ", three-quarter profile of the smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing the full 3D matte-white porcelain brain with deep gyri and sulci inside the skull, smooth internal pathway luminance, zero flying particles, zero sparks."
-                        )
-                    else:
-                        cur_prompt = (
-                            prompt[:-1]
-                            + ", prominent bright matte-white porcelain mannequin centered in frame, cool neutral grey-blue daylight background, zero warm orange or brown tones."
-                        )
-                ok = await generate_gemini_image(
-                    client,
-                    prompt=cur_prompt,
-                    out_path=out_path,
-                    conditioning_paths=cond_paths,
-                    force_new_chat=first_turn,
-                )
-                first_turn = False
-                if ok:
-                    register_reference_image(p_dir, fname, "gemini_image_generation")
-                    qa = inspect_single_reference_image(out_path, spec)
-                    print(
-                        f"  -> {rid} (try {attempt+1}): passed={qa['passed']} failed={qa['failed_axes']} "
-                        f"luma={qa.get('luma_mean')} porc={qa.get('porcelain_ratio')} skin={qa.get('human_skin_ratio')}",
-                        flush=True,
-                    )
-                    results[rid] = qa
-                    if qa.get("passed"):
-                        break
+                # Resolve conditioning images:
+                # - For brain_void/pull_out clips, condition on the first approved brain cutaway in the project (e.g. ref_clip_04) so 3D brain geometry stays locked!
+                # - For real_env clips, omit ref_env_master if scene_id != S1 so non-S1 rooms don't inherit S1 background.
+                cond_ids = spec.get("conditioned_on") or []
+                scene_id = str(spec.get("scene_id") or "")
+                setting = str(spec.get("setting") or "real_env")
+                is_brain = setting in {"drill_down", "brain_void", "pull_out"}
+                cond_paths: list[Path] = []
+                if is_brain:
+                    for bspec in all_specs:
+                        if bspec.get("setting") in {"drill_down", "brain_void", "pull_out"} and bspec["ref_id"] != rid:
+                            bp = ref_dir / bspec["filename"]
+                            if bp.exists():
+                                qa_bp = inspect_single_reference_image(bp, bspec)
+                                if qa_bp.get("passed"):
+                                    cond_paths.append(bp)
+                                    break
                 else:
-                    print(f"  -> {rid} (try {attempt+1}): FAILED TO GENERATE", flush=True)
-                    results[rid] = {"ref_id": rid, "passed": False}
-                    first_turn = True
+                    allow_env_master = scene_id in {"S1", "MASTER_CAST", "MASTER_PROP", ""}
+                    cast_conds = [ref_dir / f"{cid}.png" for cid in cond_ids if cid.startswith("ref_cast_") and (ref_dir / f"{cid}.png").exists()]
+                    other_conds = [
+                        ref_dir / f"{cid}.png"
+                        for cid in cond_ids
+                        if not cid.startswith("ref_cast_")
+                        and (allow_env_master or cid != "ref_env_master")
+                        and (ref_dir / f"{cid}.png").exists()
+                    ]
+                    for cp in (cast_conds + other_conds)[:2]:
+                        cond_paths.append(cp)
+
+                prompt = spec["prompt"]
+                if spec.get("role") == "prop_master" and "porcelain" not in prompt.lower():
+                    prompt = (
+                        prompt[:-1]
+                        + ", held steady by an articulated matte-white porcelain mannequin hand in bright studio daylight."
+                    )
+
+                print(f"[GEN] {rid} (cond={[p.name for p in cond_paths]})...", flush=True)
+                for attempt in range(2):
+                    cur_prompt = prompt
+                    if attempt == 1:
+                        if is_brain:
+                            cur_prompt = (
+                                prompt[:-1]
+                                + ", three-quarter profile of the smooth matte-white porcelain mannequin head with an architectural translucent cutaway cranium revealing the full 3D matte-white porcelain brain with deep gyri and sulci inside the skull, smooth internal pathway luminance, zero flying particles, zero sparks."
+                            )
+                        else:
+                            cur_prompt = (
+                                prompt[:-1]
+                                + ", prominent bright matte-white porcelain mannequin centered in frame, cool neutral grey-blue daylight background, zero warm orange or brown tones."
+                            )
+                    ok = await generate_gemini_image(
+                        client,
+                        prompt=cur_prompt,
+                        out_path=out_path,
+                        conditioning_paths=cond_paths,
+                        force_new_chat=first_turn,
+                    )
+                    first_turn = False
+                    if ok:
+                        register_reference_image(p_dir, fname, "gemini_image_generation")
+                        qa = inspect_single_reference_image(out_path, spec)
+                        print(
+                            f"  -> {rid} (try {attempt+1}): passed={qa['passed']} failed={qa['failed_axes']} "
+                            f"luma={qa.get('luma_mean')} porc={qa.get('porcelain_ratio')} skin={qa.get('human_skin_ratio')}",
+                            flush=True,
+                        )
+                        results[rid] = qa
+                        if qa.get("passed"):
+                            break
+                    else:
+                        print(f"  -> {rid} (try {attempt+1}): FAILED TO GENERATE", flush=True)
+                        results[rid] = {"ref_id": rid, "passed": False}
+                        first_turn = True
+    finally:
+        if tab.get("_opened_by_call") and tab.get("id"):
+            release_and_close_leased_tab(
+                str(tab["id"]),
+                owner_id=tab.get("lease_owner_id"),
+                cdp_port=port,
+            )
 
     pack_report = inspect_reference_image_pack(p_dir, save_report=True)
     return pack_report
@@ -803,6 +681,8 @@ async def generate_project_video_clips(
                 }
             )
 
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation, release_and_close_leased_tab
+
     tab = await get_gemini_tab(port)
     generated: list[int] = []
     skipped: list[int] = []
@@ -810,72 +690,81 @@ async def generate_project_video_clips(
     quota_hit = False
     quota_reason = ""
 
-    async with DirectCDPClient(tab["webSocketDebuggerUrl"]) as client:
-        for item in items:
-            c_num = int(item["clip_number"])
-            if only_clips is not None and c_num not in only_clips:
-                continue
+    try:
+        async with DirectCDPClient(tab["webSocketDebuggerUrl"]) as client:
+            await enable_background_focus_emulation(client)
+            for item in items:
+                c_num = int(item["clip_number"])
+                if only_clips is not None and c_num not in only_clips:
+                    continue
 
-            out_mp4 = clips_dir / f"clip_{c_num}.mp4"
-            if not force and out_mp4.exists() and out_mp4.stat().st_size > 500_000:
-                print(f"[SKIP CLIP] clip_{c_num}.mp4 already exists ({out_mp4.stat().st_size // 1024} KB)", flush=True)
-                skipped.append(c_num)
-                continue
+                out_mp4 = clips_dir / f"clip_{c_num}.mp4"
+                if not force and out_mp4.exists() and out_mp4.stat().st_size > 500_000:
+                    print(f"[SKIP CLIP] clip_{c_num}.mp4 already exists ({out_mp4.stat().st_size // 1024} KB)", flush=True)
+                    skipped.append(c_num)
+                    continue
 
-            sf_path: Path | None = None
-            if use_reference_images and item.get("start_frame"):
-                sf_info = item["start_frame"]
-                sf_rel = sf_info.get("file") or f"reference_images/ref_clip_{c_num:02d}.png"
-                cand = vis_dir / sf_rel
-                if sf_info.get("mode") == "chain_previous_last_frame" and c_num > 1:
-                    prev_mp4 = clips_dir / f"clip_{c_num - 1}.mp4"
-                    if prev_mp4.exists():
-                        extract_last_frame(prev_mp4, cand)
-                if not cand.exists():
-                    fallback_sf = vis_dir / "reference_images" / f"ref_clip_{c_num:02d}.png"
-                    if fallback_sf.exists():
-                        cand = fallback_sf
-                if cand.exists():
-                    sf_path = cand
+                sf_path: Path | None = None
+                if use_reference_images and item.get("start_frame"):
+                    sf_info = item["start_frame"]
+                    sf_rel = sf_info.get("file") or f"reference_images/ref_clip_{c_num:02d}.png"
+                    cand = vis_dir / sf_rel
+                    if sf_info.get("mode") == "chain_previous_last_frame" and c_num > 1:
+                        prev_mp4 = clips_dir / f"clip_{c_num - 1}.mp4"
+                        if prev_mp4.exists():
+                            extract_last_frame(prev_mp4, cand)
+                    if not cand.exists():
+                        fallback_sf = vis_dir / "reference_images" / f"ref_clip_{c_num:02d}.png"
+                        if fallback_sf.exists():
+                            cand = fallback_sf
+                    if cand.exists():
+                        sf_path = cand
 
-            v_prompt = item["video_prompt"]
-            default_label = "text_only_diorama_v6" if is_diorama_v6 else "text_only_schema_v4"
-            sf_label = sf_path.name if sf_path else default_label
-            print(f"[GEN VIDEO] clip_{c_num}.mp4 (mode={sf_label})...", flush=True)
-            ok = False
-            for attempt in range(2):
-                cur_v_prompt = soften_for_gemini_veo(v_prompt, is_diorama=is_diorama_v6)
-                ok, reason = await generate_gemini_video(
-                    client,
-                    prompt=cur_v_prompt,
-                    out_mp4_path=out_mp4,
-                    start_frame_path=sf_path,
-                    timeout_sec=220,
-                )
-                if ok:
-                    print(
-                        f"  -> clip_{c_num}.mp4 (try {attempt+1}): SUCCESS ({out_mp4.stat().st_size // 1024} KB)",
-                        flush=True,
+                v_prompt = item["video_prompt"]
+                default_label = "text_only_diorama_v6" if is_diorama_v6 else "text_only_schema_v4"
+                sf_label = sf_path.name if sf_path else default_label
+                print(f"[GEN VIDEO] clip_{c_num}.mp4 (mode={sf_label})...", flush=True)
+                ok = False
+                for attempt in range(2):
+                    cur_v_prompt = soften_for_gemini_veo(v_prompt, is_diorama=is_diorama_v6)
+                    ok, reason = await generate_gemini_video(
+                        client,
+                        prompt=cur_v_prompt,
+                        out_mp4_path=out_mp4,
+                        start_frame_path=sf_path,
+                        timeout_sec=220,
                     )
-                    generated.append(c_num)
-                    break
-                else:
-                    print(f"  -> clip_{c_num}.mp4 (try {attempt+1}): FAILED ({reason})", flush=True)
-                    if str(reason).startswith("quota_limit_reached"):
-                        quota_hit = True
-                        quota_reason = str(reason)
+                    if ok:
+                        print(
+                            f"  -> clip_{c_num}.mp4 (try {attempt+1}): SUCCESS ({out_mp4.stat().st_size // 1024} KB)",
+                            flush=True,
+                        )
+                        generated.append(c_num)
                         break
+                    else:
+                        print(f"  -> clip_{c_num}.mp4 (try {attempt+1}): FAILED ({reason})", flush=True)
+                        if str(reason).startswith("quota_limit_reached"):
+                            quota_hit = True
+                            quota_reason = str(reason)
+                            break
 
-            if not ok:
-                failed.append(c_num)
-            if quota_hit:
-                for rem_item in items:
-                    rem_c = int(rem_item["clip_number"])
-                    if only_clips is not None and rem_c not in only_clips:
-                        continue
-                    if rem_c not in generated and rem_c not in skipped and rem_c not in failed:
-                        failed.append(rem_c)
-                break
+                if not ok:
+                    failed.append(c_num)
+                if quota_hit:
+                    for rem_item in items:
+                        rem_c = int(rem_item["clip_number"])
+                        if only_clips is not None and rem_c not in only_clips:
+                            continue
+                        if rem_c not in generated and rem_c not in skipped and rem_c not in failed:
+                            failed.append(rem_c)
+                    break
+    finally:
+        if tab.get("_opened_by_call") and tab.get("id"):
+            release_and_close_leased_tab(
+                str(tab["id"]),
+                owner_id=tab.get("lease_owner_id"),
+                cdp_port=port,
+            )
 
     res_payload: dict[str, Any] = {
         "project_id": p_dir.name,

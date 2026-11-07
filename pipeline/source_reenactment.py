@@ -462,13 +462,22 @@ def extract_source_edl(
             shutil.copy2(in_p, src_mp4)
     elif not src_mp4.exists():
         yt_dlp_bin = shutil.which("yt-dlp") or str(Path("/home/canadaofbin/hermes-venv/bin/yt-dlp"))
+        ff_shim_dir = Path("/tmp/aab_ffmpeg_bin")
+        ff_shim_dir.mkdir(parents=True, exist_ok=True)
+        ff_shim = ff_shim_dir / "ffmpeg"
+        if Path(ffmpeg_bin).exists() and not ff_shim.exists():
+            try:
+                ff_shim.symlink_to(Path(ffmpeg_bin).resolve())
+            except OSError:
+                pass
+        ff_loc_dir = str(ff_shim_dir) if ff_shim.exists() else str(Path(ffmpeg_bin).parent)
         dl_target = (q_dir / "source_full.mp4") if sec_bounds is not None else src_mp4
         cmd = [
             yt_dlp_bin,
             "--ignore-errors",
             "--no-playlist",
             "--ffmpeg-location",
-            str(Path(ffmpeg_bin).parent),
+            ff_loc_dir,
             "-f",
             "mp4/best[height<=720]/best",
         ]
@@ -1138,14 +1147,13 @@ async def translate_porcelain_keyframes_async(
 ) -> dict[str, Any]:
     """
     Stage 3: Synthesizes `porcelain_cinematic_v7` master anchors + shot start/end reference keyframes
-    primarily inside Google Flow `0-credit` `Image` mode (`Nano Banana 2.1`, `x4` batch per prompt,
+    exclusively inside Google Flow `0-credit` `Image` mode (`Nano Banana 2.1`, `x4` batch per prompt,
     auto-selecting the highest-scoring `Q1..Q7` + `RQ2 dHash >= 18` candidate), conditioning lab keyframes
     on `(sanitized_guide.png, ref_cast_or_env.png)` (`<= 2` ingredients).
     """
     from pipeline.flow_ingredients import generate_flow_image_batch
     from pipeline.flow_live_single_worker import allocate_dedicated_flow_project_tab
     from pipeline.flow_prompt_builder import load_visual_plan
-    from pipeline.gemini_web_worker import generate_gemini_image
     from pipeline.reference_image_qa import load_provenance
 
     eff_backend = str(backend or DEFAULT_REENACT_IMAGE_BACKEND).strip().lower()
@@ -1187,30 +1195,25 @@ async def translate_porcelain_keyframes_async(
     failed: list[str] = []
 
     opened_tab_id: str | None = None
+    opened_lease_owner: str | None = None
+    opened_project_urls: list[str] = []
     ws_url: str | None = None
     uploaded_cache: set[str] = set()
     seen_img_srcs: set[str] = set()
     existing_prov = load_provenance(p_dir)
 
-    def _open_dedicated_gemini_tab() -> tuple[str, str]:
-        target_url = f"http://127.0.0.1:{cdp_port}/json/new?https://gemini.google.com/images"
-        try:
-            req = urllib.request.Request(target_url, method="PUT")
-            with urllib.request.urlopen(req, timeout=8) as r:
-                info = json.loads(r.read().decode("utf-8"))
-        except Exception:
-            with urllib.request.urlopen(target_url, timeout=8) as r:
-                info = json.loads(r.read().decode("utf-8"))
-        return str(info["id"]), str(info["webSocketDebuggerUrl"])
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation, release_and_close_leased_tab
+    from pipeline.config import FLOW_AUTO_CLEANUP_ON_SUCCESS
+    from pipeline.flow_workspace import (
+        clean_flow_workspace_async,
+        format_flow_room_name,
+        rename_active_flow_project,
+    )
 
-    def _close_dedicated_worker_tab(tid: str | None) -> None:
+    def _close_dedicated_worker_tab(tid: str | None, owner_id: str | None = None) -> None:
         if not tid:
             return
-        try:
-            with urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{tid}", timeout=5):
-                pass
-        except Exception:
-            pass
+        release_and_close_leased_tab(tid, owner_id=owner_id, cdp_port=cdp_port)
 
     try:
         client_cm = None
@@ -1224,9 +1227,8 @@ async def translate_porcelain_keyframes_async(
                 q_chk = inspect_single_reference_image(out_png, spec)
                 min_dh = min((_hamming_hex(q_chk.get("dhash_64", ""), sdh) for sdh in source_dhashes), default=64)
                 if q_chk.get("passed") and min_dh >= REENACT_MIN_DHASH_DISTANCE:
-                    if out_png.name not in existing_prov:
-                        prov_tag = "flow_image_generation" if eff_backend == "flow" else "gemini_image_generation"
-                        register_reference_image(p_dir, out_png.name, prov_tag)
+                    if existing_prov.get(out_png.name) != "flow_image_generation":
+                        register_reference_image(p_dir, out_png.name, "flow_image_generation")
                     generated.append(ref_id)
                     print(f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: cached_ok (dHash_min={min_dh})", flush=True)
                     continue
@@ -1290,89 +1292,89 @@ async def translate_porcelain_keyframes_async(
                 )
 
             ok_this = False
-            for attempt in range(3):
+            has_guide_cond = guide_cand in cond_paths
+            for attempt in range(4):
                 try:
                     if client is None:
-                        if eff_backend == "flow":
-                            flow_alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
-                            opened_tab_id = str(flow_alloc["tab_id"])
-                            ws_url = str(flow_alloc["ws_url"])
-                        else:
-                            opened_tab_id, ws_url = _open_dedicated_gemini_tab()
+                        flow_alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
+                        opened_tab_id = str(flow_alloc["tab_id"])
+                        opened_lease_owner = flow_alloc.get("lease_owner_id")
+                        proj_u = str(flow_alloc.get("project_url") or "")
+                        if proj_u and proj_u not in opened_project_urls:
+                            opened_project_urls.append(proj_u)
+                        ws_url = str(flow_alloc["ws_url"])
                         client_cm = DirectCDPClient(ws_url)
                         client = await client_cm.__aenter__()
+                        await enable_background_focus_emulation(client)
                         await client.send("Page.enable")
+                        await rename_active_flow_project(client, format_flow_room_name(p_dir.name, role="refs"))
                         uploaded_cache.clear()
                         seen_img_srcs.clear()
-                        if eff_backend == "gemini":
-                            await asyncio.sleep(4.5)
 
                     retry_suffix = (
                         ""
                         if attempt == 0
-                        else " Ensure bright high-key daylight studio exposure, crisp architectural furniture edges, smooth matte-white porcelain heads, and full-bleed 9:16 vertical composition."
+                        else (
+                            " Ensure bright high-key daylight studio exposure, razor-sharp f/8 deep architectural focus "
+                            "from foreground to background (zero shallow portrait bokeh blur), crisp woven fabric texture "
+                            "and articulated porcelain joint seams, smooth matte-white porcelain heads, and full-bleed 9:16 vertical composition."
+                        )
                     )
+                    eff_cond = [] if (attempt >= 2 and not has_guide_cond) else cond_paths[:2]
                     print(
-                        f"[reenact-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} via {eff_backend}"
-                        f"{f' (0-credit x{eff_batch})' if eff_backend == 'flow' else ''} "
-                        f"(try {attempt + 1}/3, cond={[p.name for p in cond_paths[:2]]})...",
+                        f"[reenact-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} via flow"
+                        f" (0-credit x{eff_batch}) (try {attempt + 1}/4, cond={[p.name for p in eff_cond]})...",
                         flush=True,
                     )
-                    if eff_backend == "flow":
-                        flow_res = await generate_flow_image_batch(
-                            client=client,
-                            prompt=full_prompt + retry_suffix,
-                            out_path=out_png,
-                            conditioning_paths=cond_paths[:2] if cond_paths else None,
-                            batch_count=eff_batch,
-                            aspect="9:16",
-                            uploaded_cache=uploaded_cache,
-                            seen_img_srcs=seen_img_srcs,
-                            spec=spec,
-                            source_dhashes=source_dhashes,
-                            project_dir=None,
+                    flow_res = await generate_flow_image_batch(
+                        client=client,
+                        prompt=full_prompt + retry_suffix,
+                        out_path=out_png,
+                        conditioning_paths=eff_cond if eff_cond else None,
+                        batch_count=eff_batch,
+                        aspect="9:16",
+                        uploaded_cache=uploaded_cache,
+                        seen_img_srcs=seen_img_srcs,
+                        spec=spec,
+                        source_dhashes=source_dhashes,
+                        project_dir=None,
+                    )
+                    if not flow_res.get("ok") or not flow_res.get("saved") or not out_png.exists():
+                        miss_reason = str(flow_res.get("reason") or "")
+                        print(
+                            f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} Flow batch miss: {miss_reason}",
+                            flush=True,
                         )
-                        if not flow_res.get("ok") or not flow_res.get("saved") or not out_png.exists():
-                            print(
-                                f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} Flow batch miss: {flow_res.get('reason')}",
-                                flush=True,
-                            )
-                            continue
-                        _normalize_generated_png_916(out_png)
-                        q_chk = inspect_single_reference_image(out_png, spec)
-                        min_dh = min((_hamming_hex(q_chk.get("dhash_64", ""), sdh) for sdh in source_dhashes), default=64)
-                        if q_chk.get("passed") and min_dh >= REENACT_MIN_DHASH_DISTANCE:
-                            register_reference_image(
-                                p_dir,
-                                out_png.name,
-                                "flow_image_generation",
-                            )
-                            print(
-                                f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED via Flow x{eff_batch} "
-                                f"(best_of={flow_res.get('candidate_count')}, cand#{int(flow_res.get('selected_index', 0)) + 1}, dHash_min={min_dh})",
-                                flush=True,
-                            )
-                            ok_this = True
-                            break
-                        out_png.unlink(missing_ok=True)
-                    else:
-                        gen_ok = await generate_gemini_image(
-                            client=client,
-                            prompt=full_prompt + retry_suffix,
-                            out_path=out_png,
-                            conditioning_paths=cond_paths[:2] if cond_paths else None,
-                            force_new_chat=(attempt > 0 or (idx_sp % 5 == 0)),
+                        if "no_flow_images_rendered" in miss_reason:
+                            if client_cm is not None:
+                                try:
+                                    await client_cm.__aexit__(None, None, None)
+                                except Exception:
+                                    pass
+                            _close_dedicated_worker_tab(opened_tab_id, opened_lease_owner)
+                            client_cm = None
+                            client = None
+                            opened_tab_id = None
+                            opened_lease_owner = None
+                            await asyncio.sleep(2.0)
+                        continue
+                    _normalize_generated_png_916(out_png)
+                    q_chk = inspect_single_reference_image(out_png, spec)
+                    min_dh = min((_hamming_hex(q_chk.get("dhash_64", ""), sdh) for sdh in source_dhashes), default=64)
+                    if q_chk.get("passed") and min_dh >= REENACT_MIN_DHASH_DISTANCE:
+                        register_reference_image(
+                            p_dir,
+                            out_png.name,
+                            "flow_image_generation",
                         )
-                        if not gen_ok or not out_png.exists():
-                            continue
-                        _normalize_generated_png_916(out_png)
-                        q_chk = inspect_single_reference_image(out_png, spec)
-                        min_dh = min((_hamming_hex(q_chk.get("dhash_64", ""), sdh) for sdh in source_dhashes), default=64)
-                        if q_chk.get("passed") and min_dh >= REENACT_MIN_DHASH_DISTANCE:
-                            register_reference_image(p_dir, out_png.name, "gemini_image_generation")
-                            print(f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED (dHash_min={min_dh})", flush=True)
-                            ok_this = True
-                            break
+                        print(
+                            f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED via Flow x{eff_batch} "
+                            f"(best_of={flow_res.get('candidate_count')}, cand#{int(flow_res.get('selected_index', 0)) + 1}, dHash_min={min_dh})",
+                            flush=True,
+                        )
+                        ok_this = True
+                        break
+                    out_png.unlink(missing_ok=True)
                     print(
                         f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} QA retry: passed={q_chk.get('passed')} failed_axes={q_chk.get('failed_axes')} dHash={min_dh}",
                         flush=True,
@@ -1387,10 +1389,11 @@ async def translate_porcelain_keyframes_async(
                             await client_cm.__aexit__(None, None, None)
                         except Exception:
                             pass
-                    _close_dedicated_worker_tab(opened_tab_id)
+                    _close_dedicated_worker_tab(opened_tab_id, opened_lease_owner)
                     client_cm = None
                     client = None
                     opened_tab_id = None
+                    opened_lease_owner = None
                     await asyncio.sleep(2.5)
             if ok_this:
                 generated.append(ref_id)
@@ -1402,7 +1405,17 @@ async def translate_porcelain_keyframes_async(
                 await client_cm.__aexit__(None, None, None)
             except Exception:
                 pass
-        _close_dedicated_worker_tab(opened_tab_id)
+        _close_dedicated_worker_tab(opened_tab_id, opened_lease_owner)
+        if not failed and FLOW_AUTO_CLEANUP_ON_SUCCESS and opened_project_urls:
+            try:
+                await clean_flow_workspace_async(
+                    cdp_port=cdp_port,
+                    temp_project_id=p_dir.name,
+                    project_urls=opened_project_urls,
+                    clean_local_temp=True,
+                )
+            except Exception:
+                pass
 
     sheet_path = render_reenactment_comparison_sheet(p_dir, edl_doc, specs_payload)
     return {
@@ -1606,27 +1619,64 @@ def validate_reenactment_non_infringement(
     blocking_alignment_ratio = round(len(mapped_lab) / max(len(lab_clips), 1), 4) if lab_clips else 0.0
     style_ok = str(vp.get("style_profile") or "") == PORCELAIN_V7_STYLE_PROFILE
     assembled_edl_path = asm_dir / "edit_decision_list.json"
+    from pipeline.config import (
+        MICRO_SHORT_CUT_MAX,
+        MICRO_SHORT_CUT_MIN,
+        MICRO_SHORT_PROFILE,
+        SHORTS_90S_CLIP_COUNT_MAX,
+        SHORTS_90S_CLIP_COUNT_MIN,
+        SHORTS_90S_CUT_COUNT_MIN,
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+    )
+
+    asm_edl_for_fmt: dict[str, Any] = {}
+    if assembled_edl_path.exists():
+        try:
+            asm_edl_for_fmt = json.loads(assembled_edl_path.read_text(encoding="utf-8"))
+        except Exception:
+            asm_edl_for_fmt = {}
+    rq5_fmt = resolve_shorts_format_profile(
+        vp,
+        s_doc,
+        asm_edl_for_fmt,
+        {"sentences": sents, "clips": clips},
+        project_id=asm_dir.parent.name,
+    )
+    if rq5_fmt == MICRO_SHORT_PROFILE:
+        rq5_min_clips = MICRO_SHORT_CUT_MIN
+        rq5_max_clips = MICRO_SHORT_CUT_MAX + 4
+        rq5_min_cuts = MICRO_SHORT_CUT_MIN
+    elif rq5_fmt == SHORTS_90S_PROFILE:
+        rq5_min_clips = SHORTS_90S_CLIP_COUNT_MIN
+        rq5_max_clips = SHORTS_90S_CLIP_COUNT_MAX
+        rq5_min_cuts = SHORTS_90S_CUT_COUNT_MIN
+    else:
+        rq5_min_clips = DIORAMA_TARGET_CUT_MIN
+        rq5_max_clips = PORCELAIN_V7_TARGET_CLIP_MAX
+        rq5_min_cuts = DIORAMA_TARGET_CUT_MIN
+
     edl_pacing_ok = True
     edl_min_cut_sec: float | None = None
     edl_max_cut_sec: float | None = None
     edl_avg_cut_sec: float | None = None
     if assembled_edl_path.exists():
         try:
-            asm_edl = json.loads(assembled_edl_path.read_text(encoding="utf-8"))
+            asm_edl = asm_edl_for_fmt or json.loads(assembled_edl_path.read_text(encoding="utf-8"))
             asm_durs = [float(c.get("duration_sec") or 0.0) for c in (asm_edl.get("cuts") or []) if isinstance(c, dict)]
             if asm_durs:
                 edl_min_cut_sec = round(min(asm_durs), 4)
                 edl_max_cut_sec = round(max(asm_durs), 4)
                 edl_avg_cut_sec = round(float(np.mean(asm_durs)), 4)
                 edl_pacing_ok = (
-                    len(asm_durs) >= DIORAMA_TARGET_CUT_MIN
+                    len(asm_durs) >= rq5_min_cuts
                     and edl_min_cut_sec >= PORCELAIN_V7_MIN_CUT_SEC - 1e-3
                     and edl_max_cut_sec <= PORCELAIN_V7_LONG_TAKE_MAX_SEC + 1e-3
                 )
         except Exception:
             edl_pacing_ok = False
     rq5_ok = bool(
-        DIORAMA_TARGET_CUT_MIN <= total_clips <= PORCELAIN_V7_TARGET_CLIP_MAX
+        rq5_min_clips <= total_clips <= rq5_max_clips
         and edl_pacing_ok
         and style_ok
         and brain_ratio >= REENACT_BRAIN_RATIO_MIN
@@ -1660,10 +1710,11 @@ def validate_reenactment_non_infringement(
         },
         "RQ5_brain_intercut_and_blocking_alignment": {
             "passed": rq5_ok,
+            "format_profile": rq5_fmt,
             "style_profile": vp.get("style_profile"),
             "total_clips": total_clips,
-            "min_clips_required": DIORAMA_TARGET_CUT_MIN,
-            "max_clips_allowed": PORCELAIN_V7_TARGET_CLIP_MAX,
+            "min_clips_required": rq5_min_clips,
+            "max_clips_allowed": rq5_max_clips,
             "edl_pacing_ok": edl_pacing_ok,
             "edl_min_cut_sec": edl_min_cut_sec,
             "edl_max_cut_sec": edl_max_cut_sec,

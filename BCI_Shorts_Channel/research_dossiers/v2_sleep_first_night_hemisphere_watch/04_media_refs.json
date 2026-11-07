@@ -1,0 +1,88 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_a",
+  "primary_reenactment_media_id": "sleep_bed_sensors",
+  "media": [
+    {
+      "id": "sleep_bed_sensors",
+      "kind": "video",
+      "type": "youtube",
+      "title": "Alice NightOne Patient Setup | Sleep Diagnostic Sensor Placement in Bed",
+      "url": "https://www.youtube.com/watch?v=-vaXa6EClUU",
+      "reenactment_section": "00:25-01:15",
+      "keyframes_dir": "media/sleep_bed_sensors",
+      "what_it_shows": "Sleeper seated on bed attaching overnight sleep diagnostic sensors and lying down in dim unfamiliar room.",
+      "blocking_notes": "Medium bedside three-quarter angle of sleeper on crisp white mattress attaching sensor belt and resting head on pillow.",
+      "timecodes": [
+        {
+          "t": "00:28",
+          "what": "Medium bedside shot as sleeper sits upright on crisp white hotel-style bedding fitting diagnostic chest sensor belt"
+        },
+        {
+          "t": "00:46",
+          "what": "Close-up of fingers checking sensor lead latch beside bedside console prior to lights-out"
+        },
+        {
+          "t": "01:08",
+          "what": "Three-quarter bedside framing as sleeper rests head onto white pillow for Night 1 recording"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.0155,
+        "median_gray_sat_ratio": 0.9258,
+        "median_p90_sat": 12.5,
+        "max_p90_sat": 200.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.5094,
+        "median_motion_diff": 43.329,
+        "talking_head_ratio": 0.25,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:25-01:15"
+    },
+    {
+      "id": "sleep_eeg_lab",
+      "kind": "video",
+      "type": "youtube",
+      "title": "EEG Testing and Monitoring - Clinical Scalp Electrode Placement",
+      "url": "https://www.youtube.com/watch?v=p38nzOGJZtI",
+      "reenactment_section": "00:08-00:52",
+      "keyframes_dir": "media/sleep_eeg_lab",
+      "what_it_shows": "Clinical technician placing scalp EEG electrodes and monitoring multi-channel brainwave traces.",
+      "blocking_notes": "Side bedside angle of technician placing scalp leads beside clinical EEG waveform monitor.",
+      "timecodes": [
+        {
+          "t": "00:12",
+          "what": "Side laboratory angle of neurophysiology technician parting scalp cap leads on seated subject"
+        },
+        {
+          "t": "00:34",
+          "what": "Over-shoulder view of multi-channel EEG slow-wave waveforms scrolling across clinical monitor"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 16,
+        "median_dark_ratio": 0.4754,
+        "median_gray_sat_ratio": 0.1817,
+        "median_p90_sat": 163.5,
+        "max_p90_sat": 177.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.3937,
+        "median_motion_diff": 39.576,
+        "talking_head_ratio": 0.25,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:08-00:52"
+    }
+  ],
+  "track_subtier": "A1a_ready_keyframes"
+}

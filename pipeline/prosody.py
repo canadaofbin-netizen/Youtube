@@ -621,13 +621,50 @@ def _compute_core_prosody_gates(
         else:
             gates["P7_audio_integrity"] = {"passed": False, "skipped": True, "reason": "autopsy_report.json missing"}
 
+    from pipeline.config import (
+        MICRO_SHORT_PROFILE,
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
+    )
+
+    vp_doc: dict[str, Any] = {}
+    vp_p = p_dir / "03_visuals" / "visual_plan.json"
+    if vp_p.exists():
+        try:
+            vp_doc = json.loads(vp_p.read_text(encoding="utf-8"))
+        except Exception:
+            vp_doc = {}
+    sdoc_for_fmt: dict[str, Any] = {}
+    sp_for_fmt = p_dir / "02_script" / "script.json"
+    if sp_for_fmt.exists():
+        try:
+            sdoc_for_fmt = json.loads(sp_for_fmt.read_text(encoding="utf-8"))
+        except Exception:
+            sdoc_for_fmt = {}
+    fmt_prof = resolve_shorts_format_profile(
+        vp_doc,
+        sdoc_for_fmt,
+        {"sentences": spans or sents},
+        vr,
+        project_id=p_dir.name,
+    )
+    if fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+        p8_min_dur, p8_max_dur = shorts_duration_range_for_profile(fmt_prof)
+    else:
+        p8_min_dur = DIORAMA_V7_DURATION_MIN_SEC
+        p8_max_dur = min(179.0, DIORAMA_DURATION_MAX_SEC)
+
     n_words = sum(len(str(s.get("text") or "").split()) for s in spans)
     wpm = round(n_words / max(0.1, speech_end / 60.0), 1)
     voiced = float(vr.get("true_rms_voiced_ratio") or 0.0)
     gates["P8_runtime_density"] = {
-        "passed": DIORAMA_V7_DURATION_MIN_SEC <= total <= min(179.0, DIORAMA_DURATION_MAX_SEC)
+        "passed": p8_min_dur <= total <= p8_max_dur
         and wpm <= DIORAMA_V7_WPM_MAX
         and voiced >= DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN,
+        "format_profile": fmt_prof,
+        "min_duration_sec": p8_min_dur,
+        "max_duration_sec": p8_max_dur,
         "total_duration_sec": total,
         "wpm": wpm,
         "true_rms_voiced_ratio": voiced,

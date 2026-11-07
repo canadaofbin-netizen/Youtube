@@ -12,6 +12,7 @@ g:\*
 # Lock & temporary files
 *.lock
 *.tmp
+*.new
 *.log
 
 # Heavy media, generated databases, and project artifacts
@@ -24,8 +25,11 @@ g:\*
 *.flac
 *.ogg
 *.m4a
+*.f32
+*.npz
 *.db
 *.jsonl
+BCI_Shorts_Channel/.cache/
 BCI_Shorts_Channel/projects/
 BCI_Shorts_Channel/projects_longform/
 BCI_Shorts_Channel/assets/
@@ -38,3 +42,9 @@ Completed_Psychology_100_Shorts/
 Temp_*/
 Brain_Style_*/
 V5_*/
+artifacts_archive/**/*.png
+artifacts_archive/**/*.jpg
+artifacts_archive/**/*.jpeg
+artifacts_archive/**/*.webp
+artifacts_archive/**/*.gif
+artifacts_archive/**/*.pdf

@@ -1486,8 +1486,8 @@ def test_v7_andrew_multilingual_silk_clean_voice_ssot_and_retention_rules(tmp_pa
         ROOT / ".agents" / "rules" / "audio_assembly_rules.md",
         ROOT / ".agents" / "AGENTS.md",
         ROOT / ".agents" / "profiles" / "yt-editor" / "SOUL.md",
-        ROOT / ".agents" / "skills" / "bci-video-assembly" / "SKILL.md",
-        ROOT / ".agents" / "skills" / "bci-video-pipeline" / "SKILL.md",
+        ROOT / ".agents" / "skills" / "youtube-produce" / "SKILL.md",
+        ROOT / ".agents" / "skills" / "youtube-script" / "SKILL.md",
     )
     for doc_path in ssot_docs:
         txt = doc_path.read_text(encoding="utf-8")

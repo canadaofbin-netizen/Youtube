@@ -1056,7 +1056,7 @@ class TopicResearcher:
     ) -> dict[str, Path]:
         """
         Saves the researched topic cards to `BCI_Shorts_Channel/research/news/[YYYY-MM-DD]_news_hunt.md`
-        and `[YYYY-MM-DD]_news_hunt.json` following the `bci-news-hunt` skill specification.
+        and `[YYYY-MM-DD]_news_hunt.json` following the `youtube-research` skill specification.
         """
         NEWS_DIR.mkdir(parents=True, exist_ok=True)
         date_str = output_date or datetime.now().strftime("%Y-%m-%d")

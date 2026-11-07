@@ -790,11 +790,52 @@ class MediaIntegrityValidator:
             MIN_FINAL_VIDEO_SIZE_BYTES if is_final else MIN_CLIP_SIZE_BYTES
         )
         default_diorama_min = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
+        default_diorama_max = SHORTS_HARD_CEILING_SEC
+        if is_diorama and (min_duration_sec is None or max_duration_sec is None):
+            from pipeline.config import (
+                MICRO_SHORT_PROFILE,
+                SHORTS_90S_PROFILE,
+                resolve_shorts_format_profile,
+                shorts_duration_range_for_profile,
+            )
+
+            edl_doc_mi: dict[str, Any] = {}
+            vp_doc_mi: dict[str, Any] = {}
+            s_doc_mi: dict[str, Any] = {}
+            edl_p_mi = path.parent / "edit_decision_list.json"
+            if edl_p_mi.exists():
+                try:
+                    edl_doc_mi = json.loads(edl_p_mi.read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+            for vp_c_mi in (path.parent.parent / "03_visuals" / "visual_plan.json", path.parent.parent / "visual_plan.json"):
+                if vp_c_mi.exists():
+                    try:
+                        vp_doc_mi = json.loads(vp_c_mi.read_text(encoding="utf-8"))
+                        break
+                    except Exception:
+                        pass
+            sp_c_mi = path.parent.parent / "02_script" / "script.json"
+            if sp_c_mi.exists():
+                try:
+                    s_doc_mi = json.loads(sp_c_mi.read_text(encoding="utf-8"))
+                except Exception:
+                    pass
+            if edl_doc_mi or vp_doc_mi or s_doc_mi:
+                fmt_mi = resolve_shorts_format_profile(
+                    vp_doc_mi,
+                    s_doc_mi,
+                    edl_doc_mi,
+                    project_id=path.parent.parent.name,
+                )
+                if fmt_mi in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+                    default_diorama_min, default_diorama_max = shorts_duration_range_for_profile(fmt_mi)
+
         req_min_dur = min_duration_sec if min_duration_sec is not None else (
             (default_diorama_min if is_diorama else FINAL_SHORTS_DURATION_MIN_SEC) if is_final else FLOW_CLIP_DURATION_MIN_SEC
         )
         req_max_dur = max_duration_sec if max_duration_sec is not None else (
-            (SHORTS_HARD_CEILING_SEC if is_diorama else FINAL_SHORTS_DURATION_MAX_SEC) if is_final else FLOW_CLIP_DURATION_MAX_SEC
+            (default_diorama_max if is_diorama else FINAL_SHORTS_DURATION_MAX_SEC) if is_final else FLOW_CLIP_DURATION_MAX_SEC
         )
 
         probe = cls.probe_streams(path)
@@ -993,10 +1034,10 @@ class MediaIntegrityValidator:
         """Validates a clip or final Shorts MP4 via the 7-Point Local Media Integrity Gate."""
         is_diorama = require_30s_shorts and cls._is_diorama_final_asset(Path(file_path))
         eff_min = min_duration_sec if min_duration_sec is not None else (
-            (DIORAMA_DURATION_MIN_SEC if is_diorama else FINAL_SHORTS_DURATION_MIN_SEC) if require_30s_shorts else 2.5
+            (None if is_diorama else FINAL_SHORTS_DURATION_MIN_SEC) if require_30s_shorts else 2.5
         )
         eff_max = max_duration_sec if max_duration_sec is not None else (
-            (SHORTS_HARD_CEILING_SEC if is_diorama else FINAL_SHORTS_DURATION_MAX_SEC) if require_30s_shorts else 35.0
+            (None if is_diorama else FINAL_SHORTS_DURATION_MAX_SEC) if require_30s_shorts else 35.0
         )
         return cls.validate_video_asset(
             file_path=file_path,

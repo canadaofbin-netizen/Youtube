@@ -858,6 +858,7 @@ def ensure_porcelain_reference_pack(
     and pass `inspect_reference_image_pack` (`pre_generation_ready == True`), generating any missing or
     failed anchors via `0-credit` Google Flow `Image` (`Nano Banana 2.1`, `x4` batch) in `1 -> 2 -> 3` order.
     """
+    from pipeline.config import REENACT_IMAGE_BACKENDS
     from pipeline.flow_prompt_builder import load_visual_plan
     from pipeline.reference_image_qa import (
         auto_populate_reference_semantic_review,
@@ -870,6 +871,12 @@ def ensure_porcelain_reference_pack(
         sanitize_structural_frames,
         translate_porcelain_keyframes,
     )
+
+    eff_backend = str(backend or DEFAULT_REENACT_IMAGE_BACKEND).strip().lower()
+    if eff_backend not in REENACT_IMAGE_BACKENDS:
+        raise ValueError(
+            f"Unsupported reference image backend: {backend!r} (expected one of {REENACT_IMAGE_BACKENDS})"
+        )
 
     p_dir = Path(project_dir) if Path(project_dir).is_dir() else (Path(PROJECTS_DIR) / str(project_dir))
     if not p_dir.exists():

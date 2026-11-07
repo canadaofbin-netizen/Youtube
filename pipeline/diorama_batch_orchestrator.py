@@ -65,42 +65,42 @@ _PLAQUE_TRIGGER_NOUNS_RE = re.compile(
 )
 
 DIORAMA_DAILY_30_SPECS: tuple[dict[str, Any], ...] = (
-    # Wave 1 (Nov 05-09)
-    {"index": 1, "wave": 1, "project_id": "diorama_08_maguire_london_taxi_hippocampus", "slug": "maguire_london_taxi_hippocampus", "pillar": "brain_health"},
-    {"index": 2, "wave": 1, "project_id": "diorama_91_hochberg_braingate_robotic_coffee", "slug": "hochberg_braingate_robotic_coffee", "pillar": "bci_tech"},
-    {"index": 3, "wave": 1, "project_id": "diorama_30_little_albert_fear_conditioning", "slug": "little_albert_fear_conditioning", "pillar": "brain_history"},
-    {"index": 4, "wave": 1, "project_id": "diorama_31_darley_latane_bystander_effect", "slug": "darley_latane_bystander_effect", "pillar": "bci_ethics"},
-    {"index": 5, "wave": 1, "project_id": "diorama_28_csikszentmihalyi_flow_hypofrontality", "slug": "csikszentmihalyi_flow_hypofrontality", "pillar": "brain_health"},
-    # Wave 2 (Nov 10-14)
-    {"index": 6, "wave": 2, "project_id": "diorama_29_cotard_walking_corpse_syndrome", "slug": "cotard_walking_corpse_syndrome", "pillar": "brain_mysteries"},
-    {"index": 7, "wave": 2, "project_id": "diorama_16_rizzolatti_mirror_neuron_empathy", "slug": "rizzolatti_mirror_neuron_empathy", "pillar": "brain_news"},
-    {"index": 8, "wave": 2, "project_id": "diorama_27_baddeley_working_memory_architecture", "slug": "baddeley_working_memory_architecture", "pillar": "brain_basics"},
-    {"index": 9, "wave": 2, "project_id": "diorama_09_broca_patient_tan_speech_loss", "slug": "broca_patient_tan_speech_loss", "pillar": "brain_history"},
-    {"index": 10, "wave": 2, "project_id": "diorama_38_harlow_cloth_mother_attachment", "slug": "harlow_cloth_mother_attachment", "pillar": "brain_history"},
-    # Wave 3 (Nov 15-19)
-    {"index": 11, "wave": 3, "project_id": "diorama_13_asch_conformity_pressure", "slug": "asch_conformity_pressure", "pillar": "bci_ethics"},
-    {"index": 12, "wave": 3, "project_id": "diorama_11_blindsight_subcortical_vision", "slug": "blindsight_subcortical_vision", "pillar": "brain_mysteries"},
-    {"index": 13, "wave": 3, "project_id": "diorama_21_delgado_stimoceiver_bull", "slug": "delgado_stimoceiver_bull_stop", "pillar": "bci_tech"},
-    {"index": 14, "wave": 3, "project_id": "diorama_48_raichle_default_mode_network", "slug": "raichle_default_mode_network", "pillar": "brain_health"},
-    {"index": 15, "wave": 3, "project_id": "diorama_32_bandura_bobo_doll_mirroring", "slug": "bandura_bobo_doll_mirroring", "pillar": "brain_basics"},
-    # Wave 4 (Nov 20-24)
-    {"index": 16, "wave": 4, "project_id": "diorama_25_false_memory_elizabeth_loftus", "slug": "false_memory_elizabeth_loftus", "pillar": "brain_mysteries"},
-    {"index": 17, "wave": 4, "project_id": "diorama_43_kross_distanced_self_talk_chatter", "slug": "kross_distanced_self_talk_chatter", "pillar": "brain_health"},
-    {"index": 18, "wave": 4, "project_id": "diorama_14_libet_readiness_potential", "slug": "libet_readiness_potential_free_will", "pillar": "brain_mysteries"},
-    {"index": 19, "wave": 4, "project_id": "diorama_20_dutton_aron_capilano_bridge", "slug": "dutton_aron_capilano_bridge_arousal", "pillar": "brain_basics"},
-    {"index": 20, "wave": 4, "project_id": "diorama_39_dehaene_conscious_brain_ignition", "slug": "dehaene_conscious_brain_ignition", "pillar": "brain_mysteries"},
-    # Wave 5 (Nov 25-29)
-    {"index": 21, "wave": 5, "project_id": "diorama_75_mischel_marshmallow_self_control", "slug": "mischel_marshmallow_self_control", "pillar": "brain_health"},
-    {"index": 22, "wave": 5, "project_id": "diorama_62_zihl_akinetopsia_motion_blindness", "slug": "zihl_akinetopsia_motion_blindness", "pillar": "brain_mysteries"},
-    {"index": 23, "wave": 5, "project_id": "diorama_15_draganski_juggling_gray_matter", "slug": "draganski_juggling_gray_matter", "pillar": "brain_health"},
-    {"index": 24, "wave": 5, "project_id": "diorama_36_rosenhan_sane_in_insane_places", "slug": "rosenhan_sane_in_insane_places", "pillar": "bci_ethics"},
-    {"index": 25, "wave": 5, "project_id": "diorama_60_ebbinghaus_forgetting_curve", "slug": "ebbinghaus_forgetting_curve", "pillar": "brain_basics"},
-    # Wave 6 (Nov 30-Dec 04)
-    {"index": 26, "wave": 6, "project_id": "diorama_58_shapiro_emdr_trauma_saccades", "slug": "shapiro_emdr_trauma_saccades", "pillar": "brain_health"},
-    {"index": 27, "wave": 6, "project_id": "diorama_56_skinner_operant_superstition", "slug": "skinner_operant_superstition", "pillar": "brain_basics"},
-    {"index": 28, "wave": 6, "project_id": "diorama_10_olds_milner_pleasure_center", "slug": "olds_milner_pleasure_center", "pillar": "bci_tech"},
-    {"index": 29, "wave": 6, "project_id": "diorama_80_rubber_hand_body_plasticity", "slug": "rubber_hand_body_plasticity", "pillar": "brain_mysteries"},
-    {"index": 30, "wave": 6, "project_id": "diorama_24_bodamer_prosopagnosia_face_blindness", "slug": "bodamer_prosopagnosia_face_blindness", "pillar": "brain_mysteries"},
+    # Wave 1 (Days 2-6: 2026-11-05 .. 2026-11-09 19:30 EST) — sleep, habits, memory, anxiety, relationships
+    {"index": 1, "wave": 1, "everyday_domain": "sleep", "schedule_est": "2026-11-05 19:30 EST", "project_id": "boost_01_sleep_first_night_watch", "slug": "v2_sleep_first_night_hemisphere_watch", "pillar": "brain_health"},
+    {"index": 2, "wave": 1, "everyday_domain": "habits", "schedule_est": "2026-11-06 19:30 EST", "project_id": "boost_02_habits_marshmallow_trust", "slug": "v2_habits_marshmallow_prefrontal_trust", "pillar": "brain_basics"},
+    {"index": 3, "wave": 1, "everyday_domain": "memory", "schedule_est": "2026-11-07 19:30 EST", "project_id": "boost_03_memory_loftus_false_engram", "slug": "v2_memory_loftus_false_alibi_engram", "pillar": "brain_mysteries"},
+    {"index": 4, "wave": 1, "everyday_domain": "anxiety", "schedule_est": "2026-11-08 19:30 EST", "project_id": "boost_04_anxiety_third_person_chatter", "slug": "v2_anxiety_kross_third_person_amygdala", "pillar": "brain_history"},
+    {"index": 5, "wave": 1, "everyday_domain": "relationships", "schedule_est": "2026-11-09 19:30 EST", "project_id": "boost_05_relationships_handholding_pain", "slug": "v2_relationships_coan_handholding_pain_grid", "pillar": "brain_news"},
+    # Wave 2 (Days 7-11: 2026-11-10 .. 2026-11-14 19:30 EST)
+    {"index": 6, "wave": 2, "everyday_domain": "sleep", "schedule_est": "2026-11-10 19:30 EST", "project_id": "boost_06_sleep_pink_noise_spindles", "slug": "v2_sleep_ngo_closed_loop_slow_wave_tones", "pillar": "bci_tech"},
+    {"index": 7, "wave": 2, "everyday_domain": "habits", "schedule_est": "2026-11-11 19:30 EST", "project_id": "boost_07_habits_variable_slot_dopamine", "slug": "v2_habits_skinner_variable_scroll_prediction_error", "pillar": "bci_ethics"},
+    {"index": 8, "wave": 2, "everyday_domain": "memory", "schedule_est": "2026-11-12 19:30 EST", "project_id": "boost_08_memory_doorway_event_boundary", "slug": "v2_memory_radvansky_doorway_hippocampal_reset", "pillar": "brain_basics"},
+    {"index": 9, "wave": 2, "everyday_domain": "anxiety", "schedule_est": "2026-11-13 19:30 EST", "project_id": "boost_09_anxiety_physiological_sigh_prebotzinger", "slug": "v2_anxiety_double_inhale_sigh_vagal_brake", "pillar": "brain_health"},
+    {"index": 10, "wave": 2, "everyday_domain": "relationships", "schedule_est": "2026-11-14 19:30 EST", "project_id": "boost_10_relationships_social_rejection_dacc", "slug": "v2_relationships_cyberball_ghosting_pain_overlap", "pillar": "brain_mysteries"},
+    # Wave 3 (Days 12-16: 2026-11-15 .. 2026-11-19 19:30 EST)
+    {"index": 11, "wave": 3, "everyday_domain": "sleep", "schedule_est": "2026-11-15 19:30 EST", "project_id": "boost_11_sleep_caffeine_adenosine_quarter_life", "slug": "v2_sleep_afternoon_coffee_circadian_shift", "pillar": "brain_news"},
+    {"index": 12, "wave": 3, "everyday_domain": "habits", "schedule_est": "2026-11-16 19:30 EST", "project_id": "boost_12_habits_stale_popcorn_context_cue", "slug": "v2_habits_neal_wood_context_striatum_autopilot", "pillar": "brain_health"},
+    {"index": 13, "wave": 3, "everyday_domain": "memory", "schedule_est": "2026-11-17 19:30 EST", "project_id": "boost_13_memory_testing_effect_wakeful_replay", "slug": "v2_memory_roediger_retrieval_hippocampal_ripple", "pillar": "bci_tech"},
+    {"index": 14, "wave": 3, "everyday_domain": "anxiety", "schedule_est": "2026-11-18 19:30 EST", "project_id": "boost_14_anxiety_uncertainty_worse_than_pain", "slug": "v2_anxiety_de_berker_uncertainty_pupil_stress", "pillar": "brain_mysteries"},
+    {"index": 15, "wave": 3, "everyday_domain": "relationships", "schedule_est": "2026-11-19 19:30 EST", "project_id": "boost_15_relationships_asch_group_visual_cortex", "slug": "v2_relationships_asch_conformity_amygdala_override", "pillar": "bci_ethics"},
+    # Wave 4 (Days 17-21: 2026-11-20 .. 2026-11-24 19:30 EST)
+    {"index": 16, "wave": 4, "everyday_domain": "sleep", "schedule_est": "2026-11-20 19:30 EST", "project_id": "boost_16_sleep_warm_shower_distal_cooling", "slug": "v2_sleep_haghayegh_warm_bath_preoptic_thermostat", "pillar": "brain_history"},
+    {"index": 17, "wave": 4, "everyday_domain": "habits", "schedule_est": "2026-11-21 19:30 EST", "project_id": "boost_17_habits_fresh_start_temporal_landmark", "slug": "v2_habits_milkman_fresh_start_self_continuity", "pillar": "brain_news"},
+    {"index": 18, "wave": 4, "everyday_domain": "memory", "schedule_est": "2026-11-22 19:30 EST", "project_id": "boost_18_memory_photo_taking_impairment", "slug": "v2_memory_henkel_camera_cognitive_offloading", "pillar": "brain_health"},
+    {"index": 19, "wave": 4, "everyday_domain": "anxiety", "schedule_est": "2026-11-23 19:30 EST", "project_id": "boost_19_anxiety_affect_labeling_rvlpfc", "slug": "v2_anxiety_lieberman_name_it_to_tame_it_amygdala", "pillar": "bci_tech"},
+    {"index": 20, "wave": 4, "everyday_domain": "relationships", "schedule_est": "2026-11-24 19:30 EST", "project_id": "boost_20_relationships_capilano_bridge_misattribution", "slug": "v2_relationships_dutton_aron_arousal_insula", "pillar": "brain_basics"},
+    # Wave 5 (Days 22-26: 2026-11-25 .. 2026-11-29 19:30 EST)
+    {"index": 21, "wave": 5, "everyday_domain": "sleep", "schedule_est": "2026-11-25 19:30 EST", "project_id": "boost_21_sleep_snooze_inertia_prefrontal_lag", "slug": "v2_sleep_snooze_fragmented_rem_cortical_boot", "pillar": "brain_mysteries"},
+    {"index": 22, "wave": 5, "everyday_domain": "habits", "schedule_est": "2026-11-26 19:30 EST", "project_id": "boost_22_habits_implementation_if_then_reflex", "slug": "v2_habits_gollwitzer_if_then_prospective_cue", "pillar": "brain_history"},
+    {"index": 23, "wave": 5, "everyday_domain": "memory", "schedule_est": "2026-11-27 19:30 EST", "project_id": "boost_23_memory_tip_of_tongue_phonological_gap", "slug": "v2_memory_brown_mcneill_tot_left_insula_block", "pillar": "brain_news"},
+    {"index": 24, "wave": 5, "everyday_domain": "anxiety", "schedule_est": "2026-11-28 19:30 EST", "project_id": "boost_24_anxiety_reappraisal_excited_vs_calm", "slug": "v2_anxiety_brooks_get_excited_arousal_reframe", "pillar": "bci_ethics"},
+    {"index": 25, "wave": 5, "everyday_domain": "relationships", "schedule_est": "2026-11-29 19:30 EST", "project_id": "boost_25_relationships_phubbing_phone_on_table", "slug": "v2_relationships_przybylski_silent_phone_attention_drain", "pillar": "brain_health"},
+    # Wave 6 (Days 27-31: 2026-11-30 .. 2026-12-04 19:30 EST)
+    {"index": 26, "wave": 6, "everyday_domain": "sleep", "schedule_est": "2026-11-30 19:30 EST", "project_id": "boost_26_sleep_rem_emotional_overnight_therapy", "slug": "v2_sleep_walker_rem_norepinephrine_free_dreaming", "pillar": "brain_basics"},
+    {"index": 27, "wave": 6, "everyday_domain": "habits", "schedule_est": "2026-12-01 19:30 EST", "project_id": "boost_27_habits_temptation_bundling_effort_discounting", "slug": "v2_habits_milkman_audiobook_gym_anterior_cingulate", "pillar": "bci_tech"},
+    {"index": 28, "wave": 6, "everyday_domain": "memory", "schedule_est": "2026-12-02 19:30 EST", "project_id": "boost_28_memory_method_of_loci_taxi_grid", "slug": "v2_memory_maguire_memory_athlete_place_network", "pillar": "brain_history"},
+    {"index": 29, "wave": 6, "everyday_domain": "anxiety", "schedule_est": "2026-12-03 19:30 EST", "project_id": "boost_29_anxiety_tetris_reconsolidation_visuospatial", "slug": "v2_anxiety_holmes_tetris_visual_memory_blockade", "pillar": "brain_news"},
+    {"index": 30, "wave": 6, "everyday_domain": "relationships", "schedule_est": "2026-12-04 19:30 EST", "project_id": "boost_30_relationships_bystander_diffusion_motor_freeze", "slug": "v2_relationships_darley_latane_crowd_premotor_inhibition", "pillar": "brain_mysteries"},
 )
 
 DIORAMA_BATCH_20_SPECS: tuple[dict[str, Any], ...] = DIORAMA_DAILY_30_SPECS
@@ -703,12 +703,27 @@ def precheck_diorama_project(
         if hits:
             issues.append(f"[plaque_lock] clip {c['clip_number']} positive scene contains plaque-trigger word(s) {hits}")
 
+    from pipeline.config import (
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
+    )
+
     tts_duration = None
     preflight_prosody: dict[str, Any] | None = None
-    fmt_profile = str(script_doc.get("format_profile") or visual_plan.get("format_profile") or "").strip().lower()
+    fmt_profile = resolve_shorts_format_profile(
+        visual_plan,
+        script_doc,
+        {"sentences": sentences, "clips": clips},
+        slug=slug,
+        project_id=str(spec.get("project_id") or p_dir.name),
+    )
     is_micro = fmt_profile == MICRO_SHORT_PROFILE
-    min_dur = MICRO_SHORT_MIN_SEC if is_micro else (DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC)
-    max_dur = MICRO_SHORT_MAX_SEC if is_micro else SHORTS_HARD_CEILING_SEC
+    if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+        min_dur, max_dur = shorts_duration_range_for_profile(fmt_profile)
+    else:
+        min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC
+        max_dur = SHORTS_HARD_CEILING_SEC
     eff_vp = voice_preset or str(spec.get("voice_preset") or script_doc.get("voice_preset") or visual_plan.get("voice_preset") or "").strip() or None
     eff_pm = prosody_mode or str(spec.get("prosody_mode") or script_doc.get("prosody_mode") or "").strip() or None
     preset_name, preset_cfg = resolve_diorama_voice_preset(eff_vp, script_doc=script_doc, visual_plan=visual_plan)
@@ -984,6 +999,12 @@ def finalize_and_verify_diorama_project(
         raise RuntimeError(
             f"PostHocSemanticQA (R64) flagged weak cuts for {project_id}: {posthoc_rep['summary']['weak_cut_indices']}"
         )
+    from pipeline.config import UNMANNED_QA_SIGNOFF_DEFAULT
+
+    if UNMANNED_QA_SIGNOFF_DEFAULT:
+        from pipeline.posthoc_semantic_qa import auto_signoff_posthoc_semantic_review
+
+        auto_signoff_posthoc_semantic_review(p_dir, qa_report=posthoc_rep)
 
     # R65 Thumbnail Studio hard gate (TQ1-TQ8)
     t_s = time.monotonic()
@@ -1533,6 +1554,10 @@ def run_diorama_batch(
         else {"total_target": len(DIORAMA_DAILY_30_SPECS), "completed": {}, "in_progress": None, "errors": {}}
     )
     state["total_target"] = len(DIORAMA_DAILY_30_SPECS)
+    if not isinstance(state.get("completed"), dict):
+        state["completed"] = {}
+    if not isinstance(state.get("errors"), dict):
+        state["errors"] = {}
 
     run_errors: dict[str, str] = {}
     results: list[dict[str, Any]] = []

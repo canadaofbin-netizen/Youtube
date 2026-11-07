@@ -125,9 +125,11 @@ class ThumbnailABTester:
 
         client = self.session.get_direct_client("studio.youtube.com", default_url=studio_edit_url)
         async with client:
+            from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
             await client.send("Page.enable")
             await client.send("Runtime.enable")
-            await client.send("Page.bringToFront")
+            await enable_background_focus_emulation(client)
             await client.send("Page.navigate", {"url": studio_edit_url})
             ready = await client.wait_for_element(["ytcp-video-metadata-editor"], timeout_sec=20.0)
             if not ready:

@@ -91,10 +91,9 @@ async def run_single_project_with_retries(
             last_err = f"{type(e).__name__}: {e}"
             print(f"[WaveWorker] ERROR on {project_id} (attempt {attempt}): {last_err}", flush=True)
             if tab_id and not str(tab_id).startswith("RESUMED_"):
-                try:
-                    urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{tab_id}", timeout=5)
-                except Exception:
-                    pass
+                from pipeline.cdp_tab_lease import release_and_close_leased_tab
+
+                release_and_close_leased_tab(str(tab_id), cdp_port=cdp_port)
             if is_project_complete(project_id):
                 return {"project_id": project_id, "status": "SUCCESS_ON_DISK"}
             await asyncio.sleep(20.0)
@@ -116,12 +115,26 @@ async def run_waves(start_idx: int = 1, end_idx: int = 100, batch_size: int = FL
         print(f"\n>>> Launching Wave #{wave_num}: {chunk} <<<", flush=True)
         write_status(wave_num, chunk, f"Running Wave #{wave_num}: {', '.join(chunk)}", errors)
 
-        # Sweep any leaked Google Flow project tabs before launching wave
+        # Sweep only stale pipeline-leased tabs owned by this process before launching wave (never touch user or sibling tabs)
         try:
+            from pipeline.cdp_tab_lease import (
+                get_tab_lease,
+                is_tab_leased_by_other,
+                release_and_close_leased_tab,
+            )
+
             tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/list", timeout=5).read())
             for t in tabs:
-                if t.get("type") == "page" and "flow.google.com/project/" in t.get("url", ""):
-                    urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{t['id']}", timeout=5).read()
+                tid = str(t.get("id") or "")
+                t_url = str(t.get("url") or "")
+                if (
+                    tid
+                    and t.get("type") == "page"
+                    and ("flow.google.com/project/" in t_url or "/tools/flow/project/" in t_url)
+                    and not is_tab_leased_by_other(tid, cdp_port=cdp_port)
+                    and get_tab_lease(tid, cdp_port=cdp_port) is not None
+                ):
+                    release_and_close_leased_tab(tid, cdp_port=cdp_port)
         except Exception:
             pass
 

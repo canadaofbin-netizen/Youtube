@@ -45,10 +45,12 @@ def _asset_index_lock(index_path: Path):
     with _ASSET_LOCK_GUARD:
         rlock = _ASSET_LOCKS.setdefault(resolved, threading.RLock())
     with rlock:
-        lock_root = Path("/tmp") if (os.name != "nt" and Path("/tmp").exists()) else index_path.parent
+        from pipeline.cdp_tab_lease import get_aab_locks_dir
+
+        lock_root = get_aab_locks_dir() if (os.name != "nt" and Path("/tmp").exists()) else index_path.parent
         lock_root.mkdir(parents=True, exist_ok=True)
         digest = hashlib.sha1(resolved.encode("utf-8")).hexdigest()[:16]
-        lock_file = lock_root / f".aab_asset_idx_{digest}.lock"
+        lock_file = lock_root / f"asset_idx_{digest}.lock"
         fh = None
         locked = False
         try:

@@ -1692,9 +1692,11 @@ class StudioShortLinker:
 
         edit_url = f"https://studio.youtube.com/video/{src_vid}/edit"
         async with self._open_client(edit_url) as client:
+            from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
             await client.send("Page.enable")
             await client.send("Runtime.enable")
-            await client.send("Page.bringToFront")
+            await enable_background_focus_emulation(client)
             await client.send("Page.navigate", {"url": edit_url})
             ready = await client.wait_for_element(
                 ["#linked-video-editor-link", "ytcp-video-metadata-editor"],
@@ -1709,7 +1711,7 @@ class StudioShortLinker:
                     "verified": False,
                 }
             await asyncio.sleep(1.5)
-            await client.send("Page.bringToFront")
+            await enable_background_focus_emulation(client)
 
             if not await self._ensure_channel_safe(client):
                 return {

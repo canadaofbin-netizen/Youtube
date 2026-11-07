@@ -1266,7 +1266,7 @@ def load_provenance(project_dir: Path) -> dict[str, str]:
 
 
 def register_reference_image(project_dir: Path, filename: str, source: str) -> None:
-    """Record how an image in reference_images/ was made (flow_image_generation / gemini_image_generation /
+    """Record how an image in reference_images/ was made (flow_image_generation /
     extracted_from_clip). Call it every time an image is saved; QA reads it."""
     ref_dir = Path(project_dir) / "03_visuals" / REF_IMAGES_DIRNAME
     ref_dir.mkdir(parents=True, exist_ok=True)

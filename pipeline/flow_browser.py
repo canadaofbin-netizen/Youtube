@@ -1016,14 +1016,31 @@ class FlowProjectSubagentWorker:
                 tab_list_req = urllib.request.Request(f"http://127.0.0.1:{self.cdp_port}/json/list")
                 tabs_data = json.loads(urllib.request.urlopen(tab_list_req, timeout=5).read().decode("utf-8"))
 
+                from pipeline.cdp_tab_lease import (
+                    acquire_tab_lease,
+                    enable_background_focus_emulation,
+                    is_tab_leased_by_other,
+                    make_lease_owner_id,
+                    open_leased_cdp_tab,
+                    release_and_close_leased_tab,
+                )
+                from pipeline.flow_workspace import format_flow_room_name, rename_active_flow_project
+
+                lease_owner = getattr(self, "_lease_owner_id", "") or make_lease_owner_id(f"flow_subagent:{self.project_id}")
+                self._lease_owner_id = lease_owner
+                canonical_room = format_flow_room_name(self.project_id)
                 existing_tab = None
                 for t in tabs_data:
                     if t.get("type", "page") != "page":
                         continue
+                    tid = str(t.get("id") or "")
+                    if not tid or is_tab_leased_by_other(tid, owner_id=lease_owner, cdp_port=self.cdp_port):
+                        continue
                     t_url = t.get("url", "")
                     t_title = t.get("title", "")
-                    if "flow.google.com/project/" in t_url and t.get("webSocketDebuggerUrl"):
-                        if self.project_id in t_title or self.project_id in t_url:
+                    if ("flow.google.com/project/" in t_url or "/tools/flow/project/" in t_url) and t.get("webSocketDebuggerUrl"):
+                        if canonical_room in t_title or self.project_id in t_title or self.project_id in t_url:
+                            acquire_tab_lease(tid, owner_id=lease_owner, purpose=f"flow_subagent:{self.project_id}", url=t_url, cdp_port=self.cdp_port)
                             existing_tab = t
                             break
 
@@ -1035,19 +1052,25 @@ class FlowProjectSubagentWorker:
                     self.log(f"Re-attaching to existing Flow tab ({self.tab_id[:8]})...")
                 else:
                     is_new_tab = True
-                    req = urllib.request.Request(f"http://127.0.0.1:{self.cdp_port}/json/new?https://flow.google.com/", method="PUT")
-                    res = json.loads(urllib.request.urlopen(req, timeout=8).read().decode("utf-8"))
+                    res = open_leased_cdp_tab(
+                        "https://flow.google.com/",
+                        owner_id=lease_owner,
+                        purpose=f"flow_subagent:{self.project_id}",
+                        cdp_port=self.cdp_port,
+                        background=True,
+                    )
                     ws_url = res.get("webSocketDebuggerUrl")
                     self.tab_id = res.get("id", "")
-                    self.log(f"Dedicated tab opened ({self.tab_id[:8]}). Connecting via Direct CDP...")
+                    self.log(f"Dedicated background tab opened ({self.tab_id[:8]}). Connecting via Direct CDP...")
 
                 async with DirectCDPClient(ws_url) as client:
+                    await enable_background_focus_emulation(client)
                     if is_new_tab:
                         await asyncio.sleep(1.5)
                         for _ in range(15):
                             try:
                                 url = await client.eval("window.location.href")
-                                if "flow.google.com" in (url or ""):
+                                if "flow.google.com" in (url or "") or "/tools/flow" in (url or ""):
                                     break
                             except Exception:
                                 pass
@@ -1070,7 +1093,7 @@ class FlowProjectSubagentWorker:
 
                         click_new_js = """
                         (() => {
-                            const btn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.toLowerCase().includes('new project'));
+                            const btn = document.querySelector('button.new-project-button') || Array.from(document.querySelectorAll('button')).find(b => b.innerText.toLowerCase().includes('new project'));
                             if (btn) { btn.click(); return true; }
                             return false;
                         })()
@@ -1084,7 +1107,7 @@ class FlowProjectSubagentWorker:
                         for _ in range(15):
                             try:
                                 url = await client.eval("window.location.href")
-                                if "flow.google.com/project/" in (url or ""):
+                                if "flow.google.com/project/" in (url or "") or "/tools/flow/project/" in (url or ""):
                                     project_url = url
                                     break
                             except Exception:
@@ -1097,6 +1120,14 @@ class FlowProjectSubagentWorker:
                             except Exception:
                                 project_url = ""
                         self.url = project_url
+                        if self.tab_id and self.url:
+                            acquire_tab_lease(
+                                self.tab_id,
+                                owner_id=lease_owner,
+                                purpose=f"flow_subagent:{self.project_id}",
+                                url=self.url,
+                                cdp_port=self.cdp_port,
+                            )
                         await asyncio.sleep(1.5)
                     else:
                         try:
@@ -1104,21 +1135,8 @@ class FlowProjectSubagentWorker:
                         except Exception:
                             self.url = ""
 
-                    # 6. Set project title
-                    set_title_js = f"""
-                    (() => {{
-                        const input = document.querySelector('.editable-text-input');
-                        if (input) {{
-                            input.value = {json.dumps(self.project_id)};
-                            input.dispatchEvent(new Event('input', {{bubbles: true}}));
-                            input.dispatchEvent(new Event('change', {{bubbles: true}}));
-                            input.blur();
-                            return true;
-                        }}
-                        return false;
-                    }})()
-                    """
-                    self.title_set = bool(await client.eval(set_title_js))
+                    # 6. Set canonical AAB_<project_id> room title
+                    self.title_set = bool(await rename_active_flow_project(client, canonical_room))
 
                     # 6b. Configure Google Flow UI duration to FLOW_CLIP_DURATION_TARGET ("10s", never "8s")
                     try:
@@ -1304,7 +1322,9 @@ class FlowProjectSubagentWorker:
                     v_qa_file = screenshots_dir / "visual_qa_report.json"
                     self.visual_qa_report = _merge_write_visual_qa_report(v_qa_file, self.visual_qa_report)
 
-                    if v5_report.get("valid_clips_count", 0) >= 5 and "flow.google.com/project/" in (self.url or ""):
+                    if v5_report.get("valid_clips_count", 0) >= 5 and (
+                        "flow.google.com/project/" in (self.url or "") or "/tools/flow/project/" in (self.url or "")
+                    ):
                         self.write_provenance_receipt()
 
                     self.status = "ready_in_flow"
@@ -1337,6 +1357,17 @@ class FlowProjectSubagentWorker:
             except Exception as e:
                 self.status = "failed"
                 self.error = str(e)
+                if getattr(self, "tab_id", None) and getattr(self, "_lease_owner_id", None):
+                    try:
+                        from pipeline.cdp_tab_lease import release_and_close_leased_tab
+
+                        release_and_close_leased_tab(
+                            self.tab_id,
+                            owner_id=self._lease_owner_id,
+                            cdp_port=self.cdp_port,
+                        )
+                    except Exception:
+                        pass
                 self.log(f"Subagent execution failed: {e}")
                 return {
                     "project_id": self.project_id,
@@ -1395,22 +1426,17 @@ class GoogleFlowWhaleController:
         return False
 
     def _open_urls_in_whale_or_cdp(self, urls: list[str], cdp_port: int = 9222) -> bool:
-        """Opens URLs via existing CDP port when bridged (`docker` / remote container) and never spawns `/usr/bin/docker`."""
-        import urllib.parse
-        import urllib.request
+        """Opens URLs in background via existing CDP port when bridged (`docker` / remote container) and never spawns `/usr/bin/docker`."""
+        from pipeline.cdp_tab_lease import open_leased_cdp_tab
 
         if self.whale_path.name.lower() == "docker" or (os.name != "nt" and not self.whale_path.exists()):
             opened_any = False
             for u in urls:
                 if not u or u.startswith("file://"):
                     continue
-                req = urllib.request.Request(
-                    f"http://127.0.0.1:{cdp_port}/json/new?{urllib.parse.quote(u, safe=':/?&=%')}",
-                    method="PUT",
-                )
-                with urllib.request.urlopen(req, timeout=6) as resp:
-                    if resp.status == 200:
-                        opened_any = True
+                res = open_leased_cdp_tab(u, purpose="whale_controller", cdp_port=cdp_port, background=True)
+                if res.get("id"):
+                    opened_any = True
             return opened_any
 
         if not self.whale_path.exists():

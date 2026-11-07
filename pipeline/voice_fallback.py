@@ -1643,9 +1643,23 @@ def synthesize_continuous_diorama_track(
     lead_sec = 0.08 if v7_mode else 0.10
     if prosody_active:
         lead_sec = 0.05  # P1: first audible onset <= 0.10s including the 30ms consonant pad
-    if is_micro_short:
+    from pipeline.config import (
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
+    )
+
+    fmt_profile_tts = resolve_shorts_format_profile(
+        vp_probe,
+        script_doc or {},
+        {"sentences": clean_sents},
+        project_id=Path(project_dir).name,
+    )
+    if is_micro_short or fmt_profile_tts == MICRO_SHORT_PROFILE:
         min_dur_sec = float(MICRO_SHORT_DURATION_MIN_SEC)
         safe_max_total = float(MICRO_SHORT_DURATION_MAX_SEC)
+    elif fmt_profile_tts == SHORTS_90S_PROFILE:
+        min_dur_sec, safe_max_total = shorts_duration_range_for_profile(SHORTS_90S_PROFILE)
     else:
         min_dur_sec = float(DIORAMA_V7_DURATION_MIN_SEC if v7_mode else DIORAMA_DURATION_MIN_SEC)
         safe_max_total = min(DIORAMA_DURATION_MAX_SEC, SHORTS_HARD_CEILING_SEC - 0.10)

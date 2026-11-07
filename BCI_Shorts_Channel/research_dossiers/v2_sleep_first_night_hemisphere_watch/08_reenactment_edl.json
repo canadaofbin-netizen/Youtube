@@ -1,0 +1,183 @@
+{
+  "schema": "source_reenactment_edl_v1",
+  "rule": "R67",
+  "slug": "v2_sleep_first_night_hemisphere_watch",
+  "source_reference_id": "https://www.youtube.com/watch?v=-vaXa6EClUU",
+  "source_video_id": "-vaXa6EClUU",
+  "extracted_at": "2026-11-04T16:00:16.049736+00:00",
+  "source_geometry": {
+    "width": 1280,
+    "height": 720,
+    "fps": 29.97,
+    "duration_sec": 50.02,
+    "aspect_ratio": 1.7778
+  },
+  "shot_count": 7,
+  "shots": [
+    {
+      "shot_id": "S01",
+      "shot_index": 1,
+      "start_sec": 0.0,
+      "end_sec": 9.58,
+      "duration_sec": 9.58,
+      "source_start_dhash_64": "5c2c20f8dfd9fbac",
+      "source_end_dhash_64": "266c70f8dfd9fbac",
+      "camera_motion": "locked_tripod",
+      "optical_flow_dx": -0.0,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 0.593,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S02",
+      "shot_index": 2,
+      "start_sec": 9.58,
+      "end_sec": 14.48,
+      "duration_sec": 4.9,
+      "source_start_dhash_64": "f22303178686a7eb",
+      "source_end_dhash_64": "e2e2071702a2a2ea",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 1.358,
+      "optical_flow_dy": 0.045,
+      "motion_magnitude": 4.327,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S03",
+      "shot_index": 3,
+      "start_sec": 14.48,
+      "end_sec": 17.98,
+      "duration_sec": 3.5,
+      "source_start_dhash_64": "2c0c00f8dfd9fbac",
+      "source_end_dhash_64": "0c0c00f8dfd9fbac",
+      "camera_motion": "locked_tripod",
+      "optical_flow_dx": -0.0,
+      "optical_flow_dy": -0.0,
+      "motion_magnitude": 0.029,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S04",
+      "shot_index": 4,
+      "start_sec": 17.98,
+      "end_sec": 23.59,
+      "duration_sec": 5.61,
+      "source_start_dhash_64": "0080444b2430d858",
+      "source_end_dhash_64": "1c1c40f8dfd9fbac",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": -0.0,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 4.231,
+      "active_zones": [
+        "left_foreground_zone",
+        "center_action_zone"
+      ]
+    },
+    {
+      "shot_id": "S05",
+      "shot_index": 5,
+      "start_sec": 23.59,
+      "end_sec": 28.5,
+      "duration_sec": 4.91,
+      "source_start_dhash_64": "b71334fc66f494c7",
+      "source_end_dhash_64": "bb8938fc62f694c7",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 0.278,
+      "optical_flow_dy": -0.031,
+      "motion_magnitude": 2.339,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S06",
+      "shot_index": 6,
+      "start_sec": 28.5,
+      "end_sec": 46.48,
+      "duration_sec": 17.98,
+      "source_start_dhash_64": "81613563032787c1",
+      "source_end_dhash_64": "002600f8bff9fbac",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 0.307,
+      "optical_flow_dy": -0.039,
+      "motion_magnitude": 6.434,
+      "active_zones": [
+        "left_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ],
+      "sub_events": [
+        {
+          "sub_id": "S06_sub01",
+          "timestamp_sec": 40.5,
+          "hsv_corr": 0.722,
+          "source_dhash_64": "503c00f8bff9fbac"
+        }
+      ]
+    },
+    {
+      "shot_id": "S07",
+      "shot_index": 7,
+      "start_sec": 46.48,
+      "end_sec": 50.02,
+      "duration_sec": 3.54,
+      "source_start_dhash_64": "01c033e161767180",
+      "source_end_dhash_64": "e1e2f7d361757301",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": -0.091,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 5.378,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    }
+  ],
+  "source_dhash_64_list": [
+    "5c2c20f8dfd9fbac",
+    "266c70f8dfd9fbac",
+    "f22303178686a7eb",
+    "e2e2071702a2a2ea",
+    "2c0c00f8dfd9fbac",
+    "0c0c00f8dfd9fbac",
+    "0080444b2430d858",
+    "1c1c40f8dfd9fbac",
+    "b71334fc66f494c7",
+    "bb8938fc62f694c7",
+    "81613563032787c1",
+    "002600f8bff9fbac",
+    "503c00f8bff9fbac",
+    "01c033e161767180",
+    "e1e2f7d361757301"
+  ],
+  "source_5gram_sha256_list": [],
+  "source_personal_names": [],
+  "sanitization_verified": true,
+  "zero_raw_pixels_in_repo": true,
+  "section_window": "00:25-01:15",
+  "section_bounds_sec": [
+    25.0,
+    75.0
+  ],
+  "sanitized_guide_count": 15
+}

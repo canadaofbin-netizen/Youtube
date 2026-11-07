@@ -1,0 +1,88 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_a",
+  "primary_reenactment_media_id": "loftus_crash_film",
+  "media": [
+    {
+      "id": "loftus_crash_film",
+      "kind": "video",
+      "type": "youtube",
+      "title": "Loftus and Palmer (1974) Archival Two-Sedan Collision Test Film",
+      "url": "https://www.youtube.com/watch?v=2bLJagblTxI",
+      "reenactment_section": "00:07-00:18",
+      "keyframes_dir": "media/loftus_crash_film",
+      "what_it_shows": "Archival 1970s test-track footage of two sedans colliding that Loftus & Palmer screened before asking 'smashed' vs 'hit'.",
+      "blocking_notes": "Wide lateral tracking view of two minimalist sedans meeting bumper-to-fender on a bright open test track.",
+      "timecodes": [
+        {
+          "t": "00:08",
+          "what": "Wide lateral test-track shot of dark sedan approaching light sedan at clean intersection"
+        },
+        {
+          "t": "00:12",
+          "what": "Bumper-to-fender impact between the two sedans with zero shattered glass on the dry asphalt"
+        },
+        {
+          "t": "00:16",
+          "what": "Both sedans roll to a stop intact on clean pavement"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 14,
+        "median_dark_ratio": 0.0503,
+        "median_gray_sat_ratio": 0.526,
+        "median_p90_sat": 58.5,
+        "max_p90_sat": 68.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.2448,
+        "median_motion_diff": 35.713,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": true
+      },
+      "recommended_section": "00:07-00:18"
+    },
+    {
+      "id": "loftus_mall_study",
+      "kind": "video",
+      "type": "youtube",
+      "title": "MEMORY - Loftus on Lost in the Shopping Mall Experiment",
+      "url": "https://www.youtube.com/watch?v=NGLrNjaPmjA",
+      "reenactment_section": "00:20-01:10",
+      "keyframes_dir": "media/loftus_mall_study",
+      "what_it_shows": "Seated psychology interview desk setup illustrating the four-story family booklet paradigm.",
+      "blocking_notes": "Eye-level two-shot across interview table with open paper booklet.",
+      "timecodes": [
+        {
+          "t": "00:26",
+          "what": "Seated interviewer presenting written family childhood event booklet across table"
+        },
+        {
+          "t": "00:54",
+          "what": "Participant elaborating sensory details from the fourth fabricated mall story"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 16,
+        "median_dark_ratio": 0.1548,
+        "median_gray_sat_ratio": 0.0493,
+        "median_p90_sat": 243.5,
+        "max_p90_sat": 255.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.4618,
+        "median_motion_diff": 53.375,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:20-01:10"
+    }
+  ],
+  "track_subtier": "A1a_ready_keyframes"
+}

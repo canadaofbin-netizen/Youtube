@@ -1140,8 +1140,28 @@ def verify_final_mp4_against_contract(
             avg_cut_min = float(
                 t_targets.get("avg_cut_min_sec", PORCELAIN_V7_AVG_CUT_MIN_SEC if is_porcelain else 0.0)
             )
+            from pipeline.config import (
+                MICRO_SHORT_CUT_MIN,
+                MICRO_SHORT_PROFILE,
+                SHORTS_90S_CUT_COUNT_MIN,
+                SHORTS_90S_PROFILE,
+                resolve_shorts_format_profile,
+            )
+
+            dq5_fmt = resolve_shorts_format_profile(
+                vp,
+                script_doc,
+                edl,
+                {"sentences": sentences},
+                project_id=p_dir.name,
+            )
+            dq5_min_cuts = (
+                MICRO_SHORT_CUT_MIN
+                if dq5_fmt == MICRO_SHORT_PROFILE
+                else (SHORTS_90S_CUT_COUNT_MIN if dq5_fmt == SHORTS_90S_PROFILE else DIORAMA_TARGET_CUT_MIN)
+            )
             dq5_ok = (
-                len(cuts) >= DIORAMA_TARGET_CUT_MIN
+                len(cuts) >= dq5_min_cuts
                 and abs(fps - float(DIORAMA_V7_VIDEO_FPS)) <= 0.25
                 and cut_cv >= float(t_targets["cut_duration_cv_min"])
                 and min_cut >= min_cut_floor - (0.35 if is_synth_test else 0.002)
@@ -1153,8 +1173,28 @@ def verify_final_mp4_against_contract(
                 and camera_ratios_ok
             )
         else:
+            from pipeline.config import (
+                MICRO_SHORT_CUT_MIN,
+                MICRO_SHORT_PROFILE,
+                SHORTS_90S_CUT_COUNT_MIN,
+                SHORTS_90S_PROFILE,
+                resolve_shorts_format_profile,
+            )
+
+            dq5_fmt = resolve_shorts_format_profile(
+                vp,
+                script_doc,
+                edl,
+                {"sentences": sentences},
+                project_id=p_dir.name,
+            )
+            dq5_min_cuts = (
+                MICRO_SHORT_CUT_MIN
+                if dq5_fmt == MICRO_SHORT_PROFILE
+                else (SHORTS_90S_CUT_COUNT_MIN if dq5_fmt == SHORTS_90S_PROFILE else DIORAMA_TARGET_CUT_MIN)
+            )
             dq5_ok = (
-                len(cuts) >= DIORAMA_TARGET_CUT_MIN
+                len(cuts) >= dq5_min_cuts
                 and avg_cut <= t_targets["avg_cut_max_sec"] + (0.45 if is_synth_test else 0.0)
                 and max_cut <= t_targets["max_single_speech_cut_sec"] + (0.60 if is_synth_test else 0.0)
             )

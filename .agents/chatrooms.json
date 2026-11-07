@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "workspace": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube",
+  "hub_conversation_id": "b57c97a8-6324-4c31-a2bb-16b25e28dd55",
+  "usage": "In YouTube_CEO, resolve @<chatroom> mentions via `python -X utf8 scripts/chatroom_mention.py resolve \"<prompt>\"` and dispatch via `send_message(Recipient=<conversation_id>, Message=<task>)`.",
+  "ignored_handles": [
+    "@allaboutbrainofficial",
+    "@yt-writer",
+    "@yt-flow",
+    "@yt-editor",
+    "@yt-studio",
+    "@default"
+  ],
+  "chatrooms": [
+    {
+      "handle": "@YouTube_CEO",
+      "conversation_id": "b57c97a8-6324-4c31-a2bb-16b25e28dd55",
+      "title": "YouTube_CEO",
+      "role": "Executive orchestrator, architecture/bottleneck decisions, and cross-chatroom task dispatch",
+      "aliases": ["youtube_ceo", "ceo", "대표", "총괄"],
+      "active": true
+    },
+    {
+      "handle": "@Research",
+      "conversation_id": "ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c",
+      "title": "Research",
+      "role": "Competitor Shorts teardown, viral hook/retention formula extraction, and topic/case research",
+      "aliases": ["research", "리서치", "연구", "벤치마크"],
+      "active": true
+    },
+    {
+      "handle": "@Daily_Report",
+      "conversation_id": "e3210c73-cc41-4432-87b1-c158efe9cadb",
+      "title": "Daily Report",
+      "role": "Daily YouTube Studio traffic-light growth report, KPI funnel diagnostics, and PNG charts",
+      "aliases": ["daily_report", "daily-report", "report", "일일리포트", "데일리리포트", "리포트", "보고서"],
+      "active": true
+    },
+    {
+      "handle": "@Headquarters",
+      "conversation_id": "8c7f8d97-664d-4d6b-9ef8-b17e721354f9",
+      "title": "YouTube Project Headquarters Setup",
+      "role": "Pipeline engineering, Schema v7 production runs, QA gates, and YouTube Studio operations",
+      "aliases": ["headquarters", "hq", "본부", "제작본부", "제작"],
+      "active": true
+    },
+    {
+      "handle": "@Channel_Art",
+      "conversation_id": "3c2fa53b-b43c-4f67-9dfd-0e5c86581f67",
+      "title": "YouTube Channel Art And Profile Prompts",
+      "role": "Channel banner, profile avatar, visual identity, and thumbnail branding assets",
+      "aliases": ["channel_art", "channel-art", "branding", "art", "채널아트", "브랜딩"],
+      "active": true
+    },
+    {
+      "handle": "@Report_Redesign",
+      "conversation_id": "8a60150d-92b4-453f-9996-d50159fc2827",
+      "title": "YouTube Daily Report Redesign",
+      "role": "Archive: Daily report schema and chart layout redesign",
+      "aliases": ["report_redesign"],
+      "active": false
+    },
+    {
+      "handle": "@Hermes_Compare",
+      "conversation_id": "ac92e768-c29f-4e52-9c5f-2c29a14db1e6",
+      "title": "Hermes Folder Code Comparison",
+      "role": "Archive: Hermes profile and workspace synchronization",
+      "aliases": ["hermes_compare", "hermes"],
+      "active": false
+    },
+    {
+      "handle": "@Prompt_Audit",
+      "conversation_id": "a935bacf-5ae3-4e1a-b5e2-7ed23172c727",
+      "title": "영상 제작 프롬프트 문제점 분석",
+      "role": "Archive: Flow visual prompt diagnostics",
+      "aliases": ["prompt_audit", "프롬프트분석"],
+      "active": false
+    },
+    {
+      "handle": "@Topics_Archive",
+      "conversation_id": "2d7e4ddb-30dd-4eea-bd03-33bf22bff383",
+      "title": "Psychology And Brain Science Topics",
+      "role": "Archive: Initial psychology & neuroscience topic ideation",
+      "aliases": ["topics_archive"],
+      "active": false
+    },
+    {
+      "handle": "@GitHub_Archive",
+      "conversation_id": "169b5013-e9b4-42f8-9742-caad9ae1b914",
+      "title": "GitHub Repository Integration Request",
+      "role": "Archive: GitHub repository integration setup",
+      "aliases": ["github_archive"],
+      "active": false
+    },
+    {
+      "handle": "@Old_Videos_Archive",
+      "conversation_id": "08a40359-6af9-4f3a-8c01-3d62916a724d",
+      "title": "Status Of Old Videos",
+      "role": "Archive: Legacy video status audit",
+      "aliases": ["old_videos_archive"],
+      "active": false
+    },
+    {
+      "handle": "@Report_Plan_Archive",
+      "conversation_id": "bbb45bc3-32ce-4376-8fcc-f14f175beed1",
+      "title": "YouTube Daily Report Plan",
+      "role": "Archive: Initial daily report planning",
+      "aliases": ["report_plan_archive"],
+      "active": false
+    }
+  ]
+}

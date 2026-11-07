@@ -65,6 +65,22 @@ from pipeline.flow_prompt_builder import (
     sanitize_prompt_for_flow,
     write_flow_prompts_json,
 )
+from pipeline.cdp_tab_lease import (
+    acquire_tab_lease,
+    enable_background_focus_emulation,
+    get_tab_lease,
+    is_tab_leased_by_other,
+    make_lease_owner_id,
+    open_leased_cdp_tab,
+    release_and_close_leased_tab,
+)
+from pipeline.flow_workspace import (
+    clean_flow_workspace_async,
+    format_flow_room_name,
+    record_flow_credit_exhausted,
+    rename_active_flow_project,
+    should_reprobe_primary_omni,
+)
 from pipeline.qa_gates import run_full_executable_qa
 from pipeline.storage import ProjectStorage
 from pipeline.studio.whale_session import DirectCDPClient
@@ -1310,84 +1326,137 @@ async def allocate_dedicated_flow_project_tab(
     cdp_port: int = 9222,
     existing_tab_id: str | None = None,
     project_id: str | None = None,
+    *,
+    lease_owner_id: str | None = None,
+    purpose: str = "flow_worker",
+    room_name: str | None = None,
 ) -> dict[str, str]:
     """
-    Opens a brand-new Naver Whale tab (or uses existing_tab_id / existing tab matching project_id),
+    Opens a brand-new background Naver Whale tab under `/tmp/aab_cdp_leases.json`
+    (or attaches to `existing_tab_id` / an unleased tab matching `project_id`),
     navigates to https://flow.google.com/, clicks 'New project' (button.new-project-button),
     and waits until redirected to https://flow.google.com/project/<uuid>.
-    Returns {'tab_id': ..., 'ws_url': ..., 'project_url': ...}.
+    Returns {'tab_id': ..., 'ws_url': ..., 'project_url': ..., 'lease_owner_id': ...}.
     """
+    eff_owner = lease_owner_id or make_lease_owner_id(purpose if not project_id else f"{purpose}:{project_id}")
+    expected_room = room_name or (format_flow_room_name(project_id, role="episode") if project_id else "")
+    match_titles = {t for t in (project_id, expected_room, f"AAB__{project_id}__episode" if project_id else "") if t}
+
     tab_info = None
     tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/list", timeout=8).read().decode("utf-8"))
     if existing_tab_id:
         for t in tabs:
-            if t.get("id") == existing_tab_id:
+            tid = str(t.get("id") or "")
+            if tid == existing_tab_id and not is_tab_leased_by_other(tid, owner_id=eff_owner, cdp_port=cdp_port):
+                acquire_tab_lease(tid, owner_id=eff_owner, purpose=purpose, url=str(t.get("url") or ""), cdp_port=cdp_port)
                 tab_info = t
                 break
 
     if tab_info is None and project_id:
         for t in tabs:
-            if "flow.google.com/project/" in t.get("url", "") and t.get("webSocketDebuggerUrl"):
+            tid = str(t.get("id") or "")
+            if not tid or is_tab_leased_by_other(tid, owner_id=eff_owner, cdp_port=cdp_port):
+                continue
+            t_url = str(t.get("url") or "")
+            if ("flow.google.com/project/" in t_url or "/tools/flow/project/" in t_url) and t.get("webSocketDebuggerUrl"):
+                t_title = str(t.get("title") or "")
+                # Never probe arbitrary personal user Flow tabs unless title already carries an AAB_* / project token
+                if not any(mt and mt in t_title for mt in match_titles) and "AAB_" not in t_title:
+                    continue
                 try:
                     async with DirectCDPClient(t["webSocketDebuggerUrl"]) as c_chk:
                         t_val = await c_chk.eval("document.querySelector('.editable-text-input')?.value || ''") or ""
-                        if t_val.strip() == project_id:
-                            return {"tab_id": t["id"], "ws_url": t["webSocketDebuggerUrl"], "project_url": t["url"]}
+                        if t_val.strip() in match_titles:
+                            acquire_tab_lease(
+                                tid,
+                                owner_id=eff_owner,
+                                purpose=purpose,
+                                url=t_url,
+                                cdp_port=cdp_port,
+                            )
+                            return {
+                                "tab_id": tid,
+                                "ws_url": t["webSocketDebuggerUrl"],
+                                "project_url": t_url,
+                                "lease_owner_id": eff_owner,
+                            }
                 except Exception:
                     pass
 
+    opened_new_tab = False
     if tab_info is None:
-        req = urllib.request.Request(f"http://127.0.0.1:{cdp_port}/json/new?https://flow.google.com/", method="PUT")
-        tab_info = json.loads(urllib.request.urlopen(req, timeout=10).read().decode("utf-8"))
+        tab_info = open_leased_cdp_tab(
+            "about:blank",
+            owner_id=eff_owner,
+            purpose=purpose if not project_id else f"{purpose}:{project_id}",
+            cdp_port=cdp_port,
+            background=True,
+        )
+        opened_new_tab = True
 
     tab_id = tab_info["id"]
     ws_url = tab_info["webSocketDebuggerUrl"]
 
-    async with DirectCDPClient(ws_url) as client:
-        await asyncio.sleep(2.5)
-        cur_url = await client.eval("location.href") or ""
+    try:
+        async with DirectCDPClient(ws_url) as client:
+            await enable_background_focus_emulation(client)
+            await asyncio.sleep(1.5)
+            cur_url = await client.eval("location.href") or ""
 
-        # Check if already on an empty project page or a matching project page
-        if "flow.google.com/project/" in cur_url:
-            t_val = await client.eval("document.querySelector('.editable-text-input')?.value || ''") or ""
-            tile_cnt = await client.eval("document.querySelectorAll('flow-video-tile').length") or 0
-            if existing_tab_id or int(tile_cnt) == 0 or (project_id and t_val.strip() == project_id):
-                return {"tab_id": tab_id, "ws_url": ws_url, "project_url": cur_url}
+            # Check if already on an empty project page or a matching project page
+            if "flow.google.com/project/" in cur_url or "/tools/flow/project/" in cur_url:
+                t_val = await client.eval("document.querySelector('.editable-text-input')?.value || ''") or ""
+                tile_cnt = await client.eval("document.querySelectorAll('flow-video-tile').length") or 0
+                if existing_tab_id or int(tile_cnt) == 0 or (project_id and t_val.strip() in match_titles):
+                    if expected_room:
+                        await rename_active_flow_project(client, expected_room)
+                    acquire_tab_lease(tab_id, owner_id=eff_owner, purpose=purpose, url=cur_url, cdp_port=cdp_port)
+                    return {"tab_id": tab_id, "ws_url": ws_url, "project_url": cur_url, "lease_owner_id": eff_owner}
 
-        # Navigate to flow.google.com home to click 'New project'
-        if cur_url.rstrip("/") != "https://flow.google.com":
-            await client.send("Page.navigate", {"url": "https://flow.google.com/"})
-            await asyncio.sleep(4.0)
+            # Navigate to flow.google.com home to click 'New project'
+            if cur_url.rstrip("/") != "https://flow.google.com":
+                await client.send("Page.navigate", {"url": "https://flow.google.com/"})
+                await asyncio.sleep(3.5)
 
-        for _ in range(15):
-            clicked = await client.eval("""(() => {
-                const agree = document.querySelector('.glue-cookie-notification-bar__accept');
-                if (agree) { try { agree.click(); } catch (e) {} }
-                const btn = document.querySelector('button.new-project-button') ||
-                    Array.from(document.querySelectorAll('button, a')).find(b => (b.innerText || '').toLowerCase().includes('new project'));
-                if (btn) {
-                    btn.click();
-                    return true;
-                }
-                return false;
-            })()""")
-            if clicked:
-                break
-            await asyncio.sleep(1.0)
+            for _ in range(15):
+                clicked = await client.eval("""(() => {
+                    const agree = document.querySelector('.glue-cookie-notification-bar__accept');
+                    if (agree) { try { agree.click(); } catch (e) {} }
+                    const btn = document.querySelector('button.new-project-button') ||
+                        Array.from(document.querySelectorAll('button, a')).find(b => (b.innerText || '').toLowerCase().includes('new project'));
+                    if (btn) {
+                        btn.click();
+                        return true;
+                    }
+                    return false;
+                })()""")
+                if clicked:
+                    break
+                await asyncio.sleep(1.0)
 
-        project_url = ""
-        for _ in range(20):
-            await asyncio.sleep(1.0)
-            u = await client.eval("location.href") or ""
-            if "flow.google.com/project/" in u:
-                project_url = u
-                break
+            project_url = ""
+            u = ""
+            for _ in range(20):
+                await asyncio.sleep(1.0)
+                u = await client.eval("location.href") or ""
+                if "flow.google.com/project/" in u or "/tools/flow/project/" in u:
+                    project_url = u
+                    break
 
-        if not project_url or "flow.google.com/project/" not in project_url:
-            raise FlowCircuitBreakerError(f"Failed to create dedicated Google Flow project URL in tab {tab_id} (last URL: {u})")
+            if not project_url or ("flow.google.com/project/" not in project_url and "/tools/flow/project/" not in project_url):
+                raise FlowCircuitBreakerError(
+                    f"Failed to create dedicated Google Flow project URL in tab {tab_id} (last URL: {u})"
+                )
 
-        await asyncio.sleep(2.5)
-        return {"tab_id": tab_id, "ws_url": ws_url, "project_url": project_url}
+            await asyncio.sleep(2.0)
+            if expected_room:
+                await rename_active_flow_project(client, expected_room)
+            acquire_tab_lease(tab_id, owner_id=eff_owner, purpose=purpose, url=project_url, cdp_port=cdp_port)
+            return {"tab_id": tab_id, "ws_url": ws_url, "project_url": project_url, "lease_owner_id": eff_owner}
+    except BaseException:
+        if opened_new_tab:
+            release_and_close_leased_tab(tab_id, owner_id=eff_owner, cdp_port=cdp_port)
+        raise
 
 
 async def ensure_manual_video_916_mode(
@@ -1527,6 +1596,7 @@ async def ensure_manual_video_916_mode(
                     )
                 if credit_exhausted_event is not None:
                     credit_exhausted_event.set()
+                record_flow_credit_exhausted(reason="manual_video_mode_warning")
                 use_lite = True
                 eff_duration = target_duration if target_duration in ("4s", "6s", "8s") else "8s"
 
@@ -1774,6 +1844,7 @@ async def submit_prompt_in_flow_tab(
                 )
             if credit_exhausted_event is not None:
                 credit_exhausted_event.set()
+            record_flow_credit_exhausted(reason="submit_prompt_after_input")
             await client.eval(
                 "window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false; window.__bci_flow_forbid_credit_approve = true;"
             )
@@ -1837,6 +1908,7 @@ async def submit_prompt_in_flow_tab(
                     )
                 if credit_exhausted_event is not None:
                     credit_exhausted_event.set()
+                record_flow_credit_exhausted(reason="submit_prompt_post_click")
                 await client.eval(
                     "window.__bci_flow_lite_fallback = true; window.__bci_flow_0cred_configured = false; window.__bci_flow_forbid_credit_approve = true;"
                 )
@@ -1891,10 +1963,15 @@ async def run_live_flow_for_single_project(
 
     mode = _normalize_engine_mode(engine_mode)
     shared_credit_event = credit_exhausted_event if credit_exhausted_event is not None else asyncio.Event()
+    if mode == "auto" and not shared_credit_event.is_set():
+        ok_omni, _ = should_reprobe_primary_omni()
+        if not ok_omni:
+            shared_credit_event.set()
+    use_zero_start = bool(mode == "zero-credit" or (mode == "auto" and shared_credit_event.is_set()))
     shot_tier_map: dict[int, dict[str, Any]] = {}
     default_tier_info: dict[str, Any] = {
-        "flow_model": FLOW_ZERO_CREDIT_MODEL if mode == "zero-credit" else FLOW_PRIMARY_VIDEO_MODEL,
-        "credit_tier": "zero_credit_fallback" if mode == "zero-credit" else "omni_monthly_credit",
+        "flow_model": FLOW_ZERO_CREDIT_MODEL if use_zero_start else FLOW_PRIMARY_VIDEO_MODEL,
+        "credit_tier": "zero_credit_fallback" if use_zero_start else "omni_monthly_credit",
     }
 
     worker = FlowProjectSubagentWorker(
@@ -1998,15 +2075,18 @@ async def run_live_flow_for_single_project(
         else:
             clips_metadata = await asyncio.to_thread(order_downloaded_flow_clips_for_project, target_dir)
 
+    lease_owner_id: str | None = None
     if not has_complete_local_clips:
         # 3. Allocate or attach to dedicated 1:1:1 Google Flow project tab
         tab_alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port, existing_tab_id=existing_tab_id, project_id=project_id)
         worker.tab_id = tab_alloc["tab_id"]
         worker.url = tab_alloc["project_url"]
+        lease_owner_id = tab_alloc.get("lease_owner_id")
         ws_url = tab_alloc["ws_url"]
         worker.log(f"Bound 1:1:1 to Tab {worker.tab_id[:8]} -> {worker.url}")
 
         async with DirectCDPClient(ws_url) as client:
+            await enable_background_focus_emulation(client)
             await client.send("Page.enable")
 
             async def _capture_ss(filename: str) -> str:
@@ -2019,18 +2099,8 @@ async def run_live_flow_for_single_project(
                     return str(s_file)
                 return ""
 
-            # Set project title in Google Flow header
-            await client.eval(f"""(() => {{
-                const input = document.querySelector('.editable-text-input');
-                if (input) {{
-                    input.value = {json.dumps(project_id)};
-                    input.dispatchEvent(new Event('input', {{bubbles: true}}));
-                    input.dispatchEvent(new Event('change', {{bubbles: true}}));
-                    input.blur();
-                    return true;
-                }}
-                return false;
-            }})()""")
+            # Set canonical AAB_<project_id> room title in Google Flow header
+            await rename_active_flow_project(client, format_flow_room_name(project_id, role="episode"))
             worker.title_set = True
 
             # Switch to Manual Prompting Mode under Credit-Aware Dual-Tier Engine Policy
@@ -2580,11 +2650,22 @@ async def run_live_flow_for_single_project(
         f"COMPLETED 100% LIVE GOOGLE FLOW VIDEO: {project_id} | "
         f"Autopsy={autopsy_res['autopsy_score']} | QA=PASS | Deliverable={dst_completed.name}"
     )
-    try:
-        urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{worker.tab_id}", timeout=5)
-        worker.log(f"Closed Whale tab {worker.tab_id[:8]} after export.")
-    except Exception:
-        pass
+    if worker.tab_id and not str(worker.tab_id).startswith("RESUMED_"):
+        if release_and_close_leased_tab(worker.tab_id, owner_id=lease_owner_id, cdp_port=cdp_port):
+            worker.log(f"Closed leased Whale tab {worker.tab_id[:8]} after export.")
+    if worker.url and ("flow.google.com/project/" in str(worker.url) or "/tools/flow/project/" in str(worker.url)):
+        from pipeline.config import FLOW_AUTO_CLEANUP_ON_SUCCESS
+
+        if FLOW_AUTO_CLEANUP_ON_SUCCESS:
+            try:
+                await clean_flow_workspace_async(
+                    cdp_port=cdp_port,
+                    temp_project_id=project_id,
+                    project_urls=[worker.url],
+                    clean_local_temp=True,
+                )
+            except Exception:
+                pass
 
     return {
         "project_id": project_id,
@@ -2638,6 +2719,11 @@ async def regenerate_specific_clips_for_project(
         clips_meta = await asyncio.to_thread(order_downloaded_flow_clips_for_project, target_dir)
         return {"project_id": project_id, "regenerated_shots": [], "clips_metadata": clips_meta}
 
+    if mode == "auto" and not shared_credit_event.is_set():
+        ok_omni, _ = should_reprobe_primary_omni()
+        if not ok_omni:
+            shared_credit_event.set()
+
     worker = FlowProjectSubagentWorker(project_id=project_id, cdp_port=cdp_port, trigger_generation=True, wait_for_render=True)
     cur_loop = asyncio.get_running_loop()
     if cur_loop not in _TAB_ALLOC_LOCKS:
@@ -2646,12 +2732,15 @@ async def regenerate_specific_clips_for_project(
         tab_alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port, existing_tab_id=existing_tab_id, project_id=None)
     worker.tab_id = tab_alloc["tab_id"]
     worker.url = tab_alloc["project_url"]
+    regen_lease_owner = tab_alloc.get("lease_owner_id")
     ws_url = tab_alloc["ws_url"]
     worker.log(f"[Targeted Regen] Bound to Tab {worker.tab_id[:8]} -> {worker.url} for Shots {[s + 1 for s in shots_0based]}")
 
     try:
         async with DirectCDPClient(ws_url) as client:
+            await enable_background_focus_emulation(client)
             await client.send("Page.enable")
+            await rename_active_flow_project(client, format_flow_room_name(project_id, role="regen"))
             await ensure_manual_video_916_mode(
                 client,
                 engine_mode=mode,
@@ -2867,10 +2956,16 @@ async def regenerate_specific_clips_for_project(
                     ]
                 worker.log(f"[Targeted Regen Round {attempt_round + 1}/4] Remaining invalid shots: {[s + 1 for s in pending_shots]}")
     finally:
-        try:
-            urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{worker.tab_id}", timeout=5)
-        except Exception:
-            pass
+        if worker.tab_id:
+            release_and_close_leased_tab(worker.tab_id, owner_id=regen_lease_owner, cdp_port=cdp_port)
+        if worker.url and "flow.google.com/project/" in str(worker.url):
+            from pipeline.config import FLOW_AUTO_CLEANUP_ON_SUCCESS
+
+            if FLOW_AUTO_CLEANUP_ON_SUCCESS:
+                try:
+                    await clean_flow_workspace_async(cdp_port=cdp_port, project_urls=[worker.url], clean_local_temp=False)
+                except Exception:
+                    pass
 
     clips_metadata = await asyncio.to_thread(order_downloaded_flow_clips_for_project, target_dir, True)
     return {

@@ -591,180 +591,6 @@ def _normalize_generated_png_16x9(png_path: Path) -> None:
     cv2.imwrite(str(png_path), im)
 
 
-def _open_isolated_gemini_tab_16x9(cdp_port: int = DEFAULT_CDP_PORT) -> dict[str, str]:
-    """Opens an isolated `https://gemini.google.com/images` tab via CDP without touching existing user tabs."""
-    target_url = f"http://127.0.0.1:{cdp_port}/json/new?https://gemini.google.com/images"
-    try:
-        req = urllib.request.Request(target_url, method="PUT")
-        with urllib.request.urlopen(req, timeout=8) as r:
-            info = json.loads(r.read().decode("utf-8"))
-    except Exception:
-        with urllib.request.urlopen(target_url, timeout=8) as r:
-            info = json.loads(r.read().decode("utf-8"))
-    return {"tab_id": str(info["id"]), "ws_url": str(info["webSocketDebuggerUrl"])}
-
-
-async def _ensure_gemini_images_16x9_mode(client: Any, force_reload: bool = False) -> None:
-    """Ensures `https://gemini.google.com/images` has `16:9` widescreen selected (isolated from Shorts `9:16`)."""
-    from pipeline.gemini_web_worker import cdp_click_xy, eval_js, navigate_to
-
-    cur_url = await eval_js(client, "location.href") or ""
-    if force_reload or "gemini.google.com" not in str(cur_url):
-        await navigate_to(client, "https://gemini.google.com/images", wait_sec=5.0)
-        await asyncio.sleep(1.5)
-
-    ar_pos = await eval_js(
-        client,
-        """
-        JSON.stringify((() => {
-            for (const el of document.querySelectorAll("button, mat-chip, [role=button]")) {
-                const r = el.getBoundingClientRect();
-                const txt = (el.innerText || "").trim();
-                const al = el.getAttribute("aria-label") || "";
-                if (r.width > 0 && (txt === "16:9" || al.includes("16:9"))) {
-                    return {already_16x9: true, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
-                }
-                if (r.width > 0 && (txt.includes("Aspect ratio") || al.includes("Aspect ratio") || txt === "1:1" || txt === "9:16")) {
-                    return {already_16x9: false, x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
-                }
-            }
-            return null;
-        })())
-        """,
-    )
-    info = json.loads(ar_pos) if ar_pos else None
-    if info and not info.get("already_16x9"):
-        await cdp_click_xy(client, info["x"], info["y"])
-        await asyncio.sleep(1.2)
-        item_pos = await eval_js(
-            client,
-            """
-            JSON.stringify((() => {
-                const c = document.querySelector(".cdk-overlay-container") || document.body;
-                for (const el of c.querySelectorAll("button, [role=menuitem], [role=option], input-companion-item")) {
-                    const r = el.getBoundingClientRect();
-                    const txt = (el.innerText || "").trim();
-                    if (r.width > 0 && (txt.includes("16:9") || txt.toLowerCase().includes("landscape"))) {
-                        return {x: Math.round(r.left + r.width/2), y: Math.round(r.top + r.height/2)};
-                    }
-                }
-                return null;
-            })())
-            """,
-        )
-        pt = json.loads(item_pos) if item_pos else None
-        if pt:
-            await cdp_click_xy(client, pt["x"], pt["y"])
-            await asyncio.sleep(1.0)
-
-
-async def _generate_gemini_image_16x9(
-    client: Any,
-    prompt: str,
-    out_path: Path,
-    conditioning_paths: list[Path] | None = None,
-    force_new_chat: bool = False,
-    timeout_sec: int = 120,
-) -> bool:
-    """Generates a `16:9` widescreen image in Gemini Web App and normalizes to `1920x1080`."""
-    import base64
-    import time
-    from pipeline.gemini_web_worker import eval_js, paste_png_into_editor
-
-    await _ensure_gemini_images_16x9_mode(client, force_reload=force_new_chat)
-    await eval_js(
-        client,
-        """
-        (() => {
-            const ed = document.querySelector(".ql-editor");
-            if (ed) ed.innerHTML = "";
-        })()
-        """,
-    )
-    await asyncio.sleep(0.3)
-
-    if conditioning_paths:
-        for cp in conditioning_paths[:2]:
-            if cp and cp.exists():
-                await paste_png_into_editor(client, cp, wait_sec=2.0)
-
-    before_raw = await eval_js(
-        client,
-        """
-        JSON.stringify(
-            Array.from(document.querySelectorAll("img"))
-                .filter(i => i.naturalWidth > 300 && i.naturalHeight > 300 && !(i.className || "").includes("preview") && !(i.alt || "").includes("Uploaded"))
-                .map(i => i.src)
-        )
-        """,
-    )
-    before_srcs = set(json.loads(before_raw) if before_raw else [])
-
-    await client.type_into([".ql-editor", "div[contenteditable=true]"], prompt)
-    await asyncio.sleep(0.8)
-    await client.click(["button[aria-label*='Send']", "button[aria-label*='submit']", "button.send-button"])
-
-    t0 = time.time()
-    new_src = None
-    while time.time() - t0 < timeout_sec:
-        await asyncio.sleep(2.5)
-        state_raw = await eval_js(
-            client,
-            """
-            JSON.stringify((() => {
-                const imgs = Array.from(document.querySelectorAll("img"))
-                    .filter(i => i.naturalWidth > 300 && i.naturalHeight > 300 && i.complete && !(i.className || "").includes("preview") && !(i.alt || "").includes("Uploaded"))
-                    .map(i => ({src: i.src, w: i.naturalWidth, h: i.naturalHeight}));
-                const bodyTxt = document.body.innerText || "";
-                const busy = bodyTxt.includes("Creating your image") || bodyTxt.includes("Generating");
-                return {imgs, busy};
-            })())
-            """,
-        )
-        st = json.loads(state_raw) if state_raw else {"imgs": [], "busy": False}
-        for im in reversed(st["imgs"]):
-            if im["src"] not in before_srcs:
-                new_src = im["src"]
-                break
-        if new_src and not st["busy"]:
-            await asyncio.sleep(1.0)
-            break
-
-    if not new_src:
-        return False
-
-    b64_png = await eval_js(
-        client,
-        f"""
-        (() => {{
-            const imgs = Array.from(document.querySelectorAll("img"))
-                .filter(i => i.src === "{new_src}" || (i.naturalWidth > 300 && i.naturalHeight > 300));
-            if (!imgs.length) return null;
-            const img = imgs[imgs.length - 1];
-            const c = document.createElement("canvas");
-            c.width = img.naturalWidth;
-            c.height = img.naturalHeight;
-            const ctx = c.getContext("2d");
-            ctx.drawImage(img, 0, 0);
-            return c.toDataURL("image/png");
-        }})()
-        """,
-    )
-    if not b64_png or not str(b64_png).startswith("data:image/png;base64,"):
-        return False
-
-    raw_bytes = base64.b64decode(str(b64_png).split(",", 1)[1])
-    arr = np.frombuffer(raw_bytes, dtype=np.uint8)
-    bgr = cv2.imdecode(arr, cv2.IMREAD_COLOR)
-    if bgr is None:
-        return False
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    cv2.imwrite(str(out_path), bgr)
-    _normalize_generated_png_16x9(out_path)
-    return out_path.exists() and out_path.stat().st_size > 30_000
-
-
 LONGFORM_TRACK_A_I2I_PREFIX = (
     "Horizontal 16:9 high-key architectural documentary photograph (1920x1080). "
     "Match the room layout, apparatus placement, camera angle, and body pose geometry of the first structural guide image "
@@ -952,16 +778,19 @@ async def ensure_longform_reference_pack_async(
     force: bool = False,
 ) -> dict[str, Any]:
     """
-    Synthesizes & verifies all `1920x1080` (`16:9`) Reference Anchor PNGs via `0-credit` Google Flow `Image` (`x4`)
-    (or `--backend gemini` web fallback), never touching pre-existing user tabs and always closing its dedicated
-    worker tab + purging quarantine in `finally:`.
+    Synthesizes & verifies all `1920x1080` (`16:9`) Reference Anchor PNGs exclusively via `0-credit` Google Flow `Image` (`x4`),
+    never touching pre-existing user tabs and always closing its dedicated worker tab + purging quarantine in `finally:`.
     """
-    from pipeline.config import REENACT_EDL_FILENAME
+    from pipeline.config import DEFAULT_REENACT_IMAGE_BACKEND, REENACT_EDL_FILENAME, REENACT_IMAGE_BACKENDS
     from pipeline.flow_ingredients import generate_flow_image_batch
     from pipeline.flow_live_single_worker import allocate_dedicated_flow_project_tab
     from pipeline.studio.whale_session import DirectCDPClient
 
-    eff_backend = "gemini" if str(backend or "flow").strip().lower() == "gemini" else "flow"
+    eff_backend = str(backend or DEFAULT_REENACT_IMAGE_BACKEND).strip().lower()
+    if eff_backend not in REENACT_IMAGE_BACKENDS:
+        raise ValueError(
+            f"Unsupported longform reference image backend: {backend!r} (expected one of {REENACT_IMAGE_BACKENDS})"
+        )
     p_dir = resolve_longform_project_dir(project_id_or_dir, create=False)
     vis_dir = p_dir / "03_visuals"
     ref_dir = vis_dir / REF_IMAGES_DIRNAME
@@ -1012,6 +841,8 @@ async def ensure_longform_reference_pack_async(
                     break
 
     opened_tab_id: str | None = None
+    opened_lease_owner: str | None = None
+    opened_project_urls: list[str] = []
     client_cm = None
     client: DirectCDPClient | None = None
     uploaded_cache: set[str] = set()
@@ -1021,14 +852,18 @@ async def ensure_longform_reference_pack_async(
     failed: list[str] = []
     source_dhashes: list[str] = []
 
-    def _close_tab(tid: str | None) -> None:
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation, release_and_close_leased_tab
+    from pipeline.config import FLOW_AUTO_CLEANUP_ON_SUCCESS
+    from pipeline.flow_workspace import (
+        clean_flow_workspace_async,
+        format_flow_room_name,
+        rename_active_flow_project,
+    )
+
+    def _close_tab(tid: str | None, owner_id: str | None = None) -> None:
         if not tid:
             return
-        try:
-            with urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{tid}", timeout=5):
-                pass
-        except Exception:
-            pass
+        release_and_close_leased_tab(tid, owner_id=owner_id, cdp_port=cdp_port)
 
     try:
         source_dhashes = _prepare_longform_track_a_guides(
@@ -1048,12 +883,13 @@ async def ensure_longform_reference_pack_async(
                     out_png,
                     spec,
                     aspect=FLOW_ASPECT_LONGFORM,
-                    source_dhashes=source_dhashes or None,
                 )
-                if chk.get("passed"):
-                    if out_png.name not in existing_prov:
-                        prov_tag = "gemini_image_generation" if eff_backend == "gemini" else "flow_image_generation"
-                        register_reference_image(p_dir, out_png.name, prov_tag)
+                dh_ok = True
+                if source_dhashes and chk.get("dhash_64"):
+                    dh_ok = min((_hamming_hex(chk["dhash_64"], sdh) for sdh in source_dhashes), default=64) >= REENACT_MIN_DHASH_DISTANCE
+                if chk.get("passed") and dh_ok:
+                    if existing_prov.get(out_png.name) != "flow_image_generation":
+                        register_reference_image(p_dir, out_png.name, "flow_image_generation")
                     generated.append(ref_id)
                     print(f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: cached_ok (1920x1080)", flush=True)
                     continue
@@ -1089,81 +925,55 @@ async def ensure_longform_reference_pack_async(
             for attempt in range(3):
                 try:
                     if client is None:
-                        if eff_backend == "gemini":
-                            alloc = _open_isolated_gemini_tab_16x9(cdp_port=cdp_port)
-                        else:
-                            alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
+                        alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
                         opened_tab_id = str(alloc["tab_id"])
+                        opened_lease_owner = alloc.get("lease_owner_id")
+                        proj_u = str(alloc.get("project_url") or "")
+                        if proj_u and proj_u not in opened_project_urls:
+                            opened_project_urls.append(proj_u)
                         client_cm = DirectCDPClient(str(alloc["ws_url"]))
                         client = await client_cm.__aenter__()
+                        await enable_background_focus_emulation(client)
                         await client.send("Page.enable")
+                        await rename_active_flow_project(client, format_flow_room_name(p_dir.name, role="lf-refs"))
                         uploaded_cache.clear()
                         seen_img_srcs.clear()
-                        if eff_backend == "gemini":
-                            await asyncio.sleep(4.0)
 
                     retry_tail = (
                         ""
                         if attempt == 0
                         else " Ensure bright high-key daylight architectural exposure, crisp edges, smooth matte-white porcelain oval heads, and full-bleed 16:9 widescreen composition."
                     )
-                    if eff_backend == "gemini":
+                    print(
+                        f"[longform-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} (16:9 0-credit x{batch_count}, try {attempt + 1}/3, cond={[p.name for p in cond_paths]})...",
+                        flush=True,
+                    )
+                    flow_res = await generate_flow_image_batch(
+                        client=client,
+                        prompt=eff_prompt_base + retry_tail,
+                        out_path=out_png,
+                        conditioning_paths=cond_paths[:2] if cond_paths else None,
+                        batch_count=batch_count,
+                        aspect=FLOW_ASPECT_LONGFORM,
+                        uploaded_cache=uploaded_cache,
+                        seen_img_srcs=seen_img_srcs,
+                        spec=spec,
+                        source_dhashes=source_dhashes or None,
+                        project_dir=p_dir,
+                    )
+                    if flow_res.get("ok") and out_png.exists():
+                        generated.append(ref_id)
+                        ok_this = True
                         print(
-                            f"[longform-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} (16:9 Gemini fallback, try {attempt + 1}/3)...",
+                            f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED 1920x1080 "
+                            f"(best_of={flow_res.get('candidate_count')}, score={flow_res.get('quality_score')})",
                             flush=True,
                         )
-                        gen_ok = await _generate_gemini_image_16x9(
-                            client=client,
-                            prompt=eff_prompt_base + retry_tail,
-                            out_path=out_png,
-                            conditioning_paths=cond_paths[:2] if cond_paths else None,
-                            force_new_chat=(attempt > 0 or (idx_sp % 5 == 0)),
-                        )
-                        if gen_ok and out_png.exists():
-                            _normalize_generated_png_16x9(out_png)
-                            q_chk = inspect_single_reference_image(
-                                out_png,
-                                spec,
-                                aspect=FLOW_ASPECT_LONGFORM,
-                                source_dhashes=source_dhashes or None,
-                            )
-                            if q_chk.get("passed"):
-                                register_reference_image(p_dir, out_png.name, "gemini_image_generation")
-                                generated.append(ref_id)
-                                ok_this = True
-                                break
-                            out_png.unlink(missing_ok=True)
-                    else:
-                        print(
-                            f"[longform-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} (16:9 0-credit x{batch_count}, try {attempt + 1}/3, cond={[p.name for p in cond_paths]})...",
-                            flush=True,
-                        )
-                        flow_res = await generate_flow_image_batch(
-                            client=client,
-                            prompt=eff_prompt_base + retry_tail,
-                            out_path=out_png,
-                            conditioning_paths=cond_paths[:2] if cond_paths else None,
-                            batch_count=batch_count,
-                            aspect=FLOW_ASPECT_LONGFORM,
-                            uploaded_cache=uploaded_cache,
-                            seen_img_srcs=seen_img_srcs,
-                            spec=spec,
-                            source_dhashes=source_dhashes or None,
-                            project_dir=p_dir,
-                        )
-                        if flow_res.get("ok") and out_png.exists():
-                            generated.append(ref_id)
-                            ok_this = True
-                            print(
-                                f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED 1920x1080 "
-                                f"(best_of={flow_res.get('candidate_count')}, score={flow_res.get('quality_score')})",
-                                flush=True,
-                            )
-                            break
-                        print(
-                            f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} miss: {flow_res.get('reason')}",
-                            flush=True,
-                        )
+                        break
+                    print(
+                        f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} miss: {flow_res.get('reason')}",
+                        flush=True,
+                    )
                 except Exception as exc:
                     print(f"[longform-refs {idx_sp}/{len(ordered_specs)}] transient CDP error ({exc}); rotating tab...", flush=True)
                     if client_cm is not None:
@@ -1171,10 +981,11 @@ async def ensure_longform_reference_pack_async(
                             await client_cm.__aexit__(None, None, None)
                         except Exception:
                             pass
-                    _close_tab(opened_tab_id)
+                    _close_tab(opened_tab_id, opened_lease_owner)
                     client_cm = None
                     client = None
                     opened_tab_id = None
+                    opened_lease_owner = None
                     await asyncio.sleep(2.0)
 
             if not ok_this:
@@ -1187,8 +998,18 @@ async def ensure_longform_reference_pack_async(
                 await client_cm.__aexit__(None, None, None)
             except Exception:
                 pass
-        _close_tab(opened_tab_id)
+        _close_tab(opened_tab_id, opened_lease_owner)
         purge_longform_quarantine(slug)
+        if not failed and FLOW_AUTO_CLEANUP_ON_SUCCESS and opened_project_urls:
+            try:
+                await clean_flow_workspace_async(
+                    cdp_port=cdp_port,
+                    temp_project_id=p_dir.name,
+                    project_urls=opened_project_urls,
+                    clean_local_temp=True,
+                )
+            except Exception:
+                pass
 
     qa_rep = inspect_longform_reference_pack(
         p_dir,

@@ -1,0 +1,153 @@
+{
+  "scenes": [
+    {
+      "id": "hotel_first_night_bed",
+      "title": "Night 1 unfamiliar bedroom sleep suite: right hemisphere sleeps while left hemisphere taps awake at deviant tones",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2016 Brown University Sleep & Vision Laboratory two-night neuroimaging study",
+      "layout": {
+        "description": "Bright architectural sleep-laboratory bedroom with crisp white hotel-style platform bed at center, walnut bedside stand holding an unmarked finger-tap button pad on the right, and an observation window on the left.",
+        "positions": [
+          {
+            "who": "Volunteer sleeper (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in slate-blue cotton pajama cardigan and soft white sleep earphones)",
+            "where": "lying supine on the crisp white hotel-style mattress with right porcelain hand resting beside the bedside response pad",
+            "facing": "upward and angled slightly toward the bedside response pad"
+          },
+          {
+            "who": "Sleep neuroscientist (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in crisp white lab coat over charcoal knit)",
+            "where": "standing beside the bed checking scalp sensor leads, then watching through the observation window",
+            "facing": "facing the bed and dual-hemisphere waveform monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "crisp white hotel-style pillow, soft acoustic earphones, and slender scalp sensor leads",
+          "period_detail": "unmarked white cotton bedding paired with minimal white clinical sleep leads",
+          "physical_behavior": "sleeper shifts restlessly on the unfamiliar pillow on Night 1 and snaps awake when an oddball earphone tone arrives"
+        },
+        {
+          "name": "unmarked bedside finger-tap response pad and dual waveform display",
+          "period_detail": "clean brushed-aluminum button pad beside a text-free dual wave monitor",
+          "physical_behavior": "right index finger briskly depresses the button pad as the top left-hemisphere wave trace spikes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Volunteer sleeper",
+          "verb_sequence": "lies still on the crisp white pillow wearing slender sensor leads -> briskly presses the bedside button pad with right index finger the instant an irregular tone sounds"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleep neuroscientist",
+          "reaction": "leans closer to the unmarked dual-wave display comparing the shallow top trace against the deep slow bottom trace"
+        }
+      ],
+      "wardrobe": "Volunteer in slate-blue buttoned cotton pajama cardigan and trousers; researcher in crisp white lab coat over charcoal sweater.",
+      "lighting": "Clean high-key cool architectural daylight-moonlight balance with soft rim illumination.",
+      "recognition_hook": "On Night 1 in an unfamiliar bed, half your brain stays on dolphin-like night-watch duty and snaps your hand awake three times faster.",
+      "sources": [
+        "tamaki_2016",
+        "agnew_1966",
+        "sleep_bed_sensors"
+      ],
+      "key_visual": {
+        "description": "porcelain sleeper in slate-blue pajama cardigan lying on a crisp white hotel-style bed wearing slender scalp leads and pressing a bedside button pad while a researcher watches behind glass",
+        "must_show": [
+          "bed|pillow",
+          "sensor|lead|pad|button",
+          "porcelain"
+        ],
+        "source": "sleep_bed_sensors@00:25-01:15; tamaki_2016"
+      }
+    },
+    {
+      "id": "night_two_familiar_pillow_reset",
+      "title": "Night 2 adaptation & familiar pillowcase cue calming left-hemisphere sentinel",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2016 Brown University Night 2 session & everyday hotel bedroom",
+      "layout": {
+        "description": "Same minimalist hotel-style bedroom with sleeper slipping a familiar oatmeal-linen home pillowcase onto the hotel pillow before resting deeply.",
+        "positions": [
+          {
+            "who": "Traveler sleeper (porcelain figure in slate-blue pajama cardigan)",
+            "where": "seated at the edge of the bed smoothing a familiar home pillowcase over the pillow",
+            "facing": "facing the bed center"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "folded oatmeal-linen home pillowcase over hotel pillow",
+          "period_detail": "unmarked natural woven linen pillow slip carried in an open overnight bag",
+          "physical_behavior": "porcelain hands smooth the familiar linen pillowcase flat before shoulders sink into deep stillness"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Traveler sleeper",
+          "verb_sequence": "slips a folded oatmeal-linen pillowcase over the hotel pillow -> settles head deeply onto the linen with relaxed motionless hands"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Traveler sleeper",
+          "reaction": "chest rises in slow even breaths without twitching toward the bedside pad"
+        }
+      ],
+      "wardrobe": "Slate-blue cotton pajama cardigan.",
+      "lighting": "Warm calm architectural evening studio balance.",
+      "recognition_hook": "By Night 2 — or when familiar scent/bedding cues disarm novelty — both hemispheres drop into matching deep delta waves.",
+      "sources": [
+        "tamaki_2016",
+        "ding_2024"
+      ]
+    },
+    {
+      "id": "brain_hemisphere_nightwatch",
+      "title": "Contained Living 4-Color 3D Brain dorsal split: sleeping right hemisphere vs vigilant left default-mode network",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2016-2025 Neuroimaging Circuit Studio",
+      "layout": {
+        "description": "Bright white architectural gallery housing a Contained Living 4-Color 3D Brain dorsal cutaway on a matte-white pedestal.",
+        "positions": [
+          {
+            "who": "3D Two-Hemisphere Living Brain Model",
+            "where": "centered on matte-white gallery pedestal",
+            "facing": "dorsal-anterior three-quarter camera angle"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "translucent dorsal 3D brain cutaway",
+          "period_detail": "contained subsurface four-color internal glow with zero external particle spill",
+          "physical_behavior": "right hemisphere pulses with deep pearl-aqua slow waves while left default-mode hubs glow warm amber-gold and crimson-red"
+        }
+      ],
+      "actions": [
+        {
+          "who": "3D Brain",
+          "verb_sequence": "pulses calm pearl-aqua waves across the right hemisphere -> flashes amber-gold and crimson-red sentinel signals along the left prefrontal-thalamic loop"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "3D Brain",
+          "reaction": "by Night 2 both hemispheres synchronize into matching deep electric cyan-blue and pearl-aqua slow waves"
+        }
+      ],
+      "wardrobe": "None (pure anatomical studio cutaway).",
+      "lighting": "Bright high-key white gallery daylight.",
+      "recognition_hook": "Visualizes half-asleep asymmetric human brain activity side-by-side inside one skull.",
+      "sources": [
+        "tamaki_2016",
+        "kjaerby_2025"
+      ]
+    }
+  ]
+}

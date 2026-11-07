@@ -1,0 +1,154 @@
+{
+  "scenes": [
+    {
+      "id": "car_crash_screening_room",
+      "title": "Loftus 1974 & 1995 Memory Lab: clean two-sedan collision screen + four-story 'Lost in the Mall' booklet",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1974 & 1995 University of Washington Memory Laboratory, Seattle",
+      "layout": {
+        "description": "Bright minimalist psychology screening & interview room with two unpainted matte-porcelain scale sedans resting nose-to-fender on a clean gray test-track table beside a wall projection frame, while an adult volunteer sits across an oak interview desk holding a four-page cream booklet.",
+        "positions": [
+          {
+            "who": "Adult eyewitness volunteer (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in olive knit sweater and beige slacks)",
+            "where": "seated at the oak interview desk holding a wooden pencil over a four-story cream booklet",
+            "facing": "facing the psychologist and test-track display"
+          },
+          {
+            "who": "Memory psychologist (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in tailored charcoal blazer over cream shirt)",
+            "where": "seated opposite at the oak desk sliding the four-story booklet forward",
+            "facing": "facing the volunteer across the oak desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two minimalist matte sedans nose-to-fender on clean gray asphalt track with zero broken glass",
+          "period_detail": "1970s four-door sedan silhouettes on spotless gray surface without a single glass shard",
+          "physical_behavior": "cars meet cleanly bumper-to-fender leaving the gray surface completely free of debris"
+        },
+        {
+          "name": "cream four-page childhood story booklet and unpainted cedar pencil",
+          "period_detail": "blank-text cream paper interview booklet divided into four story panels",
+          "physical_behavior": "psychologist slides the open booklet across the oak desk as the volunteer taps the fourth page confidently"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Memory psychologist",
+          "verb_sequence": "slides the open four-panel cream booklet across the oak desk -> points one porcelain finger beside the clean two-sedan collision model"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult eyewitness volunteer",
+          "reaction": "nods firmly and taps the cedar pencil onto the booklet in total confidence despite zero broken glass on the track"
+        }
+      ],
+      "wardrobe": "Volunteer in olive knit crew sweater and beige trousers; psychologist in tailored charcoal blazer over cream collared blouse.",
+      "lighting": "Crisp bright architectural daylight studio illumination.",
+      "recognition_hook": "Two cars bump with zero broken glass — yet changing one verb or slipping one fake page into a family booklet makes 1 in 4 brains swear they saw it.",
+      "sources": [
+        "loftus_1974",
+        "loftus_1995",
+        "loftus_crash_film"
+      ],
+      "key_visual": {
+        "description": "two minimalist matte sedans meeting bumper-to-fender on clean spotless gray pavement while a porcelain psychologist in a charcoal blazer hands a cream booklet to a porcelain volunteer at an oak desk",
+        "must_show": [
+          "car|sedan",
+          "booklet|desk|pencil",
+          "porcelain"
+        ],
+        "source": "loftus_crash_film@00:07-00:18; loftus_1974; loftus_1995"
+      }
+    },
+    {
+      "id": "kitchen_couple_two_notebooks",
+      "title": "Everyday argument memory drift vs timestamped written notes",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Present-day minimalist kitchen table",
+      "layout": {
+        "description": "Sunlit minimalist oak dining table where two porcelain adults compare a small open pocket notebook peacefully instead of arguing from memory.",
+        "positions": [
+          {
+            "who": "Two porcelain adults in olive and cream knitwear",
+            "where": "seated across a sunlit oak table looking down at an open pocket notebook",
+            "facing": "facing each other calmly"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unmarked linen-bound pocket notebook and ceramic mugs",
+          "period_detail": "clean tactile paper notebook with zero readable lettering",
+          "physical_behavior": "both porcelain hands rest calmly beside the open notebook as shoulders relax"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Porcelain adult",
+          "verb_sequence": "opens the linen pocket notebook flat on the oak table -> rests open palm peacefully beside it"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Partner",
+          "reaction": "inclines smooth oval head in calm agreement"
+        }
+      ],
+      "wardrobe": "Olive and warm cream knit sweaters.",
+      "lighting": "Warm morning daylight.",
+      "recognition_hook": "Written receipts protect relationships from sincere hippocampal editing.",
+      "sources": [
+        "carpenter_2018",
+        "brewin_2017"
+      ]
+    },
+    {
+      "id": "brain_hippocampal_splice",
+      "title": "Contained Living 4-Color 3D Brain medial temporal cutaway: hippocampus splicing semantic threads",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013-2018 Memory Engram & fMRI Gallery",
+      "layout": {
+        "description": "Bright white architectural gallery with Contained Living 4-Color 3D Brain sagittal-temporal cutaway on matte-white pedestal.",
+        "positions": [
+          {
+            "who": "3D Medial-Temporal Brain Model",
+            "where": "centered on matte-white pedestal",
+            "facing": "three-quarter medial view"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "translucent 3D brain cutaway highlighting hippocampus, temporal lobe, and prefrontal cortex",
+          "period_detail": "contained subsurface four-color illumination",
+          "physical_behavior": "electric cyan-blue hippocampus weaves warm amber-gold temporal lobe semantic strands into a crimson-red flash of mistaken prefrontal certainty"
+        }
+      ],
+      "actions": [
+        {
+          "who": "3D Brain",
+          "verb_sequence": "pulses electric cyan-blue along the curved hippocampus -> splices warm amber-gold temporal pathways into front prefrontal hubs"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "3D Brain",
+          "reaction": "crimson-red false-certainty flare settles into clear pearl-aqua balance"
+        }
+      ],
+      "wardrobe": "None.",
+      "lighting": "Bright high-key white gallery daylight.",
+      "recognition_hook": "Shows how flexible retrieval stitches real fragments into a seamless new memory.",
+      "sources": [
+        "chadwick_2016",
+        "carpenter_2018",
+        "ramirez_2013"
+      ]
+    }
+  ]
+}

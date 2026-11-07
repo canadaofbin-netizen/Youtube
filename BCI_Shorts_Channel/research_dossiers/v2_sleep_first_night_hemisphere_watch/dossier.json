@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "slug": "v2_sleep_first_night_hemisphere_watch",
+  "topic": "Why Your Left Hemisphere Stays Awake on Your First Night in a Hotel Bed",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs clinical/behavioral experiment reenactment in bright minimalist rooms with Contained Living 4-Color 3D Brain circuit cutaways.",
+  "primary_doi": "10.1016/j.cub.2016.02.063",
+  "primary_case": {
+    "year": 2016,
+    "place": "Brown University Sleep & Vision Laboratory, Providence, Rhode Island",
+    "summary": "Yuka Sasaki and Masako Tamaki placed 35 healthy volunteers inside a neuroimaging sleep suite across two nights, discovering that on Night 1 only the left default-mode network refused deep slow-wave sleep and fired faster brain responses to unfamiliar beeps like a marine mammal's sentinel hemisphere.",
+    "people": [
+      {
+        "name": "Masako Tamaki & Yuka Sasaki",
+        "role": "Brown University cognitive neuroscientists (Current Biology, 2016)",
+        "bio": "Combined magnetoencephalography, structural MRI, and polysomnography across 35 volunteers to uncover asymmetric left-hemisphere night-watch vigilance on Night 1."
+      },
+      {
+        "name": "H. W. Agnew Jr., Wilse B. Webb & Robert L. Williams",
+        "role": "University of Florida sleep psychophysiologists (Psychophysiology, 1966)",
+        "bio": "Coined and quantified the First-Night Effect in human laboratory sleep studies, proving Night 1 systematically distorts sleep architecture."
+      },
+      {
+        "name": "Mie Andersen / Celia Kjaerby & Maiken Nedergaard",
+        "role": "University of Copenhagen sleep circuit researchers (Nature Neuroscience, 2025)",
+        "bio": "Mapped infraslow noradrenergic locus coeruleus fluctuations that keep sensory sentinel windows open during NREM sleep."
+      }
+    ]
+  },
+  "people": [
+    {
+      "name": "Masako Tamaki & Yuka Sasaki",
+      "role": "Brown University cognitive neuroscientists (Current Biology, 2016)",
+      "bio": "Combined magnetoencephalography, structural MRI, and polysomnography across 35 volunteers to uncover asymmetric left-hemisphere night-watch vigilance on Night 1."
+    },
+    {
+      "name": "H. W. Agnew Jr., Wilse B. Webb & Robert L. Williams",
+      "role": "University of Florida sleep psychophysiologists (Psychophysiology, 1966)",
+      "bio": "Coined and quantified the First-Night Effect in human laboratory sleep studies, proving Night 1 systematically distorts sleep architecture."
+    },
+    {
+      "name": "Mie Andersen / Celia Kjaerby & Maiken Nedergaard",
+      "role": "University of Copenhagen sleep circuit researchers (Nature Neuroscience, 2025)",
+      "bio": "Mapped infraslow noradrenergic locus coeruleus fluctuations that keep sensory sentinel windows open during NREM sleep."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "Tossing and snapping awake at tiny hallway footsteps or elevator chimes on your very first night in a hotel room or unfamiliar bed despite feeling exhausted.",
+    "psychology_experiment": {
+      "source_id": "agnew_1966",
+      "doi": "10.1111/j.1469-8986.1966.tb02650.x",
+      "source_ids": [
+        "agnew_1966"
+      ],
+      "dois": [
+        "10.1111/j.1469-8986.1966.tb02650.x"
+      ],
+      "summary": "Agnew, Webb & Williams (1966) and Tamaki et al. (2016) behavioral oddball tests showed sleepers in an unfamiliar bed take longer to fall asleep and wake up significantly faster to quiet deviant tones on Night 1 than Night 2."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "tamaki_2016",
+      "doi": "10.1016/j.cub.2016.02.063",
+      "source_ids": [
+        "tamaki_2016",
+        "kjaerby_2025"
+      ],
+      "dois": [
+        "10.1016/j.cub.2016.02.063",
+        "10.1038/s41593-024-01822-0"
+      ],
+      "summary": "Tamaki & Sasaki (2016) proved slow-wave depth drops selectively in the left default-mode network on Night 1 while the right hemisphere sleeps deeply, coupled to infraslow noradrenergic vigilance gating (2025)."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Travelers assume first-night hotel insomnia comes from a bad mattress or travel stress breaking their sleep switch.",
+    "open_verdict_question": "On night one in a strange hotel, would you pack your own pillowcase to trick that sentinel off duty or let half your brain stand guard?",
+    "offcenter_creator_bet": "My bet: I pack my own pillowcase — familiar scent calms the left-brain sentinel on night one. Pack your pillowcase or let it guard?"
+  },
+  "core_facts": [
+    {
+      "fact": "Across 35 healthy volunteers, Night 1 in an unfamiliar bed produced significantly shallower slow-wave activity in the left default-mode network than in the right hemisphere.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "fact": "The bigger the inter-hemispheric slow-wave asymmetry between left and right hemispheres, the longer volunteers took to fall asleep on Night 1.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "fact": "When quiet irregular deviant beeps played into sleepers' earphones, the vigilant left hemisphere generated larger cortical evoked responses and triggered faster behavioral waking finger-taps on Night 1 than Night 2.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "fact": "By Night 2 in the exact same room, left-hemisphere slow-wave depth rebounded to match the right hemisphere as the brain classified the room as safe.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "fact": "Clinical sleep laboratories routinely discard Night 1 polysomnography recordings because unfamiliar beds systematically increase awakenings and delay deep sleep.",
+      "source_id": "agnew_1966"
+    },
+    {
+      "fact": "Infraslow noradrenergic fluctuations every few dozen seconds create periodic sentinel windows during NREM sleep without waking the whole cortex.",
+      "source_id": "kjaerby_2025"
+    },
+    {
+      "fact": "Home-based vs hospital-based sleep recordings show environmental familiarity moderates the magnitude of first-night sleep disruption.",
+      "source_id": "ding_2024"
+    },
+    {
+      "fact": "Follow-up human sleep neuroimaging demonstrated heightened protective surveillance circuits extend across first-night sleep transitions.",
+      "source_id": "tamaki_2019"
+    },
+    {
+      "fact": "Aquatic mammals and birds evolved unihemispheric slow-wave sleep so one cerebral hemisphere monitors predators while the other hemisphere recovers.",
+      "source_id": "rattenborg_2000"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Like dolphins and migratory birds sleeping with one eye and one hemisphere open, humans keep their left default-mode network on night-watch duty in a new bed.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "fact": "Quiet oddball tones played into the right ear (routed to the vigilant left hemisphere) woke sleepers three times faster on Night 1 than tones played into the left ear.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "fact": "By Night 2 in the exact same room, the inter-hemispheric asymmetry vanishes automatically once the room passes safety inspection.",
+      "source_id": "tamaki_2016"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "You slept terribly at the hotel because the mattress or AC was uncomfortable.",
+      "reality": "Even in a quiet, climate-controlled sleep suite, your left hemisphere deliberately withholds deep slow-wave sleep on Night 1 as a survival night-watch.",
+      "source_id": "tamaki_2016"
+    },
+    {
+      "myth": "Your entire brain sleeps or wakes up as one uniform block.",
+      "reality": "Human brain networks show local asymmetric sleep depth, keeping left-hemisphere default-mode hubs lighter while right-hemisphere hubs sleep deeply.",
+      "source_id": "tamaki_2016"
+    }
+  ],
+  "everyday_hooks": [
+    "Checking into a quiet hotel exhausted at 11 p.m., yet snapping wide awake at every distant hallway footstep.",
+    "Sleeping terribly on Sunday night before a big Monday trip and blaming a 'broken' sleep schedule.",
+    "Wondering why Night 2 of every vacation suddenly feels twice as restorative as Night 1."
+  ],
+  "reenactment_track": "track_a",
+  "reenactment_track_subtier": "A1a_ready_keyframes",
+  "shorts_projects": [
+    "boost_01_sleep_first_night_watch"
+  ]
+}

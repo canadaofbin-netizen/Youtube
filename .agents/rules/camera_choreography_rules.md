@@ -1,44 +1,22 @@
-# Rule: Camera Choreography Protocol
+# Camera Choreography Rules (`R14-D`, `R55`)
 
-Parent Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) · Scene/setting rules: [visual_prompt_spec.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md)
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Prompts: [visual_prompt_spec.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md), [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md) | Code: [`pipeline/depiction_rules.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/depiction_rules.py)
 
-Scope: the camera sentence inside each Flow prompt scene. Trimming, holds and speed belong to [audio_assembly_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/audio_assembly_rules.md).
+## Active Schema v7 Camera Rig (`DIORAMA_V7_CAMERA_MOVES` — `R63` / `R66`)
+- **Orthogonal Documentary Rig**: Tripod lock-off floor `>= DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO` (`0.35`, target `~0.40`), zoom/push-pull ceiling `<= DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO` (`0.30`); `PORCELAIN_V7_MIN_CUT_SEC..PORCELAIN_V7_LONG_TAKE_MAX_SEC` same-scene multi-angle coverage (wide room -> hands insert -> POV hands -> cutaway/brain).
+- **One Move Per Clip**: Never chain conflicting moves (`orbit + whip-pan + dolly`) or embed `Camera Angle N` / `Shot N` labels. Anchor brain targets by anatomical name (`temporal lobe`, `ventral surface`), never screen quadrant (`upper-left`).
 
----
-
-## R14-D — Per-Role Camera Vocabulary
-One clean camera move per clip, written as one sentence in plain film language. Roles come from `clip_roles(n)`; the builder stores the chosen move in `clip.camera_move`.
-
-| Role | Canonical move | Allowed vocabulary | Golden phrasing (Capgras) |
-|---|---|---|---|
-| setup | wide establishing shot, camera smoothly tracks forward toward the subject | wide shot, establishing, tracks forward, glides toward | "Wide establishing shot, camera smoothly tracks forward toward his face." |
-| symptom | close-up, slow orbit around the head revealing the colour points through the cranium | close-up, slowly orbits, circles, revealing | "The camera slowly orbits his head, revealing the brain through the translucent frosted-glass cranium" |
-| failure | smooth lateral tracking between figures | tracks sideways, lateral track, slides between | "The camera tracks smoothly sideways between them, capturing the distance." |
-| crisis | dive through the frosted-glass cranium → glide over gyri/sulci → zoom into the target | dives through, glides over, zooms into | "The camera dives smoothly through … It glides over the cortex and zooms into the temporal lobe" |
-| pivot | smooth orbit around the structures, push in on the compensatory route | orbits, pushes in | "the camera smoothly orbits two separate structures … slowly pushes in on the glowing amber-gold route" |
-| mechanism / step1 / step2 | macro tracking along the signal path | macro view, follows, tracks the flowing signal, orbits the gap | "The camera tracks the flowing signal from back to front." |
-| step3 | pull back to reveal the full circuit | pulls back to reveal, the full brain turns | "The camera pulls back to reveal the whole circuit" |
-| breakthrough | pull out of the brain through the cranium into the real environment | pulls out, back through the cranium, into the room | "The camera pulls smoothly out of the brain, back through the translucent frosted-glass cranium, into the hospital room." |
-| conclusion | slow pull-back rising to an elevated wide shot | pulls back, rises, elevated angle | "The camera slowly pulls back and rises to an elevated angle." |
-
-## Composition Rules
-| Rule | Requirement |
+## R14-D & R55 — Legacy v4/v5 Role Camera Map (`clip.camera_move`)
+| Role | Move (`classic_v5` / brain transitions) |
 |---|---|
-| One move | Never chain conflicting moves (orbit + whip-pan + dolly) or list multiple angles in one clip. |
-| No labels | No `Camera Angle N`, `Shot N`, `Angle Group` labels in prompts. |
-| Continuity | Adjacent clips hand off spatially: real_env → drill_down enters the cranium; brain_void clips stay inside; pull_out exits to the same environment as setup. |
-| Anatomical anchoring | Name brain regions by anatomy (temporal lobe, ventral surface, behind the forehead), never by screen position (upper-left, upper-right). |
-| Ending | Conclusion is an independent elevated wide scene (R19); it does not return to the clip 1 framing. |
-| Banned camera words | locked-off, tripod, dolly-percentage push-ins, decoupled kinetic, seamless loop, loop back (see R14-B). |
+| `setup` | Wide establishing shot smoothly tracking forward toward subject |
+| `symptom` | Close-up slow orbit around head |
+| `failure` | Smooth lateral track between figures |
+| `crisis` (`R55` dive) | Smooth dive through frosted-glass cranium -> glide over gyri/sulci -> zoom into target |
+| `pivot` | Smooth orbit around structures, push in on `amber-gold` compensatory route |
+| `mechanism` / `step1` / `step2` | Macro tracking following contained signal stream along `signal_path` |
+| `step3` | Pull back to reveal full 3D anatomical circuit |
+| `breakthrough` (`R55` exit) | Smooth pull-out from brain through cranium back into room |
+| `conclusion` (`R19`) | Independent slow pull-back rising to elevated wide shot (never loops to Clip 1) |
 
-## R14-D v5 — Reenactment Camera (Prompt System v5)
-In v5 plans the setting of each clip comes from the visual mode (R45), so the table above applies to **brain clips only**. Reenactment (`real_env`) clips choose the camera that best shows the action (stored in `visual_plan.shots[role].camera`):
-
-| Purpose | Vocabulary |
-|---|---|
-| Iconic moment (clip 1–2) | low-angle tracking shot, slow push-in on the hands, whip of motion followed by a hold, overhead wide that shows the blocking (E / T / L positions) |
-| Body action + prop | close-up tracking the hand on the prop (switch, rod, ball, food bowl), insert shot of the prop changing (needle jumps, saliva drips, ball bounces) |
-| Reaction | medium shot pushing in as the figure recoils / freezes / turns to someone |
-| Crowd / teams | wide lateral track along the line of players, crane up over the room |
-
-Still one move per clip, and the camera sentence is part of the Action-Physics formula (R47).
+- **R14-D v5 (`real_env` Reenactment)**: `visual_plan.shots[role].camera` selects 1 action-matched move: iconic blocking (`low-angle tracking`, `overhead wide`), prop physics (`close-up tracking hand on prop`, `insert shot of prop change`), or reaction (`medium push-in`). Note: `locked-off`/`tripod` are banned in legacy v4 (`R14-B`) ONLY; Schema v7 explicitly requires `locked_tripod` (`>= 35%`).

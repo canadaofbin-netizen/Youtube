@@ -1,0 +1,166 @@
+{
+  "schema": "source_reenactment_edl_v1",
+  "rule": "R67",
+  "slug": "glymphatic_sleep_toxins",
+  "source_reference_id": "https://www.youtube.com/watch?v=N3VJHjALUEo",
+  "source_video_id": "N3VJHjALUEo",
+  "extracted_at": "2026-11-04T15:32:48.300998+00:00",
+  "source_geometry": {
+    "width": 640,
+    "height": 360,
+    "fps": 29.97,
+    "duration_sec": 34.0,
+    "aspect_ratio": 1.7778
+  },
+  "shot_count": 7,
+  "shots": [
+    {
+      "shot_id": "S01",
+      "shot_index": 1,
+      "start_sec": 0.0,
+      "end_sec": 4.2,
+      "duration_sec": 4.2,
+      "source_start_dhash_64": "0000000c04000000",
+      "source_end_dhash_64": "084c0c0c0c16070b",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": -0.0,
+      "optical_flow_dy": -0.0,
+      "motion_magnitude": 3.942,
+      "active_zones": [
+        "center_action_zone"
+      ]
+    },
+    {
+      "shot_id": "S02",
+      "shot_index": 2,
+      "start_sec": 4.2,
+      "end_sec": 8.41,
+      "duration_sec": 4.21,
+      "source_start_dhash_64": "41e9e8f0f4f0f4e4",
+      "source_end_dhash_64": "41c1b03030383094",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": -0.001,
+      "optical_flow_dy": 0.016,
+      "motion_magnitude": 2.647,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S03",
+      "shot_index": 3,
+      "start_sec": 8.41,
+      "end_sec": 12.85,
+      "duration_sec": 4.44,
+      "source_start_dhash_64": "f0606161b9989878",
+      "source_end_dhash_64": "fbf9fadb8f1b3161",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": -0.002,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 5.026,
+      "active_zones": [
+        "center_action_zone"
+      ]
+    },
+    {
+      "shot_id": "S04",
+      "shot_index": 4,
+      "start_sec": 12.85,
+      "end_sec": 18.69,
+      "duration_sec": 5.84,
+      "source_start_dhash_64": "bf7e767e7c735478",
+      "source_end_dhash_64": "7cc99b8b9b132707",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 0.022,
+      "optical_flow_dy": 0.007,
+      "motion_magnitude": 6.304,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone"
+      ]
+    },
+    {
+      "shot_id": "S05",
+      "shot_index": 5,
+      "start_sec": 18.69,
+      "end_sec": 23.82,
+      "duration_sec": 5.13,
+      "source_start_dhash_64": "41c1707070787054",
+      "source_end_dhash_64": "41c1903030383094",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": 0.001,
+      "optical_flow_dy": 0.001,
+      "motion_magnitude": 1.161,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S06",
+      "shot_index": 6,
+      "start_sec": 23.82,
+      "end_sec": 31.06,
+      "duration_sec": 7.24,
+      "source_start_dhash_64": "fc9d19b9b1f9f999",
+      "source_end_dhash_64": "3e2f4fc5c6dacccc",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": 0.018,
+      "optical_flow_dy": 0.077,
+      "motion_magnitude": 7.713,
+      "active_zones": [
+        "left_foreground_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S07",
+      "shot_index": 7,
+      "start_sec": 31.06,
+      "end_sec": 34.0,
+      "duration_sec": 2.94,
+      "source_start_dhash_64": "41c1b0303038748c",
+      "source_end_dhash_64": "831b098d9dcdcee6",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": 0.007,
+      "optical_flow_dy": 0.037,
+      "motion_magnitude": 7.002,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    }
+  ],
+  "source_dhash_64_list": [
+    "0000000c04000000",
+    "084c0c0c0c16070b",
+    "41e9e8f0f4f0f4e4",
+    "41c1b03030383094",
+    "f0606161b9989878",
+    "fbf9fadb8f1b3161",
+    "bf7e767e7c735478",
+    "7cc99b8b9b132707",
+    "41c1707070787054",
+    "41c1903030383094",
+    "fc9d19b9b1f9f999",
+    "3e2f4fc5c6dacccc",
+    "41c1b0303038748c",
+    "831b098d9dcdcee6"
+  ],
+  "source_5gram_sha256_list": [],
+  "source_personal_names": [],
+  "sanitization_verified": true,
+  "zero_raw_pixels_in_repo": true,
+  "section_window": "00:02-00:36",
+  "section_bounds_sec": [
+    2.0,
+    36.0
+  ]
+}

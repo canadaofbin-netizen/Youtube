@@ -911,8 +911,8 @@ def main():
     p_rq.add_argument("--audit", action="store_true", default=False,
                       help="Audit finished clips: extract raw frames (tagged extracted_from_clip, never pre-generation ready)")
     p_rq.add_argument("--register", default=None, help="Register an image already saved in reference_images/: <filename>")
-    p_rq.add_argument("--source", default="flow_image_generation",
-                      help="Provenance for --register: flow_image_generation | gemini_image_generation")
+    p_rq.add_argument("--source", default="flow_image_generation", choices=["flow_image_generation"],
+                      help="Provenance for --register: flow_image_generation (locked to Google Flow Image mode)")
     p_rq.add_argument(
         "--require-review",
         action=argparse.BooleanOptionalAction,
@@ -928,7 +928,7 @@ def main():
 
     p_pk = subparsers.add_parser("packets", help="Scene blueprint + per-clip generation packets (start / key / end frame, timed prompt) (R52)")
     p_pk.add_argument("--project", required=True, help="Target project ID or directory")
-    p_pk.add_argument("--backend", default="gemini_app", choices=["gemini_app", "flow"])
+    p_pk.add_argument("--backend", default="flow", choices=["flow", "gemini_app"])
     p_pk.add_argument("--voice-source", default="tts", choices=["tts", "native"])
     p_pk.add_argument("--chain", type=int, default=None, help="Cut the last frame of clip N as the start frame of clip N+1")
 
@@ -1016,7 +1016,7 @@ def main():
     p_rr.add_argument("--project", required=True, help="Target project_id")
     p_rr.add_argument("--slug", required=True, help="Research dossier slug")
     p_rr.add_argument("--refs", default="", help="Optional comma-separated reference_ids to regenerate")
-    p_rr.add_argument("--backend", default="flow", choices=["flow", "gemini"], help="0-credit image backend (default: flow)")
+    p_rr.add_argument("--backend", default="flow", choices=["flow"], help="0-credit image backend (locked: flow)")
     p_rr.add_argument("--batch-count", type=int, default=4, help="0-credit candidate images per Flow submission (1..4, default: 4)")
     p_rr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
     p_rr.add_argument("--force", action="store_true", default=False, help="Overwrite existing reference PNGs")
@@ -1028,7 +1028,7 @@ def main():
     )
     p_pr.add_argument("--project", required=True, help="Target project_id or path")
     p_pr.add_argument("--slug", default="", help="Optional research dossier slug override")
-    p_pr.add_argument("--backend", default="flow", choices=["flow", "gemini"], help="0-credit image backend (default: flow)")
+    p_pr.add_argument("--backend", default="flow", choices=["flow"], help="0-credit image backend (locked: flow)")
     p_pr.add_argument("--batch-count", type=int, default=4, help="0-credit candidate images per Flow submission (1..4, default: 4)")
     p_pr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
     p_pr.add_argument("--force", action="store_true", default=False, help="Force regenerate all reference PNGs")
@@ -1086,35 +1086,51 @@ def main():
     p_nr.add_argument("--days", type=int, default=14, help="Lookback window in days (default: 14)")
     p_nr.add_argument("--max-candidates", type=int, default=5, help="Max staged news cards (default: 5)")
 
+    p_fc = subparsers.add_parser(
+        "flow-clean",
+        help="Clean Google Flow project rooms (AAB_<project_id>) and stale /tmp Flow artifacts while protecting active CDP leases",
+    )
+    p_fc.add_argument("--all", dest="all_projects", action="store_true", default=False, help="Delete all AAB_* / temporary Flow project rooms not leased by active workers")
+    p_fc.add_argument("--project", default=None, help="Filter Flow room cleanup to a specific project_id")
+    p_fc.add_argument("--prefix", default=None, help="Optional Flow room title prefix filter")
+    p_fc.add_argument("--local-only", action="store_true", default=False, help="Only purge local /tmp and flow_bridge temp files without opening Flow dashboard")
+    p_fc.add_argument("--include-speed-cache", action="store_true", default=False, help="Also purge /tmp/aab_speed_cache")
+    p_fc.add_argument("--force-active", action="store_true", default=False, help="Ignore active CDP tab leases when deleting Flow rooms")
+    p_fc.add_argument("--dry-run", action="store_true", default=False, help="Inspect matching Flow rooms and /tmp files without deleting")
+    p_fc.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
     p_lfi = subparsers.add_parser(
         "longform-init",
-        help="Initialize standalone 16:9 (1920x1080) Long-Form project in projects_longform/<project_id>/",
+        help="[DEFERRED] Initialize standalone 16:9 (1920x1080) Long-Form project in projects_longform/<project_id>/",
     )
     p_lfi.add_argument("--project", required=True, help="Target Long-Form project_id (e.g. longform_01_glymphatic_sleep_toxins)")
     p_lfi.add_argument("--spec", required=True, help="Path to episode_spec JSON file")
+    p_lfi.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lfa = subparsers.add_parser(
         "longform-audio",
-        help="Synthesize standalone Long-Form relaxed narration (longform_us_v7, -14.0 LUFS) + 1920x1080 ASS subtitles + EDL retiming",
+        help="[DEFERRED] Synthesize standalone Long-Form relaxed narration (longform_us_v7, -14.0 LUFS) + 1920x1080 ASS subtitles + EDL retiming",
     )
     p_lfa.add_argument("--project", required=True, help="Target Long-Form project_id or path")
     p_lfa.add_argument("--voice-preset", default="emma_v7", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: emma_v7)")
     p_lfa.add_argument("--engine", default="edge-tts", choices=["edge-tts", "kokoro-onnx"], help="TTS engine (default: edge-tts)")
     p_lfa.add_argument("--force", action="store_true", default=False, help="Re-synthesize all sentence audio ignoring cache")
+    p_lfa.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lfr = subparsers.add_parser(
         "longform-refs",
-        help="Synthesize & Q1-Q10 verify 1920x1080 (16:9) Hybrid Track A + Track B Reference Anchor Pack via 0-credit Google Flow Image x4",
+        help="[DEFERRED] Synthesize & Q1-Q10 verify 1920x1080 (16:9) Hybrid Track A + Track B Reference Anchor Pack via 0-credit Google Flow Image x4",
     )
     p_lfr.add_argument("--project", required=True, help="Target Long-Form project_id or path")
-    p_lfr.add_argument("--backend", default="flow", choices=["flow", "gemini"], help="Reference image backend (default: flow)")
+    p_lfr.add_argument("--backend", default="flow", choices=["flow"], help="Reference image backend (locked: flow)")
     p_lfr.add_argument("--batch-count", type=int, default=4, help="0-credit Flow Image candidates per prompt (1..4, default: 4)")
     p_lfr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
     p_lfr.add_argument("--force", action="store_true", default=False, help="Regenerate existing 16:9 reference PNGs")
+    p_lfr.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lff = subparsers.add_parser(
         "longform-flow",
-        help="Execute chapter-sharded (<= 14 clips/shard) 16:9 Google Flow video generation into flow_native_clips/",
+        help="[DEFERRED] Execute chapter-sharded (<= 14 clips/shard) 16:9 Google Flow video generation into flow_native_clips/",
     )
     p_lff.add_argument("--project", required=True, help="Target Long-Form project_id or path")
     p_lff.add_argument("--tabs", type=int, default=3, help="Max concurrent Flow tabs (capped <= 3)")
@@ -1124,33 +1140,40 @@ def main():
     p_lff.add_argument("--engine", default="auto", choices=["auto", "omni", "zero-credit"], help="Flow video engine mode")
     p_lff.add_argument("--dry-run", action="store_true", default=False, help="Validate shard plan & CV cache without opening browser")
     p_lff.add_argument("--force", action="store_true", default=False, help="Regenerate existing clip MP4s")
+    p_lff.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lf = subparsers.add_parser(
         "longform-assemble",
-        help="Assemble standalone 16:9 1920x1080 @ 24fps (-14.0 LUFS) Full HD Long-Form MP4 + burned-in ASS + <2 MB A/B/C thumbnails",
+        help="[DEFERRED] Assemble standalone 16:9 1920x1080 @ 24fps (-14.0 LUFS) Full HD Long-Form MP4 + burned-in ASS + <2 MB A/B/C thumbnails",
     )
     p_lf.add_argument("--project", required=True, help="Target Long-Form project_id or path")
     p_lf.add_argument("--hook-text", default="THE HIDDEN CIRCUIT", help="1920x1080 thumbnail hook headline")
+    p_lf.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lfq = subparsers.add_parser(
         "longform-qa",
-        help="Run LFQ1-LFQ12 standalone 16:9 (1920x1080) Long-Form QA suite",
+        help="[DEFERRED] Run LFQ1-LFQ12 standalone 16:9 (1920x1080) Long-Form QA suite",
     )
     p_lfq.add_argument("--project", required=True, help="Target Long-Form project_id or path")
     p_lfq.add_argument("--require-audio", action="store_true", default=False, help="Require audio_master.wav & subtitles.ass")
     p_lfq.add_argument("--require-refs", action="store_true", default=False, help="Require verified 16:9 reference_image_qa_report.json")
     p_lfq.add_argument("--require-final-mp4", "--require-mp4", dest="require_final_mp4", action="store_true", default=False, help="Require final_longform_1920x1080.mp4")
+    p_lfq.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lfp = subparsers.add_parser(
         "longform-publish",
-        help="Stage 1920x1080 <2 MB thumbnails, 00:00 chapter metadata.json, and 3-Stage Debate Ignition prepared_comment.json",
+        help="[DEFERRED] Stage 1920x1080 <2 MB thumbnails, 00:00 chapter metadata.json, and 3-Stage Debate Ignition prepared_comment.json",
     )
     p_lfp.add_argument("--project", required=True, help="Target Long-Form project_id or path")
     p_lfp.add_argument("--hook-text", default="", help="Optional thumbnail hook override")
     p_lfp.add_argument("--upload-cc", action="store_true", default=False, help="Enable external .srt CC upload (default: False)")
+    p_lfp.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     args = parser.parse_args()
 
+    if args.command == "flow-clean":
+        cmd_flow_clean(args)
+        return
     if args.command == "gemini-produce":
         cmd_gemini_produce(args)
         return
@@ -1684,6 +1707,13 @@ def cmd_diorama_assemble(args):
         ep_rep = verify_final_mp4_against_contract(p_dir, save_report=True)
         aut_rep = VideoAutopsyEngine.inspect_project(p_dir, save_report=True)
         ph_ok = bool((res.get("posthoc_qa") or {}).get("passed", True))
+        if ph_ok:
+            from pipeline.config import UNMANNED_QA_SIGNOFF_DEFAULT
+
+            if UNMANNED_QA_SIGNOFF_DEFAULT:
+                from pipeline.posthoc_semantic_qa import auto_signoff_posthoc_semantic_review
+
+                auto_signoff_posthoc_semantic_review(p_dir)
         ep_ok = bool(ep_rep.get("passed"))
         aut_ok = bool(aut_rep.get("passed"))
         res["episode_qa_passed"] = ep_ok
@@ -2271,7 +2301,55 @@ def cmd_news_radar(args):
     print(json.dumps(rep, indent=2, ensure_ascii=False))
 
 
+def cmd_flow_clean(args):
+    import json
+
+    from pipeline.flow_workspace import clean_flow_workspace, purge_local_flow_temp_files
+
+    if bool(args.local_only):
+        rep = {
+            "mode": "local_only",
+            "local_temp_cleanup": purge_local_flow_temp_files(
+                dry_run=bool(args.dry_run),
+                include_speed_cache=bool(args.include_speed_cache),
+            ),
+        }
+    else:
+        rep = clean_flow_workspace(
+            cdp_port=int(args.cdp_port),
+            all_projects=bool(args.all_projects),
+            project_id=str(args.project).strip() if args.project else None,
+            prefix=str(args.prefix).strip() if args.prefix else None,
+            dry_run=bool(args.dry_run),
+            clean_local_temp=True,
+            include_speed_cache=bool(args.include_speed_cache),
+            force_active=bool(args.force_active),
+        )
+    print(json.dumps(rep, indent=2, ensure_ascii=False))
+
+
+def _enforce_longform_not_deferred(args) -> None:
+    import os
+    from pipeline import config as _cfg
+
+    if not bool(getattr(_cfg, "LONGFORM_DEFERRED", False)):
+        return
+    if not bool(getattr(args, "command", None)) and not hasattr(args, "allow_deferred_longform"):
+        return
+    if bool(getattr(args, "allow_deferred_longform", False)):
+        return
+    if str(os.environ.get("AAB_ALLOW_DEFERRED_LONGFORM") or "").strip().lower() in ("1", "true", "yes"):
+        return
+    cmd_name = str(getattr(args, "command", "longform-*") or "longform-*")
+    sys.stderr.write(
+        f"[LONGFORM_DEFERRED] '{cmd_name}' is currently deferred while 90s Shorts scale. "
+        "Pass --allow-deferred-longform or set AAB_ALLOW_DEFERRED_LONGFORM=1 to override.\n"
+    )
+    sys.exit(2)
+
+
 def cmd_longform_init(args):
+    _enforce_longform_not_deferred(args)
     import json
 
     from pipeline.longform_prompt_builder import initialize_longform_project
@@ -2282,6 +2360,7 @@ def cmd_longform_init(args):
 
 
 def cmd_longform_audio(args):
+    _enforce_longform_not_deferred(args)
     import json
 
     from pipeline.longform_audio import synthesize_longform_master_audio
@@ -2296,6 +2375,7 @@ def cmd_longform_audio(args):
 
 
 def cmd_longform_refs(args):
+    _enforce_longform_not_deferred(args)
     import json
 
     from pipeline.longform_refs import ensure_longform_reference_pack
@@ -2313,6 +2393,7 @@ def cmd_longform_refs(args):
 
 
 def cmd_longform_flow(args):
+    _enforce_longform_not_deferred(args)
     import asyncio
     import json
 
@@ -2337,6 +2418,7 @@ def cmd_longform_flow(args):
 
 
 def cmd_longform_assemble(args):
+    _enforce_longform_not_deferred(args)
     import json
 
     from pipeline.longform_assembler import assemble_longform_episode
@@ -2349,6 +2431,7 @@ def cmd_longform_assemble(args):
 
 
 def cmd_longform_qa(args):
+    _enforce_longform_not_deferred(args)
     import json
 
     from pipeline.longform_qa import run_longform_qa
@@ -2366,6 +2449,7 @@ def cmd_longform_qa(args):
 
 
 def cmd_longform_publish(args):
+    _enforce_longform_not_deferred(args)
     import json
 
     from pipeline.longform_publish import prepare_longform_publish_package

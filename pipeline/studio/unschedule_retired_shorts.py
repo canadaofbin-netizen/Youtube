@@ -142,7 +142,9 @@ def _is_scheduled_visibility_label(vis_text: str) -> bool:
 
 
 async def _wait_for_shorts_table(client: Any, timeout_sec: float = 25.0) -> bool:
-    await client.send("Page.bringToFront")
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
+    await enable_background_focus_emulation(client)
     ok = await client.wait_for_element(["ytcp-video-row"], timeout_sec=timeout_sec)
     if ok:
         await asyncio.sleep(1.0)
@@ -183,7 +185,9 @@ async def _delete_single_scheduled_row(
     if RETIRED_LOWPOLY_SCHEDULED_WHITELIST.get(project_id) != video_id:
         raise RuntimeError(f"Whitelist mismatch for {project_id}: {video_id}")
 
-    await client.send("Page.bringToFront")
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
+    await enable_background_focus_emulation(client)
     opened_menu = await client.eval(
         rf"""(() => {{
             {_DEEP_QUERY_HELPER_JS}
@@ -437,7 +441,9 @@ async def _switch_single_scheduled_to_private(
     if not ready:
         return {"project_id": project_id, "video_id": video_id, "switched_private": False, "error": "edit_page_timeout"}
     await asyncio.sleep(1.2)
-    await client.send("Page.bringToFront")
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
+    await enable_background_focus_emulation(client)
     await client.click(["ytcp-video-metadata-visibility #select-button", "ytcp-video-metadata-visibility ytcp-button", "#visibility-button"])
     await asyncio.sleep(0.8)
     await client.click(["tp-yt-paper-radio-button[name='PRIVATE']"])

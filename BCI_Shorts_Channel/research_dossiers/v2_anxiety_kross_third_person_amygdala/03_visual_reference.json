@@ -1,0 +1,153 @@
+{
+  "scenes": [
+    {
+      "id": "tsst_speech_panel_room",
+      "title": "Trier Social Stress Test speech gauntlet: 2 minutes prep before two white-coated judges and a tripod camera",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2014 & 2017 University of Michigan & Michigan State Emotion & Self-Control Laboratories",
+      "layout": {
+        "description": "Crisp high-key clinical evaluation room with a brushed-chrome floor microphone at left-center facing an oak evaluator table where two motionless figures in crisp white lab coats sit beside a black cinema camera on an aluminum tripod.",
+        "positions": [
+          {
+            "who": "Job-speech participant (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in navy-blue knit crew sweater and gray trousers)",
+            "where": "standing behind the brushed-chrome floor microphone facing the evaluator table",
+            "facing": "facing the two white-coated judges and tripod camera"
+          },
+          {
+            "who": "Two evaluative judges (clothed matte-white porcelain figures with smooth featureless solid matte-white egg-shaped oval heads in crisp buttoned white lab coats)",
+            "where": "seated side-by-side behind the oak table flanking the black tripod camera with unmarked clipboards",
+            "facing": "facing the standing speaker in complete stillness"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "brushed-chrome floor microphone stand and black cinema camera on aluminum tripod",
+          "period_detail": "classic Kirschbaum (1993) & Kross (2014) Trier Social Stress Test speech apparatus",
+          "physical_behavior": "speaker's porcelain hands initially grip the chrome stand tightly under 'I' self-talk, then release into calm open gestures after silent first-name shift"
+        },
+        {
+          "name": "two unmarked wooden clipboards resting on the oak judge table",
+          "period_detail": "clean blank paper sheets held by motionless white-coated evaluators",
+          "physical_behavior": "evaluators sit stone-still taking silent notes as the speaker delivers the 5-minute speech"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Job-speech participant",
+          "verb_sequence": "releases a tense two-handed grip on the chrome microphone stem -> stands tall with open calm porcelain hands facing the two white-coated judges"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Two evaluative judges",
+          "reaction": "incline their smooth white oval heads slightly as they mark strong speech performance on blank clipboards"
+        }
+      ],
+      "wardrobe": "Speaker in navy-blue knit sweater and tailored gray slacks; two evaluators in crisp white lab coats over dark collars.",
+      "lighting": "Crisp high-key laboratory daylight illumination.",
+      "recognition_hook": "Standing alone at a microphone facing stone-faced judges and a camera — where swapping one silent word in your head changes everything in 1,000 milliseconds.",
+      "sources": [
+        "kross_2014",
+        "kirschbaum_1993",
+        "tsst_protocol_jove"
+      ],
+      "key_visual": {
+        "description": "porcelain speaker in navy-blue sweater standing at a chrome floor microphone facing two white-coated porcelain judges seated behind a table beside a black tripod camera",
+        "must_show": [
+          "microphone|stand|camera|tripod",
+          "coat|table|clipboard",
+          "porcelain"
+        ],
+        "source": "tsst_protocol_jove@00:20-00:55; kross_2014"
+      }
+    },
+    {
+      "id": "erp_cap_one_second_drop",
+      "title": "2017 Michigan State ERP & fMRI recording: 1-second emotional voltage drop with zero willpower strain",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2017 Michigan State University ERP & University of Michigan fMRI suites",
+      "layout": {
+        "description": "Bright neurophysiology booth where a porcelain volunteer wearing a sleek white electrode cap sits calmly before an unmarked waveform screen.",
+        "positions": [
+          {
+            "who": "Volunteer in navy sweater and white sensor cap",
+            "where": "seated in ergonomic testing chair",
+            "facing": "unmarked waveform monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "white scalp sensor cap and unmarked waveform screen",
+          "period_detail": "clean text-free voltage trace dropping from tall crimson peak to low calm blue line",
+          "physical_behavior": "tall jagged wave drops smoothly within one second while subject's hands stay relaxed"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Volunteer",
+          "verb_sequence": "sits calmly wearing the white sensor cap -> lowers shoulders as the screen trace drops smoothly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Researcher",
+          "reaction": "points calmly toward the rapid wave drop"
+        }
+      ],
+      "wardrobe": "Navy-blue sweater and white lab coat.",
+      "lighting": "Clean high-key clinical daylight.",
+      "recognition_hook": "Millisecond brain waves drop inside 1 second without burning prefrontal willpower.",
+      "sources": [
+        "moser_2017",
+        "orvell_2021"
+      ]
+    },
+    {
+      "id": "brain_one_second_chatter_drop",
+      "title": "Contained Living 4-Color 3D Brain medial cutaway: amygdala & midline self-loop cooling without frontoparietal strain",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2017 ERP + fMRI Circuit Gallery",
+      "layout": {
+        "description": "Bright white architectural gallery with Contained Living 4-Color 3D Brain medial-sagittal cutaway on matte-white pedestal.",
+        "positions": [
+          {
+            "who": "3D Medial Brain Model",
+            "where": "centered on matte-white pedestal",
+            "facing": "medial three-quarter view"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "translucent medial 3D brain cutaway",
+          "period_detail": "contained four-color subsurface neural glow",
+          "physical_behavior": "crimson-red amygdala and medial prefrontal chatter flares cool rapidly into calm pearl-aqua and electric cyan-blue"
+        }
+      ],
+      "actions": [
+        {
+          "who": "3D Brain",
+          "verb_sequence": "flashes crimson-red in deep amygdala and midline prefrontal hub -> cools within one second into smooth pearl-aqua waves"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "3D Brain",
+          "reaction": "upper dorsolateral willpower cortex stays cool and unstrained"
+        }
+      ],
+      "wardrobe": "None.",
+      "lighting": "High-key white gallery daylight.",
+      "recognition_hook": "Shows why silent name-switching works even when panic leaves willpower empty.",
+      "sources": [
+        "moser_2017",
+        "kross_2005"
+      ]
+    }
+  ]
+}

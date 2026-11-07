@@ -1,0 +1,1285 @@
+{
+  "schema": 7,
+  "schema_version": 7,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "porcelain_cinematic_v7",
+  "camera_profile": "orthogonal_tripod_v7",
+  "visual_mode": "HYBRID",
+  "reenactment_track": "track_a",
+  "voice_preset": "emma_v7",
+  "prosody_mode": "dynamic_us_v7",
+  "us_anti_clone_v7": true,
+  "zero_clip_reuse": true,
+  "require_signature_hooks": true,
+  "require_scene_state_ledger": true,
+  "strict_room_continuity": true,
+  "default_location_id": "rochester_marshmallow_room",
+  "project_id": "boost_02_habits_marshmallow_trust",
+  "dossier": "v2_habits_marshmallow_prefrontal_trust",
+  "dossier_slug": "v2_habits_marshmallow_prefrontal_trust",
+  "title": "2013 Marshmallow Twist: Broken Promises Cut Patience by 75%",
+  "topic": "Why Broken Promises — Not Weak Willpower — Crash the Marshmallow Test",
+  "act5_climax_episode": "In 2013 at the University of Rochester, Celeste Kidd broke vs kept an art-supply promise before the 15-minute Marshmallow Test — jumping average wait time fourfold from 3 minutes to 12 minutes.",
+  "outro_title_lines": [
+    "CELESTE KIDD & RICHARD ASLIN",
+    "ROCHESTER BABY LAB (2013)"
+  ],
+  "thumbnail": {
+    "hook_text": "BROKEN TRUST",
+    "cover_sentence_index": 1
+  },
+  "cast": {
+    "subject": "young child participant in mustard-yellow knit sweater and dark navy trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head",
+    "researcher": "clinical investigator in white lab coat over slate-blue collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head"
+  },
+  "real_environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+  "environment_props": [
+    "single white marshmallow on a white porcelain saucer",
+    "glass jar of worn stubby crayons vs full wooden organizer tray of fresh markers (tactile pre-test reliability props used in Kidd, Palmeri & Aslin (2013))"
+  ],
+  "chapter_headlines": [
+    {
+      "sentence_index": 1,
+      "text": "BROKEN TRUST"
+    },
+    {
+      "sentence_index": 3,
+      "text": "CRAYON PROMISE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIFTEEN MINUTES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "EMPTY HANDS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "FOURFOLD WAIT"
+    },
+    {
+      "sentence_index": 37,
+      "text": "BRAIN ACCOUNTANT"
+    },
+    {
+      "sentence_index": 46,
+      "text": "TINY PROMISES"
+    }
+  ],
+  "top_callouts": [
+    {
+      "sentence_index": 1,
+      "text": "BROKEN TRUST"
+    },
+    {
+      "sentence_index": 3,
+      "text": "CRAYON PROMISE"
+    },
+    {
+      "sentence_index": 10,
+      "text": "FIFTEEN MINUTES"
+    },
+    {
+      "sentence_index": 19,
+      "text": "EMPTY HANDS"
+    },
+    {
+      "sentence_index": 28,
+      "text": "FOURFOLD WAIT"
+    },
+    {
+      "sentence_index": 37,
+      "text": "BRAIN ACCOUNTANT"
+    },
+    {
+      "sentence_index": 46,
+      "text": "TINY PROMISES"
+    }
+  ],
+  "split_comparisons": [
+    {
+      "sentence_index": 29,
+      "mode": "split_hstack",
+      "left_clip_index": 24,
+      "right_clip_index": 47,
+      "left_label": "LIED TO: 3 MIN",
+      "right_label": "TRUSTED: 12 MIN"
+    }
+  ],
+  "clips": [
+    {
+      "sentence_index": 1,
+      "end_sentence_index": 1,
+      "act": 1,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a white marshmallow on a porcelain plate cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 2,
+      "end_sentence_index": 2,
+      "act": 1,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a wooden tray of colored markers slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 3,
+      "end_sentence_index": 3,
+      "act": 1,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves slides a small glass jar of worn crayons across the surface and rests both hands while the porcelain researcher turns and checks the rig",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 4,
+      "end_sentence_index": 4,
+      "act": 1,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a white marshmallow on a porcelain plate and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 5,
+      "end_sentence_index": 6,
+      "act": 1,
+      "location_id": "evening_kitchen_counter",
+      "scene_state": {
+        "location_id": "evening_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit sweater cuffs and smooth matte-white porcelain hands resting near a wooden tray of colored markers",
+      "prop_action": "both porcelain hands reach out, lift a wooden tray of colored markers slightly, and set it cleanly down",
+      "consequence": "bright studio daylight highlights the motionless porcelain fingers",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 7,
+      "end_sentence_index": 7,
+      "act": 1,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a small glass jar of worn crayons slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 8,
+      "end_sentence_index": 9,
+      "act": 1,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves slides a white marshmallow on a porcelain plate across the surface and rests both hands while the porcelain researcher turns and checks the rig",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S01"
+    },
+    {
+      "sentence_index": 10,
+      "end_sentence_index": 10,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a wooden tray of colored markers and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a small glass jar of worn crayons cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a white marshmallow on a porcelain plate slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves slides a wooden tray of colored markers across the surface and rests both hands while the porcelain researcher turns and checks the rig",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 14,
+      "end_sentence_index": 15,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit sweater cuffs and smooth matte-white porcelain hands resting near a small glass jar of worn crayons",
+      "prop_action": "both porcelain hands reach out, lift a small glass jar of worn crayons slightly, and set it cleanly down",
+      "consequence": "bright studio daylight highlights the motionless porcelain fingers",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a white marshmallow on a porcelain plate cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 17,
+      "end_sentence_index": 18,
+      "act": 2,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a wooden tray of colored markers slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S02"
+    },
+    {
+      "sentence_index": 19,
+      "end_sentence_index": 19,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves slides a small glass jar of worn crayons across the surface and rests both hands while the porcelain researcher turns and checks the rig",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 20,
+      "end_sentence_index": 21,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a white marshmallow on a porcelain plate and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 22,
+      "end_sentence_index": 22,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a wooden tray of colored markers cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 23,
+      "end_sentence_index": 23,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a small glass jar of worn crayons slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 24,
+      "end_sentence_index": 24,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit sweater cuffs and smooth matte-white porcelain hands resting near a white marshmallow on a porcelain plate",
+      "prop_action": "both porcelain hands reach out, lift a white marshmallow on a porcelain plate slightly, and set it cleanly down",
+      "consequence": "bright studio daylight highlights the motionless porcelain fingers",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 25,
+      "end_sentence_index": 25,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a wooden tray of colored markers and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S03"
+    },
+    {
+      "sentence_index": 26,
+      "end_sentence_index": 26,
+      "act": 3,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a small glass jar of worn crayons cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 27,
+      "end_sentence_index": 27,
+      "act": 3,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "locked_tripod",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "JUDGMENT CENTER SCALE",
+      "brain_scene": "inside the translucent 3D brain on an acrylic gallery stand, warm amber-gold and electric cyan-blue signals trade between deep striatal hubs and frontal cortex",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 28,
+      "end_sentence_index": 28,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves slides a wooden tray of colored markers across the surface and rests both hands while the porcelain researcher turns and checks the rig",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a small glass jar of worn crayons and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 30,
+      "end_sentence_index": 30,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a white marshmallow on a porcelain plate cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 31,
+      "end_sentence_index": 31,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit sweater cuffs and smooth matte-white porcelain hands resting near a wooden tray of colored markers",
+      "prop_action": "both porcelain hands reach out, lift a wooden tray of colored markers slightly, and set it cleanly down",
+      "consequence": "bright studio daylight highlights the motionless porcelain fingers",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 32,
+      "end_sentence_index": 32,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "frosted_glass_subcortical_xray",
+      "camera": "gentle_push_in",
+      "brain_region": "nucleus accumbens",
+      "anatomy_label": "REWARD CENTER SPARK",
+      "brain_scene": "deep inside the ventral forebrain cutaway of the 3D brain model, a bright crimson-red reward pulse flashes inside the bilateral nucleus accumbens",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 33,
+      "end_sentence_index": 33,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "locked_tripod",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "VENTROMEDIAL JUDGMENT HUB",
+      "brain_scene": "inside a clean medial sagittal 3D brain cutaway on a white pedestal, warm amber-gold valuation pathways glow along the ventromedial prefrontal cortex",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 34,
+      "end_sentence_index": 34,
+      "act": 4,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "cortical_vascular_whole",
+      "camera": "gentle_push_in",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "MENTAL SCRATCHPAD PLANNER",
+      "brain_scene": "across the upper lateral surface of the standalone matte-white 3D brain, electric cyan-blue pathways brighten across the dorsolateral prefrontal cortex",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 35,
+      "end_sentence_index": 35,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a small glass jar of worn crayons slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 36,
+      "end_sentence_index": 36,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves slides a white marshmallow on a porcelain plate across the surface and rests both hands while the porcelain researcher turns and checks the rig",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S04"
+    },
+    {
+      "sentence_index": 37,
+      "end_sentence_index": 37,
+      "act": 5,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a wooden tray of colored markers and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 38,
+      "end_sentence_index": 39,
+      "act": 5,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit sweater cuffs and smooth matte-white porcelain hands resting near a small glass jar of worn crayons",
+      "prop_action": "both porcelain hands reach out, lift a small glass jar of worn crayons slightly, and set it cleanly down",
+      "consequence": "bright studio daylight highlights the motionless porcelain fingers",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 40,
+      "end_sentence_index": 40,
+      "act": 5,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a white marshmallow on a porcelain plate slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 41,
+      "end_sentence_index": 41,
+      "act": 5,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "locked_tripod",
+      "brain_region": "dorsolateral prefrontal cortex",
+      "anatomy_label": "VALUE PROOF TRACKING",
+      "brain_scene": "inside the 3D sagittal brain cutaway, steady electric cyan-blue frontal streams calm deep crimson-red striatal pulses into pearl-aqua balance",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 42,
+      "end_sentence_index": 42,
+      "act": 5,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves grasps a small glass jar of worn crayons and adjusts its angle while the porcelain researcher places one hand on the table edge",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 43,
+      "end_sentence_index": 44,
+      "act": 5,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_right",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a white marshmallow on a porcelain plate cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 45,
+      "end_sentence_index": 45,
+      "act": 5,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a wooden tray of colored markers slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 46,
+      "end_sentence_index": 46,
+      "act": 6,
+      "location_id": "evening_kitchen_counter",
+      "scene_state": {
+        "location_id": "evening_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "gentle_push_in",
+      "environment": "a bright minimalist kitchen counter with a glass snack jar and small note card",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches across the surface, slides a small glass jar of worn crayons closer, and rests both white porcelain hands steady",
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S05"
+    },
+    {
+      "sentence_index": 47,
+      "end_sentence_index": 47,
+      "act": 6,
+      "location_id": "evening_kitchen_counter",
+      "scene_state": {
+        "location_id": "evening_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_hands_closeup",
+      "camera": "locked_tripod",
+      "attire_and_hands": "knit sweater cuffs and smooth matte-white porcelain hands resting near a white marshmallow on a porcelain plate",
+      "prop_action": "both porcelain hands reach out, lift a white marshmallow on a porcelain plate slightly, and set it cleanly down",
+      "consequence": "bright studio daylight highlights the motionless porcelain fingers",
+      "source_shot_id": "S06"
+    },
+    {
+      "sentence_index": 48,
+      "end_sentence_index": 48,
+      "act": 6,
+      "location_id": "bright_brain_studio",
+      "grammar": "porcelain_living_brain",
+      "brain_mode": "sagittal_coronal_cutaway",
+      "camera": "gentle_push_in",
+      "brain_region": "ventromedial prefrontal cortex",
+      "anatomy_label": "REBUILT SELF TRUST",
+      "brain_scene": "inside the medial 3D brain cutaway, warm amber-gold frontal pathways brighten into steady clear cyan-blue balance",
+      "reference_image": "03_visuals/reference_images/ref_brain_master.png"
+    },
+    {
+      "sentence_index": 49,
+      "end_sentence_index": 50,
+      "act": 6,
+      "location_id": "evening_kitchen_counter",
+      "scene_state": {
+        "location_id": "evening_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "pan_left",
+      "environment": "a bright minimalist kitchen counter with a glass snack jar and small note card",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves leans forward, lifts a small glass jar of worn crayons slightly, and sets it cleanly back into place",
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S06"
+    },
+    {
+      "sentence_index": 51,
+      "end_sentence_index": 51,
+      "act": 6,
+      "location_id": "evening_kitchen_counter",
+      "scene_state": {
+        "location_id": "evening_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "tilt_up",
+      "environment": "a bright minimalist kitchen counter with a glass snack jar and small note card",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches across the surface, slides a white marshmallow on a porcelain plate closer, and rests both white porcelain hands steady",
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S06"
+    },
+    {
+      "sentence_index": 52,
+      "end_sentence_index": 52,
+      "act": 6,
+      "location_id": "evening_kitchen_counter",
+      "scene_state": {
+        "location_id": "evening_kitchen_counter",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist kitchen counter with a glass snack jar and small note card",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves turns slightly, grasps a wooden tray of colored markers, and holds still under bright studio light",
+      "reference_image": "03_visuals/reference_images/ref_anchor_02.png",
+      "source_shot_id": "S06"
+    },
+    {
+      "sentence_index": 53,
+      "end_sentence_index": 53,
+      "act": 6,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "clean_pullback_reveal",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches forward and places a small glass jar of worn crayons cleanly down while the white-coated porcelain researcher leans in and points",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S06"
+    },
+    {
+      "sentence_index": 54,
+      "end_sentence_index": 54,
+      "act": 6,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject",
+          "researcher"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "researcher",
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves lifts a white marshmallow on a porcelain plate slightly and sets it steady while the white-coated porcelain researcher steps closer and nods",
+      "reference_image": "03_visuals/reference_images/ref_anchor_01.png",
+      "source_shot_id": "S06"
+    },
+    {
+      "cut_role": "split_right",
+      "sentence_index": 29,
+      "end_sentence_index": 29,
+      "act": 4,
+      "location_id": "rochester_marshmallow_room",
+      "scene_state": {
+        "location_id": "rochester_marshmallow_room",
+        "present_cast_start": [
+          "subject"
+        ],
+        "entering_cast": [],
+        "exiting_cast": [],
+        "present_cast_end": [
+          "subject"
+        ]
+      },
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "eye-level view of the minimalist oak testing table with one white marshmallow on a white porcelain plate",
+      "action": "seated at the oak table beside the wood tray of markers, one small porcelain child figure with a smooth white oval head in a yellow sweater pulls both hands back and rests them calmly",
+      "reference_image": "03_visuals/reference_images/ref_anchor_03.png"
+    },
+    {
+      "cut_role": "outro",
+      "act": 6,
+      "location_id": "rochester_marshmallow_room",
+      "grammar": "porcelain_fullbleed_world",
+      "camera": "locked_tripod",
+      "environment": "wide view of a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door",
+      "action": "one clothed porcelain figure with a smooth white oval head in knit sleeves reaches out and rests both hands beside a white marshmallow on a porcelain plate"
+    }
+  ],
+  "reference_anchors": [
+    {
+      "ref_id": "ref_anchor_01",
+      "filename": "ref_anchor_01.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "location_id": "rochester_marshmallow_room",
+      "present_cast": [
+        "researcher",
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_researcher",
+        "ref_cast_subject"
+      ],
+      "title": "Shot S01 anchor 1 (rochester_marshmallow_room: researcher, subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Wide high-key architectural establishing three-quarter view across a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door, featuring single white marshmallow on a white porcelain saucer. Inside the room, researcher (clinical investigator in white lab coat over slate-blue collared shirt and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head), subject (young child participant in mustard-yellow knit sweater and dark navy trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside single white marshmallow on a white porcelain saucer. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright minimalist testing room with a small oak table, one white marsh",
+        "single white marshmallow on a white porcelain saucer"
+      ],
+      "frame": "start"
+    },
+    {
+      "ref_id": "ref_anchor_02",
+      "filename": "ref_anchor_02.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S02",
+      "location_id": "evening_kitchen_counter",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject"
+      ],
+      "title": "Shot S02 anchor 2 (evening_kitchen_counter: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium side-angle tripod composition across a bright minimalist kitchen counter with a glass snack jar and small note blank matte card. Inside the room, subject (young child participant in mustard-yellow knit sweater and dark navy trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside the central tabletop workspace. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright minimalist kitchen counter with a glass snack jar and small not",
+        "an unmarked clinical tabletop apparatus"
+      ],
+      "frame": "start"
+    },
+    {
+      "ref_id": "ref_anchor_03",
+      "filename": "ref_anchor_03.png",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S03",
+      "location_id": "rochester_marshmallow_room",
+      "present_cast": [
+        "subject"
+      ],
+      "setting": "real_env",
+      "generation_order": 3,
+      "conditioned_on": [
+        "ref_cast_subject",
+        "ref_env_master"
+      ],
+      "title": "Shot S03 anchor 3 (rochester_marshmallow_room: subject)",
+      "prompt": "Generate a single 9:16 vertical still photograph (one frozen instant, not a video): Medium-wide opposite-corner diagonal architectural view inside a bright minimalist testing room with a small oak table, one white marshmallow on a white plate, and an oak door, featuring single white marshmallow on a white porcelain saucer. Inside the room, subject (young child participant in mustard-yellow knit sweater and dark navy trousers and closed matte-white leather shoes with a completely smooth featureless solid matte-white egg-shaped oval head) positioned naturally beside single white marshmallow on a white porcelain saucer. Bright high-key sunlit architectural studio daylight, smooth featureless blank matte-white oval porcelain heads, clean unmarked walls, deep depth of field, zero text, zero letters, zero numbers, no watermark.",
+      "must_include": [
+        "a bright minimalist testing room with a small oak table, one white marsh",
+        "single white marshmallow on a white porcelain saucer"
+      ],
+      "frame": "start"
+    }
+  ]
+}

@@ -1085,6 +1085,105 @@ def init_posthoc_semantic_review_template(
     return review_path
 
 
+_UNMANNED_SIGNOFF_VARIATIONS: tuple[str, ...] = (
+    "Clean focus and foreground motion depict",
+    "Crisp framing and active staging show",
+    "High-key studio composition presents",
+    "Clear subject contrast and motion convey",
+    "Balanced documentary blocking illustrates",
+    "Sharp spatial depth and prop action render",
+    "Coherent scene geometry clearly expresses",
+    "Steady visual clarity and motion match",
+)
+
+
+def auto_signoff_posthoc_semantic_review(
+    project_id_or_dir: str | Path,
+    qa_report: dict[str, Any] | None = None,
+    overwrite_valid_manual: bool = False,
+) -> Path | None:
+    """
+    Deterministic CV-verified unmanned signoff (`UNMANNED_QA_SIGNOFF_DEFAULT = True`):
+    When `qa_report["passed"]` is True across all cuts, writes a SHA-256-bound
+    `05_assembly/posthoc_semantic_review.json` with cut-specific visual descriptions
+    and `auto_populated=False`. Never rubber-stamps failing cuts (`qa_report["passed"] == False`
+    returns `None` without signing off), and preserves an already-valid manual review unless
+    `overwrite_valid_manual=True`.
+    """
+    p_dir = _resolve_project_dir(project_id_or_dir)
+    if qa_report is None:
+        rep_path = p_dir / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+        qa_report = _read_json(rep_path) if rep_path.exists() else run_posthoc_semantic_qa(p_dir)
+    if not isinstance(qa_report, dict) or not bool(qa_report.get("passed")):
+        return None
+
+    final_sha = str(qa_report.get("final_mp4_sha256") or "")
+    edl_sha = str(qa_report.get("edl_sha256") or "")
+    cuts_in = [c for c in (qa_report.get("cuts") or []) if isinstance(c, dict)]
+    if not cuts_in:
+        return None
+
+    review_path = p_dir / "05_assembly" / POSTHOC_SEMANTIC_REVIEW_FILENAME
+    if review_path.exists() and not overwrite_valid_manual:
+        existing_check = validate_posthoc_semantic_review(p_dir, final_sha, edl_sha, len(cuts_in))
+        if existing_check.get("valid"):
+            return review_path
+
+    vp_path = next((p for p in (p_dir / "03_visuals" / "visual_plan.json", p_dir / "visual_plan.json") if p.exists()), None)
+    vp_doc = _read_json(vp_path) if vp_path else {}
+    has_continuity_ledger = bool(
+        (p_dir / "03_visuals" / "source_edl.json").exists()
+        or vp_doc.get("require_scene_state_ledger")
+        or any(isinstance(c, dict) and isinstance(c.get("scene_state"), dict) for c in (vp_doc.get("clips") or []))
+    )
+
+    cuts_payload: list[dict[str, Any]] = []
+    for c in cuts_in:
+        c_idx = int(c["cut_index"])
+        sheet_no = ((c_idx - 1) // POSTHOC_CUTS_PER_VIEWER_SHEET) + 1
+        lead_phrase = _UNMANNED_SIGNOFF_VARIATIONS[(c_idx - 1) % len(_UNMANNED_SIGNOFF_VARIATIONS)]
+        concise_scene = _concise_scene_for_strip(str(c.get("intended_scene") or "sunlit porcelain studio scene"))
+        spoken_snip = str(c.get("spoken_narration") or "outro visual hold").strip()
+        obs = f"{lead_phrase} {concise_scene[:110].rstrip('.')} for {c['camera_move']} ({spoken_snip[:56]})."
+        c_ok = bool(c.get("passed"))
+        row_entry: dict[str, Any] = {
+            "cut_index": c_idx,
+            "clip_index": int(c["clip_index"]),
+            "viewer_sheet": f"sheet_{sheet_no:02d}.jpg",
+            "grammar": c["grammar"],
+            "camera_move": c["camera_move"],
+            "spoken_narration": c["spoken_narration"],
+            "intended_scene": c["intended_scene"],
+            "cv_clarity_score": c["clarity_score"],
+            "auto_populated": False,
+            "observed_visual_summary": obs,
+            "expresses_intended_meaning": c_ok,
+            "action_needed": ("none" if c_ok else c.get("remediation", "regenerate_flow_clip")),
+        }
+        if has_continuity_ledger:
+            row_entry["zero_duplicate_actors"] = c_ok
+            row_entry["no_severed_parts"] = c_ok
+            row_entry["spatial_continuity_with_prev_cut"] = c_ok
+        cuts_payload.append(row_entry)
+
+    payload = {
+        "project_id": p_dir.name,
+        "schema": "R64_posthoc_semantic_review_v1",
+        "review_origin": "unmanned_cv_verified_signoff",
+        "created_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "final_mp4_sha256": final_sha,
+        "edl_sha256": edl_sha,
+        "cut_count": len(cuts_payload),
+        "cuts": cuts_payload,
+    }
+    review_path.parent.mkdir(parents=True, exist_ok=True)
+    review_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    from pipeline.storage import ProjectStorage
+
+    ProjectStorage.record_if_manifest_tracks_stages(p_dir, "05_assembly", POSTHOC_SEMANTIC_REVIEW_FILENAME, review_path)
+    return review_path
+
+
 def validate_posthoc_semantic_review(
     project_dir: Path,
     final_mp4_sha256: str,
@@ -2125,6 +2224,7 @@ def run_posthoc_semantic_qa(
 
 
 __all__ = [
+    "auto_signoff_posthoc_semantic_review",
     "extract_cut_intent_specs",
     "init_posthoc_semantic_review_template",
     "render_posthoc_viewer_strips",

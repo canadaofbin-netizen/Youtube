@@ -1,0 +1,153 @@
+{
+  "schema_version": 2,
+  "slug": "v2_memory_loftus_false_alibi_engram",
+  "topic": "How Elizabeth Loftus Planted a Lost-in-the-Mall Memory in 25% of Adults",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "memory",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs clinical/behavioral experiment reenactment in bright minimalist rooms with Contained Living 4-Color 3D Brain circuit cutaways.",
+  "primary_doi": "10.3928/0048-5713-19951201-07",
+  "primary_case": {
+    "year": 1995,
+    "place": "University of Washington Memory Laboratory, Seattle",
+    "summary": "Elizabeth Loftus and Jacqueline Pickrell gave 24 adults booklets containing three real childhood stories from relatives plus one fake story of getting lost in a shopping mall at age five — 25% adopted the fake event and embellished details, a phenomenon traced on 2016–2018 fMRI to hippocampal and temporal-lobe flexible reconstruction.",
+    "people": [
+      {
+        "name": "Elizabeth F. Loftus & Jacqueline E. Pickrell",
+        "role": "University of Washington memory psychologists (Psychiatric Annals, 1995)",
+        "bio": "Demonstrated both verb-driven eyewitness distortion (1974) and rich autobiographical implantation of the fabricated 'Lost in the Mall' childhood event in 25% of adults (1995)."
+      },
+      {
+        "name": "Martin J. Chadwick & Daniel L. Schacter",
+        "role": "UCL & Harvard cognitive neuroscientists (PNAS 2016; JEP: General 2018)",
+        "bio": "Mapped temporal-lobe semantic overlap and hippocampal flexible retrieval showing false memories arise from the exact neural machinery built for creative future planning."
+      },
+      {
+        "name": "Chris R. Brewin & Bernice Andrews",
+        "role": "UCL clinical memory researchers (Applied Cognitive Psychology, 2017)",
+        "bio": "Audited implantation datasets, clarifying that roughly 15% form full standalone memories while another ~15% accept partial imagery."
+      }
+    ]
+  },
+  "people": [
+    {
+      "name": "Elizabeth F. Loftus & Jacqueline E. Pickrell",
+      "role": "University of Washington memory psychologists (Psychiatric Annals, 1995)",
+      "bio": "Demonstrated both verb-driven eyewitness distortion (1974) and rich autobiographical implantation of the fabricated 'Lost in the Mall' childhood event in 25% of adults (1995)."
+    },
+    {
+      "name": "Martin J. Chadwick & Daniel L. Schacter",
+      "role": "UCL & Harvard cognitive neuroscientists (PNAS 2016; JEP: General 2018)",
+      "bio": "Mapped temporal-lobe semantic overlap and hippocampal flexible retrieval showing false memories arise from the exact neural machinery built for creative future planning."
+    },
+    {
+      "name": "Chris R. Brewin & Bernice Andrews",
+      "role": "UCL clinical memory researchers (Applied Cognitive Psychology, 2017)",
+      "bio": "Audited implantation datasets, clarifying that roughly 15% form full standalone memories while another ~15% accept partial imagery."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "Sitting across from a partner or sibling who swears on their life an argument or childhood trip happened one way while you vividly remember the exact opposite.",
+    "psychology_experiment": {
+      "source_id": "loftus_1995",
+      "doi": "10.3928/0048-5713-19951201-07",
+      "source_ids": [
+        "loftus_1995",
+        "loftus_1974"
+      ],
+      "dois": [
+        "10.3928/0048-5713-19951201-07",
+        "10.1016/S0022-5371(74)80011-3"
+      ],
+      "summary": "Loftus & Palmer (1974) shifted eyewitness car-speed estimates by 9 mph and planted nonexistent broken glass with a single verb ('smashed'), and Loftus & Pickrell (1995) planted an entire fake childhood shopping-mall disappearance in 25% of adults."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "chadwick_2016",
+      "doi": "10.1073/pnas.1610686113",
+      "source_ids": [
+        "chadwick_2016",
+        "carpenter_2018"
+      ],
+      "dois": [
+        "10.1073/pnas.1610686113",
+        "10.1037/xge0000391"
+      ],
+      "summary": "Chadwick et al. (2016, PNAS) fMRI decoded anterior temporal semantic overlap predicting false memories, and Carpenter & Schacter (2018) proved hippocampal flexible retrieval splices real fragments into convincing new scenes."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "People assume vivid sensory detail and emotional certainty prove a memory actually happened.",
+    "open_verdict_question": "When you and someone close remember the same moment differently, do you still trust your own vivid replay or check written receipts first?",
+    "offcenter_creator_bet": "My bet: vividness is a trap — my brain edits old fights every time I retell them. Trust your vivid memory or written notes?"
+  },
+  "core_facts": [
+    {
+      "fact": "In 1974, Elizabeth Loftus and John Palmer showed 45 students films of two cars colliding and changed one verb: 'smashed' yielded 40.8 mph estimates versus 31.8 mph for 'contacted'.",
+      "source_id": "loftus_1974"
+    },
+    {
+      "fact": "One week later, 32 percent of the 'smashed' group swore they saw broken glass on the road compared with 14 percent of the 'hit' group, even though zero broken glass existed in the film.",
+      "source_id": "loftus_1974"
+    },
+    {
+      "fact": "In 1995, Loftus and Jacqueline Pickrell gave 24 adults booklets with three true childhood stories supplied by family members plus one fabricated story of getting lost in a mall at age five.",
+      "source_id": "loftus_1995"
+    },
+    {
+      "fact": "Six of the 24 adults — 25 percent — claimed to remember the fake shopping-mall event, and several invented extra details like an elderly rescuer's flannel shirt.",
+      "source_id": "loftus_1995"
+    },
+    {
+      "fact": "In 2016, human fMRI pattern decoding proved the anterior temporal lobe's semantic similarity code predicts which related lure concepts a person will falsely remember.",
+      "source_id": "chadwick_2016"
+    },
+    {
+      "fact": "Hippocampal flexible retrieval links separate real experiences to help us infer and plan, which directly increases false memories for stitched details.",
+      "source_id": "carpenter_2018"
+    },
+    {
+      "fact": "Systematic review of implantation studies shows roughly 15 percent of participants form full rich false memories while others adopt partial mental images.",
+      "source_id": "brewin_2017"
+    },
+    {
+      "fact": "Optogenetic reactivation of hippocampal dentate gyrus engram cells proved physical memory traces become editable whenever recalled alongside new emotional cues.",
+      "source_id": "ramirez_2013"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Swapping one single word — 'smashed' instead of 'hit' — made 1 in 3 witnesses hallucinate shattered glass on an empty asphalt track.",
+      "source_id": "loftus_1974"
+    },
+    {
+      "fact": "One in four healthy adults remembered crying in a shopping mall at age five during an event their own mothers confirmed never happened — and refused to believe it was fake at debriefing!",
+      "source_id": "loftus_1995"
+    },
+    {
+      "fact": "Your hippocampus edits memories not because it is broken, but because stitching fragments together is how humans simulate tomorrow.",
+      "source_id": "carpenter_2018"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Human memory works like an iPhone video file stored in a vault.",
+      "reality": "Every time you recall an event, the hippocampus re-assembles fragments from across the cortex and saves the edited version.",
+      "source_id": "carpenter_2018"
+    },
+    {
+      "myth": "If the other person in an argument remembers something false, they must be lying.",
+      "reality": "Both brains can be 100% sincere while replaying stitched reconstructions.",
+      "source_id": "chadwick_2016"
+    }
+  ],
+  "everyday_hooks": [
+    "Arguing with a partner or sibling where both of you are 100% certain the other person said something completely different.",
+    "Remembering a childhood vacation scene only to discover years later you were looking at your older brother's photo.",
+    "Realizing every time you vent about a bad memory to friends, their reactions subtly rewrite your original file."
+  ],
+  "reenactment_track": "track_a",
+  "reenactment_track_subtier": "A1a_ready_keyframes",
+  "shorts_projects": [
+    "boost_03_memory_loftus_false_engram"
+  ]
+}

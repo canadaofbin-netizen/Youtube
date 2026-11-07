@@ -75,11 +75,13 @@ def parse_pipeline_specs(raw_projects: str) -> list[dict[str, Any]]:
             m_doc = json.loads(m_path.read_text(encoding="utf-8")) if m_path.exists() else {}
             s_doc = json.loads(s_path.read_text(encoding="utf-8")) if s_path.exists() else {}
             slug = str(m_doc.get("dossier_slug") or s_doc.get("dossier") or "").strip()
-            if not slug:
-                resolved_d = resolve_dossier_for_project(pid)
-                if resolved_d is not None:
-                    slug = resolved_d.name
+            resolved_d = resolve_dossier_for_project(pid) if not slug else resolve_dossier_for_project(slug)
+            if not slug and resolved_d is not None:
+                slug = resolved_d.name
             pillar = str(m_doc.get("pillar") or s_doc.get("pillar") or "").strip()
+            if not pillar and resolved_d is not None and (resolved_d / "dossier.json").is_file():
+                d_doc = json.loads((resolved_d / "dossier.json").read_text(encoding="utf-8"))
+                pillar = str(d_doc.get("pillar") or "").strip()
             if not (slug and pillar):
                 raise ValueError(
                     f"Cannot resolve slug/pillar for {pid!r}; pass explicit slug:project_id:pillar"

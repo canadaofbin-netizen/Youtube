@@ -1,13 +1,13 @@
 {
-  "checked_at_utc": "2026-11-04T11:44:20.420575+00:00",
+  "checked_at_utc": "2026-11-06T05:44:19.275713+00:00",
   "cdp_connected": true,
   "studio_video_count": 15,
   "studio_videos": [
     {
       "vid": "jySZ6EL3aYM",
       "title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
-      "vis": "Scheduled",
-      "date": "5 Nov 2026\nScheduled"
+      "vis": "Public",
+      "date": "5 Nov 2026\nPublished"
     },
     {
       "vid": "t8Z_Q8oB9MY",
@@ -95,10 +95,10 @@
     }
   ],
   "queue_summary": {
-    "completed_inventory": 14,
-    "published_or_live": 14,
+    "completed_inventory": 0,
+    "published_or_live": 0,
     "v5_ready_unpublished": 0,
-    "staged_in_buffer": 1,
+    "staged_in_buffer": 0,
     "scheduled_slots_count": 1,
     "vacant_slots_count": 0
   },
@@ -110,7 +110,7 @@
       "state": "scheduled",
       "failure_streak": 0,
       "last_status": "ok",
-      "next_run_at": "2026-11-05T07:00:00+00:00"
+      "next_run_at": "2026-11-06T07:00:00+00:00"
     },
     {
       "id": "7ade40e9b2c3",

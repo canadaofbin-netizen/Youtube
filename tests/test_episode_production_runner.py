@@ -1,4 +1,4 @@
-"""bci-episode-production runner: `diorama-episode` single-episode entry point safety."""
+"""youtube-produce runner: `diorama-episode` single-episode entry point safety."""
 import pytest
 
 from pipeline import diorama_batch_orchestrator as orch

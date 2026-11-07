@@ -1,0 +1,154 @@
+{
+  "scenes": [
+    {
+      "id": "dual_eeg_handholding_lab",
+      "title": "Goldstein 2018 Dual-EEG Hyperscanning & Coan 2006 Handholding Lab: two wired skulls locking into 8-12 Hz sync",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2018 CU Boulder / Haifa Dual-EEG Lab & 2006 University of Virginia fMRI Suite",
+      "layout": {
+        "description": "Bright high-key clinical neurophysiology room with two upholstered wooden-arm chairs side-by-side at center, two clothed matte-white porcelain partners wearing sleek white neural caps clasping hands across the shared armrest while a small smooth forearm thermal pad rests on the left partner's sleeve cuff, backed by an unmarked dual-wave display.",
+        "positions": [
+          {
+            "who": "Pain-test participant (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in dusty-rose knit cardigan, dark slacks, and white neural cap)",
+            "where": "seated in the left clinical armchair with a small smooth thermal cuff on left forearm and right porcelain hand extended across the armrest",
+            "facing": "angled slightly toward partner in the right chair"
+          },
+          {
+            "who": "Trusted partner (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in charcoal wool sweater, tailored trousers, and matching white neural cap)",
+            "where": "seated in the adjacent right clinical armchair clasping left porcelain hand warmly over the participant's hand",
+            "facing": "angled attentively toward the participant"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "two matched white multi-lead neural sensor caps and smooth forearm thermal pad",
+          "period_detail": "clean clinical dual-EEG hyperscanning caps with bundled white leads and unmarked forearm thermode cuff",
+          "physical_behavior": "the instant both porcelain hands clasp across the wooden armrest, two separate jagged wave lines on the rear glass screen lock into one smooth 8–12 Hz wave"
+        },
+        {
+          "name": "unmarked dual-channel glass waveform console",
+          "period_detail": "text-free laboratory display showing top and bottom brainwave traces",
+          "physical_behavior": "chaotic out-of-phase traces snap into smooth synchronized cyan-blue waves upon skin-to-skin hand clasp"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Trusted partner",
+          "verb_sequence": "reaches across the wooden chair armrest -> clasps smooth matte-white porcelain fingers gently around the participant's tense hand"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Pain-test participant",
+          "reaction": "tense raised shoulders drop smoothly in unison as the two rear screen traces lock into one calm rhythm"
+        }
+      ],
+      "wardrobe": "Participant in dusty-rose knit cardigan and dark slacks; partner in charcoal crew-neck wool sweater; researcher in crisp white lab coat.",
+      "lighting": "Bright high-key clinical daylight balanced with soft warm tungsten rim light on clasped porcelain hands.",
+      "recognition_hook": "Two wired brains sitting inches apart stay out of sync — until their hands touch and lock two separate storms into one pain-blunting wave.",
+      "sources": [
+        "goldstein_2018",
+        "coan_2006",
+        "fnirs_hyperscan_protocol"
+      ],
+      "key_visual": {
+        "description": "two porcelain partners wearing sleek white neural sensor caps seated side-by-side clasping porcelain hands across a wooden chair armrest in front of an unmarked dual-wave clinical monitor",
+        "must_show": [
+          "hand|clasp|armrest",
+          "cap|monitor|wave",
+          "porcelain"
+        ],
+        "source": "fnirs_hyperscan_protocol@00:48-01:25; goldstein_2018; coan_2006"
+      }
+    },
+    {
+      "id": "solo_shock_waiting_chair",
+      "title": "Coan 2006 solo ankle-shock threat baseline vs stranger hand vs trusted spouse hand",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2006 University of Virginia fMRI Suite",
+      "layout": {
+        "description": "Same bright clinical suite with the right companion chair completely empty while the lone participant grips both wooden armrests.",
+        "positions": [
+          {
+            "who": "Participant in dusty-rose cardigan",
+            "where": "seated solo next to an empty companion chair",
+            "facing": "forward"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "slender unmarked ankle sensor cuff and empty companion chair",
+          "period_detail": "minimalist clinical strap on right ankle beside a visibly vacant oak armchair",
+          "physical_behavior": "lone porcelain hands grip the wooden armrests tightly when facing the cue solo"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Participant",
+          "verb_sequence": "glances at the empty chair beside her -> grips both wooden armrests tightly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "posture stiffens as solo threat circuitry burns extra energy"
+        }
+      ],
+      "wardrobe": "Dusty-rose knit cardigan and dark slacks.",
+      "lighting": "Crisp cool clinical daylight.",
+      "recognition_hook": "Solitude isn't neutral zero — to the human brain, an empty chair during pain is an extra threat tax.",
+      "sources": [
+        "coan_2006",
+        "master_2009"
+      ]
+    },
+    {
+      "id": "brain_insula_cingulate_sync",
+      "title": "Contained Living 4-Color 3D Brain coronal cutaway: anterior insula & dorsal ACC pain alarm blunted by social touch",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2006-2026 Pain & Social Baseline Gallery",
+      "layout": {
+        "description": "Bright white architectural gallery with Contained Living 4-Color 3D Brain coronal cutaway on matte-white pedestal.",
+        "positions": [
+          {
+            "who": "3D Coronal Brain Model",
+            "where": "centered on matte-white pedestal",
+            "facing": "anterior coronal cutaway"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "translucent coronal 3D brain cutaway",
+          "period_detail": "contained subsurface four-color glow",
+          "physical_behavior": "crimson-red flares in deep bilateral insula and midline anterior cingulate soften into synchronized electric cyan-blue and pearl-aqua waves"
+        }
+      ],
+      "actions": [
+        {
+          "who": "3D Brain",
+          "verb_sequence": "blazes crimson-red inside deep insula and midline anterior cingulate -> softens into rhythmic pearl-aqua and electric cyan-blue waves"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "3D Brain",
+          "reaction": "front prefrontal cortex spares solo emergency fuel"
+        }
+      ],
+      "wardrobe": "None.",
+      "lighting": "High-key white gallery daylight.",
+      "recognition_hook": "Maps the exact insula and anterior cingulate pain dials turned down by trusted touch.",
+      "sources": [
+        "coan_2006",
+        "goldstein_2018",
+        "eisenberger_2003"
+      ]
+    }
+  ]
+}

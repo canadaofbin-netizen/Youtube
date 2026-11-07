@@ -212,7 +212,7 @@ def test_flow_zero_credit_batch_constants_and_adaptive_planner():
     from pipeline.source_reenactment import translate_porcelain_keyframes_async
 
     assert DEFAULT_REENACT_IMAGE_BACKEND == "flow"
-    assert REENACT_IMAGE_BACKENDS == ("flow", "gemini")
+    assert REENACT_IMAGE_BACKENDS == ("flow",)
     assert FLOW_ZERO_CREDIT_IMAGE_MODEL == "Nano Banana 2.1"
     assert FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID == "beluga_display"
     assert FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT == 4
@@ -237,14 +237,15 @@ def test_flow_zero_credit_batch_constants_and_adaptive_planner():
             assert 1 <= out_cnt <= FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH
             assert n_tabs * out_cnt <= FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS
 
-    with pytest.raises(ValueError, match="Unsupported reenactment image backend"):
-        asyncio.run(
-            translate_porcelain_keyframes_async(
-                Path("/tmp/nonexistent_proj"),
-                "ainsworth_strange_situation",
-                backend="paid_external_api",
+    for bad_backend in ("paid_external_api", "gemini"):
+        with pytest.raises(ValueError, match="Unsupported reenactment image backend"):
+            asyncio.run(
+                translate_porcelain_keyframes_async(
+                    Path("/tmp/nonexistent_proj"),
+                    "ainsworth_strange_situation",
+                    backend=bad_backend,
+                )
             )
-        )
 
 
 def test_dynamic_episode_qa_gate2_enforces_reenactment_dhash_lock(tmp_path: Path):

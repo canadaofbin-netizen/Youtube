@@ -29,16 +29,22 @@ import numpy as np
 
 from pipeline.config import (
     DEFAULT_CDP_PORT,
+    DOSSIERS_DIR,
     FLOW_ASPECT_LONGFORM,
     FLOW_PRIMARY_VIDEO_MODEL,
     FLOW_ZERO_CREDIT_MODEL,
     LONGFORM_SHARD_MAX_CLIPS,
     PORCELAIN_REF_NEON_GREEN_MAX,
+    REENACT_MIN_DHASH_DISTANCE,
     REF_IMAGE_HUMAN_SKIN_MAX,
     WORKSPACE_ROOT,
 )
 from pipeline.longform_prompt_builder import build_flow_shards, resolve_longform_project_dir
-from pipeline.source_reenactment import detect_human_faces_yunet
+from pipeline.source_reenactment import (
+    _dhash_64,
+    _hamming_hex,
+    detect_human_faces_yunet,
+)
 
 
 def parse_longform_clip_spec(spec: str | list[int] | set[int] | tuple[int, ...] | None) -> list[int] | None:
@@ -76,8 +82,9 @@ def inspect_longform_16x9_clip_cv(
     min_duration_sec: float = 3.2,
     grammar: str = "",
     reference_path: Path | None = None,
+    source_dhashes: list[str] | None = None,
 ) -> dict[str, Any]:
-    """Runs 6-gate CV verification (including reference anchor correlation for 3D brain clips) on a `16:9` Flow MP4."""
+    """Runs 7-gate CV verification (including reference anchor correlation for 3D brain clips and RQ2 dHash) on a `16:9` Flow MP4."""
     p = Path(mp4_path)
     if not p.exists() or p.stat().st_size < 25_000:
         return {"passed": False, "reason": "missing_or_tiny_mp4", "path": str(p)}
@@ -96,6 +103,19 @@ def inspect_longform_16x9_clip_cv(
         ok, frm = cap.read()
         if ok and frm is not None:
             frames.append(frm)
+
+    min_src_dhash: int | None = None
+    clean_src_dhashes = [str(x) for x in (source_dhashes or []) if str(x)]
+    if clean_src_dhashes and fc > 0:
+        min_d = 64
+        for frac in (0.15, 0.50, 0.85):
+            cap.set(cv2.CAP_PROP_POS_FRAMES, max(0, int(fc * frac)))
+            ok_d, frm_d = cap.read()
+            if ok_d and frm_d is not None:
+                dh = _dhash_64(cv2.cvtColor(frm_d, cv2.COLOR_BGR2GRAY))
+                dist = min(_hamming_hex(dh, sdh) for sdh in clean_src_dhashes)
+                min_d = min(min_d, dist)
+        min_src_dhash = min_d
     cap.release()
 
     if not frames or w <= h:
@@ -200,6 +220,8 @@ def inspect_longform_16x9_clip_cv(
         failed_gates.append(f"bottom_hud_pollution_{max_bot_edges}")
     if max_ref_corr is not None and max_ref_corr < 0.39:
         failed_gates.append(f"unanchored_brain_hallucination_{max_ref_corr:.3f}")
+    if min_src_dhash is not None and min_src_dhash < REENACT_MIN_DHASH_DISTANCE:
+        failed_gates.append(f"rq2_dhash_distance_{min_src_dhash}")
 
     out_rep: dict[str, Any] = {
         "passed": len(failed_gates) == 0,
@@ -215,6 +237,8 @@ def inspect_longform_16x9_clip_cv(
     }
     if max_ref_corr is not None:
         out_rep["max_ref_hist_corr"] = max_ref_corr
+    if min_src_dhash is not None:
+        out_rep["min_source_dhash_bits"] = min_src_dhash
     return out_rep
 
 
@@ -224,30 +248,38 @@ def _reinforce_longform_yunet_retry_prompt(
     cv_reason: str = "",
 ) -> str:
     """
-    Grammar-aware retry reinforcement after a YuNet CV gate failure:
+    Grammar-aware retry reinforcement after a YuNet or RQ2 dHash CV gate failure:
       - `porcelain_hands_closeup` / `porcelain_pov_hands`: locks strictly macro tabletop hands/forearms
         with zero heads or busts (never instructing Veo to render a head surface in a hands-only shot).
       - Cast/world grammars: reinforces 100% smooth featureless blank egg-shaped matte-white porcelain heads
         (`zero eyes, zero nose, zero mouth, zero sculpted facial features`) without priming anatomical sculpt nouns.
+      - `rq2_dhash`: shifts composition to an off-center diagonal three-quarter camera angle with foreground depth.
     """
-    if "yunet" not in str(cv_reason or "").lower():
-        return prompt_text
-    g_norm = str(grammar or "").strip().lower()
-    if "living_brain" in g_norm:
-        return prompt_text
-    if g_norm in ("porcelain_hands_closeup", "porcelain_pov_hands"):
-        extra = (
-            "Frame strictly articulated matte-white porcelain hands and tailored fabric sleeves over clean tabletop props "
-            "(zero heads, zero busts, zero faces, zero face-like reflections anywhere in frame)."
+    reason_low = str(cv_reason or "").lower()
+    out = prompt_text
+    if "yunet" in reason_low:
+        g_norm = str(grammar or "").strip().lower()
+        if "living_brain" not in g_norm:
+            if g_norm in ("porcelain_hands_closeup", "porcelain_pov_hands"):
+                extra_y = (
+                    "Frame strictly articulated matte-white porcelain hands and tailored fabric sleeves over clean tabletop props "
+                    "(zero heads, zero busts, zero faces, zero face-like reflections anywhere in frame)."
+                )
+            else:
+                extra_y = (
+                    "Keep every figure's head 100% smooth featureless blank egg-shaped matte-white porcelain "
+                    "(zero eyes, zero nose, zero mouth, zero sculpted facial features)."
+                )
+            if extra_y.lower() not in out.lower():
+                out = f"{out.rstrip()} {extra_y}"
+    if "rq2_dhash" in reason_low:
+        extra_d = (
+            "Compose from a distinct off-center diagonal three-quarter camera angle with bright asymmetric architectural "
+            "depth and foreground geometric separation."
         )
-    else:
-        extra = (
-            "Keep every figure's head 100% smooth featureless blank egg-shaped matte-white porcelain "
-            "(zero eyes, zero nose, zero mouth, zero sculpted facial features)."
-        )
-    if extra.lower() in prompt_text.lower():
-        return prompt_text
-    return f"{prompt_text.rstrip()} {extra}"
+        if extra_d.lower() not in out.lower():
+            out = f"{out.rstrip()} {extra_d}"
+    return out
 
 
 async def _dismiss_agent_mode_chip(client: Any) -> None:
@@ -1061,6 +1093,30 @@ async def run_longform_sharded_flow_generation(
         if existing_mp4.stat().st_size >= 25_000:
             seen_global_shas.add(hashlib.sha256(existing_mp4.read_bytes()).hexdigest().lower())
 
+    source_dhashes: list[str] = []
+    try:
+        vp_path = vis_dir / "visual_plan.json"
+        vp_doc = json.loads(vp_path.read_text(encoding="utf-8")) if vp_path.exists() else {}
+        sc_path = p_dir / "02_script" / "script.json"
+        sc_doc = json.loads(sc_path.read_text(encoding="utf-8")) if sc_path.exists() else {}
+        rc_path = p_dir / "01_ideation" / "research_card.json"
+        rc_doc = json.loads(rc_path.read_text(encoding="utf-8")) if rc_path.exists() else {}
+        d_slug = str(
+            vp_doc.get("dossier")
+            or vp_doc.get("dossier_slug")
+            or sc_doc.get("dossier_slug")
+            or p_doc.get("dossier")
+            or ""
+        ).strip()
+        d_root = Path(str(rc_doc.get("dossiers_dir") or DOSSIERS_DIR))
+        if d_slug:
+            edl_p = d_root / d_slug / "08_reenactment_edl.json"
+            if edl_p.exists():
+                edl_d = json.loads(edl_p.read_text(encoding="utf-8"))
+                source_dhashes = [str(x) for x in (edl_d.get("source_dhash_64_list") or []) if str(x)]
+    except Exception:
+        source_dhashes = []
+
     for c in selected_clips:
         c_num = int(c["clip_number"])
         out_mp4 = clips_dir / f"clip_{c_num:03d}.mp4"
@@ -1070,6 +1126,7 @@ async def run_longform_sharded_flow_generation(
                 min_duration_sec=float(c.get("target_duration_sec") or 3.2),
                 grammar=str(c.get("grammar") or ""),
                 reference_path=_resolve_clip_ref_path(p_dir, c.get("reference_image")),
+                source_dhashes=source_dhashes,
             )
             if cv_rep.get("passed"):
                 already_ready.append(c_num)
@@ -1199,22 +1256,32 @@ async def run_longform_sharded_flow_generation(
     from pipeline.flow_live_single_worker import allocate_dedicated_flow_project_tab
     from pipeline.studio.whale_session import DirectCDPClient
 
+    from pipeline.cdp_tab_lease import enable_background_focus_emulation, release_and_close_leased_tab
+    from pipeline.config import FLOW_AUTO_CLEANUP_ON_SUCCESS
+    from pipeline.flow_workspace import (
+        clean_flow_workspace_async,
+        format_flow_room_name,
+        rename_active_flow_project,
+        should_reprobe_primary_omni,
+    )
+
     completed: list[int] = list(already_ready)
     failed: list[int] = []
     credit_exhausted_event = asyncio.Event()
-    if str(engine_mode or "").strip().lower().replace("_", "-") == "zero-credit":
+    norm_eng = str(engine_mode or "").strip().lower().replace("_", "-")
+    if norm_eng == "zero-credit":
         credit_exhausted_event.set()
+    elif norm_eng == "auto":
+        ok_reprobe, _ = should_reprobe_primary_omni()
+        if not ok_reprobe:
+            credit_exhausted_event.set()
     tab_open_lock = asyncio.Lock()
     sem = asyncio.Semaphore(eff_tabs)
 
-    def _close_tab(tid: str | None) -> None:
+    def _close_tab(tid: str | None, owner_id: str | None = None) -> None:
         if not tid:
             return
-        try:
-            with urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{tid}", timeout=5):
-                pass
-        except Exception:
-            pass
+        release_and_close_leased_tab(tid, owner_id=owner_id, cdp_port=cdp_port)
 
     eff_shard_size = min(
         LONGFORM_SHARD_MAX_CLIPS,
@@ -1228,11 +1295,13 @@ async def run_longform_sharded_flow_generation(
     async def _run_single_shard(sh_idx: int, shard_batch: list[dict[str, Any]]) -> None:
         async with sem:
             tab_id: str | None = None
+            lease_owner: str | None = None
             cm = None
             try:
                 async with tab_open_lock:
                     alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
                     tab_id = str(alloc["tab_id"])
+                    lease_owner = alloc.get("lease_owner_id")
                     proj_url = str(alloc.get("project_url") or "")
                     if proj_url and proj_url not in live_shard_urls:
                         live_shard_urls.append(proj_url)
@@ -1241,7 +1310,12 @@ async def run_longform_sharded_flow_generation(
                     await asyncio.sleep(0.5)
                 cm = DirectCDPClient(str(alloc["ws_url"]))
                 client = await cm.__aenter__()
+                await enable_background_focus_emulation(client)
                 await client.send("Page.enable")
+                await rename_active_flow_project(
+                    client,
+                    format_flow_room_name(p_dir.name, role="lf-clips", shard_idx=sh_idx),
+                )
                 await _configure_longform_video_16x9_tab(
                     client,
                     engine_mode=engine_mode,
@@ -1319,8 +1393,9 @@ async def run_longform_sharded_flow_generation(
                                     await cm.__aexit__(None, None, None)
                             except Exception:
                                 pass
-                            _close_tab(tab_id)
+                            _close_tab(tab_id, lease_owner)
                             tab_id = None
+                            lease_owner = None
                             cm = None
                             for _rot_try in range(3):
                                 try:
@@ -1328,6 +1403,7 @@ async def run_longform_sharded_flow_generation(
                                     async with tab_open_lock:
                                         alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
                                         tab_id = str(alloc["tab_id"])
+                                        lease_owner = alloc.get("lease_owner_id")
                                         proj_url = str(alloc.get("project_url") or "")
                                         if proj_url and proj_url not in live_shard_urls:
                                             live_shard_urls.append(proj_url)
@@ -1336,7 +1412,17 @@ async def run_longform_sharded_flow_generation(
                                         await asyncio.sleep(0.5)
                                     cm = DirectCDPClient(str(alloc["ws_url"]))
                                     client = await cm.__aenter__()
+                                    await enable_background_focus_emulation(client)
                                     await client.send("Page.enable")
+                                    await rename_active_flow_project(
+                                        client,
+                                        format_flow_room_name(
+                                            p_dir.name,
+                                            role="lf-clips",
+                                            shard_idx=sh_idx,
+                                            wave_idx=_rot_try + 2,
+                                        ),
+                                    )
                                     await _configure_longform_video_16x9_tab(
                                         client,
                                         engine_mode=engine_mode,
@@ -1345,8 +1431,9 @@ async def run_longform_sharded_flow_generation(
                                     break
                                 except Exception as rot_exc:
                                     print(f"[LF-Shard {sh_idx}] Tab rotation retry {_rot_try + 1}/3 failed ({rot_exc})", flush=True)
-                                    _close_tab(tab_id)
+                                    _close_tab(tab_id, lease_owner)
                                     tab_id = None
+                                    lease_owner = None
                             uploaded_cache.clear()
                             seen_urls.clear()
                             res_c = {"ok": False, "reason": f"tab_rotated_after_{type(tab_exc).__name__}"}
@@ -1357,6 +1444,7 @@ async def run_longform_sharded_flow_generation(
                                 min_duration_sec=float(c_spec.get("target_duration_sec") or 3.2),
                                 grammar=grammar,
                                 reference_path=ref_path,
+                                source_dhashes=source_dhashes,
                             )
                             if cv_chk.get("passed"):
                                 sha_now = str(res_c.get("sha256") or hashlib.sha256(out_mp4.read_bytes()).hexdigest().lower())
@@ -1427,13 +1515,23 @@ async def run_longform_sharded_flow_generation(
                         await cm.__aexit__(None, None, None)
                     except Exception:
                         pass
-                _close_tab(tab_id)
+                _close_tab(tab_id, lease_owner)
 
     await asyncio.gather(*(_run_single_shard(idx_s, b) for idx_s, b in enumerate(shard_batches, start=1)))
 
     prov_doc = _persist_provenance_snapshot(
         partial=(len(failed) > 0)
     )
+    if len(failed) == 0 and FLOW_AUTO_CLEANUP_ON_SUCCESS and live_shard_urls:
+        try:
+            await clean_flow_workspace_async(
+                cdp_port=cdp_port,
+                temp_project_id=p_dir.name,
+                project_urls=live_shard_urls,
+                clean_local_temp=True,
+            )
+        except Exception:
+            pass
     receipt = {
         "schema": "longform_flow_receipt_v1",
         "project_id": p_dir.name,

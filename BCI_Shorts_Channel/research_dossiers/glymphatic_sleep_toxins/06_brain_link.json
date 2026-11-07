@@ -1,15 +1,40 @@
 {
-  "damaged_or_dysregulated_regions": [
-    "amygdala (hyper-reactive +60% emotional threat alarm after sleep loss)",
-    "medial prefrontal cortex (disconnected top-down emotional brake)"
-  ],
-  "target_mechanism_regions": [
-    "astrocytic AQP4 perivascular glymphatic channels (+60% interstitial expansion during slow-wave NREM)",
-    "fourth ventricle & subarachnoid cerebrospinal fluid conduits (20-second coupled slow-wave pulses)",
-    "locus coeruleus norepinephrine vasomotor pump (rhythmic arterial pulsations blunted by sedatives)"
-  ],
-  "compensatory_behavioral_pathway": [
-    "stimulus-control deconditioning (stepping out of bed to extinguish Pavlovian cortical beta arousal)",
-    "morning bright light + evening thermal drop to consolidate natural slow-wave delta oscillations"
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "region": "amygdala",
+      "plain": "emotional alarm",
+      "function": "threat detection and emotional significance",
+      "scene": "S2",
+      "narration_bridge": "After thirty-five sleepless hours, Matthew Walker's team saw the amygdala — the brain's emotional alarm — fire sixty percent harder at everyday stress."
+    },
+    {
+      "region": "ventromedial prefrontal cortex",
+      "plain": "social brake",
+      "function": "top-down emotional regulation and linking emotion to decisions",
+      "scene": "S2",
+      "narration_bridge": "Sleep loss weakens the calming connection from the medial prefrontal cortex — the front emotional brake — leaving the alarm unchecked."
+    },
+    {
+      "region": "thalamus",
+      "plain": "sensory switchboard",
+      "function": "gating sensory input and coordinating slow-wave sleep rhythms",
+      "scene": "S1",
+      "narration_bridge": "As the thalamus — the central sensory gatekeeper — shifts the cortex into synchronized slow delta waves, blood volume dips and clear fluid surges inward."
+    },
+    {
+      "region": "hippocampus",
+      "plain": "memory recorder",
+      "function": "forming new memories",
+      "scene": "S1",
+      "narration_bridge": "When overnight clearance stalls, sticky metabolic waste lingers longest around deep memory hubs like the hippocampus."
+    },
+    {
+      "region": "brainstem",
+      "plain": "reflex center",
+      "function": "regulating slow norepinephrine arousal pulses and autonomic rhythms",
+      "scene": "S3",
+      "narration_bridge": "Deep in the brainstem, slow fifty-second norepinephrine waves gently squeeze brain arteries like a fluid pump — until sedatives flatten that pulse."
+    }
   ]
 }

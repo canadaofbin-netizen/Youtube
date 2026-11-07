@@ -1,0 +1,790 @@
+{
+  "room_name": "AAB_sig_cast_proto",
+  "shots": {
+    "opt1_sheet": {
+      "key": "opt1_sheet",
+      "filename": "opt1_sheet.jpg",
+      "group": "Option 1",
+      "prompt": "Vertical 9:16 character design turnaround & expression grid (2 columns x 3 rows on clean soft slate studio backdrop, zero text captions) for a signature collectible 2.5D art-toy species: smooth 3D matte cream-white vinyl/ceramic rounded oval head (tactile soft studio highlights and 3D shadow falloff, NO nose, NO ears, NO hair) with bold charcoal-black 2D ink cartoon eyes, thick expressive eyebrows, and expressive black cartoon mouths, paired with realistic 3D fabric outfits: (1) smug navy prison guard smirking with raised eyebrow, (2) furious orange-jumpsuit inmate clenching cartoon teeth with red anger-vein mark, (3) shocked white-coat scientist with wide eyes, open O-mouth and cartoon sweat drop, (4) exhausted 3 AM dark-hoodie insomniac with heavy half-lidded eyes, (5) sly dark-suit executive smirking, (6) climax X-Ray state where a thin glowing gold seam splits the upper matte-white cranium into crystal-clear glass revealing a glowing 4-color 3D brain (gold prefrontal, crimson-magenta limbic core, cyan hippocampus, violet brainstem).",
+      "expected_conditioning": [],
+      "attached_refs": [],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 0,
+      "winner_quality_score": 194.93,
+      "latency_sec": 29.67,
+      "file_bytes": 368983,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt1_sheet_0.png",
+          "sharpness": 222.44,
+          "contrast": 52.98,
+          "quality_score": 194.93,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_sheet_1.png",
+          "sharpness": 172.82,
+          "contrast": 56.25,
+          "quality_score": 181.63,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_sheet_2.png",
+          "sharpness": 170.04,
+          "contrast": 48.7,
+          "quality_score": 165.42,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_sheet_3.png",
+          "sharpness": 200.46,
+          "contrast": 53.85,
+          "quality_score": 187.88,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt1_scene_conflict": {
+      "key": "opt1_scene_conflict",
+      "filename": "opt1_scene_conflict.jpg",
+      "group": "Option 1",
+      "prompt": "Vertical 9:16 cinematic 2.5D scene matching the attached character sheet style (smooth 3D matte cream-white vinyl rounded heads with bold black 2D cartoon ink eyes, eyebrows, and mouths, NO nose, NO ears, realistic 3D clothing and miniature lighting). Inside a bright bubblegum-pink maximum-security prison corridor; bold black stenciled uppercase label CELL P-618 on the pink concrete wall and a glowing red digital wall timer reading 15:00. Foreground left outside steel bars: navy-uniformed prison guard laughing smugly with mocking black cartoon eyes and grin, pointing inside. Behind steel bars: muscular inmate in orange jumpsuit gripping the bars with furious black cartoon eyes, clenched teeth, and cartoon sweat drop. 3D bar shadows curving naturally across their matte-white rounded heads, shallow depth-of-field bokeh.",
+      "expected_conditioning": [
+        "opt1_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt1_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 233.39,
+      "latency_sec": 46.95,
+      "file_bytes": 504325,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt1_scene_conflict_0.png",
+          "sharpness": 95.48,
+          "contrast": 60.68,
+          "quality_score": 159.56,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_scene_conflict_1.png",
+          "sharpness": 117.45,
+          "contrast": 63.85,
+          "quality_score": 174.68,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_scene_conflict_2.png",
+          "sharpness": 268.16,
+          "contrast": 63.06,
+          "quality_score": 233.39,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_scene_conflict_3.png",
+          "sharpness": 144.51,
+          "contrast": 62.19,
+          "quality_score": 182.19,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt1_scene_brain75": {
+      "key": "opt1_scene_brain75",
+      "filename": "opt1_scene_brain75.jpg",
+      "group": "Option 1",
+      "prompt": "Vertical 9:16 dramatic close-up climax shot matching the attached character sheet style inside the bubblegum-pink prison cell (16:00 red timer blurred in background). The orange-jumpsuit character's smooth matte cream-white vinyl head has bold wide-open shocked black cartoon eyes and gasping mouth; along a thin luminous gold seam across the forehead, the upper cranium transitions into crystal-clear transparent X-Ray glass revealing a vivid glowing 4-color 3D brain inside (dimming gold frontal lobe, blazing crimson-magenta amygdala alarm switch erupting with sparks like an overloaded valve, cyan memory loop, violet brainstem). Cinematic volumetric lighting, zero floating UI text.",
+      "expected_conditioning": [
+        "opt1_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt1_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 3,
+      "winner_quality_score": 151.38,
+      "latency_sec": 26.92,
+      "file_bytes": 489434,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt1_scene_brain75_0.png",
+          "sharpness": 100.65,
+          "contrast": 52.72,
+          "quality_score": 145.7,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_scene_brain75_1.png",
+          "sharpness": 112.84,
+          "contrast": 50.5,
+          "quality_score": 146.14,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_scene_brain75_2.png",
+          "sharpness": 121.14,
+          "contrast": 50.11,
+          "quality_score": 148.68,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt1_scene_brain75_3.png",
+          "sharpness": 107.27,
+          "contrast": 54.24,
+          "quality_score": 151.38,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt2_sheet": {
+      "key": "opt2_sheet",
+      "filename": "opt2_sheet.jpg",
+      "group": "Option 2",
+      "prompt": "Vertical 9:16 character design grid (2 columns x 3 rows on dark studio backdrop, zero text captions) for a hybrid 2.5D cartoon species: completely flat 2D pure-white paper circle head outlined with a thick black felt-tip marker border and bold 2D black ink eyes, eyebrows, and cartoon mouths (flat unshaded white circle head, NO nose, NO ears, NO hair), attached to 3D shaded clothed bodies: (1) smug navy prison guard smirking, (2) enraged orange-jumpsuit inmate with jagged cartoon teeth and anger mark, (3) shocked lab-coat scientist with wide cartoon eyes and sweat drop, (4) exhausted 3 AM hoodie insomniac, (5) scheming suit executive, (6) flat 2D white circle head with a black dashed cutaway window inside revealing a glowing 4-color 3D brain.",
+      "expected_conditioning": [],
+      "attached_refs": [],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 3,
+      "winner_quality_score": 396.54,
+      "latency_sec": 29.05,
+      "file_bytes": 419699,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt2_sheet_0.png",
+          "sharpness": 560.81,
+          "contrast": 77.29,
+          "quality_score": 378.92,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_sheet_1.png",
+          "sharpness": 544.32,
+          "contrast": 73.43,
+          "quality_score": 364.58,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_sheet_2.png",
+          "sharpness": 371.79,
+          "contrast": 72.64,
+          "quality_score": 293.99,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_sheet_3.png",
+          "sharpness": 616.43,
+          "contrast": 78.27,
+          "quality_score": 396.54,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt2_scene_conflict": {
+      "key": "opt2_scene_conflict",
+      "filename": "opt2_scene_conflict.jpg",
+      "group": "Option 2",
+      "prompt": "Vertical 9:16 hybrid 2.5D scene matching the attached character sheet (flat 2D pure-white paper circle heads with thick black ink outline and bold 2D black cartoon eyes/brows/mouths, standing inside a realistic 3D lit environment with 3D shadows and lens bokeh). Bright bubblegum-pink maximum-security prison cell with bold black stencil CELL P-618 on the pink wall and red 15:00 wall timer. Foreground outside steel bars: navy prison guard with flat 2D black-outlined white circle head laughing smugly and pointing. Inside behind bars: orange-jumpsuit inmate with flat 2D black-outlined white circle head gripping the steel bars in cartoon rage with gritted teeth and sweat drop.",
+      "expected_conditioning": [
+        "opt2_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt2_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 3,
+      "winner_quality_score": 282.23,
+      "latency_sec": 53.15,
+      "file_bytes": 508433,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt2_scene_conflict_0.png",
+          "sharpness": 257.82,
+          "contrast": 71.33,
+          "quality_score": 245.78,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_scene_conflict_1.png",
+          "sharpness": 276.82,
+          "contrast": 67.73,
+          "quality_score": 246.2,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_scene_conflict_2.png",
+          "sharpness": 266.92,
+          "contrast": 68.08,
+          "quality_score": 242.92,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_scene_conflict_3.png",
+          "sharpness": 369.73,
+          "contrast": 67.17,
+          "quality_score": 282.23,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt2_scene_brain75": {
+      "key": "opt2_scene_brain75",
+      "filename": "opt2_scene_brain75.jpg",
+      "group": "Option 2",
+      "prompt": "Vertical 9:16 climax close-up matching the attached character sheet inside the pink prison cell (16:00 red timer blurred behind). The orange-jumpsuit inmate has a flat 2D pure-white circle head with thick black ink outline, wide shocked 2D cartoon eyes and open mouth; a crisp black-ink dashed cutaway window on the upper white circle head reveals a glowing 3D 4-color brain switch inside (blazing crimson-magenta limbic alarm core overpowering gold frontal lobe, cyan hippocampus, violet stem) against cinematic 3D pink prison lighting.",
+      "expected_conditioning": [
+        "opt2_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt2_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 272.93,
+      "latency_sec": 29.47,
+      "file_bytes": 563629,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt2_scene_brain75_0.png",
+          "sharpness": 259.72,
+          "contrast": 70.96,
+          "quality_score": 245.81,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_scene_brain75_1.png",
+          "sharpness": 294.31,
+          "contrast": 77.05,
+          "quality_score": 271.83,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_scene_brain75_2.png",
+          "sharpness": 344.46,
+          "contrast": 67.57,
+          "quality_score": 272.93,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt2_scene_brain75_3.png",
+          "sharpness": 277.71,
+          "contrast": 69.45,
+          "quality_score": 249.98,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt3_cameo_sheet": {
+      "key": "opt3_cameo_sheet",
+      "filename": "opt3_cameo_sheet.jpg",
+      "group": "Option 3",
+      "prompt": "Vertical 9:16 design bible board (2x2 showcase panels, zero body text) for a signature Hidden Mini-Brain Easter-Egg Cameo (\"Mini-Cortex\") inside the matte-white vinyl 2.5D world: a tiny 4cm translucent 4-color glowing collectible brain charm/figurine with tiny cute black dot eyes (gold, magenta, cyan, violet lobes) subtly hidden as a background prop in four everyday scenes: (1) clipped onto the corner of a prison guard's metal clipboard, (2) perched beside a red 03:00 digital alarm clock on a dark nightstand, (3) stamped as a tiny emblem on a wooden crate labeled TEST, (4) sitting inside a glass coffee mug handle on an office desk. Cinematic macro miniature lighting.",
+      "expected_conditioning": [
+        "opt1_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt1_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 175.56,
+      "latency_sec": 34.21,
+      "file_bytes": 338716,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt3_cameo_sheet_0.png",
+          "sharpness": 63.21,
+          "contrast": 69.32,
+          "quality_score": 163.92,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_cameo_sheet_1.png",
+          "sharpness": 91.34,
+          "contrast": 59.37,
+          "quality_score": 155.27,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_cameo_sheet_2.png",
+          "sharpness": 78.73,
+          "contrast": 72.03,
+          "quality_score": 175.56,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_cameo_sheet_3.png",
+          "sharpness": 87.76,
+          "contrast": 63.26,
+          "quality_score": 161.61,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt3_scene_conflict_easteregg": {
+      "key": "opt3_scene_conflict_easteregg",
+      "filename": "opt3_scene_conflict_easteregg.jpg",
+      "group": "Option 3",
+      "prompt": "Vertical 9:16 cinematic 2.5D scene combining the attached matte-white vinyl 2.5D characters (smooth rounded white heads with bold black cartoon eyes/brows/mouths) and a subtle hidden tiny 4-color glowing Mini-Brain figurine Easter egg. Inside the bubblegum-pink prison corridor (CELL P-618 stencil on wall, red 15:00 timer box): smug navy guard holding a metal clipboard outside the bars laughing at the furious orange-jumpsuit inmate gripping the bars; perched inconspicuously on top of the wall timer box (or clipped to the guard's clipboard edge) is the tiny 4cm glowing 4-color Mini-Brain figurine Easter egg for sharp-eyed viewers to spot.",
+      "expected_conditioning": [
+        "opt1_sheet.jpg",
+        "opt3_cameo_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt1_sheet.jpg",
+        "opt3_cameo_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 1,
+      "winner_quality_score": 144.09,
+      "latency_sec": 44.93,
+      "file_bytes": 364242,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt3_scene_conflict_easteregg_0.png",
+          "sharpness": 62.08,
+          "contrast": 51.07,
+          "quality_score": 126.97,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_scene_conflict_easteregg_1.png",
+          "sharpness": 74.83,
+          "contrast": 57.08,
+          "quality_score": 144.09,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_scene_conflict_easteregg_2.png",
+          "sharpness": 68.32,
+          "contrast": 54.22,
+          "quality_score": 135.77,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_scene_conflict_easteregg_3.png",
+          "sharpness": 95.27,
+          "contrast": 51.88,
+          "quality_score": 141.87,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "opt3_scene_nightstand_easteregg": {
+      "key": "opt3_scene_nightstand_easteregg",
+      "filename": "opt3_scene_nightstand_easteregg.jpg",
+      "group": "Option 3",
+      "prompt": "Vertical 9:16 cinematic 2.5D scene at 03:00 AM in a dark moody hotel bedroom (03:00 glowing red digital clock on nightstand). A sleepless traveler in a dark hoodie sits upright in bed; his smooth matte-white vinyl head has exhausted half-open black cartoon eyes, with the left half of his cranium opaque matte-white asleep and the right half crystal-clear X-Ray glass glowing with an alert cyan-and-gold 3D brain hemisphere on night watch. Subtly tucked next to the alarm clock on the wooden nightstand sits the tiny 4cm 4-color glowing Mini-Brain Easter-egg charm.",
+      "expected_conditioning": [
+        "opt1_sheet.jpg",
+        "opt3_cameo_sheet.jpg"
+      ],
+      "attached_refs": [
+        "opt1_sheet.jpg",
+        "opt3_cameo_sheet.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "output_count_requested": 4,
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 95.38,
+      "latency_sec": 39.58,
+      "file_bytes": 301261,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "jpeg_magic_verified": true,
+      "settings_summary": "🍌 Nano Banana 2.1\ncrop_9_16\nx4",
+      "candidates": [
+        {
+          "tmp_name": "flow_cand_opt3_scene_nightstand_easteregg_0.png",
+          "sharpness": 27.8,
+          "contrast": 39.52,
+          "quality_score": 90.16,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_scene_nightstand_easteregg_1.png",
+          "sharpness": 32.25,
+          "contrast": 34.88,
+          "quality_score": 82.66,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_scene_nightstand_easteregg_2.png",
+          "sharpness": 40.57,
+          "contrast": 39.57,
+          "quality_score": 95.38,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "tmp_name": "flow_cand_opt3_scene_nightstand_easteregg_3.png",
+          "sharpness": 44.26,
+          "contrast": 37.62,
+          "quality_score": 92.95,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    }
+  },
+  "consistency": {
+    "Option 1": {
+      "mean_latency_sec": 34.51,
+      "total_latency_sec": 103.54,
+      "mean_cand_sharpness": 152.77,
+      "mean_cand_contrast": 55.76,
+      "max_cand_quality_score": 233.39,
+      "mean_species_cosine_sim": 0.8295,
+      "mean_cameo_cosine_sim": null,
+      "mean_global_scene_cosine_sim": 0.3908,
+      "mean_style_cosine_sim": 0.8295,
+      "pairs": {
+        "opt1_sheet->opt1_scene_conflict": {
+          "pair_kind": "character_species",
+          "species_cosine_sim": 0.696,
+          "global_scene_cosine_sim": 0.4218,
+          "head_luma_delta": 7.63,
+          "ink_ratio_delta": 0.0943
+        },
+        "opt1_sheet->opt1_scene_brain75": {
+          "pair_kind": "character_species",
+          "species_cosine_sim": 0.963,
+          "global_scene_cosine_sim": 0.3597,
+          "head_luma_delta": 14.8,
+          "ink_ratio_delta": 0.015
+        }
+      },
+      "head_surface_stats": {
+        "opt1_sheet": {
+          "is_prop_sheet": false,
+          "head_area_pct": 18.27,
+          "white_area_pct": 18.27,
+          "white_luma_mean": 202.27,
+          "white_luma_std": 27.09,
+          "ink_border_ratio": 0.0511
+        },
+        "opt1_scene_conflict": {
+          "is_prop_sheet": false,
+          "head_area_pct": 7.14,
+          "white_area_pct": 7.14,
+          "white_luma_mean": 209.9,
+          "white_luma_std": 23.91,
+          "ink_border_ratio": 0.1454
+        },
+        "opt1_scene_brain75": {
+          "is_prop_sheet": false,
+          "head_area_pct": 2.01,
+          "white_area_pct": 2.01,
+          "white_luma_mean": 217.07,
+          "white_luma_std": 19.51,
+          "ink_border_ratio": 0.0661
+        }
+      }
+    },
+    "Option 2": {
+      "mean_latency_sec": 37.22,
+      "total_latency_sec": 111.67,
+      "mean_cand_sharpness": 370.07,
+      "mean_cand_contrast": 71.75,
+      "max_cand_quality_score": 396.54,
+      "mean_species_cosine_sim": 0.9473,
+      "mean_cameo_cosine_sim": null,
+      "mean_global_scene_cosine_sim": 0.4466,
+      "mean_style_cosine_sim": 0.9473,
+      "pairs": {
+        "opt2_sheet->opt2_scene_conflict": {
+          "pair_kind": "character_species",
+          "species_cosine_sim": 0.9716,
+          "global_scene_cosine_sim": 0.4716,
+          "head_luma_delta": 7.58,
+          "ink_ratio_delta": 0.0509
+        },
+        "opt2_sheet->opt2_scene_brain75": {
+          "pair_kind": "character_species",
+          "species_cosine_sim": 0.9229,
+          "global_scene_cosine_sim": 0.4216,
+          "head_luma_delta": 15.96,
+          "ink_ratio_delta": 0.1363
+        }
+      },
+      "head_surface_stats": {
+        "opt2_sheet": {
+          "is_prop_sheet": false,
+          "head_area_pct": 15.43,
+          "white_area_pct": 15.43,
+          "white_luma_mean": 223.9,
+          "white_luma_std": 20.91,
+          "ink_border_ratio": 0.2576
+        },
+        "opt2_scene_conflict": {
+          "is_prop_sheet": false,
+          "head_area_pct": 3.29,
+          "white_area_pct": 3.29,
+          "white_luma_mean": 231.48,
+          "white_luma_std": 18.49,
+          "ink_border_ratio": 0.2067
+        },
+        "opt2_scene_brain75": {
+          "is_prop_sheet": false,
+          "head_area_pct": 10.14,
+          "white_area_pct": 10.14,
+          "white_luma_mean": 239.86,
+          "white_luma_std": 12.77,
+          "ink_border_ratio": 0.1213
+        }
+      }
+    },
+    "Option 3": {
+      "mean_latency_sec": 39.57,
+      "total_latency_sec": 118.72,
+      "mean_cand_sharpness": 63.87,
+      "mean_cand_contrast": 52.49,
+      "max_cand_quality_score": 175.56,
+      "mean_species_cosine_sim": 0.9526,
+      "mean_cameo_cosine_sim": 0.6343,
+      "mean_global_scene_cosine_sim": 0.5189,
+      "mean_style_cosine_sim": 0.9526,
+      "pairs": {
+        "opt1_sheet->opt3_scene_conflict_easteregg": {
+          "pair_kind": "character_species",
+          "species_cosine_sim": 0.9855,
+          "global_scene_cosine_sim": 0.4416,
+          "head_luma_delta": 2.94,
+          "ink_ratio_delta": 0.0039
+        },
+        "opt3_cameo_sheet->opt3_scene_conflict_easteregg": {
+          "pair_kind": "cameo_prop",
+          "cameo_cosine_sim": 0.8064,
+          "global_scene_cosine_sim": 0.5029
+        },
+        "opt1_sheet->opt3_scene_nightstand_easteregg": {
+          "pair_kind": "character_species",
+          "species_cosine_sim": 0.9196,
+          "global_scene_cosine_sim": 0.3891,
+          "head_luma_delta": 54.63,
+          "ink_ratio_delta": 0.0564
+        },
+        "opt3_cameo_sheet->opt3_scene_nightstand_easteregg": {
+          "pair_kind": "cameo_prop",
+          "cameo_cosine_sim": 0.4622,
+          "global_scene_cosine_sim": 0.7418
+        }
+      },
+      "head_surface_stats": {
+        "opt3_cameo_sheet": {
+          "is_prop_sheet": true,
+          "head_area_pct": 0.0,
+          "white_area_pct": 0.0,
+          "white_luma_mean": 0.0,
+          "white_luma_std": 0.0,
+          "ink_border_ratio": 0.0
+        },
+        "opt3_scene_conflict_easteregg": {
+          "is_prop_sheet": false,
+          "head_area_pct": 2.35,
+          "white_area_pct": 2.35,
+          "white_luma_mean": 205.21,
+          "white_luma_std": 16.86,
+          "ink_border_ratio": 0.055
+        },
+        "opt3_scene_nightstand_easteregg": {
+          "is_prop_sheet": false,
+          "head_area_pct": 2.16,
+          "white_area_pct": 2.16,
+          "white_luma_mean": 147.64,
+          "white_luma_std": 32.77,
+          "ink_border_ratio": 0.1075
+        }
+      }
+    }
+  },
+  "flow_allocation": {
+    "tab_id": "795747C83C25699266509DB31A899CAA",
+    "project_url": "https://flow.google.com/project/b71efad1-2c3a-44d4-b2eb-0e5155cfe4ad",
+    "lease_owner_id": "pid:2258400:sig_cast_proto:4f640f06"
+  },
+  "focus_emulation_enabled": true
+}

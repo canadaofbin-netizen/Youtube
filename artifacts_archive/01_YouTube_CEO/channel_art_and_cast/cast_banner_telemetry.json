@@ -1,0 +1,704 @@
+{
+  "room_name": "AAB_cast_banner_proto",
+  "shots": {
+    "cast_sheet_02": {
+      "key": "cast_sheet_02",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/cast_sheet_02_clinical_historical_6roles.jpg",
+      "aspect": "9:16",
+      "prompt": "Vertical 9:16 character design turnaround grid (exact 2 columns x 3 rows on matching clean soft slate-blue-grey studio backdrop, zero text captions, zero labels) expanding the exact attached collectible 2.5D art-toy species: every character has an identical smooth 3D matte cream-white vinyl/ceramic rounded oval head and matching rounded matte-white vinyl hands (strictly NO nose, NO ears, NO hair) with bold charcoal-black 2D ink cartoon eyes, thick expressive eyebrows, and expressive black cartoon mouths, wearing realistic 3D fabric outfits and tactile head/face accessories resting cleanly on the smooth matte-white head: (1) top-left: focused neurosurgeon in teal hospital scrubs wearing magnifying surgical loupe glasses cleanly on the smooth white vinyl face and a surgical mask pulled down under the chin, determined 2D ink brow; (2) top-right: nervous clinical patient in light-blue hospital gown wearing a sleek dark wireless EEG neural sensor headband around the smooth matte-white head, wide anxious 2D cartoon eyes, wavy trembling mouth, and cartoon sweat drop; (3) middle-left: 19th-century railroad foreman in vintage brown vest over rolled-up work shirt gripping a dark iron rod, stunned wide 2D cartoon eyes, with a thin luminous gold seam opening only the upper-left frontal cranium quadrant into crystal-clear glass X-Ray revealing glowing gold and crimson-magenta 3D brain lobes; (4) middle-right: sleep-deprived military test pilot in olive-drab flight jacket and matte olive helmet strapped cleanly onto the smooth white vinyl head, clenched cartoon teeth and exhausted 2D ink eyes; (5) bottom-left: skeptical detective in tan trench coat and tie wearing round black-rimmed spectacles on the smooth matte-white face, narrowed suspicious 2D ink eyes with raised eyebrow, holding a magnifying glass; (6) bottom-right: warm empathetic psychologist in camel knit cardigan over collared shirt with thin round wireframe glasses on the smooth white vinyl face, gentle reassuring 2D cartoon smile holding a small notebook.",
+      "expected_conditioning": [
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "attached_refs": [
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 112.76,
+      "latency_sec": 44.48,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_02_cand_0.jpg",
+          "sharpness": 84.45,
+          "contrast": 37.61,
+          "quality_score": 109.0,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_02_cand_1.jpg",
+          "sharpness": 93.64,
+          "contrast": 37.59,
+          "quality_score": 112.63,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_02_cand_2.jpg",
+          "sharpness": 82.95,
+          "contrast": 37.63,
+          "quality_score": 108.43,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_02_cand_3.jpg",
+          "sharpness": 94.02,
+          "contrast": 37.58,
+          "quality_score": 112.76,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ],
+      "manual_selection_note": "Selected cand_2 for exact partial frontal glass X-Ray quadrant on Role #09 and unclipped magnifying glass on Role #11."
+    },
+    "cast_sheet_03": {
+      "key": "cast_sheet_03",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/cast_sheet_03_everyday_lifestyle_6roles.jpg",
+      "aspect": "9:16",
+      "prompt": "Vertical 9:16 single centered medium-wide studio character turnaround portrait on a clean solid soft slate-blue-grey (#768696) studio backdrop (generous empty slate-blue-grey space occupying the top 22% above the hat, left, and right; zero text, zero grid lines) of the exact attached collectible 2.5D art-toy species: smooth 3D matte cream-white vinyl/ceramic rounded oval head and matching rounded matte-white vinyl hands (strictly NO nose, NO ears, NO hair) with bold charcoal-black 2D ink cartoon gleaming happy eyes, expressive arched eyebrows, and joyful wide cartoon smile, wearing a crisp white double-breasted pastry chef coat and a classic puffy white chef toque hat perched cleanly on the smooth matte-white vinyl head with the entire rounded top of the chef hat 100% visible inside the frame.",
+      "expected_conditioning": [
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "attached_refs": [
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 1,
+      "winner_quality_score": 132.71,
+      "latency_sec": 46.84,
+      "resolution": [
+        1080,
+        1920
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_03_cand_0.jpg",
+          "sharpness": 85.5,
+          "contrast": 37.46,
+          "quality_score": 109.12,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_03_cand_1.jpg",
+          "sharpness": 123.92,
+          "contrast": 41.57,
+          "quality_score": 132.71,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_03_cand_2.jpg",
+          "sharpness": 112.71,
+          "contrast": 36.63,
+          "quality_score": 118.34,
+          "shape": [
+            1080,
+            1920
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/cast_sheet_03_cand_3.jpg",
+          "sharpness": 90.33,
+          "contrast": 31.81,
+          "quality_score": 99.76,
+          "shape": [
+            1080,
+            1920
+          ]
+        }
+      ]
+    },
+    "avatar_opt1": {
+      "key": "avatar_opt1",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/raw_avatar_opt1_xray_director.jpg",
+      "aspect": "16:9",
+      "prompt": "Centered square-safe portrait bust in the exact middle of a seamless solid deep midnight-navy (#060C18) studio void backdrop (generous empty solid #060C18 dark margin above the head, left, and right; NO circular border ring, NO frame, zero text). Front-facing iconic hero character from the attached 2.5D art-toy species: smooth 3D matte cream-white rounded vinyl head (strictly NO nose, NO ears, NO hair) wearing a sleek dark charcoal matte high-collar studio jacket with subtle cyan rim light. Painted on the smooth cream-white vinyl face is a razor-sharp charcoal-black 2D ink cartoon expression: one eyebrow cocked high in a clever confident smirk, expressive 2D ink eyes glancing slightly upward toward its own brain. Across the forehead sits a thin luminous brushed-gold seam ring, above which the entire upper cranium is a crystal-clear transparent glass X-Ray dome revealing a vivid glowing 4-color 3D brain inside (warm Gold left frontal lobe, glowing Crimson-Magenta right limbic lobe, electric Cyan temporal lobes, deep Violet brainstem) with tiny golden neural sparks inside the glass dome. Ultra-crisp macro studio lighting.",
+      "expected_conditioning": [
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "attached_refs": [
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 139.45,
+      "latency_sec": 36.8,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt1_cand_0.jpg",
+          "sharpness": 44.55,
+          "contrast": 54.32,
+          "quality_score": 126.46,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt1_cand_1.jpg",
+          "sharpness": 47.27,
+          "contrast": 55.53,
+          "quality_score": 129.96,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt1_cand_2.jpg",
+          "sharpness": 84.32,
+          "contrast": 52.86,
+          "quality_score": 139.45,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt1_cand_3.jpg",
+          "sharpness": 45.26,
+          "contrast": 54.45,
+          "quality_score": 127.0,
+          "shape": [
+            1920,
+            1080
+          ]
+        }
+      ]
+    },
+    "avatar_opt2": {
+      "key": "avatar_opt2",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/raw_avatar_opt2_eureka_scientist.jpg",
+      "aspect": "16:9",
+      "prompt": "Centered square-safe portrait bust in the exact middle of a seamless solid deep obsidian-navy (#050D18) studio void backdrop (generous empty solid #050D18 dark margin above the glass dome, left, and right; NO painted circle border, NO text). Front-facing close-up bust of the signature 2.5D matte cream-white vinyl neuroscientist character (strictly NO nose, NO ears, NO hair) wearing a crisp white lab coat over a dark charcoal turtleneck and bold round black-rimmed glasses resting cleanly on the smooth matte-white face, with one rounded matte-white vinyl hand raised near the cheek in mind-blown discovery. Bold charcoal-black 2D ink cartoon wide-open 'Eureka!' eyes, high arched eyebrows, and amazed open 'O' mouth. Above a thin luminous brushed-gold forehead seam ring, a crystal-clear glass X-Ray cranium dome reveals a brightly glowing 4-color 3D brain (Gold, Crimson-Magenta, Cyan, Violet) firing an electric golden-crimson neural lightning spark inside the glass dome.",
+      "expected_conditioning": [
+        "cast_sheet_01_core_6roles.jpg",
+        "cast_sheet_02_clinical_historical_6roles.jpg"
+      ],
+      "attached_refs": [
+        "cast_sheet_01_core_6roles.jpg",
+        "cast_sheet_02_clinical_historical_6roles.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 0,
+      "winner_quality_score": 177.6,
+      "latency_sec": 47.56,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt2_cand_0.jpg",
+          "sharpness": 99.19,
+          "contrast": 68.96,
+          "quality_score": 177.6,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt2_cand_1.jpg",
+          "sharpness": 94.17,
+          "contrast": 66.81,
+          "quality_score": 171.3,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt2_cand_2.jpg",
+          "sharpness": 87.33,
+          "contrast": 64.33,
+          "quality_score": 163.6,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt2_cand_3.jpg",
+          "sharpness": 101.13,
+          "contrast": 64.06,
+          "quality_score": 168.57,
+          "shape": [
+            1920,
+            1080
+          ]
+        }
+      ]
+    },
+    "avatar_opt3": {
+      "key": "avatar_opt3",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/raw_avatar_opt3_hoodie_minicortex.jpg",
+      "aspect": "16:9",
+      "prompt": "Centered square-safe portrait bust in the exact middle of a seamless solid deep midnight-navy (#060B17) studio void backdrop (generous empty solid #060B17 dark space above the glass dome, left, and right; NO circular border ring, zero text). Front-facing hero character from the attached 2.5D matte cream-white vinyl species (strictly NO nose, NO ears, NO hair) wearing a sleek midnight-navy hoodie with subtle glowing cyan cord tips. Bold charcoal-black 2D ink cartoon playful grin and curious raised eyebrow glancing sideways toward its shoulder, where the tiny 4cm translucent glowing 4-color Mini-Brain mascot figurine with cute tiny black dot eyes ('Mini-Cortex') perches cheerfully on the hoodie shoulder! Above the host's luminous brushed-gold forehead seam ring, a crystal-clear glass X-Ray cranium dome glows with the vivid 4-color 3D brain (Gold, Crimson-Magenta, Cyan, Violet).",
+      "expected_conditioning": [
+        "cast_sheet_01_core_6roles.jpg",
+        "cast_cameo_minicortex_bible.jpg"
+      ],
+      "attached_refs": [
+        "cast_sheet_01_core_6roles.jpg",
+        "cast_cameo_minicortex_bible.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 1,
+      "winner_quality_score": 136.79,
+      "latency_sec": 59.87,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt3_cand_0.jpg",
+          "sharpness": 60.21,
+          "contrast": 50.35,
+          "quality_score": 124.78,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt3_cand_1.jpg",
+          "sharpness": 69.56,
+          "contrast": 54.48,
+          "quality_score": 136.79,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt3_cand_2.jpg",
+          "sharpness": 51.11,
+          "contrast": 50.87,
+          "quality_score": 122.18,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt3_cand_3.jpg",
+          "sharpness": 60.1,
+          "contrast": 52.22,
+          "quality_score": 128.49,
+          "shape": [
+            1920,
+            1080
+          ]
+        }
+      ]
+    },
+    "banner_opt1": {
+      "key": "banner_opt1",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/raw_banner_opt1_ensemble_lineup.jpg",
+      "aspect": "16:9",
+      "prompt": "Wide panoramic full-body collectible art-toy ensemble lineup standing side-by-side with shoes on a dark matte obsidian (#050B14) studio floor that fades seamlessly into pure empty #050B14 black-navy studio darkness above their heads, below their shoes, and beyond the left and right ends (ZERO cut-off waists, ZERO horizontal lines touching frame edges, ZERO border boxes). Standing dead center on the studio floor: bold massive 3D architectural typography stacked in two lines reading 'ALL ABOUT' in crisp matte silver-white directly on top of giant brushed metallic gold 'BRAIN', with a cute tiny 4cm glowing 4-color Mini-Brain mascot figurine (with two tiny black dot eyes) sitting on the studio floor right in front of the letter B. Standing full-body on the LEFT side of the centered title in a tight shoulder-to-shoulder row are 4 diverse characters from the attached smooth matte cream-white vinyl 2.5D species (strictly NO nose, NO ears, NO hair, bold charcoal-black 2D ink cartoon faces, matte-white vinyl hands): teal-scrubs neurosurgeon with surgical loupes and chin mask, smug navy officer, shocked scientist in open white lab coat over dark shirt with round glasses, and sleek dark-jacket hero with a horizontal luminous gold forehead seam and full symmetrical crystal glass X-Ray cranium dome glowing with a 4-color 3D brain. Standing full-body on the RIGHT side of the centered title are 4 more characters: furious orange-jumpsuit inmate with a horizontal luminous gold forehead seam and full symmetrical crystal glass X-Ray cranium dome glowing with crimson-and-gold brain sparks, tan trench-coat detective with round glasses holding a magnifying glass, panicked varsity student with studio headphones, and joyful chef in white chef coat and compact short white toque cap.",
+      "expected_conditioning": [
+        "composite_18roles_ref.jpg",
+        "cast_cameo_minicortex_bible.jpg"
+      ],
+      "attached_refs": [
+        "composite_18roles_ref.jpg",
+        "cast_cameo_minicortex_bible.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 0,
+      "winner_quality_score": 255.58,
+      "latency_sec": 76.74,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt1_cand_0.jpg",
+          "sharpness": 288.87,
+          "contrast": 70.01,
+          "quality_score": 255.58,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt1_cand_1.jpg",
+          "sharpness": 237.56,
+          "contrast": 67.18,
+          "quality_score": 229.38,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt1_cand_2.jpg",
+          "sharpness": 220.89,
+          "contrast": 61.75,
+          "quality_score": 211.85,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt1_cand_3.jpg",
+          "sharpness": 255.82,
+          "contrast": 65.21,
+          "quality_score": 232.75,
+          "shape": [
+            1920,
+            1080
+          ]
+        }
+      ]
+    },
+    "banner_opt2": {
+      "key": "banner_opt2",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/raw_banner_opt2_diorama_stage.jpg",
+      "aspect": "16:9",
+      "prompt": "Wide panoramic full-body collectible art-toy ensemble cast stage standing with shoes on a seamless pitch-dark obsidian-navy (#050B14) studio floor that fades invisibly into pure empty #050B14 dark studio negative space above, below, left, and right (ZERO cut-off torsos, ZERO lines touching frame edges, ZERO borders). Standing dead center on the floor: large bold ultra-legible 3D channel title stacked in two lines reading 'ALL ABOUT' in crisp pure white on top of massive brushed metallic gold 'BRAIN', crowned just above 'ALL ABOUT' by a compact luminous glowing 4-color 3D brain emblem (Gold, Crimson-Magenta, Cyan, Violet). Gathered standing full-body with shoes in a wide panoramic semicircle on BOTH the left side (5 characters) and right side (5 characters) of 'ALL ABOUT BRAIN' are 10 diverse characters from the attached smooth matte cream-white vinyl 2.5D species (strictly NO nose, NO ears, NO hair, bold charcoal-black 2D cartoon ink faces, matte-white vinyl hands): navy officer, enraged orange inmate, teal-scrubs neurosurgeon with loupes, shocked open-lab-coat scientist with full glass X-Ray 4-color brain dome, and sly dark-suit executive on the left; tan trench-coat detective with glasses and magnifying glass, dark-hoodie insomniac with glass X-Ray brain dome, olive-helmet test pilot, burgundy-sweater teary partner, and smiling chef in compact short white chef cap on the right.",
+      "expected_conditioning": [
+        "composite_18roles_ref.jpg",
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "attached_refs": [
+        "composite_18roles_ref.jpg",
+        "cast_sheet_01_core_6roles.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 3,
+      "winner_quality_score": 213.54,
+      "latency_sec": 62.01,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt2_cand_0.jpg",
+          "sharpness": 194.86,
+          "contrast": 53.87,
+          "quality_score": 185.69,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt2_cand_1.jpg",
+          "sharpness": 204.14,
+          "contrast": 54.13,
+          "quality_score": 189.91,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt2_cand_2.jpg",
+          "sharpness": 231.08,
+          "contrast": 59.41,
+          "quality_score": 211.25,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt2_cand_3.jpg",
+          "sharpness": 231.29,
+          "contrast": 60.51,
+          "quality_score": 213.54,
+          "shape": [
+            1920,
+            1080
+          ]
+        }
+      ]
+    },
+    "banner_opt3": {
+      "key": "banner_opt3",
+      "raw_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/raw_banner_opt3_duality_clash.jpg",
+      "aspect": "16:9",
+      "prompt": "Ultra-wide panoramic documentary banner arranged strictly along a narrow central horizontal ribbon across the middle of a seamless solid midnight-black (#050B14) 16:9 canvas (leaving the top 35%, bottom 35%, and outer left/right edges completely empty solid #050B14 dark space, ZERO box outlines or horizontal frame bars). Dead center: bold clean architectural 3D typography reading 'ALL ABOUT' in crisp matte white above massive brushed-gold 'BRAIN', with a tiny glowing 4-color Mini-Brain mascot figurine sitting beside the letter N. On the LEFT side of the title (Everyday Brain side, cool cyan rim light), 4 waist-up smooth matte cream-white vinyl 2.5D characters (NO nose, NO ears, NO hair, bold black 2D ink cartoon faces): 3 AM dark-hoodie sleeper with half-glass X-Ray glowing brain, panicked headphone student, burgundy-sweater heartbroken partner, and joyful chef in white toque hat. On the RIGHT side of the title (Extreme Experiments side, warm gold-crimson rim light), 4 waist-up characters of the exact same species: white-coat scientist with round glasses and full glass X-Ray 4-color brain dome, historical vest foreman with iron rod and frontal X-Ray glow, smug navy officer, and furious orange inmate with blazing crimson brain sparks.",
+      "expected_conditioning": [
+        "composite_18roles_ref.jpg",
+        "cast_cameo_minicortex_bible.jpg"
+      ],
+      "attached_refs": [
+        "composite_18roles_ref.jpg",
+        "cast_cameo_minicortex_bible.jpg"
+      ],
+      "zero_credit_verified": true,
+      "image_model": "Nano Banana 2.1",
+      "candidate_count": 4,
+      "selected_index": 2,
+      "winner_quality_score": 225.12,
+      "latency_sec": 52.16,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "candidates": [
+        {
+          "cand_idx": 0,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt3_cand_0.jpg",
+          "sharpness": 237.95,
+          "contrast": 62.7,
+          "quality_score": 220.57,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 1,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt3_cand_1.jpg",
+          "sharpness": 212.45,
+          "contrast": 61.31,
+          "quality_score": 207.59,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 2,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt3_cand_2.jpg",
+          "sharpness": 238.25,
+          "contrast": 64.91,
+          "quality_score": 225.12,
+          "shape": [
+            1920,
+            1080
+          ]
+        },
+        {
+          "cand_idx": 3,
+          "saved_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt3_cand_3.jpg",
+          "sharpness": 238.18,
+          "contrast": 64.62,
+          "quality_score": 224.51,
+          "shape": [
+            1920,
+            1080
+          ]
+        }
+      ]
+    }
+  },
+  "exports": {
+    "avatars": {
+      "avatar_opt1": {
+        "source": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt1_cand_0.jpg",
+        "png_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/avatar_opt1_xray_director_1024.png",
+        "jpg_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/avatar_opt1_xray_director_1024.jpg",
+        "png_bytes": 983644,
+        "resolution": [
+          1024,
+          1024
+        ],
+        "top_dome_margin_px": 58,
+        "left_margin_px": 157,
+        "right_margin_px": 155,
+        "min_upper_circle_radial_clearance_px": 57.9,
+        "circular_crop_safe": true
+      },
+      "avatar_opt2": {
+        "source": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt2_cand_1.jpg",
+        "png_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/avatar_opt2_eureka_scientist_1024.png",
+        "jpg_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/avatar_opt2_eureka_scientist_1024.jpg",
+        "png_bytes": 950297,
+        "resolution": [
+          1024,
+          1024
+        ],
+        "top_dome_margin_px": 58,
+        "left_margin_px": 182,
+        "right_margin_px": 176,
+        "min_upper_circle_radial_clearance_px": 57.9,
+        "circular_crop_safe": true
+      },
+      "avatar_opt3": {
+        "source": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/avatar_opt3_cand_2.jpg",
+        "png_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/avatar_opt3_hoodie_minicortex_1024.png",
+        "jpg_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/avatar_opt3_hoodie_minicortex_1024.jpg",
+        "png_bytes": 1005910,
+        "resolution": [
+          1024,
+          1024
+        ],
+        "top_dome_margin_px": 58,
+        "left_margin_px": 149,
+        "right_margin_px": 168,
+        "min_upper_circle_radial_clearance_px": 57.4,
+        "circular_crop_safe": true
+      }
+    },
+    "banners": {
+      "banner_opt1": {
+        "source": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt1_cand_3.jpg",
+        "png_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/banner_opt1_ensemble_lineup_2560x1440.png",
+        "jpg_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/banner_opt1_ensemble_lineup_2560x1440.jpg",
+        "png_bytes": 5275771,
+        "png_mb": 5.03,
+        "jpg_bytes": 4311708,
+        "jpg_mb": 4.11,
+        "resolution": [
+          2560,
+          1440
+        ],
+        "ensemble_bbox_on_2560x1440": [
+          716,
+          523,
+          1845,
+          917
+        ],
+        "mobile_safe_zone": [
+          507,
+          508,
+          2053,
+          931
+        ],
+        "safe_zone_strictly_inside": true,
+        "size_spec_1mb_to_6mb_ok": true
+      },
+      "banner_opt2": {
+        "source": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt2_cand_1.jpg",
+        "png_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/banner_opt2_diorama_stage_2560x1440.png",
+        "jpg_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/banner_opt2_diorama_stage_2560x1440.jpg",
+        "png_bytes": 5244792,
+        "png_mb": 5.0,
+        "jpg_bytes": 4285761,
+        "jpg_mb": 4.09,
+        "resolution": [
+          2560,
+          1440
+        ],
+        "ensemble_bbox_on_2560x1440": [
+          549,
+          523,
+          2011,
+          917
+        ],
+        "mobile_safe_zone": [
+          507,
+          508,
+          2053,
+          931
+        ],
+        "safe_zone_strictly_inside": true,
+        "size_spec_1mb_to_6mb_ok": true
+      },
+      "banner_opt3": {
+        "source": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/scratch/cast_banner_candidates/banner_opt3_cand_1.jpg",
+        "png_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/banner_opt3_duality_clash_2560x1440.png",
+        "jpg_path": "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/banner_opt3_duality_clash_2560x1440.jpg",
+        "png_bytes": 5244173,
+        "png_mb": 5.0,
+        "jpg_bytes": 4294620,
+        "jpg_mb": 4.1,
+        "resolution": [
+          2560,
+          1440
+        ],
+        "ensemble_bbox_on_2560x1440": [
+          661,
+          523,
+          1899,
+          917
+        ],
+        "mobile_safe_zone": [
+          507,
+          508,
+          2053,
+          931
+        ],
+        "safe_zone_strictly_inside": true,
+        "size_spec_1mb_to_6mb_ok": true
+      }
+    },
+    "boards": [
+      "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/board_01_master_18_character_roster.jpg",
+      "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/board_02_profile_avatars_comparison.jpg",
+      "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/board_03_banners_safezone_audit.jpg",
+      "/home/canadaofbin/.gemini/antigravity-cli/brain/b57c97a8-6324-4c31-a2bb-16b25e28dd55/channel_art_and_cast/board_04_youtube_live_ui_mockups.jpg"
+    ]
+  },
+  "flow_allocation": {
+    "tab_id": "A71DC07CFA572409E6CD540973290DE9",
+    "project_url": "https://flow.google.com/project/11d608a8-b396-49a4-8e26-721e422f7dbf",
+    "lease_owner_id": "pid:2479450:cast_banner_proto:bebcb141"
+  },
+  "focus_emulation_enabled": true
+}

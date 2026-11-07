@@ -1434,7 +1434,40 @@ class VideoAutopsyEngine:
             except Exception:
                 pass
 
-        exp_dur = (DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC) if is_diorama else expected_final_duration_sec(DEFAULT_CLIP_COUNT)
+        from pipeline.config import (
+            MICRO_SHORT_PROFILE,
+            SHORTS_90S_CUT_COUNT_MIN,
+            SHORTS_90S_PROFILE,
+            resolve_shorts_format_profile,
+            shorts_duration_range_for_profile,
+        )
+
+        edl_probe_obj: dict[str, Any] = {}
+        if edl_path.exists():
+            try:
+                edl_probe_obj = json.loads(edl_path.read_text(encoding="utf-8"))
+            except Exception:
+                edl_probe_obj = {}
+        script_probe_obj: dict[str, Any] = {}
+        script_probe_file = p_dir / "02_script" / "script.json"
+        if script_probe_file.exists():
+            try:
+                script_probe_obj = json.loads(script_probe_file.read_text(encoding="utf-8"))
+            except Exception:
+                script_probe_obj = {}
+        autopsy_fmt_prof = resolve_shorts_format_profile(
+            vp_obj,
+            script_probe_obj,
+            edl_probe_obj,
+            project_id=project_id,
+        )
+        if is_diorama and autopsy_fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+            diorama_min_bound, diorama_max_bound = shorts_duration_range_for_profile(autopsy_fmt_prof)
+        else:
+            diorama_min_bound = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
+            diorama_max_bound = SHORTS_HARD_CEILING_SEC
+
+        exp_dur = diorama_min_bound if is_diorama else expected_final_duration_sec(DEFAULT_CLIP_COUNT)
         video_metrics = cls.inspect_video_stream(mp4_path, expected_duration_sec=exp_dur)
         audio_source = mp4_path if mp4_path.exists() else wav_path
         audio_metrics = cls.inspect_audio_stream(audio_source, expected_duration_sec=exp_dur)
@@ -1691,8 +1724,9 @@ class VideoAutopsyEngine:
             dec_dur = float(video_metrics.get("decoded_duration_sec") or 0.0)
             dec_fc = int(video_metrics.get("decoded_frame_count") or 0)
             ceil_fc = SHORTS_HARD_CEILING_FRAMES_V7 if is_v7_diorama else SHORTS_HARD_CEILING_FRAMES
-            min_diorama_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
-            if dec_dur > SHORTS_HARD_CEILING_SEC or dec_fc > ceil_fc or dec_dur < min_diorama_dur * 0.96:
+            min_diorama_dur = diorama_min_bound
+            max_diorama_dur = diorama_max_bound
+            if dec_dur > max_diorama_dur or dec_fc > ceil_fc or dec_dur < min_diorama_dur * 0.96:
                 score -= 30.0
                 prescriptions.append({
                     "defect_code": "DEFECT_DIORAMA_DURATION_BOUNDS",
@@ -1700,15 +1734,19 @@ class VideoAutopsyEngine:
                     "component": "05_assembly/final_shorts_1080x1920.mp4",
                     "measured": {"decoded_duration_sec": dec_dur, "decoded_frames": dec_fc},
                     "prescription": (
-                        f"Clamp Neuro-Diorama Short strictly within [{min_diorama_dur}s, {SHORTS_HARD_CEILING_SEC}s] "
+                        f"Clamp Neuro-Diorama Short strictly within [{min_diorama_dur}s, {max_diorama_dur}s] "
                         f"and <= {ceil_fc} frames so YouTube classifies it as a Short (R58/R63)."
                     ),
                 })
             if edl_path.exists():
                 try:
-                    edl_obj = json.loads(edl_path.read_text(encoding="utf-8"))
-                    fmt_prof = str(vp_obj.get("format_profile") or "").strip().lower()
-                    min_edl_cuts = MICRO_SHORT_CUT_MIN if fmt_prof == MICRO_SHORT_PROFILE else DIORAMA_TARGET_CUT_MIN
+                    edl_obj = edl_probe_obj or json.loads(edl_path.read_text(encoding="utf-8"))
+                    fmt_prof = autopsy_fmt_prof
+                    min_edl_cuts = (
+                        MICRO_SHORT_CUT_MIN
+                        if fmt_prof == MICRO_SHORT_PROFILE
+                        else (SHORTS_90S_CUT_COUNT_MIN if fmt_prof == SHORTS_90S_PROFILE else DIORAMA_TARGET_CUT_MIN)
+                    )
                     if int(edl_obj.get("cut_count") or 0) < min_edl_cuts:
                         score -= 15.0
                         prescriptions.append({

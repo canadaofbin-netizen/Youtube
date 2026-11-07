@@ -408,11 +408,15 @@ def validate_substantive_visual_relevance(
     plan: dict[str, Any] | None,
     lines: list[str],
     clips: list[dict[str, Any]],
+    script_doc: dict[str, Any] | None = None,
+    *,
+    project_id: str = "",
+    slug: str = "",
 ) -> list[str]:
     """
     R66.4 Balanced Documentary Pacing & Substantive Visual Relevance Gate for active `porcelain_cinematic_v7` episodes:
-      - Clip count in [PORCELAIN_V7_TARGET_CLIP_MIN (45), PORCELAIN_V7_TARGET_CLIP_MAX (52)] on full episodes
-        (~46-48 cuts, ~3.0-3.2s avg; blocks both <=42 stagnant holds and 60+ hyper-cut flash builds).
+      - Clip count in [SHORTS_90S_CLIP_COUNT_MIN (24), SHORTS_90S_CLIP_COUNT_MAX (32)] on default `shorts_90s_v7`
+        or [PORCELAIN_V7_TARGET_CLIP_MIN (45), PORCELAIN_V7_TARGET_CLIP_MAX (52)] on `shorts_180s_v7` episodes.
       - Primary clip hold span <= PORCELAIN_V7_MAX_HOLD_SENTENCES (2) (blocks 3+ sentence stagnant holds;
         break longer room/brain moments with same-scene multi-angle coverage).
       - porcelain_literal_analogy count <= PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS (2).
@@ -422,10 +426,18 @@ def validate_substantive_visual_relevance(
     """
     from pipeline.config import (
         DIORAMA_SENTENCE_COUNT_MIN,
+        MICRO_SHORT_CUT_MAX,
+        MICRO_SHORT_CUT_MIN,
+        MICRO_SHORT_PROFILE,
         PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS,
         PORCELAIN_V7_MAX_HOLD_SENTENCES,
         PORCELAIN_V7_TARGET_CLIP_MAX,
         PORCELAIN_V7_TARGET_CLIP_MIN,
+        SHORTS_90S_CLIP_COUNT_MAX,
+        SHORTS_90S_CLIP_COUNT_MIN,
+        SHORTS_90S_PROFILE,
+        SHORTS_90S_SENTENCE_COUNT_MIN,
+        resolve_shorts_format_profile,
     )
 
     issues: list[str] = []
@@ -433,15 +445,35 @@ def validate_substantive_visual_relevance(
     clips = clips or []
     raw_clips = plan.get("clips") if isinstance(plan.get("clips"), list) else []
 
+    fmt_prof = resolve_shorts_format_profile(
+        plan,
+        script_doc,
+        {"sentences": lines or [], "clips": raw_clips or clips},
+        project_id=project_id,
+        slug=slug,
+    )
+    if fmt_prof == MICRO_SHORT_PROFILE:
+        target_clip_min = MICRO_SHORT_CUT_MIN
+        target_clip_max = MICRO_SHORT_CUT_MAX + 4
+        sent_floor_for_clip_min = 10
+    elif fmt_prof == SHORTS_90S_PROFILE:
+        target_clip_min = SHORTS_90S_CLIP_COUNT_MIN
+        target_clip_max = SHORTS_90S_CLIP_COUNT_MAX
+        sent_floor_for_clip_min = SHORTS_90S_SENTENCE_COUNT_MIN
+    else:
+        target_clip_min = PORCELAIN_V7_TARGET_CLIP_MIN
+        target_clip_max = PORCELAIN_V7_TARGET_CLIP_MAX
+        sent_floor_for_clip_min = DIORAMA_SENTENCE_COUNT_MIN
+
     n_clips = len(raw_clips) if raw_clips else len(clips)
-    if n_clips > PORCELAIN_V7_TARGET_CLIP_MAX:
+    if n_clips > target_clip_max:
         issues.append(
-            f"[pacing_v7] clip count {n_clips} exceeds balanced documentary ceiling {PORCELAIN_V7_TARGET_CLIP_MAX} "
+            f"[pacing_v7] clip count {n_clips} exceeds balanced documentary ceiling {target_clip_max} ({fmt_prof}) "
             "— merge adjacent short beats into 2-sentence holds (R66.4)"
         )
-    if len(lines or []) >= DIORAMA_SENTENCE_COUNT_MIN and n_clips < PORCELAIN_V7_TARGET_CLIP_MIN:
+    if len(lines or []) >= sent_floor_for_clip_min and n_clips < target_clip_min:
         issues.append(
-            f"[pacing_v7] clip count {n_clips} below balanced documentary floor {PORCELAIN_V7_TARGET_CLIP_MIN} "
+            f"[pacing_v7] clip count {n_clips} below balanced documentary floor {target_clip_min} ({fmt_prof}) "
             "— split stagnant >4.3s holds with same-scene multi-angle coverage (R66.4)"
         )
 
@@ -834,8 +866,15 @@ def validate_production_diorama_v6(
         FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS,
         FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
         PRE_R66_FROZEN_PROJECT_PREFIXES,
+        SHORTS_90S_CUT_COUNT_MIN,
+        SHORTS_90S_PROFILE,
+        SHORTS_90S_SENTENCE_COUNT_MAX,
+        SHORTS_90S_SENTENCE_COUNT_MIN,
+        SHORTS_90S_WORD_COUNT_MAX,
+        SHORTS_90S_WORD_COUNT_MIN,
         is_diorama_v7_plan,
         is_porcelain_v7_plan,
+        resolve_shorts_format_profile,
     )
     from pipeline.flow_prompt_builder import count_words, validate_diorama_v6_prompts
     from pipeline.plain_language import find_duplicate_analogy_idioms, validate_number_analogy_pairing
@@ -847,8 +886,15 @@ def validate_production_diorama_v6(
 
     project_id = str((script_doc or {}).get("project_id") or plan.get("project_id") or "").strip()
     dossier_slug = str(plan.get("dossier") or (script_doc or {}).get("dossier") or "").strip()
-    format_profile = str((script_doc or {}).get("format_profile") or plan.get("format_profile") or "").strip().lower()
-    is_micro = format_profile == MICRO_SHORT_PROFILE
+    fmt_prof = resolve_shorts_format_profile(
+        plan,
+        script_doc or {},
+        {"sentences": lines, "clips": clips or []},
+        slug=dossier_slug,
+        project_id=project_id,
+    )
+    is_micro = fmt_prof == MICRO_SHORT_PROFILE
+    is_90s = fmt_prof == SHORTS_90S_PROFILE
     prosody_mode = str((script_doc or {}).get("prosody_mode") or plan.get("prosody_mode") or "").strip().lower()
 
     # 1. R57 / R63 US English & 6-Act sentence/word budget ---------------------
@@ -877,6 +923,17 @@ def validate_production_diorama_v6(
         if not (MICRO_SHORT_WORD_MIN <= total_words <= MICRO_SHORT_WORD_MAX):
             issues.append(
                 f"[micro_short_v7] total spoken words {total_words} outside {MICRO_SHORT_WORD_MIN}-{MICRO_SHORT_WORD_MAX} (R63)"
+            )
+    elif is_90s:
+        if not (SHORTS_90S_SENTENCE_COUNT_MIN <= len(lines) <= SHORTS_90S_SENTENCE_COUNT_MAX):
+            issues.append(
+                f"[diorama_script] sentence count {len(lines)} outside "
+                f"{SHORTS_90S_SENTENCE_COUNT_MIN}-{SHORTS_90S_SENTENCE_COUNT_MAX} ({SHORTS_90S_PROFILE}) (R57)"
+            )
+        if not (SHORTS_90S_WORD_COUNT_MIN <= total_words <= SHORTS_90S_WORD_COUNT_MAX):
+            issues.append(
+                f"[diorama_script] total spoken words {total_words} outside "
+                f"{SHORTS_90S_WORD_COUNT_MIN}-{SHORTS_90S_WORD_COUNT_MAX} for 90-second Shorts pacing (R57/R63)"
             )
     else:
         max_sents = DIORAMA_SENTENCE_COUNT_MAX
@@ -1002,7 +1059,7 @@ def validate_production_diorama_v6(
         issues.extend(validate_anti_clone_uniqueness(lines, adjacent_scripts))
     if bool(plan.get("zero_clip_reuse", True)) and lines and clips:
         if is_v7:
-            min_cuts = MICRO_SHORT_CUT_MIN if is_micro else DIORAMA_TARGET_CUT_MIN
+            min_cuts = MICRO_SHORT_CUT_MIN if is_micro else (SHORTS_90S_CUT_COUNT_MIN if is_90s else DIORAMA_TARGET_CUT_MIN)
             if len(clips) < min_cuts:
                 issues.append(
                     f"[zero_reuse_v7] Schema v7 zero_clip_reuse=True requires >= {min_cuts} unique clips "
@@ -1078,7 +1135,16 @@ def validate_production_diorama_v6(
                     f"(found {aba_returns}) (R63)"
                 )
             if is_porcelain_v7_plan(plan, *(clips or []), script_doc) and not is_pre_r66_frozen and not is_micro:
-                issues.extend(validate_substantive_visual_relevance(plan, lines, clips))
+                issues.extend(
+                    validate_substantive_visual_relevance(
+                        plan,
+                        lines,
+                        clips,
+                        script_doc=script_doc,
+                        project_id=project_id,
+                        slug=dossier_slug,
+                    )
+                )
                 issues.extend(validate_scene_state_continuity(plan, clips))
         else:
             crystal_cnt = sum(1 for c in clips if str(c.get("grammar")) == "frosted_crystal_specimen")
@@ -1113,7 +1179,7 @@ def validate_production_diorama_v6(
     # 4. Plain-language, conversational prosody & anatomy glossing -------------
     _expressive_ok = ("question mark", "exclamation mark", "em dash", "en dash", "ellipsis")
     q_count = sum(1 for s in lines if "?" in s)
-    min_q = 1 if is_micro else DIORAMA_MIN_CONVERSATIONAL_QUESTIONS
+    min_q = 1 if is_micro else (2 if is_90s else DIORAMA_MIN_CONVERSATIONAL_QUESTIONS)
     if q_count < min_q:
         issues.append(
             f"[storyteller] script has only {q_count} conversational question(s) '?' "

@@ -1,0 +1,157 @@
+{
+  "schema_version": 2,
+  "slug": "v2_habits_marshmallow_prefrontal_trust",
+  "topic": "Why Broken Promises — Not Weak Willpower — Crash the Marshmallow Test",
+  "pillar": "brain_basics",
+  "everyday_domain": "habits",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs clinical/behavioral experiment reenactment in bright minimalist rooms with Contained Living 4-Color 3D Brain circuit cutaways.",
+  "primary_doi": "10.1016/j.cognition.2012.08.004",
+  "primary_case": {
+    "year": 2013,
+    "place": "University of Rochester Baby Lab & Stanford Bing Nursery School",
+    "summary": "Celeste Kidd, Holly Palmeri, and Richard Aslin preceded Walter Mischel's 15-minute Marshmallow Test with either a kept art-kit promise or a broken promise — proving wait times jumped from 3 minutes to 12 minutes and exposing impulse 'failure' as rational prefrontal trust calculation, confirmed by 2018/2022 fMRI value-accumulation studies.",
+    "people": [
+      {
+        "name": "Celeste Kidd, Holly Palmeri & Richard N. Aslin",
+        "role": "University of Rochester cognitive scientists (Cognition, 2013)",
+        "bio": "Tested 28 children aged 3 to 5 with reliable vs unreliable experimenter promises prior to the Marshmallow Test, quadrupling delay time from 182 seconds to 722 seconds."
+      },
+      {
+        "name": "Walter Mischel & Ebbe B. Ebbesen",
+        "role": "Stanford University personality psychologists (JPSP, 1972)",
+        "bio": "Designed the classicBing Nursery School single-vs-two-marshmallow 15-minute waiting room experiment."
+      },
+      {
+        "name": "Tyler W. Watts, Greg J. Duncan & Cendri A. Hutcherson",
+        "role": "Behavioral & decision neuroscientists (Psychological Science 2018; eLife 2022)",
+        "bio": "Overturned pure trait-willpower myths in >900 children and mapped prefrontal value accumulation during dietary choice on human fMRI."
+      }
+    ]
+  },
+  "people": [
+    {
+      "name": "Celeste Kidd, Holly Palmeri & Richard N. Aslin",
+      "role": "University of Rochester cognitive scientists (Cognition, 2013)",
+      "bio": "Tested 28 children aged 3 to 5 with reliable vs unreliable experimenter promises prior to the Marshmallow Test, quadrupling delay time from 182 seconds to 722 seconds."
+    },
+    {
+      "name": "Walter Mischel & Ebbe B. Ebbesen",
+      "role": "Stanford University personality psychologists (JPSP, 1972)",
+      "bio": "Designed the classicBing Nursery School single-vs-two-marshmallow 15-minute waiting room experiment."
+    },
+    {
+      "name": "Tyler W. Watts, Greg J. Duncan & Cendri A. Hutcherson",
+      "role": "Behavioral & decision neuroscientists (Psychological Science 2018; eLife 2022)",
+      "bio": "Overturned pure trait-willpower myths in >900 children and mapped prefrontal value accumulation during dietary choice on human fMRI."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "Grabbing junk food or scrolling at 11 p.m. after a chaotic, stressful day and shaming yourself for 'having zero willpower'.",
+    "psychology_experiment": {
+      "source_id": "kidd_2013",
+      "doi": "10.1016/j.cognition.2012.08.004",
+      "source_ids": [
+        "kidd_2013",
+        "mischel_1972"
+      ],
+      "dois": [
+        "10.1016/j.cognition.2012.08.004",
+        "10.1037/h0032198"
+      ],
+      "summary": "Kidd, Palmeri & Aslin (2013) flipped Mischel's (1972) Marshmallow Test by breaking vs keeping an art-supply promise first: children in the broken-promise room ate the marshmallow in 3 minutes, while children in the reliable room waited over 12 minutes."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "hutcherson_2022",
+      "doi": "10.7554/elife.65661",
+      "source_ids": [
+        "hutcherson_2022",
+        "watts_2018"
+      ],
+      "dois": [
+        "10.7554/elife.65661",
+        "10.1177/0956797618761661"
+      ],
+      "summary": "Watts et al. (2018) overturned willpower determinism across >900 kids, and Hutcherson & Tusche (2022) human fMRI proved dorsolateral and ventromedial prefrontal hubs compute expected future reliability rather than brute self-denial."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Self-help books claim eating the first marshmallow proves weak character and broken lifelong willpower.",
+    "open_verdict_question": "When your habits slip at night, is the real culprit weak personal willpower or a brain refusing to trust tomorrow's payoff?",
+    "offcenter_creator_bet": "My bet: willpower is mostly self-trust — when payoffs feel rigged, grabbing now is rational. Willpower or trust?"
+  },
+  "core_facts": [
+    {
+      "fact": "In Walter Mischel's classic Stanford paradigm, preschoolers sat alone for up to 15 minutes facing one marshmallow now or two if they waited until the researcher returned.",
+      "source_id": "mischel_1972"
+    },
+    {
+      "fact": "In 2013, Celeste Kidd tested 28 children aged 3 to 5 by first promising fancy art supplies and either delivering them or apologizing empty-handed before running the Marshmallow Test.",
+      "source_id": "kidd_2013"
+    },
+    {
+      "fact": "Children exposed to an unreliable broken promise waited an average of only 3 minutes and 2 seconds before eating the marshmallow, and only 1 of 14 waited the full 15 minutes.",
+      "source_id": "kidd_2013"
+    },
+    {
+      "fact": "Children exposed to a reliable kept promise waited an average of 12 minutes and 2 seconds — four times longer — and 9 of 14 waited the entire 15 minutes.",
+      "source_id": "kidd_2013"
+    },
+    {
+      "fact": "A 2018 replication tracking more than 900 diverse children found early wait time lost most of its predictive power once household stability and environment were controlled.",
+      "source_id": "watts_2018"
+    },
+    {
+      "fact": "Human fMRI decision modeling in 2022 showed dorsolateral prefrontal cortex activity reflects evidence accumulation of future value rather than brute inhibitory willpower.",
+      "source_id": "hutcherson_2022"
+    },
+    {
+      "fact": "When future rewards look uncertain, discounted striatal-prefrontal valuation makes taking the immediate guaranteed reward mathematically optimal.",
+      "source_id": "hutcherson_2022"
+    },
+    {
+      "fact": "Forty-year follow-up fMRI scans of original Stanford Marshmallow participants showed temptation cues pit ventral striatal reward against prefrontal control circuits.",
+      "source_id": "casey_2011"
+    },
+    {
+      "fact": "Independent social-trust experiments confirmed children shorten delay of gratification specifically toward untrustworthy adults rather than lacking global self-control.",
+      "source_id": "michaelson_2013"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Keeping one simple art-supply promise before the Marshmallow Test quadrupled children's patience from 3 minutes to 12 minutes without teaching a single willpower trick.",
+      "source_id": "kidd_2013"
+    },
+    {
+      "fact": "Nine times more children lasted the full 15 minutes (64% vs 7%) simply because the adult in the room proved reliable first.",
+      "source_id": "kidd_2013"
+    },
+    {
+      "fact": "fMRI scans show your prefrontal cortex isn't a muscle running out of juice — it's an accountant discounting shaky future promises.",
+      "source_id": "hutcherson_2022"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Failing the Marshmallow Test proves a child lacks innate self-control.",
+      "reality": "Grabbing the guaranteed marshmallow in 3 minutes is a smart calculation when adults in the room have already broken promises.",
+      "source_id": "kidd_2013"
+    },
+    {
+      "myth": "Dorsolateral prefrontal activation on fMRI measures pure brute-force self-restraint.",
+      "reality": "Computational fMRI proves it tracks value evidence accumulation weighing immediate certainty against future trust.",
+      "source_id": "hutcherson_2022"
+    }
+  ],
+  "everyday_hooks": [
+    "Breaking a diet at 11 p.m. after an exhausting, unpredictable workday and blaming 'weak willpower'.",
+    "Promising yourself massive 30-day overhauls you repeatedly break — training your own brain not to trust your word.",
+    "Wondering why tiny guaranteed daily wins stick better than heroic Monday resolutions."
+  ],
+  "reenactment_track": "track_a",
+  "reenactment_track_subtier": "A1a_ready_keyframes",
+  "shorts_projects": [
+    "boost_02_habits_marshmallow_trust"
+  ]
+}

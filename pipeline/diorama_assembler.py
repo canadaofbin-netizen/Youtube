@@ -820,13 +820,19 @@ def build_v7_dynamic_edl(
       - Populates `camera_move` per cut (`1..N`) and top-level camera ratios (`locked_camera_ratio`, `zoom_camera_ratio`).
       - Renders side-by-side comparisons via `split_hstack` (`6px` solid `#000000` vertical divider).
     """
+    from pipeline.config import MICRO_SHORT_CUT_MIN, MICRO_SHORT_PROFILE, resolve_shorts_format_profile
     from pipeline.depiction_rules import normalize_porcelain_v7_grammar
 
     n_sents = len(sentence_spans)
     n_clips = len(clip_files)
-    if n_clips < DIORAMA_CLIP_COUNT_MIN:
+    min_edl_clips = (
+        MICRO_SHORT_CUT_MIN
+        if resolve_shorts_format_profile(visual_plan, script_doc) == MICRO_SHORT_PROFILE
+        else DIORAMA_CLIP_COUNT_MIN
+    )
+    if n_clips < min_edl_clips:
         raise ValueError(
-            f"build_v7_dynamic_edl requires >= {DIORAMA_CLIP_COUNT_MIN} unique clips (got {n_clips})"
+            f"build_v7_dynamic_edl requires >= {min_edl_clips} unique clips (got {n_clips})"
         )
     use_porcelain = is_porcelain_v7_plan(visual_plan)
     fps = int(DIORAMA_V7_VIDEO_FPS)
@@ -1441,9 +1447,31 @@ def build_crosscut_edl(
             b1 = t0 + dur * ((sub_i + 1) / float(k))
             raw_beats.append({"act": act_no, "sentence_index": s_idx, "t0": b0, "t1": b1})
 
-    # Tune cut count cleanly into [DIORAMA_TARGET_CUT_MIN, DIORAMA_TARGET_CUT_MAX - 1] (+1 outro cut)
-    min_speech_cuts = DIORAMA_TARGET_CUT_MIN - 1
-    max_speech_cuts = DIORAMA_TARGET_CUT_MAX - 1
+    # Tune cut count cleanly into profile-appropriate [cut_min, cut_max - 1] (+1 outro cut)
+    from pipeline.config import (
+        MICRO_SHORT_CUT_MAX,
+        MICRO_SHORT_CUT_MIN,
+        MICRO_SHORT_PROFILE,
+        SHORTS_90S_CUT_COUNT_MAX,
+        SHORTS_90S_CUT_COUNT_MIN,
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+    )
+
+    cc_fmt = resolve_shorts_format_profile(
+        visual_plan,
+        script_doc,
+        {"sentences": sentence_spans, "total_duration_sec": total_duration_sec},
+    )
+    if cc_fmt == MICRO_SHORT_PROFILE:
+        min_speech_cuts = MICRO_SHORT_CUT_MIN - 1
+        max_speech_cuts = MICRO_SHORT_CUT_MAX - 1
+    elif cc_fmt == SHORTS_90S_PROFILE:
+        min_speech_cuts = SHORTS_90S_CUT_COUNT_MIN - 1
+        max_speech_cuts = SHORTS_90S_CUT_COUNT_MAX - 1
+    else:
+        min_speech_cuts = DIORAMA_TARGET_CUT_MIN - 1
+        max_speech_cuts = DIORAMA_TARGET_CUT_MAX - 1
     while len(raw_beats) < min_speech_cuts:
         # Split the longest beat
         longest_i = max(range(len(raw_beats)), key=lambda i: raw_beats[i]["t1"] - raw_beats[i]["t0"])
@@ -3150,7 +3178,14 @@ def assemble_diorama_project(
         `split_hstack` `6px` black vertical divider, bundled `AABCondensed-Black.ttf` subtitles + `276pt` chapter headlines, and 2ch stereo score.
       - Schema v6 (`neuro_diorama`): `30fps` NLE EDL (`<= 5,370 frames`), `Y=64%` single-line ASS, `-24 dB` BGM.
     """
-    from pipeline.config import MICRO_SHORT_CUT_MIN, MICRO_SHORT_PROFILE
+    from pipeline.config import (
+        MICRO_SHORT_CUT_MIN,
+        MICRO_SHORT_PROFILE,
+        SHORTS_90S_CLIP_COUNT_MIN,
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
+    )
 
     p_dir = Path(project_id_or_dir) if Path(str(project_id_or_dir)).exists() else (PROJECTS_DIR / str(project_id_or_dir))
     final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
@@ -3170,8 +3205,17 @@ def assemble_diorama_project(
     vp_path = next((p for p in (p_dir / "03_visuals" / "visual_plan.json", p_dir / "visual_plan.json") if p.exists()), None)
     visual_plan = json.loads(vp_path.read_text(encoding="utf-8")) if vp_path else {}
     sentences, script_doc = load_diorama_script_sentences(p_dir)
-    fmt_profile = str(script_doc.get("format_profile") or visual_plan.get("format_profile") or "").strip().lower()
-    min_clips_req = MICRO_SHORT_CUT_MIN if fmt_profile == MICRO_SHORT_PROFILE else DIORAMA_CLIP_COUNT_MIN
+    fmt_profile = resolve_shorts_format_profile(
+        visual_plan,
+        script_doc,
+        {"sentences": sentences},
+        project_id=p_dir.name,
+    )
+    min_clips_req = (
+        MICRO_SHORT_CUT_MIN
+        if fmt_profile == MICRO_SHORT_PROFILE
+        else (SHORTS_90S_CLIP_COUNT_MIN if fmt_profile == SHORTS_90S_PROFILE else DIORAMA_CLIP_COUNT_MIN)
+    )
 
     clips_dir = p_dir / "03_visuals" / "flow_native_clips"
     clip_files = sorted((f for f in clips_dir.glob("clip_*.mp4") if f.is_file()), key=numeric_clip_sort_key)
@@ -3503,18 +3547,17 @@ def assemble_diorama_project(
             pastel_eq_by_num=pastel_eq_by_num,
         )
 
-    from pipeline.config import MICRO_SHORT_MIN_SEC
-
-    probe_min_dur = (
-        MICRO_SHORT_MIN_SEC
-        if fmt_profile == MICRO_SHORT_PROFILE
-        else (DIORAMA_V7_DURATION_MIN_SEC if is_v7_edl else None)
-    )
+    if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+        probe_min_dur, probe_max_dur = shorts_duration_range_for_profile(fmt_profile)
+    else:
+        probe_min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7_edl else None
+        probe_max_dur = None
     probe_report = MediaIntegrityValidator.validate_video_asset(
         final_mp4,
         asset_type="final_shorts",
         strict=True,
         min_duration_sec=probe_min_dur,
+        max_duration_sec=probe_max_dur,
     )
     tmp_probe = asm_dir / "probe_report.json.tmp"
     tmp_probe.write_text(json.dumps(probe_report, indent=2, ensure_ascii=False), encoding="utf-8")

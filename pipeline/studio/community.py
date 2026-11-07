@@ -682,11 +682,18 @@ class CommunityManager:
     ) -> dict[str, str]:
         """Prepares the formatted R35 academic DOI and debate trigger comment with dossier synthesis."""
         eff_projects_dir = self._resolve_projects_dir(project_id)
-        storage = ProjectStorage(project_id, projects_dir=eff_projects_dir)
-        manifest = storage.get_manifest()
-        metadata = storage.load_json("06_publish", "metadata.json") or {}
-        script_doc = storage.load_json("02_script", "script.json") or {}
-        related_receipt = storage.load_json("06_publish", "related_video_receipt.json") or {}
+        base_projects_dir = Path(eff_projects_dir) if eff_projects_dir is not None else (CHANNEL_ROOT / "projects")
+        storage = (
+            ProjectStorage(project_id, projects_dir=eff_projects_dir)
+            if (base_projects_dir / project_id).is_dir()
+            else None
+        )
+        manifest = storage.get_manifest() if storage is not None else {}
+        metadata = (storage.load_json("06_publish", "metadata.json") if storage is not None else None) or {}
+        script_doc = (storage.load_json("02_script", "script.json") if storage is not None else None) or {}
+        related_receipt = (
+            storage.load_json("06_publish", "related_video_receipt.json") if storage is not None else None
+        ) or {}
 
         explicit_slug = str(
             metadata.get("dossier_slug")
@@ -705,7 +712,7 @@ class CommunityManager:
 
         # 1. Resolve DOI dynamically
         doi = None
-        research_card = storage.load_json("01_ideation", "research_card.json")
+        research_card = storage.load_json("01_ideation", "research_card.json") if storage is not None else None
         if research_card and research_card.get("doi"):
             doi = str(research_card["doi"]).strip()
 
@@ -811,7 +818,7 @@ class CommunityManager:
             if cand and cand.lower() not in _GENERIC_PLACEHOLDERS:
                 dissonance_trigger = cand
 
-        paradox_data = storage.load_json("01_ideation", "paradox_hook.json")
+        paradox_data = storage.load_json("01_ideation", "paradox_hook.json") if storage is not None else None
         if not dissonance_trigger and paradox_data:
             for k in ("offcenter_creator_bet", "social_comment_trigger", "dissonance_trigger", "paradox_statement"):
                 cand = str(paradox_data.get(k) or "").strip()
@@ -1065,9 +1072,11 @@ class CommunityManager:
         deleted_prev = 0
         try:
             async with client:
+                from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
                 await client.send("Page.enable")
                 await client.send("Runtime.enable")
-                await client.send("Page.bringToFront")
+                await enable_background_focus_emulation(client)
                 await client.wait_for_element(["ytd-watch-metadata", "#above-the-fold"], timeout_sec=15.0)
                 await asyncio.sleep(2.0)
                 await client.eval(

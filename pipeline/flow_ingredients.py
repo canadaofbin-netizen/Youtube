@@ -47,11 +47,22 @@ _FIND_JS = r"""((sel, text, exact) => {
 })"""
 
 
-async def trusted_click(client: Any, point: dict[str, float] | None) -> bool:
-    if not point:
+async def trusted_click(client: Any, point: dict[str, float] | tuple[float, float] | None) -> bool:
+    if isinstance(point, dict) and "x" in point and "y" in point:
+        px, py = float(point["x"]), float(point["y"])
+    elif (
+        isinstance(point, (tuple, list))
+        and len(point) >= 2
+        and isinstance(point[0], (int, float))
+        and not isinstance(point[0], bool)
+        and isinstance(point[1], (int, float))
+        and not isinstance(point[1], bool)
+    ):
+        px, py = float(point[0]), float(point[1])
+    else:
         return False
     for t in ("mousePressed", "mouseReleased"):
-        await client.send("Input.dispatchMouseEvent", {"type": t, "x": point["x"], "y": point["y"], "button": "left", "clickCount": 1})
+        await client.send("Input.dispatchMouseEvent", {"type": t, "x": px, "y": py, "button": "left", "clickCount": 1})
     return True
 
 
@@ -420,18 +431,51 @@ async def upload_start_end_frames_to_flow(
     }
 
 
+def close_gemini_tabs(cdp_port: int = 9222, owner_id: str | None = None) -> list[str]:
+    """
+    Closes pipeline-leased `gemini.google.com` page tabs owned by `owner_id` (or the current process)
+    on `cdp_port`, while strictly preserving unleased personal user tabs, sibling-leased tabs,
+    YouTube Studio, and Google Flow tabs.
+    """
+    import urllib.request
+
+    from pipeline.cdp_tab_lease import get_tab_lease, is_tab_leased_by_other, release_and_close_leased_tab
+
+    closed: list[str] = []
+    try:
+        with urllib.request.urlopen(f"http://127.0.0.1:{int(cdp_port)}/json/list", timeout=4) as resp:
+            tabs = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        return closed
+
+    for t in tabs:
+        if t.get("type") != "page":
+            continue
+        url = str(t.get("url") or "").lower()
+        tid = str(t.get("id") or "")
+        if not tid or "gemini.google.com" not in url:
+            continue
+        if is_tab_leased_by_other(tid, owner_id=owner_id, cdp_port=cdp_port):
+            continue
+        if get_tab_lease(tid, cdp_port=cdp_port) is not None:
+            if release_and_close_leased_tab(tid, owner_id=owner_id, cdp_port=cdp_port):
+                closed.append(tid)
+    return closed
+
+
 async def configure_flow_zero_credit_image_mode(
     client: Any,
     aspect: str = "9:16",
     batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
 ) -> dict[str, Any]:
     """
-    Configures Google Flow into `Image` mode (`Nano Banana 2.1` / `beluga_display`), `aspect` (`9:16` or `16:9`),
-    and the highest `0-credit` batch count (`x4` -> `x2` -> `x1`), strictly verifying `Generating will use 0 credits`
-    and forbidding any paid credit approval dialogs.
+    Configures Google Flow into `Image` mode (`Nano Banana 2.1` / `beluga_display`), `aspect` (`9:16` PORTRAIT or
+    `16:9` LANDSCAPE), and the highest `0-credit` batch count (`x4` -> `x2` -> `x1`), strictly verifying
+    `mode == 'IMAGE'`, `aspectRatio`, and `Generating will use 0 credits`, while forbidding paid credit dialogs.
     """
     target_batch = max(1, min(4, int(batch_count or FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT)))
     target_aspect = "16:9" if str(aspect).strip() == "16:9" else "9:16"
+    expected_ls_aspect = "LANDSCAPE" if target_aspect == "16:9" else "PORTRAIT"
     await client.eval("window.__bci_flow_forbid_credit_approve = true;")
     await client.eval("""(() => {
         const b = document.querySelector('.agent-panel-header button[aria-label="Close"]');
@@ -439,20 +483,28 @@ async def configure_flow_zero_credit_image_mode(
         const chip = document.querySelector('button.agent-mode-chip[aria-pressed="true"]');
         if (chip) chip.click();
     })()""")
-    await asyncio.sleep(0.4)
+    await asyncio.sleep(0.35)
 
     await press_escape(client)
-    await client.eval("""(() => {
-        const st = document.querySelector('button.settings-trigger-button');
-        if (st) st.click();
-    })()""")
+    st_pt = await find_point(client, "button.settings-trigger-button", "")
+    if st_pt:
+        await trusted_click(client, st_pt)
+    else:
+        await client.eval("""(() => {
+            const st = document.querySelector('button.settings-trigger-button');
+            if (st) st.click();
+        })()""")
     await asyncio.sleep(0.55)
 
-    await client.eval("""(() => {
-        const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-        const imgBtn = btns.find(b => (b.innerText || '').includes('Image'));
-        if (imgBtn) imgBtn.click();
-    })()""")
+    img_pt = await find_point(client, "flow-prompt-box-settings button, .cdk-overlay-pane button", "Image", exact=False)
+    if img_pt:
+        await trusted_click(client, img_pt)
+    else:
+        await client.eval("""(() => {
+            const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+            const imgBtn = btns.find(b => (b.innerText || '').includes('Image'));
+            if (imgBtn) imgBtn.click();
+        })()""")
     await asyncio.sleep(0.45)
 
     # Ensure 0-credit Nano Banana 2.1 (beluga_display) image model is selected if another paid image model was active
@@ -478,15 +530,27 @@ async def configure_flow_zero_credit_image_mode(
     chosen_batch = target_batch
     zero_credit_ok = False
     pane_text = ""
+    asp_labels = ("Landscape", "16:9", "crop_16_9") if target_aspect == "16:9" else ("Portrait", "9:16", "crop_9_16")
     for cand_n in sorted({target_batch, 4, 2, 1}, reverse=True):
         if cand_n > target_batch:
             continue
+        for asp_lbl in asp_labels:
+            asp_pt = await find_point(client, "flow-prompt-box-settings button, .cdk-overlay-pane button", asp_lbl, exact=False)
+            if asp_pt:
+                await trusted_click(client, asp_pt)
+                await asyncio.sleep(0.25)
+                break
+        cnt_pt = await find_point(client, "flow-prompt-box-settings button, .cdk-overlay-pane button", f"x{cand_n}", exact=True)
+        if cnt_pt:
+            await trusted_click(client, cnt_pt)
+            await asyncio.sleep(0.25)
+
         state = await client.eval(f"""(() => {{
             const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
             const aspKey = {json.dumps(target_aspect)};
             const bAsp = btns.find(b => {{
                 const t = (b.innerText || '');
-                return t.includes(aspKey) || (aspKey === '16:9' && t.includes('Landscape')) || (aspKey === '9:16' && t.includes('Portrait'));
+                return t.includes(aspKey) || (aspKey === '16:9' && (t.includes('Landscape') || t.includes('crop_16_9'))) || (aspKey === '9:16' && (t.includes('Portrait') || t.includes('crop_9_16')));
             }});
             if (bAsp && !bAsp.disabled) bAsp.click();
             const bCnt = btns.find(b => (b.innerText || '').trim() === {json.dumps(f"x{cand_n}")});
@@ -508,7 +572,9 @@ async def configure_flow_zero_credit_image_mode(
         explicit_paid = ("generating will use" in pane_lower) and (FLOW_ZERO_CREDIT_TEXT.lower() not in pane_lower)
         zero_text_ok = FLOW_ZERO_CREDIT_TEXT in pane_text
         family_ok = str(ls_now.get("imageModelFamilyId") or "") == FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID
-        if (zero_text_ok or family_ok) and not explicit_paid and not warn_now and str(ls_now.get("mode") or "") == "IMAGE":
+        ls_aspect_now = str(ls_now.get("aspectRatio") or "").upper()
+        aspect_ok = (ls_aspect_now == expected_ls_aspect) or (not ls_aspect_now)
+        if (zero_text_ok or family_ok) and not explicit_paid and not warn_now and str(ls_now.get("mode") or "") == "IMAGE" and aspect_ok:
             chosen_batch = int(ls_now.get("outputCount") or cand_n)
             zero_credit_ok = True
             break
@@ -521,12 +587,13 @@ async def configure_flow_zero_credit_image_mode(
 
     if not zero_credit_ok:
         raise RuntimeError(
-            f"Failed to verify 0-credit Google Flow Image mode (pane={pane_text[:240]!r})"
+            f"Failed to verify 0-credit Google Flow Image mode ({target_aspect} / {expected_ls_aspect}, pane={pane_text[:240]!r})"
         )
 
     summary = await client.eval("""(() => (document.querySelector('button.settings-trigger-button')?.innerText || '').trim())()""") or ""
     return {
         "mode": "IMAGE",
+        "aspect": target_aspect,
         "image_model": FLOW_ZERO_CREDIT_IMAGE_MODEL,
         "output_count": chosen_batch,
         "zero_credit_verified": True,
@@ -901,6 +968,7 @@ async def generate_flow_image_batch(
 
 __all__ = [
     "assert_model_settings",
+    "close_gemini_tabs",
     "configure_flow_zero_credit_image_mode",
     "generate_flow_image_batch",
     "read_active_flow_model_family",

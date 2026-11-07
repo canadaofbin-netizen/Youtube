@@ -36,7 +36,7 @@ class IdeationStage:
             "debate_dilemma": 4.5        # Ethical / societal dilemma
         }
 
-        # Weighted calculation (AGENTS.md / bci-news-hunt)
+        # Weighted calculation (AGENTS.md / youtube-research)
         weighted_score = (
             rubric["cutaway_feasibility"] * 0.30 +
             rubric["paradox_hook"] * 0.25 +

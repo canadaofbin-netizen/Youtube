@@ -340,6 +340,9 @@ def _extract_study_refs(field_val: Any) -> list[str]:
             v = str(field_val.get(k) or "").strip()
             if v:
                 refs.append(v)
+        for lk in ("source_ids", "dois", "studies"):
+            if isinstance(field_val.get(lk), list):
+                refs.extend(_extract_study_refs(field_val.get(lk)))
     elif isinstance(field_val, list):
         for item in field_val:
             refs.extend(_extract_study_refs(item))
@@ -875,7 +878,7 @@ def normalize_scene_prop(raw_prop: Any) -> dict[str, Any] | None:
 # Dossier -> v5 / v7 visual_plan seed
 # ------------------------------------------------------------------------------
 def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str, Any]:
-    """Draft v5 visual_plan fields (mode, must_have_scenes, cast hints, brain_link) for bci-script-gen to finish."""
+    """Draft v5 visual_plan fields (mode, must_have_scenes, cast hints, brain_link) for youtube-script to finish."""
     raw_str = str(slug_or_dir)
     target_dir = Path(slug_or_dir) if Path(raw_str).is_dir() else dossier_dir(raw_str, root)
     if not target_dir.exists():
@@ -1903,6 +1906,16 @@ def analyze_reference_video(
     out_dir.mkdir(parents=True, exist_ok=True)
     tmp = Path(tempfile.mkdtemp(prefix="aab_ref_"))
     try:
+        ff = _ffmpeg()
+        ff_shim_dir = Path("/tmp/aab_ffmpeg_bin")
+        ff_shim_dir.mkdir(parents=True, exist_ok=True)
+        ff_shim = ff_shim_dir / "ffmpeg"
+        if Path(ff).exists() and not ff_shim.exists():
+            try:
+                ff_shim.symlink_to(Path(ff).resolve())
+            except OSError:
+                pass
+        ff_loc = str(ff_shim_dir) if ff_shim.exists() else ff
         opts: dict[str, Any] = {
             "quiet": True,
             "no_warnings": True,
@@ -1910,14 +1923,26 @@ def analyze_reference_video(
             "noprogress": True,
             "outtmpl": str(tmp / "ref.%(ext)s"),
             "merge_output_format": "mp4",
-            "ffmpeg_location": _ffmpeg(),
+            "ffmpeg_location": ff_loc,
         }
+        trimmed_locally = False
         if section_bounds is not None:
             from yt_dlp.utils import download_range_func  # type: ignore
 
-            opts["download_ranges"] = download_range_func(None, [section_bounds])
-        with yt_dlp.YoutubeDL(opts) as ydl:
-            info = ydl.extract_info(url, download=True)
+            opts_sec = dict(opts)
+            opts_sec["download_ranges"] = download_range_func(None, [section_bounds])
+            try:
+                with yt_dlp.YoutubeDL(opts_sec) as ydl:
+                    info = ydl.extract_info(url, download=True)
+            except Exception:
+                for p_old in tmp.glob("ref.*"):
+                    p_old.unlink(missing_ok=True)
+                with yt_dlp.YoutubeDL(opts) as ydl:
+                    info = ydl.extract_info(url, download=True)
+                trimmed_locally = True
+        else:
+            with yt_dlp.YoutubeDL(opts) as ydl:
+                info = ydl.extract_info(url, download=True)
         video_candidates = [
             p
             for p in sorted(tmp.glob("ref.*"))
@@ -1928,7 +1953,19 @@ def analyze_reference_video(
         video = video_candidates[0] if video_candidates else None
         if video is None:
             raise RuntimeError(f"download failed for {url}")
-        ff = _ffmpeg()
+        if trimmed_locally and section_bounds is not None:
+            trimmed_mp4 = tmp / "ref_trimmed.mp4"
+            subprocess.run(
+                [
+                    ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+                    "-ss", str(section_bounds[0]), "-to", str(section_bounds[1]),
+                    "-i", str(video), "-c:v", "libx264", "-preset", "ultrafast", "-an",
+                    str(trimmed_mp4),
+                ],
+                check=False, capture_output=True, timeout=180, stdin=subprocess.DEVNULL,
+            )
+            if trimmed_mp4.exists() and trimmed_mp4.stat().st_size > 1024:
+                video = trimmed_mp4
         kf_dir = out_dir / "keyframes"
         kf_dir.mkdir(exist_ok=True)
         for stale_kf in kf_dir.glob("kf_*.jpg"):

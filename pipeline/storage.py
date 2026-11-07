@@ -63,10 +63,12 @@ class ProjectStorage:
             if resolved_dir in held:
                 yield
                 return
-            lock_root = Path("/tmp") if (os.name != "nt" and Path("/tmp").exists()) else Path(project_dir)
+            from pipeline.cdp_tab_lease import get_aab_locks_dir
+
+            lock_root = get_aab_locks_dir() if (os.name != "nt" and Path("/tmp").exists()) else Path(project_dir)
             lock_root.mkdir(parents=True, exist_ok=True)
             digest = hashlib.sha1(resolved_dir.encode("utf-8")).hexdigest()[:16]
-            lock_file = lock_root / f".aab_manifest_{digest}.lock"
+            lock_file = lock_root / f"manifest_{digest}.lock"
             fh = None
             locked_flock = False
             held.add(resolved_dir)

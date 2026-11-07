@@ -1,33 +1,178 @@
 {
+  "schema_version": 2,
   "slug": "glymphatic_sleep_toxins",
-  "topic": "Why Exhausted Brains Snap Wide Awake in Bed — Conditioned Arousal, the 60% Glymphatic Wash, and the Sleeping-Pill Paradox",
+  "topic": "Why 8 Hours on Sleeping Pills Leaves Your Brain Unwashed: Conditioned Arousal, 20-Second CSF Waves & the Glymphatic Pump",
   "pillar": "brain_health",
   "everyday_domain": "sleep",
-  "visual_mode": "hybrid_reenactment_and_3d_brain",
-  "style_profile": "porcelain_cinematic_v7",
-  "primary_doi": "10.1126/science.1241224",
-  "verified_dois": [
-    "10.1126/science.1241224",
-    "10.1016/j.cub.2007.08.007",
-    "10.1111/j.1365-2869.1997.00179.x",
-    "10.1126/science.aax5440",
-    "10.1016/j.cell.2024.11.027"
-  ],
-  "three_layer_formula": {
-    "everyday_problem": "Exhausted all evening on the couch, snapping wide awake the second your head hits the pillow, waking before dawn, and reaching for sedative sleeping pills to force eight hours of unconsciousness.",
-    "psychology_studies": [
-      "Perlis & Bootzin (1997, J. Sleep Research, 10.1111/j.1365-2869.1997.00179.x): Pavlovian conditioned bedroom arousal elevates high-frequency beta cortical activity at sleep onset and makes staying in bed strengthen wakefulness; Bootzin's stimulus-control chair rule breaks the cue.",
-      "Yoo & Walker (2007, Current Biology, 10.1016/j.cub.2007.08.007): 35 hours without sleep severs medial prefrontal top-down braking and amplifies human amygdala reactivity to negative emotional images by +60%."
-    ],
-    "neuroscience_studies": [
-      "Xie & Nedergaard (2013, Science, 10.1126/science.1241224): Two-photon imaging shows glial interstitial channels expand by 60% during natural sleep, clearing beta-amyloid twice as fast as wakefulness.",
-      "Fultz & Lewis (2019, Science, 10.1126/science.aax5440): Simultaneous EEG + fast fMRI in 13 sleeping humans reveals coupled slow-wave neural silence, cerebral blood volume drop, and large fourth-ventricle cerebrospinal fluid waves every ~20 seconds.",
-      "Hauglund & Nedergaard (2025, Cell, 10.1016/j.cell.2024.11.027): Slow ~50-second locus coeruleus norepinephrine waves drive rhythmic arterial vasomotion that pumps glymphatic fluid during natural NREM sleep, whereas sedative zolpidem suppresses norepinephrine oscillations by ~50% and cuts brain fluid transport by ~30%."
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Combines clinical human sleep-lab / MRI scanner reenactment and minimalist bedroom behavioral setup with Contained Living 4-Color 3D Brain cutaways of coupled 20-second CSF waves, amygdala-prefrontal disconnect, and 50-second arterial vasomotion.",
+  "primary_doi": "10.1126/science.aax5440",
+  "primary_case": {
+    "year": 2019,
+    "place": "Boston University Biomedical Engineering MRI Sleep Lab, University of Rochester & University of Copenhagen",
+    "summary": "Simultaneous nighttime human EEG-fMRI by Fultz & Lewis (Science, 2019) paired with Perlis & Bootzin (1997) conditioned bedroom arousal, Van Dongen (2003) cumulative sleep-debt blindness, and Hauglund & Nedergaard (Cell, 2025) showing sedative sleeping pills mute the 50-second norepinephrine vascular pump.",
+    "people": [
+      {
+        "name": "Laura D. Lewis & Nina E. Fultz",
+        "role": "Boston University biomedical engineers and neuroscientists (Science, 2019)",
+        "bio": "Imaged 13 healthy young adults sleeping inside a nighttime 3T MRI scanner with simultaneous 64-channel EEG, discovering coupled slow delta waves, cortical blood-volume drops, and 20-second cerebrospinal fluid waves pulsing into the fourth ventricle."
+      },
+      {
+        "name": "Maiken Nedergaard & Natalie L. Hauglund",
+        "role": "University of Rochester & University of Copenhagen glymphatic neuroscientists (Science 2013; Cell 2025)",
+        "bio": "Discovered the sleep-state >60% interstitial fluid channel expansion in 2013 and proved in 2025 that slow ~50-second locus coeruleus norepinephrine waves drive cerebral arterial pumping — and that zolpidem suppresses those waves by ~50%."
+      },
+      {
+        "name": "Michael L. Perlis, Richard R. Bootzin & Hans P. A. Van Dongen",
+        "role": "Clinical sleep behavioral psychologists (Journal of Sleep Research 1997; Sleep 2003)",
+        "bio": "Demonstrated Pavlovian conditioned bedroom arousal and elevated 14–35 Hz cortical beta EEG in psychophysiological insomnia (Perlis 1997) and cumulative 48-hour-equivalent vigilance lapses with subjective sleepiness blindness under 6-hour restriction (Van Dongen 2003)."
+      },
+      {
+        "name": "Per Kristian Eide & Geir Ringstad",
+        "role": "Oslo University Hospital neurosurgeons and neuroradiologists (Brain, 2021)",
+        "bio": "Performed multi-day intrathecal gadobutrol tracer MRI in living human cohorts, proving that a single night of total sleep deprivation impairs molecular clearance across the human cerebral cortex."
+      }
     ]
   },
+  "people": [
+    {
+      "name": "Laura D. Lewis & Nina E. Fultz",
+      "role": "Boston University biomedical engineers and neuroscientists (Science, 2019)",
+      "bio": "Imaged 13 healthy young adults sleeping inside a nighttime 3T MRI scanner with simultaneous 64-channel EEG, discovering coupled slow delta waves, cortical blood-volume drops, and 20-second cerebrospinal fluid waves pulsing into the fourth ventricle."
+    },
+    {
+      "name": "Maiken Nedergaard & Natalie L. Hauglund",
+      "role": "University of Rochester & University of Copenhagen glymphatic neuroscientists (Science 2013; Cell 2025)",
+      "bio": "Discovered the sleep-state >60% interstitial fluid channel expansion in 2013 and proved in 2025 that slow ~50-second locus coeruleus norepinephrine waves drive cerebral arterial pumping — and that zolpidem suppresses those waves by ~50%."
+    },
+    {
+      "name": "Michael L. Perlis, Richard R. Bootzin & Hans P. A. Van Dongen",
+      "role": "Clinical sleep behavioral psychologists (Journal of Sleep Research 1997; Sleep 2003)",
+      "bio": "Demonstrated Pavlovian conditioned bedroom arousal and elevated 14–35 Hz cortical beta EEG in psychophysiological insomnia (Perlis 1997) and cumulative 48-hour-equivalent vigilance lapses with subjective sleepiness blindness under 6-hour restriction (Van Dongen 2003)."
+    },
+    {
+      "name": "Per Kristian Eide & Geir Ringstad",
+      "role": "Oslo University Hospital neurosurgeons and neuroradiologists (Brain, 2021)",
+      "bio": "Performed multi-day intrathecal gadobutrol tracer MRI in living human cohorts, proving that a single night of total sleep deprivation impairs molecular clearance across the human cerebral cortex."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "Falling asleep on the sofa yet snapping wide awake on the bedroom pillow, surviving on six-hour weeknights, or taking a sedative sleeping pill assuming eight unconscious hours washes the brain clean.",
+    "psychology_experiment": {
+      "source_id": "perlis_1997",
+      "doi": "10.1046/j.1365-2869.1997.00045.x",
+      "source_ids": [
+        "perlis_1997",
+        "van_dongen_2003",
+        "yoo_2007"
+      ],
+      "dois": [
+        "10.1046/j.1365-2869.1997.00045.x",
+        "10.1093/sleep/26.2.117",
+        "10.1016/j.cub.2007.08.007"
+      ],
+      "summary": "Perlis & Bootzin (1997) proved frustrated time awake in bed conditions Pavlovian cortical beta arousal onto the mattress; Van Dongen & Dinges (2003) proved 14 nights of 6-hour sleep causes 48-hour total-deprivation lapses while blinding subjective fatigue; Yoo & Walker (2007) showed a 60% amygdala alarm spike when sleep loss disconnects the medial prefrontal brake."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "fultz_2019",
+      "doi": "10.1126/science.aax5440",
+      "source_ids": [
+        "fultz_2019",
+        "eide_2021",
+        "hauglund_2025",
+        "xie_2013",
+        "miao_2024"
+      ],
+      "dois": [
+        "10.1126/science.aax5440",
+        "10.1093/brain/awaa443",
+        "10.1016/j.cell.2024.11.027",
+        "10.1126/science.1241224",
+        "10.1038/s41593-024-01638-y"
+      ],
+      "summary": "Xie & Nedergaard (2013) discovered slow-wave sleep widens interstitial channels by >60%; Fultz & Lewis (2019) imaged 20-second coupled slow-wave blood-volume dips and CSF surges in sleeping humans; Eide et al. (2021) proved one sleepless night impairs human cortical tracer clearance on MRI; Hauglund & Nedergaard (2025) revealed zolpidem suppresses the 50-second norepinephrine vascular pump by ~50%."
+    }
+  },
   "debate_ignition": {
-    "midpoint_open_loop": "If unconsciousness alone opened those fluid channels, then knocking yourself out with a sleeping pill should wash the brain just as clean — so why did 2025 brain-pump recordings reveal the exact opposite?",
-    "open_verdict_ending": "If tonight only gives you one option, would you take five hours of natural slow-wave sleep or eight sedated hours on a sleeping pill?",
-    "offcenter_creator_bet": "My bet: I'd take 5 real hours over pills — sedatives mute the vascular pump that flushes night waste. Would you choose 5 hours of natural deep sleep or 8 sedated hours?"
-  }
+    "prebunk_myth": "People assume lying still in bed trying harder — or taking a sleeping pill for eight unconscious hours — gives the brain the same nightly wash as natural deep sleep.",
+    "open_verdict_question": "If you had to pick tonight, would you trust five natural hours of deep sleep or eight sedated hours on a sleeping pill?",
+    "offcenter_creator_bet": "My bet: 5 real hours beat pills — sedatives mute the 20-second vessel pump that washes brain waste. Honest pick: 5 real hours or 8 sedated?"
+  },
+  "core_facts": [
+    {
+      "fact": "Repeatedly lying awake frustrated in bed pairs the bedroom mattress with classical Pavlovian conditioned arousal and elevated 14–35 Hz cortical beta EEG at sleep onset.",
+      "source_id": "perlis_1997"
+    },
+    {
+      "fact": "Healthy adults restricted to 6 hours of sleep per night for 14 consecutive nights accumulated psychomotor vigilance lapses matching 2 full nights of total sleep deprivation while rating themselves only slightly sleepy.",
+      "source_id": "van_dongen_2003"
+    },
+    {
+      "fact": "Thirty-five hours without sleep triggered a 60 percent surge in human amygdala emotional reactivity and severed functional coupling from the medial prefrontal brake.",
+      "source_id": "yoo_2007"
+    },
+    {
+      "fact": "Entering natural slow-wave delta sleep expands cortical interstitial fluid alleys by more than 60 percent (from roughly 14 percent to 23 percent of tissue volume) and clears beta-amyloid roughly twice as fast as wakefulness.",
+      "source_id": "xie_2013"
+    },
+    {
+      "fact": "Simultaneous human nighttime EEG-fMRI revealed coupled slow delta waves, cortical blood-volume drops, and large waves of cerebrospinal fluid pulsing into the fourth ventricle roughly every 20 seconds.",
+      "source_id": "fultz_2019"
+    },
+    {
+      "fact": "Multi-day intrathecal gadobutrol contrast MRI in living human patients proved that a single night of total sleep deprivation impairs molecular tracer clearance across the human cerebral cortex, and one night of recovery sleep does not immediately erase the backlog.",
+      "source_id": "eide_2021"
+    },
+    {
+      "fact": "During natural NREM sleep, slow roughly 50-second locus coeruleus norepinephrine oscillations rhythmically constrict and relax cerebral arteries to pump cerebrospinal fluid through brain tissue.",
+      "source_id": "hauglund_2025"
+    },
+    {
+      "fact": "Administering the sedative sleeping pill zolpidem suppressed slow norepinephrine oscillations by roughly 50 percent and cut glymphatic fluid transport into brain tissue by roughly 30 percent despite rapid unconsciousness.",
+      "source_id": "hauglund_2025"
+    },
+    {
+      "fact": "Small-molecule parenchymal dye experiments in 2024 challenged uniform bulk-flow assumptions, sharpening the distinction between local diffusion and macroscopic slow-wave perivascular vasomotion.",
+      "source_id": "miao_2024"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Two weeks of 6-hour nights impairs objective focus as badly as staying awake for 48 hours straight — yet your brain's fatigue gauge stops warning you after day three.",
+      "source_id": "van_dongen_2003"
+    },
+    {
+      "fact": "Every 20 seconds during deep dreamless human sleep, blood ebbs out of your cortex and a literal wave of clear cerebrospinal fluid surges inward like a dishwasher rinse cycle.",
+      "source_id": "fultz_2019"
+    },
+    {
+      "fact": "Knocking yourself out with zolpidem produces motionless sleep on the outside while muting the 50-second blood-vessel pump that washes metabolic waste on the inside.",
+      "source_id": "hauglund_2025"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Staying in bed with your eyes shut trying harder to sleep helps your brain rest even if you stay awake.",
+      "reality": "Staying in bed frustrated over ~20 minutes pairs the pillow with Pavlovian beta-wave threat arousal; stepping to a dim chair resets the cue.",
+      "source_id": "perlis_1997"
+    },
+    {
+      "myth": "Six hours a night is plenty once your body gets used to it.",
+      "reality": "Subjective sleepiness flattens out while objective cognitive lapses climb to 48-hour total-deprivation levels.",
+      "source_id": "van_dongen_2003"
+    },
+    {
+      "myth": "Any eight hours of chemically sedated unconsciousness cleans the brain just like natural sleep.",
+      "reality": "Zolpidem blunts slow 50-second norepinephrine vascular pulsations and cuts glymphatic fluid inflow by roughly a third.",
+      "source_id": "hauglund_2025"
+    }
+  ],
+  "everyday_hooks": [
+    "Nodding off on the couch at 10:30 p.m., then snapping wide awake the second your head hits the bedroom pillow.",
+    "Feeling 'totally fine' on six hours of weeknight sleep while making uncharacteristic daytime mistakes.",
+    "Snapping at minor annoyances after one bad night because your prefrontal brake lost its grip on the amygdala.",
+    "Waking up groggy and heavy-headed after eight hours on a sleeping pill because sedation muted the brain's fluid pump."
+  ],
+  "reenactment_track": "track_a",
+  "reenactment_track_subtier": "A1a_ready_keyframes"
 }

@@ -228,16 +228,22 @@ def cleanup_idle_whale_tabs(
     if not isinstance(targets, list):
         return {"cdp_reachable": False, "candidates": [], "closed": []}
 
+    from pipeline.cdp_tab_lease import list_active_tab_leases
+
     page_tabs = [t for t in targets if isinstance(t, dict) and str(t.get("type") or "") == "page"]
+    active_leases = list_active_tab_leases(cdp_port=cdp_port)
     studio_edit_tabs = [
         t
         for t in page_tabs
-        if "studio.youtube.com/video/" in str(t.get("url") or "") and "/edit" in str(t.get("url") or "")
+        if "studio.youtube.com/video/" in str(t.get("url") or "")
+        and "/edit" in str(t.get("url") or "")
+        and str(t.get("id") or "") not in active_leases
     ]
     blank_tabs = [
         t
         for t in page_tabs
         if str(t.get("url") or "").strip() in {"about:blank", "chrome://newtab/", "whale://newtab/"}
+        and str(t.get("id") or "") not in active_leases
     ]
 
     # Always leave at least 1 page tab open in the browser window; keep the newest Studio edit tab if no dashboard exists
@@ -247,13 +253,13 @@ def cleanup_idle_whale_tabs(
             if len(page_tabs) - len(close_candidates) <= 1:
                 break
             tid = str(bt.get("id") or "").strip()
-            if tid:
+            if tid and tid not in active_leases:
                 close_candidates.append({"id": tid, "url": str(bt.get("url") or ""), "reason": "idle_blank_tab"})
         for st in studio_edit_tabs[1:]:
             if len(page_tabs) - len(close_candidates) <= 1:
                 break
             tid = str(st.get("id") or "").strip()
-            if tid:
+            if tid and tid not in active_leases:
                 close_candidates.append({"id": tid, "url": str(st.get("url") or ""), "reason": "duplicate_studio_edit_tab"})
 
     closed_ids: list[str] = []

@@ -1,0 +1,88 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_a",
+  "primary_reenactment_media_id": "marshmallow_room",
+  "media": [
+    {
+      "id": "marshmallow_room",
+      "kind": "video",
+      "type": "youtube",
+      "title": "The Marshmallow Experiment - Laboratory Table & Researcher Exit",
+      "url": "https://www.youtube.com/watch?v=Yo4WF3cSd9Q",
+      "reenactment_section": "00:15-01:15",
+      "keyframes_dir": "media/marshmallow_room",
+      "what_it_shows": "Researcher placing a single white marshmallow plate on a clean table in front of a seated child and exiting the room door.",
+      "blocking_notes": "Wide eye-level tripod view of small testing room, table, single white plate, seated child, and solid door on right.",
+      "timecodes": [
+        {
+          "t": "00:22",
+          "what": "Wide eye-level testing room view as researcher sets single white plate with marshmallow before seated child"
+        },
+        {
+          "t": "00:44",
+          "what": "Researcher steps out and closes the solid room door leaving the child alone facing the plate"
+        },
+        {
+          "t": "01:05",
+          "what": "Child leans elbows onto table edge staring closely at the single white marshmallow"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 10,
+        "median_dark_ratio": 0.0802,
+        "median_gray_sat_ratio": 0.3075,
+        "median_p90_sat": 168.5,
+        "max_p90_sat": 213.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.3656,
+        "median_motion_diff": 86.559,
+        "talking_head_ratio": 0.375,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:15-01:15"
+    },
+    {
+      "id": "stanford_marshmallow",
+      "kind": "video",
+      "type": "youtube",
+      "title": "Stanford Marshmallow Experiment Replication - Tabletop Waiting Postures",
+      "url": "https://www.youtube.com/watch?v=ju5w1VRCZuc",
+      "reenactment_section": "00:20-01:20",
+      "keyframes_dir": "media/stanford_marshmallow",
+      "what_it_shows": "High-angle tabletop camera showing subject resting chin on folded arms staring inches from the single marshmallow.",
+      "blocking_notes": "High three-quarter observation angle across grey table toward seated subject and white napkin with marshmallow.",
+      "timecodes": [
+        {
+          "t": "00:28",
+          "what": "High three-quarter tabletop shot of child resting chin on forearms inches from white marshmallow"
+        },
+        {
+          "t": "00:58",
+          "what": "Child reaches one hand hesitantly toward the plate then pulls fingers back under the table"
+        }
+      ],
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=0.0)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 16,
+        "median_dark_ratio": 0.1664,
+        "median_gray_sat_ratio": 0.1744,
+        "median_p90_sat": 74.5,
+        "max_p90_sat": 105.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.5021,
+        "median_motion_diff": 69.728,
+        "talking_head_ratio": 0.75,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      }
+    }
+  ],
+  "track_subtier": "A1a_ready_keyframes"
+}

@@ -1396,10 +1396,17 @@ def build_diorama_v7_prompts(
         normalize_porcelain_v7_grammar,
     )
 
+    from pipeline.config import MICRO_SHORT_CUT_MIN, MICRO_SHORT_PROFILE, resolve_shorts_format_profile
+
     raw_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
-    if not (DIORAMA_CLIP_COUNT_MIN <= len(raw_clips) <= DIORAMA_CLIP_COUNT_MAX):
+    min_v7_clips = (
+        MICRO_SHORT_CUT_MIN
+        if resolve_shorts_format_profile(visual_plan) == MICRO_SHORT_PROFILE
+        else DIORAMA_CLIP_COUNT_MIN
+    )
+    if not (min_v7_clips <= len(raw_clips) <= DIORAMA_CLIP_COUNT_MAX):
         raise ValueError(
-            f"Schema v7 visual_plan.clips must contain {DIORAMA_CLIP_COUNT_MIN}-{DIORAMA_CLIP_COUNT_MAX} clip specs "
+            f"Schema v7 visual_plan.clips must contain {min_v7_clips}-{DIORAMA_CLIP_COUNT_MAX} clip specs "
             f"(got {len(raw_clips)})"
         )
     use_porcelain = is_porcelain_v7_plan(visual_plan)
@@ -1530,6 +1537,7 @@ def validate_diorama_v7_prompts(
     plan: dict[str, Any] | None = None,
 ) -> list[str]:
     """Structural & R63/R66 forensic prompt validator for Schema v7 (`porcelain_cinematic_v7` or `lowpoly_pastel_v7`)."""
+    from pipeline.config import MICRO_SHORT_CUT_MIN, MICRO_SHORT_PROFILE, resolve_shorts_format_profile
     from pipeline.depiction_rules import (
         DIORAMA_V7_CAMERA_DESCRIPTORS,
         PORCELAIN_V7_CAMERA_DESCRIPTORS,
@@ -1538,9 +1546,14 @@ def validate_diorama_v7_prompts(
     )
 
     issues: list[str] = []
-    if not isinstance(clips, list) or not (DIORAMA_CLIP_COUNT_MIN <= len(clips) <= DIORAMA_CLIP_COUNT_MAX):
+    min_v7_clips = (
+        MICRO_SHORT_CUT_MIN
+        if resolve_shorts_format_profile(plan) == MICRO_SHORT_PROFILE
+        else DIORAMA_CLIP_COUNT_MIN
+    )
+    if not isinstance(clips, list) or not (min_v7_clips <= len(clips) <= DIORAMA_CLIP_COUNT_MAX):
         return [
-            f"[prompt] Schema v7 clip count must be {DIORAMA_CLIP_COUNT_MIN}-{DIORAMA_CLIP_COUNT_MAX} "
+            f"[prompt] Schema v7 clip count must be {min_v7_clips}-{DIORAMA_CLIP_COUNT_MAX} "
             f"(got {len(clips) if isinstance(clips, list) else 0}) (R63)"
         ]
     grammars_present = [str(c.get("grammar") or "") for c in clips if isinstance(c, dict)]

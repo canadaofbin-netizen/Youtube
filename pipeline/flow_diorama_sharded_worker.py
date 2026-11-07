@@ -49,9 +49,16 @@ from pipeline.config import (
     DIORAMA_SHARD_MAX_CLIPS,
     DIORAMA_V7_VISUAL_GRAMMARS,
     DIORAMA_VISUAL_GRAMMARS,
+    FLOW_AUTO_CLEANUP_ON_SUCCESS,
     FLOW_ENGINE_MODES,
     FLOW_MAX_PARALLEL_BATCH_SIZE,
+    FLOW_OMNI_CREDIT_COST_NO_REF,
+    FLOW_OMNI_CREDIT_COST_WITH_REF,
     FLOW_PRIMARY_VIDEO_MODEL,
+    FLOW_SUBMIT_COOLDOWN_STAGGER_SEC,
+    FLOW_SUBMIT_STAGGER_SEC,
+    FLOW_TAB_OPEN_COOLDOWN_STAGGER_SEC,
+    FLOW_TAB_OPEN_STAGGER_SEC,
     FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS,
     FLOW_ZERO_CREDIT_MODEL,
     FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH,
@@ -67,6 +74,10 @@ from pipeline.config import (
     WORKSPACE_ROOT,
     is_diorama_v7_plan,
     is_porcelain_v7_plan,
+)
+from pipeline.cdp_tab_lease import (
+    enable_background_focus_emulation,
+    release_and_close_leased_tab,
 )
 from pipeline.depiction_rules import normalize_porcelain_v7_brain_mode, normalize_porcelain_v7_grammar
 from pipeline.diorama_assembler import load_diorama_script_sentences
@@ -99,6 +110,16 @@ from pipeline.flow_live_single_worker import (
     ensure_manual_video_916_mode,
 )
 from pipeline.flow_prompt_builder import build_diorama_v6_prompts, write_flow_prompts_json
+from pipeline.flow_workspace import (
+    SharedOmniCreditBudget,
+    clean_flow_workspace_async,
+    format_flow_room_name,
+    load_flow_credit_state,
+    probe_flow_account_credits,
+    record_flow_credit_exhausted,
+    rename_active_flow_project,
+    should_reprobe_primary_omni,
+)
 from pipeline.media_integrity import MediaIntegrityError
 from pipeline.studio.whale_session import DirectCDPClient
 
@@ -973,6 +994,7 @@ async def _configure_diorama_tab_engine(
     if fell_back or bool(cred_chk.get("exhausted")):
         if credit_exhausted_event is not None:
             credit_exhausted_event.set()
+        record_flow_credit_exhausted(reason="diorama_tab_engine_fallback")
         summary = (
             await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
             if zc_out > 1
@@ -1049,6 +1071,7 @@ async def _submit_diorama_prompt_zero_credit(
         print(f"[FlowDiorama] {reason_msg} -> switching to 0-credit {FLOW_ZERO_CREDIT_MODEL}")
         if credit_exhausted_event is not None:
             credit_exhausted_event.set()
+        record_flow_credit_exhausted(reason=str(reason_msg or "diorama_submit_fallback")[:120])
         await press_escape(client)
         await _configure_zero_credit_veo_lite(client, force=True, output_count=zc_out)
         fam_chk = await read_active_flow_model_family(client)
@@ -1082,10 +1105,7 @@ async def _submit_diorama_prompt_zero_credit(
         expected_chips = 2 if use_dual_end else 1
 
         async def _do_ref_attach() -> bool:
-            try:
-                await client.send("Page.bringToFront")
-            except Exception:
-                pass
+            await enable_background_focus_emulation(client)
             await asyncio.sleep(0.35)
             uploaded_names: set[str] = ref_state.setdefault("uploaded_in_tab", set())
             if use_dual_end and end_ref_path is not None:
@@ -1676,6 +1696,7 @@ async def _run_shard_worker(
     on_clip_completed: Any = None,
     shared_clip_queue: collections.deque[dict[str, Any]] | None = None,
     zero_credit_output_count: int = 1,
+    flow_rate_state: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """
     Runs one dedicated Google Flow shard worker (`<= DIORAMA_SHARD_MAX_CLIPS` (14) clips per tab wave,
@@ -1770,7 +1791,8 @@ async def _run_shard_worker(
             "clips": completed_records,
         }
 
-    max_per_tab = max(2, int(DIORAMA_SHARD_MAX_CLIPS) // max(1, eff_zc_outputs))
+    cd_hits_init = int((flow_rate_state or {}).get("cooldown_hits") or 0)
+    max_per_tab = min(6 if cd_hits_init > 0 else 10, max(2, int(DIORAMA_SHARD_MAX_CLIPS) // max(1, eff_zc_outputs)))
     prompts_submitted = 0
     ref_state: dict[str, Any] = {
         "lite_supports_ref": True,
@@ -1785,18 +1807,39 @@ async def _run_shard_worker(
     next_wave_first: dict[str, Any] | None = first_pending
 
     while next_wave_first is not None:
-        shard_title = (
-            f"{project_id}_shard{shard_idx}"
-            if wave_idx == 0
-            else f"{project_id}_shard{shard_idx}_w{wave_idx + 1}"
+        if flow_rate_state is not None:
+            rem_cd = float(flow_rate_state.get("cooldown_until_mono") or 0.0) - time.monotonic()
+            if rem_cd > 0.5:
+                print(f"[Shard {shard_idx}] Waiting {rem_cd:.0f}s for shared Flow quiet-cooldown before opening tab...")
+                await asyncio.sleep(rem_cd)
+        shard_title = format_flow_room_name(
+            project_id,
+            role="clips",
+            shard_idx=shard_idx,
+            wave_idx=wave_idx + 1 if wave_idx > 0 else None,
         )
         async with tab_open_lock:
+            if flow_rate_state is not None:
+                tab_stagger = (
+                    FLOW_TAB_OPEN_COOLDOWN_STAGGER_SEC
+                    if int(flow_rate_state.get("cooldown_hits") or 0) > 0
+                    else FLOW_TAB_OPEN_STAGGER_SEC
+                )
+                since_tab = time.monotonic() - float(flow_rate_state.get("last_tab_open_mono") or 0.0)
+                if since_tab < tab_stagger and float(flow_rate_state.get("last_tab_open_mono") or 0.0) > 0.0:
+                    await asyncio.sleep(tab_stagger - since_tab)
             tab_alloc = await allocate_dedicated_flow_project_tab(
                 cdp_port=cdp_port, existing_tab_id=None, project_id=None
             )
             wave_tab_id = str(tab_alloc["tab_id"])
+            wave_lease_owner = tab_alloc.get("lease_owner_id")
             opened_tabs.append(wave_tab_id)
-            await asyncio.sleep(1.2)
+            if flow_rate_state is not None:
+                flow_rate_state["last_tab_open_mono"] = time.monotonic()
+                owners_map = flow_rate_state.setdefault("tab_owners_by_id", {})
+                if isinstance(owners_map, dict) and wave_lease_owner:
+                    owners_map[wave_tab_id] = wave_lease_owner
+            await asyncio.sleep(0.8)
 
         wave_flow_url = str(tab_alloc["project_url"])
         ws_url = str(tab_alloc["ws_url"])
@@ -1813,16 +1856,24 @@ async def _run_shard_worker(
         next_wave_first = None
         try:
             async with DirectCDPClient(ws_url) as client:
+                await enable_background_focus_emulation(client)
                 await client.send("Page.enable")
-                await client.eval(f"""(() => {{
-                    const input = document.querySelector('.editable-text-input');
-                    if (input) {{
-                        input.value = {json.dumps(shard_title)};
-                        input.dispatchEvent(new Event('input', {{bubbles: true}}));
-                        input.dispatchEvent(new Event('change', {{bubbles: true}}));
-                        input.blur();
-                    }}
-                }})()""")
+                await rename_active_flow_project(client, shard_title)
+                if (
+                    is_primary_shard
+                    and wave_idx == 0
+                    and mode == "auto"
+                    and (credit_exhausted_event is None or not credit_exhausted_event.is_set())
+                    and flow_rate_state is not None
+                    and not flow_rate_state.get("probed_live_credits")
+                ):
+                    flow_rate_state["probed_live_credits"] = True
+                    probe_doc = await probe_flow_account_credits(client)
+                    s_budget = flow_rate_state.get("credit_budget")
+                    if isinstance(s_budget, SharedOmniCreditBudget):
+                        s_budget.update_balance(probe_doc.get("credits_remaining"))
+                    if bool(probe_doc.get("exhausted")) and credit_exhausted_event is not None:
+                        credit_exhausted_event.set()
                 init_cfg = await _configure_diorama_tab_engine(
                     client,
                     engine_mode=mode,
@@ -1969,6 +2020,46 @@ async def _run_shard_worker(
                                     grammar=grammar,
                                     cv_reason=last_cv_reason,
                                 )
+                        if flow_rate_state is not None:
+                            while True:
+                                rem_cd = float(flow_rate_state.get("cooldown_until_mono") or 0.0) - time.monotonic()
+                                if rem_cd <= 0.5:
+                                    break
+                                print(
+                                    f"[Shard {shard_idx}] Waiting {rem_cd:.0f}s for shared Flow 'unusual activity' quiet cooldown before Clip {c_num}..."
+                                )
+                                await asyncio.sleep(min(rem_cd, 30.0))
+                            pace_lock = flow_rate_state.get("submit_lock")
+                            if pace_lock is not None:
+                                async with pace_lock:
+                                    sub_stagger = (
+                                        FLOW_SUBMIT_COOLDOWN_STAGGER_SEC
+                                        if int(flow_rate_state.get("cooldown_hits") or 0) > 0
+                                        else FLOW_SUBMIT_STAGGER_SEC
+                                    )
+                                    since_sub = time.monotonic() - float(flow_rate_state.get("last_submit_mono") or 0.0)
+                                    if since_sub < sub_stagger and float(flow_rate_state.get("last_submit_mono") or 0.0) > 0.0:
+                                        await asyncio.sleep(sub_stagger - since_sub)
+                                    flow_rate_state["last_submit_mono"] = time.monotonic()
+
+                        reserved_credit_cost = 0
+                        shared_budget = (flow_rate_state or {}).get("credit_budget") if flow_rate_state is not None else None
+                        if (
+                            mode == "auto"
+                            and (credit_exhausted_event is None or not credit_exhausted_event.is_set())
+                            and isinstance(shared_budget, SharedOmniCreditBudget)
+                        ):
+                            clip_cost = FLOW_OMNI_CREDIT_COST_WITH_REF if short_ref is not None else FLOW_OMNI_CREDIT_COST_NO_REF
+                            if shared_budget.try_reserve(clip_cost):
+                                reserved_credit_cost = clip_cost
+                            else:
+                                record_flow_credit_exhausted(
+                                    reason="shared_budget_depleted",
+                                    credits_remaining=shared_budget.remaining,
+                                )
+                                if credit_exhausted_event is not None:
+                                    credit_exhausted_event.set()
+
                         print(
                             f"[Shard {shard_idx}] Submitting Clip {c_num} "
                             f"(wave {wave_idx + 1} #{item_i + 1}/{max_per_tab}, queue={len(clip_queue)}, try {regen_try + 1}/5, {grammar})..."
@@ -1999,8 +2090,12 @@ async def _run_shard_worker(
                                 end_ref_path=end_short_ref,
                             )
                         if not ok_sub:
+                            if reserved_credit_cost > 0 and isinstance(shared_budget, SharedOmniCreditBudget):
+                                shared_budget.refund(reserved_credit_cost)
                             attempt_failures.append(f"try {regen_try + 1}: prompt_submission_failed")
                             print(f"[Shard {shard_idx}] Clip {c_num} submission failed on try {regen_try + 1}/5; retrying...")
+                            if regen_try >= 1:
+                                raise RuntimeError(f"rotate_tab_after_submit_failure_clip_{c_num}")
                             await asyncio.sleep(5.0)
                             regen_try += 1
                             continue
@@ -2018,6 +2113,13 @@ async def _run_shard_worker(
                             sub_meta.get("credit_tier")
                             or ("zero_credit_fallback" if used_model == FLOW_ZERO_CREDIT_MODEL else "omni_monthly_credit")
                         )
+                        if (
+                            reserved_credit_cost > 0
+                            and isinstance(shared_budget, SharedOmniCreditBudget)
+                            and (used_model == FLOW_ZERO_CREDIT_MODEL or used_tier == "zero_credit_fallback")
+                        ):
+                            shared_budget.refund(reserved_credit_cost)
+                            reserved_credit_cost = 0
 
                         if is_primary_shard and wave_idx == 0 and item_i == 0 and regen_try == 0:
                             await asyncio.sleep(1.2)
@@ -2030,6 +2132,7 @@ async def _run_shard_worker(
                         v2_done = (screenshots_dir / "flow_gate_v2_rendering_active.png").exists()
                         tile_ready = False
                         tile_errored = False
+                        tile_err_text = ""
                         saw_rendering = False
                         mid_render_credit_fallback = False
                         while time.monotonic() < render_deadline:
@@ -2050,6 +2153,9 @@ async def _run_shard_worker(
                                         )
                                         if credit_exhausted_event is not None:
                                             credit_exhausted_event.set()
+                                        if isinstance(shared_budget, SharedOmniCreditBudget):
+                                            shared_budget.mark_exhausted()
+                                        record_flow_credit_exhausted(reason="mid_render_credit_banner")
                                         credit_fallback_retried = True
                                         await press_escape(client)
                                         await _configure_zero_credit_veo_lite(
@@ -2067,7 +2173,10 @@ async def _run_shard_worker(
                                 const seen = new Set({json.dumps(list(seen_tab_srcs))});
                                 const errTiles = document.querySelectorAll('flow-error-tile');
                                 let hadErr = errTiles.length > 0;
+                                const errSnips = [];
                                 errTiles.forEach(et => {{
+                                    const tx = (et.innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 240);
+                                    if (tx) errSnips.push(tx);
                                     const b = Array.from(et.querySelectorAll('button')).find(x => (x.innerText || x.getAttribute('aria-label') || '').toLowerCase().includes('delete'));
                                     if (b) {{ try {{ b.click(); }} catch (e) {{}} }}
                                 }});
@@ -2078,6 +2187,8 @@ async def _run_shard_worker(
                                     const cls = classifyTile(el);
                                     if (cls.isError) {{
                                         hadErr = true;
+                                        const tx = (el.innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 240);
+                                        if (tx && !errSnips.length) errSnips.push(tx);
                                         const b = Array.from(el.querySelectorAll('button')).find(x => (x.innerText || x.getAttribute('aria-label') || '').toLowerCase().includes('delete'));
                                         if (b) {{ try {{ b.click(); }} catch (e) {{}} }}
                                         continue;
@@ -2097,7 +2208,7 @@ async def _run_shard_worker(
                                     const v = el.querySelector('video[src^="https://"]');
                                     return Boolean(v && v.src && !seen.has(v.src));
                                 }});
-                                return {{ ready: readyTiles.length, rendering, hasNewSrc, topKey, hadErr }};
+                                return {{ ready: readyTiles.length, rendering, hasNewSrc, topKey, hadErr, errText: errSnips[0] || '' }};
                             }})()""") or {}
 
                             if int(poll.get("rendering") or 0) > 0:
@@ -2119,6 +2230,7 @@ async def _run_shard_worker(
                                 break
                             if bool(poll.get("hadErr")) and int(poll.get("rendering") or 0) == 0:
                                 tile_errored = True
+                                tile_err_text = str(poll.get("errText") or "")
                                 break
 
                         if mid_render_credit_fallback:
@@ -2126,7 +2238,24 @@ async def _run_shard_worker(
 
                         if tile_errored or not tile_ready:
                             fail_kind = "flow_tile_error" if tile_errored else "render_timeout"
-                            attempt_failures.append(f"try {regen_try + 1}: {fail_kind}")
+                            is_unusual_activity = "unusual activity" in tile_err_text.lower() or "wait a few moments" in tile_err_text.lower()
+                            if is_unusual_activity and flow_rate_state is not None:
+                                hits = int(flow_rate_state.get("cooldown_hits") or 0) + 1
+                                flow_rate_state["cooldown_hits"] = hits
+                                pause_s = 195.0 if hits == 1 else (310.0 if hits == 2 else 420.0)
+                                target_until = time.monotonic() + pause_s
+                                if target_until > float(flow_rate_state.get("cooldown_until_mono") or 0.0):
+                                    flow_rate_state["cooldown_until_mono"] = target_until
+                                    print(
+                                        f"[Shard {shard_idx}] Google Flow 'unusual activity' rate-limit hit (#{hits}) on Clip {c_num}; "
+                                        f"ALL shards entering {pause_s:.0f}s silent cooldown window..."
+                                    )
+                                rem_wait = max(5.0, float(flow_rate_state["cooldown_until_mono"]) - time.monotonic())
+                                await asyncio.sleep(rem_wait)
+                                wave_ws_recoveries = max(0, wave_ws_recoveries - 1)
+                                raise RuntimeError(f"rotate_tab_after_unusual_activity_cooldown_clip_{c_num}")
+
+                            attempt_failures.append(f"try {regen_try + 1}: {fail_kind}{f'({tile_err_text[:60]})' if tile_err_text else ''}")
                             if fail_kind == "render_timeout":
                                 consecutive_render_timeouts += 1
                                 if consecutive_render_timeouts >= MAX_CONSECUTIVE_RENDER_TIMEOUTS:
@@ -2143,7 +2272,8 @@ async def _run_shard_worker(
                                 if used_model == FLOW_ZERO_CREDIT_MODEL:
                                     backoff_s = min(50.0, 15.0 * (regen_try + 1) + 2.5 * (shard_idx % 3))
                                     print(
-                                        f"[Shard {shard_idx}] Clip {c_num} {fail_kind} on try {regen_try + 1}/5; "
+                                        f"[Shard {shard_idx}] Clip {c_num} {fail_kind} on try {regen_try + 1}/5 "
+                                        f"{f'[{tile_err_text[:80]}] ' if tile_err_text else ''}; "
                                         f"backing off {backoff_s:.1f}s for 0-credit queue slot..."
                                     )
                                     await asyncio.sleep(backoff_s)
@@ -2154,6 +2284,8 @@ async def _run_shard_worker(
                             continue
 
                         consecutive_render_timeouts = 0
+                        if flow_rate_state is not None:
+                            flow_rate_state["cooldown_hits"] = 0
                         if is_primary_shard and not (screenshots_dir / "flow_gate_v3_canvas_clips_ready.png").exists():
                             ss3 = await client.send("Page.captureScreenshot", {"format": "png"})
                             if ss3 and "data" in ss3:
@@ -2308,11 +2440,11 @@ async def _run_shard_worker(
             if isinstance(wave_exc, FlowCircuitBreakerError):
                 raise
             wave_ws_recoveries += 1
-            if wave_ws_recoveries > 4:
+            if wave_ws_recoveries > 8:
                 raise
             print(
                 f"[Shard {shard_idx}] Transient CDP/tab disconnect on wave {wave_idx + 1} ({type(wave_exc).__name__}: {wave_exc}); "
-                f"rotating fresh Flow tab (recovery {wave_ws_recoveries}/4)..."
+                f"rotating fresh Flow tab (recovery {wave_ws_recoveries}/8)..."
             )
             await asyncio.sleep(4.0)
             if c_spec is not None and not (native_dir / f"clip_{int(c_spec['clip_number'])}.mp4").exists():
@@ -2320,13 +2452,11 @@ async def _run_shard_worker(
             elif next_wave_first is None:
                 next_wave_first = _pop_next_pending_clip()
         finally:
-            try:
-                urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{wave_tab_id}", timeout=5)
-                if wave_tab_id in opened_tabs:
-                    opened_tabs.remove(wave_tab_id)
+            closed_wave = release_and_close_leased_tab(wave_tab_id, owner_id=wave_lease_owner, cdp_port=cdp_port)
+            if wave_tab_id in opened_tabs:
+                opened_tabs.remove(wave_tab_id)
+            if closed_wave:
                 print(f"[Shard {shard_idx}] Closed completed wave {wave_idx + 1} tab {wave_tab_id[:8]}")
-            except Exception:
-                pass
         wave_idx += 1
 
     if shard_failed_clips:
@@ -2640,11 +2770,26 @@ async def run_sharded_diorama_flow_generation(
         target_clips.append(c_spec)
 
     print(f"[FlowDiorama] Pending clips to generate: {len(target_clips)}/{len(raw_targets)} (engine_mode={mode})")
+    credit_state_doc = load_flow_credit_state()
+    pre_exhausted_auto = False
+    reprobe_reason = "not_auto"
+    if mode == "auto":
+        reprobe_ok, reprobe_reason = should_reprobe_primary_omni(credit_state_doc)
+        pre_exhausted_auto = not reprobe_ok
+        if pre_exhausted_auto:
+            print(
+                f"[FlowDiorama] Monthly/daily Flow credits exhausted ({reprobe_reason}); "
+                f"starting immediately on 0-credit {FLOW_ZERO_CREDIT_MODEL}"
+            )
+    shared_credit_budget = SharedOmniCreditBudget(
+        0 if (mode == "zero-credit" or pre_exhausted_auto) else credit_state_doc.get("credits_remaining")
+    )
+
     n_worker_tabs = 0
     zero_credit_output_count = 1
     shared_clip_queue: collections.deque[dict[str, Any]] = collections.deque(target_clips)
     if target_clips:
-        if mode == "zero-credit":
+        if mode == "zero-credit" or pre_exhausted_auto:
             n_worker_tabs, zero_credit_output_count = compute_zero_credit_batch_plan(
                 len(target_clips), max_parallel_tabs=int(max_parallel_tabs)
             )
@@ -2662,7 +2807,7 @@ async def run_sharded_diorama_flow_generation(
     opened_tabs: list[str] = []
     tab_open_lock = asyncio.Lock()
     credit_exhausted_event = asyncio.Event()
-    if mode == "zero-credit":
+    if mode == "zero-credit" or pre_exhausted_auto:
         credit_exhausted_event.set()
 
     live_clips_by_idx: dict[int, dict[str, Any]] = {}
@@ -2802,6 +2947,16 @@ async def run_sharded_diorama_flow_generation(
         _persist_receipt_snapshot(final_pass=False, visual_gates_passed=False)
 
     shard_results: list[dict[str, Any]] = []
+    flow_rate_state: dict[str, Any] = {
+        "submit_lock": asyncio.Lock(),
+        "last_tab_open_mono": 0.0,
+        "last_submit_mono": 0.0,
+        "cooldown_until_mono": 0.0,
+        "cooldown_hits": 0,
+        "credit_budget": shared_credit_budget,
+        "probed_live_credits": False,
+        "tab_owners_by_id": {},
+    }
     try:
         shard_raw = await asyncio.gather(
             *(
@@ -2821,6 +2976,7 @@ async def run_sharded_diorama_flow_generation(
                     on_clip_completed=_on_shard_clip_done,
                     shared_clip_queue=shared_clip_queue,
                     zero_credit_output_count=zero_credit_output_count,
+                    flow_rate_state=flow_rate_state,
                 )
                 for idx in range(n_worker_tabs)
             ),
@@ -2851,12 +3007,10 @@ async def run_sharded_diorama_flow_generation(
                 raise shard_errors[0]
             raise RuntimeError(f"One or more shards encountered errors: {shard_errors}")
     finally:
+        owners_map_final = flow_rate_state.get("tab_owners_by_id") if isinstance(flow_rate_state.get("tab_owners_by_id"), dict) else {}
         for tid in list(opened_tabs):
-            try:
-                urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/close/{tid}", timeout=5)
-                print(f"[FlowDiorama] Closed worker tab {tid[:8]}")
-            except Exception:
-                pass
+            if release_and_close_leased_tab(tid, owner_id=owners_map_final.get(tid), cdp_port=cdp_port):
+                print(f"[FlowDiorama] Closed leased worker tab {tid[:8]}")
 
     # Verify all required clips for this run exist and meet MIN_CLIP_SIZE_BYTES
     required_indices = (
@@ -2951,6 +3105,17 @@ async def run_sharded_diorama_flow_generation(
         v_check = FlowProjectSubagentWorker.validate_provenance_receipt(project_dir)
         if not v_check.get("valid"):
             raise RuntimeError(f"Provenance receipt validation failed: {v_check.get('errors')}")
+
+    if FLOW_AUTO_CLEANUP_ON_SUCCESS and live_shard_urls:
+        try:
+            await clean_flow_workspace_async(
+                cdp_port=cdp_port,
+                temp_project_id=project_dir.name,
+                project_urls=live_shard_urls,
+                clean_local_temp=True,
+            )
+        except Exception:
+            pass
 
     print(
         f"[FlowDiorama] ALL {len(all_clips_meta)} UNIQUE CLIPS READY & PROVENANCE LOCKED "

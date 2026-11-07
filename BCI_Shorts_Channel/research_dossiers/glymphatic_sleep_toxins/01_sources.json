@@ -1,68 +1,125 @@
 {
-  "primary_paper": {
-    "citation_id": "cite_xie_2013",
-    "authors": "Xie, Kang & Nedergaard",
-    "year": 2013,
-    "title": "Sleep drives metabolite clearance from the adult brain",
-    "journal": "Science",
-    "doi": "10.1126/science.1241224",
-    "key_metrics": [
-      "Interstitial space volume fraction increases by ~60% (from ~14% awake to ~23% in natural slow-wave sleep).",
-      "Radiolabeled beta-amyloid clears roughly twice as fast during sleep compared with wakefulness.",
-      "Adrenergic receptor blockade in awake brains partially mimics the sleep-induced fluid influx."
-    ]
-  },
-  "supporting_papers": [
+  "sources": [
     {
-      "citation_id": "cite_perlis_1997",
-      "authors": "Perlis, Giles, Mendelson, Bootzin & Wyatt",
-      "year": 1997,
-      "title": "Psychophysiological insomnia: the behavioural model and a neurocognitive perspective",
-      "journal": "Journal of Sleep Research",
-      "doi": "10.1111/j.1365-2869.1997.00179.x",
-      "key_metrics": [
-        "Repeatedly lying awake worrying pairs the mattress and pillow with threat vigilance via classical Pavlovian conditioning.",
-        "EEG around sleep onset shows elevated 14–35 Hz beta/gamma cortical fast activity despite bodily exhaustion.",
-        "Stimulus control therapy (leaving the bed after ~15–20 minutes awake) extinguishes bedroom conditioned arousal."
-      ]
-    },
-    {
-      "citation_id": "cite_yoo_2007",
-      "authors": "Yoo, Gujar, Hu, Jolesz & Walker",
-      "year": 2007,
-      "title": "The human emotional brain without sleep — a prefrontal amygdala disconnect",
-      "journal": "Current Biology",
-      "doi": "10.1016/j.cub.2007.08.007",
-      "key_metrics": [
-        "26 healthy young adults randomized to normal sleep vs 35 hours of total sleep deprivation before fMRI emotional viewing.",
-        "Sleep-deprived amygdala shows a +60% surge in reactivity to aversive emotional scenes.",
-        "Functional connectivity between the medial prefrontal brake and the amygdala drops sharply while locus coeruleus coupling rises."
-      ]
-    },
-    {
-      "citation_id": "cite_fultz_2019",
-      "authors": "Fultz, Bonmassar, Setsompop, Stickgold & Lewis",
-      "year": 2019,
+      "id": "fultz_2019",
+      "type": "primary",
+      "layer": "neuroscience",
       "title": "Coupled electrophysiological, hemodynamic, and cerebrospinal fluid oscillations in human sleep",
+      "authors": "Nina E. Fultz, Giorgio Bonmassar, Kawin Setsompop, Robert A. Stickgold, Bruce R. Rosen, Jonathan R. Polimeni, Laura D. Lewis",
+      "year": 2019,
       "journal": "Science",
       "doi": "10.1126/science.aax5440",
-      "key_metrics": [
-        "13 healthy human sleepers scanned inside simultaneous EEG-fMRI during non-REM sleep.",
-        "Slow delta electrical waves (~0.05 Hz, roughly every 20 seconds) precede a drop in cortical blood volume.",
-        "As blood volume recedes, large macroscopic waves of cerebrospinal fluid surge upward through the fourth ventricle."
-      ]
+      "url": "https://doi.org/10.1126/science.aax5440",
+      "verified": true,
+      "key_finding": "Simultaneous fast EEG-fMRI in sleeping humans revealed slow delta waves coupled to cortical blood-volume drops and large pulsing waves of cerebrospinal fluid surging into the fourth ventricle roughly every 20 seconds."
     },
     {
-      "citation_id": "cite_hauglund_2025",
-      "authors": "Hauglund, Andersen, Tokarska & Nedergaard",
-      "year": 2025,
+      "id": "van_dongen_2003",
+      "type": "primary",
+      "layer": "psychology",
+      "title": "The Cumulative Cost of Additional Wakefulness: Dose-Response Effects on Neurobehavioral Functions and Sleep Physiology From Chronic Sleep Restriction and Total Sleep Deprivation",
+      "authors": "Hans P. A. Van Dongen, Greg Maislin, Janet M. Mullington, David F. Dinges",
+      "year": 2003,
+      "journal": "Sleep",
+      "doi": "10.1093/sleep/26.2.117",
+      "url": "https://doi.org/10.1093/sleep/26.2.117",
+      "verified": true,
+      "key_finding": "Healthy adults restricted to 6 hours of sleep per night for 14 nights accumulated psychomotor vigilance lapses equal to 2 full nights of total sleep deprivation, yet rated themselves only mildly sleepy."
+    },
+    {
+      "id": "perlis_1997",
+      "type": "primary",
+      "layer": "psychology",
+      "title": "Psychophysiological insomnia: the behavioural model and a neurocognitive perspective",
+      "authors": "Michael L. Perlis, Donna E. Giles, Wallace B. Mendelson, Richard R. Bootzin, James K. Wyatt",
+      "year": 1997,
+      "journal": "Journal of Sleep Research",
+      "doi": "10.1046/j.1365-2869.1997.00045.x",
+      "url": "https://doi.org/10.1046/j.1365-2869.1997.00045.x",
+      "verified": true,
+      "key_finding": "Repeatedly lying awake frustrated in bed pairs the mattress with classical Pavlovian conditioned arousal and elevated high-frequency cortical beta EEG at sleep onset, explaining why exhausted sleepers snap wide awake on the pillow."
+    },
+    {
+      "id": "yoo_2007",
+      "type": "follow_up",
+      "layer": "psychology",
+      "title": "The human emotional brain without sleep — a prefrontal amygdala disconnect",
+      "authors": "승-Schul Yoo, Ninad Gujar, Peter Hu, Ferenc A. Jolesz, Matthew P. Walker",
+      "year": 2007,
+      "journal": "Current Biology",
+      "doi": "10.1016/j.cub.2007.08.007",
+      "url": "https://doi.org/10.1016/j.cub.2007.08.007",
+      "verified": true,
+      "key_finding": "After 35 hours without sleep, human fMRI showed a 60 percent surge in amygdala emotional reactivity paired with severed functional top-down coupling from the medial prefrontal cortex."
+    },
+    {
+      "id": "xie_2013",
+      "type": "primary",
+      "layer": "neuroscience",
+      "title": "Sleep Drives Metabolite Clearance from the Adult Brain",
+      "authors": "Lulu Xie, Hongyi Kang, Qiwu Xu, Michael J. Chen, Yonghong Liao, Meagan Thiyagarajan, John O'Donnell, Daniel J. Christensen, Charles Nicholson, Jeffrey J. Iliff, Takahiro Takano, Rashid Deane, Maiken Nedergaard",
+      "year": 2013,
+      "journal": "Science",
+      "doi": "10.1126/science.1241224",
+      "url": "https://doi.org/10.1126/science.1241224",
+      "verified": true,
+      "key_finding": "Two-photon live imaging showed cortical interstitial space expands by more than 60 percent (from ~14% to ~23%) during natural slow-wave sleep as norepinephrine drops, clearing beta-amyloid roughly twice as fast as during wakefulness."
+    },
+    {
+      "id": "eide_2021",
+      "type": "replication",
+      "layer": "neuroscience",
+      "title": "Sleep deprivation impairs molecular clearance from the human brain",
+      "authors": "Per Kristian Eide, Vegard Vinje, Are Hugo Pripp, Kent-Andre Mardal, Geir Ringstad",
+      "year": 2021,
+      "journal": "Brain",
+      "doi": "10.1093/brain/awaa443",
+      "url": "https://doi.org/10.1093/brain/awaa443",
+      "verified": true,
+      "key_finding": "Serial multi-day human intrathecal gadobutrol contrast MRI demonstrated directly in living patients that one night of total sleep deprivation impairs tracer clearance from human cerebral cortex — and subsequent recovery sleep did not immediately erase the deficit."
+    },
+    {
+      "id": "hauglund_2025",
+      "type": "follow_up",
+      "layer": "neuroscience",
       "title": "Norepinephrine-mediated slow vasomotion drives glymphatic clearance during sleep",
+      "authors": "Natalie L. Hauglund, Mie Andersen, Celia Kjaerby, Maiken Nedergaard",
+      "year": 2025,
       "journal": "Cell",
       "doi": "10.1016/j.cell.2024.11.027",
-      "key_metrics": [
-        "During natural NREM sleep, locus coeruleus norepinephrine rises and falls rhythmically every ~50 seconds, squeezing and relaxing pial arteries like a mechanical pump.",
-        "Common GABAergic sedative zolpidem (Ambien) induces sleep faster but flattens norepinephrine waves by ~50% and cuts glymphatic tracer inflow by ~30%+"
-      ]
+      "url": "https://doi.org/10.1016/j.cell.2024.11.027",
+      "verified": true,
+      "key_finding": "Slow ~50-second locus coeruleus norepinephrine oscillations during natural NREM sleep rhythmically squeeze cerebral arteries to pump cerebrospinal fluid; sedative zolpidem suppresses norepinephrine oscillations by ~50% and cuts brain fluid inflow by ~30%."
+    },
+    {
+      "id": "miao_2024",
+      "type": "critique",
+      "layer": "neuroscience",
+      "title": "Brain clearance is reduced during sleep and anesthesia",
+      "authors": "Andawei Miao, Tianyuan Luo, Boyue Hsieh, Nicholas P. Franks, William Wisden",
+      "year": 2024,
+      "journal": "Nature Neuroscience",
+      "doi": "10.1038/s41593-024-01638-y",
+      "url": "https://doi.org/10.1038/s41593-024-01638-y",
+      "verified": true,
+      "key_finding": "Small-molecule parenchymal dye diffusion experiments challenged simple uniform bulk-flow models, sparking active scientific refinement distinguishing local small-dye diffusion from macroscopic slow-wave vascular perivascular pumping."
+    }
+  ],
+  "followups_replications_critiques": [
+    {
+      "id": "eide_2021",
+      "relation": "human clinical MRI validation",
+      "summary": "Confirmed impaired molecular tracer clearance across living human cerebral cortex after sleep deprivation using intrathecal contrast MRI."
+    },
+    {
+      "id": "hauglund_2025",
+      "relation": "mechanistic breakthrough on sleeping pills",
+      "summary": "Identified slow ~50-second norepinephrine arterial vasomotion as the NREM pump and demonstrated zolpidem sedation suppresses that pump."
+    },
+    {
+      "id": "miao_2024",
+      "relation": "mechanistic critique",
+      "summary": "Demonstrated small injected parenchymal dyes diffuse differently than macroscopic CSF influx, sharpening the distinction between local diffusion and perivascular slow-wave vasomotion."
     }
   ]
 }

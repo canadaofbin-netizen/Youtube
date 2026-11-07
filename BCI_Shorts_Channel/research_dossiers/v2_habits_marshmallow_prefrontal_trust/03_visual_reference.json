@@ -1,0 +1,153 @@
+{
+  "scenes": [
+    {
+      "id": "marshmallow_table_wait",
+      "title": "Rochester 2013 Marshmallow Room: broken vs kept crayon promise quadruples wait time from 3 min to 12 min",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2013 University of Rochester Baby Lab & 1972 Stanford Bing Nursery School paradigm",
+      "layout": {
+        "description": "Bright minimalist developmental psychology testing room with neutral plaster walls, a child-height oak table and chair at center, a single white porcelain plate holding one cylindrical white marshmallow, a glass jar of worn crayons at the corner, and a solid oak door at right.",
+        "positions": [
+          {
+            "who": "Preschool participant (clothed matte-white porcelain child mannequin frame with smooth featureless solid matte-white egg-shaped oval head in mustard-yellow knit sweater and navy trousers)",
+            "where": "seated at the center oak table leaning forearms near the white marshmallow plate",
+            "facing": "facing the single white marshmallow and right oak door"
+          },
+          {
+            "who": "Cognitive researcher (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in crisp white lab coat over slate-blue blouse)",
+            "where": "standing beside the table placing the plate down and stepping out through the solid oak door",
+            "facing": "facing the seated child across the oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "single white marshmallow on a white porcelain saucer",
+          "period_detail": "clean cylindrical white confection centered on an unmarked matte-white saucer",
+          "physical_behavior": "sits inches from the child's folded porcelain hands — snatched at 3 minutes after a broken promise or left untouched past 12 minutes after a kept promise"
+        },
+        {
+          "name": "glass jar of worn stubby crayons vs full wooden organizer tray of fresh markers",
+          "period_detail": "tactile pre-test reliability props used in Kidd, Palmeri & Aslin (2013)",
+          "physical_behavior": "researcher either sets down the rich wooden marker tray as promised or opens empty porcelain palms in apology"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Preschool participant",
+          "verb_sequence": "rests both porcelain forearms on the oak table edge inches from the white marshmallow -> either picks up the marshmallow swiftly or folds both hands calmly in lap"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Cognitive researcher",
+          "reaction": "watches quietly from behind the observation glass noting the fourfold jump in patience after a kept promise"
+        }
+      ],
+      "wardrobe": "Child in mustard-yellow knit sweater and dark navy trousers; researcher in white lab coat over slate-blue collared shirt.",
+      "lighting": "Bright warm natural laboratory studio daylight.",
+      "recognition_hook": "A child alone at a small table staring nose-to-marshmallow — flipped on its head by what happened with a jar of crayons five minutes earlier.",
+      "sources": [
+        "kidd_2013",
+        "mischel_1972",
+        "marshmallow_room"
+      ],
+      "key_visual": {
+        "description": "porcelain child in mustard-yellow knit sweater seated at a minimalist oak testing table leaning elbows near a single white marshmallow on a white plate as a white-coated researcher closes the oak door",
+        "must_show": [
+          "marshmallow|plate|table",
+          "door|chair|crayon",
+          "porcelain"
+        ],
+        "source": "marshmallow_room@00:15-01:15; kidd_2013"
+      }
+    },
+    {
+      "id": "promise_art_tray_reveal",
+      "title": "Pre-test reliability test: delivering the promised marker tray vs returning empty-handed",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2013 University of Rochester reliability manipulation",
+      "layout": {
+        "description": "Same bright testing room five minutes before the marshmallow arrives.",
+        "positions": [
+          {
+            "who": "Cognitive researcher",
+            "where": "standing beside the oak table holding a rich wooden art-supply tray",
+            "facing": "facing the seated child"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "compartmentalized wooden tray of fresh colored markers",
+          "period_detail": "clean unmarked wooden craft tray contrasting with two worn crayon stubs",
+          "physical_behavior": "researcher slides the full wooden marker tray smoothly onto the table in the reliable condition"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Cognitive researcher",
+          "verb_sequence": "lifts away the small jar of worn crayon stubs -> sets a full wooden tray of colorful markers onto the table"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Preschool participant",
+          "reaction": "leans upright and reaches calmly for a fresh marker as trust locks in"
+        }
+      ],
+      "wardrobe": "White lab coat and mustard-yellow sweater.",
+      "lighting": "Clean daylight studio illumination.",
+      "recognition_hook": "Proving your environment keeps promises changes delay of gratification by 400%.",
+      "sources": [
+        "kidd_2013",
+        "michaelson_2013"
+      ]
+    },
+    {
+      "id": "brain_prefrontal_trust_calculator",
+      "title": "Contained Living 4-Color 3D Brain sagittal valuation circuit: nucleus accumbens vs ventromedial & dorsolateral PFC",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2022 Human fMRI Decision Modeling Studio",
+      "layout": {
+        "description": "Bright white gallery displaying a Contained Living 4-Color 3D Brain sagittal cutaway on a matte-white pedestal.",
+        "positions": [
+          {
+            "who": "3D Sagittal Brain Model",
+            "where": "centered on matte-white pedestal",
+            "facing": "medial-lateral three-quarter angle"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "translucent sagittal 3D brain cutaway",
+          "period_detail": "contained four-color subsurface neural pathways",
+          "physical_behavior": "crimson-red nucleus accumbens impulse spark trades signals with warm amber-gold ventromedial and electric cyan-blue dorsolateral prefrontal cortex"
+        }
+      ],
+      "actions": [
+        {
+          "who": "3D Brain",
+          "verb_sequence": "fires a crimson-red spark in deep nucleus accumbens -> streams electric cyan-blue value signals down from dorsolateral and ventromedial prefrontal cortex"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "3D Brain",
+          "reaction": "prefrontal cyan-blue pathways stabilize striatal pulses when future value is trusted"
+        }
+      ],
+      "wardrobe": "None.",
+      "lighting": "High-key white gallery daylight.",
+      "recognition_hook": "Your prefrontal cortex calculates expected trust rather than flexing a willpower muscle.",
+      "sources": [
+        "hutcherson_2022",
+        "casey_2011"
+      ]
+    }
+  ]
+}

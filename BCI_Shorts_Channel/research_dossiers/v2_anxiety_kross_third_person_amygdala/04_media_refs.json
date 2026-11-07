@@ -1,0 +1,88 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_a",
+  "primary_reenactment_media_id": "tsst_protocol_jove",
+  "media": [
+    {
+      "id": "tsst_protocol_jove",
+      "kind": "video",
+      "type": "youtube",
+      "title": "Trier Social Stress Test (TSST) Laboratory Protocol Preview",
+      "url": "https://www.youtube.com/watch?v=IkGOhmdIAlM",
+      "reenactment_section": "00:20-00:55",
+      "keyframes_dir": "media/tsst_protocol_jove",
+      "what_it_shows": "Participant delivering an impromptu 5-minute speech before a tripod video camera and two expressionless judges in white lab coats.",
+      "blocking_notes": "Medium laboratory shot of speaker facing tripod camera and reverse shot of two white-coated evaluators behind table.",
+      "timecodes": [
+        {
+          "t": "00:24",
+          "what": "Participant led into bright evaluation room facing microphone stand and tripod video camera"
+        },
+        {
+          "t": "00:38",
+          "what": "Two expressionless evaluators in white lab coats seated behind clean table holding clipboards"
+        },
+        {
+          "t": "00:50",
+          "what": "Over-shoulder angle of speaker standing solo delivering 5-minute speech to silent panel"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.0499,
+        "median_gray_sat_ratio": 0.4893,
+        "median_p90_sat": 144.5,
+        "max_p90_sat": 148.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.3538,
+        "median_motion_diff": 4.233,
+        "talking_head_ratio": 0.375,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:20-00:55"
+    },
+    {
+      "id": "erp_eeg_setup",
+      "kind": "video",
+      "type": "youtube",
+      "title": "High-Density Clinical Scalp EEG & ERP Recording Setup",
+      "url": "https://www.youtube.com/watch?v=p38nzOGJZtI",
+      "reenactment_section": "00:08-00:52",
+      "keyframes_dir": "media/erp_eeg_setup",
+      "what_it_shows": "Millisecond scalp ERP cap placement matching Moser & Kross (2017) 1-second late positive potential study.",
+      "blocking_notes": "Side angle of high-density electrode cap and live waveform console.",
+      "timecodes": [
+        {
+          "t": "00:15",
+          "what": "Technician checking scalp electrode cap leads on seated volunteer"
+        },
+        {
+          "t": "00:40",
+          "what": "Live millisecond cortical waveform drop displayed on clinical screen"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 16,
+        "median_dark_ratio": 0.4754,
+        "median_gray_sat_ratio": 0.1817,
+        "median_p90_sat": 163.5,
+        "max_p90_sat": 177.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.3937,
+        "median_motion_diff": 39.576,
+        "talking_head_ratio": 0.25,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:08-00:52"
+    }
+  ],
+  "track_subtier": "A1a_ready_keyframes"
+}

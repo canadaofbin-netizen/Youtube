@@ -888,8 +888,10 @@ class StudioUploader:
                     await client.send("Page.navigate", {"url": "https://studio.youtube.com/"})
                     await asyncio.sleep(3.5)
 
-            # Step 1: Bring Studio tab to front and open Upload Dialog deterministically via ?d=ud route
-            await client.send("Page.bringToFront")
+            # Step 1: Enable background focus emulation and open Upload Dialog deterministically via ?d=ud route
+            from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
+            await enable_background_focus_emulation(client)
             upload_route = f"https://studio.youtube.com/channel/{CHANNEL_ID}/videos/upload?d=ud"
             print(f"[StudioUploader] Navigating directly to upload dialog: {upload_route}...")
             await client.send("Page.navigate", {"url": upload_route})

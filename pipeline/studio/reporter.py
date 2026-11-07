@@ -1009,8 +1009,10 @@ class StudioAnalyticsReporter:
                 await active_client.__aenter__()
                 await active_client.send("Page.enable")
                 await active_client.send("Runtime.enable")
+            from pipeline.cdp_tab_lease import enable_background_focus_emulation
+
             scraped["live_connected"] = True
-            await active_client.send("Page.bringToFront")
+            await enable_background_focus_emulation(active_client)
 
             await active_client.send("Page.navigate", {"url": STUDIO_ANALYTICS_URLS["content_shorts"]})
             for _ in range(12):
@@ -1064,7 +1066,7 @@ class StudioAnalyticsReporter:
             if isinstance(video_rows, dict):
                 scraped["video_row_metrics"] = video_rows
 
-            await active_client.send("Page.bringToFront")
+            await enable_background_focus_emulation(active_client)
             await active_client.send("Page.navigate", {"url": STUDIO_ANALYTICS_URLS["analytics_overview"]})
             for _ in range(12):
                 await asyncio.sleep(1.0)
@@ -1144,7 +1146,7 @@ class StudioAnalyticsReporter:
                             await active_client.send("Runtime.enable")
 
                 try:
-                    await active_client.send("Page.bringToFront")
+                    await enable_background_focus_emulation(active_client)
                     await active_client.send(
                         "Page.navigate",
                         {"url": f"https://studio.youtube.com/video/{vid_key}/analytics/tab-overview/period-default"},
@@ -5456,9 +5458,9 @@ class StudioAnalyticsReporter:
         along with their respective standalone PNG chart suites.
         """
         import shutil
-        import tempfile
+        from pipeline.cdp_tab_lease import get_aab_locks_dir
 
-        lock_file_path = Path(tempfile.gettempdir()) / "aab_studio_report.lock"
+        lock_file_path = get_aab_locks_dir() / "aab_studio_report.lock"
         lock_fp = None
         try:
             import fcntl

@@ -91,10 +91,12 @@ def _kb_file_lock(path: Path):
     with _KB_LOCK_GUARD:
         rlock = _KB_LOCKS.setdefault(resolved, threading.RLock())
     with rlock:
-        lock_root = Path("/tmp") if (os.name != "nt" and Path("/tmp").exists()) else path.parent
+        from pipeline.cdp_tab_lease import get_aab_locks_dir
+
+        lock_root = get_aab_locks_dir() if (os.name != "nt" and Path("/tmp").exists()) else path.parent
         lock_root.mkdir(parents=True, exist_ok=True)
         digest = hashlib.sha1(resolved.encode("utf-8")).hexdigest()[:16]
-        lock_file = lock_root / f".aab_kb_{digest}.lock"
+        lock_file = lock_root / f"kb_{digest}.lock"
         fh = None
         locked = False
         try:

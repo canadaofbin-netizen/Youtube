@@ -106,8 +106,17 @@ FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID = "beluga_display"
 FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT = 4                    # x4 free candidate images per prompt in Flow Image mode
 FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS = 4               # Optimal 0-credit concurrent video render ceiling across Flow tabs/outputs
 FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH = 4                      # Up to x4 free candidate videos per prompt when active_tabs * batch <= 4
-REENACT_IMAGE_BACKENDS: tuple[str, ...] = ("flow", "gemini")
-DEFAULT_REENACT_IMAGE_BACKEND = "flow"                    # Primary: native Google Flow 0-credit x4 Image mode
+REENACT_IMAGE_BACKENDS: tuple[str, ...] = ("flow",)
+DEFAULT_REENACT_IMAGE_BACKEND = "flow"                    # Locked: native Google Flow 0-credit x4 Image mode only
+FLOW_OMNI_CREDIT_COST_NO_REF = 12                         # Omni 1.1 Flash credit cost without ingredient chip
+FLOW_OMNI_CREDIT_COST_WITH_REF = 20                       # Omni 1.1 Flash credit cost with ingredient chip attached
+FLOW_AUTO_CLEANUP_ON_SUCCESS = True                       # Auto-delete temporary Flow project rooms once local clips/refs verify
+FLOW_TAB_OPEN_STAGGER_SEC = 2.5                           # Normal tab-creation stagger across parallel shards (<30m target)
+FLOW_TAB_OPEN_COOLDOWN_STAGGER_SEC = 12.0                 # Elevated tab-creation stagger after a rate-limit cooldown
+FLOW_SUBMIT_STAGGER_SEC = 3.0                             # Normal prompt-submit stagger across parallel shards (<30m target)
+FLOW_SUBMIT_COOLDOWN_STAGGER_SEC = 9.5                    # Elevated prompt-submit stagger after a rate-limit cooldown
+PERSISTENT_SHA_CACHE_MAX_ENTRIES = 8192                   # Compact LRU cap for BCI_Shorts_Channel/.cache/persistent_sha256_cache.json
+UNMANNED_QA_SIGNOFF_DEFAULT = True                        # Deterministic CV-verified unmanned signoff for ref-qa & posthoc-qa
 FLOW_ALLOWED_DURATION_TARGETS: tuple[str, ...] = tuple(FLOW_VIDEO_MODEL_PROFILES[FLOW_ACTIVE_VIDEO_MODEL]["durations"])
 FLOW_CLIP_DURATION_TARGET = "10s"        # Omni, no ingredient; clamps to 8s automatically when an ingredient is attached
 FLOW_SHORT_CLIP_MAX_WORDS = 19           # Clips <= 19 words & <= 32 syllables dynamically route to "8s"
@@ -284,9 +293,9 @@ REF_IMAGE_CLIP_CONTINUITY_CORR_MIN = 0.55  # Minimum HSV correlation between ren
 REF_IMAGE_MAX_REGEN_ROUNDS = 3           # Automatic regeneration rounds in Flow Image mode when a reference image fails QA
 REF_IMAGE_MIN_DHASH_DISTANCE = 6         # Q10: two clip keyframes closer than this (64-bit dHash) are duplicates
 REF_IMAGE_BIOLUM_MIN = 0.005             # Q6: minimum saturated 4-point colour-code pixel ratio in brain shots
-# Provenance: only images generated for the pack count before clip generation. Frames pulled out of
-# already-rendered clips ("extracted_from_clip") are audit-only and can never satisfy the pre-generation gate.
-REF_IMAGE_SOURCES_PRE_GENERATION: tuple[str, ...] = ("flow_image_generation", "gemini_image_generation")
+# Provenance: only images generated inside Google Flow Image mode count before clip generation. Frames pulled out of
+# already-rendered clips ("extracted_from_clip") or external web apps can never satisfy the pre-generation gate.
+REF_IMAGE_SOURCES_PRE_GENERATION: tuple[str, ...] = ("flow_image_generation",)
 REF_IMAGE_SOURCE_EXTRACTED = "extracted_from_clip"
 
 # Source-to-prompt architecture (R52): research dossier -> scene blueprint -> reference frames -> clip packets
@@ -926,7 +935,7 @@ PORCELAIN_ANCHOR_MIN_CLIP_RATIO = 0.28         # R66-Anchor: min non-outro clip 
 PORCELAIN_ANCHOR_MAX_CLIP_RATIO = 0.88         # R66-Anchor / R67: max non-outro clip reference binding ratio
 YUNET_FACE_MODEL_PATH = WORKSPACE_ROOT / "pipeline" / "assets" / "models" / "face_detection_yunet_2023mar.onnx"
 
-# --- 3-Format Funnel (Micro-Short -> Flagship Diorama -> Standalone 16:9 1920x1080 Long-Form) & Breaking News ---
+# --- 3-Format Funnel (Micro-Short -> 90s Flagship Short [Default] / 180s Archive -> Deferred 16:9 Long-Form) ---
 MICRO_SHORT_PROFILE = "micro_short_v7"
 MICRO_SHORT_DURATION_MIN_SEC = 35.0
 MICRO_SHORT_DURATION_MAX_SEC = 45.0
@@ -941,7 +950,26 @@ MICRO_SHORT_CUT_COUNT_MAX = 16
 MICRO_SHORT_CUT_MIN = MICRO_SHORT_CUT_COUNT_MIN
 MICRO_SHORT_CUT_MAX = MICRO_SHORT_CUT_COUNT_MAX
 
+# 90s (`1분 30초`) Shorts Default Profile (<30m end-to-end production target)
+SHORTS_90S_PROFILE = "shorts_90s_v7"
+SHORTS_180S_PROFILE = "shorts_180s_v7"
+SHORTS_FORMAT_PROFILES: tuple[str, ...] = (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_180S_PROFILE)
+DEFAULT_SHORTS_FORMAT_PROFILE = SHORTS_90S_PROFILE
+SHORTS_90S_DURATION_MIN_SEC = 75.0
+SHORTS_90S_DURATION_TARGET_SEC = 90.0
+SHORTS_90S_DURATION_MAX_SEC = 105.0
+SHORTS_90S_WORD_COUNT_MIN = 210
+SHORTS_90S_WORD_COUNT_MAX = 275
+SHORTS_90S_SENTENCE_COUNT_MIN = 22
+SHORTS_90S_SENTENCE_COUNT_MAX = 32
+SHORTS_90S_CLIP_COUNT_MIN = 24
+SHORTS_90S_CLIP_COUNT_DEFAULT = 28
+SHORTS_90S_CLIP_COUNT_MAX = 32
+SHORTS_90S_CUT_COUNT_MIN = 24
+SHORTS_90S_CUT_COUNT_MAX = 36
+
 CHANNEL_HANDLE = "@AllAboutBrainOfficial"
+LONGFORM_DEFERRED = True                        # Deferred until the new 90s Shorts concept succeeds (override: --allow-deferred-longform / AAB_ALLOW_DEFERRED_LONGFORM=1)
 LONGFORM_PRODUCTION_PROFILE = "longform_porcelain_16x9_v1"
 LONGFORM_PROJECTS_DIRNAME = "projects_longform"
 LONGFORM_PROJECTS_DIR = CHANNEL_ROOT / LONGFORM_PROJECTS_DIRNAME
@@ -1020,6 +1048,7 @@ EVERYDAY_LONGFORM_DOMAINS: tuple[str, ...] = (
     "relationships",
 )
 NEURO_NEWS_STAGING_DIR = WORKSPACE_ROOT / "Completed_Neuro_News_Shorts"
+NEURO_NEWS_HOLD_FROM_AUTO_QUEUE = True         # Stage breaking news_* Shorts in NEURO_NEWS_STAGING_DIR out of auto-queue
 
 FONT_CONDENSED_BLACK_PATH = FONTS_DIR / "AABCondensed-Black.ttf"
 DIORAMA_V7_SUBTITLE_FONT_NAME = "AAB Condensed Black"
@@ -1071,7 +1100,7 @@ EXPERIMENTS_ARCHIVE_DIRNAME = "experiments"
 
 def _parse_schema_version_int(profile_or_plan: dict[str, Any]) -> int:
     """Safely extracts an integer schema version (e.g. `7`, `'7'`, `'v7'`), returning `0` for named schemas like `'episode_qa_contract_v2'`."""
-    for key in ("schema_version", "schema"):
+    for key in ("prompt_schema_version", "schema_version", "schema"):
         raw = profile_or_plan.get(key)
         if isinstance(raw, bool) or raw is None:
             continue
@@ -1220,40 +1249,185 @@ def is_diorama_profile(profile_or_plan: Any) -> bool:
     if is_diorama_v7_plan(profile_or_plan):
         return True
     if isinstance(profile_or_plan, str):
-        return profile_or_plan.strip().lower() in ("neuro_diorama", "diorama_v6", "v6")
+        return profile_or_plan.strip().lower() in (
+            "neuro_diorama",
+            "diorama_v6",
+            "v6",
+            SHORTS_90S_PROFILE,
+            SHORTS_180S_PROFILE,
+        )
     if isinstance(profile_or_plan, dict):
         if _parse_schema_version_int(profile_or_plan) >= PROMPT_SCHEMA_VERSION_V6:
             return True
-        prof = str(profile_or_plan.get("profile") or profile_or_plan.get("production_profile") or "").strip().lower()
-        return prof in ("neuro_diorama", "diorama_v6", "v6")
+        prof = str(
+            profile_or_plan.get("profile")
+            or profile_or_plan.get("production_profile")
+            or profile_or_plan.get("shorts_format_profile")
+            or ""
+        ).strip().lower()
+        return prof in ("neuro_diorama", "diorama_v6", "v6", SHORTS_90S_PROFILE, SHORTS_180S_PROFILE)
     return False
 
 
+def resolve_shorts_format_profile(
+    *plans_or_profiles: Any,
+    slug: str = "",
+    project_id: str = "",
+    project_dir: Path | str | None = None,
+) -> str:
+    """
+    Resolves the active Shorts duration/clip format contract:
+      - `'micro_short_v7'` (`35-45s`, `14-16` cuts)
+      - `'shorts_90s_v7'` (`75-105s`, target `90s` / `1분 30초`, `24-32` clips, default `28`) — **active default**
+      - `'shorts_180s_v7'` (`140-179s`, `45-52` clips, default `48`) — preserved for frozen/legacy 3m episodes
+    """
+    import json as _json
+
+    candidates: list[Any] = list(plans_or_profiles)
+    p_dir_obj: Path | None = Path(project_dir) if project_dir is not None else None
+    for item in plans_or_profiles:
+        if isinstance(item, Path) and p_dir_obj is None:
+            p_dir_obj = item
+    if p_dir_obj is not None and p_dir_obj.exists():
+        if not project_id:
+            project_id = p_dir_obj.name
+        for rel_p in (
+            p_dir_obj / "03_visuals" / "visual_plan.json",
+            p_dir_obj / "visual_plan.json",
+            p_dir_obj / "02_script" / "script.json",
+            p_dir_obj / "script.json",
+            p_dir_obj / "05_assembly" / "edit_decision_list.json",
+            p_dir_obj / "04_audio" / "voice_report.json",
+        ):
+            if rel_p.exists():
+                try:
+                    loaded_doc = _json.loads(rel_p.read_text(encoding="utf-8"))
+                    if isinstance(loaded_doc, dict):
+                        candidates.append(loaded_doc)
+                except Exception:
+                    pass
+
+    for item in candidates:
+        if isinstance(item, str):
+            tok = item.strip().lower()
+            if tok in (MICRO_SHORT_PROFILE, "micro_short", "45s"):
+                return MICRO_SHORT_PROFILE
+            if tok in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
+                return SHORTS_90S_PROFILE
+            if tok in (SHORTS_180S_PROFILE, "shorts_180s", "180s", "long_short_v7"):
+                return SHORTS_180S_PROFILE
+        elif isinstance(item, dict):
+            for key in ("shorts_format_profile", "format_profile", "duration_profile", "profile", "production_profile"):
+                tok = str(item.get(key) or "").strip().lower()
+                if tok in (MICRO_SHORT_PROFILE, "micro_short", "45s"):
+                    return MICRO_SHORT_PROFILE
+                if tok in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
+                    return SHORTS_90S_PROFILE
+                if tok in (SHORTS_180S_PROFILE, "shorts_180s", "180s", "long_short_v7"):
+                    return SHORTS_180S_PROFILE
+
+    clean_slug = str(slug or "").strip()
+    clean_pid = str(project_id or "").strip()
+    for item in candidates:
+        if isinstance(item, dict):
+            if not clean_slug:
+                clean_slug = str(item.get("dossier") or item.get("slug") or "").strip()
+            if not clean_pid:
+                clean_pid = str(item.get("project_id") or "").strip()
+
+    if clean_slug in (*FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS, "phineas_gage_iron_rod"):
+        return SHORTS_180S_PROFILE
+    if (clean_pid and any(clean_pid.startswith(pfx) for pfx in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)) or (
+        clean_slug and any(clean_slug.startswith(pfx) for pfx in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
+    ):
+        return SHORTS_180S_PROFILE
+
+    max_sents = 0
+    for item in candidates:
+        if not isinstance(item, dict):
+            continue
+        if (
+            _parse_schema_version_int(item) == PROMPT_SCHEMA_VERSION_V6
+            or extract_explicit_v7_style_profile(item) == "dark_ceramic_v6"
+        ) and not _has_v7_schema_signal(item):
+            return SHORTS_180S_PROFILE
+        sents_l = item.get("sentences")
+        if isinstance(sents_l, list):
+            max_sents = max(max_sents, len(sents_l))
+        acts_l = item.get("acts")
+        if isinstance(acts_l, list) and acts_l:
+            total_sents = sum(len(a.get("sentences") or []) for a in acts_l if isinstance(a, dict))
+            max_sents = max(max_sents, total_sents)
+
+    if max_sents >= 40:
+        return SHORTS_180S_PROFILE
+    if SHORTS_90S_SENTENCE_COUNT_MIN <= max_sents < 40:
+        return SHORTS_90S_PROFILE
+
+    for item in candidates:
+        if not isinstance(item, dict):
+            continue
+        t_clips = item.get("target_clip_count")
+        if isinstance(t_clips, int) and t_clips >= 40:
+            return SHORTS_180S_PROFILE
+        clips_l = item.get("clips")
+        if isinstance(clips_l, list) and len(clips_l) >= 40:
+            return SHORTS_180S_PROFILE
+        cuts_l = item.get("cuts")
+        if isinstance(cuts_l, list) and len(cuts_l) >= 40:
+            return SHORTS_180S_PROFILE
+        for dur_key in ("target_duration_sec", "total_duration_sec"):
+            dur_t = item.get(dur_key)
+            if isinstance(dur_t, (int, float)) and float(dur_t) >= 130.0:
+                return SHORTS_180S_PROFILE
+
+    return DEFAULT_SHORTS_FORMAT_PROFILE
+
+
 def clip_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_clips, max_clips) for classic_v5, micro_short_v7, vs neuro_diorama."""
-    if str(profile or "").strip().lower() == MICRO_SHORT_PROFILE:
+    """Returns (min_clips, max_clips) for classic_v5, micro_short_v7, shorts_90s_v7, vs neuro_diorama."""
+    prof_low = str(profile or "").strip().lower()
+    if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_CUT_COUNT_MIN, MICRO_SHORT_CUT_COUNT_MAX)
+    if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
+        return (SHORTS_90S_CLIP_COUNT_MIN, SHORTS_90S_CLIP_COUNT_MAX)
+    if prof_low in (SHORTS_180S_PROFILE, "shorts_180s", "180s"):
+        return (PORCELAIN_V7_TARGET_CLIP_MIN, PORCELAIN_V7_TARGET_CLIP_MAX)
     if is_diorama_profile(profile or ""):
         return (DIORAMA_CLIP_COUNT_MIN, DIORAMA_CLIP_COUNT_MAX)
     return (CLIP_COUNT_MIN, CLIP_COUNT_MAX)
 
 
 def shorts_duration_range_for_profile(profile: str | None = None) -> tuple[float, float]:
-    """Returns (min_duration_sec, max_duration_sec) for classic_v5, micro_short_v7, vs neuro_diorama."""
-    if str(profile or "").strip().lower() == MICRO_SHORT_PROFILE:
+    """Returns (min_duration_sec, max_duration_sec) for classic_v5, micro_short_v7, shorts_90s_v7, vs neuro_diorama."""
+    prof_low = str(profile or "").strip().lower()
+    if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_DURATION_MIN_SEC, MICRO_SHORT_DURATION_MAX_SEC)
+    if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
+        return (SHORTS_90S_DURATION_MIN_SEC, SHORTS_90S_DURATION_MAX_SEC)
     if is_diorama_profile(profile or ""):
         return (DIORAMA_DURATION_MIN_SEC, DIORAMA_DURATION_MAX_SEC)
     return (FINAL_SHORTS_DURATION_MIN_SEC, FINAL_SHORTS_DURATION_MAX_SEC)
 
 
 def word_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_words, max_words) for classic_v5, micro_short_v7, vs neuro_diorama."""
-    if str(profile or "").strip().lower() == MICRO_SHORT_PROFILE:
+    """Returns (min_words, max_words) for classic_v5, micro_short_v7, shorts_90s_v7, vs neuro_diorama."""
+    prof_low = str(profile or "").strip().lower()
+    if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_WORD_COUNT_MIN, MICRO_SHORT_WORD_COUNT_MAX)
+    if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
+        return (SHORTS_90S_WORD_COUNT_MIN, SHORTS_90S_WORD_COUNT_MAX)
     if is_diorama_profile(profile or ""):
         return (DIORAMA_WORD_COUNT_MIN, DIORAMA_WORD_COUNT_MAX)
     return (SCRIPT_WORD_MIN, SCRIPT_WORD_MAX)
+
+
+def sentence_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
+    """Returns (min_sentences, max_sentences) for shorts_90s_v7 vs full 180s neuro_diorama."""
+    prof_low = str(profile or "").strip().lower()
+    if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
+        return (SHORTS_90S_SENTENCE_COUNT_MIN, SHORTS_90S_SENTENCE_COUNT_MAX)
+    return (DIORAMA_SENTENCE_COUNT_MIN, DIORAMA_SENTENCE_COUNT_MAX)
 
 # Research depth standard (R44 depth + Schema v2 3-Layer Formula): enforced by validate_dossier
 DOSSIER_SCHEMA_VERSION = 2

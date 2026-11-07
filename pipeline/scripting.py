@@ -189,8 +189,18 @@ class ScriptingStage:
         wps = round(word_count / effective_duration, 2) if effective_duration > 0 else 0.0
 
         # G1: Clip narrations (count, per-clip words, openers), total word count & timing
+        from pipeline.config import resolve_shorts_format_profile, sentence_count_range_for_profile
+
         is_micro = str(profile_val).strip().lower() == MICRO_SHORT_PROFILE
-        effective_profile = MICRO_SHORT_PROFILE if is_micro else ("neuro_diorama" if diorama_mode else profile_val)
+        if is_micro:
+            effective_profile = MICRO_SHORT_PROFILE
+        elif diorama_mode:
+            effective_profile = resolve_shorts_format_profile(
+                script_data,
+                {"sentences": diorama_sents or (narrations or [])},
+            )
+        else:
+            effective_profile = profile_val
         if diorama_mode or is_micro:
             range_min, range_max = word_count_range_for_profile(effective_profile)
         elif roles:
@@ -203,8 +213,10 @@ class ScriptingStage:
         g1_issues: list[str] = []
         if diorama_mode or is_micro:
             active_lines = diorama_sents or (narrations or [])
-            sent_min = 8 if is_micro else DIORAMA_SENTENCE_COUNT_MIN
-            sent_max = 18 if is_micro else DIORAMA_SENTENCE_COUNT_MAX
+            if is_micro or effective_profile == MICRO_SHORT_PROFILE:
+                sent_min, sent_max = 8, 18
+            else:
+                sent_min, sent_max = sentence_count_range_for_profile(effective_profile)
             if not active_lines:
                 g1_issues.append(
                     f"diorama sentences missing ({sent_min}-{sent_max} sentences required)"

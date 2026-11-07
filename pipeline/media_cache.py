@@ -139,9 +139,106 @@ def compute_stream_sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+def get_persistent_sha_cache_path() -> Path:
+    override = os.environ.get("AAB_PERSISTENT_SHA_CACHE_PATH", "").strip()
+    if override:
+        return Path(override)
+    from pipeline.config import CHANNEL_ROOT
+
+    return CHANNEL_ROOT / ".cache" / "persistent_sha256_cache.json"
+
+
+def _should_persist_sha_for_path(path: Path) -> bool:
+    if os.environ.get("AAB_PERSISTENT_SHA_CACHE_PATH", "").strip():
+        return True
+    resolved_s = str(path.resolve())
+    tmp_root = str(Path(tempfile.gettempdir()).resolve())
+    return not resolved_s.startswith(tmp_root)
+
+
+def _load_persistent_sha_entry(fp: str) -> str | None:
+    cache_path = get_persistent_sha_cache_path()
+    if not cache_path.exists():
+        return None
+    try:
+        doc = json.loads(cache_path.read_text(encoding="utf-8"))
+        entries = doc.get("entries") if isinstance(doc, dict) else None
+        if isinstance(entries, dict):
+            rec = entries.get(fp)
+            if isinstance(rec, str) and len(rec) == 64:
+                return rec
+            if isinstance(rec, list) and len(rec) >= 1 and isinstance(rec[0], str) and len(rec[0]) == 64:
+                return rec[0]
+    except Exception:  # noqa: BLE001
+        return None
+    return None
+
+
+def _store_persistent_sha_entry(fp: str, sha_val: str) -> None:
+    import time as _time
+    from pipeline.cdp_tab_lease import get_aab_locks_dir
+    from pipeline.config import PERSISTENT_SHA_CACHE_MAX_ENTRIES
+
+    try:
+        import fcntl as _fcntl
+    except ImportError:  # pragma: no cover
+        _fcntl = None  # type: ignore[assignment]
+
+    cache_path = get_persistent_sha_cache_path()
+    lock_path = get_aab_locks_dir() / "persistent_sha.lock"
+    with _CACHE_LOCK:
+        fh = None
+        locked = False
+        try:
+            if _fcntl is not None:
+                with contextlib.suppress(OSError):
+                    fh = open(lock_path, "a+", encoding="utf-8")
+                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_EX)
+                    locked = True
+            entries: dict[str, list[Any]] = {}
+            if cache_path.exists():
+                with contextlib.suppress(Exception):
+                    loaded = json.loads(cache_path.read_text(encoding="utf-8"))
+                    raw_e = loaded.get("entries") if isinstance(loaded, dict) else None
+                    if isinstance(raw_e, dict):
+                        for k, v in raw_e.items():
+                            if isinstance(v, list) and len(v) >= 2 and isinstance(v[0], str):
+                                entries[str(k)] = [v[0], float(v[1])]
+                            elif isinstance(v, str) and len(v) == 64:
+                                entries[str(k)] = [v, 0.0]
+            entries[fp] = [sha_val, round(_time.time(), 2)]
+            max_cap = max(256, int(PERSISTENT_SHA_CACHE_MAX_ENTRIES))
+            if len(entries) > max_cap:
+                keep_n = int(max_cap * 0.85)
+                ordered = sorted(entries.items(), key=lambda kv: float(kv[1][1]), reverse=True)[:keep_n]
+                entries = dict(ordered)
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+            tmp_p = cache_path.parent / f".tmp_{os.getpid()}_{threading.get_ident()}_{cache_path.name}"
+            payload = json.dumps({"version": 1, "entries": entries}, separators=(",", ":"))
+            tmp_p.write_text(payload, encoding="utf-8")
+            os.replace(tmp_p, cache_path)
+        except OSError:
+            pass
+        finally:
+            if locked and fh is not None and _fcntl is not None:
+                with contextlib.suppress(OSError):
+                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
+            if fh is not None:
+                with contextlib.suppress(OSError):
+                    fh.close()
+
+
+def clear_in_memory_sha_cache() -> None:
+    """Clears in-process `_MEM_SHA_CACHE` (used in tests to verify persistent disk cache hits)."""
+    with _CACHE_LOCK:
+        _MEM_SHA_CACHE.clear()
+
+
 def fast_file_sha256(path: Path) -> str:
     """
-    Stat-indexed SHA-256 lookup backed by local `/tmp` SSD cache.
+    Stat + boundary-CRC indexed SHA-256 lookup backed by in-memory `_MEM_SHA_CACHE`
+    plus the compact persistent JSON store (`persistent_sha256_cache.json`), surviving
+    `/tmp` speed-cache purges without creating thousands of tiny `.txt` files.
     Note: Forensic `ProjectStorage.verify_integrity()` intentionally bypasses this
     and always reads raw disk bytes to detect silent storage bit-rot.
     """
@@ -151,24 +248,19 @@ def fast_file_sha256(path: Path) -> str:
         hit = _MEM_SHA_CACHE.get(fp)
         if hit:
             return hit
-    sha_dir = get_speed_cache_dir() / "sha256"
-    sha_file = sha_dir / f"{fp}.txt"
-    if sha_file.exists():
-        try:
-            val = sha_file.read_text(encoding="utf-8").strip()
-            if len(val) == 64:
-                with _CACHE_LOCK:
-                    _MEM_SHA_CACHE[fp] = val
-                return val
-        except OSError:
-            pass
+    persist_ok = _should_persist_sha_for_path(p)
+    if persist_ok:
+        disk_hit = _load_persistent_sha_entry(fp)
+        if disk_hit:
+            with _CACHE_LOCK:
+                _MEM_SHA_CACHE[fp] = disk_hit
+            return disk_hit
     val = compute_stream_sha256(p)
-    try:
-        sha_dir.mkdir(parents=True, exist_ok=True)
-        sha_file.write_text(val, encoding="utf-8")
-    except OSError:
-        pass
+    if persist_ok:
+        _store_persistent_sha_entry(fp, val)
     with _CACHE_LOCK:
+        if len(_MEM_SHA_CACHE) > 16384:
+            _MEM_SHA_CACHE.clear()
         _MEM_SHA_CACHE[fp] = val
     return val
 
@@ -210,15 +302,20 @@ def stage_local_file(src_path: Path) -> tuple[Path, str]:
             wfh.write(chunk)
     sha_val = h.hexdigest()
 
+    fp_crc = _file_stat_fingerprint(resolved, sample_boundary_crc=True)
     with _CACHE_LOCK:
         try:
             os.replace(tmp_dst, dst)
             sha_sidecar.write_text(sha_val, encoding="utf-8")
-            _MEM_SHA_CACHE[_file_stat_fingerprint(resolved, sample_boundary_crc=True)] = sha_val
+            _MEM_SHA_CACHE[fp_crc] = sha_val
             _prune_staged_dir_unlocked(staged_dir)
         except OSError:
             tmp_dst.unlink(missing_ok=True)
+            if _should_persist_sha_for_path(resolved):
+                _store_persistent_sha_entry(fp_crc, sha_val)
             return resolved, sha_val
+    if _should_persist_sha_for_path(resolved):
+        _store_persistent_sha_entry(fp_crc, sha_val)
     return dst, sha_val
 
 
@@ -231,6 +328,7 @@ def register_staged_copy(local_src: Path, dest_path: Path) -> str:
     sha_val = compute_stream_sha256(local_src)
     try:
         fp = _file_stat_fingerprint(dest, sample_boundary_crc=False)
+        fp_crc = _file_stat_fingerprint(dest, sample_boundary_crc=True)
         staged_dir = get_speed_cache_dir() / "staged"
         staged_dir.mkdir(parents=True, exist_ok=True)
         ext = dest.suffix.lower() or ".bin"
@@ -239,8 +337,10 @@ def register_staged_copy(local_src: Path, dest_path: Path) -> str:
         with _CACHE_LOCK:
             shutil.copy2(local_src, dst)
             sha_sidecar.write_text(sha_val, encoding="utf-8")
-            _MEM_SHA_CACHE[_file_stat_fingerprint(dest, sample_boundary_crc=True)] = sha_val
+            _MEM_SHA_CACHE[fp_crc] = sha_val
             _prune_staged_dir_unlocked(staged_dir)
+        if _should_persist_sha_for_path(dest):
+            _store_persistent_sha_entry(fp_crc, sha_val)
     except OSError:
         pass
     return sha_val

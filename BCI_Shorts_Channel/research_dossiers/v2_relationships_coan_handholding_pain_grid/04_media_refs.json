@@ -1,0 +1,88 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_a",
+  "primary_reenactment_media_id": "fnirs_hyperscan_protocol",
+  "media": [
+    {
+      "id": "fnirs_hyperscan_protocol",
+      "kind": "video",
+      "type": "youtube",
+      "title": "Inter-Brain Synchrony Hyperscanning Cap & Console Laboratory Setup",
+      "url": "https://www.youtube.com/watch?v=ZJ2hhXiR0bw",
+      "reenactment_section": "00:48-01:25",
+      "keyframes_dir": "media/fnirs_hyperscan_protocol",
+      "what_it_shows": "White-coated neuroscientist fitting multi-channel neural recording cap and optodes beside dual-brain acquisition console.",
+      "blocking_notes": "Bright clinical neurophysiology lab with sensor cap fitting and waveform acquisition console.",
+      "timecodes": [
+        {
+          "t": "00:52",
+          "what": "Neuroscientist in white lab coat fitting white multi-channel neural cap onto seated participant"
+        },
+        {
+          "t": "01:08",
+          "what": "Close-up of clean optode/electrode leads connected to dual-channel neural recording console"
+        },
+        {
+          "t": "01:20",
+          "what": "Live synchronized neural oscillation traces stabilizing on laboratory display"
+        }
+      ],
+      "reenactment_suitability": "suitable_track_a",
+      "reenactment_suitability_reason": "passed_gates_1_to_4_with_keyframes",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.08,
+        "median_gray_sat_ratio": 0.5616,
+        "median_p90_sat": 118.5,
+        "max_p90_sat": 243.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.2604,
+        "median_motion_diff": 63.137,
+        "talking_head_ratio": 0.25,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:48-01:25"
+    },
+    {
+      "id": "eeg_hyperscan_protocol",
+      "kind": "video",
+      "type": "youtube",
+      "title": "Stimulus Processing on Brain Potentials when Hyperscanning | Dual-EEG Protocol",
+      "url": "https://www.youtube.com/watch?v=gDXRU05VSng",
+      "reenactment_section": "00:15-01:05",
+      "keyframes_dir": "media/eeg_hyperscan_protocol",
+      "what_it_shows": "Two participants seated simultaneously in dual-EEG hyperscanning caps during paired stimulus recording.",
+      "blocking_notes": "Two-chair laboratory framing showing paired EEG caps and synchronized amplifier setup.",
+      "timecodes": [
+        {
+          "t": "00:24",
+          "what": "Two volunteers wearing matched EEG caps seated in laboratory chairs wired to dual amplifiers"
+        },
+        {
+          "t": "00:52",
+          "what": "Dual-brain alpha-band oscillation traces recorded simultaneously across both participants"
+        }
+      ],
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=0.0)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 16,
+        "median_dark_ratio": 0.0941,
+        "median_gray_sat_ratio": 0.603,
+        "median_p90_sat": 129.5,
+        "max_p90_sat": 150.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.6167,
+        "median_motion_diff": 32.35,
+        "talking_head_ratio": 0.75,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      }
+    }
+  ],
+  "track_subtier": "A1a_ready_keyframes"
+}

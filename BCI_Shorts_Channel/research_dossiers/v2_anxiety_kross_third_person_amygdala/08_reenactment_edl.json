@@ -1,0 +1,131 @@
+{
+  "schema": "source_reenactment_edl_v1",
+  "rule": "R67",
+  "slug": "v2_anxiety_kross_third_person_amygdala",
+  "source_reference_id": "https://www.youtube.com/watch?v=IkGOhmdIAlM",
+  "source_video_id": "IkGOhmdIAlM",
+  "extracted_at": "2026-11-04T16:08:57.771401+00:00",
+  "source_geometry": {
+    "width": 448,
+    "height": 336,
+    "fps": 29.97,
+    "duration_sec": 35.0,
+    "aspect_ratio": 1.3333
+  },
+  "shot_count": 5,
+  "shots": [
+    {
+      "shot_id": "S01",
+      "shot_index": 1,
+      "start_sec": 0.0,
+      "end_sec": 7.0,
+      "duration_sec": 7.0,
+      "source_start_dhash_64": "03234179718c4f8c",
+      "source_end_dhash_64": "03131341618c4f8c",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": -0.01,
+      "optical_flow_dy": -0.007,
+      "motion_magnitude": 4.195,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S02",
+      "shot_index": 2,
+      "start_sec": 7.0,
+      "end_sec": 14.0,
+      "duration_sec": 7.0,
+      "source_start_dhash_64": "03131341418c4f8c",
+      "source_end_dhash_64": "03131341418c4f8c",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 1.063,
+      "optical_flow_dy": -0.0,
+      "motion_magnitude": 0.911,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S03",
+      "shot_index": 3,
+      "start_sec": 14.0,
+      "end_sec": 21.0,
+      "duration_sec": 7.0,
+      "source_start_dhash_64": "171515d5a38c4f8c",
+      "source_end_dhash_64": "47070747278c4f8c",
+      "camera_motion": "lateral_pan_left",
+      "optical_flow_dx": 0.008,
+      "optical_flow_dy": -0.001,
+      "motion_magnitude": 8.953,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S04",
+      "shot_index": 4,
+      "start_sec": 21.0,
+      "end_sec": 28.0,
+      "duration_sec": 7.0,
+      "source_start_dhash_64": "47070747278c4f8c",
+      "source_end_dhash_64": "47070747278c4f8c",
+      "camera_motion": "locked_tripod",
+      "optical_flow_dx": -0.0,
+      "optical_flow_dy": 0.0,
+      "motion_magnitude": 0.052,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    },
+    {
+      "shot_id": "S05",
+      "shot_index": 5,
+      "start_sec": 28.0,
+      "end_sec": 35.0,
+      "duration_sec": 7.0,
+      "source_start_dhash_64": "47070747278c4f8c",
+      "source_end_dhash_64": "282e2c0e868e4fcd",
+      "camera_motion": "gentle_tilt_down",
+      "optical_flow_dx": -0.024,
+      "optical_flow_dy": 0.254,
+      "motion_magnitude": 7.765,
+      "active_zones": [
+        "left_foreground_zone",
+        "right_foreground_zone",
+        "center_action_zone",
+        "upper_background_zone"
+      ]
+    }
+  ],
+  "source_dhash_64_list": [
+    "03234179718c4f8c",
+    "03131341618c4f8c",
+    "03131341418c4f8c",
+    "171515d5a38c4f8c",
+    "47070747278c4f8c",
+    "282e2c0e868e4fcd"
+  ],
+  "source_5gram_sha256_list": [],
+  "source_personal_names": [],
+  "sanitization_verified": true,
+  "zero_raw_pixels_in_repo": true,
+  "section_window": "00:20-00:55",
+  "section_bounds_sec": [
+    20.0,
+    55.0
+  ],
+  "sanitized_guide_count": 10
+}
