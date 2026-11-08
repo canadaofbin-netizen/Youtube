@@ -212,7 +212,11 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             DIORAMA_V7_US_PROSODY_GEAR_RATES,
             DIORAMA_V7_US_PROSODY_GEARS,
             DIORAMA_V7_VIDEO_FPS,
+            ALL_DIORAMA_STYLE_PROFILES,
             DIORAMA_VOICE_PRESETS,
+            EXPRESSIVE_25D_V8_STYLE_PROFILE,
+            EXPRESSIVE_V8_PROSODY_GEARS,
+            EXPRESSIVE_V8_PROSODY_GEAR_RATES,
             FLOW_PRIMARY_VIDEO_MODEL,
             FLOW_ZERO_CREDIT_MODEL,
             FONT_CONDENSED_BLACK_PATH,
@@ -223,7 +227,9 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             DEFAULT_DIORAMA_VOICE_PRESET == "emma_v7"
             and DIORAMA_V7_PROSODY_MODE == "dynamic_us_v7"
             and DEFAULT_REENACTMENT_VOICE_PRESET in DIORAMA_VOICE_PRESETS
-            and {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7"}.issubset(DIORAMA_VOICE_PRESETS.keys())
+            and {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7", "foil_v8"}.issubset(
+                DIORAMA_VOICE_PRESETS.keys()
+            )
             and DIORAMA_VOICE_PRESETS["andrew_v7"]["voice"] == DIORAMA_TTS_VOICE
             and all(
                 bool(cfg.get("voice")) and bool(cfg.get("pitch")) and bool(cfg.get("eq_profile")) and bool(cfg.get("kokoro_voice"))
@@ -233,15 +239,21 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
         prosody_lockstep_ok = (
             set(DIORAMA_V7_PROSODY_GEARS.keys()) == set(DIORAMA_V7_PROSODY_GEAR_RATES.keys())
             and set(DIORAMA_V7_US_PROSODY_GEARS.keys()) == set(DIORAMA_V7_US_PROSODY_GEAR_RATES.keys())
+            and set(EXPRESSIVE_V8_PROSODY_GEARS.keys()) == set(EXPRESSIVE_V8_PROSODY_GEAR_RATES.keys())
             and all(
                 abs(DIORAMA_V7_US_PROSODY_GEARS[g]["tempo"] - (1.0 + int(DIORAMA_V7_US_PROSODY_GEAR_RATES[g].replace("%", "")) / 100.0)) < 1e-6
                 for g in DIORAMA_V7_US_PROSODY_GEARS
             )
+            and all(
+                abs(EXPRESSIVE_V8_PROSODY_GEARS[g]["tempo"] - (1.0 + int(EXPRESSIVE_V8_PROSODY_GEAR_RATES[g].replace("%", "")) / 100.0)) < 1e-6
+                for g in EXPRESSIVE_V8_PROSODY_GEARS
+            )
         )
         v7_ssot_ok = (
             DEFAULT_PRODUCTION_PROFILE == "neuro_diorama"
-            and DEFAULT_DIORAMA_STYLE_PROFILE == PORCELAIN_V7_STYLE_PROFILE
-            and DEFAULT_DIORAMA_STYLE_PROFILE in DIORAMA_V7_STYLE_PROFILES
+            and DEFAULT_DIORAMA_STYLE_PROFILE in (PORCELAIN_V7_STYLE_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE)
+            and DEFAULT_DIORAMA_STYLE_PROFILE in ALL_DIORAMA_STYLE_PROFILES
+            and EXPRESSIVE_25D_V8_STYLE_PROFILE in ALL_DIORAMA_STYLE_PROFILES
             and DIORAMA_TTS_VOICE == "en-US-AndrewMultilingualNeural"
             and DIORAMA_V7_TTS_RATE == "+8%"
             and DIORAMA_V7_TTS_PITCH == "+14Hz"
@@ -899,7 +911,12 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
         )
 
         if is_diorama:
-            from pipeline.config import is_diorama_v7_plan
+            from pipeline.config import (
+                PROMPT_SCHEMA_VERSION_V8,
+                SHORTS_180S_PROFILE,
+                is_diorama_v7_plan,
+                resolve_shorts_format_profile,
+            )
             from pipeline.flow_prompt_builder import count_words
             from pipeline.prompt_quality_v5 import validate_production_diorama_v6
 
@@ -911,8 +928,20 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
                 if str(s).strip()
             ]
             word_count = int(qa_data.get("word_count") or manifest_data.get("word_count") or sum(count_words(s) for s in sents))
-            w_min, w_max = word_count_range_for_profile("neuro_diorama")
-            c_min, c_max = clip_count_range_for_profile("neuro_diorama")
+            fmt_prof = resolve_shorts_format_profile(
+                vp_doc,
+                script_doc,
+                manifest_data,
+                raw_prompts if isinstance(raw_prompts, dict) else {},
+                project_id=pid,
+                project_dir=p_dir,
+            )
+            if fmt_prof == SHORTS_180S_PROFILE:
+                w_min, w_max = word_count_range_for_profile("neuro_diorama")
+                c_min, c_max = clip_count_range_for_profile("neuro_diorama")
+            else:
+                w_min, w_max = word_count_range_for_profile(fmt_prof)
+                c_min, c_max = clip_count_range_for_profile(fmt_prof)
             up_rcpt_file = pub_dir / "upload_receipt.json"
             is_live_public_frozen = False
             if up_rcpt_file.exists():
@@ -942,7 +971,7 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
             )
             prompt_issues = [] if (is_live_public_frozen and has_final_mp4) else raw_prompt_issues
             prompts_ok = (
-                prompt_schema_version in (6, PROMPT_SCHEMA_VERSION_V7)
+                prompt_schema_version in (6, PROMPT_SCHEMA_VERSION_V7, PROMPT_SCHEMA_VERSION_V8)
                 and c_min <= len(flow_prompts) <= c_max
                 and not prompt_issues
             )

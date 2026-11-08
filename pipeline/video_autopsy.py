@@ -55,6 +55,10 @@ from pipeline.config import (
     DIORAMA_TARGET_LUFS,
     DIORAMA_V7_DURATION_MIN_SEC,
     DIORAMA_V7_TARGET_LUFS,
+    EXPRESSIVE_V8_CLIP_COUNT_MIN,
+    EXPRESSIVE_V8_MAX_CUT_SEC,
+    EXPRESSIVE_V8_MIN_CUT_SEC,
+    EXPRESSIVE_V8_TARGET_LUFS,
     FINAL_SHORTS_DURATION_MIN_SEC,
     FINAL_TAIL_SEC,
     MAX_PERCEPTUAL_DHASH_HAMMING_DISTANCE,
@@ -65,6 +69,7 @@ from pipeline.config import (
     PORCELAIN_V7_LONG_TAKE_MAX_SEC,
     PORCELAIN_V7_MIN_CUT_SEC,
     PROJECTS_DIR,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
     SHORTS_HARD_CEILING_FRAMES,
     SHORTS_HARD_CEILING_FRAMES_V7,
     SHORTS_HARD_CEILING_SEC,
@@ -75,6 +80,7 @@ from pipeline.config import (
     expected_final_duration_sec,
     is_diorama_profile,
     is_diorama_v7_plan,
+    is_expressive_v8_plan,
     is_porcelain_v7_plan,
     max_allowed_dead_air_sec,
 )
@@ -686,7 +692,7 @@ class VideoAutopsyEngine:
             phrase_events >= 10
             and not has_stage_labels
             and max_words <= 10
-            and 34 <= font_size <= 96
+            and 34 <= font_size <= 112
             and overlapping_events_count == 0
             and unconverted_number_words_count == 0
         )
@@ -1415,6 +1421,9 @@ class VideoAutopsyEngine:
             if len(matches) == 1:
                 p_dir = matches[0]
         project_id = p_dir.name
+        from pipeline.diorama_assembler import verify_script_audio_freshness
+
+        verify_script_audio_freshness(p_dir, context="autopsy")
         mp4_path = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
         wav_path = p_dir / "04_audio" / "audio_master.wav"
         ass_path = p_dir / "04_audio" / "subtitles.ass"
@@ -1461,7 +1470,7 @@ class VideoAutopsyEngine:
             edl_probe_obj,
             project_id=project_id,
         )
-        if is_diorama and autopsy_fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+        if is_diorama and autopsy_fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
             diorama_min_bound, diorama_max_bound = shorts_duration_range_for_profile(autopsy_fmt_prof)
         else:
             diorama_min_bound = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
@@ -1723,7 +1732,12 @@ class VideoAutopsyEngine:
         if is_diorama:
             dec_dur = float(video_metrics.get("decoded_duration_sec") or 0.0)
             dec_fc = int(video_metrics.get("decoded_frame_count") or 0)
-            ceil_fc = SHORTS_HARD_CEILING_FRAMES_V7 if is_v7_diorama else SHORTS_HARD_CEILING_FRAMES
+            is_v8_diorama = is_expressive_v8_plan(vp_obj, edl_probe_obj, script_probe_obj)
+            ceil_fc = (
+                SHORTS_HARD_CEILING_FRAMES
+                if is_v8_diorama
+                else (SHORTS_HARD_CEILING_FRAMES_V7 if is_v7_diorama else SHORTS_HARD_CEILING_FRAMES)
+            )
             min_diorama_dur = diorama_min_bound
             max_diorama_dur = diorama_max_bound
             if dec_dur > max_diorama_dur or dec_fc > ceil_fc or dec_dur < min_diorama_dur * 0.96:
@@ -1738,15 +1752,20 @@ class VideoAutopsyEngine:
                         f"and <= {ceil_fc} frames so YouTube classifies it as a Short (R58/R63)."
                     ),
                 })
+            is_v8_diorama = is_expressive_v8_plan(vp_obj, edl_probe_obj, script_probe_obj)
             if edl_path.exists():
                 try:
                     edl_obj = edl_probe_obj or json.loads(edl_path.read_text(encoding="utf-8"))
+                    is_v8_diorama = is_v8_diorama or is_expressive_v8_plan(vp_obj, edl_obj, script_probe_obj)
                     fmt_prof = autopsy_fmt_prof
-                    min_edl_cuts = (
-                        MICRO_SHORT_CUT_MIN
-                        if fmt_prof == MICRO_SHORT_PROFILE
-                        else (SHORTS_90S_CUT_COUNT_MIN if fmt_prof == SHORTS_90S_PROFILE else DIORAMA_TARGET_CUT_MIN)
-                    )
+                    if fmt_prof == MICRO_SHORT_PROFILE:
+                        min_edl_cuts = MICRO_SHORT_CUT_MIN
+                    elif fmt_prof == SHORTS_EXPRESSIVE_V8_PROFILE or is_v8_diorama:
+                        min_edl_cuts = EXPRESSIVE_V8_CLIP_COUNT_MIN
+                    elif fmt_prof == SHORTS_90S_PROFILE:
+                        min_edl_cuts = SHORTS_90S_CUT_COUNT_MIN
+                    else:
+                        min_edl_cuts = DIORAMA_TARGET_CUT_MIN
                     if int(edl_obj.get("cut_count") or 0) < min_edl_cuts:
                         score -= 15.0
                         prescriptions.append({
@@ -1756,7 +1775,34 @@ class VideoAutopsyEngine:
                             "measured": {"edl_cut_count": edl_obj.get("cut_count"), "min_required": min_edl_cuts},
                             "prescription": f"Ensure NLE EDL has >= {min_edl_cuts} cuts (R58/R66.4).",
                         })
-                    if is_porcelain_v7_plan(vp_obj, edl_obj) and fmt_prof != MICRO_SHORT_PROFILE:
+                    if is_v8_diorama:
+                        edl_cuts_v8 = [c for c in (edl_obj.get("cuts") or []) if isinstance(c, dict)]
+                        bad_dur_cuts_v8 = [
+                            {
+                                "cut_index": c.get("cut_index"),
+                                "duration_sec": round(float(c.get("duration_sec") or 0.0), 4),
+                            }
+                            for c in edl_cuts_v8
+                            if float(c.get("duration_sec") or 0.0) < EXPRESSIVE_V8_MIN_CUT_SEC - 1e-3
+                            or float(c.get("duration_sec") or 0.0) > EXPRESSIVE_V8_MAX_CUT_SEC + 1e-3
+                        ]
+                        if bad_dur_cuts_v8:
+                            score -= 20.0
+                            prescriptions.append({
+                                "defect_code": "DEFECT_EXPRESSIVE_V8_CUT_DURATION_BOUNDS",
+                                "severity": "HIGH",
+                                "component": "05_assembly/edit_decision_list.json",
+                                "measured": {
+                                    "out_of_bounds_cuts": bad_dur_cuts_v8[:10],
+                                    "min_cut_sec": EXPRESSIVE_V8_MIN_CUT_SEC,
+                                    "max_cut_sec": EXPRESSIVE_V8_MAX_CUT_SEC,
+                                },
+                                "prescription": (
+                                    f"Keep every expressive_25d_v8 cut strictly within "
+                                    f"[{EXPRESSIVE_V8_MIN_CUT_SEC:.2f}s, {EXPRESSIVE_V8_MAX_CUT_SEC:.2f}s] (R68)."
+                                ),
+                            })
+                    elif is_porcelain_v7_plan(vp_obj, edl_obj) and fmt_prof != MICRO_SHORT_PROFILE:
                         edl_cuts = [c for c in (edl_obj.get("cuts") or []) if isinstance(c, dict)]
                         bad_dur_cuts = [
                             {
@@ -1835,7 +1881,7 @@ class VideoAutopsyEngine:
                         })
                 except Exception:
                     pass
-            if int(subtitle_metrics.get("gold_highlighted_events") or 0) > 0:
+            if int(subtitle_metrics.get("gold_highlighted_events") or 0) > 0 and not is_v8_diorama:
                 score -= 15.0
                 prescriptions.append({
                     "defect_code": "DEFECT_DIORAMA_COLORED_SUBTITLES",
@@ -1925,7 +1971,11 @@ class VideoAutopsyEngine:
                 })
             int_lufs = audio_metrics.get("integrated_lufs")
             if is_diorama and int_lufs is not None:
-                tgt_lufs = DIORAMA_V7_TARGET_LUFS if is_v7_diorama else DIORAMA_TARGET_LUFS
+                tgt_lufs = (
+                    EXPRESSIVE_V8_TARGET_LUFS
+                    if is_expressive_v8_plan(vp_obj, edl_probe_obj, script_probe_obj)
+                    else (DIORAMA_V7_TARGET_LUFS if is_v7_diorama else DIORAMA_TARGET_LUFS)
+                )
                 if abs(float(int_lufs) - float(tgt_lufs)) > DIORAMA_LUFS_TOLERANCE_LU:
                     score -= 12.0
                     prescriptions.append({
@@ -2073,14 +2123,22 @@ class VideoAutopsyEngine:
         all_passed = len(project_dirs) > 0
 
         for p_dir in project_dirs:
-            rep = cls.inspect_project(
-                p_dir,
-                all_clip_hashes=all_clip_hashes,
-                all_clip_dhashes=all_clip_dhashes,
-                all_provenance_urls=all_provenance_urls,
-                all_provenance_tabs=all_provenance_tabs,
-                save_report=save_reports,
-            )
+            try:
+                rep = cls.inspect_project(
+                    p_dir,
+                    all_clip_hashes=all_clip_hashes,
+                    all_clip_dhashes=all_clip_dhashes,
+                    all_provenance_urls=all_provenance_urls,
+                    all_provenance_tabs=all_provenance_tabs,
+                    save_report=save_reports,
+                )
+            except RuntimeError as exc:
+                rep = {
+                    "project_id": p_dir.name,
+                    "passed": False,
+                    "autopsy_score": 0.0,
+                    "error": str(exc),
+                }
             results[p_dir.name] = rep
             scores.append(rep["autopsy_score"])
             if not rep["passed"]:

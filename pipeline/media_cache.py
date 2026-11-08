@@ -419,7 +419,7 @@ def cached_asr_word_timeline(mp4_path: Path) -> list[tuple[float, float, str]]:
     from pipeline.voice_fallback import _ffmpeg, _whisper_model
 
     local_mp4, sha256 = stage_local_file(Path(mp4_path))
-    hit = get_cached_json("mp4_asr_v1", sha256)
+    hit = get_cached_json("mp4_asr_v2", sha256)
     if isinstance(hit, list):
         return [(float(x[0]), float(x[1]), str(x[2])) for x in hit]
 
@@ -439,14 +439,19 @@ def cached_asr_word_timeline(mp4_path: Path) -> list[tuple[float, float, str]]:
             return []
         pcm16 = np.frombuffer(raw_f32.read_bytes(), dtype=np.float32).copy()
 
-    segs, _ = _whisper_model().transcribe(pcm16, word_timestamps=True, language="en")
+    segs, _ = _whisper_model().transcribe(
+        pcm16,
+        word_timestamps=True,
+        language="en",
+        condition_on_previous_text=False,
+    )
     words = [
         (float(w.start), float(w.end), re.sub(r"[^a-z0-9]", "", str(w.word).lower()))
         for s in segs
         for w in (s.words or [])
         if str(w.word).strip()
     ]
-    put_cached_json("mp4_asr_v1", sha256, [[t0, t1, tok] for t0, t1, tok in words])
+    put_cached_json("mp4_asr_v2", sha256, [[t0, t1, tok] for t0, t1, tok in words])
     return words
 
 

@@ -52,6 +52,14 @@ from pipeline.config import (
     DIORAMA_V7_WPM_MAX,
     DIORAMA_V7_WPM_MIN,
     DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
+    EXPRESSIVE_V8_CAMERA_MOVES,
+    EXPRESSIVE_V8_CLIP_COUNT_MIN,
+    EXPRESSIVE_V8_MAX_CUT_SEC,
+    EXPRESSIVE_V8_MIN_CUT_SEC,
+    EXPRESSIVE_V8_SUBTITLE_FONT_SIZE,
+    EXPRESSIVE_V8_SUBTITLE_MARGIN_V,
+    EXPRESSIVE_V8_VISUAL_GRAMMARS,
     PORCELAIN_V7_AVG_CUT_MAX_SEC,
     PORCELAIN_V7_AVG_CUT_MIN_SEC,
     PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX,
@@ -66,10 +74,13 @@ from pipeline.config import (
     PORCELAIN_V7_SATURATION_RANGE,
     PROJECTS_DIR,
     PROMPT_SCHEMA_VERSION_V7,
+    PROMPT_SCHEMA_VERSION_V8,
     REENACT_EDL_FILENAME,
     REENACT_MIN_DHASH_DISTANCE,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
     VIDEO_FPS,
     is_diorama_v7_plan,
+    is_expressive_v8_plan,
     is_porcelain_v7_plan,
     resolve_diorama_v7_style_profile,
 )
@@ -187,10 +198,17 @@ _PORCELAIN_V7_CAST_RE = re.compile(
     flags=re.IGNORECASE,
 )
 
+_EXPRESSIVE_V8_CAST_RE = re.compile(
+    r"\b(?:2\.5d\s+vinyl|matte-white\s+2\.5d|vinyl\s+(?:figure|figures|character|characters|cast|sleeper|protagonist|hands?|subject|subjects|guard|guards|doctor|researcher|traveler|guest)|"
+    r"2d\s+charcoal\s+ink|charcoal\s+2d\s+ink)\b",
+    flags=re.IGNORECASE,
+)
+
 _WARDROBE_OR_HAT_RE = re.compile(
     r"\b(?:hat|hats|cap|caps|helmet|helmets|bonnet|coat|coats|lab\s+coats?|blazers?|cardigans?|sweaters?|duster|vest|vests|"
     r"waistcoats?|jackets?|shirts?|sleeves|cuffs|trousers|slacks|pants|aprons?|gowns?|suits?|collars?|ties?|gloves|boots|"
-    r"robes?|uniforms?|scrubs|dress|dresses|tunics?|linen\s+head\s+wrap|head\s+wrap|poncho)\b",
+    r"robes?|uniforms?|scrubs|dress|dresses|tunics?|linen\s+head\s+wrap|head\s+wrap|poncho|pajamas?|hoodies?|sweatshirts?|"
+    r"nightshirts?|t-shirts?|tees?|slippers?|sneakers?|oxfords?|loafers?)\b",
     flags=re.IGNORECASE,
 )
 
@@ -205,7 +223,10 @@ _ACTIVE_MOTION_VERBS_RE = re.compile(
     r"tilt(?:s|ing)?|brace(?:s)?|bracing|pour(?:s|ing)?|drop(?:s|ping)?|roll(?:s|ing)?|arc(?:s|ing)?|"
     r"land(?:s|ing)?|snap(?:s|ping)?|crack(?:s|ing)?|gallop(?:s|ing)?|trot(?:s|ting)?|slide(?:s)?|sliding|"
     r"trace(?:s|d)?|tracing|draw(?:s|ing)?|sketch(?:es|ing)?|write(?:s)?|writing|point(?:s|ing)?|tap(?:s|ping)?|"
-    r"juggle(?:s)?|juggling|glide(?:s)?|gliding|cross(?:es|ing)?|place(?:s)?|placing|rest(?:s|ing)?|set(?:s|ting)?)\b",
+    r"juggle(?:s)?|juggling|glide(?:s)?|gliding|cross(?:es|ing)?|place(?:s)?|placing|rest(?:s|ing)?|set(?:s|ting)?|"
+    r"sit(?:s|ting)?|bolt(?:s|ing)?|rub(?:s|bing)?|blink(?:s|ing)?|gasp(?:s|ing)?|whisper(?:s|ing)?|stare(?:s|ing)?|"
+    r"glance(?:s|ing)?|toss(?:es|ing)?|slam(?:s|ming)?|click(?:s|ing)?|part(?:s|ing)?|pulse(?:s|ing)?|glow(?:s|ing)?|"
+    r"perch(?:es|ed|ing)?|peek(?:s|ing)?)\b",
     flags=re.IGNORECASE,
 )
 
@@ -237,20 +258,25 @@ def compile_episode_qa_contract(
     """
     Dynamically compiles a strict episode-specific QA contract (`episode_qa_contract.json`)
     tailored to the exact analogies, clothed cast actions, trauma/event hooks, and
-    anatomy mentions of this episode (supporting both Schema v6 and Schema v7).
+    anatomy mentions of this episode (supporting Schema v6, Schema v7, and Schema v8 `expressive_25d_v8`).
     """
     clean_sents = [str(s).strip() for s in sentences if str(s).strip()]
     by_sent = _clips_by_sentence(rendered_clips)
+    is_expressive_v8 = is_expressive_v8_plan(visual_plan, *(rendered_clips or []), script_doc) or any(
+        int(c.get("schema_version") or 6) >= PROMPT_SCHEMA_VERSION_V8 for c in rendered_clips
+    )
     is_v7 = (
-        is_diorama_v7_plan(visual_plan)
+        is_expressive_v8
+        or is_diorama_v7_plan(visual_plan)
         or (isinstance(script_doc, dict) and is_diorama_v7_plan(script_doc))
         or any(int(c.get("schema_version") or 6) >= PROMPT_SCHEMA_VERSION_V7 for c in rendered_clips)
     )
-    is_porcelain = bool(is_v7 and is_porcelain_v7_plan(visual_plan, *(rendered_clips or []), script_doc))
+    is_porcelain = bool(is_v7 and (is_expressive_v8 or is_porcelain_v7_plan(visual_plan, *(rendered_clips or []), script_doc)))
 
     analogy_locks: list[dict[str, Any]] = []
     anatomy_locks: list[dict[str, Any]] = []
     early_hook_sentences: list[int] = []
+    n_tot_clips = max(1, len(rendered_clips))
 
     for s_idx, sent in enumerate(clean_sents, start=1):
         bound = by_sent.get(s_idx, [])
@@ -273,20 +299,34 @@ def compile_episode_qa_contract(
 
         anat_terms = find_anatomy_terms(sent)
         if anat_terms:
-            anatomy_locks.append(
-                {
-                    "sentence_index": s_idx,
-                    "sentence_text": sent,
-                    "anatomy_terms": anat_terms,
-                    "bound_clip_numbers": bound_nums,
-                }
+            from pipeline.config import EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+
+            tol_lo_an, tol_hi_an = EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+            core_rev_an = (script_doc or {}).get("core_reveal_sentence_index") or (visual_plan or {}).get("core_reveal_sentence_index")
+            is_core_an = False
+            if core_rev_an is not None:
+                try:
+                    is_core_an = s_idx == int(core_rev_an)
+                except (TypeError, ValueError):
+                    is_core_an = False
+            in_v8_reveal_zone = (not is_expressive_v8) or is_core_an or any(
+                tol_lo_an <= ((n - 1) / float(n_tot_clips)) <= tol_hi_an for n in bound_nums
             )
+            if in_v8_reveal_zone:
+                anatomy_locks.append(
+                    {
+                        "sentence_index": s_idx,
+                        "sentence_text": sent,
+                        "anatomy_terms": anat_terms,
+                        "bound_clip_numbers": bound_nums,
+                    }
+                )
 
         if s_idx <= 12 and _TRAUMA_OR_EVENT_HOOK_RE.search(sent):
             early_hook_sentences.append(s_idx)
 
     cold_open_impact_locks: list[dict[str, Any]] = []
-    if is_v7:
+    if is_v7 and not is_expressive_v8:
         for s_idx in range(1, min(13, len(clean_sents) + 1)):
             if re.search(
                 r"\b(?:(?:shoots?|shot)(?:\s+straight)?\s+through|shot\s+beneath|pierce[ds]?|launches?\s+upward)\b",
@@ -308,14 +348,23 @@ def compile_episode_qa_contract(
     cast_clip_locks: list[dict[str, Any]] = []
     for idx, c in enumerate(rendered_clips, start=1):
         g_name = str(c.get("grammar") or "")
-        if g_name in ("frosted_crystal_specimen", "lowpoly_matte_brain", "porcelain_living_brain"):
+        if g_name in ("frosted_crystal_specimen", "lowpoly_matte_brain", "porcelain_living_brain", "expressive_xray_brain"):
             continue
         scene_txt = str(c.get("scene") or "")
         if is_v7:
             if (
-                g_name in ("lowpoly_hands_closeup", "lowpoly_pov_hands", "porcelain_hands_closeup", "porcelain_pov_hands")
+                g_name
+                in (
+                    "lowpoly_hands_closeup",
+                    "lowpoly_pov_hands",
+                    "porcelain_hands_closeup",
+                    "porcelain_pov_hands",
+                    "expressive_hands_macro",
+                    "expressive_reaction_closeup",
+                )
                 or _LOWPOLY_CAST_RE.search(scene_txt)
                 or _PORCELAIN_V7_CAST_RE.search(scene_txt)
+                or _EXPRESSIVE_V8_CAST_RE.search(scene_txt)
             ):
                 cast_clip_locks.append(
                     {
@@ -324,7 +373,11 @@ def compile_episode_qa_contract(
                         "act": c.get("act"),
                         "requires_wardrobe_or_hat": True,
                         "min_action_verbs": 2,
-                        "cv_signature": "bright_porcelain_world" if is_porcelain else "bright_lowpoly_world",
+                        "cv_signature": (
+                            "expressive_25d_world"
+                            if is_expressive_v8
+                            else ("bright_porcelain_world" if is_porcelain else "bright_lowpoly_world")
+                        ),
                     }
                 )
         elif _CERAMIC_CAST_RE.search(scene_txt):
@@ -339,8 +392,24 @@ def compile_episode_qa_contract(
                 }
             )
 
-    tempo_targets = (
-        {
+    if is_expressive_v8:
+        from pipeline.config import EXPRESSIVE_V8_WPM_ALLOWED_RANGE
+
+        tempo_targets = {
+            "wpm_min": float(EXPRESSIVE_V8_WPM_ALLOWED_RANGE[0]),
+            "wpm_max": max(238.0, float(EXPRESSIVE_V8_WPM_ALLOWED_RANGE[1])),
+            "min_cut_sec": EXPRESSIVE_V8_MIN_CUT_SEC,
+            "avg_cut_min_sec": 1.40,
+            "avg_cut_max_sec": 5.80,
+            "fast_cut_threshold_sec": 2.50,
+            "fast_cut_ratio_min": 0.0,
+            "cut_duration_cv_min": 0.12,
+            "max_single_sentence_cut_sec": EXPRESSIVE_V8_MAX_CUT_SEC,
+            "max_single_speech_cut_sec": EXPRESSIVE_V8_MAX_CUT_SEC,
+            "max_clip_reuse": DIORAMA_MAX_CLIP_REUSE,
+        }
+    elif is_v7:
+        tempo_targets = {
             "wpm_min": DIORAMA_V7_WPM_MIN,
             "wpm_max": DIORAMA_V7_WPM_MAX,
             "min_cut_sec": (PORCELAIN_V7_MIN_CUT_SEC if is_porcelain else DIORAMA_V7_RAPID_CUT_MIN_SEC),
@@ -353,8 +422,8 @@ def compile_episode_qa_contract(
             "max_single_speech_cut_sec": (PORCELAIN_V7_LONG_TAKE_MAX_SEC if is_porcelain else DIORAMA_V7_LONG_TAKE_MAX_SEC),
             "max_clip_reuse": DIORAMA_MAX_CLIP_REUSE,
         }
-        if is_v7
-        else {
+    else:
+        tempo_targets = {
             "wpm_min": 162.0,
             "wpm_max": 208.0,
             "avg_cut_max_sec": 2.90,
@@ -363,15 +432,23 @@ def compile_episode_qa_contract(
             "max_single_speech_cut_sec": 4.55,
             "max_clip_reuse": DIORAMA_MAX_CLIP_REUSE,
         }
-    )
 
     return {
-        "schema": "episode_qa_contract_v2" if is_v7 else "episode_qa_contract_v1",
+        "schema": (
+            "episode_qa_contract_v3"
+            if is_expressive_v8
+            else ("episode_qa_contract_v2" if is_v7 else "episode_qa_contract_v1")
+        ),
         "is_v7": is_v7,
+        "is_expressive_v8": is_expressive_v8,
         "style_profile": (
-            resolve_diorama_v7_style_profile(visual_plan, *(rendered_clips or []), script_doc)
-            if is_v7
-            else "dark_ceramic_v6"
+            EXPRESSIVE_25D_V8_STYLE_PROFILE
+            if is_expressive_v8
+            else (
+                resolve_diorama_v7_style_profile(visual_plan, *(rendered_clips or []), script_doc)
+                if is_v7
+                else "dark_ceramic_v6"
+            )
         ),
         "dossier": str((visual_plan or {}).get("dossier") or (script_doc or {}).get("dossier") or ""),
         "project_id": str((script_doc or {}).get("project_id") or ""),
@@ -434,11 +511,11 @@ def verify_pre_flow_contract(
     script_doc: dict[str, Any] | None = None,
 ) -> list[str]:
     """
-    Zero-tolerance Pre-Flow Gate (R62/R63 Gate 1):
+    Zero-tolerance Pre-Flow Gate (R62/R63/v8 Gate 1):
       - Rejects abstract wooden token boards whenever a literal analogy (football field, bowling ball, etc.) is spoken.
       - Enforces period hats/wardrobe and >=2 active motion/impact verbs on every cast/hands clip.
       - Requires direct cast/hands reenactment in Acts 1-2 when physical trauma/events are narrated.
-      - Verifies brain visualization alignment on anatomy-naming sentences.
+      - Verifies brain visualization alignment on anatomy-naming sentences + v8 [0-70%] brain ban / [70-85%] X-ray reveal / 1x Mini-Cortex cameo.
     """
     issues: list[str] = []
     if not rendered_clips or not sentences:
@@ -446,6 +523,7 @@ def verify_pre_flow_contract(
 
     contract = compile_episode_qa_contract(visual_plan, sentences, rendered_clips, script_doc=script_doc)
     is_v7 = bool(contract.get("is_v7"))
+    is_expressive_v8 = bool(contract.get("is_expressive_v8"))
     clips_by_num = {int(c.get("clip_number") or (i + 1)): c for i, c in enumerate(rendered_clips)}
 
     # 1. Literal 1:1 Analogy Locks (R57-V)
@@ -489,9 +567,18 @@ def verify_pre_flow_contract(
                 for c_no, c in clips_by_num.items()
                 if int(c.get("act") or 99) in (1, 2)
                 and (
-                    str(c.get("grammar") or "") in ("lowpoly_hands_closeup", "lowpoly_pov_hands", "porcelain_hands_closeup", "porcelain_pov_hands")
+                    str(c.get("grammar") or "")
+                    in (
+                        "lowpoly_hands_closeup",
+                        "lowpoly_pov_hands",
+                        "porcelain_hands_closeup",
+                        "porcelain_pov_hands",
+                        "expressive_hands_macro",
+                        "expressive_reaction_closeup",
+                    )
                     or bool(_LOWPOLY_CAST_RE.search(str(c.get("scene") or "")))
                     or bool(_PORCELAIN_V7_CAST_RE.search(str(c.get("scene") or "")))
+                    or bool(_EXPRESSIVE_V8_CAST_RE.search(str(c.get("scene") or "")))
                 )
             ]
         else:
@@ -507,7 +594,13 @@ def verify_pre_flow_contract(
             )
 
     # 4. Anatomy Mention <-> Brain Visualization Alignment
-    brain_grammars = {"arch_brain_maquette", "frosted_crystal_specimen", "lowpoly_matte_brain", "porcelain_living_brain"}
+    brain_grammars = {
+        "arch_brain_maquette",
+        "frosted_crystal_specimen",
+        "lowpoly_matte_brain",
+        "porcelain_living_brain",
+        "expressive_xray_brain",
+    }
     for a_lock in contract["anatomy_locks"]:
         b_nums = a_lock["bound_clip_numbers"]
         ok_brain = False
@@ -516,7 +609,7 @@ def verify_pre_flow_contract(
             g = str(c.get("grammar") or "")
             sc = str(c.get("scene") or "").lower()
             if g in brain_grammars or any(
-                k in sc for k in ("brain", "cortex", "subcortical", "limbic", "amygdala", "hippocamp", "fiber", "tract", "cable")
+                k in sc for k in ("brain", "cortex", "subcortical", "limbic", "amygdala", "hippocamp", "fiber", "tract", "cable", "hemisphere")
             ):
                 ok_brain = True
                 break
@@ -524,6 +617,61 @@ def verify_pre_flow_contract(
             issues.append(
                 f"[dynamic_qa:anatomy_sync] sentence {a_lock['sentence_index']} names {a_lock['anatomy_terms']} "
                 f"but bound clip(s) {b_nums} do not depict 3D brain/neural anatomy (R62/R63)"
+            )
+
+    # 5. Expressive 2.5D v8 Brain Window (early core <= S4 + [45-85%] mechanism X-ray brain reveal), 1x Cameo & Diegetic Text Allowlist
+    if is_expressive_v8:
+        from pipeline.config import EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+
+        n_tot = max(1, len(rendered_clips))
+        core_rev_s = (script_doc or {}).get("core_reveal_sentence_index") or (visual_plan or {}).get("core_reveal_sentence_index")
+        allow_early_override = bool((visual_plan or {}).get("allow_early_brain_override") or core_rev_s)
+        tol_lo, tol_hi = EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+        early_brains: list[int] = []
+        window_brains: list[int] = []
+        cameo_clips: list[int] = []
+        core_brain_found = False
+        for idx0, c in enumerate(rendered_clips):
+            c_no = int(c.get("clip_number") or (idx0 + 1))
+            g = str(c.get("grammar") or "")
+            frac = idx0 / float(n_tot)
+            frac_end = (idx0 + 1) / float(n_tot)
+            if g in brain_grammars:
+                if frac < tol_lo and not allow_early_override:
+                    early_brains.append(c_no)
+                if (tol_lo <= frac <= tol_hi) or (tol_lo <= frac_end <= tol_hi):
+                    window_brains.append(c_no)
+                if core_rev_s is not None:
+                    try:
+                        cr_i = int(core_rev_s)
+                        s0_c = int(c.get("sentence_index") or 0)
+                        s1_c = max(s0_c, int(c.get("end_sentence_index") or s0_c))
+                        if s0_c <= cr_i <= s1_c:
+                            core_brain_found = True
+                    except (TypeError, ValueError):
+                        pass
+            if bool(c.get("cameo_easter_egg")):
+                cameo_clips.append(c_no)
+            d_allow = c.get("diegetic_text_allowlist") or []
+            if len(d_allow) > 2 or any(len(str(tok).split()) > 2 for tok in d_allow):
+                issues.append(
+                    f"[dynamic_qa:diegetic_text] clip {c_no} exceeds <=2 diegetic keywords or <=2 words/token: {d_allow}"
+                )
+        if early_brains:
+            issues.append(
+                f"[dynamic_qa:v8_brain_ban] expressive_25d_v8 bans unapproved early brain CG before {int(tol_lo * 100)}%; early brain clips={early_brains}"
+            )
+        if core_rev_s is not None and not core_brain_found:
+            issues.append(
+                f"[dynamic_qa:v8_brain_core] core_reveal_sentence_index={core_rev_s} must bind to an expressive_xray_brain clip"
+            )
+        if not window_brains:
+            issues.append(
+                f"[dynamic_qa:v8_brain_reveal] expressive_25d_v8 requires >=1 expressive_xray_brain clip in the [{int(tol_lo * 100)}-{int(tol_hi * 100)}%] mechanism window"
+            )
+        if len(cameo_clips) != 1:
+            issues.append(
+                f"[dynamic_qa:v8_cameo] expressive_25d_v8 requires cameo_easter_egg==True on exactly 1 clip; found {len(cameo_clips)} ({cameo_clips})"
             )
 
     return issues
@@ -594,6 +742,7 @@ def measure_upward_impact_flow_pct(
     if s1 - s0 < 0.25:
         if cap is not None:
             cap.release()
+            cap = None
         return 0.0
     f0 = max(0, int(round(s0 * fps)))
     f1 = min(max(0, fc - 1), int(round(s1 * fps)))
@@ -685,10 +834,12 @@ def _non_subtitle_scene_rois(
     frame_bgr: np.ndarray,
     has_top_overlay: bool = False,
     is_outro: bool = False,
+    is_expressive_v8: bool = False,
 ) -> list[np.ndarray]:
     """
     Returns clean upper + lower scene bands covering the full viewport outside programmatic ASS text:
       - Outro sky card (`OutroTitle` at `Y ≈ 33%..47%`): `[3%..30%]` + `[49%..97%]`.
+      - Expressive 2.5D v8 (`Default` 102pt `MarginV=521` at `Y ≈ 60%..74%`, zero top headlines): `[3%..57%]` + `[76%..97%]`.
       - Top overlay active (`ChapterHeadline` or `SplitLeft/Right` at `Y ≈ 9%..22%`): `[23%..58%]` + `[69%..97%]`.
       - Standard speech cut (`Default` subtitle at `Y ≈ 59%..68%`): `[3%..58%]` + `[69%..97%]`.
     """
@@ -696,6 +847,8 @@ def _non_subtitle_scene_rois(
     x0, x1 = int(w * 0.03), int(w * 0.97)
     if is_outro:
         bands = ((0.03, 0.30), (0.49, 0.97))
+    elif is_expressive_v8:
+        bands = ((0.03, 0.57), (0.76, 0.97))
     elif has_top_overlay:
         bands = ((0.23, 0.58), (0.69, 0.97))
     else:
@@ -725,6 +878,7 @@ def verify_clip_multimodal_contract(
         return {"passed": True, "checks": []}
 
     is_v7 = bool(contract.get("is_v7"))
+    is_expressive_v8 = bool(contract.get("is_expressive_v8"))
     checks_run: list[str] = []
     # Check analogy visual signatures bound to this clip_number
     for a_lock in contract.get("analogy_locks", []):
@@ -750,11 +904,12 @@ def verify_clip_multimodal_contract(
     # Check cast highlight / bright world presence
     for c_lock in contract.get("cast_clip_locks", []):
         if int(c_lock.get("clip_number") or 0) == int(clip_number):
-            if is_v7 or c_lock.get("cv_signature") in ("bright_lowpoly_world", "bright_porcelain_world"):
+            if is_v7 or c_lock.get("cv_signature") in ("bright_lowpoly_world", "bright_porcelain_world", "expressive_25d_world"):
                 mean_y = float(np.mean([float(np.mean(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY))) for f in frames]))
+                min_cast_y = 26.0 if (is_expressive_v8 or c_lock.get("cv_signature") == "expressive_25d_world") else 78.0
                 checks_run.append(f"bright_v7_y={mean_y:.1f}")
-                if mean_y < 78.0:
-                    r_msg = f"dark_void_in_v7_cast_clip:mean_y={mean_y:.1f}<78.0"
+                if mean_y < min_cast_y:
+                    r_msg = f"dark_void_in_v7_cast_clip:mean_y={mean_y:.1f}<{min_cast_y:.1f}"
                     return {"passed": False, "reason": r_msg, "issues": [r_msg]}
             else:
                 max_cer = max(compute_ceramic_highlight_ratio(f, exclude_bottom_subtitles=False) for f in frames)
@@ -853,12 +1008,25 @@ def verify_final_mp4_against_contract(
     if not final_mp4.exists():
         raise FileNotFoundError(f"Final MP4 missing for dynamic QA: {final_mp4}")
 
+    from pipeline.diorama_assembler import verify_script_audio_freshness
+
+    verify_script_audio_freshness(p_dir, context="episode-qa")
+
     script_doc = json.loads(script_path.read_text(encoding="utf-8"))
     vp = json.loads(vp_path.read_text(encoding="utf-8"))
     edl = json.loads(edl_path.read_text(encoding="utf-8"))
     vr = json.loads(vr_path.read_text(encoding="utf-8"))
-    is_v7 = is_diorama_v7_plan(vp) or is_diorama_v7_plan(script_doc) or int(edl.get("schema") or 6) >= PROMPT_SCHEMA_VERSION_V7
-    is_porcelain = bool(is_v7 and is_porcelain_v7_plan(vp, edl, script_doc))
+    is_expressive_v8 = (
+        is_expressive_v8_plan(vp, edl, script_doc)
+        or int(edl.get("schema") or 6) >= PROMPT_SCHEMA_VERSION_V8
+    )
+    is_v7 = (
+        is_expressive_v8
+        or is_diorama_v7_plan(vp)
+        or is_diorama_v7_plan(script_doc)
+        or int(edl.get("schema") or 6) >= PROMPT_SCHEMA_VERSION_V7
+    )
+    is_porcelain = bool(is_v7 and (is_expressive_v8 or is_porcelain_v7_plan(vp, edl, script_doc)))
     sentences = [str(s).strip() for s in (script_doc.get("sentences") or []) if str(s).strip()]
     if not sentences and isinstance(script_doc.get("acts"), list):
         sentences = [
@@ -966,6 +1134,11 @@ def verify_final_mp4_against_contract(
             ):
                 needed_fidxs.add(_sec_to_fidx(t0_p + 0.25 * (t1_p - t0_p)))
                 needed_fidxs.add(_sec_to_fidx(t0_p + 0.75 * (t1_p - t0_p)))
+        if is_expressive_v8 and not is_synth_test and len(cuts) >= 2:
+            for c_bnd in cuts[:-1]:
+                tb_p = float(c_bnd["out_end_sec"])
+                for dt_p in (-0.36, -0.16, -0.06, 0.24):
+                    needed_fidxs.add(_sec_to_fidx(max(0.0, tb_p + dt_p)))
 
         _d_fps, _d_fc, frame_cache = decode_needed_frames(local_mp4, mp4_sha, needed_fidxs)
         if _d_fc > 0:
@@ -1022,6 +1195,7 @@ def verify_final_mp4_against_contract(
 
         # DQ2: Clothed Cast & Iconic Cold-Open Impact Cuts Verification
         dq2_failures: list[str] = [x for x in pre_issues if "cast_" in x or "early_impact" in x]
+        min_dq2_y = 26.0 if is_expressive_v8 else 75.0
         for c_lock in contract["cast_clip_locks"]:
             c_num = int(c_lock["clip_number"])
             matching_cuts = [c for c in cuts if int(c.get("clip_index") or 0) == c_num]
@@ -1031,8 +1205,8 @@ def verify_final_mp4_against_contract(
                 if frm is not None:
                     if is_v7:
                         y_m = float(np.mean(cv2.cvtColor(frm[: int(frm.shape[0] * 0.60), :], cv2.COLOR_BGR2GRAY)))
-                        if y_m < 75.0:
-                            dq2_failures.append(f"clip {c_num} @ {mt:.2f}s dark-void leak (mean_y={y_m:.1f} < 75.0)")
+                        if y_m < min_dq2_y:
+                            dq2_failures.append(f"clip {c_num} @ {mt:.2f}s dark-void leak (mean_y={y_m:.1f} < {min_dq2_y:.1f})")
                     elif compute_ceramic_highlight_ratio(frm, exclude_bottom_subtitles=True) < 0.003:
                         dq2_failures.append(f"clip {c_num} @ {mt:.2f}s lacks ceramic figure highlight contrast")
 
@@ -1055,13 +1229,72 @@ def verify_final_mp4_against_contract(
                             f"(upward_fast_pct={up_pct:.2f}% < {min_up:.2f}%)"
                         )
 
-        # DQ3: Anatomy Mention <-> 3D Brain Cut Sync
-        brain_grammars = {"arch_brain_maquette", "frosted_crystal_specimen", "lowpoly_matte_brain", "porcelain_living_brain"}
-        dq3_failures: list[str] = [x for x in pre_issues if "anatomy_sync" in x]
+        # DQ3: Anatomy Mention <-> 3D Brain Cut Sync (+ v8 [0-70%] brain ban / [70-85%] X-ray reveal)
+        brain_grammars = {
+            "arch_brain_maquette",
+            "frosted_crystal_specimen",
+            "lowpoly_matte_brain",
+            "porcelain_living_brain",
+            "expressive_xray_brain",
+        }
+        dq3_failures: list[str] = [x for x in pre_issues if "anatomy_sync" in x or "v8_brain_" in x]
         for an_lock in contract["anatomy_locks"]:
             s_cuts = cuts_by_sent.get(int(an_lock["sentence_index"]), [])
             if not any(str(c.get("grammar")) in brain_grammars for c in s_cuts):
                 dq3_failures.append(f"sentence {an_lock['sentence_index']} ({an_lock['anatomy_terms']}) not mapped to brain cut in EDL")
+        if is_expressive_v8 and cuts:
+            from pipeline.config import (
+                EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC,
+                EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC,
+            )
+
+            ep_tot_dur = max(1.0, float(edl.get("total_duration_sec") or cuts[-1].get("out_end_sec") or 60.0))
+            core_rev_s = (script_doc or {}).get("core_reveal_sentence_index") or (vp or {}).get("core_reveal_sentence_index")
+            allow_early_b = bool((vp or {}).get("allow_early_brain_override") or core_rev_s)
+            tol_lo_b, tol_hi_b = EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+            all_b_cuts = [c for c in cuts if str(c.get("grammar") or "") in brain_grammars]
+            early_b_cuts = [
+                int(c["cut_index"])
+                for c in all_b_cuts
+                if float(c.get("out_start_sec") or 0.0) < tol_lo_b * ep_tot_dur
+                and not allow_early_b
+            ]
+            reveal_b_cuts = [
+                int(c["cut_index"])
+                for c in all_b_cuts
+                if float(c.get("out_end_sec") or 0.0) >= tol_lo_b * ep_tot_dur
+                and float(c.get("out_start_sec") or 0.0) <= tol_hi_b * ep_tot_dur
+            ]
+            if early_b_cuts:
+                dq3_failures.append(
+                    f"early brain CG cuts before {int(tol_lo_b * 100)}% duration in expressive_25d_v8: {early_b_cuts}"
+                )
+            if core_rev_s is not None:
+                try:
+                    cr_i = int(core_rev_s)
+                    cr_cuts = [
+                        c
+                        for c in all_b_cuts
+                        if int(c.get("sentence_index") or 0)
+                        <= cr_i
+                        <= max(int(c.get("sentence_index") or 0), int(c.get("end_sentence_index") or c.get("sentence_index") or 0))
+                    ]
+                    if not cr_cuts:
+                        dq3_failures.append(
+                            f"core_reveal_sentence_index={cr_i} does not overlap any expressive_xray_brain cut in EDL"
+                        )
+                    elif not is_synth_test:
+                        first_b_start = min(float(c.get("out_start_sec") or 0.0) for c in all_b_cuts)
+                        if first_b_start > float(EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC):
+                            dq3_failures.append(
+                                f"first brain cut starts at {first_b_start:.2f}s > EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC ({EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC:.1f}s)"
+                            )
+                except (TypeError, ValueError):
+                    pass
+            if not reveal_b_cuts:
+                dq3_failures.append(
+                    f"missing expressive_xray_brain cut in [{int(tol_lo_b * 100)}-{int(tol_hi_b * 100)}%] mechanism window of EDL"
+                )
 
         # DQ4: Brisk Storyteller Tempo (WPM)
         total_words = sum(len(s.split()) for s in sentences)
@@ -1092,33 +1325,47 @@ def verify_final_mp4_against_contract(
         pan_left_cuts = 0
         pan_right_cuts = 0
         if is_v7:
-            all_cuts_have_camera = bool(cuts) and all(
-                str(c.get("camera_move") or "") in DIORAMA_V7_CAMERA_MOVES for c in cuts
+            allowed_cams_dq5 = (
+                set(DIORAMA_V7_CAMERA_MOVES) | set(EXPRESSIVE_V8_CAMERA_MOVES)
+                if is_expressive_v8
+                else set(DIORAMA_V7_CAMERA_MOVES)
             )
-            cam_counts_edl: dict[str, int] = {m: 0 for m in DIORAMA_V7_CAMERA_MOVES}
+            all_cuts_have_camera = bool(cuts) and all(
+                str(c.get("camera_move") or "") in allowed_cams_dq5 for c in cuts
+            )
+            cam_counts_edl: dict[str, int] = {m: 0 for m in allowed_cams_dq5}
             for c in cuts:
                 cm = str(c.get("camera_move") or "")
                 if cm in cam_counts_edl:
                     cam_counts_edl[cm] += 1
             n_edl_tot = max(1, len(cuts))
-            locked_cam_ratio = round(cam_counts_edl["locked_tripod"] / float(n_edl_tot), 4)
+            locked_cam_ratio = round(cam_counts_edl.get("locked_tripod", 0) / float(n_edl_tot), 4)
             zoom_cam_ratio = round(
-                (cam_counts_edl["gentle_push_in"] + cam_counts_edl["clean_pullback_reveal"]) / float(n_edl_tot),
+                (
+                    cam_counts_edl.get("gentle_push_in", 0)
+                    + cam_counts_edl.get("clean_pullback_reveal", 0)
+                    + cam_counts_edl.get("portal_zoom_in", 0)
+                    + cam_counts_edl.get("snap_zoom_in", 0)
+                )
+                / float(n_edl_tot),
                 4,
             )
-            pan_left_cuts = cam_counts_edl["pan_left"]
-            pan_right_cuts = cam_counts_edl["pan_right"]
-            camera_ratios_ok = (
-                all_cuts_have_camera
-                and locked_cam_ratio >= DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO
-                and zoom_cam_ratio <= DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO
-                and pan_left_cuts >= 1
-                and pan_right_cuts >= 1
-            )
+            pan_left_cuts = cam_counts_edl.get("pan_left", 0)
+            pan_right_cuts = cam_counts_edl.get("pan_right", 0)
+            if is_expressive_v8:
+                camera_ratios_ok = all_cuts_have_camera and len({str(c.get("camera_move") or "") for c in cuts}) >= 2
+            else:
+                camera_ratios_ok = (
+                    all_cuts_have_camera
+                    and locked_cam_ratio >= DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO
+                    and zoom_cam_ratio <= DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO
+                    and pan_left_cuts >= 1
+                    and pan_right_cuts >= 1
+                )
 
             hstack_cuts = [c for c in cuts if c.get("mode") == "split_hstack"]
             if not hstack_cuts:
-                hstack_divider_ok = False
+                hstack_divider_ok = True if is_expressive_v8 else False
             else:
                 hc = hstack_cuts[0]
                 ht = 0.5 * (float(hc["out_start_sec"]) + float(hc["out_end_sec"]))
@@ -1155,14 +1402,22 @@ def verify_final_mp4_against_contract(
                 {"sentences": sentences},
                 project_id=p_dir.name,
             )
-            dq5_min_cuts = (
-                MICRO_SHORT_CUT_MIN
-                if dq5_fmt == MICRO_SHORT_PROFILE
-                else (SHORTS_90S_CUT_COUNT_MIN if dq5_fmt == SHORTS_90S_PROFILE else DIORAMA_TARGET_CUT_MIN)
+            if dq5_fmt == SHORTS_EXPRESSIVE_V8_PROFILE or is_expressive_v8:
+                dq5_min_cuts = EXPRESSIVE_V8_CLIP_COUNT_MIN
+            elif dq5_fmt == MICRO_SHORT_PROFILE:
+                dq5_min_cuts = MICRO_SHORT_CUT_MIN
+            elif dq5_fmt == SHORTS_90S_PROFILE:
+                dq5_min_cuts = SHORTS_90S_CUT_COUNT_MIN
+            else:
+                dq5_min_cuts = DIORAMA_TARGET_CUT_MIN
+            from pipeline.config import EXPRESSIVE_V8_VIDEO_FPS
+
+            expected_dq5_fps = (
+                float(edl.get("fps") or EXPRESSIVE_V8_VIDEO_FPS) if is_expressive_v8 else float(DIORAMA_V7_VIDEO_FPS)
             )
             dq5_ok = (
                 len(cuts) >= dq5_min_cuts
-                and abs(fps - float(DIORAMA_V7_VIDEO_FPS)) <= 0.25
+                and abs(fps - expected_dq5_fps) <= 0.25
                 and cut_cv >= float(t_targets["cut_duration_cv_min"])
                 and min_cut >= min_cut_floor - (0.35 if is_synth_test else 0.002)
                 and avg_cut >= avg_cut_min - (0.45 if is_synth_test else 0.0)
@@ -1246,15 +1501,50 @@ def verify_final_mp4_against_contract(
         cut_dark_v35: list[float] = []
         cut_sats: list[float] = []
         _detect_yunet_non_porcelain = None
-        if is_porcelain and not is_synth_test:
+        if (is_porcelain or is_expressive_v8) and not is_synth_test:
             from pipeline.source_reenactment import detect_non_porcelain_human_faces_yunet as _detect_yunet_non_porcelain
+        prev_trans_by_cut: dict[int, str] = {}
+        for _ci_idx, _cut_entry in enumerate(cuts):
+            if _ci_idx > 0:
+                prev_trans_by_cut[int(_cut_entry.get("cut_index") or (_ci_idx + 1))] = str(
+                    cuts[_ci_idx - 1].get("transition_to_next") or cuts[_ci_idx - 1].get("transition_out") or ""
+                )
+        _v8_pad_transitions = {
+            "dissolve_6f",
+            "dissolve_8f",
+            "portal_crash_zoom_10f",
+            "whip_pan_blur_8f",
+            "occlusion_wipe",
+            "split_screen_wipe",
+            "match_cut_bridge",
+            "daisy_chain_bridge",
+        }
         inspected_cuts = cuts if is_v7 else [c for c in cuts[::3] if not c.get("outro_sky_card")]
         for c in inspected_cuts:
             is_outro = bool(c.get("outro_sky_card"))
             c_start = float(c["out_start_sec"])
             c_end = float(c["out_end_sec"])
-            t0 = c_start + 0.08
-            t1 = max(t0 + 0.20, c_end - 0.08)
+            c_idx_num = int(c.get("cut_index") or 0)
+            in_pad = (
+                0.38
+                if (
+                    is_expressive_v8
+                    and (c_end - c_start) >= 1.25
+                    and str(prev_trans_by_cut.get(c_idx_num) or "").strip().lower() in _v8_pad_transitions
+                )
+                else 0.08
+            )
+            out_pad = (
+                0.38
+                if (
+                    is_expressive_v8
+                    and (c_end - c_start) >= 1.25
+                    and str(c.get("transition_to_next") or c.get("transition_out") or "").strip().lower() in _v8_pad_transitions
+                )
+                else 0.08
+            )
+            t0 = c_start + in_pad
+            t1 = max(t0 + 0.20, c_end - out_pad)
             t_mid = 0.5 * (t0 + t1)
             f_a = _get_frame(t0)
             f_mid = _get_frame(t_mid)
@@ -1267,8 +1557,18 @@ def verify_final_mp4_against_contract(
                 )
 
                 def _band_diff(fa_in: np.ndarray, fb_in: np.ndarray) -> float:
-                    ra_l = _non_subtitle_scene_rois(fa_in, has_top_overlay=has_top_ov, is_outro=is_outro)
-                    rb_l = _non_subtitle_scene_rois(fb_in, has_top_overlay=has_top_ov, is_outro=is_outro)
+                    ra_l = _non_subtitle_scene_rois(
+                        fa_in,
+                        has_top_overlay=has_top_ov,
+                        is_outro=is_outro,
+                        is_expressive_v8=is_expressive_v8,
+                    )
+                    rb_l = _non_subtitle_scene_rois(
+                        fb_in,
+                        has_top_overlay=has_top_ov,
+                        is_outro=is_outro,
+                        is_expressive_v8=is_expressive_v8,
+                    )
                     if ra_l and len(ra_l) == len(rb_l):
                         return float(
                             np.mean(
@@ -1293,7 +1593,7 @@ def verify_final_mp4_against_contract(
                 rc_meta = rendered_by_num.get(int(c.get("clip_index") or 0), {})
                 vp_meta = vp_by_num.get(int(c.get("clip_index") or 0), {})
                 raw_g_str = str(c.get("grammar") or rc_meta.get("grammar") or vp_meta.get("grammar") or "")
-                g_str = normalize_porcelain_v7_grammar(raw_g_str) if is_porcelain else raw_g_str
+                g_str = normalize_porcelain_v7_grammar(raw_g_str) if (is_porcelain and not is_expressive_v8) else raw_g_str
                 ordered_pts: list[np.ndarray | None] = [f_a, f_mid, f_b]
                 intra_frozen = False
                 if (
@@ -1309,8 +1609,9 @@ def verify_final_mp4_against_contract(
                         if (c_end - c_start) >= 2.20 and not is_outro:
                             q_pts = [f_a, f_q1, f_mid, f_q3, f_b]
                             q_diffs = [_band_diff(q_pts[i], q_pts[i + 1]) for i in range(4)]
+                            med_cap = 1.10 if is_expressive_v8 else 1.45
                             if sum(1 for qd in q_diffs if qd < 0.28) >= 2 or (
-                                max(q_diffs) < 2.0 and float(np.median(q_diffs)) < 1.45
+                                max(q_diffs) < 2.0 and float(np.median(q_diffs)) < med_cap
                             ):
                                 intra_frozen = True
                 if diff < 0.30 or intra_frozen:
@@ -1321,10 +1622,26 @@ def verify_final_mp4_against_contract(
                     all_rois_cut = [
                         r
                         for sf in (f_a, f_mid if f_mid is not None else f_a, f_b)
-                        for r in _non_subtitle_scene_rois(sf, has_top_overlay=has_top_ov, is_outro=is_outro)
+                        for r in _non_subtitle_scene_rois(
+                            sf,
+                            has_top_overlay=has_top_ov,
+                            is_outro=is_outro,
+                            is_expressive_v8=is_expressive_v8,
+                        )
                     ]
                     max_plaque_cut = max((_max_horizontal_plaque_glyph_run(r) for r in all_rois_cut), default=0)
-                    if max_plaque_cut >= (5 if is_v7 else 8):
+                    cut_allowlist = (
+                        c.get("diegetic_text_allowlist")
+                        or rc_meta.get("diegetic_text_allowlist")
+                        or vp_meta.get("diegetic_text_allowlist")
+                        or []
+                    )
+                    plaque_cap = (
+                        14
+                        if (is_expressive_v8 and isinstance(cut_allowlist, list) and len(cut_allowlist) > 0)
+                        else (5 if is_v7 else 8)
+                    )
+                    if max_plaque_cut >= plaque_cap:
                         plaque_leaks.append(int(c["cut_index"]))
 
                 if is_v7:
@@ -1341,7 +1658,36 @@ def verify_final_mp4_against_contract(
                             sample_frames_cut, g_str
                         ):
                             cut_leak = True
-                        if is_porcelain and g_str == "porcelain_living_brain":
+                        if is_expressive_v8 and g_str == "expressive_xray_brain":
+                            if any(compute_neon_green_spill_ratio(sf) > 0.08 for sf in sample_frames_cut):
+                                cut_leak = True
+                        elif is_expressive_v8 and not is_outro and g_str != "expressive_xray_brain":
+                            flesh_cap_dq8 = PORCELAIN_V7_HUMAN_SKIN_MAX + 0.14
+                            from pipeline.source_reenactment import extract_dq8_scene_roi
+
+                            for sf in sample_frames_cut:
+                                sh_f, sw_f = sf.shape[:2]
+                                full_roi_sf = sf[int(sh_f * 0.10) : int(sh_f * 0.92), int(sw_f * 0.04) : int(sw_f * 0.96)]
+                                if compute_porcelain_flesh_leak_ratio(full_roi_sf) > flesh_cap_dq8:
+                                    cut_leak = True
+                                    break
+                                yunet_roi_sf = extract_dq8_scene_roi(sf, is_expressive_v8=True)
+                                if _detect_yunet_non_porcelain is not None:
+                                    from pipeline.flow_diorama_sharded_worker import verify_v8_yunet_skin_or_hair_leak
+
+                                    raw_yu_boxes = _detect_yunet_non_porcelain(yunet_roi_sf, allow_expressive_2d_ink=True)
+                                    if any(verify_v8_yunet_skin_or_hair_leak(yunet_roi_sf, yb)[0] for yb in raw_yu_boxes):
+                                        cut_leak = True
+                                        yunet_face_cuts.append(int(c["cut_index"]))
+                                        break
+                                if (
+                                    c.get("mode") not in ("split_hstack", "split_vstack")
+                                    and g_str != "expressive_split_contrast"
+                                    and detect_unintended_horizontal_split_seam(sf) >= 0.72
+                                ):
+                                    cut_leak = True
+                                    break
+                        elif is_porcelain and g_str == "porcelain_living_brain":
                             if any(
                                 compute_neon_green_spill_ratio(sf) > PORCELAIN_V7_NEON_GREEN_SPILL_MAX
                                 for sf in sample_frames_cut
@@ -1479,14 +1825,20 @@ def verify_final_mp4_against_contract(
 
         if cap is not None:
             cap.release()
+            cap = None
 
     ep_mean_luma = round(float(np.mean(cut_lumas)), 2) if cut_lumas else 0.0
     ep_dark_v35 = round(float(np.mean(cut_dark_v35)), 4) if cut_dark_v35 else 0.0
     ep_mean_sat = round(float(np.mean(cut_sats)), 2) if cut_sats else 0.0
     if is_v7 and not is_synth_test:
-        lo_y, hi_y = PORCELAIN_V7_LUMA_RANGE if is_porcelain else DIORAMA_V7_LUMA_RANGE
-        dark_max = PORCELAIN_V7_DARK_VOID_RATIO_MAX if is_porcelain else DIORAMA_V7_DARK_VOID_RATIO_MAX
-        lo_s, hi_s = PORCELAIN_V7_SATURATION_RANGE if is_porcelain else DIORAMA_V7_SATURATION_RANGE
+        if is_expressive_v8:
+            lo_y, hi_y = 28.0, 238.0
+            dark_max = 0.65
+            lo_s, hi_s = 5.0, 148.0
+        else:
+            lo_y, hi_y = PORCELAIN_V7_LUMA_RANGE if is_porcelain else DIORAMA_V7_LUMA_RANGE
+            dark_max = PORCELAIN_V7_DARK_VOID_RATIO_MAX if is_porcelain else DIORAMA_V7_DARK_VOID_RATIO_MAX
+            lo_s, hi_s = PORCELAIN_V7_SATURATION_RANGE if is_porcelain else DIORAMA_V7_SATURATION_RANGE
         if (
             not (lo_y <= ep_mean_luma <= hi_y)
             or ep_dark_v35 > dark_max
@@ -1497,7 +1849,34 @@ def verify_final_mp4_against_contract(
     # DQ10: Subtitle Geometry, ChapterHeadline & AnatomyLabel Horizontal Safe Margins, Zero Shadow, Zero Strobe & Zero Speech Blackout
     strobe_1f_gaps = 0
     speech_blackout_gaps = 0
-    if is_v7:
+    if is_expressive_v8:
+        has_v8_style = (
+            f"Style: Default,{DIORAMA_V7_SUBTITLE_FONT_NAME},{EXPRESSIVE_V8_SUBTITLE_FONT_SIZE}" in ass_txt
+            and f",{EXPRESSIVE_V8_SUBTITLE_MARGIN_V},1" in ass_txt
+            and len(chapter_spans) == 0
+            and "00E6FF" in ass_txt.upper()
+        )
+        def_spans_v8: list[tuple[float, float]] = []
+        for ln in ass_txt.splitlines():
+            if ln.startswith("Dialogue:") and ",Default," in ln:
+                parts = ln.split(",", 9)
+                if len(parts) >= 10:
+                    def_spans_v8.append((_parse_ass_ts_sec(parts[1]), _parse_ass_ts_sec(parts[2])))
+        for i_ev in range(len(def_spans_v8) - 1):
+            gap = def_spans_v8[i_ev + 1][0] - def_spans_v8[i_ev][1]
+            if gap < -0.005:
+                strobe_1f_gaps += 10
+            elif 0.005 < gap < 0.065:
+                strobe_1f_gaps += 1
+            elif gap >= 0.45:
+                speech_blackout_gaps += 1
+        dq10_ok = (
+            has_v8_style
+            and strobe_1f_gaps <= 5
+            and speech_blackout_gaps == 0
+            and len(headline_margin_violations) == 0
+        )
+    elif is_v7:
         has_v7_style = (
             f"Style: Default,{DIORAMA_V7_SUBTITLE_FONT_NAME}," in ass_txt
             and f",{DIORAMA_V7_SUBTITLE_MARGIN_V},1" in ass_txt
@@ -1546,6 +1925,7 @@ def verify_final_mp4_against_contract(
                     stereo_decorrelated = float(np.max(np.abs(arr_st[:, 0] - arr_st[:, 1]))) > 15.0
         except Exception:
             pass
+    min_voiced_rms_req = 0.72 if is_expressive_v8 else (DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN if is_v7 else 0.84)
     if is_v7:
         rms_voiced = float(vr.get("true_rms_voiced_ratio") or vr.get("active_speech_ratio") or 0.0)
         dq11_ok = (
@@ -1553,8 +1933,8 @@ def verify_final_mp4_against_contract(
             and audio_master.stat().st_size > 100_000
             and wav_channels == 2
             and stereo_decorrelated
-            and float(vr.get("active_speech_ratio") or 0.0) >= DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN
-            and (is_synth_test or rms_voiced >= DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN)
+            and float(vr.get("active_speech_ratio") or 0.0) >= min_voiced_rms_req
+            and (is_synth_test or rms_voiced >= min_voiced_rms_req)
         )
     else:
         dq11_ok = audio_master.exists() and audio_master.stat().st_size > 100_000 and float(vr.get("active_speech_ratio") or 0.0) >= 0.84
@@ -1621,10 +2001,111 @@ def verify_final_mp4_against_contract(
             "stereo_decorrelated": stereo_decorrelated,
             "active_speech_ratio": vr.get("active_speech_ratio"),
             "true_rms_voiced_ratio": vr.get("true_rms_voiced_ratio"),
-            "min_voiced_rms_ratio": (DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN if is_v7 else 0.84),
+            "min_voiced_rms_ratio": min_voiced_rms_req,
         },
         "DQ12_three_distinct_thumbnails": {"passed": dq12_ok},
     }
+    if is_expressive_v8:
+        from pipeline.config import (
+            EXPRESSIVE_V8_DISSOLVE_8_FRAMES,
+            EXPRESSIVE_V8_DISSOLVE_FRAMES,
+            EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES,
+            EXPRESSIVE_V8_MAX_OVERLAP_FRAMES,
+            EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS,
+            EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES,
+            EXPRESSIVE_V8_WHIP_PAN_FRAMES,
+        )
+
+        cameo_cut_indices = [
+            int(c.get("cut_index") or 0)
+            for c in cuts
+            if bool(
+                c.get("cameo_easter_egg")
+                or vp_by_num.get(int(c.get("clip_index") or 0), {}).get("cameo_easter_egg")
+            )
+        ]
+        gates["DQ_CAMEO_single_minicortex"] = {
+            "passed": len(cameo_cut_indices) == 1,
+            "cameo_cuts": cameo_cut_indices,
+        }
+
+        styled_cut_indices: list[int] = []
+        alpha_fade_cut_indices: list[int] = []
+        max_ov_frames = 0
+        max_alpha_frames = 0
+        ghost_blend_cuts: list[int] = []
+        for idx_tr, c_tr in enumerate(cuts[:-1]):
+            c_nxt_tr = cuts[idx_tr + 1]
+            tr_nm = str(c_tr.get("transition_out") or c_tr.get("transition_to_next") or "hard").strip().lower()
+            ov_f = 0
+            is_alpha = False
+            if tr_nm == "portal_crash_zoom_10f":
+                ov_f = int(EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES)
+            elif tr_nm in ("whip_pan_blur_8f", "occlusion_wipe"):
+                ov_f = max(10, int(EXPRESSIVE_V8_WHIP_PAN_FRAMES))
+            elif tr_nm in ("dissolve_6f", "match_cut_bridge"):
+                ov_f = int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
+                is_alpha = True
+            elif tr_nm in ("dissolve_8f", "split_screen_wipe"):
+                ov_f = int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+                is_alpha = True
+            elif tr_nm == "daisy_chain_bridge":
+                end_ref_a = str(c_tr.get("end_reference_image") or vp_by_num.get(int(c_tr.get("clip_index") or 0), {}).get("end_reference_image") or "").strip()
+                start_ref_b = str(vp_by_num.get(int(c_nxt_tr.get("clip_index") or 0), {}).get("reference_image") or "").strip()
+                if not (end_ref_a and start_ref_b and end_ref_a == start_ref_b):
+                    ov_f = int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+                    is_alpha = True
+            if ov_f > 0:
+                styled_cut_indices.append(int(c_tr.get("cut_index") or (idx_tr + 1)))
+                max_ov_frames = max(max_ov_frames, ov_f)
+                if is_alpha:
+                    alpha_fade_cut_indices.append(int(c_tr.get("cut_index") or (idx_tr + 1)))
+                    max_alpha_frames = max(max_alpha_frames, ov_f)
+            if not is_synth_test:
+                tb_v = float(c_tr["out_end_sec"])
+                f_pre = _get_frame(max(0.0, tb_v - 0.36))
+                f_m1 = _get_frame(max(0.0, tb_v - 0.16))
+                f_m2 = _get_frame(max(0.0, tb_v - 0.06))
+                f_post = _get_frame(min(max(0.0, (total_fc - 1) / max(1.0, fps)), tb_v + 0.24))
+                if f_pre is not None and f_m1 is not None and f_m2 is not None and f_post is not None:
+                    gp = cv2.cvtColor(cv2.resize(f_pre[:1180, :], (90, 110)), cv2.COLOR_BGR2GRAY).astype(np.float32)
+                    gq = cv2.cvtColor(cv2.resize(f_post[:1180, :], (90, 110)), cv2.COLOR_BGR2GRAY).astype(np.float32)
+                    scene_delta = float(np.mean(np.abs(gp - gq)))
+                    if scene_delta >= 22.0:
+                        sustained_alpha = True
+                        for fm_chk in (f_m1, f_m2):
+                            gm = cv2.cvtColor(cv2.resize(fm_chk[:1180, :], (90, 110)), cv2.COLOR_BGR2GRAY).astype(np.float32)
+                            diff_pq = gp - gq
+                            denom = float(np.sum(np.square(diff_pq)))
+                            alpha_est = float(np.sum((gm - gq) * diff_pq) / max(1e-6, denom))
+                            if not (0.20 <= alpha_est <= 0.80):
+                                sustained_alpha = False
+                                break
+                            resid = float(np.mean(np.abs(gm - (alpha_est * gp + (1.0 - alpha_est) * gq))))
+                            if resid > 0.24 * scene_delta:
+                                sustained_alpha = False
+                                break
+                        if sustained_alpha:
+                            ghost_blend_cuts.append(int(c_tr.get("cut_index") or (idx_tr + 1)))
+
+        dq13_ok = (
+            len(styled_cut_indices) <= int(EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS)
+            and max_ov_frames <= int(EXPRESSIVE_V8_MAX_OVERLAP_FRAMES)
+            and max_alpha_frames <= int(EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES)
+            and len(ghost_blend_cuts) == 0
+        )
+        gates["DQ13_transition_hygiene"] = {
+            "passed": dq13_ok,
+            "styled_transition_count": len(styled_cut_indices),
+            "max_styled_transitions": int(EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS),
+            "styled_cuts": styled_cut_indices,
+            "alpha_fade_cuts": alpha_fade_cut_indices,
+            "max_overlap_frames": max_ov_frames,
+            "max_alpha_fade_frames": max_alpha_frames,
+            "ghost_blend_cuts": ghost_blend_cuts,
+        }
+    if cap is not None:
+        cap.release()
     passed_count = sum(1 for g in gates.values() if g["passed"])
     score = round(100.0 * passed_count / len(gates), 1)
     all_passed = passed_count == len(gates) and len(pre_issues) == 0
@@ -1640,8 +2121,12 @@ def verify_final_mp4_against_contract(
 
     report = {
         "project_id": p_dir.name,
-        "schema": PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6,
-        "style_profile": (resolve_diorama_v7_style_profile(vp, edl, script_doc) if is_v7 else "dark_ceramic_v6"),
+        "schema": PROMPT_SCHEMA_VERSION_V8 if is_expressive_v8 else (PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6),
+        "style_profile": (
+            EXPRESSIVE_25D_V8_STYLE_PROFILE
+            if is_expressive_v8
+            else (resolve_diorama_v7_style_profile(vp, edl, script_doc) if is_v7 else "dark_ceramic_v6")
+        ),
         "final_mp4_sha256": mp4_sha,
         "passed": all_passed,
         "score": score,

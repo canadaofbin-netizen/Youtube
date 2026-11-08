@@ -546,7 +546,30 @@ def build_3000_prompt_database() -> dict[str, Any]:
 
 def lookup_topic_from_db(topic_id: str) -> dict[str, Any]:
     """Retrieves a pre-written topic bundle from `all_about_brain_3000_prompts.db` by `topic_id`."""
-    conn = sqlite3.connect(str(SQLITE_DB_PATH))
+    db_target = Path(SQLITE_DB_PATH)
+    connect_uri = False
+    if "gdrive" in db_target.parts and db_target.exists():
+        st = db_target.stat()
+        sig = f"{db_target}::{st.st_size}::{st.st_mtime_ns}"
+        cache_db = Path(tempfile.gettempdir()) / "aab_3000_prompts_ro_cache.db"
+        cache_sig = Path(tempfile.gettempdir()) / "aab_3000_prompts_ro_cache.sig"
+        try:
+            if not cache_db.exists() or not cache_sig.exists() or cache_sig.read_text(encoding="utf-8") != sig:
+                tmp_copy = cache_db.with_suffix(".db.tmp")
+                shutil.copyfile(db_target, tmp_copy)
+                tmp_copy.replace(cache_db)
+                cache_sig.write_text(sig, encoding="utf-8")
+            db_target = cache_db
+            connect_uri = True
+        except OSError:
+            db_target = Path(SQLITE_DB_PATH)
+            connect_uri = False
+
+    conn = (
+        sqlite3.connect(f"file:{db_target.as_posix()}?mode=ro", uri=True)
+        if connect_uri
+        else sqlite3.connect(str(db_target))
+    )
     conn.row_factory = sqlite3.Row
     try:
         cur = conn.cursor()

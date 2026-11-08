@@ -1,28 +1,32 @@
-# ALL ABOUT BRAIN — YouTube Studio Daily Analytics & Growth Report Master Prompt & Fixed Template (Normalized 5-Section Schema)
+# ALL ABOUT BRAIN — Channel-Level Numbers-First Traffic-Light Daily Report Master Prompt & Template
 
 - **Channel**: ALL ABOUT BRAIN (`@AllAboutBrainOfficial` / `UC4FeioYYv9X04Di07_MfZ7g`)
-- **CLI Execution**: `python -X utf8 main.py studio-report`
+- **CLI Execution**: `/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-report`
 - **Output Directory**: `BCI_Shorts_Channel/reports/daily/`
   - Markdown Report: `YYYY-MM-DD_daily_studio_report.md`
-  - Visual Dashboard PNG: `YYYY-MM-DD_studio_charts.png`
+  - 4-Panel Visual Dashboard PNG: `YYYY-MM-DD_studio_charts.png`
+  - Per-Section Standalone PNG Charts: `YYYY-MM-DD_sec1_channel_growth.png` .. `YYYY-MM-DD_sec4_schedule_inventory.png`
   - Raw Metrics JSON: `YYYY-MM-DD_studio_metrics.json`
 - **Latest Report Pointer**: `BCI_Shorts_Channel/reports/LATEST_DAILY_REPORT.md`
 
 ---
 
-## PART 1. Daily Execution Master Prompt (Normalized 5-Section Channel-Level Traffic-Light Schema)
+## 1. Core Principles (Channel-Level Only, Numbers + Traffic Light Only)
+- **Zero Individual Video Tables / Schedule Lists**: Do not list individual videos (`psych_01`, `psych_02`, etc.) or per-video schedule queues. All metrics, charts, and diagnostics represent **whole-channel growth and funnel health**.
+- **Zero Verbose Grade Words**: Never write wordy labels like `"우수 (주력 엔진 안착)"` or `"주의 (TUNE)"`. Every status cell uses ONLY the traffic light dot (`🟢` / `🟡` / `🔴`) + pure numeric delta or target gap (e.g., `🟢 +6.5%`, `🟡 -2.0%p (목표 70%)`, `🔴 -83.4%`).
 
-```markdown
-# [MASTER PROMPT] ALL ABOUT BRAIN — YouTube Studio Channel-Level Daily Growth Report (Normalized 5-Section)
+---
 
-You are the lead analytics & pipeline orchestrator for ALL ABOUT BRAIN (@AllAboutBrainOfficial, channel ID: UC4FeioYYv9X04Di07_MfZ7g).
-Using the visible Naver Whale browser (CDP port 9222) and local pipeline receipts, generate the Normalized 5-Section channel-level traffic-light daily report (`🟢` / `🟡` / `🔴` + pure numeric deltas/gaps, zero individual video tables) and standalone section PNG charts.
-
-## Normalized 5-Section Structure
-- **Section 0**: `🚦 0. Executive Growth Pulse` — Overall traffic-light status, 7d pulse banner, 5-axis summary table, and top priority action.
-- **Section 1**: `1. Channel Volume & Exposure Funnel (Shown in feed → Viewed → Engaged Views)` — `sec1_channel_growth.png` + W-1 / D-3 / D-1 / D-0 horizon deltas.
-- **Section 2**: `2. Retention & Cohort Quartile Drop-Off (Q1–Q4 & ΔQ)` — `sec2_video_retention_performance.png` + All vs Recent 3 vs Latest retention & Q1→Q2 / Q2→Q3 / Q3→Q4 drop-off.
-- **Section 3**: `3. High-Signal Traffic & Tier-1 Audience Share` — `sec3_traffic_audience_growth.png` + Shorts Feed share and US / Tier-1 English share.
-- **Section 4**: `4. Queue & Operations Health (Seed Velocity, Related Video & 5-Gear Calibration)` — `sec4_schedule_inventory.png` + Time-to-Seed, Unlisted (Staged) / Scheduled queue health, Related Video ring, and 5-Gear numeric calibration.
-- **Section 5**: `5. 7-Day Target Roadmap & 🔐 Provenance` — Next 7-day numeric targets and cryptographic SHA-256 provenance receipt (Rule R19 independent conclusion ending).
-```
+## 2. Normalized 5-Section Structure
+- **0. `🚦 0. 채널 성장 스코어보드 (Channel Growth Pulse)`**:
+  - Top-level table showing `구독자 수`, `누적 조회수`, `누적 시청 시간`, `3초 훅 생존율 (Viewed %)`, `평균 시청률 (AVD / APV %)`, `실시간 48h 속도` (`어제` → `오늘` → `전일 대비 DoD Δ` → `7일 누적 성장` → `목표 기준` → `신호 (목표 대비)`).
+- **Section 1 — `채널 외형 성장 추이 (Views · Watch Time · Subscribers)` (`sec1_channel_growth.png`)**:
+  - 7-day and DoD numeric progression of total views, realtime 48h/60m views, watch hours, unique viewers, subscribers (`명/1K views`), and likes/comments.
+- **Section 2 — `채널 시청률 & 구간별 리텐션 추이 (Hook · APV · Q1~Q4)` (`sec2_video_retention_performance.png`)**:
+  - Channel-wide `Viewed %`, `Swiped %`, `AVD (초)`, `APV (%)`, and `Q1 (0–25%) ~ Q4 (75–100%)` retention vs. target gates.
+- **Section 3 — `채널 유입 엔진 & 타겟 오디언스 지표 (Traffic · Geo · Age)` (`sec3_traffic_audience_growth.png`)**:
+  - Channel-wide `Shorts Feed (%)`, `YouTube Search (%)`, `US (%)`, `Tier-1 (%)`, `Age 35+ (%)` + top 5 search queries.
+- **Section 4 — `채널 정체/문제 구간 진단 (Bottlenecks & Fixes)` (`sec4_schedule_inventory.png`)**:
+  - Identifies stagnant/bottleneck metrics with exact numbers, root causes, and concrete pipeline rule adjustments.
+- **Section 5 — `향후 채널 성장 방향 & 7일 목표 수치 (Growth Roadmap)`**:
+  - Current channel numbers vs. next 7-day numeric targets across Scale, Watch Rate, and Target Audience + `🔐 Provenance`.

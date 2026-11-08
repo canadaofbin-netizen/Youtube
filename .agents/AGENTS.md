@@ -5,7 +5,7 @@ Py: `/home/canadaofbin/hermes-venv/bin/python -X utf8` | Numbers SSOT: [producti
 
 ## 1. Core Operating Locks
 - **Format & Pacing**: Shorts-first (`1080x1920 @ 24fps`, target `~90s` / `1m30s` high-retention Shorts; hard ceiling `<= SHORTS_HARD_CEILING_SEC`). Hold `16:9` Longform until Shorts scale.
-- **Active Profile**: `DEFAULT_PRODUCTION_PROFILE="neuro_diorama"`, `DEFAULT_DIORAMA_STYLE_PROFILE="porcelain_cinematic_v7"` (R66 smooth featureless matte-white oval-head porcelain cast + Contained Living 4-Color 3D Brain; Track A R67 archival reenactment / Track B R66-Anchor). Voice: `emma_v7` (`en-US-EmmaMultilingualNeural`) + `dynamic_us_v7` native per-gear US speech (`kokoro-onnx` `af_bella` fallback; legacy `andrew_v7` `en-US-AndrewMultilingualNeural` preserved on Public `diorama_01..07`).
+- **Active Profile**: `DEFAULT_PRODUCTION_PROFILE="neuro_diorama"`, `DEFAULT_DIORAMA_STYLE_PROFILE="porcelain_cinematic_v7"` (R66 smooth featureless matte-white oval-head porcelain cast + Contained Living 4-Color 3D Brain; Track A R67 archival reenactment / Track B R66-Anchor; R68 `expressive_25d_v8` / `shorts_expressive_v8` `58–88s` `<=89.5s` `30fps` vinyl+2D-ink profile). Voice: `emma_v7` (`en-US-EmmaMultilingualNeural`, default single-narrator across `dynamic_us_v7` v7 & `expressive_us_v8` R68; optional `andrew_v8` `en-US-AndrewMultilingualNeural` & `foil_v8` `en-US-SteffanNeural`; `kokoro-onnx` fallback; legacy `andrew_v7` preserved on Public `diorama_01..07`).
 - **Monthly Credit Dual-Tier Flow (R5)**: `--engine auto` uses `Omni 1.1 Flash` while monthly AI credits > 0, seamlessly falling back to `0-credit` `Veo 3.1 - Lite [Lower Priority]` + `0-credit` `FLOW_ZERO_CREDIT_IMAGE_MODEL` (`x4` batch) when credits hit 0. Zero paid APIs; never click `Add AI credits`.
 - **Google Flow Workspace & Multi-Agent Tab Isolation**:
   - Canonical Flow room naming: `AAB_<project_id>` (1 room per episode; delete temporary/orphan Flow projects after harvest).
@@ -29,17 +29,17 @@ Resolve any `@<chatroom>` (EN/KO aliases + live DB auto-sync):
 | Gear | Skill | Stage Dirs | Key Code | Core Gates |
 |---|---|---|---|---|
 | 1 Research | [youtube-research](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-research/SKILL.md) | `research_dossiers/<slug>/` | `research_dossier.py`, `researcher.py` | R1, P1, R44, R44-M (`dossier validate --require-v2`) |
-| 2 Script+Plan | [youtube-script](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-script/SKILL.md) | `02_script`, `03_visuals` | `flow_prompt_builder.py`, `porcelain_anchor_pack.py` | R57-H2, R60, R61, R65, R66 (`prompt-gate`) |
-| 3 Flow Gen | [youtube-produce](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-produce/SKILL.md) | `03_visuals` | `flow_browser.py`, `reference_image_qa.py` | R5, R18-B, R37, R51, R67 (`porcelain-refs` Q1-Q10) |
-| 4 Assembly+QA | [youtube-produce](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-produce/SKILL.md) | `04_audio`, `05_assembly`, `knowledge_base/` | `diorama_assembler.py`, `posthoc_semantic_qa.py`, `thumbnail_studio.py` | R58, R59, R62 (DQ1-12), R63-P (P1-10), R64, R65 (TQ1-7) |
-| 5 Studio+Report | [youtube-studio](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio/SKILL.md), [youtube-report](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-report/SKILL.md) | `06_publish`, `reports/daily/` | `publish.py`, `pipeline/studio/` | R4, R8-R10, R30-R36-B |
+| 2 Script+Plan | [youtube-script](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-script/SKILL.md) | `02_script`, `03_visuals` | `flow_prompt_builder.py`, `porcelain_anchor_pack.py` | R57-H2, R60, R61, R65, R66, R68 (`prompt-gate`) |
+| 3 Flow Gen | [youtube-produce](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-produce/SKILL.md) | `03_visuals` | `flow_browser.py`, `reference_image_qa.py` | R5, R18-B, R37, R51, R67, R68 (`porcelain-refs` Q1-Q10) |
+| 4 Assembly+QA | [youtube-produce](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-produce/SKILL.md) | `04_audio`, `05_assembly`, `knowledge_base/` | `diorama_assembler.py`, `posthoc_semantic_qa.py`, `thumbnail_studio.py` | R58, R59, R62 (DQ1-12), R63-P (P1-10), R64, R65 (TQ1-7), R68 |
+| 5 Studio+Report | [youtube-studio](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio/SKILL.md), [youtube-report](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-report/SKILL.md) | `06_publish`, `reports/daily/` | `publish.py`, `pipeline/studio/` | R4, R8-R10, R30-R36-B, R68 (`--check-auto-dubbing`) |
 
 ## 4. CLI Quick Reference (`main.py <cmd>`)
 - **Dossier / Reenact**: `news-radar` | `dossier init|validate|seed|doi|yt-search|yt-analyze|audit-media` | `reenact-extract` | `reenact-refs` | `reenact-produce` | `reenact-qa`
 - **Prompts / Refs**: `prompt-gate --dir <d>` | `porcelain-refs --project <id>` | `ref-qa --project <id>` | `packets --project <id>`
 - **Produce / Assemble**: `diorama-episode --slug <s> --project <id> --pillar <p> [--precheck-only] [--engine auto|omni|zero-credit]` | `diorama-flow` | `diorama-assemble` | `diorama-batch`
-- **QA / KB**: `verify` | `autopsy` | `episode-qa` | `posthoc-qa` | `prosody-qa` | `thumbnail` | `voice-check` | `asset-manifest` | `kb sync|stats|search` | `pytest -v`
-- **Studio**: `studio-settings` | `studio-upload` | `studio-queue` | `studio-link` | `studio-pin` | `studio-watchdog` | `studio-ab-test` | `studio-report`
+- **QA / KB**: `verify` | `autopsy` | `episode-qa` | `posthoc-qa` | `prosody-qa` | `thumbnail` | `voice-check` | `asset-manifest` | `kb sync [--project <id>|--full-rescan]|stats|search` | `pytest -v` (`<60s` fast; `pytest -m slow` full E2E)
+- **Studio**: `studio-settings [--check-auto-dubbing]` | `studio-upload` | `studio-queue` | `studio-link` | `studio-pin` | `studio-watchdog` | `studio-ab-test` | `studio-report`
 
 ## 5. Rule Registry (`.agents/rules/*.md`)
 | ID | Owner Doc | Rule |
@@ -69,3 +69,4 @@ Resolve any `@<chatroom>` (EN/KO aliases + live DB auto-sync):
 | R65 | `neuro_diorama_rules.md` | Thumbnail Studio (`TQ1-TQ7`) + `cover_frame_sec` |
 | R66 | `neuro_diorama_rules.md` | `porcelain_cinematic_v7` world, featureless oval-head cast & Contained Living 4-Color Brain |
 | R67 | `neuro_diorama_rules.md` | Source-conditioned 1:1 porcelain reenactment (`RQ1-RQ5`, zero source pixel reuse) |
+| R68 | `neuro_diorama_rules.md` | `expressive_25d_v8` (`58–88s` `<=89.5s`, `30fps`, `14–26` `VIDEO_FRAMES` clips, `13–15` sents `~200 WPM` `0.32–0.50s` gaps, 2nd-person `?` open + `core<=S4/15s` + `myth-flip<=1`, `안 1` vinyl+2D ink + crystal X-Ray brain + `Mini-Cortex`, `emma_v7`, `-30..-23 dBFS` BGM, `DQ13`, `0.20s` loop) |

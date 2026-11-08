@@ -44,6 +44,7 @@ from pipeline.cdp_tab_lease import (
     get_aab_locks_dir,
     leased_cdp_tab,
     list_active_tab_leases,
+    reap_orphan_pipeline_tabs,
 )
 from pipeline.config import CHANNEL_ROOT
 
@@ -819,6 +820,7 @@ async def clean_flow_workspace_async(
     project_id: str | None = None,
     temp_project_id: str | None = None,
     project_urls: list[str] | tuple[str, ...] | set[str] = (),
+    exclude_project_urls: list[str] | tuple[str, ...] | set[str] = (),
     prefix: str | None = None,
     dry_run: bool = False,
     clean_local_temp: bool = True,
@@ -829,12 +831,18 @@ async def clean_flow_workspace_async(
     Cleans Google Flow projects on `https://flow.google.com/` inside a dedicated temporary
     leased CDP tab (closing its own tab on exit and never touching user tabs).
     """
-    target_uuids = {extract_flow_project_uuid(u) for u in (project_urls or ()) if extract_flow_project_uuid(u)}
+    excluded_uuids = {extract_flow_project_uuid(u) for u in (exclude_project_urls or ()) if extract_flow_project_uuid(u)}
+    target_uuids = {
+        extract_flow_project_uuid(u)
+        for u in (project_urls or ())
+        if extract_flow_project_uuid(u) and extract_flow_project_uuid(u) not in excluded_uuids
+    }
     has_flow_filter = bool(all_projects or project_id or target_uuids or prefix)
     deleted_projects: list[dict[str, str]] = []
     seen_deleted_uuids: set[str] = set()
     skipped_active_uuids: list[str] = []
     matched_preview: list[dict[str, str]] = []
+    closed_orphan_tabs: list[str] = []
     remaining_cards = 0
 
     def _record_deleted(uid: str, title: str) -> None:
@@ -844,6 +852,13 @@ async def clean_flow_workspace_async(
             seen_deleted_uuids.add(uid)
         deleted_projects.append({"uuid": uid, "title": title})
 
+    if not dry_run:
+        closed_orphan_tabs = reap_orphan_pipeline_tabs(
+            cdp_port=cdp_port,
+            project_id=(None if all_projects else (project_id or temp_project_id)),
+            dry_run=False,
+        )
+
     if has_flow_filter:
         async with leased_cdp_tab(
             "https://flow.google.com/",
@@ -852,7 +867,9 @@ async def clean_flow_workspace_async(
         ) as (client, clean_tab_id, _owner):
             await client.send("Page.enable")
             protected_uuids = (
-                set() if force_active else _discover_active_leased_flow_uuids(cdp_port=cdp_port, exclude_tab_id=clean_tab_id)
+                set(excluded_uuids)
+                if force_active
+                else (set(excluded_uuids) | _discover_active_leased_flow_uuids(cdp_port=cdp_port, exclude_tab_id=clean_tab_id))
             )
 
             for round_idx in range(25):
@@ -1083,6 +1100,7 @@ async def clean_flow_workspace_async(
         "deleted_flow_projects_count": len(matched_preview) if dry_run else len(deleted_projects),
         "deleted_flow_projects": matched_preview if dry_run else deleted_projects,
         "skipped_active_leased_uuids": skipped_active_uuids,
+        "closed_orphan_tabs": closed_orphan_tabs,
         "remaining_dashboard_cards": int(remaining_cards),
         "local_temp_cleanup": local_rep,
     }
@@ -1095,6 +1113,7 @@ def clean_flow_workspace(
     project_id: str | None = None,
     temp_project_id: str | None = None,
     project_urls: list[str] | tuple[str, ...] | set[str] = (),
+    exclude_project_urls: list[str] | tuple[str, ...] | set[str] = (),
     prefix: str | None = None,
     dry_run: bool = False,
     clean_local_temp: bool = True,
@@ -1108,6 +1127,7 @@ def clean_flow_workspace(
         project_id=project_id,
         temp_project_id=temp_project_id,
         project_urls=project_urls,
+        exclude_project_urls=exclude_project_urls,
         prefix=prefix,
         dry_run=dry_run,
         clean_local_temp=clean_local_temp,

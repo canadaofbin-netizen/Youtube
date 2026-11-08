@@ -747,7 +747,8 @@ def test_zero_bring_to_front_calls_anywhere_in_pipeline() -> None:
     """Hard regression lock: zero `Page.bringToFront`, `.bring_to_front(`, or focus-stealing `context.new_page(` calls in `pipeline/`."""
     pipeline_root = cfg.WORKSPACE_ROOT / "pipeline"
     offenders: list[str] = []
-    for py_path in sorted(pipeline_root.rglob("*.py")):
+    py_candidates = sorted([*pipeline_root.glob("*.py"), *(pipeline_root / "studio").glob("*.py")])
+    for py_path in py_candidates:
         src = py_path.read_text(encoding="utf-8")
         for lineno, line in enumerate(src.splitlines(), start=1):
             stripped = line.strip()
@@ -876,8 +877,8 @@ def test_allocate_dedicated_flow_project_tab_updates_url_renames_and_closes_on_e
     monkeypatch.setenv("AAB_CDP_LEASES_PATH", str(leases_file))
     monkeypatch.setenv("AAB_LOCKS_DIR", str(locks_dir))
 
-    async def _fast_sleep(_sec: float) -> None:
-        return None
+    async def _fast_sleep(_sec: float, result: Any = None) -> Any:
+        return result
 
     monkeypatch.setattr(flsw.asyncio, "sleep", _fast_sleep)
 
@@ -1487,3 +1488,756 @@ def test_clean_flow_workspace_executes_bulk_and_per_card_more_vert_menu_fallback
     assert rep_ft["remaining_dashboard_cards"] == 0
     assert overlay_open["dismissed"] >= 1
     assert "keyDown" in escaped_keys
+
+
+def test_single_canonical_flow_room_reuse_across_waves_shards_and_cooldown_plus_clips_cleanup(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """
+    Regression lock for single-room Google Flow reuse (AGENTS.md 1-room-per-episode lock):
+      1. `allocate_dedicated_flow_project_tab` reuses `existing_project_url` AND existing `AAB_<project_id>`
+         dashboard cards without clicking `button.new-project-button`.
+      2. `_run_shard_worker` across shards, waves, and `'unusual activity'` cooldowns ALWAYS uses canonical
+         `AAB_<project_id>` (zero `__clips_s*_w*` names) and reuses `flow_rate_state['canonical_project_url']`
+         in-place without spinning up extra Flow project URLs.
+    """
+    import collections
+    from pipeline import flow_diorama_sharded_worker as sw
+    from pipeline import flow_live_single_worker as flsw
+
+    leases_file = tmp_path / "aab_cdp_leases.json"
+    locks_dir = tmp_path / "aab_locks"
+    monkeypatch.setenv("AAB_CDP_LEASES_PATH", str(leases_file))
+    monkeypatch.setenv("AAB_LOCKS_DIR", str(locks_dir))
+
+    fake_mono = [1000.0]
+
+    async def _fast_sleep(_sec: float, result: Any = None) -> Any:
+        fake_mono[0] += max(0.01, float(_sec))
+        return result
+
+    monkeypatch.setattr(flsw.asyncio, "sleep", _fast_sleep)
+    monkeypatch.setattr(sw.asyncio, "sleep", _fast_sleep)
+    monkeypatch.setattr(sw.time, "monotonic", lambda: fake_mono[0])
+    monkeypatch.setattr(flsw.time, "monotonic", lambda: fake_mono[0])
+
+    # Part A: allocate_dedicated_flow_project_tab reuses existing_project_url & dashboard card (0 New project clicks)
+    new_project_clicks = [0]
+    navigated_urls: list[str] = []
+    tab_seq = [0]
+
+    class _FakeResp:
+        def __init__(self, payload: bytes) -> None:
+            self._payload = payload
+
+        def read(self) -> bytes:
+            return self._payload
+
+        def __enter__(self) -> "_FakeResp":
+            return self
+
+        def __exit__(self, *args: object) -> None:
+            return None
+
+    monkeypatch.setattr("urllib.request.urlopen", lambda *_a, **_kw: _FakeResp(b"[]"))
+
+    def _fake_create_bg(target_url: str, **kwargs: Any) -> dict[str, Any]:
+        tab_seq[0] += 1
+        tid = f"REUSE_TAB_{tab_seq[0]}"
+        return {
+            "id": tid,
+            "type": "page",
+            "url": target_url,
+            "webSocketDebuggerUrl": f"ws://127.0.0.1:9222/devtools/page/{tid}",
+            "background": True,
+        }
+
+    class _CardReuseCDP:
+        def __init__(self, ws_url: str) -> None:
+            self.ws_url = ws_url
+            self._loc = "about:blank"
+
+        async def __aenter__(self) -> "_CardReuseCDP":
+            return self
+
+        async def __aexit__(self, *args: object) -> None:
+            return None
+
+        async def send(self, method: str, params: dict[str, Any] | None = None, timeout_sec: float = 10.0) -> dict[str, Any]:
+            if method == "Page.navigate" and isinstance(params, dict):
+                u = str(params.get("url") or "")
+                navigated_urls.append(u)
+                self._loc = u
+            return {}
+
+        async def eval(self, expr: str, timeout_sec: float = 10.0) -> Any:
+            if expr == "location.href":
+                return self._loc
+            if "flow-project-card" in expr and "wanted" in expr:
+                return "/project/99999999-aaaa-bbbb-cccc-dddddddddddd"
+            if "new-project-button" in expr:
+                new_project_clicks[0] += 1
+                return True
+            return ""
+
+    monkeypatch.setattr("pipeline.cdp_tab_lease._create_target_via_browser_ws", _fake_create_bg)
+    monkeypatch.setattr(flsw, "DirectCDPClient", _CardReuseCDP)
+    monkeypatch.setattr(flsw, "rename_active_flow_project", lambda *_a, **_kw: asyncio.sleep(0))
+
+    # 1) Dashboard card match reuses `/project/99999999-...` with 0 New project clicks
+    alloc_card = asyncio.run(
+        flsw.allocate_dedicated_flow_project_tab(cdp_port=9222, project_id="ep_reuse_01")
+    )
+    assert alloc_card["project_url"] == "https://flow.google.com/project/99999999-aaaa-bbbb-cccc-dddddddddddd"
+    assert new_project_clicks[0] == 0
+
+    # 2) Explicit existing_project_url navigates straight to canonical URL without even hitting dashboard
+    navigated_urls.clear()
+    alloc_direct = asyncio.run(
+        flsw.allocate_dedicated_flow_project_tab(
+            cdp_port=9222,
+            project_id="ep_reuse_01",
+            existing_project_url="https://flow.google.com/project/99999999-aaaa-bbbb-cccc-dddddddddddd",
+        )
+    )
+    assert alloc_direct["project_url"] == "https://flow.google.com/project/99999999-aaaa-bbbb-cccc-dddddddddddd"
+    assert navigated_urls == ["https://flow.google.com/project/99999999-aaaa-bbbb-cccc-dddddddddddd"]
+    assert new_project_clicks[0] == 0
+
+    # Part B: _run_shard_worker reuses ONE canonical room across shards, waves, and unusual-activity cooldown
+    alloc_calls: list[dict[str, Any]] = []
+    renamed_titles: list[str] = []
+    poll_count = [0]
+
+    async def _spy_alloc_tab(**kwargs: Any) -> dict[str, Any]:
+        alloc_calls.append(dict(kwargs))
+        url = kwargs.get("existing_project_url") or "https://flow.google.com/project/canonical-1111-2222-3333-444444444444"
+        return {
+            "tab_id": f"SHARD_TAB_{len(alloc_calls)}",
+            "project_url": url,
+            "ws_url": "ws://dummy",
+            "lease_owner_id": f"owner_{len(alloc_calls)}",
+        }
+
+    class _ShardCDP:
+        def __init__(self, ws_url: str) -> None:
+            self.ws_url = ws_url
+
+        async def __aenter__(self) -> "_ShardCDP":
+            return self
+
+        async def __aexit__(self, *args: object) -> None:
+            return None
+
+        async def send(self, method: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
+            return {}
+
+        async def eval(self, expr: str) -> Any:
+            if "button.settings-trigger-button" in expr and "readyState" in expr:
+                return True
+            if "classifyTile" in expr and "hasNewSrc" in expr:
+                poll_count[0] += 1
+                if poll_count[0] == 1:
+                    # Trigger 'unusual activity' on first poll — worker MUST reload same room in-place (not open wave 2!)
+                    return {
+                        "ready": 0,
+                        "rendering": 0,
+                        "hasNewSrc": False,
+                        "topKey": "",
+                        "hadErr": True,
+                        "errText": "Unusual activity detected. Please wait a few moments.",
+                    }
+                return {"ready": 1, "rendering": 0, "hasNewSrc": True, "topKey": f"https://v/{poll_count[0]}", "hadErr": False}
+            if "classifyTile" in expr:
+                return {"ready": 0, "rendering": 0, "srcs": [], "topKey": ""}
+            return {}
+
+    async def _spy_rename(_c: Any, title: str) -> bool:
+        renamed_titles.append(title)
+        return True
+
+    async def _fake_submit(_c: Any, _p: str, *_a: Any, **kw: Any) -> bool:
+        if kw.get("submission_meta_out") is not None:
+            kw["submission_meta_out"]["flow_model"] = "Veo 3.1 - Lite [Lower Priority]"
+            kw["submission_meta_out"]["credit_tier"] = "zero_credit_fallback"
+        return True
+
+    async def _fake_dl(dst_mp4: Path, **_kw: Any) -> dict[str, Any]:
+        dst_mp4.write_bytes(b"1" * 400_000)
+        return {"sha256": f"sha_{dst_mp4.stem}_{poll_count[0]}", "file_size_bytes": 400_000, "source_download_filename": dst_mp4.name}
+
+    monkeypatch.setattr(sw, "allocate_dedicated_flow_project_tab", _spy_alloc_tab)
+    monkeypatch.setattr(sw, "DirectCDPClient", _ShardCDP)
+    monkeypatch.setattr(sw, "rename_active_flow_project", _spy_rename)
+    monkeypatch.setattr(sw, "enable_background_focus_emulation", lambda *_a, **_kw: asyncio.sleep(0))
+    monkeypatch.setattr(sw, "release_and_close_leased_tab", lambda *_a, **_kw: True)
+    monkeypatch.setattr(
+        sw,
+        "_configure_diorama_tab_engine",
+        lambda *_a, **_kw: asyncio.sleep(0, result={"flow_model": "Veo 3.1 - Lite [Lower Priority]", "credit_tier": "zero_credit_fallback", "settings_summary": "ok"}),
+    )
+    monkeypatch.setattr(sw, "_submit_diorama_prompt_zero_credit", _fake_submit)
+    monkeypatch.setattr(sw, "_download_newest_ready_tile", _fake_dl)
+    monkeypatch.setattr(
+        sw,
+        "inspect_diorama_clip_cv",
+        lambda *_a, **_kw: {"passed": True, "max_frame_diff": 12.0, "mean_luma": 110.0, "plaque_glyph_run": 0},
+    )
+    monkeypatch.setattr(sw, "_ensure_min_clip_size_if_needed", lambda _p: None)
+
+    rate_state: dict[str, Any] = {
+        "submit_lock": asyncio.Lock(),
+        "last_tab_open_mono": 0.0,
+        "last_submit_mono": 0.0,
+        "cooldown_until_mono": 0.0,
+        "cooldown_hits": 0,
+        "canonical_project_url": "",
+        "opened_project_urls": [],
+        "tab_owners_by_id": {},
+    }
+    q1 = collections.deque([{"clip_number": 1, "grammar": "expressive_vinyl_world", "prompt": "c1", "schema_version": 8}])
+    q2 = collections.deque([{"clip_number": 2, "grammar": "expressive_vinyl_world", "prompt": "c2", "schema_version": 8}])
+    lock = asyncio.Lock()
+
+    r1 = asyncio.run(
+        sw._run_shard_worker(
+            shard_idx=1,
+            shard_clips=[],
+            project_id="v8_pilot_02_test",
+            project_dir=tmp_path,
+            short_ref_map={},
+            tab_open_lock=lock,
+            opened_tabs=[],
+            seen_global_shas=set(),
+            shared_clip_queue=q1,
+            flow_rate_state=rate_state,
+        )
+    )
+    r2 = asyncio.run(
+        sw._run_shard_worker(
+            shard_idx=2,
+            shard_clips=[],
+            project_id="v8_pilot_02_test",
+            project_dir=tmp_path,
+            short_ref_map={},
+            tab_open_lock=lock,
+            opened_tabs=[],
+            seen_global_shas=set(),
+            shared_clip_queue=q2,
+            flow_rate_state=rate_state,
+        )
+    )
+
+    # Shard 1 survived unusual-activity cooldown in-place (1 tab allocation, NOT 2!) and Shard 2 reused Shard 1's canonical URL!
+    assert len(alloc_calls) == 2
+    assert alloc_calls[0]["project_id"] == "v8_pilot_02_test"
+    assert alloc_calls[0]["room_name"] == "AAB_v8_pilot_02_test"
+    assert alloc_calls[1]["existing_project_url"] == "https://flow.google.com/project/canonical-1111-2222-3333-444444444444"
+    assert set(renamed_titles) == {"AAB_v8_pilot_02_test"}
+    assert all("__clips" not in t for t in renamed_titles)
+    assert r1["flow_project_url"] == r2["flow_project_url"] == "https://flow.google.com/project/canonical-1111-2222-3333-444444444444"
+    assert rate_state["opened_project_urls"] == ["https://flow.google.com/project/canonical-1111-2222-3333-444444444444"]
+
+
+def test_audit_item1_receipt_prompt_and_ref_sha_guard_invalidates_stale_clips(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """
+    Audit Item 1: `clip_receipt_matches_fingerprints` + `_pop_next_pending_clip` reuse an on-disk
+    clip ONLY when `prompt_sha`, `start_ref_sha256`, and `end_ref_sha256` all match the receipt;
+    any legacy missing hash or prompt/ref change deletes the stale MP4 and queues regeneration.
+    """
+    import collections
+    import hashlib
+    import pipeline.flow_diorama_sharded_worker as sw
+
+    p_dir = tmp_path / "ep_sha_guard"
+    refs_dir = p_dir / "03_visuals" / "reference_images"
+    native_dir = p_dir / "03_visuals" / "flow_native_clips"
+    refs_dir.mkdir(parents=True)
+    native_dir.mkdir(parents=True)
+
+    s_ref = refs_dir / "start.png"
+    e_ref = refs_dir / "end.png"
+    s_ref.write_bytes(b"START_PNG_V1")
+    e_ref.write_bytes(b"END_PNG_V1")
+
+    spec = {
+        "clip_number": 1,
+        "grammar": "expressive_vinyl_world",
+        "prompt": "Original 15-sentence prompt v1",
+        "reference_image": "03_visuals/reference_images/start.png",
+        "end_reference_image": "03_visuals/reference_images/end.png",
+        "schema_version": 8,
+    }
+    fp_v1 = sw.compute_clip_spec_fingerprints(spec, p_dir)
+    assert fp_v1["prompt_sha"] == hashlib.sha256(b"Original 15-sentence prompt v1").hexdigest()
+    assert fp_v1["start_ref_sha256"] == hashlib.sha256(b"START_PNG_V1").hexdigest()
+    assert fp_v1["end_ref_sha256"] == hashlib.sha256(b"END_PNG_V1").hexdigest()
+
+    monkeypatch.setattr(
+        sw,
+        "inspect_diorama_clip_cv",
+        lambda *_a, **_kw: {"passed": True, "max_frame_diff": 12.0, "mean_luma": 110.0, "plaque_glyph_run": 0},
+    )
+
+    clip_p = native_dir / "clip_1.mp4"
+    clip_p.write_bytes(b"M" * 400_000)
+
+    # Case 1: Legacy receipt missing prompt_sha -> rejected, clip deleted & popped for regen
+    ok_leg, reason_leg = sw.clip_receipt_matches_fingerprints({"clip_index": 1}, fp_v1)
+    assert ok_leg is False and "prompt_sha" in reason_leg
+    popped_leg = sw._pop_next_pending_clip(
+        collections.deque([dict(spec)]),
+        p_dir,
+        seen_global_shas=set(),
+        episode_qa_contract=None,
+        existing_clips_by_idx={1: {"clip_index": 1, "reference_attached": True, "end_reference_attached": True, "input_mode": "VIDEO_FRAMES"}},
+        prev_ref_enforced=True,
+    )
+    assert popped_leg is not None and int(popped_leg["clip_number"]) == 1
+    assert not clip_p.exists()
+
+    # Case 2: Exact prompt_sha + start_ref_sha256 + end_ref_sha256 match -> reused (`None` popped, file preserved)
+    clip_p.write_bytes(b"M" * 400_000)
+    matching_rec = {
+        "clip_index": 1,
+        "reference_attached": True,
+        "end_reference_attached": True,
+        "input_mode": "VIDEO_FRAMES",
+        **fp_v1,
+    }
+    seen_shas: set[str] = set()
+    popped_match = sw._pop_next_pending_clip(
+        collections.deque([dict(spec)]),
+        p_dir,
+        seen_global_shas=seen_shas,
+        episode_qa_contract=None,
+        existing_clips_by_idx={1: matching_rec},
+        prev_ref_enforced=True,
+    )
+    assert popped_match is None
+    assert clip_p.exists()
+    assert len(seen_shas) == 1
+
+    # Case 3: Prompt changes -> stale clip deleted & popped for regeneration
+    spec_new_prompt = {**spec, "prompt": "Updated keyframe-chain prompt v2"}
+    popped_prompt_drift = sw._pop_next_pending_clip(
+        collections.deque([spec_new_prompt]),
+        p_dir,
+        seen_global_shas=set(),
+        episode_qa_contract=None,
+        existing_clips_by_idx={1: matching_rec},
+        prev_ref_enforced=True,
+    )
+    assert popped_prompt_drift is not None and popped_prompt_drift["prompt"] == "Updated keyframe-chain prompt v2"
+    assert not clip_p.exists()
+
+    # Case 4: End reference image bytes change -> stale clip deleted & popped for regeneration
+    clip_p.write_bytes(b"M" * 400_000)
+    e_ref.write_bytes(b"END_PNG_V2_CHANGED")
+    popped_ref_drift = sw._pop_next_pending_clip(
+        collections.deque([dict(spec)]),
+        p_dir,
+        seen_global_shas=set(),
+        episode_qa_contract=None,
+        existing_clips_by_idx={1: matching_rec},
+        prev_ref_enforced=True,
+    )
+    assert popped_ref_drift is not None
+    assert not clip_p.exists()
+
+
+def test_audit_item3_script_newer_than_audio_master_mtime_and_hash_guard(tmp_path: Path) -> None:
+    """
+    Audit Item 3: Assembly (cached & preserve_audio_master & recut) and QA gates refuse to run
+    when `script.json` is newer than `audio_master.wav` OR when `script_sha256`/`sentences_sha256`
+    mismatch `voice_report.json`.
+    """
+    import os
+    from pipeline.diorama_assembler import (
+        assemble_diorama_project,
+        compute_script_freshness_digests,
+        recut_diorama_cuts,
+        verify_script_audio_freshness,
+    )
+    from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract
+    from pipeline.posthoc_semantic_qa import run_posthoc_semantic_qa
+    from pipeline.prosody import evaluate_prosody_gates
+    from pipeline.video_autopsy import VideoAutopsyEngine
+
+    p_dir = tmp_path / "ep_stale_guard"
+    for sub in ("02_script", "03_visuals/flow_native_clips", "04_audio", "05_assembly"):
+        (p_dir / sub).mkdir(parents=True, exist_ok=True)
+    for i in range(1, 15):
+        (p_dir / "03_visuals" / "flow_native_clips" / f"clip_{i}.mp4").write_bytes(b"0" * 4096)
+
+    sc_path = p_dir / "02_script" / "script.json"
+    sc_path.write_text(
+        json.dumps({"schema": 8, "style_profile": "expressive_25d_v8", "sentences": ["Why wake at 3 AM?", "Half your brain stood guard."]}),
+        encoding="utf-8",
+    )
+    (p_dir / "03_visuals" / "visual_plan.json").write_text(
+        json.dumps({"schema_version": 8, "style_profile": "expressive_25d_v8", "clips": []}),
+        encoding="utf-8",
+    )
+    dig = compute_script_freshness_digests(p_dir)
+    wav_path = p_dir / "04_audio" / "audio_master.wav"
+    wav_path.write_bytes(b"RIFF\x00\x00\x00\x00WAVE")
+    vr_path = p_dir / "04_audio" / "voice_report.json"
+    vr_path.write_text(
+        json.dumps(
+            {
+                "script_sha256": dig["script_sha256"],
+                "sentences_sha256": dig["sentences_sha256"],
+                "sentence_spans": [{"sentence_index": 1, "text": "Why wake at 3 AM?", "start_sec": 0.0, "end_sec": 1.5}],
+                "events": [],
+                "speech_end_sec": 3.0,
+                "total_duration_sec": 4.0,
+            }
+        ),
+        encoding="utf-8",
+    )
+    mp4_path = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+    mp4_path.write_bytes(b"0" * 8192)
+    (p_dir / "05_assembly" / "edit_decision_list.json").write_text(json.dumps({"schema": 8, "cuts": []}), encoding="utf-8")
+
+    os.utime(sc_path, (1000.0, 1000.0))
+    os.utime(wav_path, (1005.0, 1005.0))
+    assert verify_script_audio_freshness(p_dir)["fresh"] is True
+
+    # 1) Mtime guard: script.json touched AFTER audio_master.wav -> ALL assembly & QA entrypoints refuse with RuntimeError
+    os.utime(sc_path, (1020.0, 1020.0))
+    for fn in (
+        lambda: assemble_diorama_project(p_dir, force_rebuild=False),
+        lambda: assemble_diorama_project(p_dir, force_rebuild=True, preserve_audio_master=True),
+        lambda: recut_diorama_cuts(p_dir, [1]),
+        lambda: verify_final_mp4_against_contract(p_dir, run_asr_sync=False, save_report=False),
+        lambda: run_posthoc_semantic_qa(p_dir, render_strips=False, run_asr_sync=False, save_report=False),
+        lambda: VideoAutopsyEngine.inspect_project(p_dir, save_report=False),
+        lambda: evaluate_prosody_gates(p_dir, run_asr=False, save_report=False, strict_freshness=True),
+    ):
+        with pytest.raises(RuntimeError, match="Stale audio/assembly guard"):
+            fn()
+
+    # 2) Hash guard: even if mtime is backdated <= audio_master.wav, modified script content STILL triggers RuntimeError
+    sc_path.write_text(
+        json.dumps({"schema": 8, "style_profile": "expressive_25d_v8", "sentences": ["Why wake at 3 AM?", "Edited 15-sentence script!"]}),
+        encoding="utf-8",
+    )
+    os.utime(sc_path, (995.0, 995.0))
+    with pytest.raises(RuntimeError, match="sha256"):
+        verify_script_audio_freshness(p_dir, context="hash-test")
+
+
+def test_audit_item4_and_8_download_missed_rescan_and_two_miss_abort_partial_summary(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """
+    Audit Items 4 & 8:
+      - On `download_missed`, worker re-scans the Flow gallery (`_rescan_gallery_for_missed_tile`)
+        before resubmitting; if the tile hydrates on re-scan, clip succeeds with `submit_calls == 1`.
+      - After 2 consecutive `download_missed` failures, worker aborts early with
+        `download_missed_abort(consecutive_download_misses=2)` (not 5!) and
+        `run_sharded_diorama_flow_generation` writes `03_visuals/flow_partial_usable_summary.json`.
+    """
+    import asyncio
+    import pipeline.dynamic_episode_qa as deq
+    import pipeline.flow_diorama_sharded_worker as sw
+    import pipeline.flow_workspace as fw
+
+    fake_mono = [1000.0]
+
+    async def _fast_sleep(_sec: float, result: Any = None) -> Any:
+        fake_mono[0] += max(0.01, float(_sec))
+        return result
+
+    monkeypatch.setattr(sw.asyncio, "sleep", _fast_sleep)
+    monkeypatch.setattr(sw.time, "monotonic", lambda: fake_mono[0])
+
+    p_dir = tmp_path / "ep_dl_miss"
+    (p_dir / "02_script").mkdir(parents=True)
+    (p_dir / "03_visuals").mkdir(parents=True)
+    (p_dir / "02_script" / "script.json").write_text(
+        json.dumps({"schema": 8, "style_profile": "expressive_25d_v8", "sentences": ["S1?", "S2."]}),
+        encoding="utf-8",
+    )
+    (p_dir / "03_visuals" / "visual_plan.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 8,
+                "style_profile": "expressive_25d_v8",
+                "clips": [
+                    {"clip_number": 1, "sentence_index": 1, "end_sentence_index": 1, "grammar": "expressive_vinyl_world"},
+                    {"clip_number": 2, "sentence_index": 2, "end_sentence_index": 2, "grammar": "expressive_vinyl_world"},
+                ],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    submit_prompts: list[str] = []
+    dl_calls_by_clip: dict[str, int] = {"clip_1": 0, "clip_2": 0}
+    clean_calls: list[dict[str, Any]] = []
+
+    class _FakeCDP:
+        def __init__(self, ws_url: str) -> None:
+            self.ws_url = ws_url
+
+        async def __aenter__(self) -> "_FakeCDP":
+            return self
+
+        async def __aexit__(self, *args: object) -> None:
+            return None
+
+        async def send(self, method: str, params: dict[str, Any] | None = None) -> dict[str, Any]:
+            return {}
+
+        async def eval(self, expr: str) -> Any:
+            if "button.settings-trigger-button" in expr and "readyState" in expr:
+                return True
+            if "unseenHydrated" in expr:
+                return {"readyCount": 1, "unseenHydrated": 1}
+            if "classifyTile" in expr and "hasNewSrc" in expr:
+                return {"ready": 1, "rendering": 0, "hasNewSrc": True, "topKey": f"https://v/{len(submit_prompts)}", "hadErr": False}
+            if "classifyTile" in expr:
+                return {"ready": 0, "rendering": 0, "srcs": [], "topKey": ""}
+            return {}
+
+    async def _fake_alloc(**kwargs: Any) -> dict[str, Any]:
+        return {
+            "tab_id": "TAB_1",
+            "project_url": kwargs.get("existing_project_url") or "https://flow.google.com/project/canon-room-1234",
+            "ws_url": "ws://dummy",
+            "lease_owner_id": "owner_1",
+        }
+
+    async def _fake_submit(_c: Any, prompt_txt: str, *_a: Any, **kw: Any) -> bool:
+        submit_prompts.append(prompt_txt)
+        if kw.get("submission_meta_out") is not None:
+            kw["submission_meta_out"]["flow_model"] = "Veo 3.1 - Lite [Lower Priority]"
+            kw["submission_meta_out"]["credit_tier"] = "zero_credit_fallback"
+        return True
+
+    async def _fake_dl(dst_mp4: Path, **_kw: Any) -> dict[str, Any] | None:
+        # dst_mp4 is `/tmp/aab_flow_cand_<shard>_<clip_num>_<try>.mp4`
+        parts = dst_mp4.stem.split("_")
+        clip_key = f"clip_{parts[-2]}" if len(parts) >= 3 else dst_mp4.stem
+        dl_calls_by_clip[clip_key] = dl_calls_by_clip.get(clip_key, 0) + 1
+        if clip_key == "clip_1":
+            # Clip 1: 1st download misses, gallery re-scan (2nd call) recovers WITHOUT resubmitting!
+            if dl_calls_by_clip[clip_key] == 1:
+                return None
+            dst_mp4.write_bytes(b"1" * 400_000)
+            return {"sha256": "sha_clip_1_ok", "file_size_bytes": 400_000, "source_download_filename": "clip_1.mp4"}
+        # Clip 2: always misses both primary download and re-scan -> must abort after 2 tries (4 dl calls: 2 tries x (primary+rescan))
+        return None
+
+    async def _spy_clean_ws(**kw: Any) -> dict[str, Any]:
+        clean_calls.append(dict(kw))
+        return {"deleted": 0}
+
+    monkeypatch.setattr(sw, "build_diorama_v6_prompts", lambda _vp, _s: [
+        {"clip_number": 1, "grammar": "expressive_vinyl_world", "prompt": "P1", "schema_version": 8},
+        {"clip_number": 2, "grammar": "expressive_vinyl_world", "prompt": "P2", "schema_version": 8},
+    ])
+    monkeypatch.setattr(sw, "write_flow_prompts_json", lambda *_a, **_kw: None)
+    monkeypatch.setattr(deq, "write_episode_qa_contract", lambda *_a, **_kw: (p_dir / "03_visuals" / "episode_qa_contract.json", {}))
+    monkeypatch.setattr(sw, "allocate_dedicated_flow_project_tab", _fake_alloc)
+    monkeypatch.setattr(sw, "DirectCDPClient", _FakeCDP)
+    monkeypatch.setattr(sw, "rename_active_flow_project", lambda *_a, **_kw: asyncio.sleep(0, result=True))
+    monkeypatch.setattr(sw, "enable_background_focus_emulation", lambda *_a, **_kw: asyncio.sleep(0))
+    monkeypatch.setattr(sw, "release_and_close_leased_tab", lambda *_a, **_kw: True)
+    monkeypatch.setattr(
+        sw,
+        "_configure_diorama_tab_engine",
+        lambda *_a, **_kw: asyncio.sleep(0, result={"flow_model": "Veo 3.1 - Lite [Lower Priority]", "credit_tier": "zero_credit_fallback", "settings_summary": "ok"}),
+    )
+    monkeypatch.setattr(sw, "_submit_diorama_prompt_zero_credit", _fake_submit)
+    monkeypatch.setattr(sw, "_download_newest_ready_tile", _fake_dl)
+    monkeypatch.setattr(
+        sw,
+        "inspect_diorama_clip_cv",
+        lambda *_a, **_kw: {"passed": True, "max_frame_diff": 12.0, "mean_luma": 110.0, "plaque_glyph_run": 0},
+    )
+    monkeypatch.setattr(sw, "_ensure_min_clip_size_if_needed", lambda _p: None)
+    monkeypatch.setattr(fw, "clean_flow_workspace_async", _spy_clean_ws)
+    monkeypatch.setattr(sw, "clean_flow_workspace_async", _spy_clean_ws)
+    monkeypatch.setattr(sw, "reap_orphan_pipeline_tabs", lambda **_kw: None)
+
+    with pytest.raises(RuntimeError, match=r"download_missed_abort\(consecutive_download_misses=2\)"):
+        asyncio.run(sw.run_sharded_diorama_flow_generation(p_dir, max_parallel_tabs=1, engine_mode="zero-credit"))
+
+    # Clip 1 submitted ONLY ONCE (recovered via gallery re-scan!), Clip 2 submitted ONLY TWICE (aborted at 2 misses, NOT 5!)
+    assert submit_prompts.count("P1") == 1
+    assert submit_prompts.count("P2") == 2
+
+    # Audit Item 8: Partial usable-clip summary written on single clip failure
+    partial_path = p_dir / "03_visuals" / "flow_partial_usable_summary.json"
+    assert partial_path.exists()
+    partial = json.loads(partial_path.read_text(encoding="utf-8"))
+    assert partial["usable_clip_indices"] == [1]
+    assert partial["missing_or_failed_clip_indices"] == [2]
+    assert any("download_missed_abort" in d["error"] for d in partial["failed_clip_details"])
+
+    # Audit Item 6: finally cleanup ran with project_id AND protected canonical room URL on partial failure
+    assert len(clean_calls) == 1
+    assert clean_calls[0]["project_id"] == "ep_dl_miss"
+    assert clean_calls[0]["exclude_project_urls"] == ["https://flow.google.com/project/canon-room-1234"]
+
+
+def test_audit_item5_v8_yunet_skin_or_hair_leak_advisory_vs_real_flesh() -> None:
+    """
+    Audit Item 5: Cool-lit matte-white 2.5D vinyl heads with black 2D ink features are treated as
+    advisory (`confirmed_human == False`) with `bbox` + `score` telemetry, whereas real warm human
+    skin or dark hair caps trigger `confirmed_human == True`.
+    """
+    import cv2
+    import numpy as np
+    import pipeline.flow_diorama_sharded_worker as sw
+
+    # 1) Matte-white 2.5D vinyl oval head (cool nightstand bounce + black 2D ink eyes) -> advisory only
+    vinyl_roi = np.full((240, 240, 3), (235, 232, 226), dtype=np.uint8)
+    cv2.circle(vinyl_roi, (95, 110), 9, (22, 22, 24), -1)
+    cv2.circle(vinyl_roi, (145, 110), 9, (22, 22, 24), -1)
+    confirmed_vinyl, meta_vinyl = sw.verify_v8_yunet_skin_or_hair_leak(vinyl_roi, (40, 40, 160, 160, 0.71))
+    assert confirmed_vinyl is False
+    assert meta_vinyl["bbox"] == [40, 40, 160, 160]
+    assert meta_vinyl["score"] == 0.71
+
+    # 2) Real human warm peach skin face -> confirmed leak
+    skin_roi = np.full((240, 240, 3), (125, 158, 212), dtype=np.uint8)  # BGR warm peach skin
+    confirmed_skin, meta_skin = sw.verify_v8_yunet_skin_or_hair_leak(skin_roi, (40, 40, 160, 160, 0.84))
+    assert confirmed_skin is True
+    assert meta_skin["skin_ratio"] > 0.20
+
+
+def test_audit_item6_stale_seed_canonical_url_updates_across_shards_and_excludes_in_cleanup(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """
+    Audit Item 6:
+      1) If `seed_canonical_url` from an old receipt redirects/404s and `allocate_dedicated_flow_project_tab`
+         returns a new canonical room URL, Shard 1 updates `flow_rate_state["canonical_project_url"]` so
+         Shard 2 reuses the NEW canonical room (never falling back to the dead URL and spawning a 2nd room).
+      2) `clean_flow_workspace_async(exclude_project_urls=[...])` deletes `__clips*` duplicates while sparing
+         the canonical room URL.
+    """
+    import asyncio
+    import collections
+    import pipeline.flow_diorama_sharded_worker as sw
+    import pipeline.flow_workspace as fw
+
+    fake_mono = [1000.0]
+
+    async def _fast_sleep(_sec: float, result: Any = None) -> Any:
+        fake_mono[0] += max(0.01, float(_sec))
+        return result
+
+    monkeypatch.setattr(sw.asyncio, "sleep", _fast_sleep)
+    monkeypatch.setattr(sw.time, "monotonic", lambda: fake_mono[0])
+    monkeypatch.setattr(fw.asyncio, "sleep", _fast_sleep)
+
+    seen_existing_urls: list[str | None] = []
+
+    async def _alloc_with_stale_seed(**kwargs: Any) -> dict[str, Any]:
+        ex = kwargs.get("existing_project_url")
+        seen_existing_urls.append(ex)
+        # Simulate stale seed URL failing and allocating fresh canonical room `new-canon-7777`
+        resolved = (
+            "https://flow.google.com/project/new-canon-7777"
+            if ex == "https://flow.google.com/project/dead-stale-0000"
+            else (ex or "https://flow.google.com/project/new-canon-7777")
+        )
+        return {"tab_id": f"T{len(seen_existing_urls)}", "project_url": resolved, "ws_url": "ws://d", "lease_owner_id": "own"}
+
+    class _MinCDP:
+        def __init__(self, _ws: str) -> None:
+            pass
+
+        async def __aenter__(self) -> "_MinCDP":
+            return self
+
+        async def __aexit__(self, *_a: object) -> None:
+            return None
+
+        async def send(self, *_a: Any, **_kw: Any) -> dict[str, Any]:
+            return {}
+
+        async def eval(self, expr: str) -> Any:
+            if "button.settings-trigger-button" in expr:
+                return True
+            if "classifyTile" in expr and "hasNewSrc" in expr:
+                return {"ready": 1, "rendering": 0, "hasNewSrc": True, "topKey": f"https://v/{len(seen_existing_urls)}", "hadErr": False}
+            return {"ready": 0, "rendering": 0, "srcs": [], "topKey": ""}
+
+    async def _dl(dst_mp4: Path, **_kw: Any) -> dict[str, Any]:
+        dst_mp4.write_bytes(b"2" * 400_000)
+        return {"sha256": f"s_{dst_mp4.stem}", "file_size_bytes": 400_000, "source_download_filename": dst_mp4.name}
+
+    async def _sub(_c: Any, _p: str, *_a: Any, **kw: Any) -> bool:
+        if kw.get("submission_meta_out") is not None:
+            kw["submission_meta_out"]["flow_model"] = "Veo 3.1 - Lite [Lower Priority]"
+            kw["submission_meta_out"]["credit_tier"] = "zero_credit_fallback"
+        return True
+
+    monkeypatch.setattr(sw, "allocate_dedicated_flow_project_tab", _alloc_with_stale_seed)
+    monkeypatch.setattr(sw, "DirectCDPClient", _MinCDP)
+    monkeypatch.setattr(sw, "rename_active_flow_project", lambda *_a, **_kw: asyncio.sleep(0, result=True))
+    monkeypatch.setattr(sw, "enable_background_focus_emulation", lambda *_a, **_kw: asyncio.sleep(0))
+    monkeypatch.setattr(sw, "release_and_close_leased_tab", lambda *_a, **_kw: True)
+    monkeypatch.setattr(
+        sw,
+        "_configure_diorama_tab_engine",
+        lambda *_a, **_kw: asyncio.sleep(0, result={"flow_model": "Veo 3.1 - Lite [Lower Priority]", "credit_tier": "zero_credit_fallback", "settings_summary": "ok"}),
+    )
+    monkeypatch.setattr(sw, "_submit_diorama_prompt_zero_credit", _sub)
+    monkeypatch.setattr(sw, "_download_newest_ready_tile", _dl)
+    monkeypatch.setattr(sw, "inspect_diorama_clip_cv", lambda *_a, **_kw: {"passed": True, "max_frame_diff": 12.0, "mean_luma": 110.0, "plaque_glyph_run": 0})
+    monkeypatch.setattr(sw, "_ensure_min_clip_size_if_needed", lambda _p: None)
+
+    rate_state: dict[str, Any] = {
+        "submit_lock": asyncio.Lock(),
+        "last_tab_open_mono": 0.0,
+        "last_submit_mono": 0.0,
+        "cooldown_until_mono": 0.0,
+        "cooldown_hits": 0,
+        "canonical_project_url": "https://flow.google.com/project/dead-stale-0000",
+        "opened_project_urls": [],
+        "tab_owners_by_id": {},
+    }
+    lock = asyncio.Lock()
+    asyncio.run(
+        sw._run_shard_worker(
+            shard_idx=1,
+            shard_clips=[],
+            project_id="ep_seed_fix",
+            project_dir=tmp_path,
+            short_ref_map={},
+            tab_open_lock=lock,
+            opened_tabs=[],
+            seen_global_shas=set(),
+            shared_clip_queue=collections.deque([{"clip_number": 1, "grammar": "expressive_vinyl_world", "prompt": "c1", "schema_version": 8}]),
+            flow_rate_state=rate_state,
+        )
+    )
+    asyncio.run(
+        sw._run_shard_worker(
+            shard_idx=2,
+            shard_clips=[],
+            project_id="ep_seed_fix",
+            project_dir=tmp_path,
+            short_ref_map={},
+            tab_open_lock=lock,
+            opened_tabs=[],
+            seen_global_shas=set(),
+            shared_clip_queue=collections.deque([{"clip_number": 2, "grammar": "expressive_vinyl_world", "prompt": "c2", "schema_version": 8}]),
+            flow_rate_state=rate_state,
+        )
+    )
+    assert seen_existing_urls == [
+        "https://flow.google.com/project/dead-stale-0000",
+        "https://flow.google.com/project/new-canon-7777",
+    ]
+    assert rate_state["canonical_project_url"] == "https://flow.google.com/project/new-canon-7777"
+

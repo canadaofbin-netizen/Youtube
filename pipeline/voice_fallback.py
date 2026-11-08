@@ -139,9 +139,15 @@ def resolve_diorama_voice_preset(
     """
     Resolves `(preset_id, preset_spec)` from `DIORAMA_VOICE_PRESETS`:
     priority = explicit `voice_preset` -> `script_doc['voice_preset']` -> `visual_plan['voice_preset']`
-    -> reverse lookup by `voice` neural/kokoro ID -> `DEFAULT_DIORAMA_VOICE_PRESET` ('andrew_v7').
+    -> reverse lookup by `voice` neural/kokoro ID -> `EXPRESSIVE_V8_VOICE_PRESET` ('emma_v7') on untagged v8 plans
+    -> `DEFAULT_DIORAMA_VOICE_PRESET` ('emma_v7').
     """
-    from pipeline.config import DEFAULT_DIORAMA_VOICE_PRESET, DIORAMA_VOICE_PRESETS
+    from pipeline.config import (
+        DEFAULT_DIORAMA_VOICE_PRESET,
+        DIORAMA_VOICE_PRESETS,
+        EXPRESSIVE_V8_VOICE_PRESET,
+        is_expressive_v8_plan,
+    )
 
     for cand in (
         voice_preset,
@@ -153,9 +159,15 @@ def resolve_diorama_voice_preset(
             return key, dict(DIORAMA_VOICE_PRESETS[key])
     v_norm = str(voice or "").strip().lower()
     if v_norm:
+        if is_expressive_v8_plan(visual_plan, script_doc):
+            v8_spec = DIORAMA_VOICE_PRESETS.get(EXPRESSIVE_V8_VOICE_PRESET)
+            if v8_spec and v_norm in (v8_spec["voice"].lower(), v8_spec["kokoro_voice"].lower()):
+                return EXPRESSIVE_V8_VOICE_PRESET, dict(v8_spec)
         for k, spec in DIORAMA_VOICE_PRESETS.items():
             if v_norm in (spec["voice"].lower(), spec["kokoro_voice"].lower()):
                 return k, dict(spec)
+    if voice_preset is None and not v_norm and is_expressive_v8_plan(visual_plan, script_doc):
+        return EXPRESSIVE_V8_VOICE_PRESET, dict(DIORAMA_VOICE_PRESETS[EXPRESSIVE_V8_VOICE_PRESET])
     return DEFAULT_DIORAMA_VOICE_PRESET, dict(DIORAMA_VOICE_PRESETS[DEFAULT_DIORAMA_VOICE_PRESET])
 
 
@@ -216,13 +228,14 @@ def synthesize_line(
     vocal_profile: str = "broadcast",
     vocal_filter: str | None = None,
     voice_preset: str | None = None,
+    preserve_exclamation: bool = False,
 ) -> np.ndarray:
     """One narration line -> mono float32 PCM at sr, fixed channel voice / speed, vocal chain + active level normalized."""
     use_voice = _resolve_kokoro_voice(voice, voice_preset=voice_preset)
     use_speed = float(speed if speed is not None else VOICE_FALLBACK_SPEED)
     is_storyteller = str(vocal_profile or "broadcast").strip().lower() == "storyteller"
     chain_tag = (f"storyteller_{hashlib.md5((vocal_filter or STORYTELLER_VOCAL_FILTER).encode()).hexdigest()[:6]}" if is_storyteller else "r41_v2")
-    spoken = to_tts_text(text)
+    spoken = to_expressive_tts_text(text) if preserve_exclamation else to_tts_text(text)
     key = hashlib.sha256(f"{spoken}|{use_voice}|{use_speed}|{chain_tag}|{sr}".encode()).hexdigest()[:16]
     cached = Path(cache_dir) / f"clip_{clip_no}_{key}.f32" if cache_dir else None
     wav_out = Path(cache_dir) / f"clip_{clip_no}.wav" if (cache_dir and clip_no > 0) else None
@@ -989,6 +1002,7 @@ def _synthesize_edge_tts_acts(
     rates_used_out: list[str] | None = None,
     vocal_filter: str | None = None,
     allow_gear_wsola_fallback: bool = False,
+    preserve_exclamation: bool = False,
 ) -> list[np.ndarray]:
     """
     Synthesizes each Act in ONE unbroken continuous `edge-tts` pass (`en-US-AndrewMultilingualNeural` or preset voice),
@@ -1023,8 +1037,9 @@ def _synthesize_edge_tts_acts(
         t = to_expressive_tts_text(s)
         # Convert internal mid-sentence '...' before words to ' — ' so SentenceBoundary never splits one sentence into two
         t = re.sub(r"\.\.\.\s+(?=[A-Za-z])", " — ", t)
-        # Replace '!' with '.' in TTS stream to prevent high-pitch (+14Hz) neural vocoder overdrive/tearing
-        t = t.replace("!", ".")
+        # Replace '!' with '.' in legacy v7 stream; preserve '!' on expressive_25d_v8 so exclamation inflection fires
+        if not preserve_exclamation:
+            t = t.replace("!", ".")
         if not re.search(r"[.!?]$", t):
             t += "."
         return t
@@ -1222,9 +1237,10 @@ def _synthesize_edge_tts_acts(
     for a_idx, act_sents in enumerate(act_groups, start=1):
         norm_sents = [_prep_for_act_stream(s) for s in act_sents]
         sub_counts = [max(1, len([x for x in re.split(r"(?<=[.!?])\s+", ns.strip()) if x.strip()])) for ns in norm_sents]
+        excl_tag = "|excl1" if preserve_exclamation else ""
         for act_rate in sorted(set(rates_by_act[a_idx - 1])):
             key = hashlib.sha256(
-                f"edge_act_v7_studio96k|{DIORAMA_TTS_OUTPUT_FORMAT}|{active_vocal_filter}|{voice}|{act_rate}|{pitch}|{volume}|{sr}|{'||'.join(norm_sents)}".encode()
+                f"edge_act_v7_studio96k{excl_tag}|{DIORAMA_TTS_OUTPUT_FORMAT}|{active_vocal_filter}|{voice}|{act_rate}|{pitch}|{volume}|{sr}|{'||'.join(norm_sents)}".encode()
             ).hexdigest()[:16]
             local_npz = local_tts_dir / f"edge_act_{a_idx}_{key}.npz"
             fuse_npz = cache_dir / f"edge_act_{a_idx}_{key}.npz"
@@ -1361,6 +1377,7 @@ def _synthesize_edge_tts_acts(
                     pitch,
                     volume,
                     vocal_filter=active_vocal_filter,
+                    preserve_exclamation=preserve_exclamation,
                 )
                 slices_by_act[(a_idx, got)] = base_only
             out_pcms.append(slices_by_act[(a_idx, got)][s_i])
@@ -1377,10 +1394,11 @@ def _trim_waveform_silences_and_breaths(
     word_list: list[tuple[float, float, str]] | None = None,
     internal_silence_thresh_sec: float = 0.16,
     internal_keep_sec: float = 0.06,
+    lead_pad_sec: float = 0.030,
 ) -> tuple[np.ndarray, list[tuple[float, float, str]]]:
     """
     R63 DAW-style waveform silence & breath trimmer:
-      - Trims leading & trailing edge-tts dead-air tails down to gentle natural consonant/release pads (30ms lead, 50ms tail).
+      - Trims leading & trailing edge-tts dead-air tails down to gentle natural consonant/release pads (`lead_pad_sec` lead, 50ms tail).
       - Compresses excessive internal silent gaps longer than `internal_silence_thresh_sec` down to `internal_keep_sec`
         with smooth 12ms overlap-add cosine crossfades while preserving natural conversational breaths (`>= DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN`).
       - Shifts aligned word timestamps `(t0, t1, w)` monotonically to match the trimmed waveform.
@@ -1404,7 +1422,7 @@ def _trim_waveform_silences_and_breaths(
         return arr, list(word_list or [])
 
     v_idx = np.where(voiced)[0]
-    lead_pad_w = 3   # 30ms gentle pre-onset consonant pad
+    lead_pad_w = max(0, int(round(float(lead_pad_sec) / 0.010)))  # 30ms gentle pre-onset pad (0ms on v8 S1)
     tail_pad_w = 5   # 50ms natural post-release consonant/breath taper pad
     w_start = max(0, int(v_idx[0]) - lead_pad_w)
     w_end = min(n_wins, int(v_idx[-1]) + 1 + tail_pad_w)
@@ -1451,7 +1469,12 @@ def _trim_waveform_silences_and_breaths(
     for idx_k, (a0, a1) in enumerate(kept_intervals):
         seg = arr[a0:a1].copy()
         if idx_k == 0 and len(seg) > 2 * xfade:
-            seg[:xfade] *= ramp
+            if lead_pad_w == 0:
+                fast_n = max(8, int(0.004 * sr))
+                if len(seg) > 2 * fast_n:
+                    seg[:fast_n] *= (0.5 - 0.5 * np.cos(np.linspace(0.0, np.pi, fast_n, dtype=np.float32)))
+            else:
+                seg[:xfade] *= ramp
         if idx_k == len(kept_intervals) - 1 and len(seg) > 2 * xfade:
             seg[-xfade:] *= ramp[::-1]
         if out_buf is None:
@@ -1541,6 +1564,7 @@ def synthesize_continuous_diorama_track(
     prosody_mode: str | None = None,
     voice_preset: str | None = None,
     allow_kokoro_fallback: bool = False,
+    retry_intact_sentence_indices: set[int] | list[int] | None = None,
 ) -> dict[str, Any]:
     """
     R58, R59 & R63 Audio-First Master Clock for Schema v6/v7 `neuro_diorama`:
@@ -1577,13 +1601,26 @@ def synthesize_continuous_diorama_track(
         DIORAMA_V7_TTS_VOLUME,
         DIORAMA_V7_US_PROSODY_MODE,
         DIORAMA_V7_VIDEO_FPS,
+        DIORAMA_VOICE_PRESETS,
+        EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC,
+        EXPRESSIVE_V8_FIRST_ONSET_TARGET_SEC,
+        EXPRESSIVE_V8_FOIL_VOICE_PRESET,
+        EXPRESSIVE_V8_OUTRO_TAIL_SEC,
+        EXPRESSIVE_V8_VIDEO_FPS,
         MICRO_SHORT_DURATION_MAX_SEC,
         MICRO_SHORT_DURATION_MIN_SEC,
         MICRO_SHORT_PROFILE,
+        PROMPT_SCHEMA_VERSION_V8,
+        SHORTS_90S_PROFILE,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
         SHORTS_HARD_CEILING_SEC,
+        STORYTELLER_VOCAL_FILTER_EXPRESSIVE_V8,
         STORYTELLER_VOCAL_FILTER_FEMALE,
         VIDEO_FPS,
         is_diorama_v7_plan,
+        is_expressive_v8_plan,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
     )
 
     clean_sents = [str(s).strip() for s in sentences if str(s).strip()]
@@ -1600,8 +1637,84 @@ def synthesize_continuous_diorama_track(
     is_micro_short = (
         str((script_doc or {}).get("profile") or vp_probe.get("profile") or "").strip().lower() == MICRO_SHORT_PROFILE
     )
-    v7_mode = is_micro_short or is_diorama_v7_plan(script_doc or {}) or is_diorama_v7_plan(vp_probe)
-    target_fps = int(DIORAMA_V7_VIDEO_FPS if v7_mode else VIDEO_FPS)
+    is_v8 = is_expressive_v8_plan(vp_probe, script_doc or {})
+    v7_mode = is_micro_short or is_v8 or is_diorama_v7_plan(script_doc or {}) or is_diorama_v7_plan(vp_probe)
+    outro_tail_sec = float(EXPRESSIVE_V8_OUTRO_TAIL_SEC if is_v8 else DIORAMA_OUTRO_SWELL_SEC)
+    target_fps = int(EXPRESSIVE_V8_VIDEO_FPS if is_v8 else (DIORAMA_V7_VIDEO_FPS if v7_mode else VIDEO_FPS))
+
+    def _vocal_filter_for_spec(sp_obj: dict[str, Any]) -> str:
+        eq_p = str(sp_obj.get("eq_profile") or "")
+        if eq_p == "female_studio":
+            return STORYTELLER_VOCAL_FILTER_FEMALE
+        if eq_p == "male_expressive_v8":
+            return STORYTELLER_VOCAL_FILTER_EXPRESSIVE_V8
+        return STORYTELLER_VOCAL_FILTER
+
+    # Extract optional 1-based foil interjection sentence indices (`foil_v8` / `guy_foil_v8` contrasting character voices)
+    foil_indices: set[int] = set()
+    foil_preset_by_idx: dict[int, str] = {}
+    if isinstance(script_doc, dict):
+        for raw_fi in script_doc.get("foil_sentence_indices") or []:
+            try:
+                fi = int(raw_fi)
+                if 1 <= fi <= len(clean_sents):
+                    foil_indices.add(fi)
+            except (TypeError, ValueError):
+                pass
+        sp_map = script_doc.get("sentence_speakers")
+        if isinstance(sp_map, dict):
+            for k_sp, v_sp in sp_map.items():
+                try:
+                    fi = int(k_sp)
+                    tag = str(v_sp).strip().lower()
+                    if 1 <= fi <= len(clean_sents) and tag in ("foil", "foil_2", "guy_foil_v8", "foil_v8"):
+                        foil_indices.add(fi)
+                        if tag in ("foil_2", "guy_foil_v8") and "guy_foil_v8" in DIORAMA_VOICE_PRESETS:
+                            foil_preset_by_idx[fi] = "guy_foil_v8"
+                        elif tag in DIORAMA_VOICE_PRESETS:
+                            foil_preset_by_idx[fi] = tag
+                except (TypeError, ValueError):
+                    pass
+        elif isinstance(sp_map, list):
+            for fi, v_sp in enumerate(sp_map, start=1):
+                tag = str(v_sp).strip().lower()
+                if 1 <= fi <= len(clean_sents) and tag in ("foil", "foil_2", "guy_foil_v8", "foil_v8"):
+                    foil_indices.add(fi)
+                    if tag in ("foil_2", "guy_foil_v8") and "guy_foil_v8" in DIORAMA_VOICE_PRESETS:
+                        foil_preset_by_idx[fi] = "guy_foil_v8"
+                    elif tag in DIORAMA_VOICE_PRESETS:
+                        foil_preset_by_idx[fi] = tag
+        svp_map = script_doc.get("sentence_voice_presets")
+        if isinstance(svp_map, dict):
+            for k_vp, v_vp in svp_map.items():
+                try:
+                    fi = int(k_vp)
+                    vp_id = str(v_vp).strip().lower()
+                    if 1 <= fi <= len(clean_sents) and vp_id in DIORAMA_VOICE_PRESETS:
+                        foil_indices.add(fi)
+                        foil_preset_by_idx[fi] = vp_id
+                except (TypeError, ValueError):
+                    pass
+        if isinstance(script_doc.get("acts"), list):
+            run_fi = 0
+            for act_obj in script_doc["acts"]:
+                if not isinstance(act_obj, dict):
+                    continue
+                act_s = [str(x).strip() for x in (act_obj.get("sentences") or []) if str(x).strip()]
+                act_sp = act_obj.get("sentence_speakers")
+                if isinstance(act_sp, list):
+                    for off_i, v_sp in enumerate(act_sp[: len(act_s)], start=1):
+                        tag = str(v_sp).strip().lower()
+                        if tag in ("foil", "foil_2", "guy_foil_v8", "foil_v8") and 1 <= run_fi + off_i <= len(clean_sents):
+                            foil_indices.add(run_fi + off_i)
+                            if tag in ("foil_2", "guy_foil_v8") and "guy_foil_v8" in DIORAMA_VOICE_PRESETS:
+                                foil_preset_by_idx[run_fi + off_i] = "guy_foil_v8"
+                run_fi += len(act_s)
+    foil_preset_id = str((script_doc or {}).get("foil_voice_preset") or EXPRESSIVE_V8_FOIL_VOICE_PRESET).strip().lower()
+    if foil_preset_id not in DIORAMA_VOICE_PRESETS:
+        foil_preset_id = EXPRESSIVE_V8_FOIL_VOICE_PRESET
+    foil_spec = dict(DIORAMA_VOICE_PRESETS[foil_preset_id])
+    foil_vocal_filter = _vocal_filter_for_spec(foil_spec)
 
     eff_preset, preset_spec = resolve_diorama_voice_preset(
         voice_preset=voice_preset,
@@ -1609,20 +1722,18 @@ def synthesize_continuous_diorama_track(
         visual_plan=vp_probe,
         voice=voice,
     )
-    eff_vocal_filter = (
-        STORYTELLER_VOCAL_FILTER_FEMALE
-        if preset_spec.get("eq_profile") == "female_studio"
-        else STORYTELLER_VOCAL_FILTER
-    )
+    eff_vocal_filter = _vocal_filter_for_spec(preset_spec)
 
     from pipeline.prosody import (
         DYNAMIC_PROSODY_MODES,
         apply_emphasis,
         base_rate_for_mode,
+        crossfade_clause_pcms,
         emphasis_words_for,
         measure_edge_silences,
         measure_internal_max_silence,
         fade_edges,
+        plan_expressive_v8_clauses,
         plan_sentence_prosody,
         rate_to_speed,
         resolve_prosody_mode,
@@ -1641,13 +1752,10 @@ def synthesize_continuous_diorama_track(
     chosen_engine = str(engine or ("kokoro-onnx" if pre_synthesized_lines is not None else DIORAMA_TTS_ENGINE)).strip().lower()
     cache = Path(project_dir) / "04_audio" / ("tts_diorama_v7" if v7_mode else "tts_diorama")
     lead_sec = 0.08 if v7_mode else 0.10
-    if prosody_active:
+    if is_v8:
+        lead_sec = float(EXPRESSIVE_V8_FIRST_ONSET_TARGET_SEC)  # 0.000s immediate speech onset on expressive_25d_v8
+    elif prosody_active:
         lead_sec = 0.05  # P1: first audible onset <= 0.10s including the 30ms consonant pad
-    from pipeline.config import (
-        SHORTS_90S_PROFILE,
-        resolve_shorts_format_profile,
-        shorts_duration_range_for_profile,
-    )
 
     fmt_profile_tts = resolve_shorts_format_profile(
         vp_probe,
@@ -1658,8 +1766,8 @@ def synthesize_continuous_diorama_track(
     if is_micro_short or fmt_profile_tts == MICRO_SHORT_PROFILE:
         min_dur_sec = float(MICRO_SHORT_DURATION_MIN_SEC)
         safe_max_total = float(MICRO_SHORT_DURATION_MAX_SEC)
-    elif fmt_profile_tts == SHORTS_90S_PROFILE:
-        min_dur_sec, safe_max_total = shorts_duration_range_for_profile(SHORTS_90S_PROFILE)
+    elif fmt_profile_tts in (SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
+        min_dur_sec, safe_max_total = shorts_duration_range_for_profile(fmt_profile_tts)
     else:
         min_dur_sec = float(DIORAMA_V7_DURATION_MIN_SEC if v7_mode else DIORAMA_DURATION_MIN_SEC)
         safe_max_total = min(DIORAMA_DURATION_MAX_SEC, SHORTS_HARD_CEILING_SEC - 0.10)
@@ -1682,6 +1790,7 @@ def synthesize_continuous_diorama_track(
     use_rate: str | None = None
     use_pitch: str | None = None
     use_volume: str | None = None
+    intact_retry_set: set[int] = {int(x) for x in (retry_intact_sentence_indices or ()) if int(x) >= 1}
     if chosen_engine in ("edge_tts", "edge-tts") and pre_synthesized_lines is None:
         use_voice = str(voice or preset_spec.get("voice") or DIORAMA_TTS_VOICE)
         doc_rate = str((script_doc or {}).get("tts_rate") or "").strip()
@@ -1716,7 +1825,139 @@ def synthesize_continuous_diorama_track(
                 rates_used_out=synth_rates_used,
                 vocal_filter=eff_vocal_filter,
                 allow_gear_wsola_fallback=bool(allow_kokoro_fallback),
+                preserve_exclamation=bool(is_v8),
             )
+            if intact_retry_set:
+                for r_idx in sorted(intact_retry_set):
+                    if not (1 <= r_idx <= len(clean_sents)) or r_idx in foil_indices:
+                        continue
+                    r_rates_out: list[str] = []
+                    r_slices = _synthesize_edge_tts_acts(
+                        clean_sents=[clean_sents[r_idx - 1]],
+                        script_doc=None,
+                        sr=sr,
+                        cache_dir=cache,
+                        voice=use_voice,
+                        rate="+0%",
+                        pitch=use_pitch,
+                        volume=use_volume,
+                        sentence_rates=["+0%"] if native_gear_synth else None,
+                        rates_used_out=r_rates_out,
+                        vocal_filter=eff_vocal_filter,
+                        allow_gear_wsola_fallback=bool(allow_kokoro_fallback),
+                        preserve_exclamation=False,
+                    )
+                    if r_slices:
+                        raw_pcms[r_idx - 1] = r_slices[0]
+                        if r_rates_out and r_idx - 1 < len(synth_rates_used):
+                            synth_rates_used[r_idx - 1] = r_rates_out[0]
+            if is_v8:
+                for c_idx, sent_txt in enumerate(clean_sents, start=1):
+                    if c_idx in foil_indices or c_idx in intact_retry_set:
+                        continue
+                    c_rate = (
+                        str(pros_plan[c_idx - 1]["synth_rate"])
+                        if (native_gear_synth and c_idx - 1 < len(pros_plan))
+                        else use_rate
+                    )
+                    clause_specs = plan_expressive_v8_clauses(
+                        sent_txt,
+                        base_rate=str(c_rate or use_rate),
+                        base_pitch=str(use_pitch or "+16Hz"),
+                    )
+                    if len(clause_specs) >= 2:
+                        cl_pcms: list[np.ndarray] = []
+                        for cl in clause_specs:
+                            cl_slices = _synthesize_edge_tts_acts(
+                                clean_sents=[cl["text"]],
+                                script_doc=None,
+                                sr=sr,
+                                cache_dir=cache,
+                                voice=use_voice,
+                                rate=cl["rate"],
+                                pitch=cl["pitch"],
+                                volume=use_volume,
+                                sentence_rates=[cl["rate"]] if native_gear_synth else None,
+                                vocal_filter=eff_vocal_filter,
+                                allow_gear_wsola_fallback=bool(allow_kokoro_fallback),
+                                preserve_exclamation=True,
+                            )
+                            if cl_slices:
+                                cl_pcms.append(cl_slices[0])
+                        if len(cl_pcms) == len(clause_specs):
+                            raw_pcms[c_idx - 1] = crossfade_clause_pcms(
+                                cl_pcms,
+                                sr=sr,
+                                crossfade_sec=EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC,
+                            )
+            for f_idx in sorted(foil_indices):
+                this_foil_id = foil_preset_by_idx.get(f_idx, foil_preset_id)
+                this_foil_spec = dict(DIORAMA_VOICE_PRESETS.get(this_foil_id) or foil_spec)
+                this_foil_filter = _vocal_filter_for_spec(this_foil_spec)
+                f_rate = (
+                    "+0%"
+                    if f_idx in intact_retry_set
+                    else (
+                        str(pros_plan[f_idx - 1]["synth_rate"])
+                        if (native_gear_synth and f_idx - 1 < len(pros_plan))
+                        else use_rate
+                    )
+                )
+                f_pitch = str(this_foil_spec.get("pitch") or "-3Hz")
+                f_vol = str(this_foil_spec.get("volume") or "+0%")
+                f_clause_specs = (
+                    plan_expressive_v8_clauses(clean_sents[f_idx - 1], base_rate=str(f_rate or use_rate), base_pitch=f_pitch)
+                    if (is_v8 and f_idx not in intact_retry_set)
+                    else []
+                )
+                if is_v8 and len(f_clause_specs) >= 2:
+                    f_cl_pcms: list[np.ndarray] = []
+                    for cl in f_clause_specs:
+                        f_part = _synthesize_edge_tts_acts(
+                            clean_sents=[cl["text"]],
+                            script_doc=None,
+                            sr=sr,
+                            cache_dir=cache,
+                            voice=str(this_foil_spec["voice"]),
+                            rate=cl["rate"],
+                            pitch=cl["pitch"],
+                            volume=f_vol,
+                            sentence_rates=[cl["rate"]] if native_gear_synth else None,
+                            vocal_filter=this_foil_filter,
+                            allow_gear_wsola_fallback=bool(allow_kokoro_fallback),
+                            preserve_exclamation=True,
+                        )
+                        if f_part:
+                            f_cl_pcms.append(f_part[0])
+                    if len(f_cl_pcms) == len(f_clause_specs):
+                        raw_pcms[f_idx - 1] = crossfade_clause_pcms(
+                            f_cl_pcms,
+                            sr=sr,
+                            crossfade_sec=EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC,
+                        )
+                        if f_idx - 1 < len(synth_rates_used):
+                            synth_rates_used[f_idx - 1] = str(f_rate)
+                        continue
+                f_rates_out: list[str] = []
+                f_slices = _synthesize_edge_tts_acts(
+                    clean_sents=[clean_sents[f_idx - 1]],
+                    script_doc=None,
+                    sr=sr,
+                    cache_dir=cache,
+                    voice=str(this_foil_spec["voice"]),
+                    rate=f_rate,
+                    pitch=f_pitch,
+                    volume=f_vol,
+                    sentence_rates=[f_rate] if native_gear_synth else None,
+                    rates_used_out=f_rates_out,
+                    vocal_filter=this_foil_filter,
+                    allow_gear_wsola_fallback=bool(allow_kokoro_fallback),
+                    preserve_exclamation=bool(is_v8),
+                )
+                if f_slices:
+                    raw_pcms[f_idx - 1] = f_slices[0]
+                    if f_rates_out and f_idx - 1 < len(synth_rates_used):
+                        synth_rates_used[f_idx - 1] = f_rates_out[0]
             used_act_continuous_edge = True
             chosen_engine = "edge_tts"
         except Exception as edge_exc:  # noqa: BLE001
@@ -1732,11 +1973,40 @@ def synthesize_continuous_diorama_track(
 
     if not used_act_continuous_edge:
         use_voice = _resolve_kokoro_voice(voice, voice_preset=eff_preset)
+        foil_kokoro_voice = _resolve_kokoro_voice(None, voice_preset=foil_preset_id)
         use_speed = float(speed if speed is not None else default_tts_speed)
         raw_pcms = []
+        use_native_kokoro_gears = bool(
+            prosody_active and native_gear_synth and pre_synthesized_lines is None and speed is None
+        )
+        if use_native_kokoro_gears:
+            synth_rates_used = []
         for idx, sent in enumerate(clean_sents, start=1):
-            if pre_synthesized_lines is not None and idx - 1 < len(pre_synthesized_lines):
+            sent_speed = (
+                float(pros_plan[idx - 1]["target_tempo"])
+                if use_native_kokoro_gears and (idx - 1) < len(pros_plan)
+                else use_speed
+            )
+            if use_native_kokoro_gears and (idx - 1) < len(pros_plan):
+                synth_rates_used.append(str(pros_plan[idx - 1]["synth_rate"]))
+            if pre_synthesized_lines is not None and idx - 1 < len(pre_synthesized_lines) and idx not in intact_retry_set:
                 pcm_i = np.asarray(pre_synthesized_lines[idx - 1], dtype=np.float32)
+            elif idx in foil_indices:
+                this_foil_id_k = foil_preset_by_idx.get(idx, foil_preset_id)
+                this_foil_spec_k = dict(DIORAMA_VOICE_PRESETS.get(this_foil_id_k) or foil_spec)
+                this_foil_kokoro = _resolve_kokoro_voice(None, voice_preset=this_foil_id_k)
+                pcm_i = synthesize_line(
+                    sent,
+                    sr=sr,
+                    cache_dir=cache,
+                    clip_no=idx,
+                    voice=this_foil_kokoro,
+                    speed=sent_speed,
+                    vocal_profile="storyteller",
+                    vocal_filter=_vocal_filter_for_spec(this_foil_spec_k),
+                    voice_preset=this_foil_id_k,
+                    preserve_exclamation=bool(is_v8),
+                )
             else:
                 pcm_i = synthesize_line(
                     sent,
@@ -1744,10 +2014,11 @@ def synthesize_continuous_diorama_track(
                     cache_dir=cache,
                     clip_no=idx,
                     voice=use_voice,
-                    speed=use_speed,
+                    speed=sent_speed,
                     vocal_profile="storyteller",
                     vocal_filter=eff_vocal_filter,
                     voice_preset=eff_preset,
+                    preserve_exclamation=bool(is_v8),
                 )
             raw_pcms.append(pcm_i)
 
@@ -1859,6 +2130,7 @@ def synthesize_continuous_diorama_track(
                 word_list=w_list_i,
                 internal_silence_thresh_sec=trim_t,
                 internal_keep_sec=trim_k,
+                lead_pad_sec=(0.0 if (is_v8 and s_idx == 0) else 0.030),
             )
         if prosody_active:
             pcm_i, w_list_i, n_hits = apply_emphasis(pcm_i, sr, w_list_i, emphasis_words_for(script_doc, s_idx + 1))
@@ -1866,7 +2138,7 @@ def synthesize_continuous_diorama_track(
             pros_pre_tempo_dur.append(len(pcm_i) / float(sr))
             # Native gear synthesis -> residual factor vs the rate this slice was actually synthesized at (1.0 normally).
             # Kokoro / failed-gear fallback -> WSOLA atempo from the synthesized speed to the gear target.
-            if native_gear_synth and used_act_continuous_edge and s_idx < len(synth_rates_used):
+            if native_gear_synth and s_idx < len(synth_rates_used):
                 fac = round(float(pros_plan[s_idx]["target_tempo"]) / rate_to_speed(synth_rates_used[s_idx]), 4)
                 if abs(fac - 1.0) < 0.006:
                     fac = 1.0  # integer-% rate rounding residual (< 0.6%) is inaudible; never WSOLA for it
@@ -1919,11 +2191,11 @@ def synthesize_continuous_diorama_track(
         return n_reg_gaps * base_p + n_act_gaps * (base_p + act_extra_sec)
 
     # Step 1: Tune inter-sentence / Act-boundary breath gap before touching atempo
-    nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + DIORAMA_OUTRO_SWELL_SEC
+    nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + outro_tail_sec
     if used_act_continuous_edge and (not v7_mode) and nominal_total > safe_max_total - 0.30 and n_act_gaps > 0:
-        avail_act_gap = (safe_max_total - 0.50 - lead_sec - raw_speech_sum - DIORAMA_OUTRO_SWELL_SEC) / float(n_act_gaps)
+        avail_act_gap = (safe_max_total - 0.50 - lead_sec - raw_speech_sum - outro_tail_sec) / float(n_act_gaps)
         act_extra_sec = round(max(0.16, min(DIORAMA_ACT_BOUNDARY_PAUSE_SEC, avail_act_gap)), 3)
-        nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + DIORAMA_OUTRO_SWELL_SEC
+        nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + outro_tail_sec
     if n_gaps > 0 and (nominal_total > safe_max_total - 0.30 or nominal_total < min_dur_sec):
         if v7_mode and nominal_total > safe_max_total - 0.30:
             fit_target_sec = safe_max_total - 0.45
@@ -1932,26 +2204,26 @@ def synthesize_continuous_diorama_track(
         else:
             fit_target_sec = DIORAMA_DURATION_TARGET_SEC
         ideal_pause = (
-            fit_target_sec - lead_sec - raw_speech_sum - n_act_gaps * act_extra_sec - DIORAMA_OUTRO_SWELL_SEC
+            fit_target_sec - lead_sec - raw_speech_sum - n_act_gaps * act_extra_sec - outro_tail_sec
         ) / float(n_gaps)
         pause_sec = round(max(pause_lo, min(pause_hi, ideal_pause)), 3)
-        nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + DIORAMA_OUTRO_SWELL_SEC
+        nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + outro_tail_sec
         if v7_mode and nominal_total > safe_max_total - 0.30 and n_act_gaps > 0:
             avail_act_extra = (
-                (safe_max_total - 0.45) - lead_sec - raw_speech_sum - DIORAMA_OUTRO_SWELL_SEC - n_gaps * pause_sec
+                (safe_max_total - 0.45) - lead_sec - raw_speech_sum - outro_tail_sec - n_gaps * pause_sec
             ) / float(n_act_gaps)
             act_extra_sec = round(max(0.04, min(act_extra_sec, avail_act_extra)), 3)
-            nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + DIORAMA_OUTRO_SWELL_SEC
+            nominal_total = lead_sec + raw_speech_sum + _total_gap_sec(pause_sec) + outro_tail_sec
 
     # Step 2: If still outside [min_dur_sec, safe_max_total - 0.30], apply bounded pitch-preserving atempo (<= 1.15x)
     atempo_factor = 1.0
     atempo_lo, atempo_hi = DIORAMA_ATEMPO_FIT_RANGE
     atempo_cap = min(1.15, max(float(atempo_hi), 1.15))
     if nominal_total > safe_max_total - 0.30:
-        req_speech = max(10.0, (safe_max_total - 0.60) - lead_sec - _total_gap_sec(pause_sec) - DIORAMA_OUTRO_SWELL_SEC)
+        req_speech = max(10.0, (safe_max_total - 0.60) - lead_sec - _total_gap_sec(pause_sec) - outro_tail_sec)
         atempo_factor = min(atempo_cap, max(1.003, raw_speech_sum / req_speech))
     elif nominal_total < min_dur_sec + 1.0:
-        req_speech = (min_dur_sec + 1.5) - lead_sec - _total_gap_sec(pause_sec) - DIORAMA_OUTRO_SWELL_SEC
+        req_speech = (min_dur_sec + 1.5) - lead_sec - _total_gap_sec(pause_sec) - outro_tail_sec
         if req_speech > 0:
             atempo_factor = max(atempo_lo, min(1.0, raw_speech_sum / req_speech))
 
@@ -1967,7 +2239,7 @@ def synthesize_continuous_diorama_track(
         raw_word_lists = fitted_words
 
     # Step 3: Verify post-atempo speech fits within SHORTS_HARD_CEILING_SEC - outro_sec (zero silent truncation)
-    outro_sec = float(DIORAMA_OUTRO_SWELL_SEC)
+    outro_sec = float(outro_tail_sec)
     hard_speech_ceiling = round(float(SHORTS_HARD_CEILING_SEC) - outro_sec, 3)
     chunks: list[np.ndarray] = [np.zeros(int(round(lead_sec * sr)), dtype=np.float32)]
     reg_pause_samples = int(round(pause_sec * sr))
@@ -1989,6 +2261,7 @@ def synthesize_continuous_diorama_track(
 
     cursor = lead_sec
     sentence_spans: list[dict[str, Any]] = []
+    gap_windows: list[list[float]] = []
     events: list[tuple[float, float, list[str]]] = []
     prev_ev_end = 0.0
 
@@ -1998,10 +2271,15 @@ def synthesize_continuous_diorama_track(
         s_end = cursor + s_dur
 
         # Splice hygiene: every sentence slice starts and ends at exactly zero before the zero-gap is inserted
-        chunks.append(fade_edges(pcm_i, sr) if v7_mode else pcm_i)
+        chunks.append(
+            fade_edges(pcm_i, sr, fade_sec=(0.004 if (is_v8 and idx == 1) else None))
+            if v7_mode
+            else pcm_i
+        )
         sentence_spans.append(
             {
                 "sentence_index": idx,
+                "speaker": ("foil" if idx in foil_indices else "narrator"),
                 "act_boundary_after": (idx in act_boundary_sents),
                 "start_sec": round(s_start, 3),
                 "end_sec": round(s_end, 3),
@@ -2037,11 +2315,13 @@ def synthesize_continuous_diorama_track(
             else:
                 gap_n = act_pause_samples if idx in act_boundary_sents else reg_pause_samples
             gap_s = gap_n / float(sr)
+            if gap_s >= 0.02:
+                gap_windows.append([round(s_end, 3), round(s_end + gap_s, 3)])
             chunks.append(np.zeros(gap_n, dtype=np.float32))
             cursor += gap_s
 
     speech_end_sec = round(cursor, 3)
-    raw_total_sec = min(SHORTS_HARD_CEILING_SEC, speech_end_sec + DIORAMA_OUTRO_SWELL_SEC)
+    raw_total_sec = min(SHORTS_HARD_CEILING_SEC, speech_end_sec + outro_tail_sec)
     total_frames = min(int(SHORTS_HARD_CEILING_SEC * target_fps), max(60, int(round(raw_total_sec * target_fps))))
     total_duration_sec = round(total_frames / float(target_fps), 3)
     tail_samples = max(0, int(round(total_duration_sec * sr)) - sum(len(c) for c in chunks))
@@ -2057,14 +2337,31 @@ def synthesize_continuous_diorama_track(
 
     audio_dir = Path(project_dir) / "04_audio"
     audio_dir.mkdir(parents=True, exist_ok=True)
+    script_file_p = next(
+        (p for p in (Path(project_dir) / "02_script" / "script.json", Path(project_dir) / "script.json") if p.exists()),
+        None,
+    )
+    script_sha256 = hashlib.sha256(script_file_p.read_bytes()).hexdigest() if script_file_p else ""
+    sentences_sha256 = hashlib.sha256(
+        json.dumps([str(s).strip() for s in clean_sents], ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    ).hexdigest()
     voice_report = {
         "source": "tts_fallback",
         "profile": "neuro_diorama",
-        "schema_version": (7 if v7_mode else 6),
+        "schema_version": (PROMPT_SCHEMA_VERSION_V8 if is_v8 else (7 if v7_mode else 6)),
+        "script_sha256": script_sha256,
+        "sentences_sha256": sentences_sha256,
         "fps": target_fps,
         "engine": chosen_engine,
         "voice": use_voice,
         "voice_preset": eff_preset,
+        "foil_voice": (
+            (str(foil_spec["voice"]) if used_act_continuous_edge else _resolve_kokoro_voice(None, voice_preset=foil_preset_id))
+            if foil_indices
+            else None
+        ),
+        "foil_voice_preset": (foil_preset_id if foil_indices else None),
+        "foil_sentence_indices": sorted(foil_indices),
         "eq_profile": preset_spec.get("eq_profile", "male_studio"),
         "rate": use_rate,
         "pitch": use_pitch,
@@ -2072,12 +2369,14 @@ def synthesize_continuous_diorama_track(
         "speed": use_speed,
         "atempo_applied": round(atempo_factor, 4),
         "pause_sec": pause_sec,
+        "outro_tail_sec": round(outro_tail_sec, 3),
         "sentence_count": len(sentence_spans),
         "speech_end_sec": speech_end_sec,
         "total_duration_sec": total_duration_sec,
         "active_speech_ratio": active_ratio,
         "true_rms_voiced_ratio": true_rms_ratio,
         "sentence_spans": sentence_spans,
+        "gap_windows": gap_windows,
         "events": [[t0, t1, ws] for t0, t1, ws in events],
         "native_f0": {"passed": True, "reason": "diorama_continuous_tts_master", "regenerate_clips": []},
     }
@@ -2115,7 +2414,7 @@ def synthesize_continuous_diorama_track(
         pros_report = {
             "prosody_mode": eff_prosody_mode,
             "base_rate": use_rate,
-            "native_gear_synthesis": bool(native_gear_synth and used_act_continuous_edge),
+            "native_gear_synthesis": bool(native_gear_synth and (used_act_continuous_edge or bool(synth_rates_used))),
             "gear_rates": sorted(set(synth_rates_used)) if synth_rates_used else [use_rate],
             "global_atempo": round(atempo_factor, 4),
             "speech_end_sec": speech_end_sec,

@@ -274,6 +274,35 @@ def _detect_style_info(
     return schema_ver, style_profile
 
 
+def _compute_project_kb_signature(p_dir: Path) -> str:
+    """
+    Fast metadata-only signature (`size` + `mtime_ns`, zero file-byte reads over `fuse.rclone`)
+    covering the assembled artifacts & contracts indexed by `sync_project_to_knowledge_base`.
+    """
+    import hashlib
+
+    parts: list[str] = []
+    for rel in (
+        "02_script/script.json",
+        "03_visuals/visual_plan.json",
+        "03_visuals/flow_all_in_one_prompts.json",
+        "03_visuals/episode_qa_contract.json",
+        "04_audio/voice_report.json",
+        "05_assembly/final_shorts_1080x1920.mp4",
+        f"05_assembly/{POSTHOC_SEMANTIC_QA_REPORT_FILENAME}",
+        "05_assembly/dynamic_episode_qa_report.json",
+        "05_assembly/video_autopsy_report.json",
+        "06_publish/thumbnail_report.json",
+    ):
+        fp = p_dir / rel
+        try:
+            st = fp.stat()
+            parts.append(f"{rel}:{st.st_size}:{st.st_mtime_ns}")
+        except OSError:
+            parts.append(f"{rel}:missing")
+    return hashlib.sha1("|".join(parts).encode("utf-8")).hexdigest()[:16]
+
+
 def sync_project_to_knowledge_base(
     project_id_or_dir: str | Path,
     posthoc_report: dict[str, Any] | None = None,
@@ -306,9 +335,26 @@ def sync_project_to_knowledge_base(
     thumb_rep = _read_json(p_dir / "06_publish" / "thumbnail_report.json")
     ph_rep = posthoc_report or _read_json(p_dir / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME)
 
-    # Refresh asset_manifest.json (so per-clip clarity_score is persisted into asset_manifest & asset_library)
-    if (p_dir / "03_visuals" / "flow_all_in_one_prompts.json").exists():
-        build_asset_manifest(p_dir, write_library=(write_asset_library and kb_dir is None))
+    # Refresh asset_manifest.json only when missing or older than final_shorts_1080x1080/flow_all_in_one_prompts
+    am_path = p_dir / "05_assembly" / "asset_manifest.json"
+    pr_path = p_dir / "03_visuals" / "flow_all_in_one_prompts.json"
+    mp4_path = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+    if pr_path.exists():
+        am_fresh = False
+        try:
+            if am_path.is_file() and am_path.stat().st_size > 16:
+                am_mtime = am_path.stat().st_mtime_ns
+                src_mtime = max(
+                    pr_path.stat().st_mtime_ns,
+                    mp4_path.stat().st_mtime_ns if mp4_path.is_file() else 0,
+                )
+                am_fresh = am_mtime >= src_mtime
+        except OSError:
+            am_fresh = False
+        if not am_fresh:
+            has_live_clips = any((p_dir / "03_visuals" / "flow_native_clips").glob("clip_*.mp4"))
+            if has_live_clips or not am_path.exists():
+                build_asset_manifest(p_dir, write_library=(write_asset_library and kb_dir is None))
 
     sentences = _extract_sentences(script_doc)
     if not sentences and isinstance(prompts_doc.get("clips"), list):
@@ -409,6 +455,8 @@ def sync_project_to_knowledge_base(
         "cover_frame_sec": thumb_rep.get("cover_frame_sec"),
         "cover_grammar": ((thumb_rep.get("variants") or {}).get("A") or {}).get("grammar"),
         "cover_score": ((thumb_rep.get("variants") or {}).get("A") or {}).get("total_score"),
+        "analogy_locks": contract_doc.get("analogy_locks") or [],
+        "kb_sync_sig": _compute_project_kb_signature(p_dir),
         "project_dir": str(p_dir),
         "indexed_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
     }
@@ -495,28 +543,63 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
     episodes = _read_jsonl(paths["episodes_index"])
     ledger = _read_jsonl(paths["clip_ledger"])
     p_root = Path(projects_dir or PROJECTS_DIR)
+    ledger_pids = {str(r.get("project_id") or "") for r in ledger}
+    on_disk_pids = (
+        {d.name for d in p_root.iterdir() if d.is_dir() and not d.name.startswith(".")}
+        if p_root.exists()
+        else set()
+    )
 
-    # 1. prompts_golden_bank.json (passed cuts with clarity >= 82.0)
-    golden_by_grammar: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    def _is_archived_off_disk_pid(pid_val: Any) -> bool:
+        s_pid = str(pid_val or "").strip()
+        return bool(s_pid and s_pid not in ledger_pids and s_pid not in on_disk_pids)
+
+    # 1. prompts_golden_bank.json (passed cuts with clarity >= 82.0, preserving archived off-disk episodes)
+    golden_bank_path = paths["packs_dir"] / "prompts_golden_bank.json"
+    prev_golden_by_g = (_read_json(golden_bank_path).get("by_grammar") or {})
+    golden_cands_by_g: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    seen_golden_keys: set[tuple[str, int, int]] = set()
     for row in sorted(ledger, key=lambda r: -float(r.get("clarity_score") or 0.0)):
         if not row.get("passed") or float(row.get("clarity_score") or 0.0) < 82.0 or not row.get("prompt"):
             continue
         g = str(row.get("grammar") or "other")
-        if len(golden_by_grammar[g]) < 25:
-            golden_by_grammar[g].append(
-                {
-                    "project_id": row["project_id"],
-                    "cut_index": row["cut_index"],
-                    "clip_index": row["clip_index"],
-                    "style_profile": row.get("style_profile"),
-                    "camera_move": row.get("camera_move"),
-                    "clarity_score": row["clarity_score"],
-                    "spoken_narration": row.get("spoken_narration"),
-                    "intended_scene": row.get("intended_scene"),
-                    "prompt": row["prompt"],
-                }
-            )
-    golden_bank_path = paths["packs_dir"] / "prompts_golden_bank.json"
+        gk = (str(row["project_id"]), int(row["cut_index"]), int(row["clip_index"]))
+        if gk in seen_golden_keys:
+            continue
+        seen_golden_keys.add(gk)
+        golden_cands_by_g[g].append(
+            {
+                "project_id": row["project_id"],
+                "cut_index": row["cut_index"],
+                "clip_index": row["clip_index"],
+                "style_profile": row.get("style_profile"),
+                "camera_move": row.get("camera_move"),
+                "clarity_score": row["clarity_score"],
+                "spoken_narration": row.get("spoken_narration"),
+                "intended_scene": row.get("intended_scene"),
+                "prompt": row["prompt"],
+            }
+        )
+    if isinstance(prev_golden_by_g, dict):
+        for g_prev, items_prev in prev_golden_by_g.items():
+            if not isinstance(items_prev, list):
+                continue
+            for it_p in items_prev:
+                if not isinstance(it_p, dict) or not _is_archived_off_disk_pid(it_p.get("project_id")):
+                    continue
+                gk_p = (
+                    str(it_p.get("project_id") or ""),
+                    int(it_p.get("cut_index") or 0),
+                    int(it_p.get("clip_index") or 0),
+                )
+                if gk_p not in seen_golden_keys:
+                    seen_golden_keys.add(gk_p)
+                    golden_cands_by_g[str(g_prev)].append(dict(it_p))
+    golden_by_grammar: dict[str, list[dict[str, Any]]] = {
+        g: sorted(arr, key=lambda x: -float(x.get("clarity_score") or 0.0))[:25]
+        for g, arr in sorted(golden_cands_by_g.items())
+        if arr
+    }
     _atomic_write_text(
         golden_bank_path,
         json.dumps(
@@ -532,14 +615,18 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
     )
 
     # 2. analogies_registry.json
+    analogies_path = paths["packs_dir"] / "analogies_registry.json"
+    prev_analogies = _read_json(analogies_path).get("analogies") or []
     analogies_list: list[dict[str, Any]] = []
     seen_analogies: set[tuple[str, str]] = set()
     for ep in episodes:
         pid = str(ep.get("project_id") or "")
-        ep_dir = Path(str(ep["project_dir"])) if ep.get("project_dir") else (p_root / pid)
-        c_doc = _read_json(ep_dir / "03_visuals" / "episode_qa_contract.json")
+        ep_analogy_locks = ep.get("analogy_locks")
+        if not isinstance(ep_analogy_locks, list):
+            ep_dir = Path(str(ep["project_dir"])) if ep.get("project_dir") else (p_root / pid)
+            ep_analogy_locks = _read_json(ep_dir / "03_visuals" / "episode_qa_contract.json").get("analogy_locks") or []
         ep_cuts = [r for r in ledger if r.get("project_id") == pid]
-        for al in (c_doc.get("analogy_locks") or []):
+        for al in ep_analogy_locks:
             key = (pid, str(al.get("spoken_phrase") or ""))
             if key in seen_analogies:
                 continue
@@ -562,7 +649,15 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
                     "clip_path": (matched_cuts[0].get("clip_path") if matched_cuts else None),
                 }
             )
-    analogies_path = paths["packs_dir"] / "analogies_registry.json"
+    if isinstance(prev_analogies, list):
+        for al_p in prev_analogies:
+            if not isinstance(al_p, dict) or not _is_archived_off_disk_pid(al_p.get("project_id")):
+                continue
+            key_p = (str(al_p.get("project_id") or ""), str(al_p.get("spoken_phrase") or ""))
+            if key_p not in seen_analogies:
+                seen_analogies.add(key_p)
+                analogies_list.append(dict(al_p))
+    analogies_list.sort(key=lambda x: (str(x.get("project_id") or ""), int(x.get("sentence_index") or 0)))
     _atomic_write_text(
         analogies_path,
         json.dumps(
@@ -578,16 +673,25 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
     )
 
     # 3. brain_models_registry.json
+    brain_path = paths["packs_dir"] / "brain_models_registry.json"
+    prev_brains = _read_json(brain_path).get("brain_models") or []
     brain_grammars = {
         "porcelain_living_brain",
         "lowpoly_matte_brain",
         "arch_brain_maquette",
         "frosted_crystal_specimen",
         "brain_void",
+        "expressive_xray_brain",
+        "vinyl_crystal_brain_reveal",
     }
     brain_entries: list[dict[str, Any]] = []
+    seen_brains: set[tuple[str, int, str]] = set()
     for row in ledger:
         if str(row.get("grammar") or "") in brain_grammars:
+            bk = (str(row["project_id"]), int(row["clip_index"]), str(row.get("grammar") or ""))
+            if bk in seen_brains:
+                continue
+            seen_brains.add(bk)
             brain_entries.append(
                 {
                     "project_id": row["project_id"],
@@ -605,7 +709,19 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
                     "clip_path": row.get("clip_path"),
                 }
             )
-    brain_path = paths["packs_dir"] / "brain_models_registry.json"
+    if isinstance(prev_brains, list):
+        for br_p in prev_brains:
+            if not isinstance(br_p, dict) or not _is_archived_off_disk_pid(br_p.get("project_id")):
+                continue
+            bk_p = (
+                str(br_p.get("project_id") or ""),
+                int(br_p.get("clip_index") or 0),
+                str(br_p.get("grammar") or ""),
+            )
+            if bk_p not in seen_brains:
+                seen_brains.add(bk_p)
+                brain_entries.append(dict(br_p))
+    brain_entries.sort(key=lambda x: (str(x.get("project_id") or ""), int(x.get("clip_index") or 0)))
     _atomic_write_text(
         brain_path,
         json.dumps(
@@ -621,28 +737,52 @@ def recompile_knowledge_aggregates(kb_dir: Path | None = None, projects_dir: Pat
     )
 
     # 4. locations_and_props_registry.json
+    loc_path = paths["packs_dir"] / "locations_and_props_registry.json"
+    prev_locs = _read_json(loc_path).get("locations") or []
     loc_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in ledger:
         loc_id = str(row.get("location_id") or "").strip()
         if loc_id:
             loc_groups[loc_id].append(row)
+    prev_locs_by_id: dict[str, dict[str, Any]] = {}
+    if isinstance(prev_locs, list):
+        for lp_entry in prev_locs:
+            if not isinstance(lp_entry, dict):
+                continue
+            lid_p = str(lp_entry.get("location_id") or "").strip()
+            archived_pids = [p for p in (lp_entry.get("project_ids") or []) if _is_archived_off_disk_pid(p)]
+            if lid_p and archived_pids:
+                prev_locs_by_id[lid_p] = {**lp_entry, "project_ids": archived_pids}
+    all_loc_ids = sorted(set(loc_groups) | set(prev_locs_by_id))
     locations_list: list[dict[str, Any]] = []
-    for loc_id, items in sorted(loc_groups.items()):
-        scores = [float(x["clarity_score"]) for x in items if x.get("clarity_score") is not None]
-        best = max(items, key=lambda x: float(x.get("clarity_score") or 0.0))
-        locations_list.append(
-            {
-                "location_id": loc_id,
-                "project_ids": sorted({str(x["project_id"]) for x in items}),
-                "style_profiles": sorted({str(x.get("style_profile") or "") for x in items if x.get("style_profile")}),
-                "cut_appearances": len(items),
-                "mean_clarity_score": round(float(np.mean(scores)), 1) if scores else None,
-                "sample_scene": best.get("intended_scene"),
-                "sample_prompt": best.get("prompt"),
-                "sample_clip_path": best.get("clip_path"),
-            }
-        )
-    loc_path = paths["packs_dir"] / "locations_and_props_registry.json"
+    for loc_id in all_loc_ids:
+        items = loc_groups.get(loc_id) or []
+        prev_l = prev_locs_by_id.get(loc_id)
+        if items:
+            scores = [float(x["clarity_score"]) for x in items if x.get("clarity_score") is not None]
+            best = max(items, key=lambda x: float(x.get("clarity_score") or 0.0))
+            merged_pids = sorted(
+                {str(x["project_id"]) for x in items}
+                | (set(prev_l.get("project_ids") or []) if prev_l else set())
+            )
+            merged_styles = sorted(
+                {str(x.get("style_profile") or "") for x in items if x.get("style_profile")}
+                | ({str(s) for s in (prev_l.get("style_profiles") or []) if s} if prev_l else set())
+            )
+            locations_list.append(
+                {
+                    "location_id": loc_id,
+                    "project_ids": merged_pids,
+                    "style_profiles": merged_styles,
+                    "cut_appearances": len(items) + (int(prev_l.get("cut_appearances") or 0) if prev_l else 0),
+                    "mean_clarity_score": round(float(np.mean(scores)), 1) if scores else (prev_l.get("mean_clarity_score") if prev_l else None),
+                    "sample_scene": best.get("intended_scene") or (prev_l.get("sample_scene") if prev_l else None),
+                    "sample_prompt": best.get("prompt") or (prev_l.get("sample_prompt") if prev_l else None),
+                    "sample_clip_path": best.get("clip_path") or (prev_l.get("sample_clip_path") if prev_l else None),
+                }
+            )
+        elif prev_l:
+            locations_list.append(dict(prev_l))
     _atomic_write_text(
         loc_path,
         json.dumps(
@@ -778,27 +918,79 @@ def sync_all_projects_to_knowledge_base(
     run_missing_posthoc: bool = False,
     prune_missing_projects: bool = True,
     include_failed: bool = False,
+    full_rescan: bool = False,
 ) -> dict[str, Any]:
     """
     Scans assembled projects under `BCI_Shorts_Channel/projects/` and indexes them into `knowledge_base/`.
-    Skips draft/incomplete directories lacking `05_assembly/final_shorts_1080x1920.mp4` and skips projects
-    that explicitly failed `posthoc_semantic_qa_report.json` or `video_autopsy_report.json` unless `include_failed=True`.
+    Uses fast mtime/size-gated incremental sync by default (`full_rescan=False`) so unchanged historical
+    projects on `fuse.rclone` incur zero file reads or SHA-256 re-hashing.
     """
     p_root = Path(projects_dir or PROJECTS_DIR)
     paths = ensure_knowledge_base_layout(kb_dir)
     synced: list[str] = []
+    unchanged_cached: list[str] = []
+    newly_synced: list[str] = []
     skipped_incomplete: list[str] = []
     skipped_failed: list[str] = []
+    on_disk_names: set[str] = set()
+    existing_episodes = _read_jsonl(paths["episodes_index"])
+    existing_ep_by_id = {
+        str(ep.get("project_id") or ""): ep
+        for ep in existing_episodes
+        if str(ep.get("project_id") or "")
+    }
+    existing_ledger_pids = {
+        str(r.get("project_id") or "")
+        for r in _read_jsonl(paths["clip_ledger"])
+        if str(r.get("project_id") or "")
+    }
     if p_root.exists():
+        from concurrent.futures import ThreadPoolExecutor
+
         p_dirs = sorted(d for d in p_root.iterdir() if d.is_dir() and not d.name.startswith("."))
-        for d in p_dirs:
+        on_disk_names = {d.name for d in p_dirs}
+
+        def _probe_kb_dir(d: Path) -> tuple[Path, bool, bool, str]:
             final_mp4 = d / "05_assembly" / "final_shorts_1080x1920.mp4"
-            if not final_mp4.exists() or final_mp4.stat().st_size == 0:
+            ph_path = d / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+            try:
+                has_final_mp4 = final_mp4.is_file() and final_mp4.stat().st_size > 0
+            except OSError:
+                has_final_mp4 = False
+            try:
+                has_archived_posthoc = ph_path.is_file() and ph_path.stat().st_size > 0
+            except OSError:
+                has_archived_posthoc = False
+            sig = _compute_project_kb_signature(d) if ((has_final_mp4 or has_archived_posthoc) and not full_rescan) else ""
+            return d, has_final_mp4, has_archived_posthoc, sig
+
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            probed_dirs = list(pool.map(_probe_kb_dir, p_dirs))
+
+        for d, has_final_mp4, has_archived_posthoc, cur_sig in probed_dirs:
+            ph_path = d / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+            if not has_final_mp4 and not has_archived_posthoc:
                 skipped_incomplete.append(d.name)
                 continue
-            ph_path = d / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
+            needs_missing_posthoc = bool(run_missing_posthoc and has_final_mp4 and not has_archived_posthoc)
+            if not full_rescan and not needs_missing_posthoc:
+                prev_ep = existing_ep_by_id.get(d.name)
+                has_ledger_cov = (
+                    (d.name in existing_ledger_pids)
+                    or (prev_ep.get("posthoc_passed") is None)
+                    or not int(prev_ep.get("cut_count") or 0)
+                ) if prev_ep else False
+                if prev_ep is not None and prev_ep.get("kb_sync_sig") == cur_sig and has_ledger_cov:
+                    if not include_failed and (
+                        prev_ep.get("posthoc_passed") is False or prev_ep.get("autopsy_passed") is False
+                    ):
+                        skipped_failed.append(d.name)
+                        continue
+                    unchanged_cached.append(d.name)
+                    synced.append(d.name)
+                    continue
             ph_rep = None
-            if run_missing_posthoc and not ph_path.exists():
+            if needs_missing_posthoc:
                 try:
                     from pipeline.posthoc_semantic_qa import resolve_project_final_mp4, run_posthoc_semantic_qa
 
@@ -819,26 +1011,42 @@ def sync_all_projects_to_knowledge_base(
                 write_asset_library=(kb_dir is None),
                 recompile_aggregates=False,
             )
+            newly_synced.append(d.name)
             synced.append(d.name)
 
+    pruned_any = False
     if prune_missing_projects:
-        valid_ids = set(synced)
-        _upsert_jsonl(
-            paths["episodes_index"],
-            [],
-            valid_project_ids=valid_ids,
-            sort_key=lambda x: str(x.get("project_id") or ""),
-        )
-        _upsert_jsonl(
-            paths["clip_ledger"],
-            [],
-            valid_project_ids=valid_ids,
-            sort_key=lambda x: (str(x.get("project_id") or ""), int(x.get("cut_index") or 0)),
-        )
+        archived_valid_ids = {
+            str(ep.get("project_id") or "")
+            for ep in existing_episodes
+            if str(ep.get("project_id") or "")
+            and str(ep.get("project_id") or "") not in on_disk_names
+            and ep.get("posthoc_passed") is not False
+        }
+        valid_ids = set(synced) | archived_valid_ids
+        pruned_any = bool(set(existing_ep_by_id) - valid_ids)
+        if newly_synced or full_rescan or pruned_any:
+            _upsert_jsonl(
+                paths["episodes_index"],
+                [],
+                valid_project_ids=valid_ids,
+                sort_key=lambda x: str(x.get("project_id") or ""),
+            )
+            _upsert_jsonl(
+                paths["clip_ledger"],
+                [],
+                valid_project_ids=valid_ids,
+                sort_key=lambda x: (str(x.get("project_id") or ""), int(x.get("cut_index") or 0)),
+            )
 
-    agg = recompile_knowledge_aggregates(kb_dir=kb_dir, projects_dir=p_root)
+    if not newly_synced and not full_rescan and not pruned_any and paths["analytics_json"].is_file():
+        agg = _read_json(paths["analytics_json"])
+    else:
+        agg = recompile_knowledge_aggregates(kb_dir=kb_dir, projects_dir=p_root)
     return {
         "synced_projects": synced,
+        "newly_synced_projects": newly_synced,
+        "unchanged_cached_projects": unchanged_cached,
         "skipped_incomplete": skipped_incomplete,
         "skipped_failed": skipped_failed,
         "count": len(synced),

@@ -285,26 +285,46 @@ def _parse_citation_author_year_journal(src: dict[str, Any]) -> str:
     return "peer-reviewed neuroscience research"
 
 
+_DOSSIER_LOOKUP_CACHE: dict[tuple[str, str], Path | None] = {}
+
+
 def _find_matching_dossier_dir(project_id: str, dossiers_root: Path | None = None) -> Path | None:
     from pipeline.research_dossier import _EXPLICIT_PROJECT_SLUG_MAP
 
     root = dossiers_root or (CHANNEL_ROOT / "research_dossiers")
     if not root.exists():
         return None
-    mapped = _EXPLICIT_PROJECT_SLUG_MAP.get(str(project_id or "").strip().lower())
+    cache_key = (str(root), str(project_id or "").strip().lower())
+    if cache_key in _DOSSIER_LOOKUP_CACHE:
+        cached = _DOSSIER_LOOKUP_CACHE[cache_key]
+        if cached is None or cached.is_dir():
+            return cached
+
+    mapped = _EXPLICIT_PROJECT_SLUG_MAP.get(cache_key[1])
     if mapped and (root / mapped).is_dir():
-        return root / mapped
+        res = root / mapped
+        _DOSSIER_LOOKUP_CACHE[cache_key] = res
+        return res
     stripped = re.sub(r"^(?:psych|diorama|reenact|news|longform)_\d+_", "", project_id)
     direct = root / stripped
     if direct.is_dir():
+        _DOSSIER_LOOKUP_CACHE[cache_key] = direct
         return direct
 
     proj_tokens = set(stripped.split("_"))
+    subdirs = [d for d in sorted(root.iterdir()) if d.is_dir()]
     best_dir: Path | None = None
     best_overlap = 0
-    for d_dir in sorted(root.iterdir()):
-        if not d_dir.is_dir():
-            continue
+    for d_dir in subdirs:
+        overlap = len(proj_tokens & set(d_dir.name.split("_")))
+        if overlap >= 2 and overlap > best_overlap:
+            best_overlap = overlap
+            best_dir = d_dir
+    if best_dir is not None and best_overlap >= 2:
+        _DOSSIER_LOOKUP_CACHE[cache_key] = best_dir
+        return best_dir
+
+    for d_dir in subdirs:
         d_json_path = d_dir / "dossier.json"
         if d_json_path.exists():
             try:
@@ -315,13 +335,11 @@ def _find_matching_dossier_dir(project_id: str, dossiers_root: Path | None = Non
                     + list(meta.get("longform_projects") or [])
                 )
                 if project_id in linked:
+                    _DOSSIER_LOOKUP_CACHE[cache_key] = d_dir
                     return d_dir
             except Exception:
                 pass
-        overlap = len(proj_tokens & set(d_dir.name.split("_")))
-        if overlap >= 2 and overlap > best_overlap:
-            best_overlap = overlap
-            best_dir = d_dir
+    _DOSSIER_LOOKUP_CACHE[cache_key] = best_dir
     return best_dir
 
 

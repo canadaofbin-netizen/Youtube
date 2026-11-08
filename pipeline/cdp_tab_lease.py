@@ -202,44 +202,168 @@ def _prune_dead_leases_unlocked(
 ) -> int:
     cur = float(time.time() if now is None else now)
     leases = state.setdefault("leases", {})
-    evicted: list[str] = []
+    orphans = state.setdefault("orphan_pipeline_tabs", {})
+    if not isinstance(orphans, dict):
+        orphans = {}
+        state["orphan_pipeline_tabs"] = orphans
+    if live_target_ids is not None:
+        for otid in list(orphans):
+            if otid not in live_target_ids:
+                orphans.pop(otid, None)
+    evicted: list[tuple[str, dict[str, Any] | None, bool]] = []
     for tid, rec in list(leases.items()):
         if not isinstance(rec, dict):
-            evicted.append(tid)
+            evicted.append((tid, None, False))
             continue
         if live_target_ids is not None and tid not in live_target_ids:
-            evicted.append(tid)
+            evicted.append((tid, rec, False))
             continue
         pid = int(rec.get("pid") or 0)
         if not is_pid_alive(pid):
-            evicted.append(tid)
+            evicted.append((tid, rec, True))
             continue
         recorded_ticks = rec.get("proc_start_ticks")
         if isinstance(recorded_ticks, int) and recorded_ticks > 0:
             cur_ticks = _read_proc_start_ticks(pid)
             if cur_ticks is not None and cur_ticks != recorded_ticks:
-                evicted.append(tid)
+                evicted.append((tid, rec, True))
                 continue
         hb = float(rec.get("heartbeat_at") or rec.get("acquired_at") or 0.0)
         ttl = max(5.0, float(rec.get("ttl_sec") or DEFAULT_TAB_LEASE_TTL_SEC))
         if (cur - hb) > ttl:
-            evicted.append(tid)
-    for tid in evicted:
+            evicted.append((tid, rec, True))
+    for tid, rec, maybe_orphan in evicted:
         leases.pop(tid, None)
+        if maybe_orphan and isinstance(rec, dict) and bool(rec.get("created_by_pipeline")):
+            orphans[tid] = {
+                "target_id": tid,
+                "cdp_port": int(rec.get("cdp_port") or 9222),
+                "purpose": str(rec.get("purpose") or ""),
+                "url": str(rec.get("url") or ""),
+                "initial_url": str(rec.get("initial_url") or ""),
+                "evicted_at": round(cur, 3),
+            }
+    if len(orphans) > 64:
+        oldest = sorted(
+            orphans.items(),
+            key=lambda kv: float((kv[1] or {}).get("evicted_at") or 0.0) if isinstance(kv[1], dict) else 0.0,
+        )
+        for old_tid, _ in oldest[: len(orphans) - 64]:
+            orphans.pop(old_tid, None)
     return len(evicted)
+
+
+def reap_orphan_pipeline_tabs(
+    *,
+    cdp_port: int = 9222,
+    cdp_host: str = "127.0.0.1",
+    extra_pipeline_tab_ids: list[str] | tuple[str, ...] | set[str] = (),
+    project_id: str | None = None,
+    dry_run: bool = False,
+    timeout: float = 3.0,
+) -> list[str]:
+    """
+    Safely closes crashed/evicted pipeline-created browser tabs (`created_by_pipeline=True` in
+    `orphan_pipeline_tabs` or explicit `extra_pipeline_tab_ids` from a project's `flow_provenance_receipt.json`
+    that are no longer actively leased and point to a Flow/blank URL). Never touches personal user tabs.
+    """
+    candidates_from_registry: set[str] = set()
+    extra_unleased: set[str] = set()
+    pid_filter = str(project_id or "").strip()
+
+    with _locked_lease_registry(cdp_port) as (state, json_path):
+        removed = _prune_dead_leases_unlocked(state)
+        leases = state.get("leases", {})
+        orphans = state.get("orphan_pipeline_tabs", {})
+        if isinstance(orphans, dict):
+            for tid, rec in list(orphans.items()):
+                if tid in leases or not isinstance(rec, dict):
+                    continue
+                if int(rec.get("cdp_port") or cdp_port) != int(cdp_port):
+                    continue
+                if pid_filter:
+                    meta_blob = f"{rec.get('purpose') or ''} {rec.get('url') or ''}"
+                    if pid_filter not in meta_blob and rec.get("purpose"):
+                        continue
+                candidates_from_registry.add(str(tid))
+        for raw_tid in (extra_pipeline_tab_ids or ()):
+            s_tid = str(raw_tid or "").strip()
+            if s_tid and s_tid not in leases:
+                extra_unleased.add(s_tid)
+        if removed > 0:
+            _write_registry_unlocked(state, json_path)
+
+    all_candidates = candidates_from_registry | extra_unleased
+    if not all_candidates:
+        return []
+
+    try:
+        with urllib.request.urlopen(f"http://{cdp_host}:{int(cdp_port)}/json/list", timeout=timeout) as resp:
+            tabs = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        tabs = []
+
+    live_pages_by_id: dict[str, dict[str, Any]] = {}
+    for t in (tabs or []):
+        if isinstance(t, dict) and t.get("type") == "page" and t.get("id"):
+            live_pages_by_id[str(t["id"])] = t
+
+    closed: list[str] = []
+    vanished: set[str] = {tid for tid in candidates_from_registry if tid not in live_pages_by_id}
+    for tid in sorted(all_candidates):
+        page = live_pages_by_id.get(tid)
+        if page is None:
+            continue
+        url_l = str(page.get("url") or "").strip().lower()
+        title_s = str(page.get("title") or "").strip()
+        if tid not in candidates_from_registry:
+            is_pipeline_flow_page = (
+                url_l in ("", "about:blank")
+                or "flow.google.com/project/" in url_l
+                or "/fx/tools/flow/project/" in url_l
+            ) and (not title_s or "AAB_" in title_s or (pid_filter and pid_filter in title_s) or "Google Flow" in title_s)
+            if not is_pipeline_flow_page:
+                continue
+        if dry_run:
+            closed.append(tid)
+            continue
+        try:
+            with urllib.request.urlopen(f"http://{cdp_host}:{int(cdp_port)}/json/close/{tid}", timeout=timeout):
+                pass
+            closed.append(tid)
+        except Exception:
+            pass
+
+    if not dry_run and (closed or vanished):
+        with _locked_lease_registry(cdp_port) as (state, json_path):
+            orphans = state.get("orphan_pipeline_tabs")
+            if isinstance(orphans, dict):
+                changed = False
+                for tid in (*closed, *vanished):
+                    if tid in orphans:
+                        orphans.pop(tid, None)
+                        changed = True
+                if changed:
+                    _write_registry_unlocked(state, json_path)
+        if closed:
+            time.sleep(0.25)
+    return closed
 
 
 def prune_dead_leases(
     *,
     cdp_port: int = 9222,
     live_target_ids: set[str] | None = None,
+    close_orphan_tabs: bool = False,
 ) -> int:
     """Evicts dead-PID, recycled-PID, expired-TTL, and vanished-target leases from the registry."""
     with _locked_lease_registry(cdp_port) as (state, json_path):
         removed = _prune_dead_leases_unlocked(state, live_target_ids=live_target_ids)
         if removed > 0:
             _write_registry_unlocked(state, json_path)
-        return removed
+    if close_orphan_tabs:
+        reap_orphan_pipeline_tabs(cdp_port=cdp_port)
+    return removed
 
 
 def acquire_tab_lease(
@@ -304,6 +428,9 @@ def acquire_tab_lease(
         elif isinstance(prev_ticks, int) and prev_ticks > 0:
             rec["proc_start_ticks"] = prev_ticks
         leases[tid] = rec
+        orphans = state.get("orphan_pipeline_tabs")
+        if isinstance(orphans, dict):
+            orphans.pop(tid, None)
         _write_registry_unlocked(state, json_path)
         return dict(rec)
 

@@ -7,6 +7,7 @@ from pathlib import Path
 
 import cv2
 import numpy as np
+import pytest
 
 from pipeline import config as cfg
 from pipeline.depiction_rules import LiteralAnalogyCutawayRule, validate_zero_flesh_and_crystal_specimen
@@ -114,6 +115,7 @@ def test_gate2_green_turf_and_ceramic_cv_signatures(tmp_path: Path) -> None:
     assert any("missing_green_stadium_turf" in x for x in fail_rep["issues"])
 
 
+@pytest.mark.slow
 def test_verify_final_mp4_against_contract_save_report_false_is_zero_write() -> None:
     from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract
 

@@ -376,11 +376,20 @@ def validate_thumbnail_block_v7(
         for lex_err in validate_hook_lexical(hook_text, title=title):
             issues.append(f"[thumbnail_v7] hook_text '{hook_text}' violates TQ7 ({lex_err}) (R65)")
 
+    from pipeline.config import is_expressive_v8_plan
+
+    is_v8 = is_expressive_v8_plan(plan, script_doc)
     cover_idx = thumb.get("cover_sentence_index")
     if not isinstance(cover_idx, int) or isinstance(cover_idx, bool) or not (1 <= cover_idx <= 3):
         issues.append(
             f"[thumbnail_v7] cover_sentence_index must be an integer in 1..3 (cold-open), got {cover_idx!r} (R65)"
         )
+    elif is_v8:
+        if list(plan.get("chapter_headlines") or []) or list(plan.get("top_callouts") or []):
+            issues.append(
+                "[thumbnail_v8] expressive_25d_v8 forbids top in-video chapter_headlines / top_callouts "
+                "(thumbnail hook lives in 06_publish/thumbnail.png only) (R68)"
+            )
     elif hook_text and hook_text.upper() != "TODO":
         headlines = [
             h for h in (list(plan.get("chapter_headlines") or []) + list(plan.get("top_callouts") or []))
@@ -392,6 +401,329 @@ def validate_thumbnail_block_v7(
                 f"sentence_index={cover_idx} so the in-video cover frame matches the thumbnail hook (R65)"
             )
     return issues
+
+
+_ALLOWED_V8_SENTENCE_BEATS: frozenset[str] = frozenset(
+    {
+        "question",
+        "empathy",
+        "aggro",
+        "core",
+        "evidence",
+        "mechanism",
+        "payoff",
+        "cta_question",
+        "loop",
+    }
+)
+
+_STIFF_UNCONTRACTED_V8_RE = re.compile(
+    r"\b(?:cannot|do\s+not|does\s+not|did\s+not|is\s+not|are\s+not|it\s+is|that\s+is|you\s+are|they\s+are|we\s+are|will\s+not|would\s+not)\b",
+    flags=re.IGNORECASE,
+)
+
+_MYTH_REBUTTAL_OPENER_RE = re.compile(
+    r"^(?:wrong\b|nope\b|not\s+quite\b|except\b)",
+    flags=re.IGNORECASE,
+)
+
+_STANDALONE_MYTH_DENIAL_RE = re.compile(
+    r"(?:^and\s+no,\s+it(?:'s|\s+is)\s+not\b|^it(?:'s|\s+is)\s+not\s+(?:the|your|jet\s+lag)\b|^everyone\s+blames\b)",
+    flags=re.IGNORECASE,
+)
+
+_LOOP_STOPWORDS: frozenset[str] = frozenset(
+    {
+        "ever",
+        "have",
+        "what",
+        "when",
+        "where",
+        "which",
+        "your",
+        "youre",
+        "with",
+        "from",
+        "into",
+        "over",
+        "that",
+        "this",
+        "does",
+        "would",
+        "could",
+        "should",
+        "about",
+        "every",
+        "there",
+        "their",
+    }
+)
+
+
+def _count_v8_myth_flips(lines: list[str], foil_one_based: set[int]) -> int:
+    """
+    Counts myth-flip beats across `lines`.
+    An adjacent `(foil at i, immediate Wrong/Nope/Not quite/Except rebuttal at i+1)` pair counts as 1 myth-flip beat;
+    standalone foil lines, standalone rebuttal openers, and explicit opening myth-denial lines ('And no, it's not...') each count as 1.
+    """
+    count = 0
+    consumed: set[int] = set()
+    for idx, raw in enumerate(lines, start=1):
+        if idx in consumed:
+            continue
+        clean = re.sub(r"^[\"'“”‘’\s]+", "", str(raw or "")).strip()
+        if idx in foil_one_based:
+            count += 1
+            if idx + 1 <= len(lines):
+                nxt_clean = re.sub(r"^[\"'“”‘’\s]+", "", str(lines[idx] or "")).strip()
+                if _MYTH_REBUTTAL_OPENER_RE.match(nxt_clean):
+                    consumed.add(idx + 1)
+            continue
+        if _MYTH_REBUTTAL_OPENER_RE.match(clean) or _STANDALONE_MYTH_DENIAL_RE.search(clean):
+            count += 1
+    return count
+
+
+def validate_script_spine_v8_report(
+    lines: list[str],
+    script_doc: dict[str, Any] | None = None,
+) -> dict[str, list[str]]:
+    """
+    R68 `expressive_25d_v8` Empathy-First 3-Beat Opening + Early-Core script spine validator.
+    Returns `{"issues": [...], "advisories": [...]}` where `issues` are hard FAIL gates and `advisories` are non-blocking warnings.
+    """
+    from pipeline.config import (
+        EXPRESSIVE_V8_ADVISORY_PIVOT_MARKERS,
+        EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE,
+        EXPRESSIVE_V8_MAX_MYTH_FLIPS,
+        EXPRESSIVE_V8_OPENING_EMPATHY_MAX_WORDS,
+        EXPRESSIVE_V8_OPENING_QUESTION_MAX_WORDS,
+        EXPRESSIVE_V8_REQUIRE_FOIL,
+        SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX,
+    )
+    from pipeline.flow_prompt_builder import count_words
+
+    issues: list[str] = []
+    advisories: list[str] = []
+    if len(lines) < 6:
+        return {
+            "issues": ["[spine_v8] expressive_25d_v8 script needs >= 6 sentences for the retention spine (R68)"],
+            "advisories": [],
+        }
+
+    sdoc = script_doc or {}
+    s1 = re.sub(r"^[\"'“”‘’\s]+", "", str(lines[0] or "")).strip()
+    if re.match(
+        r"^(?:in\s+(?:18|19|20)\d{2}|(?:18|19|20)\d{2}\b|a\s+study\s+at|researchers\s+at|scientists\s+at)",
+        s1,
+        flags=re.IGNORECASE,
+    ):
+        issues.append(
+            f"[spine_v8] S1 opens with a year or academic institution ('{s1[:65]}') — open at 0.00s with a relatable 2nd-person question (R68)"
+        )
+
+    opening_mode = str(sdoc.get("opening_mode") or "question").strip().lower()
+    if opening_mode not in ("question", "situation"):
+        issues.append(
+            f"[spine_v8] invalid opening_mode '{opening_mode}' (allowed: 'question', 'situation') (R68)"
+        )
+    elif opening_mode == "situation":
+        advisories.append(
+            "[spine_v8:advisory] opening_mode='situation' bypasses S1 relatable 2nd-person '?' question — prefer 2nd-person question opening (R68)"
+        )
+    else:
+        s1_wc = count_words(s1)
+        has_second_person = bool(re.search(r"\b(?:you|your|you're|you've|you'd|yourself)\b", s1, flags=re.IGNORECASE))
+        has_third_person_subj = bool(re.search(r"\b(?:he|she|they|his|her|their)\b", s1, flags=re.IGNORECASE))
+        if not s1.endswith("?"):
+            issues.append(
+                f"[spine_v8] S1 must be a relatable 2nd-person question ending with '?' (got '{s1[:65]}'); "
+                "set opening_mode='situation' explicitly only for legacy situation cold-opens (R68)"
+            )
+        if s1_wc > EXPRESSIVE_V8_OPENING_QUESTION_MAX_WORDS:
+            issues.append(
+                f"[spine_v8] S1 opening question has {s1_wc} words > max {EXPRESSIVE_V8_OPENING_QUESTION_MAX_WORDS}: '{s1[:65]}' (R68)"
+            )
+        if not has_second_person or (has_third_person_subj and not has_second_person):
+            issues.append(
+                f"[spine_v8] S1 opening question must address the viewer in 2nd person ('you'/'your'), got: '{s1[:65]}' (R68)"
+            )
+
+    raw_core_idx = sdoc.get("core_reveal_sentence_index")
+    core_idx: int | None = None
+    if raw_core_idx is None:
+        if opening_mode == "question":
+            issues.append(
+                f"[spine_v8] script.core_reveal_sentence_index is required and must be <= {EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE} (R68)"
+            )
+        else:
+            advisories.append(
+                f"[spine_v8:advisory] core_reveal_sentence_index not specified in situation mode (target <= S{EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE}) (R68)"
+            )
+    else:
+        try:
+            core_idx = int(raw_core_idx)
+        except (TypeError, ValueError):
+            core_idx = -1
+        if core_idx < 2 or core_idx > EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE or core_idx > len(lines):
+            issues.append(
+                f"[spine_v8] core_reveal_sentence_index={raw_core_idx} must be within 2..{EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE} (R68)"
+            )
+        else:
+            pre_core_mid = lines[1 : core_idx - 1]
+            if len(pre_core_mid) > 2:
+                issues.append(
+                    f"[spine_v8] opening empathy/aggro lines before core S{core_idx} exceed 2 sentences (got {len(pre_core_mid)}) (R68)"
+                )
+            for offset_i, emp_line in enumerate(pre_core_mid, start=2):
+                emp_wc = count_words(emp_line)
+                if emp_wc > EXPRESSIVE_V8_OPENING_EMPATHY_MAX_WORDS:
+                    issues.append(
+                        f"[spine_v8] opening sentence S{offset_i} has {emp_wc} words > max {EXPRESSIVE_V8_OPENING_EMPATHY_MAX_WORDS}: '{emp_line[:65]}' (R68)"
+                    )
+
+    for s_idx, s_line in enumerate(lines, start=1):
+        swc = count_words(s_line)
+        if swc > SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX:
+            issues.append(
+                f"[spine_v8] sentence {s_idx} has {swc} words > max {SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX}: '{s_line[:65]}' (R68)"
+            )
+
+    speakers = sdoc.get("sentence_speakers")
+    foil_indices = sdoc.get("foil_sentence_indices")
+    foil_set: set[int] = set()
+    has_foil = False
+    if isinstance(speakers, list):
+        if len(speakers) != len(lines):
+            issues.append(
+                f"[spine_v8] script.sentence_speakers length {len(speakers)} != sentence count {len(lines)} (R68)"
+            )
+        norm_sp = [str(x or "narrator").strip().lower() for x in speakers]
+        bad_sp = sorted({x for x in norm_sp if x not in ("narrator", "foil")})
+        if bad_sp:
+            issues.append(f"[spine_v8] invalid speaker role(s) {bad_sp} in sentence_speakers (allowed: 'narrator', 'foil') (R68)")
+        foil_set = {idx_sp for idx_sp, sp_r in enumerate(norm_sp, start=1) if sp_r == "foil"}
+        has_foil = bool(foil_set)
+    elif isinstance(foil_indices, list) and foil_indices:
+        foil_set = {int(i) for i in foil_indices if isinstance(i, int) and 1 <= i <= len(lines)}
+        has_foil = len(foil_set) >= 1
+    if not has_foil and EXPRESSIVE_V8_REQUIRE_FOIL:
+        issues.append(
+            "[spine_v8] multi-role dialogue requires >= 1 'foil' sentence in script.sentence_speakers (or foil_sentence_indices) (R68)"
+        )
+
+    myth_flips = _count_v8_myth_flips(lines, foil_set)
+    if myth_flips > EXPRESSIVE_V8_MAX_MYTH_FLIPS:
+        issues.append(
+            f"[spine_v8] myth-flip pattern repeated {myth_flips} times > max {EXPRESSIVE_V8_MAX_MYTH_FLIPS} — avoid repetitive foil/Wrong loops (R68)"
+        )
+
+    full_low = " ".join(lines).lower()
+    pivot_markers = ("wait, what", "wait—what", "wait - what", "but here's", "but here is", "except ")
+    has_contrast_q_pivot = any(
+        bool(re.match(r"^[\"'“”‘’\s]*(?:but|yet)\s+[^?]{2,40}\?", ln, flags=re.IGNORECASE))
+        for ln in lines[1:-1]
+    )
+    if not (any(pm in full_low for pm in pivot_markers) or has_contrast_q_pivot or (not EXPRESSIVE_V8_ADVISORY_PIVOT_MARKERS and "until " in full_low)):
+        msg_piv = f"[spine_v8:advisory] script missing conversational escalation pivot ({pivot_markers[:4]} or 'But ...?') (R68)"
+        if EXPRESSIVE_V8_ADVISORY_PIVOT_MARKERS:
+            advisories.append(msg_piv)
+        else:
+            issues.append(msg_piv.replace(":advisory", ""))
+
+    reveal_start = max(1, int(len(lines) * 0.45))
+    second_half_low = " ".join(lines[reveal_start:]).lower()
+    if "you see" not in second_half_low:
+        msg_ys = "[spine_v8:advisory] mechanism reveal window missing conversational 'You see...' bridge in second half of script (R68)"
+        if EXPRESSIVE_V8_ADVISORY_PIVOT_MARKERS:
+            advisories.append(msg_ys)
+        else:
+            issues.append(msg_ys.replace(":advisory", ""))
+
+    stiff_hits: list[str] = []
+    for s_idx, s_line in enumerate(lines, start=1):
+        m_stiff = _STIFF_UNCONTRACTED_V8_RE.search(s_line)
+        if m_stiff:
+            stiff_hits.append(f"S{s_idx}:'{m_stiff.group(0)}'")
+    if stiff_hits:
+        advisories.append(
+            f"[spine_v8:advisory] stiff uncontracted phrasing detected ({', '.join(stiff_hits[:4])}) — prefer natural spoken contractions (R68)"
+        )
+
+    beats = sdoc.get("sentence_beats")
+    if opening_mode == "question" or beats is not None:
+        if not isinstance(beats, list) or len(beats) != len(lines):
+            advisories.append(
+                f"[spine_v8:advisory] script.sentence_beats missing or length {len(beats) if isinstance(beats, list) else 0} != {len(lines)} (R68)"
+            )
+        else:
+            bad_beats = [
+                f"S{idx_b}:'{b_tag}'"
+                for idx_b, b_tag in enumerate(beats, start=1)
+                if str(b_tag or "").strip().lower() not in _ALLOWED_V8_SENTENCE_BEATS
+            ]
+            if bad_beats:
+                advisories.append(
+                    f"[spine_v8:advisory] unrecognized sentence_beats tag(s) {bad_beats[:4]} (allowed: {sorted(_ALLOWED_V8_SENTENCE_BEATS)}) (R68)"
+                )
+
+    if opening_mode == "question" and len(lines) >= 3:
+        opening_window_low = " ".join(lines[1 : min(4, len(lines))]).lower()
+        empathy_cues = (
+            "not alone",
+            "everyone",
+            "we all",
+            "most people",
+            "almost all",
+            "happens to",
+            "you've felt",
+            "it's not",
+        )
+        if not any(ec in opening_window_low for ec in empathy_cues):
+            advisories.append(
+                "[spine_v8:advisory] opening S2-S3 lacks relatable empathy/shared-experience cue ('You\\'re not alone.', 'Almost everyone...') (R68)"
+            )
+
+        s1_words = {
+            w
+            for w in re.findall(r"[a-z]{4,}", s1.lower())
+            if w not in _LOOP_STOPWORDS
+        }
+        last_words = set(re.findall(r"[a-z]{4,}", str(lines[-1] or "").lower()))
+        if s1_words and not (s1_words & last_words):
+            advisories.append(
+                "[spine_v8:advisory] final sentence does not echo any key content word from S1 question — strengthen S1->S_N answer loop (R68)"
+            )
+
+    last_low = re.sub(r"^[\"'“”‘’\s]+", "", str(lines[-1] or "")).strip().lower()
+    banned_recap_openers = (
+        "which proves ",
+        "in conclusion",
+        "to summarize",
+        "overall,",
+        "this study proves ",
+        "that is why scientists ",
+    )
+    if last_low.startswith(banned_recap_openers):
+        issues.append(
+            f"[spine_v8] final sentence starts with lecture-summary recap ('{lines[-1][:65]}') — end with a crisp paradox or loop cut (R68)"
+        )
+
+    omit_nicks = [str(n).strip() for n in (sdoc.get("omit_experiment_nicknames") or ()) if str(n).strip()]
+    for nick in omit_nicks:
+        if re.search(rf"\b{re.escape(nick)}\b", full_low, flags=re.IGNORECASE):
+            issues.append(
+                f"[spine_v8] spoken script contains omitted experiment nickname '{nick}' — save the academic label for comment curiosity (R68)"
+            )
+    return {"issues": issues, "advisories": advisories}
+
+
+def validate_script_spine_v8(
+    lines: list[str],
+    script_doc: dict[str, Any] | None = None,
+) -> list[str]:
+    """Backwards-compatible wrapper returning blocking `issues` from `validate_script_spine_v8_report`."""
+    return validate_script_spine_v8_report(lines, script_doc=script_doc)["issues"]
 
 
 _CHRONOMETER_PROP_RE = re.compile(
@@ -628,6 +960,7 @@ def validate_scene_state_continuity(
         c_role = str(mc.get("cut_role") or "").strip().lower()
         is_brain_or_outro = (
             g_name in (
+                "expressive_xray_brain",
                 "porcelain_living_brain",
                 "porcelain_data_sculpture",
                 "lowpoly_living_brain",
@@ -636,6 +969,7 @@ def validate_scene_state_continuity(
                 "arch_brain_maquette",
                 "frosted_crystal_specimen",
             )
+            or bool(mc.get("brain_clip"))
             or bool(mc.get("brain_mode"))
             or c_role == "outro"
         )
@@ -656,14 +990,33 @@ def validate_scene_state_continuity(
 
         if not is_brain_or_outro:
             for rid in start_rids + end_rids:
-                if "brain_master" in rid:
+                if "brain_master" in rid or "xray_brain" in rid:
                     issues.append(
                         f"clip {clip_id}: [scene_state_v7] non-brain clip binds cutaway brain reference '{rid}' "
-                        "(causes severed mannequin head prop contamination) (R66.4/R67)"
+                        "(causes severed mannequin/crystal-dome head prop contamination) (R66.4/R67/R68)"
                     )
 
         st = mc.get("scene_state")
-        if ledger_required and not is_brain_or_outro and g_name != "porcelain_literal_analogy":
+        c_loc_early = str((st.get("location_id") if isinstance(st, dict) else "") or mc.get("location_id") or "").strip()
+        if not isinstance(st, dict) and c_loc_early and not is_brain_or_outro:
+            for rid in start_rids:
+                rspec = ref_map.get(rid)
+                r_loc = str((rspec or {}).get("location_id") or "").strip() if isinstance(rspec, dict) else ""
+                if r_loc and r_loc != c_loc_early:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] start reference '{rid}' location_id='{r_loc}' != "
+                        f"clip location_id='{c_loc_early}' (cross-location prop/room leak) (R66.4/R67/R68)"
+                    )
+            for rid in end_rids:
+                rspec = ref_map.get(rid)
+                r_loc = str((rspec or {}).get("location_id") or "").strip() if isinstance(rspec, dict) else ""
+                if r_loc and r_loc != c_loc_early:
+                    issues.append(
+                        f"clip {clip_id}: [scene_state_v7] end reference '{rid}' location_id='{r_loc}' != "
+                        f"clip location_id='{c_loc_early}' (cross-location prop/room leak) (R66.4/R67/R68)"
+                    )
+
+        if ledger_required and not is_brain_or_outro and g_name not in ("porcelain_literal_analogy", "expressive_literal_analogy"):
             if not isinstance(st, dict):
                 issues.append(
                     f"clip {clip_id}: [scene_state_v7] room/cast clip missing scene_state ledger dict "
@@ -872,7 +1225,17 @@ def validate_production_diorama_v6(
         SHORTS_90S_SENTENCE_COUNT_MIN,
         SHORTS_90S_WORD_COUNT_MAX,
         SHORTS_90S_WORD_COUNT_MIN,
+        SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX,
+        SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
+        SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MAX,
+        SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MIN,
+        SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX,
+        SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX,
+        SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN,
+        EXPRESSIVE_V8_OPENING_QUESTION_STARTERS,
         is_diorama_v7_plan,
+        is_expressive_v8_plan,
         is_porcelain_v7_plan,
         resolve_shorts_format_profile,
     )
@@ -881,7 +1244,8 @@ def validate_production_diorama_v6(
 
     issues: list[str] = []
     plan = plan or {}
-    is_v7 = is_diorama_v7_plan(plan) or (isinstance(script_doc, dict) and is_diorama_v7_plan(script_doc))
+    is_v8 = is_expressive_v8_plan(plan, script_doc, *(clips or []))
+    is_v7 = is_v8 or is_diorama_v7_plan(plan) or (isinstance(script_doc, dict) and is_diorama_v7_plan(script_doc))
     lines = [str(n).strip() for n in (narrations or []) if str(n).strip()]
 
     project_id = str((script_doc or {}).get("project_id") or plan.get("project_id") or "").strip()
@@ -895,9 +1259,12 @@ def validate_production_diorama_v6(
     )
     is_micro = fmt_prof == MICRO_SHORT_PROFILE
     is_90s = fmt_prof == SHORTS_90S_PROFILE
+    if fmt_prof == SHORTS_EXPRESSIVE_V8_PROFILE:
+        is_v8 = True
+        is_v7 = True
     prosody_mode = str((script_doc or {}).get("prosody_mode") or plan.get("prosody_mode") or "").strip().lower()
 
-    # 1. R57 / R63 US English & 6-Act sentence/word budget ---------------------
+    # 1. R57 / R63 / R68 US English & sentence/word budget ---------------------
     total_words = sum(count_words(s) for s in lines)
     is_frozen_gage_v7 = is_v7 and (
         project_id == "gage_diorama_v7_lowpoly"
@@ -913,11 +1280,22 @@ def validate_production_diorama_v6(
         or dossier_slug in FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS
         or (bool(project_id) and any(project_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES))
     )
-    is_us_v7 = is_v7 and not is_pre_r66_frozen and (
+    is_us_v7 = is_v7 and not is_v8 and not is_pre_r66_frozen and (
         prosody_mode == DIORAMA_V7_US_PROSODY_MODE or bool(plan.get("us_anti_clone_v7"))
     )
 
-    if is_micro:
+    if is_v8:
+        if not (SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MIN <= len(lines) <= SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MAX):
+            issues.append(
+                f"[diorama_script] sentence count {len(lines)} outside "
+                f"{SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MIN}-{SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MAX} ({SHORTS_EXPRESSIVE_V8_PROFILE}) (R68)"
+            )
+        if not (SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN <= total_words <= SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX):
+            issues.append(
+                f"[diorama_script] total spoken words {total_words} outside "
+                f"{SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN}-{SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX} for 58-88s expressive_25d_v8 pacing (R68)"
+            )
+    elif is_micro:
         if not (10 <= len(lines) <= 18):
             issues.append(f"[micro_short_v7] sentence count {len(lines)} outside 10-18 (R63)")
         if not (MICRO_SHORT_WORD_MIN <= total_words <= MICRO_SHORT_WORD_MAX):
@@ -949,9 +1327,13 @@ def validate_production_diorama_v6(
             )
 
     sent_words_max = (
-        DIORAMA_US_SENTENCE_WORDS_MAX
-        if (is_us_v7 or is_micro)
-        else (DIORAMA_V7_SENTENCE_WORDS_MAX if is_v7 else DIORAMA_SENTENCE_WORDS_MAX)
+        SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX
+        if is_v8
+        else (
+            DIORAMA_US_SENTENCE_WORDS_MAX
+            if (is_us_v7 or is_micro)
+            else (DIORAMA_V7_SENTENCE_WORDS_MAX if is_v7 else DIORAMA_SENTENCE_WORDS_MAX)
+        )
     )
     for idx, s in enumerate(lines, start=1):
         wc = count_words(s)
@@ -962,7 +1344,7 @@ def validate_production_diorama_v6(
         if re.search(r"[\uac00-\ud7a3\u3040-\u30ff\u4e00-\u9fff]", s):
             issues.append(f"[en_us_lock] sentence {idx} contains non-English CJK/Korean characters (R36/R57)")
 
-    if not is_micro and isinstance(script_doc, dict) and isinstance(script_doc.get("acts"), list):
+    if not is_micro and not is_v8 and isinstance(script_doc, dict) and isinstance(script_doc.get("acts"), list):
         acts = script_doc["acts"]
         if len(acts) != DIORAMA_ACT_COUNT:
             issues.append(f"[diorama_script] script.acts must have {DIORAMA_ACT_COUNT} acts (got {len(acts)}) (R57)")
@@ -976,12 +1358,19 @@ def validate_production_diorama_v6(
             )
         if is_v7:
             s1_low = re.sub(r"^[\"'“”‘’\s]+", "", lines[0]).lower()
-            if any(s1_low.startswith(pref) for pref in DIORAMA_BANNED_WEAK_HOOK_PREFIXES):
+            weak_hook_prefixes = (
+                ("imagine ", "picture this", "suppose ")
+                if (is_v8 and any(s1_low.startswith(qs) for qs in EXPRESSIVE_V8_OPENING_QUESTION_STARTERS))
+                else DIORAMA_BANNED_WEAK_HOOK_PREFIXES
+            )
+            if any(s1_low.startswith(pref) for pref in weak_hook_prefixes):
                 issues.append(
                     f"[hook_v7] sentence 1 starts with weak hypothetical opener {DIORAMA_BANNED_WEAK_HOOK_PREFIXES}: "
                     f"'{lines[0][:65]}' — open at 0.0s with concrete event/paradox shock (R57-H)"
                 )
-            if bool(plan.get("require_cold_open_v7", DIORAMA_V7_REQUIRE_COLD_OPEN)) and not is_frozen_gage_v7 and not is_micro:
+            if is_v8:
+                issues.extend(validate_script_spine_v8(lines, script_doc=script_doc))
+            elif bool(plan.get("require_cold_open_v7", DIORAMA_V7_REQUIRE_COLD_OPEN)) and not is_frozen_gage_v7 and not is_micro:
                 issues.extend(validate_cold_open_v7(lines))
             from pipeline.config import DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK
 
@@ -1000,7 +1389,7 @@ def validate_production_diorama_v6(
             c_low = str(c_item.get("text") or "").lower()
             if "university neuroscience" in c_low or "made simple" in c_low or "all about brain" in c_low:
                 issues.append(f"[diorama_script] headline/callout contains banned channel-slogan badge: '{c_item.get('text')}' (R57)")
-    if bool(plan.get("require_signature_hooks", DIORAMA_REQUIRE_SIGNATURE_HOOKS)) and lines and not is_micro:
+    if not is_v8 and bool(plan.get("require_signature_hooks", DIORAMA_REQUIRE_SIGNATURE_HOOKS)) and lines and not is_micro:
         full_low = " ".join(lines).lower()
         if is_v7 and not is_pre_r66_frozen:
             if not any(p.strip().lower() in full_low for p in DIORAMA_CRISIS_BEAT_BANK):
@@ -1059,11 +1448,19 @@ def validate_production_diorama_v6(
         issues.extend(validate_anti_clone_uniqueness(lines, adjacent_scripts))
     if bool(plan.get("zero_clip_reuse", True)) and lines and clips:
         if is_v7:
-            min_cuts = MICRO_SHORT_CUT_MIN if is_micro else (SHORTS_90S_CUT_COUNT_MIN if is_90s else DIORAMA_TARGET_CUT_MIN)
+            min_cuts = (
+                SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN
+                if is_v8
+                else (MICRO_SHORT_CUT_MIN if is_micro else (SHORTS_90S_CUT_COUNT_MIN if is_90s else DIORAMA_TARGET_CUT_MIN))
+            )
             if len(clips) < min_cuts:
                 issues.append(
-                    f"[zero_reuse_v7] Schema v7 zero_clip_reuse=True requires >= {min_cuts} unique clips "
-                    f"(got {len(clips)}) so dynamic long-take holds + rapid sub-cuts maintain >= {min_cuts} cuts (R63)"
+                    f"[zero_reuse_v7] zero_clip_reuse=True requires >= {min_cuts} unique clips "
+                    f"(got {len(clips)}) so dynamic holds maintain >= {min_cuts} cuts (R63/R68)"
+                )
+            if is_v8 and len(clips) > SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX:
+                issues.append(
+                    f"[zero_reuse_v7] expressive_25d_v8 clip count {len(clips)} exceeds ceiling {SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX} (R68)"
                 )
             if is_micro and len(clips) > MICRO_SHORT_CUT_MAX + 4:
                 issues.append(
@@ -1080,7 +1477,7 @@ def validate_production_diorama_v6(
                         covered_sentences.add(s_k)
             missing_s = [i for i in range(1, len(lines) + 1) if i not in covered_sentences]
             if missing_s:
-                issues.append(f"[zero_reuse_v7] sentences missing clip/hold coverage: {missing_s[:10]} (R63)")
+                issues.append(f"[zero_reuse_v7] sentences missing clip/hold coverage: {missing_s[:10]} (R63/R68)")
         else:
             if len(clips) < len(lines) + 1:
                 issues.append(
@@ -1092,17 +1489,20 @@ def validate_production_diorama_v6(
             if missing_s:
                 issues.append(f"[zero_reuse] sentences missing dedicated 1:1 clip binding: {missing_s[:10]} (R58)")
 
-    if not str(plan.get("act5_climax_episode") or "").strip():
-        issues.append("[diorama_script] visual_plan.act5_climax_episode is empty (Act 5 lab crisis required) (R57)")
+    if not is_v8:
+        if not str(plan.get("act5_climax_episode") or "").strip():
+            issues.append("[diorama_script] visual_plan.act5_climax_episode is empty (Act 5 lab crisis required) (R57)")
 
-    outro_lines = plan.get("outro_title_lines") if isinstance(plan.get("outro_title_lines"), list) else []
-    if len([x for x in outro_lines if str(x).strip()]) < 2:
-        issues.append("[diorama_script] visual_plan.outro_title_lines needs 2 uppercase English lines for the Act 6 tilt-up outro (R59)")
+        outro_lines = plan.get("outro_title_lines") if isinstance(plan.get("outro_title_lines"), list) else []
+        if len([x for x in outro_lines if str(x).strip()]) < 2:
+            issues.append("[diorama_script] visual_plan.outro_title_lines needs 2 uppercase English lines for the Act 6 tilt-up outro (R59)")
+    elif list(plan.get("outro_title_lines") or []):
+        issues.append("[diorama_script] expressive_25d_v8 forbids outro_title_lines (must hard-cut at speech_end + 0.20s for seamless loop) (R68)")
 
-    # 2. R57 100% [Number] -> [Immediate Everyday Analogy] pairing -------------
+    # 2. R57 / R68 100% [Number] -> [Immediate Everyday Analogy] pairing -------
     issues.extend(validate_number_analogy_pairing(lines))
 
-    # 3. R56 / R63 / R66 Prompts, World Continuity & Filler Ban ----------------
+    # 3. R56 / R63 / R66 / R68 Prompts, World Continuity & Filler Ban ----------
     issues.extend(validate_diorama_v6_prompts(clips, plan=plan))
     if clips:
         if is_v7:
@@ -1119,7 +1519,7 @@ def validate_production_diorama_v6(
                         f"clip {clip_id}: [filler_ban_v7] unrelated generic 'water tumbler / beam scale' "
                         "filler prop banned in Schema v7 (R63)"
                     )
-            # R63: Enforce A-B-A spatial location continuity (>= 2 location returns across non-adjacent clips)
+            # R63/R68: Enforce A-B-A spatial location continuity (>= 1 return on compact v8, >= 2 on v7)
             seen_locs: dict[str, int] = {}
             aba_returns = 0
             for idx_c, c in enumerate(clips):
@@ -1129,12 +1529,15 @@ def validate_production_diorama_v6(
                 if loc in seen_locs and idx_c - seen_locs[loc] >= 2:
                     aba_returns += 1
                 seen_locs[loc] = idx_c
-            if aba_returns < 2:
+            min_aba = 1 if is_v8 else 2
+            if aba_returns < min_aba:
                 issues.append(
-                    f"[spatial_aba_v7] Schema v7 requires >= 2 A-B-A spatial location_id returns across clips "
-                    f"(found {aba_returns}) (R63)"
+                    f"[spatial_aba_v7] requires >= {min_aba} A-B-A spatial location_id return(s) across clips "
+                    f"(found {aba_returns}) (R63/R68)"
                 )
-            if is_porcelain_v7_plan(plan, *(clips or []), script_doc) and not is_pre_r66_frozen and not is_micro:
+            if is_v8:
+                issues.extend(validate_scene_state_continuity(plan, clips))
+            elif is_porcelain_v7_plan(plan, *(clips or []), script_doc) and not is_pre_r66_frozen and not is_micro:
                 issues.extend(
                     validate_substantive_visual_relevance(
                         plan,
@@ -1170,7 +1573,7 @@ def validate_production_diorama_v6(
                     f"[motif] recurring gauge motif appears in {motif_hits} clips (must be "
                     f"{DIORAMA_MOTIF_APPEARANCES_MIN}-{DIORAMA_MOTIF_APPEARANCES_MAX} across Acts 1-6) (R56)"
                 )
-        if not is_micro:
+        if not is_micro and not is_v8:
             acts_covered = {int(c.get("act") or 0) for c in clips}
             missing_acts = [a for a in range(1, DIORAMA_ACT_COUNT + 1) if a not in acts_covered]
             if missing_acts:
@@ -1179,13 +1582,13 @@ def validate_production_diorama_v6(
     # 4. Plain-language, conversational prosody & anatomy glossing -------------
     _expressive_ok = ("question mark", "exclamation mark", "em dash", "en dash", "ellipsis")
     q_count = sum(1 for s in lines if "?" in s)
-    min_q = 1 if is_micro else (2 if is_90s else DIORAMA_MIN_CONVERSATIONAL_QUESTIONS)
+    min_q = 1 if (is_micro or is_v8) else (2 if is_90s else DIORAMA_MIN_CONVERSATIONAL_QUESTIONS)
     if q_count < min_q:
         issues.append(
             f"[storyteller] script has only {q_count} conversational question(s) '?' "
             f"(need >= {min_q} to avoid flat textbook reading) (R57)"
         )
-    if is_v7 and not is_micro and len(lines) >= 20:
+    if is_v7 and not is_micro and not is_v8 and len(lines) >= 20:
         mid_lo = max(0, len(lines) // 3 - 2)
         mid_hi = min(len(lines), (2 * len(lines)) // 3 + 2)
         if not any("?" in s for s in lines[mid_lo:mid_hi]):
@@ -1194,7 +1597,7 @@ def validate_production_diorama_v6(
                 "to sustain AVD past 60-90s across the Act 3 -> Act 4 transition (R57-M)"
             )
     a = analyze_script(lines)
-    fk_cap = DIORAMA_V7_MAX_FK_GRADE if is_us_v7 else READABILITY_SCRIPT_FK_MAX
+    fk_cap = DIORAMA_V7_MAX_FK_GRADE if (is_us_v7 or is_v8) else READABILITY_SCRIPT_FK_MAX
     if a["script_fk_grade"] > fk_cap:
         issues.append(f"[plain] script reading grade {a['script_fk_grade']} > {fk_cap} (R15)")
     for c in a["clips"]:
@@ -1505,6 +1908,11 @@ def score_project(project_dir: Path) -> dict[str, Any]:
         "split_v7": "structure",
         "scene_state_v7": "scene",
         "lowpoly_v7": "scene",
+        "expressive_v8": "scene",
+        "xray_timing_v8": "brain",
+        "cameo_v8": "scene",
+        "spine_v8": "structure",
+        "thumbnail_v8": "structure",
         "camera": "acting",
         "world": "scene",
         "crystal": "brain",

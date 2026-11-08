@@ -1,149 +1,182 @@
 {
-  "updated_at_utc": "2026-11-04T09:51:47.171042+00:00",
-  "episodes_indexed": 28,
-  "total_cuts_evaluated": 1578,
+  "updated_at_utc": "2026-11-08T11:51:43.756498+00:00",
+  "episodes_indexed": 33,
+  "total_cuts_evaluated": 1042,
   "overall_mean_clarity": 97.0,
   "overall_min_clarity": 93.6,
-  "golden_prompts_banked": 198,
-  "analogies_indexed": 21,
-  "brain_models_indexed": 190,
-  "locations_indexed": 122,
+  "golden_prompts_banked": 216,
+  "analogies_indexed": 16,
+  "brain_models_indexed": 127,
+  "locations_indexed": 97,
   "episodes_by_voice_preset": {
+    "andrew_v7": {
+      "episodes": 4,
+      "mean_wpm": 183.4,
+      "mean_clarity": 97.0
+    },
     "emma_v7": {
-      "episodes": 1,
-      "mean_wpm": 188.2,
-      "mean_clarity": 97.2
+      "episodes": 11,
+      "mean_wpm": 176.0,
+      "mean_clarity": 97.0
     },
     "unspecified": {
-      "episodes": 27,
-      "mean_wpm": 182.5,
+      "episodes": 18,
+      "mean_wpm": 172.9,
       "mean_clarity": 97.0
     }
   },
   "clarity_by_grammar": {
-    "lowpoly_cutaway_section": {
-      "cuts": 86,
+    "expressive_cameo_world": {
+      "cuts": 1,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.1,
+      "mean_clarity": 97.2,
+      "min_clarity": 97.2
+    },
+    "expressive_vinyl_world": {
+      "cuts": 15,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.4,
+      "min_clarity": 94.4
+    },
+    "expressive_xray_brain": {
+      "cuts": 2,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 95.8,
+      "min_clarity": 95.8
+    },
+    "lowpoly_cutaway_section": {
+      "cuts": 65,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.2,
       "min_clarity": 95.4
     },
     "lowpoly_fullbleed_world": {
-      "cuts": 369,
+      "cuts": 222,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.9,
+      "mean_clarity": 96.8,
       "min_clarity": 93.6
     },
     "lowpoly_hands_closeup": {
-      "cuts": 528,
+      "cuts": 325,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.4
     },
     "lowpoly_literal_analogy": {
-      "cuts": 201,
+      "cuts": 129,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
       "min_clarity": 94.4
     },
     "lowpoly_matte_brain": {
-      "cuts": 178,
+      "cuts": 111,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.2,
-      "min_clarity": 94.2
+      "min_clarity": 95.9
     },
     "lowpoly_pov_hands": {
-      "cuts": 168,
+      "cuts": 109,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.1,
+      "min_clarity": 95.9
+    },
+    "porcelain_cutaway_section": {
+      "cuts": 3,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.4,
+      "min_clarity": 97.3
+    },
+    "porcelain_fullbleed_world": {
+      "cuts": 30,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.3,
+      "min_clarity": 95.1
+    },
+    "porcelain_hands_closeup": {
+      "cuts": 9,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.3,
+      "min_clarity": 96.8
+    },
+    "porcelain_literal_analogy": {
+      "cuts": 4,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.2,
+      "min_clarity": 97.1
+    },
+    "porcelain_living_brain": {
+      "cuts": 14,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.2,
+      "min_clarity": 96.6
+    },
+    "porcelain_pov_hands": {
+      "cuts": 3,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.4,
+      "min_clarity": 97.1
+    }
+  },
+  "clarity_by_camera_move": {
+    "clean_pullback_reveal": {
+      "cuts": 45,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.8
     },
-    "porcelain_cutaway_section": {
-      "cuts": 1,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.3,
-      "min_clarity": 97.3
-    },
-    "porcelain_fullbleed_world": {
-      "cuts": 22,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.3,
-      "min_clarity": 95.5
-    },
-    "porcelain_hands_closeup": {
-      "cuts": 11,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.2,
-      "min_clarity": 96.7
-    },
-    "porcelain_living_brain": {
-      "cuts": 12,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.1,
-      "min_clarity": 96.6
-    },
-    "porcelain_pov_hands": {
-      "cuts": 2,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.5,
-      "min_clarity": 97.4
-    }
-  },
-  "clarity_by_camera_move": {
-    "clean_pullback_reveal": {
-      "cuts": 81,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
-      "min_clarity": 95.4
-    },
     "gentle_push_in": {
-      "cuts": 186,
+      "cuts": 133,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.1
     },
     "locked_tripod": {
-      "cuts": 955,
+      "cuts": 636,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
+      "mean_clarity": 97.1,
       "min_clarity": 94.4
     },
     "pan_left": {
-      "cuts": 134,
+      "cuts": 80,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.9,
+      "mean_clarity": 97.0,
       "min_clarity": 93.6
     },
     "pan_right": {
-      "cuts": 162,
+      "cuts": 102,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.4
     },
     "tilt_down": {
-      "cuts": 20,
+      "cuts": 18,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.7,
-      "min_clarity": 94.2
+      "mean_clarity": 96.6,
+      "min_clarity": 94.7
     },
     "tilt_up": {
-      "cuts": 40,
+      "cuts": 28,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 95.5,
@@ -152,42 +185,42 @@
   },
   "clarity_by_act": {
     "act_1": {
-      "cuts": 305,
+      "cuts": 200,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
-      "min_clarity": 95.1
+      "min_clarity": 94.7
     },
     "act_2": {
-      "cuts": 263,
+      "cuts": 176,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
-      "min_clarity": 94.4
+      "mean_clarity": 97.1,
+      "min_clarity": 95.7
     },
     "act_3": {
-      "cuts": 259,
+      "cuts": 172,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.2
     },
     "act_4": {
-      "cuts": 223,
+      "cuts": 144,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
-      "min_clarity": 94.6
+      "min_clarity": 94.4
     },
     "act_5": {
-      "cuts": 268,
+      "cuts": 182,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.1,
-      "min_clarity": 94.0
+      "min_clarity": 94.4
     },
     "act_6": {
-      "cuts": 260,
+      "cuts": 168,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.8,

@@ -446,6 +446,7 @@ def test_track_a_guide_sanitizer_quarantine_purge_and_16x9_clip_cv_gate(tmp_path
     assert good_cv["passed"] is True, f"Unexpected CV failure: {good_cv}"
 
 
+@pytest.mark.slow
 def test_end_to_end_1080p_assembly_split_hstack_publish_and_lfq1_to_lfq12(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     shorts_dir = tmp_path / "projects"
     lf_root = tmp_path / "projects_longform"

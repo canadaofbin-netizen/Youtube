@@ -10,6 +10,7 @@ graphs, and outputs a strictly standardized 9-section Markdown daily report.
 from __future__ import annotations
 
 import asyncio
+import concurrent.futures
 import hashlib
 import json
 import re
@@ -53,6 +54,7 @@ from pipeline.studio.whale_session import DirectCDPClient, WhaleSessionControlle
 LATEST_CHARTS_FILE = REPORTS_ROOT_DIR / "LATEST_STUDIO_CHARTS.png"
 LATEST_VIDEO_DETAIL_REPORT_FILE = REPORTS_ROOT_DIR / "LATEST_VIDEO_DETAIL_REPORT.md"
 LATEST_VIDEO_DETAIL_CHARTS_FILE = REPORTS_ROOT_DIR / "LATEST_VIDEO_DETAIL_CHARTS.png"
+_GLOBAL_PROJECT_STAGE_CACHE: dict[str, dict[str, Any]] = {}
 _DURATION_CACHE: dict[str, float] = {}
 
 PILLAR_CANONICAL_MAP: dict[str, tuple[str, str]] = {
@@ -267,12 +269,50 @@ class StudioAnalyticsReporter:
 
         dur = 0.0
         if storage is not None:
-            try:
-                probe = storage.load_json("05_assembly", "probe_report.json") or {}
-                if probe.get("duration_seconds"):
-                    dur = round(float(probe["duration_seconds"]), 1)
-            except Exception:
-                pass
+            for stage_name, fname, key_name in (
+                ("05_assembly", "probe_report.json", "duration_seconds"),
+                ("05_assembly", "edit_decision_list.json", "total_duration_sec"),
+                ("05_assembly", "video_autopsy_report.json", "duration_sec"),
+                ("04_audio", "prosody_report.json", "duration_sec"),
+                ("04_audio", "voice_report.json", "duration_seconds"),
+            ):
+                try:
+                    rep_doc = storage.load_json(stage_name, fname) or {}
+                    val = rep_doc.get(key_name) or rep_doc.get("duration_seconds") or rep_doc.get("total_duration_sec")
+                    if val and float(val) > 0:
+                        dur = round(float(val), 1)
+                        break
+                except Exception:
+                    pass
+
+        if dur <= 0.0:
+            resolved_mp4 = resolve_project_video_path(proj_dir, proj_id)
+            if resolved_mp4 is not None and resolved_mp4.exists():
+                try:
+                    import struct
+                    fsize = resolved_mp4.stat().st_size
+                    if fsize > 64:
+                        with resolved_mp4.open("rb") as mf:
+                            chunks = [mf.read(min(fsize, 262144))]
+                            if fsize > 262144:
+                                mf.seek(max(0, fsize - 262144))
+                                chunks.append(mf.read(262144))
+                        for buf in chunks:
+                            idx_m = buf.find(b"mvhd")
+                            if idx_m >= 0 and idx_m + 24 <= len(buf):
+                                ver = buf[idx_m + 4]
+                                if ver == 0 and idx_m + 24 <= len(buf):
+                                    ts, d_val = struct.unpack(">II", buf[idx_m + 16 : idx_m + 24])
+                                    if ts > 0 and d_val > 0:
+                                        dur = round(float(d_val) / float(ts), 1)
+                                        break
+                                elif ver == 1 and idx_m + 36 <= len(buf):
+                                    ts, d_val = struct.unpack(">IQ", buf[idx_m + 24 : idx_m + 36])
+                                    if ts > 0 and d_val > 0:
+                                        dur = round(float(d_val) / float(ts), 1)
+                                        break
+                except Exception:
+                    pass
 
         if dur <= 0.0:
             resolved_mp4 = resolve_project_video_path(proj_dir, proj_id)
@@ -349,23 +389,44 @@ class StudioAnalyticsReporter:
 
         receipts_by_pid: dict[str, dict[str, Any]] = {}
         related_receipts_by_pid: dict[str, dict[str, Any]] = {}
+        project_dirs_list: list[Path] = []
         if projects_dir.exists():
-            for r_file in projects_dir.glob("*/06_publish/upload_receipt.json"):
+            project_dirs_list = [d for d in sorted(projects_dir.iterdir()) if d.is_dir()]
+
+            def _scan_pub_receipts(p_dir: Path):
+                r_out = None
+                rel_out = None
+                pid_r = p_dir.name
+                pid_rel = p_dir.name
+                pub_d = p_dir / "06_publish"
+                r_file = pub_d / "upload_receipt.json"
+                rel_file = pub_d / "related_video_receipt.json"
                 try:
-                    if r_file.stat().st_size > 0:
+                    if r_file.exists() and r_file.stat().st_size > 0:
                         r_data = json.loads(r_file.read_text(encoding="utf-8"))
-                        pid_r = _clean_str(r_data.get("project_id")) or r_file.parent.parent.name
-                        receipts_by_pid[pid_r] = r_data
+                        pid_r = _clean_str(r_data.get("project_id")) or p_dir.name
+                        r_out = r_data
                 except Exception:
                     pass
-            for rel_file in projects_dir.glob("*/06_publish/related_video_receipt.json"):
                 try:
-                    if rel_file.stat().st_size > 0:
+                    if rel_file.exists() and rel_file.stat().st_size > 0:
                         rel_data = json.loads(rel_file.read_text(encoding="utf-8"))
-                        pid_rel = _clean_str(rel_data.get("project_id")) or rel_file.parent.parent.name
-                        related_receipts_by_pid[pid_rel] = rel_data
+                        pid_rel = _clean_str(rel_data.get("project_id")) or p_dir.name
+                        rel_out = rel_data
                 except Exception:
                     pass
+                return pid_r, r_out, pid_rel, rel_out
+
+            if len(project_dirs_list) > 4:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                    scan_rows = list(pool.map(_scan_pub_receipts, project_dirs_list))
+            else:
+                scan_rows = [_scan_pub_receipts(d) for d in project_dirs_list]
+            for pid_r, r_out, pid_rel, rel_out in scan_rows:
+                if r_out is not None:
+                    receipts_by_pid[pid_r] = r_out
+                if rel_out is not None:
+                    related_receipts_by_pid[pid_rel] = rel_out
 
         short_link_graph: dict[str, Any] = {}
         if graph_file.exists():
@@ -509,7 +570,7 @@ class StudioAnalyticsReporter:
                     continue
                 if resolve_project_video_path(cand_pdir, proj_id) is None:
                     continue
-                v5_ok, _ = passes_v5_publish_gate(cand_pdir, allow_legacy_v4=False)
+                v5_ok, _ = passes_v5_publish_gate(cand_pdir, allow_legacy_v4=False, fast_stat_only=True)
                 if not v5_ok:
                     continue
 
@@ -616,9 +677,44 @@ class StudioAnalyticsReporter:
         else:
             vacuum_range_str = "None"
 
+        all_enrich_items = published_items + scheduled_pending + unlisted_staged_items
+        is_global_projects = (projects_dir == PROJECTS_DIR)
+
+        def _preload_proj_bundle(it_row: dict[str, Any]) -> tuple[str, dict[str, Any]]:
+            pid_x = _clean_str(it_row.get("project_id"))
+            if not pid_x:
+                return "", {}
+            pdir_x = projects_dir / pid_x
+            if is_global_projects and pid_x in _GLOBAL_PROJECT_STAGE_CACHE:
+                return pid_x, _GLOBAL_PROJECT_STAGE_CACHE[pid_x]
+            out_b: dict[str, Any] = {"exists": pdir_x.exists()}
+            st_obj = None
+            if out_b["exists"]:
+                try:
+                    st_obj = ProjectStorage(pid_x) if is_global_projects else ProjectStorage(pid_x, projects_dir=projects_dir)
+                    out_b["rc"] = st_obj.load_json("01_ideation", "research_card.json") or {}
+                    out_b["sc"] = st_obj.load_json("02_script", "script.json") or {}
+                    out_b["vp"] = st_obj.load_json("03_visuals", "visual_plan.json") or {}
+                    out_b["edl"] = st_obj.load_json("05_assembly", "edit_decision_list.json") or {}
+                    out_b["meta_pub"] = st_obj.load_json("06_publish", "metadata.json") or {}
+                    out_b["ab"] = st_obj.load_json("06_publish", "ab_test_manifest.json") or {}
+                    out_b["comm"] = st_obj.load_json("06_publish", "community_receipt.json") or {}
+                except Exception:
+                    pass
+            out_b["dur"] = self._probe_project_duration_sec(pid_x, pdir_x, storage=st_obj)
+            if is_global_projects:
+                _GLOBAL_PROJECT_STAGE_CACHE[pid_x] = out_b
+            return pid_x, out_b
+
+        if len(all_enrich_items) > 4:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                preloaded_map = dict(pool.map(_preload_proj_bundle, all_enrich_items))
+        else:
+            preloaded_map = dict(_preload_proj_bundle(it_r) for it_r in all_enrich_items)
+
         enriched_videos: list[dict[str, Any]] = []
         rotation_intervals: list[int] = []
-        for idx, item in enumerate(published_items + scheduled_pending + unlisted_staged_items, 1):
+        for idx, item in enumerate(all_enrich_items, 1):
             proj_id = _clean_str(item.get("project_id"))
             if not proj_id:
                 continue
@@ -656,15 +752,10 @@ class StudioAnalyticsReporter:
                 word_count = sum(len(str(c).split()) for c in cat_narrs)
                 hook_sentence = str(cat_narrs[0]).strip()
 
-            storage_obj: ProjectStorage | None = None
-            if proj_dir.exists():
+            pb = preloaded_map.get(proj_id) or {}
+            if pb.get("exists"):
                 try:
-                    storage_obj = (
-                        ProjectStorage(proj_id)
-                        if projects_dir == PROJECTS_DIR
-                        else ProjectStorage(proj_id, projects_dir=projects_dir)
-                    )
-                    rc = storage_obj.load_json("01_ideation", "research_card.json") or {}
+                    rc = pb.get("rc") or {}
                     if rc.get("doi"):
                         doi_str = str(rc["doi"])
                     story_ctx = rc.get("story_context") or {}
@@ -672,7 +763,7 @@ class StudioAnalyticsReporter:
                         protagonist = _clean_str(story_ctx.get("protagonist")) or protagonist
                         brain_regions = _clean_str(story_ctx.get("brain_regions")) or brain_regions
 
-                    sc = storage_obj.load_json("02_script", "script.json") or {}
+                    sc = pb.get("sc") or {}
                     if sc.get("doi") and doi_str == "Verified":
                         doi_str = _clean_str(sc.get("doi")) or doi_str
                     if sc.get("profile"):
@@ -702,7 +793,7 @@ class StudioAnalyticsReporter:
                                 else act_sents[0]
                             )
 
-                    vp = storage_obj.load_json("03_visuals", "visual_plan.json") or {}
+                    vp = pb.get("vp") or {}
                     if not protagonist and vp.get("topic"):
                         protagonist = _clean_str(vp.get("topic"))
                     if vp.get("schema") == 5 and production_profile == "shorts_v4":
@@ -710,11 +801,11 @@ class StudioAnalyticsReporter:
                     elif vp.get("schema") == 6:
                         production_profile = "neuro_diorama"
 
-                    edl = storage_obj.load_json("05_assembly", "edit_decision_list.json") or {}
+                    edl = pb.get("edl") or {}
                     if edl.get("base_clips_used") or edl.get("cut_count"):
                         clip_count = int(edl.get("base_clips_used") or edl.get("cut_count") or clip_count)
 
-                    meta_pub = storage_obj.load_json("06_publish", "metadata.json") or {}
+                    meta_pub = pb.get("meta_pub") or {}
                     if meta_pub.get("doi") and doi_str == "Verified":
                         doi_str = _clean_str(meta_pub.get("doi")) or doi_str
                     if meta_pub.get("profile"):
@@ -723,20 +814,20 @@ class StudioAnalyticsReporter:
                         raw_pillar = _clean_str(meta_pub.get("pillar")) or raw_pillar
                         pillar_canon = normalize_pillar_id(raw_pillar)
 
-                    ab_manifest_data = storage_obj.load_json("06_publish", "ab_test_manifest.json") or {}
+                    ab_manifest_data = pb.get("ab") or {}
                     if ab_manifest_data.get("current_active_variant"):
                         active_variant = str(ab_manifest_data["current_active_variant"])
                     if ab_manifest_data.get("rotation_interval_hours"):
                         rotation_interval_hours = int(ab_manifest_data["rotation_interval_hours"])
                         rotation_intervals.append(rotation_interval_hours)
 
-                    comm = storage_obj.load_json("06_publish", "community_receipt.json") or {}
+                    comm = pb.get("comm") or {}
                     if "pinned" in comm:
                         pinned_comment = bool(comm["pinned"])
                 except Exception:
                     pass
 
-            duration_sec = self._probe_project_duration_sec(proj_id, proj_dir, storage=storage_obj)
+            duration_sec = float(pb.get("dur") or self._probe_project_duration_sec(proj_id, proj_dir, storage=None))
             resolved_title = (
                 _clean_str(item.get("title"))
                 or _clean_str(rec_info.get("title"))
@@ -828,24 +919,31 @@ class StudioAnalyticsReporter:
             if ws_arch not in archive_dir_candidates:
                 archive_dir_candidates.insert(0, ws_arch)
 
-        if projects_dir.exists():
-            for p_dir in sorted(projects_dir.iterdir()):
-                if not p_dir.is_dir():
-                    continue
-                if not (p_dir / "00_project_manifest.json").exists():
-                    continue
+        if project_dirs_list:
+            known_live_or_active = published_pids | active_staged_pids
+
+            def _classify_project_dir(p_dir: Path) -> tuple[str, str]:
                 pid_cand = p_dir.name
+                if not (p_dir / "00_project_manifest.json").exists():
+                    return pid_cand, "skip"
                 if resolve_project_video_path(p_dir, pid_cand) is None:
-                    continue
+                    return pid_cand, "skip"
                 rec_cand = receipts_by_pid.get(pid_cand, {})
-                if is_live_youtube_receipt(rec_cand) or pid_cand in (published_pids | active_staged_pids):
+                if is_live_youtube_receipt(rec_cand) or pid_cand in known_live_or_active:
+                    return pid_cand, "completed"
+                v5_ok, _ = passes_v5_publish_gate(p_dir, allow_legacy_v4=False, fast_stat_only=True)
+                return pid_cand, ("completed" if v5_ok else "blocked_v4")
+
+            if len(project_dirs_list) > 4:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+                    cls_rows = list(pool.map(_classify_project_dir, project_dirs_list))
+            else:
+                cls_rows = [_classify_project_dir(d) for d in project_dirs_list]
+            for pid_cand, cls_tag in cls_rows:
+                if cls_tag == "completed":
                     completed_pids.add(pid_cand)
-                else:
-                    v5_ok, _ = passes_v5_publish_gate(p_dir, allow_legacy_v4=False)
-                    if v5_ok:
-                        completed_pids.add(pid_cand)
-                    else:
-                        blocked_legacy_v4_pids.add(pid_cand)
+                elif cls_tag == "blocked_v4":
+                    blocked_legacy_v4_pids.add(pid_cand)
         for completed_archive_dir in archive_dir_candidates:
             if completed_archive_dir.exists():
                 for mp4_f in completed_archive_dir.glob("final_shorts_*.mp4"):

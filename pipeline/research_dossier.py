@@ -931,30 +931,186 @@ def diorama_seed_from_dossier(
     root: Path | None = None,
     schema_version: int = 7,
     style_profile: str | None = None,
+    *,
+    write_draft: bool | None = None,
+    overwrite: bool = False,
 ) -> dict[str, Any]:
-    """Draft Schema v7 (`porcelain_cinematic_v7` default or `lowpoly_pastel_v7`) or Schema v6 `neuro_diorama` visual_plan seed."""
+    """Draft Schema v8 (`expressive_25d_v8`), Schema v7 (`porcelain_cinematic_v7` default or `lowpoly_pastel_v7`), or Schema v6 `neuro_diorama` visual_plan seed."""
     from pipeline.config import (
         DEFAULT_DIORAMA_STYLE_PROFILE,
+        DEFAULT_DIORAMA_VOICE_PRESET,
         DIORAMA_CLIP_COUNT_DEFAULT,
+        DIORAMA_V7_US_PROSODY_MODE,
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        EXPRESSIVE_V8_FOIL_VOICE_PRESET,
+        EXPRESSIVE_V8_PROSODY_MODE,
+        EXPRESSIVE_V8_VOICE_PRESET,
         PORCELAIN_V7_STYLE_PROFILE,
         PROMPT_SCHEMA_VERSION_V6,
         PROMPT_SCHEMA_VERSION_V7,
+        PROMPT_SCHEMA_VERSION_V8,
+        SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
         resolve_diorama_v7_style_profile,
     )
 
     raw_str = str(slug_or_dir)
     target_dir = Path(slug_or_dir) if Path(raw_str).is_dir() else dossier_dir(raw_str, root)
     base = plan_seed_from_dossier(slug_or_dir, root=root)
+    ds = load_dossier(target_dir, root)
+    d_meta = ds.get("dossier.json") if isinstance(ds.get("dossier.json"), dict) else {}
+    sources_doc = ds.get("01_sources.json") if isinstance(ds.get("01_sources.json"), dict) else {}
+    primary_doi = ""
+    for src_item in (sources_doc.get("sources") or []):
+        if isinstance(src_item, dict) and src_item.get("type") in ("primary", "primary_historical") and src_item.get("doi"):
+            primary_doi = str(src_item["doi"]).strip()
+            break
+
+    iconic_scenes = [s for s in (base.get("must_have_scenes") or []) if isinstance(s, dict) and s.get("iconic")]
+    cover_brief = ""
+    if iconic_scenes:
+        kv = iconic_scenes[0].get("key_visual") if isinstance(iconic_scenes[0].get("key_visual"), dict) else {}
+        cover_brief = str(kv.get("description") or iconic_scenes[0].get("title") or "").strip()
+
+    resolved_style = resolve_diorama_v7_style_profile(
+        {"style_profile": style_profile} if style_profile else None,
+        fallback=DEFAULT_DIORAMA_STYLE_PROFILE,
+    )
+    if int(schema_version) == PROMPT_SCHEMA_VERSION_V8 or (
+        int(schema_version) >= PROMPT_SCHEMA_VERSION_V7 and resolved_style == EXPRESSIVE_25D_V8_STYLE_PROFILE
+    ):
+        from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
+
+        seeded_v8: dict[str, Any] = {
+            "schema": PROMPT_SCHEMA_VERSION_V8,
+            "schema_version": PROMPT_SCHEMA_VERSION_V8,
+            "profile": "neuro_diorama",
+            "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+            "format_profile": SHORTS_EXPRESSIVE_V8_PROFILE,
+            "shorts_format_profile": SHORTS_EXPRESSIVE_V8_PROFILE,
+            "prosody_mode": EXPRESSIVE_V8_PROSODY_MODE,
+            "voice_preset": EXPRESSIVE_V8_VOICE_PRESET,
+            "foil_voice_preset": EXPRESSIVE_V8_FOIL_VOICE_PRESET,
+            "foil_sentence_indices": [],
+            "camera_profile": "expressive_dynamic_v8",
+            "draft_subdir": "diorama_v8_expressive",
+            "zero_clip_reuse": True,
+            "require_signature_hooks": True,
+            "visual_mode": base["visual_mode"],
+            "dossier": base["dossier"],
+            "doi": primary_doi,
+            "omit_experiment_nicknames": [],
+            "thumbnail": {
+                "hook_text": "TODO",
+                "cover_sentence_index": 1,
+                "cover_brief": cover_brief,
+            },
+            "must_have_scenes": base["must_have_scenes"],
+            "brain_link": base["brain_link"],
+            "target_clip_count": SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT,
+            "clips": [],
+        }
+        populate_expressive_v8_reference_contract(seeded_v8, dossier_dir=target_dir)
+        if not seeded_v8.get("reference_anchors"):
+            def_loc = str(seeded_v8.get("default_location_id") or "primary_diorama_stage")
+            def_loc_slug = def_loc[:36]
+            def_env = str(seeded_v8.get("real_environment") or "a stylized 3D miniature diorama room")
+            seeded_v8["reference_anchors"] = [
+                {
+                    "ref_id": f"ref_loc_{def_loc_slug}_9x16",
+                    "filename": f"ref_loc_{def_loc_slug}_9x16.png",
+                    "clip_number": 1,
+                    "frame": "start",
+                    "category": "clip_keyframe_anchor",
+                    "role": "reenactment",
+                    "setting": "real_env",
+                    "location_id": def_loc,
+                    "generation_order": 3,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "seeded_placeholder": True,
+                    "prompt": (
+                        f"Single full-bleed vertical 9:16 3D miniature diorama scene of {def_env} with a clothed "
+                        "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and "
+                        "bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+                    ),
+                },
+                {
+                    "ref_id": "ref_cameo_9x16",
+                    "filename": "ref_cameo_9x16.png",
+                    "clip_number": max(2, SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT // 2),
+                    "frame": "start",
+                    "category": "clip_keyframe_anchor",
+                    "role": "cameo_anchor",
+                    "setting": "real_env",
+                    "location_id": def_loc,
+                    "generation_order": 3,
+                    "conditioned_on": ["species_opt1_sheet", "cameo_opt3_sheet"],
+                    "seeded_placeholder": True,
+                    "prompt": (
+                        f"Single full-bleed vertical 9:16 3D miniature diorama scene of {def_env} featuring "
+                        "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine resting quietly on a background shelf, "
+                        "cinema key-and-rim lighting, zero floating captions."
+                    ),
+                },
+                {
+                    "ref_id": "ref_xray_brain_9x16",
+                    "filename": "ref_xray_brain_9x16.png",
+                    "clip_number": max(3, int(round(SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT * 0.78))),
+                    "frame": "start",
+                    "category": "brain_anchor",
+                    "role": "brain_mechanism",
+                    "setting": "brain_studio",
+                    "generation_order": 3,
+                    "conditioned_on": ["xray_brain75_master", "species_opt1_sheet"],
+                    "seeded_placeholder": True,
+                    "prompt": (
+                        f"Single full-bleed vertical 9:16 3D miniature diorama scene inside {def_env}: a clothed 2.5D "
+                        "matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink "
+                        "eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome "
+                        "exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text."
+                    ),
+                },
+            ]
+
+        should_write_v8 = True if write_draft is None else bool(write_draft)
+        if should_write_v8:
+            draft_dir = target_dir / "diorama_v8_expressive"
+            draft_dir.mkdir(parents=True, exist_ok=True)
+            vp_path = draft_dir / "visual_plan.json"
+            if overwrite or not vp_path.exists():
+                vp_path.write_text(json.dumps(seeded_v8, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            sc_path = draft_dir / "script.json"
+            if overwrite or not sc_path.exists():
+                deb_ign = d_meta.get("debate_ignition") if isinstance(d_meta.get("debate_ignition"), dict) else {}
+                seeded_script_v8: dict[str, Any] = {
+                    "schema": PROMPT_SCHEMA_VERSION_V8,
+                    "schema_version": PROMPT_SCHEMA_VERSION_V8,
+                    "profile": "neuro_diorama",
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "format_profile": SHORTS_EXPRESSIVE_V8_PROFILE,
+                    "shorts_format_profile": SHORTS_EXPRESSIVE_V8_PROFILE,
+                    "prosody_mode": EXPRESSIVE_V8_PROSODY_MODE,
+                    "voice_preset": EXPRESSIVE_V8_VOICE_PRESET,
+                    "foil_voice_preset": EXPRESSIVE_V8_FOIL_VOICE_PRESET,
+                    "foil_sentence_indices": [],
+                    "opening_mode": "question",
+                    "core_reveal_sentence_index": 4,
+                    "sentence_beats": [],
+                    "dossier": base["dossier"],
+                    "pillar": str(d_meta.get("pillar") or ""),
+                    "everyday_domain": str(d_meta.get("everyday_domain") or ""),
+                    "language": "en-US",
+                    "title": str(d_meta.get("topic") or "TODO"),
+                    "doi": primary_doi,
+                    "omit_experiment_nicknames": [],
+                    "debate_question": str(deb_ign.get("open_verdict_question") or ""),
+                    "acts": [],
+                    "sentences": [],
+                }
+                sc_path.write_text(json.dumps(seeded_script_v8, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        return seeded_v8
+
     if int(schema_version) >= PROMPT_SCHEMA_VERSION_V7:
-        resolved_style = resolve_diorama_v7_style_profile(
-            {"style_profile": style_profile} if style_profile else None,
-            fallback=DEFAULT_DIORAMA_STYLE_PROFILE,
-        )
-        iconic_scenes = [s for s in (base.get("must_have_scenes") or []) if isinstance(s, dict) and s.get("iconic")]
-        cover_brief = ""
-        if iconic_scenes:
-            kv = iconic_scenes[0].get("key_visual") if isinstance(iconic_scenes[0].get("key_visual"), dict) else {}
-            cover_brief = str(kv.get("description") or iconic_scenes[0].get("title") or "").strip()
         seed_clip_count = DIORAMA_CLIP_COUNT_DEFAULT if resolved_style == PORCELAIN_V7_STYLE_PROFILE else 61
         seeded_v7: dict[str, Any] = {
             "schema": PROMPT_SCHEMA_VERSION_V7,
@@ -981,13 +1137,19 @@ def diorama_seed_from_dossier(
             "outro_title_lines": ["", ""],
         }
         if resolved_style == PORCELAIN_V7_STYLE_PROFILE:
-            from pipeline.config import DEFAULT_DIORAMA_VOICE_PRESET, DIORAMA_V7_US_PROSODY_MODE
             from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
 
             seeded_v7["voice_preset"] = DEFAULT_DIORAMA_VOICE_PRESET
             seeded_v7["prosody_mode"] = DIORAMA_V7_US_PROSODY_MODE
             seeded_v7["us_anti_clone_v7"] = True
             populate_porcelain_reference_contract(seeded_v7, dossier_dir=target_dir)
+        if write_draft:
+            sub_v7 = "diorama_v7_porcelain" if resolved_style == PORCELAIN_V7_STYLE_PROFILE else "diorama_v7_lowpoly"
+            draft_dir_v7 = target_dir / sub_v7
+            draft_dir_v7.mkdir(parents=True, exist_ok=True)
+            vp_v7 = draft_dir_v7 / "visual_plan.json"
+            if overwrite or not vp_v7.exists():
+                vp_v7.write_text(json.dumps(seeded_v7, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         return seeded_v7
     return {
         "schema": PROMPT_SCHEMA_VERSION_V6,

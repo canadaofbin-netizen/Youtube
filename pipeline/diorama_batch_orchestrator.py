@@ -184,6 +184,15 @@ def build_editorial_description_from_dossier(
         cleaned = re.sub(r"\*([^*]+)\*", r"\1", cleaned)
         return " ".join(cleaned.split()).strip()
 
+    def _fmt_authors(raw_auth: Any, fallback: str = "") -> str:
+        if isinstance(raw_auth, (list, tuple)):
+            joined = ", ".join(str(a).strip() for a in raw_auth if str(a).strip())
+            return _strip_md(joined) or fallback
+        s_auth = _strip_md(str(raw_auth or ""))
+        if s_auth.startswith("[") and s_auth.endswith("]"):
+            s_auth = s_auth.strip("[]").replace("'", "").replace('"', "").strip()
+        return s_auth or fallback
+
     citation_lines: list[str] = []
     for s in src_list[:3]:
         if not isinstance(s, dict):
@@ -198,7 +207,7 @@ def build_editorial_description_from_dossier(
             else:
                 citation_lines.append(f"- {cit_body}.{url_tail}".strip())
         else:
-            authors = _strip_md(str(s.get("authors") or "Peer-reviewed study"))
+            authors = _fmt_authors(s.get("authors"), "Peer-reviewed study")
             year = str(s.get("year") or "").strip()
             stitle = _strip_md(str(s.get("title") or "")).rstrip(".")
             journal = _strip_md(str(s.get("journal") or s.get("venue") or "")).rstrip(".")
@@ -211,8 +220,9 @@ def build_editorial_description_from_dossier(
     pc_people = [str(p.get("name")).strip() for p in (pc.get("people") or []) if isinstance(p, dict) and str(p.get("name") or "").strip()]
     raw_primary_cit = _strip_md(str(primary.get("citation") or ""))
     cit_author = raw_primary_cit.split("(")[0].strip().rstrip(",") if "(" in raw_primary_cit else ""
+    primary_auth_str = _fmt_authors(primary.get("authors"), "")
     p_author = (
-        str(primary.get("authors") or "").split(",")[0].split(";")[0].strip()
+        primary_auth_str.split(",")[0].split(";")[0].strip()
         or cit_author
         or (pc_people[0] if pc_people else "researchers")
     )
@@ -261,23 +271,48 @@ def build_editorial_description_from_dossier(
             "This visual breakdown traces the experimental protocol, measurable behavioral markers, and neural mechanisms documented across controlled laboratory trials."
         )
 
-    slug_words = [w.capitalize() for w in slug.split("_") if len(w) >= 4 and w.lower() not in ("with", "from", "into", "that")]
-    custom_tag = f"#{''.join(slug_words[:2])}" if slug_words else "#BrainResearch"
-    pillar_tags = _PILLAR_TOPIC_HASHTAG_MAP.get(pillar, ["#Neuroscience", "#Psychology", "#BrainScience"])
-    hashtags = list(dict.fromkeys(["#Shorts", custom_tag, *pillar_tags]))[:5]
+    from pipeline.config import (
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
+        is_expressive_v8_plan,
+    )
+    from pipeline.publish import _scrub_experiment_nicknames, build_expressive_v8_pinned_comment
+
+    is_v8_desc = is_expressive_v8_plan(script_doc)
+    omit_nicks = [
+        str(x).strip()
+        for x in (script_doc.get("omit_experiment_nicknames") or [])
+        if str(x).strip()
+    ]
+    if is_v8_desc and omit_nicks:
+        para_1 = _scrub_experiment_nicknames(para_1, omit_nicks)
+        para_2 = _scrub_experiment_nicknames(para_2, omit_nicks)
+
+    if is_v8_desc:
+        hashtags = []
+    else:
+        slug_words = [w.capitalize() for w in slug.split("_") if len(w) >= 4 and w.lower() not in ("with", "from", "into", "that")]
+        custom_tag = f"#{''.join(slug_words[:2])}" if slug_words else "#BrainResearch"
+        pillar_tags = _PILLAR_TOPIC_HASHTAG_MAP.get(pillar, ["#Neuroscience", "#Psychology", "#BrainScience"])
+        hashtags = list(dict.fromkeys(["#Shorts", custom_tag, *pillar_tags]))[:5]
 
     sources_block = (
         "Primary Peer-Reviewed Sources:\n" + "\n".join(citation_lines) + "\n\n"
         if citation_lines
         else (f"Primary Peer-Reviewed Source: https://doi.org/{doi}\n\n" if doi else "")
     )
+    ai_disc_line = (
+        "AI Disclosure: Visual reenactments, 3D anatomical models, and narration in this documentary Short were produced with AI synthesis tools from verified peer-reviewed sources."
+    )
     desc = (
         f"{para_1}\n\n"
         f"{para_2}\n\n"
         f"{sources_block}"
-        "AI Disclosure: Visual reenactments, 3D anatomical models, and narration in this documentary Short were produced with AI synthesis tools from verified peer-reviewed sources.\n\n"
-        + " ".join(hashtags)
+        f"{ai_disc_line}"
+        + (f"\n\n{' '.join(hashtags)}" if hashtags else "")
     )
+    if is_v8_desc:
+        desc = re.sub(r"#\w+", "", desc).strip()
     return desc, hashtags, doi
 
 
@@ -287,8 +322,15 @@ def _default_metadata_from_script_and_dossier(
     slug: str,
     script_doc: dict[str, Any],
 ) -> dict[str, Any]:
+    from pipeline.config import (
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
+        is_expressive_v8_plan,
+    )
+    from pipeline.publish import build_expressive_v8_pinned_comment
+
     desc, hashtags, doi = build_editorial_description_from_dossier(project_id, pillar, slug, script_doc)
-    return {
+    meta_out: dict[str, Any] = {
         "project_id": project_id,
         "profile": "neuro_diorama",
         "pillar": pillar,
@@ -303,16 +345,30 @@ def _default_metadata_from_script_and_dossier(
         "hashtags": hashtags,
         "description": desc,
     }
+    if is_expressive_v8_plan(script_doc):
+        meta_out["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
+        meta_out["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
+        meta_out["pinned_comment"] = build_expressive_v8_pinned_comment(
+            doi=doi,
+            debate_question=str(script_doc.get("debate_question") or ""),
+            cameo_prompt=str(script_doc.get("cameo_prompt") or "Did you spot the 4cm Mini-Cortex hiding in the room?"),
+        )
+    return meta_out
 
 
 def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
-    """Materializes/updates `projects/<project_id>/` from `research_dossiers/<slug>/diorama_v7*/` (with v6 fallback)."""
+    """Materializes/updates `projects/<project_id>/` from `research_dossiers/<slug>/diorama_v8_expressive/` or `diorama_v7*/` (with v6 fallback)."""
     from pipeline.config import (
         DEFAULT_DIORAMA_STYLE_PROFILE,
         DIORAMA_V7_STYLE_PROFILE,
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        EXPRESSIVE_V8_PROSODY_MODE,
         PORCELAIN_V7_STYLE_PROFILE,
         PROMPT_SCHEMA_VERSION_V7,
+        PROMPT_SCHEMA_VERSION_V8,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
         is_diorama_v7_plan,
+        is_expressive_v8_plan,
         resolve_diorama_v7_style_profile,
     )
     from pipeline.flow_prompt_builder import build_flow_prompts
@@ -321,40 +377,70 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     slug = str(spec["slug"])
     pillar = str(spec["pillar"])
     d_root = rd.dossier_dir(slug)
+    explicit_subdir = str(spec.get("draft_subdir") or "").strip()
     cand_names: list[str] = []
-    if spec.get("draft_subdir"):
-        cand_names.append(str(spec["draft_subdir"]))
-    for cname in ("diorama_v7_porcelain", "diorama_v7", "diorama_v7_lowpoly", "diorama_v6_dynamic"):
-        if cname not in cand_names:
-            cand_names.append(cname)
-    draft_dir: Path | None = None
+    if explicit_subdir:
+        cand_names.append(explicit_subdir)
+    else:
+        cand_names.extend(
+            ("diorama_v8_expressive", "diorama_v7_porcelain", "diorama_v7", "diorama_v7_lowpoly", "diorama_v6_dynamic")
+        )
+
+    def _is_authored_draft(folder: Path) -> bool:
+        try:
+            sc_raw = json.loads((folder / "script.json").read_text(encoding="utf-8"))
+            vp_raw = json.loads((folder / "visual_plan.json").read_text(encoding="utf-8"))
+        except Exception:
+            return False
+        has_script = bool(
+            (isinstance(sc_raw, dict) and (sc_raw.get("sentences") or sc_raw.get("acts") or sc_raw.get("clip_narrations")))
+        )
+        has_clips = bool(isinstance(vp_raw, dict) and (vp_raw.get("clips") or vp_raw.get("shots")))
+        return has_script or has_clips
+
+    existing_cands: list[Path] = []
     for cname in cand_names:
         cand = d_root / cname
         if (cand / "script.json").exists() and (cand / "visual_plan.json").exists():
-            draft_dir = cand
-            break
+            existing_cands.append(cand)
+    draft_dir: Path | None = None
+    if explicit_subdir and existing_cands:
+        draft_dir = existing_cands[0]
+    elif existing_cands:
+        draft_dir = next((c for c in existing_cands if _is_authored_draft(c)), existing_cands[0])
     if draft_dir is None:
         raise FileNotFoundError(
-            f"Missing diorama_v7_porcelain / diorama_v7 / diorama_v7_lowpoly / diorama_v6_dynamic draft under {d_root}"
+            f"Missing diorama_v8_expressive / diorama_v7_porcelain / diorama_v7 / diorama_v7_lowpoly / diorama_v6_dynamic draft under {d_root}"
         )
 
     script_doc = json.loads((draft_dir / "script.json").read_text(encoding="utf-8"))
     visual_plan = json.loads((draft_dir / "visual_plan.json").read_text(encoding="utf-8"))
+    is_v8 = (
+        is_expressive_v8_plan(visual_plan, script_doc)
+        or draft_dir.name == "diorama_v8_expressive"
+    )
     is_v7 = (
-        is_diorama_v7_plan(visual_plan)
+        is_v8
+        or is_diorama_v7_plan(visual_plan)
         or is_diorama_v7_plan(script_doc)
         or draft_dir.name in ("diorama_v7_porcelain", "diorama_v7", "diorama_v7_lowpoly")
     )
-    if draft_dir.name == "diorama_v7_porcelain":
+    if is_v8:
+        fallback_style = EXPRESSIVE_25D_V8_STYLE_PROFILE
+    elif draft_dir.name == "diorama_v7_porcelain":
         fallback_style = PORCELAIN_V7_STYLE_PROFILE
     elif draft_dir.name == "diorama_v7":
         fallback_style = DEFAULT_DIORAMA_STYLE_PROFILE
     else:
         fallback_style = DIORAMA_V7_STYLE_PROFILE
-    resolved_v7_style = resolve_diorama_v7_style_profile(
-        visual_plan,
-        script_doc,
-        fallback=fallback_style,
+    resolved_v7_style = (
+        EXPRESSIVE_25D_V8_STYLE_PROFILE
+        if is_v8
+        else resolve_diorama_v7_style_profile(
+            visual_plan,
+            script_doc,
+            fallback=fallback_style,
+        )
     )
     if isinstance(script_doc.get("acts"), list) and not script_doc.get("sentences"):
         script_doc["sentences"] = [
@@ -372,7 +458,17 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     visual_plan["profile"] = "neuro_diorama"
     visual_plan["zero_clip_reuse"] = True
     visual_plan["require_signature_hooks"] = True
-    if is_v7:
+    if is_v8:
+        script_doc["schema"] = PROMPT_SCHEMA_VERSION_V8
+        script_doc["schema_version"] = PROMPT_SCHEMA_VERSION_V8
+        script_doc["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
+        script_doc["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
+        visual_plan["schema"] = PROMPT_SCHEMA_VERSION_V8
+        visual_plan["schema_version"] = PROMPT_SCHEMA_VERSION_V8
+        visual_plan["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
+        visual_plan["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
+        visual_plan["camera_profile"] = str(visual_plan.get("camera_profile") or "expressive_dynamic_v8")
+    elif is_v7:
         script_doc["schema"] = PROMPT_SCHEMA_VERSION_V7
         script_doc["schema_version"] = PROMPT_SCHEMA_VERSION_V7
         script_doc["style_profile"] = resolved_v7_style
@@ -393,12 +489,12 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     from pipeline.voice_fallback import resolve_diorama_voice_preset
 
     is_frozen_pub = any(project_id.startswith(pref) for pref in PRE_R66_FROZEN_PROJECT_PREFIXES)
-    is_porc_v7 = is_v7 and resolved_v7_style == PORCELAIN_V7_STYLE_PROFILE
+    is_porc_v7 = (is_v7 and not is_v8) and resolved_v7_style == PORCELAIN_V7_STYLE_PROFILE
     eff_voice_preset = str(
         spec.get("voice_preset")
         or script_doc.get("voice_preset")
         or visual_plan.get("voice_preset")
-        or (DEFAULT_DIORAMA_VOICE_PRESET if (is_porc_v7 and not is_frozen_pub) else "")
+        or (DEFAULT_DIORAMA_VOICE_PRESET if ((is_porc_v7 or is_v8) and not is_frozen_pub) else "")
     ).strip() or None
     if eff_voice_preset:
         script_doc["voice_preset"] = eff_voice_preset
@@ -406,19 +502,19 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     eff_prosody_mode = str(
         spec.get("prosody_mode")
         or script_doc.get("prosody_mode")
-        or (DIORAMA_V7_US_PROSODY_MODE if (is_porc_v7 and not is_frozen_pub) else "")
+        or (EXPRESSIVE_V8_PROSODY_MODE if is_v8 else (DIORAMA_V7_US_PROSODY_MODE if (is_porc_v7 and not is_frozen_pub) else ""))
     ).strip()
     if eff_prosody_mode:
         script_doc["prosody_mode"] = eff_prosody_mode
         visual_plan["prosody_mode"] = eff_prosody_mode
-    if is_porc_v7 and not is_frozen_pub:
+    if (is_porc_v7 or is_v8) and not is_frozen_pub:
         script_doc["us_anti_clone_v7"] = True
         visual_plan["us_anti_clone_v7"] = True
     preset_name, preset_cfg = resolve_diorama_voice_preset(eff_voice_preset, script_doc=script_doc, visual_plan=visual_plan)
 
     sentences = [str(s).strip() for s in script_doc["sentences"] if str(s).strip()]
 
-    if is_porcelain_v7_plan(visual_plan) and not visual_plan.get("reference_anchors"):
+    if (is_porcelain_v7_plan(visual_plan) or is_v8) and not visual_plan.get("reference_anchors"):
         from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
 
         populate_porcelain_reference_contract(visual_plan, dossier_dir=d_root)
@@ -427,8 +523,9 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     # Save canonical prompts in draft_dir too
     (draft_dir / "script.json").write_text(json.dumps(script_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (draft_dir / "visual_plan.json").write_text(json.dumps(visual_plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    eff_schema_ver = PROMPT_SCHEMA_VERSION_V8 if is_v8 else (PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6)
     draft_prompts_payload: dict[str, Any] = {
-        "schema_version": PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6,
+        "schema_version": eff_schema_ver,
         "profile": "neuro_diorama",
         "voice": preset_cfg["voice"],
         "voice_preset": preset_name,
@@ -463,7 +560,7 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     )
     write_flow_prompts_json(p_dir, clips)
 
-    if is_porcelain_v7_plan(visual_plan):
+    if is_porcelain_v7_plan(visual_plan) or is_v8:
         from pipeline.reference_image_qa import build_reference_image_specs, write_reference_image_specs
 
         dst_specs = p_dir / "03_visuals" / "reference_image_specs.json"
@@ -490,8 +587,11 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
                 )
         d_edl = d_root / "08_reenactment_edl.json"
         dst_edl = p_dir / "03_visuals" / "source_edl.json"
-        if d_edl.exists() and not dst_edl.exists():
-            dst_edl.write_text(d_edl.read_text(encoding="utf-8"), encoding="utf-8")
+        if not is_v8 or str(visual_plan.get("reenactment_track") or "") == "track_a":
+            if d_edl.exists() and not dst_edl.exists():
+                dst_edl.write_text(d_edl.read_text(encoding="utf-8"), encoding="utf-8")
+        elif dst_edl.exists():
+            dst_edl.unlink(missing_ok=True)
 
     meta_src = draft_dir / "metadata.json"
     if meta_src.exists():
@@ -502,6 +602,11 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
         meta_doc.setdefault("video_language", "en-US")
         meta_doc.setdefault("title_description_language", "en-US")
         meta_doc.setdefault("channel_residence_country", "KR")
+        if is_v8:
+            meta_doc["hashtags"] = []
+            meta_doc["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
+            meta_doc["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
+            meta_doc["description"] = re.sub(r"#\w+", "", str(meta_doc.get("description") or "")).strip()
     else:
         meta_doc = _default_metadata_from_script_and_dossier(project_id, pillar, slug, script_doc)
     if not str(meta_doc.get("offcenter_creator_bet") or "").strip():
@@ -513,10 +618,28 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
                     meta_doc["offcenter_creator_bet"] = str(d_meta_doc["offcenter_creator_bet"]).strip()
             except Exception:
                 pass
+    if is_v8:
+        fresh_desc, fresh_tags, fresh_doi = build_editorial_description_from_dossier(project_id, pillar, slug, script_doc)
+        meta_doc["description"] = fresh_desc
+        meta_doc["hashtags"] = fresh_tags
+        if fresh_doi and not meta_doc.get("doi"):
+            meta_doc["doi"] = fresh_doi
+        if not str(meta_doc.get("pinned_comment") or "").strip():
+            from pipeline.publish import build_expressive_v8_pinned_comment as _build_v8_pin
+
+            meta_doc["pinned_comment"] = _build_v8_pin(
+                doi=str(meta_doc.get("doi") or ""),
+                debate_question=str(script_doc.get("debate_question") or ""),
+                cameo_prompt=str(script_doc.get("cameo_prompt") or "Did you spot the 4cm Mini-Cortex hiding in the room?"),
+            )
     meta_src.write_text(json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (p_dir / "06_publish" / "metadata.json").write_text(
         json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
+    if str(meta_doc.get("pinned_comment") or "").strip():
+        (p_dir / "06_publish" / "pinned_comment.txt").write_text(
+            str(meta_doc["pinned_comment"]).strip() + "\n", encoding="utf-8"
+        )
 
     # Ensure manifest carries profile/doi/camera_profile metadata
     m_path = p_dir / "00_project_manifest.json"
@@ -526,9 +649,11 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     m_doc["pillar"] = pillar
     m_doc["dossier_slug"] = slug
     m_doc["profile"] = "neuro_diorama"
-    m_doc["schema_version"] = PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6
+    m_doc["schema_version"] = eff_schema_ver
     if is_v7:
         m_doc["style_profile"] = resolved_v7_style
+    if is_v8:
+        m_doc["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
     m_doc["voice_preset"] = preset_name
     m_doc["camera_profile"] = visual_plan["camera_profile"]
     m_doc["doi"] = str(script_doc.get("doi") or meta_doc.get("doi") or "")
@@ -557,18 +682,23 @@ def _plan_lock_mapping_issues(
     Pre-Flow check mirroring post-assembly `DQ1` (literal analogy primary cut sync) and `DQ3`
     (anatomy mention -> primary brain-grammar cut sync) directly on `visual_plan` spans in <2s.
     """
+    from pipeline.config import is_expressive_v8_plan
+
     issues: list[str] = []
     plan_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
     if not plan_clips:
         return issues
 
+    is_v8 = is_expressive_v8_plan(visual_plan)
     n_clips = len(plan_clips)
-    outro_idx = n_clips - 1
-    for idx, spec in enumerate(plan_clips):
-        if isinstance(spec, dict) and str(spec.get("cut_role") or "").strip().lower() == "outro":
-            outro_idx = idx
-            break
-    reserved_0based: set[int] = {outro_idx}
+    reserved_0based: set[int] = set()
+    if not is_v8:
+        outro_idx = n_clips - 1
+        for idx, spec in enumerate(plan_clips):
+            if isinstance(spec, dict) and str(spec.get("cut_role") or "").strip().lower() == "outro":
+                outro_idx = idx
+                break
+        reserved_0based.add(outro_idx)
     for sc in (visual_plan.get("split_comparisons") or []):
         if isinstance(sc, dict):
             sec_1 = int(sc.get("right_clip_index") or sc.get("bottom_clip_index") or 0)
@@ -599,6 +729,7 @@ def _plan_lock_mapping_issues(
         "frosted_crystal_specimen",
         "lowpoly_matte_brain",
         "porcelain_living_brain",
+        "expressive_xray_brain",
         "living_brain",
         "matte_brain",
     }
@@ -650,7 +781,7 @@ def precheck_diorama_project(
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
 ) -> dict[str, Any]:
-    """Validates `prompt-gate`, contract lock mapping (DQ1/DQ3), paradox title, zero-plaque nouns, and pre-Flow TTS + Prosody P1-P6/P8/P10."""
+    """Validates `prompt-gate`, contract lock mapping (DQ1/DQ3), paradox/R68 title, zero-plaque nouns, and pre-Flow TTS + Prosody P1-P6/P8/P10."""
     import os
     import tempfile
 
@@ -658,10 +789,13 @@ def precheck_diorama_project(
         DIORAMA_V7_DURATION_MIN_SEC,
         FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS,
         FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
-        MICRO_SHORT_MAX_SEC,
-        MICRO_SHORT_MIN_SEC,
         MICRO_SHORT_PROFILE,
+        SHORTS_90S_PROFILE,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
         is_diorama_v7_plan,
+        is_expressive_v8_plan,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
     )
     from pipeline.dynamic_episode_qa import compile_episode_qa_contract
     from pipeline.flow_prompt_builder import build_flow_prompts
@@ -678,7 +812,8 @@ def precheck_diorama_project(
     proj_id = str(spec["project_id"])
     sentences, script_doc = load_diorama_script_sentences(p_dir)
     visual_plan = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
-    is_v7 = is_diorama_v7_plan(visual_plan) or is_diorama_v7_plan(script_doc)
+    is_v8 = is_expressive_v8_plan(visual_plan, script_doc)
+    is_v7 = is_v8 or is_diorama_v7_plan(visual_plan) or is_diorama_v7_plan(script_doc)
     clips = build_flow_prompts(visual_plan, sentences)
 
     issues: list[str] = []
@@ -692,22 +827,19 @@ def precheck_diorama_project(
             issues.extend([f"[dossier_v2] {iss}" for iss in (d_val.get("issues") or [])])
     issues.extend(validate_production_diorama_v6(visual_plan, sentences, clips, script_doc=script_doc))
     issues.extend(rd.check_narration_facts(slug, sentences))
-    issues.extend(validate_diorama_paradox_title(str(script_doc.get("title") or "")))
+    issues.extend(validate_diorama_paradox_title(str(script_doc.get("title") or ""), is_expressive_v8=is_v8))
     contract = compile_episode_qa_contract(visual_plan, sentences, clips, script_doc=script_doc)
     issues.extend(_plan_lock_mapping_issues(visual_plan, contract, rendered_clips=clips))
 
-    # Positive scene scan for empirical plaque-trigger nouns (excluding negated clauses like 'without plaques')
+    # Positive scene scan for empirical plaque-trigger nouns (excluding negated clauses and allowlisted diegetic tokens)
     for c in clips:
         sc = re.sub(r"\b(?:without|zero|no)\s+[a-z\s,-]{1,35}", " ", str(c.get("scene") or ""), flags=re.IGNORECASE)
+        for allow_tok in (c.get("diegetic_text_allowlist") or []):
+            if str(allow_tok or "").strip():
+                sc = re.sub(re.escape(str(allow_tok).strip()), " ", sc, flags=re.IGNORECASE)
         hits = sorted({m.group(0).lower() for m in _PLAQUE_TRIGGER_NOUNS_RE.finditer(sc)})
         if hits:
             issues.append(f"[plaque_lock] clip {c['clip_number']} positive scene contains plaque-trigger word(s) {hits}")
-
-    from pipeline.config import (
-        SHORTS_90S_PROFILE,
-        resolve_shorts_format_profile,
-        shorts_duration_range_for_profile,
-    )
 
     tts_duration = None
     preflight_prosody: dict[str, Any] | None = None
@@ -719,7 +851,7 @@ def precheck_diorama_project(
         project_id=str(spec.get("project_id") or p_dir.name),
     )
     is_micro = fmt_profile == MICRO_SHORT_PROFILE
-    if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+    if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
         min_dur, max_dur = shorts_duration_range_for_profile(fmt_profile)
     else:
         min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC
@@ -762,7 +894,7 @@ def precheck_diorama_project(
         "project_id": spec["project_id"],
         "slug": slug,
         "wave": spec["wave"],
-        "schema_version": 7 if is_v7 else 6,
+        "schema_version": 8 if is_v8 else (7 if is_v7 else 6),
         "voice_preset": preset_name,
         "prosody_mode": eff_pm or script_doc.get("prosody_mode"),
         "passed": len(issues) == 0,
@@ -921,7 +1053,7 @@ def finalize_and_verify_diorama_project(
     prosody_rep: dict[str, Any] = {"passed": True, "skipped": True}
     if (p_dir / "04_audio" / "prosody_report.json").exists():
         t_s = time.monotonic()
-        prosody_rep = evaluate_prosody_gates(p_dir, run_asr=True, save_report=True)
+        prosody_rep = evaluate_prosody_gates(p_dir, run_asr=True, save_report=True, strict_freshness=True)
         timings["prosody_qa_sec"] = time.monotonic() - t_s
         if not prosody_rep.get("passed"):
             _write_stage_timings(asm_dir, project_id, timings, "QA_FAILED_PROSODY", t_total0)
@@ -953,9 +1085,9 @@ def finalize_and_verify_diorama_project(
             edl_cuts = edl_doc.get("cuts") or []
             sents_u, sdoc_u = load_diorama_script_sentences(p_dir)
             vp_u = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
-            from pipeline.flow_prompt_builder import build_diorama_v6_prompts as _b_v6
+            from pipeline.flow_prompt_builder import build_flow_prompts as _b_fp
 
-            contract_u = compile_episode_qa_contract(vp_u, sents_u, _b_v6(vp_u, sents_u), script_doc=sdoc_u)
+            contract_u = compile_episode_qa_contract(vp_u, sents_u, _b_fp(vp_u, sents_u), script_doc=sdoc_u)
             for a_lock in contract_u.get("analogy_locks") or []:
                 s_idx_a = int(a_lock.get("sentence_index") or 0)
                 sibs = [
@@ -971,6 +1103,16 @@ def finalize_and_verify_diorama_project(
                     union_fidxs.add(max(0, min(fc_u - 1, int(round(mid_t * fps_u)))))
         except Exception:  # noqa: BLE001
             pass
+
+    ref_imgs_dir = p_dir / "03_visuals" / "reference_images"
+    if ref_imgs_dir.exists() and any(ref_imgs_dir.glob("*.png")):
+        from pipeline.reference_image_qa import inspect_reference_image_pack, is_reference_qa_report_fresh
+
+        ref_fresh_ok, _ = is_reference_qa_report_fresh(p_dir)
+        if not ref_fresh_ok:
+            t_s = time.monotonic()
+            inspect_reference_image_pack(p_dir, save_report=True)
+            timings["ref_qa_refresh_sec"] = time.monotonic() - t_s
 
     t_dec = time.monotonic()
     with shared_mp4_decode_session(final_mp4, frame_indices=union_fidxs):
@@ -1244,6 +1386,8 @@ def _is_already_completed(project_id: str) -> bool:
         DEFAULT_DIORAMA_VOICE_PRESET,
         DIORAMA_V7_US_PROSODY_MODE,
         DOSSIER_SCHEMA_VERSION,
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        EXPRESSIVE_V8_PROSODY_MODE,
         FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
         PORCELAIN_V7_STYLE_PROFILE,
         REENACT_QA_REPORT_FILENAME,
@@ -1288,18 +1432,24 @@ def _is_already_completed(project_id: str) -> bool:
         sc_doc = json.loads(sc_path.read_text(encoding="utf-8")) if sc_path.exists() else {}
         is_frozen_v1 = any(project_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
         if not is_frozen_v1:
-            if str(vp_doc.get("style_profile") or "") != PORCELAIN_V7_STYLE_PROFILE:
+            vp_style = str(vp_doc.get("style_profile") or "")
+            if vp_style not in (PORCELAIN_V7_STYLE_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE):
                 return False
+            expected_prosody = (
+                EXPRESSIVE_V8_PROSODY_MODE
+                if vp_style == EXPRESSIVE_25D_V8_STYLE_PROFILE
+                else DIORAMA_V7_US_PROSODY_MODE
+            )
             vp_voice = str(sc_doc.get("voice_preset") or vp_doc.get("voice_preset") or "")
             vp_prosody = str(sc_doc.get("prosody_mode") or vp_doc.get("prosody_mode") or "")
-            if vp_voice != DEFAULT_DIORAMA_VOICE_PRESET or vp_prosody != DIORAMA_V7_US_PROSODY_MODE:
+            if vp_voice != DEFAULT_DIORAMA_VOICE_PRESET or vp_prosody != expected_prosody:
                 return False
             pr_meta_path = p_dir / "04_audio" / "prosody_report.json"
             if pr_meta_path.exists():
                 pr_meta = json.loads(pr_meta_path.read_text(encoding="utf-8"))
                 if (
                     str(pr_meta.get("voice_preset") or "") != DEFAULT_DIORAMA_VOICE_PRESET
-                    or str(pr_meta.get("prosody_mode") or "") != DIORAMA_V7_US_PROSODY_MODE
+                    or str(pr_meta.get("prosody_mode") or "") != expected_prosody
                 ):
                     return False
             ref_qa_path = p_dir / "03_visuals" / "reference_image_qa_report.json"
@@ -1365,11 +1515,11 @@ def generate_and_finalize_diorama_episode(
     p_dir = Path(PROJECTS_DIR) / pid
     vp_path = p_dir / "03_visuals" / "visual_plan.json"
     if vp_path.exists():
-        from pipeline.config import is_porcelain_v7_plan
+        from pipeline.config import is_expressive_v8_plan, is_porcelain_v7_plan
         from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
 
         vp_doc = json.loads(vp_path.read_text(encoding="utf-8"))
-        if is_porcelain_v7_plan(vp_doc):
+        if is_porcelain_v7_plan(vp_doc) or is_expressive_v8_plan(vp_doc):
             ref_res = ensure_porcelain_reference_pack(
                 p_dir,
                 cdp_port=cdp_port,
@@ -1378,7 +1528,7 @@ def generate_and_finalize_diorama_episode(
             )
             if not ref_res.get("pre_generation_ready"):
                 raise RuntimeError(
-                    f"Porcelain reference pack failed pre_generation_ready for {pid}: "
+                    f"Reference pack failed pre_generation_ready for {pid}: "
                     f"regenerate={ref_res.get('regenerate_image_ids')} score={ref_res.get('reference_qa_score')}"
                 )
 
@@ -1461,10 +1611,11 @@ def run_single_diorama_episode(
     engine_mode: str | None = None,
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
+    draft_subdir: str | None = None,
 ) -> dict[str, Any]:
     """
     One-shot production of ANY dossier-backed episode (not limited to DIORAMA_BATCH_20_SPECS):
-    sync `research_dossiers/<slug>/diorama_v7_porcelain/` (or `diorama_v7_lowpoly/`) -> `projects/<project_id>/`,
+    sync `research_dossiers/<slug>/diorama_v8_expressive/` (or `diorama_v7_porcelain/` / `diorama_v7_lowpoly/`) -> `projects/<project_id>/`,
     pre-Flow precheck (prompt-gate incl. R57-H2 cold-open, fact trace, paradox title, plaque lock, TTS clock),
     then Flow generation + assembly + full QA chain. Refuses to touch published projects.
     """
@@ -1472,6 +1623,8 @@ def run_single_diorama_episode(
     if (p_dir / "06_publish" / "upload_receipt.json").exists():
         raise RuntimeError(f"Refusing to (re)produce published project {project_id} (upload_receipt.json present)")
     spec: dict[str, Any] = {"index": 0, "wave": 0, "project_id": project_id, "slug": slug, "pillar": pillar}
+    if draft_subdir:
+        spec["draft_subdir"] = str(draft_subdir).strip()
     if voice_preset:
         spec["voice_preset"] = voice_preset
     if prosody_mode:

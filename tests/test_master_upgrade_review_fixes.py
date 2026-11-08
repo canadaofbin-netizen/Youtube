@@ -202,6 +202,7 @@ def test_generate_flow_image_batch_refuses_to_save_or_register_when_candidates_f
     assert registered_calls == []
 
 
+@pytest.mark.slow
 def test_cmd_longform_assemble_end_to_end_4k_mp4_tpad_and_thumbnails(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ):
@@ -283,6 +284,7 @@ def test_cmd_longform_assemble_end_to_end_4k_mp4_tpad_and_thumbnails(
 
 
 def test_porcelain_rebalanced_queue_65_of_65_gate_clean_and_authentic_descriptions():
+    import concurrent.futures
     from pipeline.flow_prompt_builder import build_flow_prompts
     from pipeline.publish import validate_diorama_paradox_title
 
@@ -296,7 +298,7 @@ def test_porcelain_rebalanced_queue_65_of_65_gate_clean_and_authentic_descriptio
     assert "phineas_gage_iron_rod" not in slugs
     assert not (Path(DOSSIERS_DIR) / "phineas_gage_iron_rod" / "diorama_v7_porcelain").exists()
 
-    for it in ready:
+    def _check_item(it: dict[str, Any]) -> None:
         assert it["pillar"] in PILLAR_DEFAULT_STYLE_MAP
         pdir = Path(it["porcelain_dir"])
         plan, narrations, script_doc = cli._load_gate_inputs(pdir)
@@ -315,6 +317,9 @@ def test_porcelain_rebalanced_queue_65_of_65_gate_clean_and_authentic_descriptio
         assert not desc.startswith("experiment_chronicle"), f"{it['slug']} leaked template ID"
         assert ". . ." not in desc, f"{it['slug']} leaked empty citation dots"
         assert "-  (" not in desc, f"{it['slug']} leaked empty author citation"
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+        list(pool.map(_check_item, ready))
 
 
 def test_community_line1_question_above_fold_and_reenact_dossier_lookup():

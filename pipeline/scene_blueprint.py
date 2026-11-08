@@ -716,7 +716,10 @@ def write_project_blueprint_and_packets(
             from pipeline.dynamic_episode_qa import write_episode_qa_contract
 
             built_for_contract = build_flow_prompts(plan, narrations)
-            contract = write_episode_qa_contract(p_dir, plan, narrations, built_for_contract)
+            raw_contract = write_episode_qa_contract(p_dir, plan, narrations, built_for_contract)
+            contract = raw_contract[0] if isinstance(raw_contract, tuple) and raw_contract else raw_contract
+            if not isinstance(contract, dict):
+                contract = {"clips": plan.get("clips") or []}
         except Exception:  # noqa: BLE001
             contract = {"clips": plan.get("clips") or []}
     else:

@@ -43,15 +43,25 @@ from typing import Any
 
 from pipeline.config import (
     BRAIN_SETTINGS,
+    CHANNEL_ROOT,
     DEFAULT_CDP_PORT,
     DEFAULT_REENACT_IMAGE_BACKEND,
     DOSSIERS_DIR,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
+    EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+    EXPRESSIVE_V8_CAST_SHEET_FILENAMES,
+    EXPRESSIVE_V8_REFS_DIRNAME,
+    EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+    EXPRESSIVE_V8_VISUAL_GRAMMARS,
     FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
     MIN_REF_IMAGES_PER_PROJECT,
     PROJECTS_DIR,
+    PROMPT_SCHEMA_VERSION_V8,
     REF_IMAGES_DIRNAME,
     REENACT_EDL_FILENAME,
     REENACT_QUARANTINE_ROOT,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
+    is_expressive_v8_plan,
     is_porcelain_v7_plan,
 )
 
@@ -453,22 +463,580 @@ def _resolve_track_a_shot_ids(plan: dict[str, Any], d_dir: Path | None, project_
     return ["S01", "S02", "S03", "S04"]
 
 
+def populate_expressive_v8_reference_contract(
+    plan: dict[str, Any],
+    dossier_dir: str | Path | None = None,
+    *,
+    project_dir: str | Path | None = None,
+    synthesize_scene_anchors: bool = False,
+    daisy_chain_keyframes: bool = False,
+) -> dict[str, Any]:
+    """
+    Compiles the `expressive_25d_v8` (`안 1 + 안 3 결합형`) reference-conditioning contract onto `plan`:
+      - Normal cuts (~93%): single-scene `9:16` location anchor (or `species_opt1_sheet.png` in 2-chip/offline mode)
+      - `[70–85%]` `expressive_xray_brain` cuts: episode-matched `9:16` X-Ray anchor (or `xray_brain75_master.png`)
+      - Easter-egg cut (strictly 1 cut per episode, `cameo_easter_egg: True`): 2-chip
+        `[start_ref, cameo_opt3_sheet.png]` via `secondary_reference_image` & `reference_images`
+        (with dedicated `ref_cameo_9x16.png` start-frame anchor when `synthesize_scene_anchors=True` so 1-frame
+        `0-credit` `Veo 3.1 - Lite` `Frames` mode renders the `4cm` `Mini-Cortex` figurine reliably).
+      - Preserves `reenactment_track == 'track_a'` if set, and preserves `end_reference_image` on `Start+End` cuts.
+    """
+    if not is_expressive_v8_plan(plan):
+        return plan
+
+    from pipeline.depiction_rules import normalize_expressive_v8_grammar
+
+    plan["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
+    plan["schema_version"] = int(plan.get("schema_version") or PROMPT_SCHEMA_VERSION_V8)
+    plan.setdefault("shorts_format_profile", SHORTS_EXPRESSIVE_V8_PROFILE)
+    existing_track = str(plan.get("reenactment_track") or "").strip().lower()
+    plan["reenactment_track"] = existing_track if existing_track in ("track_a", "track_b") else "track_b"
+
+    slug = str(plan.get("dossier_slug") or plan.get("dossier") or "").strip()
+    d_dir: Path | None = None
+    if dossier_dir is not None and Path(dossier_dir).exists():
+        d_dir = Path(dossier_dir)
+    elif slug and (Path(DOSSIERS_DIR) / slug).exists():
+        d_dir = Path(DOSSIERS_DIR) / slug
+
+    iconic_scene = _extract_iconic_scene_from_dossier(d_dir)
+    if not plan.get("default_location_id"):
+        raw_id = str(iconic_scene.get("id") or slug or "primary_diorama_stage").lower()
+        plan["default_location_id"] = re.sub(r"[^a-z0-9_]+", "_", raw_id).strip("_") or "primary_diorama_stage"
+    if not plan.get("real_environment"):
+        lay = iconic_scene.get("layout") if isinstance(iconic_scene.get("layout"), dict) else {}
+        desc = str(lay.get("description") or iconic_scene.get("title") or "").strip()
+        plan["real_environment"] = desc or "a stylized 3D miniature diorama room with crisp architectural lighting"
+    if not plan.get("environment_props"):
+        plan["environment_props"] = ["a tactile brushed-metal experimental instrument on a wooden desk"]
+    if not isinstance(plan.get("cast"), dict) or not plan["cast"]:
+        plan["cast"] = {
+            "subject": (
+                "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, "
+                "bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire"
+            ),
+            "foil": (
+                "2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow "
+                "and smirk, wearing crisp 3D structured jacket attire"
+            ),
+        }
+
+    species_rel = f"03_visuals/{REF_IMAGES_DIRNAME}/{EXPRESSIVE_V8_SPECIES_SHEET_FILENAME}"
+    cameo_rel = f"03_visuals/{REF_IMAGES_DIRNAME}/{EXPRESSIVE_V8_CAMEO_SHEET_FILENAME}"
+    xray_rel = f"03_visuals/{REF_IMAGES_DIRNAME}/xray_brain75_master.png"
+    conflict_rel = f"03_visuals/{REF_IMAGES_DIRNAME}/expressive_conflict_master.png"
+    multi_panel_v8_sheets = (
+        EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+        EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+        *EXPRESSIVE_V8_CAST_SHEET_FILENAMES,
+    )
+    clips = [c for c in (plan.get("clips") or []) if isinstance(c, dict)]
+
+    use_daisy = bool(daisy_chain_keyframes or plan.get("daisy_chain_keyframes"))
+    auto_synth = bool(synthesize_scene_anchors or plan.get("auto_scene_anchors") or use_daisy)
+    existing_anchors = [a for a in (plan.get("reference_anchors") or []) if isinstance(a, dict)]
+    all_seeded_placeholders = bool(existing_anchors) and all(bool(a.get("seeded_placeholder")) for a in existing_anchors)
+    daisy_cam_progression = (
+        ("eye_level_medium", "eye-level medium 35mm cinema composition facing the foreground action"),
+        ("high_angle_3q", "elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry"),
+        ("object_portal_macro", "tactile foreground object-portal macro composition framing the key physical prop with deep background room depth"),
+        ("over_shoulder_orbit", "reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room"),
+    )
+    if use_daisy and clips and (not existing_anchors or all_seeded_placeholders):
+        daisy_anchors: list[dict[str, Any]] = []
+        brain_seen_count = 0
+        for idx_c, c_item in enumerate(clips, start=1):
+            g_raw = str(c_item.get("grammar") or "")
+            c_is_cameo = bool(c_item.get("cameo_easter_egg")) or g_raw == "expressive_cameo_world"
+            c_is_brain = bool(c_item.get("brain_clip")) or g_raw in ("expressive_xray_brain", "porcelain_living_brain")
+            loc_k = re.sub(
+                r"[^a-z0-9_]+",
+                "_",
+                str(c_item.get("location_id") or plan["default_location_id"]).strip().lower(),
+            ).strip("_") or str(plan["default_location_id"])
+            env_txt = str(c_item.get("environment") or plan["real_environment"]).strip()
+            allow_t = [str(t).strip() for t in (c_item.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+            cam_tag, cam_desc = daisy_cam_progression[(idx_c - 1) % len(daisy_cam_progression)]
+            act_hint = str(c_item.get("action") or "").strip()
+            act_clause = f" staging {act_hint[:110]}" if act_hint else ""
+            if c_is_cameo:
+                cm_place = str(
+                    c_item.get("cameo_placement")
+                    or "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine resting quietly on a background shelf"
+                ).strip()
+                daisy_anchors.append(
+                    {
+                        "ref_id": "ref_cameo_9x16",
+                        "filename": "ref_cameo_9x16.png",
+                        "clip_number": idx_c,
+                        "frame": "start",
+                        "category": "clip_keyframe_anchor",
+                        "role": "cameo_anchor",
+                        "setting": "real_env",
+                        "location_id": loc_k,
+                        "camera_angle_tag": cam_tag,
+                        "generation_order": 3,
+                        "conditioned_on": ["species_opt1_sheet", "cameo_opt3_sheet"],
+                        "diegetic_text_allowlist": allow_t,
+                        "prompt": (
+                            f"Single full-bleed vertical 9:16 3D miniature diorama scene ({cam_desc}) of {env_txt} "
+                            f"featuring {cm_place}, cinema key-and-rim lighting, zero floating captions."
+                        ),
+                    }
+                )
+            elif c_is_brain:
+                brain_seen_count += 1
+                b_fname = "ref_xray_brain_9x16.png" if brain_seen_count == 1 else f"ref_xray_brain_{brain_seen_count}_9x16.png"
+                if bool(c_item.get("portal_to_brain")):
+                    fname_start_portal = f"kf_{idx_c:02d}_{loc_k[:22]}_{cam_tag}_9x16.png"
+                    daisy_anchors.append(
+                        {
+                            "ref_id": Path(fname_start_portal).stem,
+                            "filename": fname_start_portal,
+                            "clip_number": idx_c,
+                            "frame": "start",
+                            "category": "clip_keyframe_anchor",
+                            "role": "reenactment",
+                            "setting": "real_env",
+                            "location_id": loc_k,
+                            "camera_angle_tag": cam_tag,
+                            "generation_order": 3,
+                            "conditioned_on": ["species_opt1_sheet"],
+                            "diegetic_text_allowlist": allow_t,
+                            "prompt": (
+                                f"Single full-bleed vertical 9:16 3D miniature diorama scene ({cam_desc}) of {env_txt}"
+                                f"{act_clause} with a clothed 2.5D matte cream-white vinyl character with smooth earless "
+                                "noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and "
+                                "mouth, cinema key-and-rim lighting, zero text."
+                            ),
+                        }
+                    )
+                    brain_frame_role = "end"
+                else:
+                    brain_frame_role = "start"
+                daisy_anchors.append(
+                    {
+                        "ref_id": Path(b_fname).stem,
+                        "filename": b_fname,
+                        "clip_number": idx_c,
+                        "frame": brain_frame_role,
+                        "category": "brain_anchor",
+                        "role": "brain_mechanism",
+                        "setting": "brain_studio",
+                        "camera_angle_tag": ("xray_dome_closeup" if brain_frame_role == "end" else cam_tag),
+                        "generation_order": 3,
+                        "conditioned_on": ["xray_brain75_master", "species_opt1_sheet"],
+                        "prompt": (
+                            f"Single full-bleed vertical 9:16 3D miniature diorama scene ({cam_desc}) inside {env_txt}: "
+                            "a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, "
+                            "charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into "
+                            "a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, "
+                            "amber-gold, cyan-blue, deep indigo), zero text."
+                        ),
+                    }
+                )
+            else:
+                fname_k = f"kf_{idx_c:02d}_{loc_k[:22]}_{cam_tag}_9x16.png"
+                daisy_anchors.append(
+                    {
+                        "ref_id": Path(fname_k).stem,
+                        "filename": fname_k,
+                        "clip_number": idx_c,
+                        "frame": "start",
+                        "category": "clip_keyframe_anchor",
+                        "role": "reenactment",
+                        "setting": "real_env",
+                        "location_id": loc_k,
+                        "camera_angle_tag": cam_tag,
+                        "generation_order": 3,
+                        "conditioned_on": ["species_opt1_sheet"],
+                        "diegetic_text_allowlist": allow_t,
+                        "prompt": (
+                            f"Single full-bleed vertical 9:16 3D miniature diorama scene ({cam_desc}) of {env_txt}"
+                            f"{act_clause} with a clothed 2.5D matte cream-white vinyl character with smooth earless "
+                            "noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and "
+                            "mouth, cinema key-and-rim lighting, zero text."
+                        ),
+                    }
+                )
+        plan["reference_anchors"] = daisy_anchors
+        plan["daisy_chain_keyframes"] = True
+        existing_anchors = daisy_anchors
+    elif auto_synth and clips and (not existing_anchors or all_seeded_placeholders):
+        synth_anchors: list[dict[str, Any]] = []
+        seen_locs: dict[str, dict[str, Any]] = {}
+        cameo_clip_pair: tuple[int, dict[str, Any]] | None = None
+        brain_clip_pair: tuple[int, dict[str, Any]] | None = None
+        for idx_c, c_item in enumerate(clips, start=1):
+            g_raw = str(c_item.get("grammar") or "")
+            c_is_cameo = bool(c_item.get("cameo_easter_egg")) or g_raw == "expressive_cameo_world"
+            c_is_brain = bool(c_item.get("brain_clip")) or g_raw in ("expressive_xray_brain", "porcelain_living_brain")
+            if c_is_cameo and cameo_clip_pair is None:
+                cameo_clip_pair = (idx_c, c_item)
+                continue
+            if c_is_brain:
+                if brain_clip_pair is None:
+                    brain_clip_pair = (idx_c, c_item)
+                if not bool(c_item.get("portal_to_brain")):
+                    continue
+            loc_k = re.sub(
+                r"[^a-z0-9_]+",
+                "_",
+                str(c_item.get("location_id") or plan["default_location_id"]).strip().lower(),
+            ).strip("_")
+            if loc_k and loc_k not in seen_locs:
+                seen_locs[loc_k] = {"clip_number": idx_c, "clip": c_item}
+        for loc_k, info in seen_locs.items():
+            c_src = info["clip"]
+            env_txt = str(c_src.get("environment") or plan["real_environment"]).strip()
+            allow_t = [str(t).strip() for t in (c_src.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+            fname_l = f"ref_loc_{loc_k[:36]}_9x16.png"
+            synth_anchors.append(
+                {
+                    "ref_id": Path(fname_l).stem,
+                    "filename": fname_l,
+                    "clip_number": int(info["clip_number"]),
+                    "frame": "start",
+                    "category": "clip_keyframe_anchor",
+                    "role": "reenactment",
+                    "setting": "real_env",
+                    "location_id": loc_k,
+                    "generation_order": 3,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "diegetic_text_allowlist": allow_t,
+                    "prompt": (
+                        f"Single full-bleed vertical 9:16 3D miniature diorama scene of {env_txt} with a clothed "
+                        "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and "
+                        "bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+                    ),
+                }
+            )
+        if cameo_clip_pair is not None:
+            c_idx_cm, c_cm = cameo_clip_pair
+            cm_loc = str(c_cm.get("location_id") or plan["default_location_id"]).strip()
+            cm_env = str(c_cm.get("environment") or plan["real_environment"]).strip()
+            cm_place = str(
+                c_cm.get("cameo_placement")
+                or "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine resting quietly on a background shelf"
+            ).strip()
+            cm_allow = [str(t).strip() for t in (c_cm.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+            synth_anchors.append(
+                {
+                    "ref_id": "ref_cameo_9x16",
+                    "filename": "ref_cameo_9x16.png",
+                    "clip_number": c_idx_cm,
+                    "frame": "start",
+                    "category": "clip_keyframe_anchor",
+                    "role": "cameo_anchor",
+                    "setting": "real_env",
+                    "location_id": cm_loc,
+                    "generation_order": 3,
+                    "conditioned_on": ["species_opt1_sheet", "cameo_opt3_sheet"],
+                    "diegetic_text_allowlist": cm_allow,
+                    "prompt": (
+                        f"Single full-bleed vertical 9:16 3D miniature diorama scene of {cm_env} featuring {cm_place}, "
+                        "cinema key-and-rim lighting, zero floating captions."
+                    ),
+                }
+            )
+        if brain_clip_pair is not None:
+            b_idx, b_clip = brain_clip_pair
+            b_env = str(b_clip.get("environment") or plan["real_environment"]).strip()
+            b_frame_role = "end" if bool(b_clip.get("portal_to_brain")) else "start"
+            synth_anchors.append(
+                {
+                    "ref_id": "ref_xray_brain_9x16",
+                    "filename": "ref_xray_brain_9x16.png",
+                    "clip_number": b_idx,
+                    "frame": b_frame_role,
+                    "category": "brain_anchor",
+                    "role": "brain_mechanism",
+                    "setting": "brain_studio",
+                    "generation_order": 3,
+                    "conditioned_on": ["xray_brain75_master", "species_opt1_sheet"],
+                    "prompt": (
+                        f"Single full-bleed vertical 9:16 3D miniature diorama scene inside {b_env}: a clothed 2.5D "
+                        "matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink "
+                        "eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome "
+                        "exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text."
+                    ),
+                }
+            )
+        plan["reference_anchors"] = synth_anchors
+        existing_anchors = synth_anchors
+
+    loc_to_rel: dict[str, str] = {}
+    clip_num_to_rel: dict[int, str] = {}
+    clip_num_to_end_rel: dict[int, str] = {}
+    brain_anchor_rel: str = ""
+    cameo_anchor_rel: str = ""
+    for anc in existing_anchors:
+        fname_a = str(anc.get("filename") or (f"{anc['ref_id']}.png" if anc.get("ref_id") else "")).strip()
+        if not fname_a:
+            continue
+        rel_a = fname_a if fname_a.startswith("03_visuals/") else f"03_visuals/{REF_IMAGES_DIRNAME}/{fname_a}"
+        role_a = str(anc.get("role") or "").strip().lower()
+        setting_a = str(anc.get("setting") or "").strip().lower()
+        loc_a = str(anc.get("location_id") or "").strip()
+        c_num_a = int(anc.get("clip_number") or 0)
+        frame_a = str(anc.get("frame") or "start").strip().lower()
+        if c_num_a > 0 and frame_a == "start" and c_num_a not in clip_num_to_rel:
+            clip_num_to_rel[c_num_a] = rel_a
+        elif c_num_a > 0 and frame_a == "end" and c_num_a not in clip_num_to_end_rel:
+            clip_num_to_end_rel[c_num_a] = rel_a
+        if setting_a == "brain_studio" or str(anc.get("category") or "") == "brain_anchor":
+            if not brain_anchor_rel:
+                brain_anchor_rel = rel_a
+        elif role_a == "cameo_anchor" or "cameo" in fname_a.lower():
+            if not cameo_anchor_rel:
+                cameo_anchor_rel = rel_a
+        elif loc_a and loc_a not in loc_to_rel:
+            loc_to_rel[loc_a] = rel_a
+
+    for idx_clip, c in enumerate(clips, start=1):
+        c["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
+        c["schema_version"] = PROMPT_SCHEMA_VERSION_V8
+        g_name = str(c.get("grammar") or "expressive_vinyl_world").strip()
+        is_cameo = bool(c.get("cameo_easter_egg")) or g_name == "expressive_cameo_world"
+        norm_g = normalize_expressive_v8_grammar(g_name, cameo_easter_egg=is_cameo)
+        is_brain = bool(c.get("brain_clip")) or norm_g == "expressive_xray_brain"
+        c_loc = str(
+            ((c.get("scene_state") or {}).get("location_id") if isinstance(c.get("scene_state"), dict) else "")
+            or c.get("location_id")
+            or plan.get("default_location_id")
+            or ""
+        ).strip()
+        cur_ref = str(c.get("reference_image") or "").strip()
+        eff_c_num = int(c.get("clip_number") or idx_clip)
+        per_clip_ref = clip_num_to_rel.get(eff_c_num, "") if use_daisy else ""
+        per_clip_end_ref = clip_num_to_end_rel.get(eff_c_num, "")
+
+        if is_cameo:
+            c["cameo_easter_egg"] = True
+            c["grammar"] = "expressive_cameo_world"
+            preferred_cameo_start = per_clip_ref or cameo_anchor_rel or loc_to_rel.get(c_loc) or species_rel
+            start_ref = preferred_cameo_start if (not cur_ref or (cur_ref == species_rel and preferred_cameo_start != species_rel)) else cur_ref
+            c["reference_image"] = start_ref
+            c["secondary_reference_image"] = cameo_rel
+            c["reference_images"] = [start_ref, cameo_rel]
+            c.pop("end_reference_image", None)
+        elif is_brain:
+            c["cameo_easter_egg"] = False
+            c["grammar"] = "expressive_xray_brain"
+            c["brain_clip"] = True
+            if bool(c.get("portal_to_brain")):
+                raw_cur_end = str(c.get("end_reference_image") or "").strip()
+                end_brain_target = (
+                    (raw_cur_end if (raw_cur_end and not raw_cur_end.endswith(multi_panel_v8_sheets)) else "")
+                    or per_clip_end_ref
+                    or brain_anchor_rel
+                    or xray_rel
+                )
+                loc_candidate = loc_to_rel.get(c_loc, "")
+                start_room_target = (
+                    (per_clip_ref if (per_clip_ref and per_clip_ref != end_brain_target and not per_clip_ref.endswith(multi_panel_v8_sheets)) else "")
+                    or (loc_candidate if (loc_candidate and not loc_candidate.endswith(multi_panel_v8_sheets)) else "")
+                    or conflict_rel
+                )
+                if not cur_ref or cur_ref in (xray_rel, brain_anchor_rel) or cur_ref.endswith(multi_panel_v8_sheets):
+                    c["reference_image"] = start_room_target
+                if (not raw_cur_end or raw_cur_end.endswith(multi_panel_v8_sheets)) and str(c.get("reference_image") or "").strip() != end_brain_target:
+                    c["end_reference_image"] = end_brain_target
+                c["full_trajectory_span"] = True
+            else:
+                preferred_brain = per_clip_ref or brain_anchor_rel or xray_rel
+                if not cur_ref or (cur_ref == xray_rel and preferred_brain != xray_rel):
+                    c["reference_image"] = preferred_brain
+                if per_clip_end_ref and per_clip_end_ref != str(c.get("reference_image") or "").strip():
+                    c.setdefault("end_reference_image", per_clip_end_ref)
+            if "reference_images" in c:
+                c["reference_images"] = [c["reference_image"]] if c.get("reference_image") else []
+            c.pop("secondary_reference_image", None)
+        else:
+            c["cameo_easter_egg"] = False
+            c["grammar"] = (
+                norm_g
+                if norm_g in EXPRESSIVE_V8_VISUAL_GRAMMARS and norm_g not in ("expressive_xray_brain", "expressive_cameo_world")
+                else "expressive_vinyl_world"
+            )
+            loc_ref = per_clip_ref or loc_to_rel.get(c_loc, "")
+            if not cur_ref or (cur_ref == species_rel and loc_ref):
+                if c["grammar"] == "expressive_literal_analogy" and not (c.get("scene_state") or {}).get("present_cast_start") and not loc_ref:
+                    c.pop("reference_image", None)
+                else:
+                    c["reference_image"] = loc_ref or species_rel
+            if per_clip_end_ref and per_clip_end_ref != str(c.get("reference_image") or "").strip():
+                c.setdefault("end_reference_image", per_clip_end_ref)
+            if "reference_images" in c:
+                c["reference_images"] = [c["reference_image"]] if c.get("reference_image") else []
+            c.pop("secondary_reference_image", None)
+
+    if use_daisy and len(clips) >= 2:
+        from pipeline.config import EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS
+
+        styled_set = {
+            "dissolve_6f",
+            "dissolve_8f",
+            "portal_crash_zoom_10f",
+            "whip_pan_blur_8f",
+            "occlusion_wipe",
+            "split_screen_wipe",
+            "match_cut_bridge",
+        }
+
+        def _is_brain_clip_spec(clip_d: dict[str, Any]) -> bool:
+            return bool(clip_d.get("brain_clip")) or clip_d.get("grammar") == "expressive_xray_brain"
+
+        def _is_room_portal_clip(clip_d: dict[str, Any]) -> bool:
+            r_start = str(clip_d.get("reference_image") or "").strip()
+            return (
+                _is_brain_clip_spec(clip_d)
+                and bool(clip_d.get("portal_to_brain"))
+                and bool(r_start)
+                and "xray_brain" not in r_start
+                and "brain_master" not in r_start
+            )
+
+        styled_used = 0
+        for idx_chk, c_chk in enumerate(clips[:-1]):
+            tr_chk = str(c_chk.get("transition_out") or c_chk.get("transition_to_next") or "").strip().lower()
+            if tr_chk in styled_set:
+                styled_used += 1
+            elif tr_chk == "daisy_chain_bridge":
+                end_chk = str(c_chk.get("end_reference_image") or "").strip()
+                nxt_chk = str(clips[idx_chk + 1].get("reference_image") or "").strip()
+                if not (end_chk and nxt_chk and end_chk == nxt_chk):
+                    styled_used += 1
+
+        has_future_brain_entry = [
+            any(
+                (not _is_brain_clip_spec(clips[k]))
+                and _is_brain_clip_spec(clips[k + 1])
+                and (not _is_room_portal_clip(clips[k + 1]))
+                for k in range(i_k + 1, len(clips) - 1)
+            )
+            for i_k in range(len(clips) - 1)
+        ]
+        for i_c in range(len(clips) - 1):
+            c_cur = clips[i_c]
+            c_nxt = clips[i_c + 1]
+            cur_cameo = bool(c_cur.get("cameo_easter_egg")) or c_cur.get("grammar") == "expressive_cameo_world"
+            nxt_cameo = bool(c_nxt.get("cameo_easter_egg")) or c_nxt.get("grammar") == "expressive_cameo_world"
+            cur_brain = _is_brain_clip_spec(c_cur)
+            nxt_brain = _is_brain_clip_spec(c_nxt)
+            loc_cur = str(c_cur.get("location_id") or plan.get("default_location_id") or "").strip()
+            loc_nxt = str(c_nxt.get("location_id") or plan.get("default_location_id") or "").strip()
+            ref_cur = str(c_cur.get("reference_image") or "").strip()
+            ref_nxt = str(c_nxt.get("reference_image") or "").strip()
+            cur_end_pre = str(c_cur.get("end_reference_image") or "").strip()
+
+            # Seamless handoff when a portal_to_brain (or explicit End-anchored) brain clip is followed by another brain clip
+            if (
+                cur_brain
+                and nxt_brain
+                and not cur_cameo
+                and not nxt_cameo
+                and not bool(c_nxt.get("portal_to_brain"))
+                and cur_end_pre
+                and ref_nxt
+                and cur_end_pre != ref_nxt
+                and not c_nxt.get("end_reference_image")
+                and not cur_end_pre.endswith(multi_panel_v8_sheets)
+                and not ref_nxt.endswith(multi_panel_v8_sheets)
+            ):
+                c_nxt["reference_image"] = cur_end_pre
+                c_nxt["end_reference_image"] = ref_nxt
+                c_nxt["full_trajectory_span"] = True
+                if "reference_images" in c_nxt:
+                    c_nxt["reference_images"] = [cur_end_pre]
+                ref_nxt = cur_end_pre
+
+            nxt_portal_from_room = _is_room_portal_clip(c_nxt)
+            cur_pullback_to_room = (
+                cur_brain
+                and (not nxt_brain)
+                and bool(loc_cur and loc_cur == loc_nxt)
+                and bool(cur_end_pre and cur_end_pre == ref_nxt)
+                and "xray_brain" not in cur_end_pre
+                and "brain_master" not in cur_end_pre
+            )
+            same_space_ok = (
+                not cur_cameo
+                and not nxt_cameo
+                and (
+                    ((cur_brain == nxt_brain) and (cur_brain or (loc_cur and loc_cur == loc_nxt)))
+                    or ((not cur_brain) and nxt_portal_from_room and bool(loc_cur and loc_cur == loc_nxt))
+                    or cur_pullback_to_room
+                )
+                and bool(ref_cur and ref_nxt and ref_cur != ref_nxt)
+                and not ref_cur.endswith(multi_panel_v8_sheets)
+                and not ref_nxt.endswith(multi_panel_v8_sheets)
+            )
+            if same_space_ok:
+                if not c_cur.get("end_reference_image"):
+                    c_cur["end_reference_image"] = ref_nxt
+                c_cur["full_trajectory_span"] = True
+                exact_handoff = bool(ref_nxt) and str(c_cur.get("end_reference_image") or "").strip() == ref_nxt
+                if not c_cur.get("transition_to_next") and not c_cur.get("transition_out"):
+                    if exact_handoff:
+                        c_cur["transition_to_next"] = "daisy_chain_bridge"
+                    else:
+                        budget_cap = int(EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS) - (1 if has_future_brain_entry[i_c] else 0)
+                        if styled_used < budget_cap:
+                            c_cur["transition_to_next"] = "whip_pan_blur_8f"
+                            styled_used += 1
+                        else:
+                            c_cur["transition_to_next"] = "hard"
+            else:
+                # Never leak cross-location or multi-panel turnaround/cast sheets into end_reference_image
+                existing_end = str(c_cur.get("end_reference_image") or "").strip()
+                eff_cur_num = int(c_cur.get("clip_number") or (i_c + 1))
+                has_explicit_portal = bool(c_cur.get("portal_to_brain")) and cur_brain
+                has_explicit_end_anchor = eff_cur_num in clip_num_to_end_rel
+                if existing_end.endswith(multi_panel_v8_sheets) or (
+                    existing_end == ref_nxt and not has_explicit_portal and not has_explicit_end_anchor
+                ):
+                    c_cur.pop("end_reference_image", None)
+                if not c_cur.get("transition_to_next") and not c_cur.get("transition_out"):
+                    entering_brain = (not cur_brain) and nxt_brain and (not nxt_portal_from_room)
+                    budget_cap = int(EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS) - (
+                        1 if (not entering_brain and has_future_brain_entry[i_c]) else 0
+                    )
+                    if entering_brain and styled_used < int(EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS):
+                        c_cur["transition_to_next"] = "portal_crash_zoom_10f"
+                        styled_used += 1
+                    elif styled_used < budget_cap:
+                        c_cur["transition_to_next"] = "whip_pan_blur_8f"
+                        styled_used += 1
+                    else:
+                        c_cur["transition_to_next"] = "hard"
+    for c in clips:
+        if c.get("end_reference_image"):
+            c.setdefault("full_trajectory_span", True)
+
+    return plan
+
+
 def populate_porcelain_reference_contract(
     plan: dict[str, Any],
     dossier_dir: str | Path | None = None,
     *,
     preserve_curated_source_edl: bool = True,
     project_dir: str | Path | None = None,
+    synthesize_scene_anchors: bool = False,
+    daisy_chain_keyframes: bool = False,
 ) -> dict[str, Any]:
     """
-    Compiles the complete `porcelain_cinematic_v7` reference-conditioning contract onto `plan` (in-place & returned):
-      - `reenactment_track` (`"track_a"` or `"track_b"`)
-      - `default_location_id`, `cast`, `real_environment`, `environment_props`
-      - `require_scene_state_ledger: True`, `strict_room_continuity: True`
-      - `reference_anchors` (`6–9` total reference PNG specs across masters + room/shot anchors)
-      - Selective room/brain `clip["reference_image"]` bindings (zero closeup full-body wide locks)
-      - Track A `clip["source_shot_id"]` blocking alignment across `S01..S0N`
+    Compiles the complete `porcelain_cinematic_v7` (or `expressive_25d_v8`) reference-conditioning contract onto `plan`.
     """
+    if is_expressive_v8_plan(plan):
+        return populate_expressive_v8_reference_contract(
+            plan,
+            dossier_dir=dossier_dir,
+            project_dir=project_dir,
+            synthesize_scene_anchors=synthesize_scene_anchors,
+            daisy_chain_keyframes=daisy_chain_keyframes,
+        )
     if not is_porcelain_v7_plan(plan):
         return plan
 
@@ -842,6 +1410,39 @@ def _persist_plan_and_prompts(p_dir: Path, plan: dict[str, Any]) -> None:
             write_flow_prompts_json(p_dir, build_flow_prompts(plan, sents))
 
 
+def _reference_specs_cover_plan(
+    vis_dir: Path,
+    ref_dir: Path,
+    plan: dict[str, Any],
+) -> bool:
+    """Returns True iff `reference_image_specs.json` covers every non-placeholder anchor in `plan` and its PNG exists."""
+    specs_file = vis_dir / "reference_image_specs.json"
+    if not specs_file.exists():
+        return False
+    try:
+        on_disk_specs = json.loads(specs_file.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return False
+    spec_pairs = {
+        (str(s.get("ref_id") or ""), str(s.get("filename") or f"{s.get('ref_id')}.png"))
+        for s in (on_disk_specs.get("all_specs") or [])
+        if isinstance(s, dict)
+    }
+    if not spec_pairs:
+        return False
+    for anc in plan.get("reference_anchors") or []:
+        if not isinstance(anc, dict) or bool(anc.get("seeded_placeholder")):
+            continue
+        fn_a = str(anc.get("filename") or (f"{anc['ref_id']}.png" if anc.get("ref_id") else "")).strip()
+        if not fn_a:
+            continue
+        fn_clean = Path(fn_a).name
+        rid_a = str(anc.get("ref_id") or Path(fn_clean).stem).strip()
+        if (rid_a, fn_clean) not in spec_pairs or not (ref_dir / fn_clean).exists():
+            return False
+    return True
+
+
 def ensure_porcelain_reference_pack(
     project_dir: str | Path,
     dossier_dir: str | Path | None = None,
@@ -852,6 +1453,7 @@ def ensure_porcelain_reference_pack(
     force: bool = False,
     require_review: bool = False,
     auto_populate_review: bool = False,
+    synthesize_scene_anchors: bool = False,
 ) -> dict[str, Any]:
     """
     Ensures all required `porcelain_cinematic_v7` reference PNGs exist in `03_visuals/reference_images/`
@@ -885,6 +1487,18 @@ def ensure_porcelain_reference_pack(
     vis_dir = p_dir / "03_visuals"
     vp_path = vis_dir / "visual_plan.json"
     plan = load_visual_plan(project_dir=p_dir)
+    if is_expressive_v8_plan(plan):
+        return ensure_expressive_v8_reference_pack(
+            p_dir,
+            dossier_dir=dossier_dir,
+            cdp_port=cdp_port,
+            backend=backend,
+            batch_count=batch_count,
+            force=force,
+            require_review=require_review,
+            auto_populate_review=auto_populate_review,
+            synthesize_scene_anchors=synthesize_scene_anchors,
+        )
     if not is_porcelain_v7_plan(plan):
         return {"skipped": True, "reason": "not_porcelain_cinematic_v7", "project_id": p_dir.name}
 
@@ -896,7 +1510,7 @@ def ensure_porcelain_reference_pack(
         d_dir = Path(DOSSIERS_DIR) / slug
 
     # Fast cached check before mutating or opening browser
-    if not force and (vis_dir / "reference_image_specs.json").exists():
+    if not force and _reference_specs_cover_plan(vis_dir, vis_dir / REF_IMAGES_DIRNAME, plan):
         cached_qa = inspect_reference_image_pack(p_dir, save_report=True, require_review=require_review)
         if cached_qa.get("pre_generation_ready"):
             return {
@@ -1008,9 +1622,156 @@ def ensure_porcelain_reference_pack(
     }
 
 
+def ensure_expressive_v8_reference_pack(
+    project_dir: str | Path,
+    dossier_dir: str | Path | None = None,
+    *,
+    cdp_port: int = DEFAULT_CDP_PORT,
+    backend: str = DEFAULT_REENACT_IMAGE_BACKEND,
+    batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    force: bool = False,
+    require_review: bool = False,
+    auto_populate_review: bool = True,
+    synthesize_scene_anchors: bool = False,
+) -> dict[str, Any]:
+    """
+    Stages the 6 pre-verified `expressive_25d_v8` (`안 1 + 안 3 결합형`) Flow-generated master reference PNGs
+    from `BCI_Shorts_Channel/reference_style_anchors/expressive_25d_v8_refs/` into `03_visuals/reference_images/`,
+    generates any custom episode `reference_anchors` (e.g. `daisy_chain_bridge` `Start+End` keyframes) via
+    `0-credit` Flow `Image` (`x4` batch) if missing, and verifies `pre_generation_ready == True`.
+    """
+    import shutil
+
+    from pipeline.flow_prompt_builder import load_visual_plan
+    from pipeline.reference_image_qa import (
+        auto_populate_reference_semantic_review,
+        build_and_verify_project_reference_pack,
+        inspect_reference_image_pack,
+        register_reference_image,
+    )
+    from pipeline.source_reenactment import translate_porcelain_keyframes
+
+    p_dir = Path(project_dir) if Path(project_dir).is_dir() else (Path(PROJECTS_DIR) / str(project_dir))
+    if not p_dir.exists():
+        raise FileNotFoundError(f"Project directory not found: {p_dir}")
+
+    vis_dir = p_dir / "03_visuals"
+    ref_dir = vis_dir / REF_IMAGES_DIRNAME
+    ref_dir.mkdir(parents=True, exist_ok=True)
+    vp_path = vis_dir / "visual_plan.json"
+    plan = load_visual_plan(project_dir=p_dir)
+    slug = str(plan.get("dossier_slug") or plan.get("dossier") or p_dir.name).strip()
+    d_dir: Path | None = None
+    if dossier_dir is not None and Path(dossier_dir).exists():
+        d_dir = Path(dossier_dir)
+    elif slug and (Path(DOSSIERS_DIR) / slug).exists():
+        d_dir = Path(DOSSIERS_DIR) / slug
+
+    import copy
+
+    before_plan_txt = json.dumps(plan, sort_keys=True, ensure_ascii=False)
+    preview_plan = copy.deepcopy(plan)
+    populate_expressive_v8_reference_contract(
+        preview_plan,
+        dossier_dir=d_dir,
+        project_dir=p_dir,
+        synthesize_scene_anchors=synthesize_scene_anchors,
+    )
+    plan_unchanged = json.dumps(preview_plan, sort_keys=True, ensure_ascii=False) == before_plan_txt
+    if not force and plan_unchanged and _reference_specs_cover_plan(vis_dir, ref_dir, preview_plan):
+        cached_qa = inspect_reference_image_pack(p_dir, save_report=True, require_review=require_review)
+        if cached_qa.get("pre_generation_ready"):
+            return {
+                "skipped": False,
+                "cached": True,
+                "project_id": p_dir.name,
+                "slug": slug,
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "reenactment_track": str(plan.get("reenactment_track") or "track_b"),
+                "pre_generation_ready": True,
+                "cv_pre_generation_ready": cached_qa.get("cv_pre_generation_ready"),
+                "reference_qa_score": cached_qa.get("reference_qa_score"),
+                "total_images": cached_qa.get("total_existing"),
+            }
+
+    plan.clear()
+    plan.update(preview_plan)
+    if vp_path.exists() and not plan_unchanged:
+        _persist_plan_and_prompts(p_dir, plan)
+
+    master_src_dir = Path(CHANNEL_ROOT) / "reference_style_anchors" / EXPRESSIVE_V8_REFS_DIRNAME
+    master_files = (
+        EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+        EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+        "xray_brain75_master.png",
+        "expressive_conflict_master.png",
+        "cast_sheet_02_clinical_historical_6roles.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png",
+    )
+    staged_masters: list[str] = []
+    for fname in master_files:
+        src_f = master_src_dir / fname
+        dst_f = ref_dir / fname
+        if src_f.exists():
+            if force or not dst_f.exists() or dst_f.stat().st_size != src_f.stat().st_size:
+                shutil.copy2(src_f, dst_f)
+            register_reference_image(p_dir, fname, "flow_image_generation")
+            staged_masters.append(fname)
+
+    gen_summary: dict[str, Any] = {"staged_masters": staged_masters, "generated_custom": 0}
+    custom_anchors = [
+        a
+        for a in (plan.get("reference_anchors") or [])
+        if isinstance(a, dict)
+        and str(a.get("filename") or f"{a.get('ref_id')}.png") not in set(master_files)
+        and (force or not (ref_dir / str(a.get("filename") or f"{a.get('ref_id')}.png")).exists())
+    ]
+    if custom_anchors:
+        custom_ref_ids = {
+            str(a.get("ref_id") or Path(str(a.get("filename") or f"ref_clip_{i:02d}.png")).stem)
+            for i, a in enumerate(custom_anchors, start=1)
+        }
+        gen_summary["custom_translation"] = translate_porcelain_keyframes(
+            project_dir=p_dir,
+            slug=slug,
+            cdp_port=cdp_port,
+            only_ref_ids=custom_ref_ids,
+            force=force,
+            backend=backend,
+            batch_count=batch_count,
+        )
+        gen_summary["generated_custom"] = len(custom_ref_ids)
+
+    if auto_populate_review:
+        auto_populate_reference_semantic_review(p_dir)
+
+    qa_rep = build_and_verify_project_reference_pack(
+        p_dir,
+        dossier_dir=d_dir,
+        require_review=require_review,
+        auto_populate_review=auto_populate_review,
+    )
+    return {
+        "skipped": False,
+        "cached": False,
+        "project_id": p_dir.name,
+        "slug": slug,
+        "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        "reenactment_track": str(plan.get("reenactment_track") or "track_b"),
+        "generation": gen_summary,
+        "pre_generation_ready": bool(qa_rep.get("pre_generation_ready")),
+        "cv_pre_generation_ready": bool(qa_rep.get("cv_pre_generation_ready")),
+        "reference_qa_score": qa_rep.get("reference_qa_score"),
+        "regenerate_image_ids": qa_rep.get("regenerate_image_ids") or [],
+        "total_images": qa_rep.get("total_existing"),
+    }
+
+
 __all__ = [
+    "ensure_expressive_v8_reference_pack",
     "ensure_porcelain_reference_pack",
     "normalize_strict_room_continuity_ledger",
+    "populate_expressive_v8_reference_contract",
     "populate_porcelain_reference_contract",
     "sanitize_porcelain_contract_text",
 ]

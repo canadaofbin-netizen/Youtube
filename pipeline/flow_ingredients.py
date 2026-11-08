@@ -37,7 +37,8 @@ from pipeline.config import (
 )
 
 ADD_INGREDIENTS_SEL = 'button[aria-label="Add ingredients to the prompt box"]'
-CHIP_SEL = 'flow-prompt-box button[aria-label="Ingredient"]'
+FRAME_CHIP_SEL = 'flow-prompt-box button[aria-label="Image ingredient"]'
+CHIP_SEL = f'flow-prompt-box button[aria-label="Ingredient"], {FRAME_CHIP_SEL}'
 
 _FIND_JS = r"""((sel, text, exact) => {
   const els = [...document.querySelectorAll(sel)].filter(e => e.getClientRects().length);
@@ -61,8 +62,13 @@ async def trusted_click(client: Any, point: dict[str, float] | tuple[float, floa
         px, py = float(point[0]), float(point[1])
     else:
         return False
-    for t in ("mousePressed", "mouseReleased"):
-        await client.send("Input.dispatchMouseEvent", {"type": t, "x": px, "y": py, "button": "left", "clickCount": 1})
+    await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": max(4.0, px - 14.0), "y": max(4.0, py - 5.0)})
+    await asyncio.sleep(0.025)
+    await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": px, "y": py})
+    await asyncio.sleep(0.020)
+    await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": px, "y": py, "button": "left", "clickCount": 1})
+    await asyncio.sleep(0.045)
+    await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": px, "y": py, "button": "left", "clickCount": 1})
     return True
 
 
@@ -75,12 +81,39 @@ async def press_escape(client: Any) -> None:
         await client.send("Input.dispatchKeyEvent", {"type": t, "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27})
 
 
+async def dismiss_flow_overlays(client: Any) -> None:
+    """Dismisses lingering .cdk-overlay-backdrop and <flow-add-menu-popover-content> popovers using trusted CDP input only."""
+    has_open = bool(
+        await client.eval(
+            'Boolean(document.querySelector(".cdk-overlay-backdrop, flow-add-menu-popover-content"))'
+        )
+    )
+    if not has_open:
+        return
+    await press_escape(client)
+    await asyncio.sleep(0.25)
+    still_pop = await client.eval(
+        """(() => {
+            const trig = document.querySelector("flow-add-menu-popover-content")
+                ? document.querySelector('button[aria-label="Add ingredients to the prompt box"]')
+                : document.querySelector(".cdk-overlay-backdrop");
+            if (!trig || !trig.getClientRects().length) return null;
+            const r = trig.getBoundingClientRect();
+            return {x: r.x + r.width / 2, y: r.y + r.height / 2};
+        })()"""
+    )
+    if still_pop:
+        await trusted_click(client, still_pop)
+        await asyncio.sleep(0.25)
+
+
 async def count_chips(client: Any) -> int:
     return int(await client.eval(f"document.querySelectorAll({json.dumps(CHIP_SEL)}).length") or 0)
 
 
 async def clear_prompt_ingredients(client: Any, max_rounds: int = 8) -> int:
     """Removes every ingredient chip (active or errored). Returns the remaining count (0 = clean)."""
+    await dismiss_flow_overlays(client)
     await press_escape(client)
     for _ in range(max_rounds):
         pt = await client.eval(
@@ -91,7 +124,14 @@ async def clear_prompt_ingredients(client: Any, max_rounds: int = 8) -> int:
             return 0
         await trusted_click(client, pt)
         await asyncio.sleep(0.7)
-    return await count_chips(client)
+    rem = await count_chips(client)
+    if rem > 0:
+        clr_pt = await find_point(client, 'flow-prompt-box button[aria-label="Clear prompt"]', "")
+        if clr_pt:
+            await trusted_click(client, clr_pt)
+            await asyncio.sleep(0.6)
+        rem = await count_chips(client)
+    return rem
 
 
 def _find_file_input_backend_nodes(node: dict[str, Any], out: list[int]) -> None:
@@ -127,19 +167,11 @@ async def upload_file_to_flow(client: Any, file_path: Path, timeout_sec: float =
     await client.send("DOM.enable")
     await client.send("Page.setInterceptFileChooserDialog", {"enabled": True})
     try:
-        await client.eval("""(() => {
-            window.__bci_captured_file_input = null;
-            if (!HTMLInputElement.prototype.__bci_orig_click) {
-                HTMLInputElement.prototype.__bci_orig_click = HTMLInputElement.prototype.click;
-                HTMLInputElement.prototype.click = function(...args) {
-                    if ((this.type || '').toLowerCase() === 'file') {
-                        window.__bci_captured_file_input = this;
-                    }
-                    return HTMLInputElement.prototype.__bci_orig_click.apply(this, args);
-                };
-            }
-        })()""")
-        await client.eval(f"document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)})?.click()")
+        pt_add = await find_point(client, ADD_INGREDIENTS_SEL, "")
+        if pt_add:
+            await trusted_click(client, pt_add)
+        else:
+            await client.eval(f"document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)})?.click()")
         await asyncio.sleep(1.0)
         if not await trusted_click(client, await find_point(client, "flow-add-menu-popover-content button", "Upload media")):
             return False
@@ -151,7 +183,7 @@ async def upload_file_to_flow(client: Any, file_path: Path, timeout_sec: float =
             eval_res = await client.send(
                 "Runtime.evaluate",
                 {
-                    "expression": "window.__bci_captured_file_input || [...document.querySelectorAll('input[type=\"file\"]')].pop() || null",
+                    "expression": "[...document.querySelectorAll('input[type=\"file\"]')].pop() || null",
                     "returnByValue": False,
                 },
             )
@@ -199,16 +231,6 @@ async def upload_file_to_flow(client: Any, file_path: Path, timeout_sec: float =
         return int(((res or {}).get("result") or {}).get("value") or 0) == 1
     finally:
         try:
-            await client.eval("""(() => {
-                if (HTMLInputElement.prototype.__bci_orig_click) {
-                    HTMLInputElement.prototype.click = HTMLInputElement.prototype.__bci_orig_click;
-                    delete HTMLInputElement.prototype.__bci_orig_click;
-                }
-                delete window.__bci_captured_file_input;
-            })()""")
-        except Exception:
-            pass
-        try:
             await client.send("Page.setInterceptFileChooserDialog", {"enabled": False})
         except Exception:
             pass
@@ -219,23 +241,62 @@ async def upload_file_to_flow(client: Any, file_path: Path, timeout_sec: float =
 
 
 async def attach_uploaded_by_name(client: Any, file_name: str, wait_sec: float = 30.0) -> bool:
-    """Opens Add ingredients -> Uploads and clicks the tile whose label equals file_name. Verifies a new chip."""
+    """Opens Add ingredients -> Uploads (only if popover not already open), waits out Uploading spinners, and clicks file_name."""
     before = await count_chips(client)
-    await press_escape(client)
-    await client.eval(f"document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)})?.click()")
-    await asyncio.sleep(1.0)
-    await trusted_click(client, await find_point(client, "flow-add-menu-popover-content button", "Uploads"))
-    loop = asyncio.get_event_loop()
+    has_pop = bool(await client.eval('Boolean(document.querySelector("flow-add-menu-popover-content"))'))
+    if not has_pop:
+        await client.eval(f"document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)})?.click()")
+        await asyncio.sleep(1.0)
+
+    loop = asyncio.get_running_loop()
     end = loop.time() + wait_sec
+    clicked_uploads_tab = False
     while loop.time() < end:
-        pt = await find_point(client, "flow-add-menu-popover-content button, flow-add-menu-popover-content [role=option]", file_name)
+        st = await client.eval("""(() => {
+            const pop = document.querySelector("flow-add-menu-popover-content");
+            if (!pop) return {pop: false, uploading: false};
+            const txt = pop.innerText || "";
+            return {pop: true, uploading: txt.includes("Uploading")};
+        })()""") or {}
+        if not st.get("pop"):
+            await client.eval(f"document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)})?.click()")
+            await asyncio.sleep(0.9)
+            continue
+        if st.get("uploading"):
+            await asyncio.sleep(1.0)
+            continue
+        if not clicked_uploads_tab:
+            up_pt = await find_point(
+                client,
+                "flow-add-menu-popover-content [role=tab], flow-add-menu-popover-content mat-list-item, flow-add-menu-popover-content button",
+                "Uploads",
+            )
+            if up_pt:
+                await trusted_click(client, up_pt)
+                clicked_uploads_tab = True
+                await asyncio.sleep(1.0)
+
+        pt = await client.eval(f"""(() => {{
+            const pop = document.querySelector("flow-add-menu-popover-content");
+            if (!pop) return null;
+            const fn = {json.dumps(file_name)};
+            const items = Array.from(pop.querySelectorAll('button[role="option"], [role="option"], .asset-item, button'));
+            const hit = items.find(e => (e.innerText || "").includes(fn) && e.getBoundingClientRect().width > 20);
+            if (!hit) return null;
+            const r = hit.getBoundingClientRect();
+            return {{x: r.x + r.width / 2, y: r.y + r.height / 2}};
+        }})()""")
         if pt:
             await trusted_click(client, pt)
-            await asyncio.sleep(1.2)
-            return await count_chips(client) == before + 1
-        await asyncio.sleep(2.0)
-    await press_escape(client)
-    return False
+            for _ in range(8):
+                await asyncio.sleep(0.45)
+                if await count_chips(client) >= before + 1:
+                    await dismiss_flow_overlays(client)
+                    return True
+        await asyncio.sleep(1.2)
+
+    await dismiss_flow_overlays(client)
+    return await count_chips(client) >= before + 1
 
 
 async def read_active_flow_model_family(client: Any) -> str:
@@ -331,6 +392,8 @@ async def select_flow_video_model(client: Any, model: str = FLOW_PRIMARY_VIDEO_M
         "[...document.querySelectorAll('.cdk-overlay-pane, flow-prompt-box-settings')].map(e => e.innerText || '').join('\\n')"
     ) or ""
     family_id = await read_active_flow_model_family(client)
+    await press_escape(client)
+    await asyncio.sleep(0.25)
     return (model in str(text)) and _family_matches_model(model, family_id)
 
 
@@ -371,10 +434,46 @@ async def prepare_reference_frames(
     client: Any,
     files: list[Path],
     allow_zero_credit_fallback: bool = True,
+    *,
+    use_frames_mode: bool = False,
+    uploaded_cache: set[str] | None = None,
 ) -> dict[str, Any]:
-    """Clear chips -> upload each file -> attach by name -> verify chip count -> verify allowed model is selected."""
+    """Clear chips -> upload each file -> attach by name (or VIDEO_FRAMES Start/End slots) -> verify allowed model."""
+    if use_frames_mode and files:
+        start_f = Path(files[0])
+        end_f = Path(files[1]) if len(files) >= 2 else None
+        slot_res = await upload_start_end_frames_to_flow(
+            client,
+            start_frame=start_f,
+            end_frame=end_f,
+            uploaded_cache=uploaded_cache,
+            use_frames_mode=True,
+        )
+        attached: list[str] = []
+        failed: list[str] = []
+        (attached if slot_res.get("start_attached") else failed).append(start_f.name)
+        if end_f is not None:
+            (attached if slot_res.get("end_attached") else failed).append(end_f.name)
+        report_f: dict[str, Any] = {
+            "cleared": True,
+            "attached": attached,
+            "failed": failed,
+            "input_mode": slot_res.get("input_mode", "VIDEO_FRAMES"),
+            "chip_count": int(slot_res.get("chip_count") or 0),
+        }
+        report_f.update(await assert_model_settings(client, allow_zero_credit_fallback=allow_zero_credit_fallback))
+        report_f["ready"] = bool(not failed and report_f["model_ok"])
+        return report_f
+
+    if use_frames_mode is False:
+        await set_flow_video_input_mode(client, use_frames=False)
     remaining = await clear_prompt_ingredients(client)
-    report: dict[str, Any] = {"cleared": remaining == 0, "attached": [], "failed": []}
+    report: dict[str, Any] = {
+        "cleared": remaining == 0,
+        "attached": [],
+        "failed": [],
+        "input_mode": "VIDEO_REFERENCES",
+    }
     for f in files:
         ok = await upload_file_to_flow(client, Path(f)) and await attach_uploaded_by_name(client, Path(f).name)
         (report["attached"] if ok else report["failed"]).append(Path(f).name)
@@ -383,17 +482,388 @@ async def prepare_reference_frames(
     return report
 
 
+async def read_active_flow_input_mode(client: Any) -> str:
+    """Reads `mode` (`VIDEO_FRAMES`, `VIDEO_REFERENCES`, `IMAGE`) from `localStorage['flow-prompt-box-settings']`."""
+    val = await client.eval(
+        """(() => {
+            try {
+                return JSON.parse(localStorage.getItem("flow-prompt-box-settings") || "{}").mode || "";
+            } catch (e) {
+                return "";
+            }
+        })()"""
+    )
+    return str(val or "").strip()
+
+
+async def set_flow_video_input_mode(client: Any, use_frames: bool = True) -> bool:
+    """
+    Switches Google Flow's video input mode cleanly between `Frames` (`VIDEO_FRAMES`, `"Start"` + `"End"` slots)
+    and `Ingredients` (`VIDEO_REFERENCES`, `ADD_INGREDIENTS_SEL`), verifying DOM slot rendering and `localStorage`.
+    """
+    want_ls = "VIDEO_FRAMES" if use_frames else "VIDEO_REFERENCES"
+    want_btn = "Frames" if use_frames else "Ingredients"
+
+    async def _mode_matches() -> bool:
+        st = await client.eval(
+            f"""(() => {{
+                let lsMode = "";
+                try {{
+                    lsMode = JSON.parse(localStorage.getItem("flow-prompt-box-settings") || "{{}}").mode || "";
+                }} catch (e) {{}}
+                const addIng = Boolean(document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)}));
+                const boxBtns = [...document.querySelectorAll("flow-prompt-box button")]
+                    .filter(e => e.getClientRects().length)
+                    .map(e => ((e.innerText || "").trim() + "|" + (e.getAttribute("aria-label") || "")));
+                const hasFramesUi = boxBtns.some(t =>
+                    t.startsWith("Start|") || t.startsWith("End|") || t.includes("Swap first and last frames") || t.includes("|Image ingredient")
+                );
+                return {{lsMode, addIng, hasFramesUi}};
+            }})()"""
+        ) or {}
+        if use_frames:
+            return st.get("lsMode") == want_ls and bool(st.get("hasFramesUi"))
+        return st.get("lsMode") == want_ls and bool(st.get("addIng"))
+
+    if await _mode_matches():
+        return True
+
+    for _attempt in range(3):
+        await dismiss_flow_overlays(client)
+        await press_escape(client)
+        trig = await find_point(client, "flow-prompt-box button.settings-trigger-button, button.settings-trigger-button", "")
+        if not trig:
+            trig = await client.eval(
+                """(() => {
+                    const b = document.querySelector('flow-prompt-box button.settings-trigger-button, button.settings-trigger-button');
+                    if (!b || !b.getClientRects().length) return null;
+                    const r = b.getBoundingClientRect();
+                    return {x: r.x + r.width / 2, y: r.y + r.height / 2};
+                })()"""
+            )
+        if trig:
+            await trusted_click(client, trig)
+            await asyncio.sleep(0.65)
+        pane_sel = ".cdk-overlay-pane button, flow-prompt-box-settings button"
+        vid_pt = await find_point(client, pane_sel, "Video")
+        if vid_pt:
+            await trusted_click(client, vid_pt)
+            await asyncio.sleep(0.35)
+        mode_pt = await find_point(client, pane_sel, want_btn)
+        if mode_pt:
+            await trusted_click(client, mode_pt)
+            await asyncio.sleep(0.55)
+        else:
+            fb_pt = await client.eval(
+                f"""(() => {{
+                    const btns = [...document.querySelectorAll('.cdk-overlay-pane button, flow-prompt-box-settings button')];
+                    const hit = btns.find(b => b.getClientRects().length && (b.innerText || '').includes({json.dumps(want_btn)}));
+                    if (!hit) return null;
+                    const r = hit.getBoundingClientRect();
+                    return {{x: r.x + r.width / 2, y: r.y + r.height / 2}};
+                }})()"""
+            )
+            if fb_pt:
+                await trusted_click(client, fb_pt)
+                await asyncio.sleep(0.55)
+        await press_escape(client)
+        await dismiss_flow_overlays(client)
+        if await _mode_matches():
+            return True
+    return (await read_active_flow_input_mode(client)) == want_ls
+
+
+async def _find_frame_slot_button_point(client: Any, slot_label: str) -> dict[str, float] | None:
+    """Finds the visible `"Start"` or `"End"` slot trigger button inside `flow-prompt-box` in `VIDEO_FRAMES` mode."""
+    return await client.eval(
+        f"""(() => {{
+            const want = {json.dumps(slot_label)};
+            const btns = [...document.querySelectorAll('flow-prompt-box button')].filter(e => e.getClientRects().length);
+            const hit = btns.find(b => {{
+                const txt = (b.innerText || '').replace(/add|image|crop_free/gi, '').trim();
+                const raw = (b.innerText || '').trim();
+                return raw === want || txt === want || raw.endsWith('\\n' + want) || raw.startsWith(want + '\\n');
+            }});
+            if (!hit) return null;
+            const r = hit.getBoundingClientRect();
+            return {{x: r.x + r.width / 2, y: r.y + r.height / 2}};
+        }})()"""
+    )
+
+
+async def _inject_bytes_into_open_upload_media(
+    client: Any,
+    file_path: Path,
+    timeout_sec: float = 20.0,
+) -> bool:
+    """Clicks `'Upload media'` inside an already-open Flow asset/frame popover and injects `file_path` bytes."""
+    path = Path(file_path)
+    data_b64 = base64.b64encode(path.read_bytes()).decode()
+    mime = mimetypes.guess_type(path.name)[0] or "image/png"
+    fn = """function(b64, name, mime) {
+      const bin = atob(b64); const u8 = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+      const dt = new DataTransfer(); dt.items.add(new File([u8], name, {type: mime}));
+      this.files = dt.files;
+      this.dispatchEvent(new Event('input', {bubbles: true}));
+      this.dispatchEvent(new Event('change', {bubbles: true}));
+      return this.files.length; }"""
+
+    await client.send("Page.enable")
+    await client.send("DOM.enable")
+    await client.send("Page.setInterceptFileChooserDialog", {"enabled": True})
+    try:
+        up_pt = await find_point(
+            client,
+            "flow-add-menu-popover-content button, .cdk-overlay-pane button",
+            "Upload media",
+        )
+        if not await trusted_click(client, up_pt):
+            return False
+
+        loop = asyncio.get_running_loop()
+        end = loop.time() + timeout_sec
+        obj_id: str | None = None
+        while loop.time() < end and not obj_id:
+            eval_res = await client.send(
+                "Runtime.evaluate",
+                {
+                    "expression": "[...document.querySelectorAll('input[type=\"file\"]')].pop() || null",
+                    "returnByValue": False,
+                },
+            )
+            rem_obj = (eval_res or {}).get("result") or {}
+            if rem_obj.get("objectId") and rem_obj.get("subtype") != "null":
+                obj_id = str(rem_obj["objectId"])
+                break
+
+            doc_res = await client.send("DOM.getDocument", {"depth": -1, "pierce": True})
+            root_node = (doc_res or {}).get("root") or {}
+            backend_ids: list[int] = []
+            _find_file_input_backend_nodes(root_node, backend_ids)
+            if not backend_ids and root_node.get("nodeId"):
+                q_res = await client.send(
+                    "DOM.querySelectorAll",
+                    {"nodeId": int(root_node["nodeId"]), "selector": 'input[type="file"]'},
+                )
+                node_ids = (q_res or {}).get("nodeIds") or []
+                if node_ids:
+                    resolved = await client.send("DOM.resolveNode", {"nodeId": int(node_ids[-1])})
+                    cand_obj = ((resolved or {}).get("object") or {}).get("objectId")
+                    if cand_obj:
+                        obj_id = str(cand_obj)
+                        break
+            if backend_ids:
+                resolved = await client.send("DOM.resolveNode", {"backendNodeId": int(backend_ids[-1])})
+                cand_obj = ((resolved or {}).get("object") or {}).get("objectId")
+                if cand_obj:
+                    obj_id = str(cand_obj)
+                    break
+            await asyncio.sleep(0.25)
+
+        if not obj_id:
+            return False
+
+        res = await client.send(
+            "Runtime.callFunctionOn",
+            {
+                "objectId": obj_id,
+                "functionDeclaration": fn,
+                "returnByValue": True,
+                "arguments": [{"value": data_b64}, {"value": path.name}, {"value": mime}],
+            },
+        )
+        return int(((res or {}).get("result") or {}).get("value") or 0) == 1
+    finally:
+        try:
+            await client.send("Page.setInterceptFileChooserDialog", {"enabled": False})
+        except Exception:
+            pass
+        try:
+            await client.send("DOM.disable")
+        except Exception:
+            pass
+
+
+async def attach_frame_slot_by_name(
+    client: Any,
+    slot_label: str,
+    file_path: Path,
+    uploaded_cache: set[str] | None = None,
+    wait_sec: float = 26.0,
+) -> bool:
+    """
+    Attaches `file_path` into Google Flow's `VIDEO_FRAMES` `"Start"` or `"End"` slot:
+      1. Ensures `VIDEO_FRAMES` mode is active.
+      2. Clicks the `"Start"` or `"End"` slot button inside `flow-prompt-box`.
+      3. Uploads `file_path` via `"Upload media"` if not yet uploaded in this tab.
+      4. Selects `file_path.name` in `"Select a frame image"` (`Uploads` / `Recent`) and clicks `"Add to prompt"`
+         when required, verifying `button[aria-label="Image ingredient"]` chip count increments by 1.
+    """
+    fp = Path(file_path)
+    if not fp.exists():
+        return False
+    cache = uploaded_cache if uploaded_cache is not None else set()
+    await set_flow_video_input_mode(client, use_frames=True)
+    before = await count_chips(client)
+
+    async def _open_slot_popover() -> bool:
+        pt = await _find_frame_slot_button_point(client, slot_label)
+        if not pt:
+            return False
+        await trusted_click(client, pt)
+        await asyncio.sleep(0.85)
+        return bool(
+            await client.eval(
+                "Boolean(document.querySelector('flow-add-menu-popover-content, .cdk-overlay-pane'))"
+            )
+        )
+
+    if fp.name not in cache:
+        await dismiss_flow_overlays(client)
+        await press_escape(client)
+        if await _open_slot_popover():
+            if await _inject_bytes_into_open_upload_media(client, fp):
+                cache.add(fp.name)
+                for _ in range(16):
+                    await asyncio.sleep(0.55)
+                    if await count_chips(client) >= before + 1:
+                        await dismiss_flow_overlays(client)
+                        return True
+                    uploading = await client.eval(
+                        """(() => {
+                            const p = document.querySelector('flow-add-menu-popover-content, .cdk-overlay-pane');
+                            return p ? (p.innerText || '').includes('Uploading') : false;
+                        })()"""
+                    )
+                    if not uploading:
+                        break
+
+    if await count_chips(client) >= before + 1:
+        await dismiss_flow_overlays(client)
+        return True
+
+    loop = asyncio.get_running_loop()
+    end_t = loop.time() + wait_sec
+    clicked_uploads_tab = False
+    while loop.time() < end_t:
+        st = await client.eval(
+            """(() => {
+                const pop = document.querySelector('flow-add-menu-popover-content, .cdk-overlay-pane');
+                if (!pop) return {pop: false, uploading: false};
+                const txt = pop.innerText || '';
+                return {pop: true, uploading: txt.includes('Uploading')};
+            })()"""
+        ) or {}
+        if not st.get("pop"):
+            if await count_chips(client) >= before + 1:
+                return True
+            if not await _open_slot_popover():
+                await asyncio.sleep(0.6)
+                continue
+        if st.get("uploading"):
+            await asyncio.sleep(0.8)
+            continue
+        if not clicked_uploads_tab:
+            up_tab = await find_point(
+                client,
+                "flow-add-menu-popover-content [role=tab], flow-add-menu-popover-content button, .cdk-overlay-pane [role=tab], .cdk-overlay-pane button",
+                "Uploads",
+            )
+            if up_tab:
+                await trusted_click(client, up_tab)
+                clicked_uploads_tab = True
+                await asyncio.sleep(0.8)
+
+        tile_pt = await client.eval(
+            f"""(() => {{
+                const pop = document.querySelector('flow-add-menu-popover-content, .cdk-overlay-pane');
+                if (!pop) return null;
+                const fn = {json.dumps(fp.name)};
+                const items = Array.from(pop.querySelectorAll('button[role="option"], [role="option"], .asset-item, button, [role="gridcell"], div'));
+                const hits = items.filter(e => {{
+                    const r = e.getBoundingClientRect();
+                    if (r.width < 24 || r.height < 24 || r.width > 520 || r.height > 520) return false;
+                    const t = (e.innerText || '') + ' ' + (e.getAttribute('aria-label') || '') + ' ' + (e.getAttribute('title') || '');
+                    return t.includes(fn);
+                }});
+                const hit = hits.sort((a, b) => (a.getBoundingClientRect().width * a.getBoundingClientRect().height) - (b.getBoundingClientRect().width * b.getBoundingClientRect().height))[0];
+                if (!hit) return null;
+                const r = hit.getBoundingClientRect();
+                return {{x: r.x + r.width / 2, y: r.y + r.height / 2}};
+            }})()"""
+        )
+        if tile_pt:
+            await trusted_click(client, tile_pt)
+            await asyncio.sleep(0.55)
+            if await count_chips(client) >= before + 1:
+                await dismiss_flow_overlays(client)
+                return True
+            add_pt = await client.eval(
+                """(() => {
+                    const pop = document.querySelector('flow-add-menu-popover-content, .cdk-overlay-pane');
+                    if (!pop) return null;
+                    const btns = Array.from(pop.querySelectorAll('button')).filter(b => b.getClientRects().length && !b.disabled);
+                    const hit = btns.find(b => (b.innerText || '').includes('Add to prompt'));
+                    if (!hit) return null;
+                    const r = hit.getBoundingClientRect();
+                    return {x: r.x + r.width / 2, y: r.y + r.height / 2};
+                })()"""
+            )
+            if add_pt:
+                await trusted_click(client, add_pt)
+            for _ in range(8):
+                await asyncio.sleep(0.45)
+                if await count_chips(client) >= before + 1:
+                    await dismiss_flow_overlays(client)
+                    return True
+        await asyncio.sleep(0.9)
+
+    await dismiss_flow_overlays(client)
+    return await count_chips(client) >= before + 1
+
+
 async def upload_start_end_frames_to_flow(
     client: Any,
     start_frame: Path,
     end_frame: Path | None = None,
     uploaded_cache: set[str] | None = None,
+    use_frames_mode: bool = True,
 ) -> dict[str, Any]:
     """
-    Uploads and attaches a Start Frame and optional End Frame into Google Flow's prompt box (`Frames` / dual-chip mode).
-    Returns `{"start_attached": bool, "end_attached": bool, "chip_count": int}`.
+    Uploads and attaches a Start Frame and optional End Frame into Google Flow's prompt box:
+      - `use_frames_mode=True` (default): switches to `VIDEO_FRAMES` (`Frames` mode), attaches `start_frame` into
+        the `"Start"` slot and `end_frame` into the `"End"` slot (`button[aria-label="Image ingredient"]` + `"Add to prompt"`).
+      - `use_frames_mode=False`: switches to `VIDEO_REFERENCES` (`Ingredients` mode) for multi-panel reference sheets.
+    Returns `{"start_attached": bool, "end_attached": bool, "chip_count": int, "input_mode": str}`.
     """
     cache = uploaded_cache if uploaded_cache is not None else set()
+    if use_frames_mode:
+        await set_flow_video_input_mode(client, use_frames=True)
+        await clear_prompt_ingredients(client)
+        start_ok = await attach_frame_slot_by_name(
+            client,
+            slot_label="Start",
+            file_path=Path(start_frame),
+            uploaded_cache=cache,
+        )
+        end_ok = False
+        if start_ok and end_frame and Path(end_frame).exists() and Path(end_frame).resolve() != Path(start_frame).resolve():
+            end_ok = await attach_frame_slot_by_name(
+                client,
+                slot_label="End",
+                file_path=Path(end_frame),
+                uploaded_cache=cache,
+            )
+        chips = await count_chips(client)
+        return {
+            "start_attached": bool(start_ok),
+            "end_attached": bool(end_ok),
+            "chip_count": int(chips),
+            "input_mode": "VIDEO_FRAMES",
+        }
+
+    await set_flow_video_input_mode(client, use_frames=False)
     await clear_prompt_ingredients(client)
 
     async def _attach_one(frame_p: Path, target_chip_min: int) -> bool:
@@ -428,6 +898,7 @@ async def upload_start_end_frames_to_flow(
         "start_attached": bool(start_ok),
         "end_attached": bool(end_ok),
         "chip_count": int(chips),
+        "input_mode": "VIDEO_REFERENCES",
     }
 
 
@@ -485,6 +956,7 @@ async def configure_flow_zero_credit_image_mode(
     })()""")
     await asyncio.sleep(0.35)
 
+    await dismiss_flow_overlays(client)
     await press_escape(client)
     st_pt = await find_point(client, "button.settings-trigger-button", "")
     if st_pt:
@@ -939,7 +1411,14 @@ async def generate_flow_image_batch(
     import shutil
 
     if winner_ok:
-        shutil.copy2(winner["tmp_png"], out_p)
+        if out_p.suffix.lower() in (".jpg", ".jpeg"):
+            win_bgr = cv2.imread(str(winner["tmp_png"]), cv2.IMREAD_COLOR)
+            if win_bgr is not None:
+                cv2.imwrite(str(out_p), win_bgr, [int(cv2.IMWRITE_JPEG_QUALITY), 93])
+            else:
+                shutil.copy2(winner["tmp_png"], out_p)
+        else:
+            shutil.copy2(winner["tmp_png"], out_p)
     for c in candidates:
         Path(c["tmp_png"]).unlink(missing_ok=True)
 
@@ -968,11 +1447,15 @@ async def generate_flow_image_batch(
 
 __all__ = [
     "assert_model_settings",
+    "attach_frame_slot_by_name",
     "close_gemini_tabs",
     "configure_flow_zero_credit_image_mode",
+    "dismiss_flow_overlays",
     "generate_flow_image_batch",
+    "read_active_flow_input_mode",
     "read_active_flow_model_family",
     "select_flow_video_model",
+    "set_flow_video_input_mode",
     "attach_uploaded_by_name",
     "clear_prompt_ingredients",
     "prepare_reference_frames",

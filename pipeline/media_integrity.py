@@ -795,6 +795,7 @@ class MediaIntegrityValidator:
             from pipeline.config import (
                 MICRO_SHORT_PROFILE,
                 SHORTS_90S_PROFILE,
+                SHORTS_EXPRESSIVE_V8_PROFILE,
                 resolve_shorts_format_profile,
                 shorts_duration_range_for_profile,
             )
@@ -828,7 +829,7 @@ class MediaIntegrityValidator:
                     edl_doc_mi,
                     project_id=path.parent.parent.name,
                 )
-                if fmt_mi in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+                if fmt_mi in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
                     default_diorama_min, default_diorama_max = shorts_duration_range_for_profile(fmt_mi)
 
         req_min_dur = min_duration_sec if min_duration_sec is not None else (

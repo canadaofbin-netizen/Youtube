@@ -47,6 +47,7 @@ from pipeline.config import (
     PROMPT_SCHEMA_VERSION_V5,
     PROMPT_SCHEMA_VERSION_V6,
     PROMPT_SCHEMA_VERSION_V7,
+    PROMPT_SCHEMA_VERSION_V8,
     ROLE_SETTINGS,
     DIORAMA_CAMERA_MOVES,
     DIORAMA_TTS_VOICE,
@@ -62,10 +63,23 @@ from pipeline.config import (
     DIORAMA_V7_STYLE_PROFILE,
     DIORAMA_V7_VISUAL_GRAMMARS,
     DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
+    EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC,
+    EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE,
+    EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+    EXPRESSIVE_V8_CAMERA_MOVES,
+    EXPRESSIVE_V8_CAST_SHEET_FILENAMES,
+    EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+    EXPRESSIVE_V8_TRANSITION_TYPES,
+    EXPRESSIVE_V8_VISUAL_GRAMMARS,
     PORCELAIN_V7_STYLE_PROFILE,
     PORCELAIN_V7_VISUAL_GRAMMARS,
+    SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX,
+    SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
     is_diorama_profile,
     is_diorama_v7_plan,
+    is_expressive_v8_plan,
     is_porcelain_v7_plan,
     resolve_diorama_v7_style_profile,
     VISUAL_MODES,
@@ -1382,12 +1396,542 @@ def _compose_diorama_v7_clip_scene(clip_spec: dict[str, Any], style_profile: str
     )
 
 
+def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
+    """Composes a Schema v8 `expressive_25d_v8` 2.5D vinyl + 2D ink expression + 75% X-Ray + Mini-Cortex cameo scene body (R68)."""
+    from pipeline.depiction_rules import (
+        ExpressiveCameoWorldRule,
+        ExpressiveHandsActionRule,
+        ExpressiveLiteralAnalogyRule,
+        ExpressiveVinylWorldRule,
+        ExpressiveXRayBrainRule,
+        SceneDepictionRule,
+        normalize_expressive_v8_grammar,
+    )
+
+    cameo_flag = bool(clip_spec.get("cameo_easter_egg")) or str(clip_spec.get("grammar") or "") == "expressive_cameo_world"
+    allow_list = [str(t).strip() for t in (clip_spec.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+    explicit_scene = str(clip_spec.get("scene") or "").strip()
+    if explicit_scene:
+        out = SceneDepictionRule.clean_clause(explicit_scene)
+        low_out = out.lower()
+        if allow_list and not all(tok.lower() in low_out for tok in allow_list):
+            quoted = ", ".join(f"'{tok}'" for tok in allow_list)
+            out = f"{out.rstrip('.')}. Crisp physical prop stencil displays {quoted} only."
+        if cameo_flag and "mini-cortex" not in low_out:
+            cameo_note = SceneDepictionRule.clean_clause(
+                str(
+                    clip_spec.get("cameo_placement")
+                    or "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex figurine sits quietly on the background shelf"
+                )
+            )
+            out = f"{out.rstrip('.')}. {cameo_note[:1].upper() + cameo_note[1:]}."
+        return out
+
+    def _compose_cast_action_beat(default_action: str, *, include_cast: bool = True) -> str:
+        cast_txt = SceneDepictionRule.clean_clause(str(clip_spec.get("cast") or "")) if include_cast else ""
+        act_txt = SceneDepictionRule.clean_clause(
+            str(
+                clip_spec.get("action")
+                or clip_spec.get("kinetic_action")
+                or clip_spec.get("character_reaction")
+                or clip_spec.get("comparison_action")
+                or clip_spec.get("comparison_motion")
+                or clip_spec.get("prop_action")
+                or ""
+            )
+        )
+        cons_txt = SceneDepictionRule.clean_clause(str(clip_spec.get("consequence") or ""))
+        if not act_txt and not cast_txt and not cons_txt:
+            return default_action
+        base = act_txt or default_action
+        if cast_txt and cast_txt.lower() not in base.lower():
+            if base[:1].islower() and not base.lower().startswith(("the ", "a ", "an ", "one ", "two ", "both ", "inside ")):
+                base = f"{cast_txt} {base}"
+            else:
+                base = f"{cast_txt}: {base}"
+        if cons_txt and cons_txt.lower() not in base.lower():
+            base = f"{base.rstrip('.')}, and {cons_txt[:1].lower() + cons_txt[1:]}"
+        return base
+
+    lighting_map = {
+        "night_3am": "dramatic low-key 3 AM bedside chiaroscuro with warm amber brass rim-light and cool moonlight shadows",
+        "night_interior": "warm nighttime interior key-and-rim cinema lighting with soft amber practical glow",
+        "studio_cinema": "warm cinematic key-and-rim studio lighting",
+    }
+    raw_lmode = str(clip_spec.get("lighting_mode") or "").strip().lower()
+    resolved_lighting = str(
+        clip_spec.get("lighting")
+        or lighting_map.get(raw_lmode)
+        or "warm cinematic key-and-rim studio lighting"
+    )
+
+    grammar = normalize_expressive_v8_grammar(
+        clip_spec.get("grammar") or clip_spec.get("visual_grammar") or "expressive_vinyl_world",
+        cameo_easter_egg=cameo_flag,
+    )
+    if grammar == "expressive_hands_closeup":
+        return ExpressiveHandsActionRule.compose(
+            attire_and_hands=str(
+                clip_spec.get("attire_and_hands")
+                or clip_spec.get("cast")
+                or "soft cotton pajama cuffs and smooth matte cream-white four-fingered vinyl hands"
+            ),
+            prop_action=str(
+                clip_spec.get("prop_action")
+                or clip_spec.get("action")
+                or "the vinyl fingers tap and adjust a bedside clock"
+            ),
+            consequence=str(clip_spec.get("consequence") or "the crisp indicator shifts cleanly across the dial"),
+            pov=False,
+            diegetic_text_allowlist=allow_list,
+        )
+    if grammar == "expressive_pov_hands":
+        return ExpressiveHandsActionRule.compose(
+            attire_and_hands=str(
+                clip_spec.get("attire_and_hands")
+                or clip_spec.get("cast")
+                or "tailored cloth sleeves extending from bottom frame"
+            ),
+            prop_action=str(
+                clip_spec.get("prop_action")
+                or clip_spec.get("action")
+                or "both four-fingered matte cream-white vinyl hands grip the prop steadily"
+            ),
+            consequence=str(clip_spec.get("consequence") or "the physical mechanism locks cleanly into place"),
+            pov=True,
+            diegetic_text_allowlist=allow_list,
+        )
+    if grammar == "expressive_literal_analogy":
+        return ExpressiveLiteralAnalogyRule.compose(
+            analogy_world=str(
+                clip_spec.get("analogy_world")
+                or clip_spec.get("analogy_scene")
+                or clip_spec.get("environment")
+                or "a quiet nighttime hotel corridor security desk"
+            ),
+            comparison_action=_compose_cast_action_beat(
+                "one clothed 2.5D matte cream-white vinyl night-watch guard shines a warm brass flashlight beam down the dark hall while its partner sleeps"
+            ),
+            lighting=str(clip_spec.get("lighting") or lighting_map.get(raw_lmode) or "dramatic warm key-and-rim cinema lighting"),
+        )
+    if grammar == "expressive_xray_brain":
+        return ExpressiveXRayBrainRule.compose(
+            brain_scene=str(clip_spec.get("brain_scene") or clip_spec.get("maquette_scene") or "").strip() or None,
+            environment=str(clip_spec.get("environment") or "a dimly lit unfamiliar hotel bedroom"),
+            character_reaction=str(
+                clip_spec.get("character_reaction")
+                or _compose_cast_action_beat(
+                    "the clothed 2.5D matte cream-white vinyl sleeper blinks one charcoal-black 2D cartoon ink eye alertly on the pillow",
+                    include_cast=False,
+                )
+            ),
+            brain_region=clip_spec.get("brain_region"),
+        )
+    if grammar == "expressive_cameo_world":
+        return ExpressiveCameoWorldRule.compose(
+            environment=str(clip_spec.get("environment") or "a cozy miniature bedroom with a wooden nightstand"),
+            action=_compose_cast_action_beat(
+                "a clothed 2.5D matte cream-white vinyl character with bold charcoal-black 2D cartoon ink eyebrows and eyes turns toward the bedside lamp"
+            ),
+            cameo_placement=str(
+                clip_spec.get("cameo_placement")
+                or "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex figurine sits quietly on the background nightstand shelf"
+            ),
+            lighting=resolved_lighting,
+            diegetic_text_allowlist=allow_list,
+        )
+    if grammar == "expressive_split_contrast":
+        return ExpressiveVinylWorldRule.compose(
+            environment=str(
+                clip_spec.get("environment")
+                or "a split-contrast 3D miniature stage dividing opposing left and right lighting zones"
+            ),
+            action=_compose_cast_action_beat(
+                "two clothed 2.5D matte cream-white vinyl figures with bold charcoal-black 2D cartoon ink expressions react in opposing left-and-right room zones"
+            ),
+            lighting=resolved_lighting,
+            diegetic_text_allowlist=allow_list,
+        )
+    return ExpressiveVinylWorldRule.compose(
+        environment=str(clip_spec.get("environment") or "a stylized 3D miniature bedroom with crisp woven bedding"),
+        action=_compose_cast_action_beat(
+            "a clothed 2.5D matte cream-white vinyl figure with bold charcoal-black 2D cartoon ink eyebrows, eyes, and animated mouth reacts in surprise"
+        ),
+        lighting=resolved_lighting,
+        diegetic_text_allowlist=allow_list,
+    )
+
+
+def build_expressive_v8_prompts(
+    visual_plan: dict[str, Any],
+    narrations: list[str] | None = None,
+    aspect: str = FLOW_ASPECT_SHORTS,
+) -> list[dict[str, Any]]:
+    """Renders Schema v8 (`expressive_25d_v8`) 8-second multi-beat clip prompts with Start+End VIDEO_FRAMES keyframe chains & transition hygiene (R68)."""
+    from pipeline.depiction_rules import ExpressiveV8PromptComposer, normalize_expressive_v8_grammar
+
+    raw_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
+    if not (SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN <= len(raw_clips) <= SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX):
+        raise ValueError(
+            f"Schema v8 expressive_25d_v8 visual_plan.clips must contain "
+            f"{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN}-{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX} clip specs (got {len(raw_clips)})"
+        )
+    mode = str(visual_plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
+    anchor_by_stem: dict[str, dict[str, Any]] = {}
+    for anc in visual_plan.get("reference_anchors") or []:
+        if not isinstance(anc, dict):
+            continue
+        raw_fn = str(anc.get("filename") or anc.get("ref_id") or "").strip()
+        if raw_fn:
+            anchor_by_stem[Path(raw_fn).stem] = anc
+        rid_a = str(anc.get("ref_id") or "").strip()
+        if rid_a:
+            anchor_by_stem.setdefault(rid_a, anc)
+
+    default_cam_cycle = (
+        "gentle_push_in",
+        "pan_right",
+        "locked_tripod",
+        "pan_left",
+        "tilt_down",
+        "clean_pullback_reveal",
+        "gentle_push_in",
+        "tilt_up",
+    )
+    out: list[dict[str, Any]] = []
+    for idx, spec in enumerate(raw_clips, start=1):
+        if not isinstance(spec, dict):
+            raise ValueError(f"Schema v8 clip {idx} must be a dict")
+        cameo_flag = bool(spec.get("cameo_easter_egg")) or str(spec.get("grammar") or "") == "expressive_cameo_world"
+        grammar = normalize_expressive_v8_grammar(
+            spec.get("grammar") or spec.get("visual_grammar") or "expressive_vinyl_world",
+            cameo_easter_egg=cameo_flag,
+        )
+        if grammar == "expressive_cameo_world":
+            cameo_flag = True
+        explicit_cam = str(spec.get("camera") or spec.get("camera_move") or "").strip()
+        cam = explicit_cam if explicit_cam else default_cam_cycle[(idx - 1) % len(default_cam_cycle)]
+        is_brain = grammar == "expressive_xray_brain"
+        ref_img = spec.get("reference_image")
+        sec_ref_img = spec.get("secondary_reference_image")
+        end_ref_img = spec.get("end_reference_image")
+        start_ref_str = str(ref_img or "").strip()
+        sec_ref_str = str(sec_ref_img or "").strip()
+        end_ref_str = str(end_ref_img or "").strip()
+        has_distinct_end = bool(start_ref_str and end_ref_str and start_ref_str != end_ref_str and not cameo_flag)
+        start_stem = Path(start_ref_str).stem if start_ref_str else ""
+        end_stem = Path(end_ref_str).stem if end_ref_str else ""
+        start_anc = anchor_by_stem.get(start_stem)
+        end_anc = anchor_by_stem.get(end_stem)
+        portal_to_brain = bool(spec.get("portal_to_brain")) or (
+            is_brain
+            and has_distinct_end
+            and "xray" not in start_stem.lower()
+            and "brain_master" not in start_stem.lower()
+            and str((start_anc or {}).get("setting") or "") != "brain_studio"
+            and (
+                "xray" in end_stem.lower()
+                or "brain" in end_stem.lower()
+                or str((end_anc or {}).get("setting") or "") == "brain_studio"
+            )
+        )
+
+        explicit_trans = str(spec.get("transition_out") or spec.get("transition_to_next") or "").strip().lower()
+        if explicit_trans in (*EXPRESSIVE_V8_TRANSITION_TYPES, "hard"):
+            transition_out = explicit_trans
+        elif has_distinct_end and idx < len(raw_clips):
+            transition_out = "daisy_chain_bridge"
+        else:
+            transition_out = "hard"
+
+        if cameo_flag and sec_ref_str:
+            flow_input_mode = "VIDEO_REFERENCES"
+            keyframe_chain_mode = "dual_reference_ingredients"
+        elif has_distinct_end:
+            flow_input_mode = "VIDEO_FRAMES"
+            keyframe_chain_mode = "portal_zoom_to_xray_brain" if portal_to_brain else "start_end_interpolation"
+        elif start_ref_str:
+            flow_input_mode = "VIDEO_REFERENCES"
+            keyframe_chain_mode = "single_reference_anchor"
+        elif end_ref_str:
+            flow_input_mode = "VIDEO_FRAMES"
+            keyframe_chain_mode = "end_frame_only"
+        else:
+            flow_input_mode = "TEXT_TO_VIDEO"
+            keyframe_chain_mode = "unconditioned"
+
+        keyframe_bridge_clause: str | None = None
+        if has_distinct_end:
+            explicit_traj = str(spec.get("keyframe_trajectory") or spec.get("trajectory_bridge") or "").strip()
+            s_brief = str(spec.get("start_frame_brief") or "").strip()
+            e_brief = str(spec.get("end_frame_brief") or "").strip()
+            s_ang = str((start_anc or {}).get("camera_angle_tag") or "").strip().replace("_", " ")
+            e_ang = str((end_anc or {}).get("camera_angle_tag") or "").strip().replace("_", " ")
+            if explicit_traj:
+                keyframe_bridge_clause = explicit_traj
+            elif s_brief and e_brief:
+                keyframe_bridge_clause = (
+                    f"Continuous 3D trajectory smoothly connecting {s_brief} in the opening frame "
+                    f"into {e_brief} in the closing frame"
+                )
+            elif portal_to_brain:
+                keyframe_bridge_clause = (
+                    "Continuous 3D push-in trajectory smoothly bridging the opening room character frame "
+                    "into the closing crystal-clear glass cranium X-Ray brain frame"
+                )
+            elif s_ang and e_ang and s_ang != e_ang:
+                keyframe_bridge_clause = (
+                    f"Continuous 3D trajectory smoothly bridging the opening {s_ang} keyframe "
+                    f"into the closing {e_ang} keyframe"
+                )
+            else:
+                keyframe_bridge_clause = (
+                    "Continuous 3D trajectory smoothly bridging the opening keyframe composition "
+                    "into the closing keyframe pose"
+                )
+
+        allow_list = [str(t).strip() for t in (spec.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+        act_no = int(spec.get("act") or min(6, ((idx - 1) * 6) // max(1, len(raw_clips)) + 1))
+        spec_for_scene = {
+            **spec,
+            "grammar": grammar,
+            "cameo_easter_egg": cameo_flag,
+            "diegetic_text_allowlist": allow_list,
+        }
+        scene_body = sanitize_diorama_scene_for_flow(_compose_expressive_v8_clip_scene(spec_for_scene))
+        render_sec = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
+        prompt_str = ExpressiveV8PromptComposer.compose_clip_prompt(
+            scene_body=scene_body,
+            grammar=grammar,
+            camera_move=cam,
+            transition_out=transition_out,
+            aspect=aspect,
+            render_sec=render_sec,
+            keyframe_bridge_clause=keyframe_bridge_clause,
+        )
+        ref_imgs = list(spec.get("reference_images") or [])
+        if not ref_imgs and ref_img:
+            ref_imgs = [ref_img] + ([sec_ref_img] if sec_ref_img else [])
+        out.append(
+            {
+                "clip_number": idx,
+                "clip_index": idx,
+                "act": act_no,
+                "grammar": grammar,
+                "role": f"act{act_no}_{grammar}",
+                "setting": ("brain_studio" if is_brain else "real_env"),
+                "camera_move": cam,
+                "transition_out": transition_out,
+                "cameo_easter_egg": cameo_flag,
+                "diegetic_text_allowlist": allow_list,
+                "lighting_mode": str(spec.get("lighting_mode") or ("night_interior" if "night" in scene_body.lower() or "dimly" in scene_body.lower() else "studio_cinema")),
+                "foley_cue": spec.get("foley_cue"),
+                "target_duration": f"{render_sec}s",
+                "expected_syllables": 0,
+                "estimated_speech_sec": 0.0,
+                "cutoff_risk": False,
+                "motif_present": False,
+                "location_id": spec.get("location_id"),
+                "scene_id": spec.get("scene_id") or f"act{act_no}_clip{idx}",
+                "shot_type": spec.get("shot_type") or _shot_type_from_camera(cam),
+                "brain_clip": is_brain,
+                "brain_mode": ("crystal_dome_xray_4color" if is_brain else spec.get("brain_mode")),
+                "brain_region": spec.get("brain_region"),
+                "anatomy_label": None,
+                "sentence_index": spec.get("sentence_index"),
+                "end_sentence_index": spec.get("end_sentence_index"),
+                "beat_index": spec.get("beat_index"),
+                "beat_weight": spec.get("beat_weight"),
+                "cut_role": spec.get("cut_role"),
+                "reference_image": ref_img,
+                "secondary_reference_image": sec_ref_img,
+                "reference_images": ref_imgs,
+                "end_reference_image": end_ref_img,
+                "full_trajectory_span": bool(spec.get("full_trajectory_span") or end_ref_str),
+                "flow_input_mode": flow_input_mode,
+                "keyframe_chain_mode": keyframe_chain_mode,
+                "portal_to_brain": portal_to_brain,
+                "start_anchor_id": (start_stem or None),
+                "end_anchor_id": (end_stem or None),
+                "source_shot_id": spec.get("source_shot_id"),
+                "aspect": aspect,
+                "schema_version": PROMPT_SCHEMA_VERSION_V8,
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "shorts_format_profile": SHORTS_EXPRESSIVE_V8_PROFILE,
+                "profile": "neuro_diorama",
+                "visual_mode": mode,
+                "scene": scene_body,
+                "spoken_narration": "",
+                "prompt": prompt_str,
+                "full_prompt": prompt_str,
+            }
+        )
+    _ = narrations
+    return out
+
+
+def validate_expressive_v8_prompts(
+    clips: list[dict[str, Any]],
+    plan: dict[str, Any] | None = None,
+) -> list[str]:
+    """Structural & R68 forensic prompt validator for Schema v8 (`expressive_25d_v8`)."""
+    from pipeline.depiction_rules import EXPRESSIVE_V8_CAMERA_DESCRIPTORS, validate_expressive_v8_scene
+
+    issues: list[str] = []
+    if not isinstance(clips, list) or not (
+        SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN <= len(clips) <= SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX
+    ):
+        return [
+            f"[prompt] Schema v8 expressive_25d_v8 clip count must be "
+            f"{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN}-{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX} "
+            f"(got {len(clips) if isinstance(clips, list) else 0}) (R68)"
+        ]
+
+    n_total = len(clips)
+    tol_lo, tol_hi = EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+    core_rev_sent = (plan or {}).get("core_reveal_sentence_index")
+    allow_early_override = bool((plan or {}).get("allow_early_brain_override") or core_rev_sent)
+    allowed_trans = (*EXPRESSIVE_V8_TRANSITION_TYPES, "hard")
+    cameo_clips: list[int] = []
+    xray_in_window: list[int] = []
+    premature_xray: list[int] = []
+    core_sent_has_xray = False
+
+    for idx, c in enumerate(clips, start=1):
+        if not isinstance(c, dict):
+            issues.append(f"[prompt] clip {idx} is not a dict")
+            continue
+        grammar = str(c.get("grammar") or "")
+        cam = str(c.get("camera_move") or "")
+        scene = str(c.get("scene") or "")
+        prompt_str = str(c.get("prompt") or c.get("full_prompt") or "")
+        trans_out = str(c.get("transition_out") or "").strip().lower()
+        cameo_flag = bool(c.get("cameo_easter_egg")) or grammar == "expressive_cameo_world"
+        raw_vp_clips = list((plan or {}).get("clips") or [])
+        raw_vp_allow = (
+            list((raw_vp_clips[idx - 1] or {}).get("diegetic_text_allowlist") or [])
+            if idx - 1 < len(raw_vp_clips) and isinstance(raw_vp_clips[idx - 1], dict)
+            else []
+        )
+        allow_list = raw_vp_allow if len(raw_vp_allow) > len(list(c.get("diegetic_text_allowlist") or [])) else list(c.get("diegetic_text_allowlist") or [])
+
+        if grammar not in EXPRESSIVE_V8_VISUAL_GRAMMARS:
+            issues.append(
+                f"[prompt] clip {idx}: invalid v8 grammar '{grammar}' (must be in {list(EXPRESSIVE_V8_VISUAL_GRAMMARS)}) (R68)"
+            )
+        if cam not in EXPRESSIVE_V8_CAMERA_MOVES:
+            issues.append(f"[prompt] clip {idx}: camera '{cam}' must be one of {list(EXPRESSIVE_V8_CAMERA_MOVES)} (R68)")
+        else:
+            desc = EXPRESSIVE_V8_CAMERA_DESCRIPTORS[cam]
+            cnt = prompt_str.count(desc)
+            if cnt != 1:
+                issues.append(f"[prompt] clip {idx}: v8 camera clause must appear exactly once (found {cnt}) (R68)")
+        if trans_out and trans_out not in allowed_trans:
+            issues.append(
+                f"[prompt] clip {idx}: transition_out '{trans_out}' must be in {list(allowed_trans)} (R68)"
+            )
+
+        multi_panel_v8_sheets = (
+            EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+            EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+            *EXPRESSIVE_V8_CAST_SHEET_FILENAMES,
+        )
+        start_ref = str(c.get("reference_image") or "").strip()
+        sec_ref = str(c.get("secondary_reference_image") or "").strip()
+        end_ref = str(c.get("end_reference_image") or "").strip()
+        if sec_ref and end_ref:
+            issues.append(
+                f"[keyframe_chain_v8] clip {idx}: cannot combine secondary_reference_image ('{sec_ref}') "
+                f"with end_reference_image ('{end_ref}') — Flow VIDEO_REFERENCES and VIDEO_FRAMES modes are mutually exclusive (R68)"
+            )
+        if end_ref.endswith(EXPRESSIVE_V8_CAMEO_SHEET_FILENAME):
+            issues.append(
+                f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' must not bind multi-panel cameo turnaround sheet (R68)"
+            )
+        elif end_ref.endswith(multi_panel_v8_sheets):
+            issues.append(
+                f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' must not bind multi-panel turnaround/cast sheet in VIDEO_FRAMES End slot (R68)"
+            )
+        if end_ref and start_ref.endswith(multi_panel_v8_sheets):
+            issues.append(
+                f"[keyframe_chain_v8] clip {idx}: start reference_image '{start_ref}' must not bind multi-panel turnaround/cast sheet when end_reference_image ('{end_ref}') activates VIDEO_FRAMES Start+End mode (R68)"
+            )
+        if end_ref and not start_ref:
+            issues.append(
+                f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' requires a non-empty start reference_image (R68)"
+            )
+        if end_ref and start_ref and end_ref == start_ref:
+            issues.append(
+                f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' duplicates start reference_image (degenerate zero-motion keyframe pair) (R68)"
+            )
+
+        wc = count_words(scene)
+        if not (35 <= wc <= DIORAMA_SCENE_WORDS_MAX + 30):
+            issues.append(
+                f"[prompt] clip {idx}: scene word count {wc} outside 35-{DIORAMA_SCENE_WORDS_MAX + 30} (R68)"
+            )
+        if "silent voice track" not in prompt_str.lower():
+            issues.append(f"[prompt] clip {idx}: missing silent-voice foley audio clause (R68)")
+
+        pos_frac = (idx - 0.5) / float(max(1, n_total))
+        is_xray = grammar == "expressive_xray_brain" or bool(c.get("brain_clip"))
+        if is_xray:
+            if pos_frac < tol_lo and not allow_early_override:
+                premature_xray.append(idx)
+            if tol_lo <= pos_frac <= tol_hi:
+                xray_in_window.append(idx)
+            if core_rev_sent is not None:
+                try:
+                    cr_i = int(core_rev_sent)
+                    s0_c = int(c.get("sentence_index") or 0)
+                    s1_c = max(s0_c, int(c.get("end_sentence_index") or s0_c))
+                    if s0_c <= cr_i <= s1_c:
+                        core_sent_has_xray = True
+                except (TypeError, ValueError):
+                    pass
+        if cameo_flag:
+            cameo_clips.append(idx)
+
+        v8_errs = validate_expressive_v8_scene(
+            prompt_str,
+            grammar=grammar,
+            camera_move=cam,
+            diegetic_text_allowlist=allow_list,
+            cameo_easter_egg=cameo_flag,
+        )
+        for err in v8_errs:
+            issues.append(f"clip {idx}: {err}")
+
+    if premature_xray:
+        issues.append(
+            f"[xray_timing_v8] premature 3D brain reveal in clip(s) {premature_xray} before {int(tol_lo * 100)}% / 70% mark "
+            "without core_reveal_sentence_index / allow_early_brain_override (R68)"
+        )
+    if core_rev_sent is not None and not core_sent_has_xray:
+        issues.append(
+            f"[xray_timing_v8] core_reveal_sentence_index={core_rev_sent} is not mapped to an 'expressive_xray_brain' clip (R68)"
+        )
+    if not xray_in_window:
+        issues.append(
+            f"[xray_timing_v8] missing 'expressive_xray_brain' reveal inside [{int(tol_lo * 100)}%-{int(tol_hi * 100)}%] "
+            "mechanism window (R68)"
+        )
+    if len(cameo_clips) != EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE:
+        issues.append(
+            f"[cameo_v8] expected exactly {EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE} 'Mini-Cortex' cameo clip per episode, "
+            f"got {len(cameo_clips)} ({cameo_clips}) (R68)"
+        )
+    return issues
+
+
 def build_diorama_v7_prompts(
     visual_plan: dict[str, Any],
     narrations: list[str] | None = None,
     aspect: str = FLOW_ASPECT_SHORTS,
 ) -> list[dict[str, Any]]:
-    """Renders Schema v7 (`porcelain_cinematic_v7` default or `lowpoly_pastel_v7`) clip prompts with single-clause camera choreography (R63/R66)."""
+    """Renders Schema v7/v8 (`porcelain_cinematic_v7`, `lowpoly_pastel_v7`, or `expressive_25d_v8`) clip prompts (R63/R66/R68)."""
+    if is_expressive_v8_plan(visual_plan):
+        return build_expressive_v8_prompts(visual_plan, narrations=narrations, aspect=aspect)
     from pipeline.depiction_rules import (
         ContainedLiving3DBrainRule,
         DioramaV7PromptComposer,
@@ -1536,7 +2080,9 @@ def validate_diorama_v7_prompts(
     clips: list[dict[str, Any]],
     plan: dict[str, Any] | None = None,
 ) -> list[str]:
-    """Structural & R63/R66 forensic prompt validator for Schema v7 (`porcelain_cinematic_v7` or `lowpoly_pastel_v7`)."""
+    """Structural & R63/R66/R68 forensic prompt validator for Schema v7/v8 (`porcelain_cinematic_v7`, `lowpoly_pastel_v7`, or `expressive_25d_v8`)."""
+    if is_expressive_v8_plan(plan, *(clips if isinstance(clips, list) else ())):
+        return validate_expressive_v8_prompts(clips, plan=plan)
     from pipeline.config import MICRO_SHORT_CUT_MIN, MICRO_SHORT_PROFILE, resolve_shorts_format_profile
     from pipeline.depiction_rules import (
         DIORAMA_V7_CAMERA_DESCRIPTORS,
@@ -2182,10 +2728,15 @@ def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voic
         vis_dir = p / "03_visuals"
     vis_dir.mkdir(parents=True, exist_ok=True)
     out_path = vis_dir / FLOW_PROMPTS_FILENAME
+    v8 = any(int(c.get("schema_version") or 0) >= PROMPT_SCHEMA_VERSION_V8 for c in clips)
     v7 = any(int(c.get("schema_version") or 0) >= PROMPT_SCHEMA_VERSION_V7 for c in clips)
     v6 = (not v7) and any(int(c.get("schema_version") or 0) == PROMPT_SCHEMA_VERSION_V6 for c in clips)
     v5 = (not v7) and (not v6) and any(int(c.get("schema_version") or 0) == PROMPT_SCHEMA_VERSION_V5 for c in clips)
-    schema_ver = PROMPT_SCHEMA_VERSION_V7 if v7 else (PROMPT_SCHEMA_VERSION_V6 if v6 else (PROMPT_SCHEMA_VERSION_V5 if v5 else SCHEMA_VERSION))
+    schema_ver = (
+        PROMPT_SCHEMA_VERSION_V8
+        if v8
+        else (PROMPT_SCHEMA_VERSION_V7 if v7 else (PROMPT_SCHEMA_VERSION_V6 if v6 else (PROMPT_SCHEMA_VERSION_V5 if v5 else SCHEMA_VERSION)))
+    )
     payload: dict[str, Any] = {
         "schema_version": schema_ver,
         "voice": (DIORAMA_TTS_VOICE if (v7 or v6) else voice),
@@ -2196,6 +2747,8 @@ def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voic
         payload["profile"] = "neuro_diorama"
         if v7:
             payload["style_profile"] = resolve_diorama_v7_style_profile(clips[0] if clips else None)
+            if v8:
+                payload["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
         payload["visual_mode"] = clips[0].get("visual_mode")
         payload["aspect"] = clips[0].get("aspect")
     elif v5:

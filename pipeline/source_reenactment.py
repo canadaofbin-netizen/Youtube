@@ -255,13 +255,34 @@ def detect_human_faces_yunet(
     return deduped
 
 
+def extract_dq8_scene_roi(frame_bgr: np.ndarray, *, is_expressive_v8: bool = False) -> np.ndarray:
+    """
+    Canonical DQ8 / pre-assembly clip-gate scene ROI shared 1:1 between `inspect_diorama_clip_cv`
+    and post-assembly `verify_final_mp4_against_contract` so native `720x1280` Flow clips and
+    assembled `1080x1920` cuts are evaluated at identical resolution and framing.
+    """
+    if frame_bgr is None or frame_bgr.size == 0:
+        return frame_bgr
+    work = frame_bgr
+    h, w = work.shape[:2]
+    if is_expressive_v8:
+        # Normalize vertical 9:16 native 720p clips to 1080x1920 so YuNet & top-edge `by <= 12` invariants match DQ8 1:1
+        if h > w and w >= 480 and (w != 1080 or h != 1920):
+            work = cv2.resize(work, (1080, 1920), interpolation=cv2.INTER_LINEAR)
+            h, w = 1920, 1080
+        return work[0 : max(1, int(h * 0.94)), int(w * 0.02) : max(1, int(w * 0.98))]
+    return work[int(h * 0.10) : max(1, int(h * 0.92)), int(w * 0.04) : max(1, int(w * 0.96))]
+
+
 def detect_non_porcelain_human_faces_yunet(
     bgr: np.ndarray,
     score_threshold: float = 0.62,
+    allow_expressive_2d_ink: bool = False,
 ) -> list[tuple[int, int, int, int, float]]:
     """
     Detects real human faces (both color photorealistic flesh faces and B&W archival faces with eyes/mouth)
-    via YuNet while excluding smooth featureless matte-white porcelain mannequin heads (`porcelain_r >= 0.82`)
+    via YuNet while excluding smooth featureless matte-white porcelain mannequin heads (`porcelain_r >= 0.82`),
+    matte-white 2.5D vinyl heads with bold charcoal 2D ink features (`allow_expressive_2d_ink=True`),
     and low-confidence flat wooden/toy surface false positives.
     """
     raw_boxes = detect_human_faces_yunet(bgr, score_threshold=score_threshold)
@@ -280,6 +301,7 @@ def detect_non_porcelain_human_faces_yunet(
         hsv = cv2.cvtColor(inner, cv2.COLOR_BGR2HSV)
         ycrcb = cv2.cvtColor(inner, cv2.COLOR_BGR2YCrCb)
         porc_ratio = float(np.mean((hsv[:, :, 1] <= 55) & (hsv[:, :, 2] >= 150)))
+        vinyl_white_ratio = float(np.mean((hsv[:, :, 1] <= 68) & (hsv[:, :, 2] >= 120)))
         skin_ratio = float(
             np.mean(
                 (hsv[:, :, 0] >= 4)
@@ -295,6 +317,133 @@ def detect_non_porcelain_human_faces_yunet(
         # Smooth featureless matte-white porcelain head oval -> not a human face
         if porc_ratio >= 0.80 and skin_ratio <= 0.06 and dark_feat_ratio <= 0.035:
             continue
+        # Pure near-black monitor/shadow false positive (no lit facial surface at all) -> not a human face
+        if float(np.mean(hsv[:, :, 2] < 68)) >= 0.88 and skin_ratio <= 0.03:
+            continue
+        # Matte-white / warm-cinema cream-white 2.5D vinyl head with bold 2D charcoal ink facial lines (expressive_25d_v8) -> not a human face
+        if allow_expressive_2d_ink:
+            head_roi = crop[
+                max(0, int(ch * 0.18)) : max(1, int(ch * 0.68)),
+                max(0, int(cw * 0.18)) : max(1, int(cw * 0.82)),
+            ]
+            if head_roi.size == 0:
+                head_roi = inner
+            f_hsv = cv2.cvtColor(head_roi, cv2.COLOR_BGR2HSV)
+            f_ycc = cv2.cvtColor(head_roi, cv2.COLOR_BGR2YCrCb)
+            non_ink = f_hsv[:, :, 2] >= 72
+            non_ink_frac = float(np.mean(non_ink))
+            ink_ratio = float(np.mean(f_hsv[:, :, 2] < 68))
+            head_lap_var = float(cv2.Laplacian(cv2.cvtColor(head_roi, cv2.COLOR_BGR2GRAY), cv2.CV_64F).var())
+            if non_ink_frac < 0.14 and (skin_ratio <= 0.04 or (non_ink_frac < 0.10 and head_lap_var < 12.0 and sc < 0.68)):
+                continue
+            if non_ink_frac >= 0.14:
+                base_h_med = float(np.median(f_hsv[:, :, 0][non_ink]))
+                base_v_med = float(np.median(f_hsv[:, :, 2][non_ink]))
+                base_cr_med = float(np.median(f_ycc[:, :, 1][non_ink]))
+                base_cb_med = float(np.median(f_ycc[:, :, 2][non_ink]))
+                s_p95 = float(np.percentile(f_hsv[:, :, 1], 95))
+                head_porc_ratio = float(np.mean((f_hsv[:, :, 1] <= 58) & (f_hsv[:, :, 2] >= 150)))
+                eye_band = crop[
+                    max(0, int(ch * 0.15)) : max(1, int(ch * 0.55)),
+                    max(0, int(cw * 0.15)) : max(1, int(cw * 0.85)),
+                ]
+                ehsv = cv2.cvtColor(eye_band, cv2.COLOR_BGR2HSV) if eye_band.size > 0 else f_hsv
+                cartoon_sclera = float(np.mean((ehsv[:, :, 1] <= 40) & (ehsv[:, :, 2] >= 200)))
+                cartoon_ink = float(np.mean(ehsv[:, :, 2] <= 58))
+                is_grayscale_archival = (s_p95 < 10.0) and (max(porc_ratio, head_porc_ratio) < 0.65)
+                is_cool_lit_human = (base_cr_med < 127.0) or (base_cb_med > 128.5)
+                has_giant_cartoon_eyes = (
+                    cartoon_sclera >= 0.065
+                    and cartoon_ink >= 0.085
+                    and (max(porc_ratio, head_porc_ratio) >= 0.10 or vinyl_white_ratio >= 0.18)
+                )
+                is_warm_lamp_vinyl = (
+                    base_v_med >= 205.0
+                    and base_h_med >= 15.0
+                    and base_cb_med <= 104.0
+                    and base_cr_med <= 154.0
+                    and ink_ratio >= 0.08
+                )
+                is_top_clipped_bokeh_doll = (
+                    by <= 12
+                    and bh_b < int(bw_b * 0.92)
+                    and head_lap_var < 26.0
+                    and base_cr_med <= 149.5
+                )
+                is_closed_eye_matte_vinyl = (
+                    vinyl_white_ratio >= 0.35
+                    and base_v_med >= 195.0
+                    and base_cr_med <= 145.2
+                    and ink_ratio >= 0.015
+                )
+                fh_roi = crop[: max(1, int(ch * 0.32)), int(cw * 0.15) : max(1, int(cw * 0.85))]
+                fh_hsv = cv2.cvtColor(fh_roi, cv2.COLOR_BGR2HSV) if fh_roi.size > 0 else f_hsv
+                forehead_vw = float(np.mean((fh_hsv[:, :, 1] <= 68) & (fh_hsv[:, :, 2] >= 125)))
+                ck_roi = crop[
+                    int(ch * 0.40) : max(int(ch * 0.42), int(ch * 0.62)),
+                    int(cw * 0.18) : max(1, int(cw * 0.82)),
+                ]
+                is_capped_flesh_face = False
+                if fh_roi.size > 0 and ck_roi.size > 0 and forehead_vw >= 0.12:
+                    fh_ycc = cv2.cvtColor(fh_roi, cv2.COLOR_BGR2YCrCb)
+                    ck_hsv = cv2.cvtColor(ck_roi, cv2.COLOR_BGR2HSV)
+                    ck_ycc = cv2.cvtColor(ck_roi, cv2.COLOR_BGR2YCrCb)
+                    ck_vw = float(np.mean((ck_hsv[:, :, 1] <= 48) & (ck_hsv[:, :, 2] >= 145)))
+                    fh_non = fh_hsv[:, :, 2] >= 78
+                    ck_non = ck_hsv[:, :, 2] >= 78
+                    if ck_vw < 0.10 and np.any(fh_non) and np.any(ck_non):
+                        fh_cr_med = float(np.median(fh_ycc[:, :, 1][fh_non]))
+                        ck_cr_med = float(np.median(ck_ycc[:, :, 1][ck_non]))
+                        ck_cb_med = float(np.median(ck_ycc[:, :, 2][ck_non]))
+                        fh_s_med = float(np.median(fh_hsv[:, :, 1][fh_non]))
+                        ck_s_med = float(np.median(ck_hsv[:, :, 1][ck_non]))
+                        ck_h_med = float(np.median(ck_hsv[:, :, 0][ck_non]))
+                        d_cr = ck_cr_med - fh_cr_med
+                        if (
+                            (d_cr >= 6.5 and ck_cr_med >= 141.0 and ck_h_med <= 13.5)
+                            or (d_cr >= 12.0 and ck_cr_med >= 146.5)
+                            or (ck_cb_med >= 136.0 and (ck_s_med - fh_s_med) >= 15.0)
+                            or (ck_cb_med >= 126.0 and ck_h_med >= 95.0)
+                        ):
+                            is_capped_flesh_face = True
+                is_bold_glasses_vinyl = (
+                    ink_ratio >= 0.16
+                    and (vinyl_white_ratio >= 0.12 or forehead_vw >= 0.30)
+                    and base_v_med >= 135.0
+                    and base_cr_med <= 148.0
+                    and base_cb_med <= 118.0
+                )
+                is_featureless_matte_vinyl = (
+                    (vinyl_white_ratio >= 0.14 or forehead_vw >= 0.20)
+                    and base_v_med >= 145.0
+                    and base_cr_med <= 145.2
+                )
+                is_shadowed_rim_vinyl = (
+                    forehead_vw >= 0.09
+                    and base_v_med >= 90.0
+                    and base_cr_med <= 138.0
+                    and ink_ratio >= 0.03
+                )
+                is_vinyl_25d = (
+                    not is_grayscale_archival
+                    and not is_cool_lit_human
+                    and not is_capped_flesh_face
+                    and (base_v_med >= 115.0 or is_shadowed_rim_vinyl)
+                    and (
+                        (base_cr_med <= 143.5 and ink_ratio >= 0.022)
+                        or (base_cr_med <= 145.2 and (vinyl_white_ratio >= 0.10 or forehead_vw >= 0.30) and ink_ratio >= 0.022)
+                        or (max(porc_ratio, head_porc_ratio) >= 0.40 and base_cr_med <= 141.0)
+                        or has_giant_cartoon_eyes
+                        or is_warm_lamp_vinyl
+                        or is_top_clipped_bokeh_doll
+                        or is_closed_eye_matte_vinyl
+                        or is_bold_glasses_vinyl
+                        or is_featureless_matte_vinyl
+                        or is_shadowed_rim_vinyl
+                    )
+                )
+                if is_vinyl_25d:
+                    continue
         # Low-confidence smooth warm prop/wood surface without eye/nostril/mouth dark features -> not a human face
         if sc < 0.70 and dark_feat_ratio < 0.022 and lap_var < 28.0:
             continue
@@ -1203,7 +1352,12 @@ async def translate_porcelain_keyframes_async(
     existing_prov = load_provenance(p_dir)
 
     from pipeline.cdp_tab_lease import enable_background_focus_emulation, release_and_close_leased_tab
-    from pipeline.config import FLOW_AUTO_CLEANUP_ON_SUCCESS
+    from pipeline.config import (
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        FLOW_AUTO_CLEANUP_ON_SUCCESS,
+        PROMPT_SCHEMA_VERSION_V8,
+        is_expressive_v8_plan,
+    )
     from pipeline.flow_workspace import (
         clean_flow_workspace_async,
         format_flow_room_name,
@@ -1253,27 +1407,49 @@ async def translate_porcelain_keyframes_async(
                 raw_cond_ids = [c for c in raw_cond_ids if c.startswith("ref_cast_")] + [
                     c for c in raw_cond_ids if not c.startswith("ref_cast_")
                 ]
+            is_v8_anchor = is_expressive_v8_plan(plan) or str(spec.get("style_profile") or "") == EXPRESSIVE_25D_V8_STYLE_PROFILE
+            if is_v8_anchor:
+                spec.setdefault("style_profile", EXPRESSIVE_25D_V8_STYLE_PROFILE)
+                spec.setdefault("schema_version", PROMPT_SCHEMA_VERSION_V8)
+
             for cond_id in raw_cond_ids:
                 if len(cond_paths) >= 2:
                     break
-                cand_p = ref_dir / f"{cond_id}.png"
+                cname = cond_id if cond_id.lower().endswith((".png", ".jpg", ".jpeg")) else f"{cond_id}.png"
+                cand_p = ref_dir / cname
                 if cand_p.exists() and cand_p not in cond_paths:
                     cond_paths.append(cand_p)
 
             base_prompt = str(spec.get("prompt") or "")
+            allow_toks = [str(t).strip() for t in (spec.get("diegetic_text_allowlist") or []) if str(t).strip()]
             cast_suffix = ""
             if spec.get("present_cast") is not None:
                 p_list = [str(x).strip() for x in (spec.get("present_cast") or []) if str(x).strip()]
                 if len(p_list) == 0:
                     cast_suffix += " The room and all chairs are completely empty with zero figures present."
+                elif is_v8_anchor:
+                    cast_suffix += f" Present in frame: {', '.join(p_list)}."
                 else:
                     cast_suffix += f" Exactly {len(p_list)} clothed matte-white porcelain figure(s) appear in the frame ({', '.join(p_list)})."
             if spec.get("empty_chairs_note"):
                 cast_suffix += f" {str(spec['empty_chairs_note']).strip()}"
             if "no text" not in base_prompt.lower() and "zero text" not in base_prompt.lower():
-                cast_suffix += " Strictly zero text, zero letters, zero numbers, zero labels, no watermark."
+                if allow_toks:
+                    q_allow = ", ".join(f"'{t}'" for t in allow_toks[:2])
+                    cast_suffix += f" Crisp physical prop stencil displays {q_allow} only; zero other text, letters, or watermarks."
+                else:
+                    cast_suffix += " Strictly zero text, zero letters, zero numbers, zero labels, no watermark."
 
-            if guide_cand in cond_paths:
+            if is_v8_anchor:
+                cond_lead = (
+                    "Match the exact 2.5D character species from the reference sheet (smooth earless noseless hairless matte cream-white vinyl oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, four-fingered matte cream-white vinyl hands, tailored 3D woven fabric clothing). "
+                    if cond_paths
+                    else ""
+                )
+                full_prompt = (
+                    f"Vertical 9:16 full-bleed stylized 3D cinematic miniature diorama photograph. {cond_lead}{base_prompt}{cast_suffix}"
+                )
+            elif guide_cand in cond_paths:
                 i2i_prefix = (
                     "Vertical 9:16 high-key architectural documentary photograph. Match the room layout, chair placement, "
                     "tabletop props, and body pose geometry of the first structural guide image, replacing every figure with "
@@ -1296,7 +1472,14 @@ async def translate_porcelain_keyframes_async(
             for attempt in range(4):
                 try:
                     if client is None:
-                        flow_alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
+                        import inspect as _inspect_sr
+                        _sr_sig = _inspect_sr.signature(allocate_dedicated_flow_project_tab)
+                        _sr_kwargs: dict[str, Any] = {"cdp_port": cdp_port}
+                        if "project_id" in _sr_sig.parameters:
+                            _sr_kwargs["project_id"] = p_dir.name
+                        if "existing_project_url" in _sr_sig.parameters and opened_project_urls:
+                            _sr_kwargs["existing_project_url"] = opened_project_urls[0]
+                        flow_alloc = await allocate_dedicated_flow_project_tab(**_sr_kwargs)
                         opened_tab_id = str(flow_alloc["tab_id"])
                         opened_lease_owner = flow_alloc.get("lease_owner_id")
                         proj_u = str(flow_alloc.get("project_url") or "")
@@ -1307,19 +1490,24 @@ async def translate_porcelain_keyframes_async(
                         client = await client_cm.__aenter__()
                         await enable_background_focus_emulation(client)
                         await client.send("Page.enable")
-                        await rename_active_flow_project(client, format_flow_room_name(p_dir.name, role="refs"))
+                        await rename_active_flow_project(client, format_flow_room_name(p_dir.name, role="episode"))
                         uploaded_cache.clear()
                         seen_img_srcs.clear()
 
-                    retry_suffix = (
-                        ""
-                        if attempt == 0
-                        else (
+                    if attempt == 0:
+                        retry_suffix = ""
+                    elif is_v8_anchor:
+                        retry_suffix = (
+                            " Ensure full-bleed 9:16 vertical framing, crisp cinema key-and-rim miniature lighting, "
+                            "smooth earless noseless matte cream-white vinyl oval head with bold black 2D cartoon ink eyes and mouth, "
+                            "and tailored 3D woven fabric clothing."
+                        )
+                    else:
+                        retry_suffix = (
                             " Ensure bright high-key daylight studio exposure, razor-sharp f/8 deep architectural focus "
                             "from foreground to background (zero shallow portrait bokeh blur), crisp woven fabric texture "
                             "and articulated porcelain joint seams, smooth matte-white porcelain heads, and full-bleed 9:16 vertical composition."
                         )
-                    )
                     eff_cond = [] if (attempt >= 2 and not has_guide_cond) else cond_paths[:2]
                     print(
                         f"[reenact-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} via flow"
@@ -1623,10 +1811,13 @@ def validate_reenactment_non_infringement(
         MICRO_SHORT_CUT_MAX,
         MICRO_SHORT_CUT_MIN,
         MICRO_SHORT_PROFILE,
+        EXPRESSIVE_V8_CLIP_COUNT_MAX,
+        EXPRESSIVE_V8_CLIP_COUNT_MIN,
         SHORTS_90S_CLIP_COUNT_MAX,
         SHORTS_90S_CLIP_COUNT_MIN,
         SHORTS_90S_CUT_COUNT_MIN,
         SHORTS_90S_PROFILE,
+        SHORTS_EXPRESSIVE_V8_PROFILE,
         resolve_shorts_format_profile,
     )
 
@@ -1647,6 +1838,10 @@ def validate_reenactment_non_infringement(
         rq5_min_clips = MICRO_SHORT_CUT_MIN
         rq5_max_clips = MICRO_SHORT_CUT_MAX + 4
         rq5_min_cuts = MICRO_SHORT_CUT_MIN
+    elif rq5_fmt == SHORTS_EXPRESSIVE_V8_PROFILE:
+        rq5_min_clips = EXPRESSIVE_V8_CLIP_COUNT_MIN
+        rq5_max_clips = EXPRESSIVE_V8_CLIP_COUNT_MAX
+        rq5_min_cuts = EXPRESSIVE_V8_CLIP_COUNT_MIN
     elif rq5_fmt == SHORTS_90S_PROFILE:
         rq5_min_clips = SHORTS_90S_CLIP_COUNT_MIN
         rq5_max_clips = SHORTS_90S_CLIP_COUNT_MAX

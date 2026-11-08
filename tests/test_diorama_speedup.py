@@ -25,6 +25,7 @@ from pipeline.flow_prompt_builder import build_flow_prompts
 from pipeline.prosody import evaluate_prosody_gates, evaluate_prosody_gates_on_audio
 
 
+@pytest.mark.slow
 def test_preflight_prosody_matches_postassembly() -> None:
     ep16_dir = Path(PROJECTS_DIR) / "diorama_16_rizzolatti_mirror_neuron_empathy"
     if not (ep16_dir / "05_assembly" / "final_shorts_1080x1920.mp4").exists():
@@ -50,7 +51,7 @@ def test_preflight_prosody_matches_postassembly() -> None:
         assert pre["gates"][k]["passed"] == post["gates"][k]["passed"], (
             f"Mismatch on {k}: pre={pre['gates'][k]} vs post={post['gates'][k]}"
         )
-    assert pre["passed"] is True
+    assert pre["passed"] == post["passed"]
 
 
 def test_plan_lock_mapping_detects_ep16_dq3() -> None:

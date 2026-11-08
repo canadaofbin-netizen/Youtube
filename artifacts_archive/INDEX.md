@@ -3,15 +3,15 @@
 - **Workspace**: `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube`
 - **Auto-Sync Hooks**: `.agents/hooks.json` + `~/.gemini/config/hooks.json` (`PostToolUse` + `Stop`) via `scripts/sync_artifacts_archive.py`
 - **Manual Full Sync**: `/home/canadaofbin/hermes-venv/bin/python -X utf8 scripts/sync_artifacts_archive.py --sync-all`
-- **Archive Totals**: **45** Markdown reports/artifacts + **185** media/chart assets (**230** total files)
+- **Archive Totals**: **56** Markdown reports/artifacts + **223** media/chart assets (**279** total files)
 
 ## Chatroom Folders Summary
 
 | Folder | Chatroom | Conversation ID | `.md` Reports | Media / Assets | Total Files |
 |---|---|---|---:|---:|---:|
-| [`01_YouTube_CEO/`](./01_YouTube_CEO/) | @YouTube_CEO | `b57c97a8-6324-4c31-a2bb-16b25e28dd55` | 5 | 42 | 47 |
+| [`01_YouTube_CEO/`](./01_YouTube_CEO/) | @YouTube_CEO | `b57c97a8-6324-4c31-a2bb-16b25e28dd55` | 14 | 74 | 88 |
 | [`02_Research/`](./02_Research/) | @Research | `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c` | 3 | 19 | 22 |
-| [`03_Daily_Report/`](./03_Daily_Report/) | @Daily_Report | `e3210c73-cc41-4432-87b1-c158efe9cadb` | 26 | 91 | 117 |
+| [`03_Daily_Report/`](./03_Daily_Report/) | @Daily_Report | `e3210c73-cc41-4432-87b1-c158efe9cadb` | 28 | 97 | 125 |
 | [`04_Headquarters/`](./04_Headquarters/) | @Headquarters | `8c7f8d97-664d-4d6b-9ef8-b17e721354f9` | 9 | 20 | 29 |
 | [`05_Channel_Art/`](./05_Channel_Art/) | @Channel_Art | `3c2fa53b-b43c-4f67-9dfd-0e5c86581f67` | 1 | 8 | 9 |
 | [`06_Report_Redesign/`](./06_Report_Redesign/) | @Report_Redesign | `8a60150d-92b4-453f-9996-d50159fc2827` | 1 | 5 | 6 |
@@ -21,13 +21,22 @@
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
+| [`master_plan.md`](./01_YouTube_CEO/master_plan.md) | 전체 마스터 계획: 파이프라인 안정화 + ricksclip3000 수준 따라잡기 | 18.1 KB | 2026-11-08 23:34 UTC |
+| [`previs_workflow_analysis.md`](./01_YouTube_CEO/previs_workflow_analysis.md) | 프리비즈(Previs) 방식 분석: 반토막AI 영상 → 우리 Google Flow 파이프라인 | 9.6 KB | 2026-11-08 23:31 UTC |
+| [`benchmark_gap_report.md`](./01_YouTube_CEO/benchmark_gap_report.md) | ricksclip3000 대비 퀄리티 격차 보고서 | 7.0 KB | 2026-11-08 22:38 UTC |
+| [`bugfix_plan.md`](./01_YouTube_CEO/bugfix_plan.md) | 버그 수정 계획: Flow 생성기와 pilot_02 결과물 문제 | 8.6 KB | 2026-11-08 22:15 UTC |
+| [`narration_restructure_plan.md`](./01_YouTube_CEO/narration_restructure_plan.md) | 내레이션 구성 개편 계획 (`expressive_25d_v8` 채널 규칙 + `v8_pilot_02` 새 대본) | 21.2 KB | 2026-11-08 15:12 UTC |
+| [`walkthrough.md`](./01_YouTube_CEO/walkthrough.md) | ALL ABOUT BRAIN (`07_Youtube`) 업그레이드 본편(`30fps` 카메라 브릿지 & `Emma` 1인 내레이터) 및 통합 완주 보고 (`Wal`... | 9.1 KB | 2026-11-08 11:51 UTC |
+| [`pilot02_voice_fix_plan.md`](./01_YouTube_CEO/pilot02_voice_fix_plan.md) | v8_pilot_02 문제점 분석 & 수정 계획 (Emma 1인 내레이터 + 영상 편집 정리) | 20.0 KB | 2026-11-08 10:34 UTC |
+| [`bottleneck_resolution_plan.md`](./01_YouTube_CEO/bottleneck_resolution_plan.md) | 병목 해결 실행 계획 (Pipeline Bottleneck Resolution Plan) | 18.3 KB | 2026-11-08 02:29 UTC |
+| [`boost_time_and_bottleneck_analysis.md`](./01_YouTube_CEO/boost_time_and_bottleneck_analysis.md) | 작업 종료 기준 전 구간 소요 시간 및 병목 정량 분석 보고서 | 7.6 KB | 2026-11-08 02:20 UTC |
+| [`zdy_hxq_voice_and_camera_forensic_report.md`](./01_YouTube_CEO/zdy_hxq_voice_and_camera_forensic_report.md) | `ZDy3xXA2iHk` & `HxqtHI62otM` 보이스 · 카메라 무빙 정밀 포렌식 분석 보고서 (컨펌 대기본) | 12.5 KB | 2026-11-07 14:33 UTC |
+| [`expanded_cast_and_channel_art_report.md`](./01_YouTube_CEO/expanded_cast_and_channel_art_report.md) | `@AllAboutBrainOfficial` 확장 시그니처 배우단(`18종`) & 다인원 유튜브 채널 아트 시안 보고서 | 6.3 KB | 2026-11-07 04:15 UTC |
 | [`signature_character_comparison_report.md`](./01_YouTube_CEO/signature_character_comparison_report.md) | `@AllAboutBrainOfficial` 시그니처 캐릭터 종족 3안(`안 1` · `안 2` · `안 3`) 실물 렌더링 비교 보고서 | 10.0 KB | 2026-11-07 00:15 UTC |
-| [`expanded_cast_and_channel_art_report.md`](./01_YouTube_CEO/expanded_cast_and_channel_art_report.md) | `@AllAboutBrainOfficial` 확장 시그니처 배우단(`18종`) & 다인원 유튜브 채널 아트 시안 보고서 | 5.5 KB | 2026-11-06 00:54 UTC |
 | [`implementation_plan.md`](./01_YouTube_CEO/implementation_plan.md) | ALL ABOUT BRAIN (`07_Youtube`) 통합 마스터 실행 계획서 (`v3` — 컨펌 대기본) | 18.6 KB | 2026-11-05 17:07 UTC |
-| [`walkthrough.md`](./01_YouTube_CEO/walkthrough.md) | ALL ABOUT BRAIN (`07_Youtube`) 전체 실행 및 라이브 검증 완료 보고 (`Walkthrough`) | 7.2 KB | 2026-11-05 08:03 UTC |
 | [`benchmark_success_formula_report.md`](./01_YouTube_CEO/benchmark_success_formula_report.md) | 벤치마크 3대 채널 성공 공식 추출, `@RicksClips3000` 제작 공정 역설계 & 장면 전환(`lnYLIWP2l-I`) 마스터 보고서 | 35.4 KB | 2026-11-05 05:56 UTC |
 
-- **Embedded Media & Charts (42 files)**: [`benchmark_media/`](./01_YouTube_CEO/benchmark_media/) (9 files), [`channel_art_and_cast/`](./01_YouTube_CEO/channel_art_and_cast/) (21 files), [`signature_cast/`](./01_YouTube_CEO/signature_cast/) (12 files)
+- **Embedded Media & Charts (74 files)**: `root` (15 files), [`backup_pilot02_andrew_v8/`](./01_YouTube_CEO/backup_pilot02_andrew_v8/) (11 files), [`benchmark_media/`](./01_YouTube_CEO/benchmark_media/) (9 files), [`channel_art_and_cast/`](./01_YouTube_CEO/channel_art_and_cast/) (22 files), [`forensics_zdy_hxq/`](./01_YouTube_CEO/forensics_zdy_hxq/) (5 files), [`signature_cast/`](./01_YouTube_CEO/signature_cast/) (12 files)
 
 ## `02_Research` (@Research — `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c`)
 > Competitor Shorts teardown, viral hook/retention formula extraction, and topic/case research
@@ -45,6 +54,8 @@
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
+| [`youtube_video_detail_report_2026_11_07.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_07.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-07) | 32.8 KB | 2026-11-07 07:07 UTC |
+| [`youtube_daily_report_2026_11_07.md`](./03_Daily_Report/youtube_daily_report_2026_11_07.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-07) | 8.4 KB | 2026-11-07 07:07 UTC |
 | [`youtube_video_detail_report_2026_11_06.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_06.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-06) | 32.8 KB | 2026-11-06 07:06 UTC |
 | [`youtube_daily_report_2026_11_06.md`](./03_Daily_Report/youtube_daily_report_2026_11_06.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-06) | 8.4 KB | 2026-11-06 07:06 UTC |
 | [`youtube_video_detail_report_2026_11_05.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_05.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-05) | 32.0 KB | 2026-11-05 07:07 UTC |
@@ -72,7 +83,7 @@
 | [`youtube_daily_report_2026_10_24.md`](./03_Daily_Report/youtube_daily_report_2026_10_24.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-24) | 7.3 KB | 2026-10-24 11:28 UTC |
 | [`youtube_daily_report_2026_10_23.md`](./03_Daily_Report/youtube_daily_report_2026_10_23.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-23) | 6.1 KB | 2026-10-23 07:02 UTC |
 
-- **Embedded Media & Charts (91 files)**: `root` (91 files)
+- **Embedded Media & Charts (97 files)**: `root` (97 files)
 
 ## `04_Headquarters` (@Headquarters — `8c7f8d97-664d-4d6b-9ef8-b17e721354f9`)
 > Pipeline engineering, Schema v7 production runs, QA gates, and YouTube Studio operations

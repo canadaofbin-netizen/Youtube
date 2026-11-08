@@ -102,12 +102,13 @@ def _read_json(path: Path) -> dict[str, Any]:
 
 
 def _sha256(path: Path) -> str | None:
+    from pipeline.media_cache import fast_file_sha256
+
     try:
-        h = hashlib.sha256()
-        with open(path, "rb") as f:
-            for chunk in iter(lambda: f.read(1 << 20), b""):
-                h.update(chunk)
-        return h.hexdigest()
+        p = Path(path)
+        if not p.is_file():
+            return None
+        return fast_file_sha256(p)
     except OSError:
         return None
 
@@ -226,6 +227,17 @@ def build_asset_manifest(project_dir: Path, write_library: bool = True) -> dict[
             if c_key > 0:
                 receipt_by_clip[c_key] = rc_item
 
+    prior_manifest = _read_json(project_dir / "05_assembly" / "asset_manifest.json")
+    prior_sha_by_clip: dict[int, str] = {}
+    for pa in (prior_manifest.get("assets") or prior_manifest.get("clips") or []):
+        if isinstance(pa, dict) and pa.get("sha256"):
+            try:
+                pk = int(pa.get("clip_number") or pa.get("clip_index") or 0)
+            except (TypeError, ValueError):
+                pk = 0
+            if pk > 0:
+                prior_sha_by_clip[pk] = str(pa["sha256"])
+
     shots_by_role = plan.get("shots") if isinstance(plan.get("shots"), dict) else {}
 
     for i, c in enumerate(clips):
@@ -274,6 +286,8 @@ def build_asset_manifest(project_dir: Path, write_library: bool = True) -> dict[
             "porcelain_literal_analogy",
             "arch_brain_maquette",
             "frosted_crystal_specimen",
+            "expressive_xray_brain",
+            "vinyl_crystal_brain_reveal",
         ) or c.get("setting") in ("brain_void", "brain_studio", "drill_down")
 
         assets.append(
@@ -295,7 +309,7 @@ def build_asset_manifest(project_dir: Path, write_library: bool = True) -> dict[
                 "camera_move": c.get("camera_move") or p_spec.get("camera"),
                 "aspect": c.get("aspect") or FLOW_ASPECT_SHORTS,
                 "file": str(f) if f.exists() else None,
-                "sha256": _sha256(f) if f.exists() else None,
+                "sha256": _sha256(f) if f.exists() else (rc.get("sha256") or prior_sha_by_clip.get(n)),
                 "scene": c.get("scene"),
                 "spoken_narration": spoken,
                 "prompt": c.get("prompt"),

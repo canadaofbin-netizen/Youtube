@@ -42,7 +42,12 @@ def test_reporter_zero_fallback_never_injects_synthetic_profiles_when_not_dry_ru
         encoding="utf-8",
     )
 
-    reporter = StudioAnalyticsReporter(cdp_port=9222)
+    reporter = StudioAnalyticsReporter(
+        cdp_port=9222,
+        projects_dir=proj_dir,
+        queue_file=tmp_path / "staging_queue.json",
+        short_link_graph_file=tmp_path / "short_link_graph.json",
+    )
     monkeypatch.setattr(reporter, "_probe_project_duration_sec", lambda *a, **kw: 165.0)
     orig_collect = reporter._collect_local_pipeline_state
     monkeypatch.setattr(

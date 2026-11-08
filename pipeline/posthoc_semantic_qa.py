@@ -22,6 +22,7 @@ import datetime as dt
 import hashlib
 import json
 import math
+import os
 import re
 import shutil
 import tempfile
@@ -34,6 +35,7 @@ import numpy as np
 
 from pipeline.config import (
     DIORAMA_V7_LUMA_RANGE,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
     PORCELAIN_V7_BRAIN_MARGIN_SAT_MAX,
     PORCELAIN_V7_HUMAN_SKIN_MAX,
     PORCELAIN_V7_LUMA_RANGE,
@@ -57,9 +59,11 @@ from pipeline.config import (
     POSTHOC_VIEWER_STRIPS_DIRNAME,
     PROJECTS_DIR,
     PROMPT_SCHEMA_VERSION_V7,
+    PROMPT_SCHEMA_VERSION_V8,
     WORKSPACE_ROOT,
     is_diorama_profile,
     is_diorama_v7_plan,
+    is_expressive_v8_plan,
     is_porcelain_v7_plan,
     resolve_diorama_v7_style_profile,
 )
@@ -259,6 +263,13 @@ def extract_cut_intent_specs(
     prompts_doc = _read_json(project_dir / "03_visuals" / "flow_all_in_one_prompts.json")
     edl = _read_json(project_dir / "05_assembly" / "edit_decision_list.json")
     contract = _read_json(project_dir / "03_visuals" / "episode_qa_contract.json")
+    voice_report = _read_json(project_dir / "04_audio" / "voice_report.json")
+    vr_text_by_sent: dict[int, str] = {}
+    for sp_row in (voice_report.get("sentence_spans") or []):
+        if isinstance(sp_row, dict) and sp_row.get("sentence_index") is not None:
+            txt_sp = str(sp_row.get("text") or sp_row.get("sentence") or "").strip()
+            if txt_sp:
+                vr_text_by_sent[int(sp_row["sentence_index"])] = txt_sp
 
     prompts_clips = prompts_doc.get("clips") if isinstance(prompts_doc.get("clips"), list) else []
     plan_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
@@ -310,7 +321,8 @@ def extract_cut_intent_specs(
         if isinstance(x, dict) and x.get("clip_number") is not None
     }
 
-    is_porcelain = bool(is_v7 and is_porcelain_v7_plan(visual_plan, edl, prompts_doc, script_doc))
+    is_expressive_v8 = bool(is_expressive_v8_plan(visual_plan, edl, prompts_doc, script_doc))
+    is_porcelain = bool(is_v7 and not is_expressive_v8 and is_porcelain_v7_plan(visual_plan, edl, prompts_doc, script_doc))
     cuts_out: list[dict[str, Any]] = []
     if isinstance(edl.get("cuts"), list) and edl["cuts"]:
         for c in edl["cuts"]:
@@ -324,7 +336,13 @@ def extract_cut_intent_specs(
                 s_start_i = int(c.get("sentence_index") or v_meta.get("sentence_index") or 0)
                 s_end_i = int(c.get("end_sentence_index") or v_meta.get("end_sentence_index") or s_start_i)
                 sent_nums = [k for k in range(s_start_i, max(s_start_i, s_end_i) + 1) if 1 <= k <= len(sentences)]
-            spoken_text = " ".join(sentences[k - 1] for k in sent_nums) if sent_nums else str(c.get("narration") or "")
+            if sent_nums:
+                spoken_text = " ".join(
+                    vr_text_by_sent.get(k) or (sentences[k - 1] if 1 <= k <= len(sentences) else "")
+                    for k in sent_nums
+                ).strip()
+            else:
+                spoken_text = str(c.get("narration") or "")
 
             grammar = str(c.get("grammar") or p_meta.get("grammar") or v_meta.get("grammar") or "unknown")
             camera_move = str(
@@ -386,6 +404,12 @@ def extract_cut_intent_specs(
                     or ""
                 )
 
+            diegetic_allowlist = (
+                c.get("diegetic_text_allowlist")
+                or p_meta.get("diegetic_text_allowlist")
+                or v_meta.get("diegetic_text_allowlist")
+                or []
+            )
             cuts_out.append(
                 {
                     "cut_index": cut_idx,
@@ -411,6 +435,7 @@ def extract_cut_intent_specs(
                     "analogy_locks": bound_analogies,
                     "anatomy_locks": bound_anatomy,
                     "cast_locked": (clip_idx in cast_clip_nums),
+                    "diegetic_text_allowlist": list(diegetic_allowlist) if isinstance(diegetic_allowlist, list) else [],
                 }
             )
     else:
@@ -492,20 +517,30 @@ def extract_cut_intent_specs(
                     "analogy_locks": [],
                     "anatomy_locks": [],
                     "cast_locked": (setting != "brain_void"),
+                    "diegetic_text_allowlist": [],
                 }
             )
 
     context = {
         "project_id": project_dir.name,
-        "schema_version": (PROMPT_SCHEMA_VERSION_V7 if is_v7 else (6 if is_diorama else int(prompts_doc.get("schema_version") or 5))),
+        "schema_version": (
+            PROMPT_SCHEMA_VERSION_V8
+            if is_expressive_v8
+            else (PROMPT_SCHEMA_VERSION_V7 if is_v7 else (6 if is_diorama else int(prompts_doc.get("schema_version") or 5)))
+        ),
         "style_profile": (
-            resolve_diorama_v7_style_profile(visual_plan, edl, prompts_doc, script_doc)
-            if is_v7
-            else str(visual_plan.get("style_profile") or script_doc.get("style_profile") or ("neuro_diorama" if is_diorama else "classic"))
+            EXPRESSIVE_25D_V8_STYLE_PROFILE
+            if is_expressive_v8
+            else (
+                resolve_diorama_v7_style_profile(visual_plan, edl, prompts_doc, script_doc)
+                if is_v7
+                else str(visual_plan.get("style_profile") or script_doc.get("style_profile") or ("neuro_diorama" if is_diorama else "classic"))
+            )
         ),
         "is_diorama": is_diorama,
         "is_v7": is_v7,
         "is_porcelain_v7": is_porcelain,
+        "is_expressive_v8": is_expressive_v8,
         "dossier": str(visual_plan.get("dossier") or script_doc.get("dossier") or ""),
         "sentences": sentences,
         "edl": edl,
@@ -518,9 +553,15 @@ def _concat_clean_roi_360(
     frame_bgr: np.ndarray,
     has_top_overlay: bool = False,
     is_outro: bool = False,
+    is_expressive_v8: bool = False,
 ) -> np.ndarray:
     """Concatenates non-subtitle clean scene ROIs and normalizes width to 360px for scale-invariant CV metrics."""
-    rois = _non_subtitle_scene_rois(frame_bgr, has_top_overlay=has_top_overlay, is_outro=is_outro)
+    rois = _non_subtitle_scene_rois(
+        frame_bgr,
+        has_top_overlay=has_top_overlay,
+        is_outro=is_outro,
+        is_expressive_v8=is_expressive_v8,
+    )
     if not rois:
         h, w = frame_bgr.shape[:2]
         patch = frame_bgr[int(h * 0.20) : int(h * 0.58), int(w * 0.04) : int(w * 0.96)]
@@ -824,6 +865,9 @@ def render_posthoc_viewer_strips(
     sample_thumbs_by_cut: dict[int, list[np.ndarray]],
     out_dir: Path,
     cuts_per_sheet: int = POSTHOC_CUTS_PER_VIEWER_SHEET,
+    *,
+    final_mp4_sha256: str = "",
+    evaluated_at_utc: str = "",
 ) -> list[str]:
     """
     Renders crisp multi-cut diagnostic contact sheets (`sheet_01.jpg..sheet_NN.jpg`) under
@@ -831,10 +875,9 @@ def render_posthoc_viewer_strips(
     Start/Mid/End frames alongside its spoken sentence, intended scene, and 5-axis clarity bars.
     """
     out_dir.mkdir(parents=True, exist_ok=True)
-    for stale in out_dir.glob("sheet_*.jpg"):
-        stale.unlink(missing_ok=True)
-
     if not cut_reports:
+        for stale in out_dir.glob("sheet_*.jpg"):
+            stale.unlink(missing_ok=True)
         return []
 
     row_h = 236
@@ -843,6 +886,16 @@ def render_posthoc_viewer_strips(
     written: list[str] = []
 
     total_sheets = int(math.ceil(len(cut_reports) / float(max(1, cuts_per_sheet))))
+    expected_names = {f"sheet_{idx_s + 1:02d}.jpg" for idx_s in range(total_sheets)}
+    for stale in out_dir.glob("sheet_*.jpg"):
+        if stale.name not in expected_names:
+            stale.unlink(missing_ok=True)
+    prov_parts: list[str] = []
+    if final_mp4_sha256:
+        prov_parts.append(f"mp4_sha256={final_mp4_sha256[:12]}")
+    if evaluated_at_utc:
+        prov_parts.append(str(evaluated_at_utc)[:19] + "Z")
+    prov_stamp = " | ".join(prov_parts)
     for s_idx in range(total_sheets):
         batch = cut_reports[s_idx * cuts_per_sheet : (s_idx + 1) * cuts_per_sheet]
         header_h = 46
@@ -857,6 +910,17 @@ def render_posthoc_viewer_strips(
             2,
             cv2.LINE_AA,
         )
+        if prov_stamp:
+            cv2.putText(
+                canvas,
+                prov_stamp,
+                (965, 30),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.46,
+                (170, 210, 235),
+                1,
+                cv2.LINE_AA,
+            )
 
         for r_i, crep in enumerate(batch):
             y0 = header_h + r_i * row_h
@@ -988,7 +1052,10 @@ def render_posthoc_viewer_strips(
             )
 
         sheet_path = out_dir / f"sheet_{s_idx + 1:02d}.jpg"
-        cv2.imwrite(str(sheet_path), canvas, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
+        ok_enc, jpg_buf = cv2.imencode(".jpg", canvas, [int(cv2.IMWRITE_JPEG_QUALITY), 90])
+        if not ok_enc:
+            raise RuntimeError(f"Failed encoding viewer strip JPEG: {sheet_path}")
+        sheet_path.write_bytes(jpg_buf.tobytes())
         written.append(str(sheet_path))
     return written
 
@@ -1369,6 +1436,9 @@ def run_posthoc_semantic_qa(
     )
 
     p_dir = _resolve_project_dir(project_id_or_dir)
+    from pipeline.diorama_assembler import verify_script_audio_freshness
+
+    verify_script_audio_freshness(p_dir, context="posthoc-qa")
     final_mp4 = resolve_project_final_mp4(p_dir)
     local_mp4, final_mp4_sha = stage_local_file(final_mp4)
     edl_path = p_dir / "05_assembly" / "edit_decision_list.json"
@@ -1384,12 +1454,14 @@ def run_posthoc_semantic_qa(
     eqc_sha = _sha256_file(eqc_path) if eqc_path.exists() else ""
     prompts_path = p_dir / "03_visuals" / "flow_all_in_one_prompts.json"
     prompts_sha = _sha256_file(prompts_path) if prompts_path.exists() else ""
-    vr = _read_json(p_dir / "04_audio" / "voice_report.json")
+    vr_path = p_dir / "04_audio" / "voice_report.json"
+    vr_sha = _sha256_file(vr_path) if vr_path.exists() else ""
+    vr = _read_json(vr_path)
     is_synth_test = vr.get("engine") == "kokoro-onnx" and not (p_dir / "04_audio" / "tts_diorama" / "clip_1.wav").exists()
     is_custom_asr = _asr_word_timeline_from_mp4 is not _ORIG_ASR_WORD_TIMELINE_FN
 
     cv_cache_key = hashlib.sha1(
-        f"v3_r66cal|{final_mp4_sha}|{edl_sha}|{ass_sha}|{vp_sha}|{sc_sha}|{eqc_sha}|{prompts_sha}|{int(bool(run_asr_sync))}|{int(bool(is_synth_test))}".encode("utf-8")
+        f"v4_r68spoken|{final_mp4_sha}|{edl_sha}|{ass_sha}|{vp_sha}|{sc_sha}|{eqc_sha}|{prompts_sha}|{vr_sha}|{int(bool(run_asr_sync))}|{int(bool(is_synth_test))}".encode("utf-8")
     ).hexdigest()[:28]
     thumbs_npz_path = get_speed_cache_dir() / "posthoc_cv" / f"{cv_cache_key}.npz"
     cached_cv = None if is_custom_asr else get_cached_json("posthoc_cv_v1", cv_cache_key)
@@ -1520,13 +1592,22 @@ def run_posthoc_semantic_qa(
             ]
 
             is_outro = bool(c["is_outro"])
+            is_v8_cut = bool(ctx.get("is_expressive_v8"))
             c_s, c_e = float(c["out_start_sec"]), float(c["out_end_sec"])
             has_top_ov = (
                 c.get("mode") in ("split_hstack", "split_vstack")
                 or any(cs0 < c_e - 0.04 and cs1 > c_s + 0.04 for cs0, cs1 in chapter_spans)
             )
 
-            clean_seq = [_concat_clean_roi_360(f, has_top_overlay=has_top_ov, is_outro=is_outro) for f in frames]
+            clean_seq = [
+                _concat_clean_roi_360(
+                    f,
+                    has_top_overlay=has_top_ov,
+                    is_outro=is_outro,
+                    is_expressive_v8=is_v8_cut,
+                )
+                for f in frames
+            ]
             clean_mid = clean_seq[len(clean_seq) // 2]
             gray_seq = [cv2.cvtColor(cf, cv2.COLOR_BGR2GRAY) for cf in clean_seq]
             gray_mid = gray_seq[len(gray_seq) // 2]
@@ -1607,12 +1688,16 @@ def run_posthoc_semantic_qa(
             # 3. Temporal Coherence — Zero Mid-Cut Morph / Stall (20%)
             hist_jumps = [_compute_hist_step_jump(clean_seq[i], clean_seq[i + 1]) for i in range(len(clean_seq) - 1)]
             max_hist_jump = max(hist_jumps, default=0.0)
+            med_freeze_cap = 1.10 if is_v8_cut else 1.45
             intra_freeze = (
                 not is_synth_test
                 and not is_outro
                 and float(c["duration_sec"]) >= 2.20
                 and len(step_diffs) >= 4
-                and (sum(1 for sd in step_diffs if sd < 0.28) >= 2 or (max(step_diffs) < 2.0 and float(np.median(step_diffs)) < 1.45))
+                and (
+                    sum(1 for sd in step_diffs if sd < 0.28) >= 2
+                    or (max(step_diffs) < 2.0 and float(np.median(step_diffs)) < med_freeze_cap)
+                )
             )
             if max_hist_jump > POSTHOC_MAX_STEP_HIST_JUMP:
                 defects.append(f"mid_cut_morph_hist_jump={max_hist_jump:.2f}>{POSTHOC_MAX_STEP_HIST_JUMP}")
@@ -1654,7 +1739,7 @@ def run_posthoc_semantic_qa(
                     defects.append("split_hstack_divider_missing")
                     intent_score = min(intent_score, 45.0)
 
-            if grammar in ("porcelain_living_brain", "lowpoly_matte_brain", "arch_brain_maquette", "frosted_crystal_specimen", "brain_void"):
+            if grammar in ("expressive_xray_brain", "porcelain_living_brain", "lowpoly_matte_brain", "arch_brain_maquette", "frosted_crystal_specimen", "brain_void"):
                 brain_chroma_val = _compute_brain_highlight_chroma(clean_mid)
                 combined_intent_low = f"{c['spoken_narration']} {c['intended_scene']} {c['prompt']}".lower()
                 expects_highlight = any(kw in combined_intent_low for kw in _HIGHLIGHT_SIGNAL_KEYWORDS)
@@ -1663,6 +1748,11 @@ def run_posthoc_semantic_qa(
                         f"weak_brain_lesion_or_tract_highlight(chroma={brain_chroma_val:.1f}<{POSTHOC_BRAIN_HIGHLIGHT_MIN_CHROMA})"
                     )
                     intent_score = min(intent_score, 52.0)
+                if is_v8_cut and not is_synth_test and grammar == "expressive_xray_brain":
+                    ng_ratio = max((compute_neon_green_spill_ratio(cf) for cf in clean_seq), default=0.0)
+                    if ng_ratio > 0.08:
+                        defects.append(f"neon_green_spill(ratio={ng_ratio:.4f}>0.08)")
+                        intent_score = min(intent_score, 32.0)
                 if is_v7 and bool(ctx.get("is_porcelain_v7")) and not is_synth_test and grammar == "porcelain_living_brain":
                     ng_ratio = max((compute_neon_green_spill_ratio(cf) for cf in clean_seq), default=0.0)
                     if ng_ratio > PORCELAIN_V7_NEON_GREEN_SPILL_MAX:
@@ -1755,16 +1845,31 @@ def run_posthoc_semantic_qa(
                 rois_for_plaque = [
                     r
                     for sf in (f_start, f_mid, f_end)
-                    for r in _non_subtitle_scene_rois(sf, has_top_overlay=has_top_ov, is_outro=is_outro)
+                    for r in _non_subtitle_scene_rois(
+                        sf,
+                        has_top_overlay=has_top_ov,
+                        is_outro=is_outro,
+                        is_expressive_v8=is_v8_cut,
+                    )
                 ]
                 plaque_run = max((_max_horizontal_plaque_glyph_run(r) for r in rois_for_plaque), default=0)
-                if plaque_run >= (5 if is_v7 else 8):
+                cut_allowlist = c.get("diegetic_text_allowlist") or []
+                plaque_cap_r64 = (
+                    14
+                    if (is_v8_cut and isinstance(cut_allowlist, list) and len(cut_allowlist) > 0)
+                    else (5 if is_v7 else 8)
+                )
+                if plaque_run >= plaque_cap_r64:
                     defects.append(f"in_scene_gibberish_plaque_text(run={plaque_run})")
                     intent_score = min(intent_score, 35.0)
 
                 if is_v7 and not is_outro:
-                    lo_y, hi_y = PORCELAIN_V7_LUMA_RANGE if ctx.get("is_porcelain_v7") else DIORAMA_V7_LUMA_RANGE
-                    if mean_luma < max(72.0, lo_y - 32.0):
+                    if is_v8_cut:
+                        min_cut_luma = 26.0
+                    else:
+                        lo_y, _hi_y = PORCELAIN_V7_LUMA_RANGE if ctx.get("is_porcelain_v7") else DIORAMA_V7_LUMA_RANGE
+                        min_cut_luma = max(72.0, lo_y - 32.0)
+                    if mean_luma < min_cut_luma:
                         defects.append(f"dark_void_exposure_drop(luma={mean_luma:.1f})")
                         intent_score = min(intent_score, 48.0)
 
@@ -1858,6 +1963,7 @@ def run_posthoc_semantic_qa(
                         "dossier": ctx["dossier"],
                         "is_v7": bool(ctx["is_v7"]),
                         "is_porcelain_v7": bool(ctx.get("is_porcelain_v7")),
+                        "is_expressive_v8": bool(ctx.get("is_expressive_v8")),
                     },
                     "cut_reports": cut_reports,
                     "used_clip_indices": sorted(used_clip_indices),
@@ -2040,13 +2146,14 @@ def run_posthoc_semantic_qa(
             }
         )
 
+    eval_ts_utc = dt.datetime.now(dt.timezone.utc).isoformat()
     # Render viewer contact strips (reflecting any reviewer rejections)
     strips_dir = p_dir / "05_assembly" / POSTHOC_VIEWER_STRIPS_DIRNAME
     viewer_sheets: list[str] = []
     if do_render_strips and cut_reports:
         rej_sig = sorted(review_status.get("rejected_cuts") or []) if review_sha_fresh else []
         strips_state_key = hashlib.sha1(
-            f"{cv_cache_key}|{rej_sig}|{POSTHOC_CUTS_PER_VIEWER_SHEET}|{strips_dir.resolve()}".encode("utf-8")
+            f"v4_inplace_sha|{cv_cache_key}|{final_mp4_sha}|{rej_sig}|{POSTHOC_CUTS_PER_VIEWER_SHEET}|{strips_dir.resolve()}".encode("utf-8")
         ).hexdigest()[:24]
         prev_strips_state = get_cached_json("posthoc_strips_v1", strips_state_key)
         reused_existing = False
@@ -2082,6 +2189,8 @@ def run_posthoc_semantic_qa(
                 sample_thumbs_by_cut=sample_thumbs_by_cut,
                 out_dir=strips_dir,
                 cuts_per_sheet=POSTHOC_CUTS_PER_VIEWER_SHEET,
+                final_mp4_sha256=final_mp4_sha,
+                evaluated_at_utc=eval_ts_utc,
             )
             state_items = []
             for vs_str in viewer_sheets:
@@ -2159,7 +2268,7 @@ def run_posthoc_semantic_qa(
         "schema_version": ctx["schema_version"],
         "style_profile": ctx["style_profile"],
         "dossier": ctx["dossier"],
-        "evaluated_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+        "evaluated_at_utc": eval_ts_utc,
         "final_mp4": str(final_mp4),
         "final_mp4_sha256": final_mp4_sha,
         "edl_sha256": edl_sha,

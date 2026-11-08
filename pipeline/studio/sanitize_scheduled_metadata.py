@@ -107,14 +107,21 @@ def _extract_dossier_editorial_summary(project_id: str, script: dict[str, Any]) 
     return " ".join(parts), doi
 
 
-def diversify_clone_title(title: str, *, index_seed: int = 0) -> str:
+def diversify_clone_title(title: str, *, index_seed: int = 0, is_expressive_v8: bool = False) -> str:
     """
     Rewrites repetitive `'You Think <A>, Yet <B>'` clone titles across the 5 canonical `R60` US High-CTR
-    archetypes (`<= TITLE_MAX_CHARS_DIORAMA` chars) while capping any overlong title at word boundary.
+    archetypes (`<= TITLE_MAX_CHARS_DIORAMA` chars) while capping any overlong title at word boundary,
+    or enforces R68 (`<= 55` chars, zero `#`) when `is_expressive_v8=True`.
     """
-    from pipeline.config import TITLE_MAX_CHARS_DIORAMA
+    from pipeline.config import R68_TITLE_MAX_CHARS, TITLE_MAX_CHARS_DIORAMA
 
     clean = " ".join(str(title or "").split()).strip()
+    if is_expressive_v8:
+        clean = re.sub(r"#\w+", "", clean).strip()
+        clean = " ".join(clean.split())
+        if len(clean) > R68_TITLE_MAX_CHARS:
+            return clean[:R68_TITLE_MAX_CHARS].rsplit(" ", 1)[0].rstrip(",:;-")
+        return clean
     m = re.match(r"^You\s+Think\s+(.+?),\s*(?:Yet|But)\s+(.+?)[.!?]?$", clean, flags=re.IGNORECASE)
     if not m:
         if len(clean) > TITLE_MAX_CHARS_DIORAMA:
@@ -149,12 +156,16 @@ def build_diversified_description(
     metadata: dict[str, Any],
     script: dict[str, Any],
     index_seed: int = 0,
+    visual_plan: dict[str, Any] | None = None,
 ) -> str:
     """
     Rebuilds a scheduled video's description using rotating editorial templates
     (`DESCRIPTION_EDITORIAL_TEMPLATES`) + dossier-backed academic summary + DOI + AI disclosure,
     eliminating script-copying and identical channel boilerplate across consecutive scheduled uploads.
     """
+    from pipeline.config import is_expressive_v8_plan
+
+    is_v8 = is_expressive_v8_plan(visual_plan, script, metadata)
     existing_desc = str(metadata.get("description") or "").strip()
     title = str(metadata.get("title") or script.get("title") or project_id).strip()
     dossier_summary, dossier_doi = _extract_dossier_editorial_summary(project_id, script)
@@ -177,11 +188,25 @@ def build_diversified_description(
                 break
         lead_summary = " ".join(sents[:2]).strip() or title
 
-    raw_tags = metadata.get("hashtags") or ["#Shorts", "#Neuroscience", "#BrainScience", "#Psychology"]
-    if isinstance(raw_tags, list):
-        tag_list = [str(t).strip() for t in raw_tags if str(t).strip()]
+    if is_v8:
+        tag_list: list[str] = []
     else:
-        tag_list = [t.strip() for t in str(raw_tags).split() if t.strip()]
+        raw_tags = metadata.get("hashtags") or ["#Shorts", "#Neuroscience", "#BrainScience", "#Psychology"]
+        if isinstance(raw_tags, list):
+            tag_list = [str(t).strip() for t in raw_tags if str(t).strip()]
+        else:
+            tag_list = [t.strip() for t in str(raw_tags).split() if t.strip()]
+
+    omit_nicknames = [
+        str(x).strip()
+        for x in (
+            script.get("omit_experiment_nicknames")
+            or (visual_plan or {}).get("omit_experiment_nicknames")
+            or metadata.get("omit_experiment_nicknames")
+            or []
+        )
+        if str(x).strip()
+    ]
 
     from pipeline.publish import render_editorial_description
 
@@ -191,6 +216,8 @@ def build_diversified_description(
         source_summary=lead_summary,
         hashtags=tag_list[:5],
         seed=index_seed,
+        zero_hashtags=is_v8,
+        omit_nicknames=omit_nicknames if is_v8 else None,
     )
 
 
@@ -207,6 +234,8 @@ def sanitize_scheduled_projects(
     Updates local `06_publish/metadata.json` (and optionally YouTube Studio `/video/<id>/edit`
     title & description textboxes via DirectCDPClient) on `scheduled` projects only.
     """
+    from pipeline.config import is_expressive_v8_plan
+
     p_root = projects_dir or PROJECTS_DIR
     candidates: list[Path] = []
     if project_ids:
@@ -232,14 +261,23 @@ def sanitize_scheduled_projects(
         meta_path = pub_dir / "metadata.json"
         meta = _load_json(meta_path)
         script = _load_json(p_dir / "02_script" / "script.json")
+        visual_plan = _load_json(p_dir / "03_visuals" / "visual_plan.json")
+        is_v8 = is_expressive_v8_plan(visual_plan, script, meta)
         orig_title = str(meta.get("title") or script.get("title") or pid).strip()
-        new_title = diversify_clone_title(orig_title, index_seed=idx) if diversify_titles else orig_title
+        new_title = (
+            diversify_clone_title(orig_title, index_seed=idx, is_expressive_v8=is_v8)
+            if (diversify_titles or is_v8)
+            else orig_title
+        )
         meta_for_desc = {**meta, "title": new_title}
+        if is_v8:
+            meta_for_desc["hashtags"] = []
         new_desc = build_diversified_description(
             project_id=pid,
             metadata=meta_for_desc,
             script=script,
             index_seed=idx,
+            visual_plan=visual_plan,
         )
         vid = str(upload_rec.get("video_id") or "").strip()
         rec_entry: dict[str, Any] = {
@@ -256,6 +294,8 @@ def sanitize_scheduled_projects(
         if not dry_run and meta:
             meta["title"] = new_title
             meta["description"] = new_desc
+            if is_v8:
+                meta["hashtags"] = []
             meta["sanitized_at_utc"] = datetime.now(timezone.utc).isoformat()
             meta_path.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
             rec_entry["local_saved"] = True

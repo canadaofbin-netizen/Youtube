@@ -51,3 +51,13 @@
 | **배너 1안 (`8인` 밀착 라인업 + 미니 뇌)** | [banner_opt1_ensemble_lineup_2560x1440.png](./channel_art_and_cast/banner_opt1_ensemble_lineup_2560x1440.png) / [.jpg](./channel_art_and_cast/banner_opt1_ensemble_lineup_2560x1440.jpg) | 좌 4명(외과의·교도관·과학자·X-Ray 히어로) + 중앙 `ALL ABOUT / BRAIN` 및 `'B'` 앞 미니 뇌 + 우 4명(X-Ray 죄수·탐정·학생·셰프) |
 | **배너 2안 (`10인` 와이드 스테이지 + 상단 뇌 엠블럼 — 가독성 최우수 ⭐)** | [banner_opt2_diorama_stage_2560x1440.png](./channel_art_and_cast/banner_opt2_diorama_stage_2560x1440.png) / [.jpg](./channel_art_and_cast/banner_opt2_diorama_stage_2560x1440.jpg) | 좌 5명 + 정중앙 초대형 `ALL ABOUT / BRAIN`(위쪽 4색 발광 뇌 심볼, 좌우 여백 확보로 모바일 가독성 1위) + 우 5명 총 **10인 대군단** |
 | **배너 3안 (`8인` 일상 vs 극한실험 대조 + 미니 뇌)** | [banner_opt3_duality_clash_2560x1440.png](./channel_art_and_cast/banner_opt3_duality_clash_2560x1440.png) / [.jpg](./channel_art_and_cast/banner_opt3_duality_clash_2560x1440.jpg) | 좌측 일상 감정 4인(불면 후드티·학생·연인·셰프) vs 우측 실제 사건 4인(X-Ray 연구원·철도공·교도관·죄수) + 중앙 `ALL ABOUT / BRAIN` & 미니 뇌 |
+
+---
+
+## 5. `@AllAboutBrainOfficial` 실제 유튜브 채널 라이브 게시 완료 증명 (`프로필 1안` + `배너 2안`)
+
+> [!IMPORTANT]
+> 추천 조합인 **프로필 1안**([avatar_opt1_xray_director_1024.png](./channel_art_and_cast/avatar_opt1_xray_director_1024.png))과 **배너 2안**([banner_opt2_diorama_stage_2560x1440.png](./channel_art_and_cast/banner_opt2_diorama_stage_2560x1440.png))을 `@AllAboutBrainOfficial` (`UC4FeioYYv9X04Di07_MfZ7g`) 채널에 실제 업로드·게시(`Publish`) 완료했으며, YouTube Studio 리로드·공개 데스크톱 웹·모바일 웹(`m.youtube.com`)·YouTube CDN 픽셀 상관계수(`r = 0.9989 ~ 0.9999`)까지 검증했습니다.
+
+![실제 유튜브 라이브 게시 완료 검증 보드 — 데스크톱 채널 홈 · YouTube Studio · 모바일 웹(m.youtube.com)](./channel_art_and_cast/youtube_live_published_proof.jpg)
+

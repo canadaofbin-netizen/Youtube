@@ -1330,12 +1330,13 @@ async def allocate_dedicated_flow_project_tab(
     lease_owner_id: str | None = None,
     purpose: str = "flow_worker",
     room_name: str | None = None,
+    existing_project_url: str | None = None,
 ) -> dict[str, str]:
     """
     Opens a brand-new background Naver Whale tab under `/tmp/aab_cdp_leases.json`
     (or attaches to `existing_tab_id` / an unleased tab matching `project_id`),
-    navigates to https://flow.google.com/, clicks 'New project' (button.new-project-button),
-    and waits until redirected to https://flow.google.com/project/<uuid>.
+    reuses `existing_project_url` or an existing `AAB_<project_id>` dashboard card when present,
+    or clicks 'New project' (`button.new-project-button`) once if no room exists yet.
     Returns {'tab_id': ..., 'ws_url': ..., 'project_url': ..., 'lease_owner_id': ...}.
     """
     eff_owner = lease_owner_id or make_lease_owner_id(purpose if not project_id else f"{purpose}:{project_id}")
@@ -1403,7 +1404,20 @@ async def allocate_dedicated_flow_project_tab(
             await asyncio.sleep(1.5)
             cur_url = await client.eval("location.href") or ""
 
-            # Check if already on an empty project page or a matching project page
+            # 1. Reuse explicit canonical project URL when provided (single-room lock across waves/retries/shards)
+            reuse_url = str(existing_project_url or "").strip()
+            if reuse_url and ("flow.google.com/project/" in reuse_url or "/tools/flow/project/" in reuse_url):
+                await client.send("Page.navigate", {"url": reuse_url})
+                await asyncio.sleep(2.5)
+                reused_cur = await client.eval("location.href") or ""
+                if "flow.google.com/project/" in reused_cur or "/tools/flow/project/" in reused_cur:
+                    if expected_room:
+                        await rename_active_flow_project(client, expected_room)
+                    acquire_tab_lease(tab_id, owner_id=eff_owner, purpose=purpose, url=reused_cur, cdp_port=cdp_port)
+                    return {"tab_id": tab_id, "ws_url": ws_url, "project_url": reused_cur, "lease_owner_id": eff_owner}
+                cur_url = reused_cur
+
+            # 2. Check if already on an empty project page or a matching project page
             if "flow.google.com/project/" in cur_url or "/tools/flow/project/" in cur_url:
                 t_val = await client.eval("document.querySelector('.editable-text-input')?.value || ''") or ""
                 tile_cnt = await client.eval("document.querySelectorAll('flow-video-tile').length") or 0
@@ -1413,24 +1427,80 @@ async def allocate_dedicated_flow_project_tab(
                     acquire_tab_lease(tab_id, owner_id=eff_owner, purpose=purpose, url=cur_url, cdp_port=cdp_port)
                     return {"tab_id": tab_id, "ws_url": ws_url, "project_url": cur_url, "lease_owner_id": eff_owner}
 
-            # Navigate to flow.google.com home to click 'New project'
+            # 3. Navigate to flow.google.com home; reuse an existing canonical AAB_<project_id> card before creating new
             if cur_url.rstrip("/") != "https://flow.google.com":
                 await client.send("Page.navigate", {"url": "https://flow.google.com/"})
                 await asyncio.sleep(3.5)
 
+            if match_titles:
+                matched_href = ""
+                for _scan_try in range(3):
+                    if _scan_try > 0:
+                        await client.eval(
+                            """(() => {
+                                const scrollers = Array.from(document.querySelectorAll('*')).filter(e => e.scrollHeight > e.clientHeight + 80);
+                                for (const s of scrollers) { try { s.scrollTop = 240; s.scrollTop = 0; } catch (e) {} }
+                            })()"""
+                        )
+                        await asyncio.sleep(0.8)
+                    matched_href = await client.eval(
+                        f"""(() => {{
+                            const wanted = new Set({json.dumps(sorted(match_titles))});
+                            const cards = Array.from(document.querySelectorAll('flow-project-card'));
+                            for (const card of cards) {{
+                                const titleEl = card.querySelector('.project-title-text');
+                                const rawTitle = (titleEl ? (titleEl.innerText || '') : (card.innerText || '').split('\\n')[0]).trim();
+                                if (wanted.has(rawTitle)) {{
+                                    const a = card.querySelector('a[href*="/project/"]');
+                                    if (a) return a.href || a.getAttribute('href') || '';
+                                }}
+                            }}
+                            return '';
+                        }})()"""
+                    ) or ""
+                    if isinstance(matched_href, str) and "/project/" in matched_href:
+                        break
+                if isinstance(matched_href, str) and "/project/" in matched_href:
+                    target_card_url = (
+                        matched_href
+                        if matched_href.startswith("http")
+                        else f"https://flow.google.com/{matched_href.lstrip('/')}"
+                    )
+                    await client.send("Page.navigate", {"url": target_card_url})
+                    await asyncio.sleep(2.5)
+                    card_cur = await client.eval("location.href") or ""
+                    if "flow.google.com/project/" in card_cur or "/tools/flow/project/" in card_cur:
+                        if expected_room:
+                            await rename_active_flow_project(client, expected_room)
+                        acquire_tab_lease(tab_id, owner_id=eff_owner, purpose=purpose, url=card_cur, cdp_port=cdp_port)
+                        return {"tab_id": tab_id, "ws_url": ws_url, "project_url": card_cur, "lease_owner_id": eff_owner}
+
+            from pipeline.flow_ingredients import trusted_click
+
             for _ in range(15):
-                clicked = await client.eval("""(() => {
+                np_pt = await client.eval("""(() => {
                     const agree = document.querySelector('.glue-cookie-notification-bar__accept');
-                    if (agree) { try { agree.click(); } catch (e) {} }
+                    if (agree) {
+                        const ar = agree.getBoundingClientRect();
+                        if (ar.width > 0) return { agree: { x: ar.x + ar.width / 2, y: ar.y + ar.height / 2 } };
+                    }
                     const btn = document.querySelector('button.new-project-button') ||
                         Array.from(document.querySelectorAll('button, a')).find(b => (b.innerText || '').toLowerCase().includes('new project'));
                     if (btn) {
-                        btn.click();
-                        return true;
+                        const r = btn.getBoundingClientRect();
+                        if (r.width > 0 && r.height > 0) return { btn: { x: r.x + r.width / 2, y: r.y + r.height / 2 } };
                     }
-                    return false;
+                    return null;
                 })()""")
-                if clicked:
+                if isinstance(np_pt, dict):
+                    if isinstance(np_pt.get("agree"), dict):
+                        await trusted_click(client, np_pt["agree"])
+                        await asyncio.sleep(0.35)
+                        continue
+                    if isinstance(np_pt.get("btn"), dict):
+                        await trusted_click(client, np_pt["btn"])
+                        break
+                elif np_pt is True:
                     break
                 await asyncio.sleep(1.0)
 
@@ -1476,7 +1546,17 @@ async def ensure_manual_video_916_mode(
       - `engine_mode="omni"`: requires `FLOW_PRIMARY_VIDEO_MODEL` and fails closed if out of credits.
       - `engine_mode="zero-credit"`: locks `FLOW_ZERO_CREDIT_MODEL` immediately and forbids credit approval.
     """
-    from pipeline.flow_ingredients import read_active_flow_model_family, select_flow_video_model
+    from pipeline.flow_ingredients import (
+        press_escape,
+        read_active_flow_model_family,
+        select_flow_video_model,
+        trusted_click,
+    )
+
+    async def _click_pt(pt: Any) -> None:
+        if isinstance(pt, dict) and float(pt.get("x") or 0) > 0 and float(pt.get("y") or 0) > 0:
+            await trusted_click(client, pt)
+            await asyncio.sleep(0.18)
 
     mode = _normalize_engine_mode(engine_mode)
     if target_duration not in FLOW_ALLOWED_DURATION_TARGETS:
@@ -1495,20 +1575,20 @@ async def ensure_manual_video_916_mode(
         const r = b.getBoundingClientRect();
         return r.width > 0 ? { x: r.x + r.width / 2, y: r.y + r.height / 2 } : null;
     })()""")
-    if close_coord and close_coord.get("x", 0) > 0:
-        cx, cy = int(close_coord["x"]), int(close_coord["y"])
-        await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": cx, "y": cy})
-        await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": cx, "y": cy, "button": "left", "clickCount": 1})
-        await asyncio.sleep(0.08)
-        await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": cx, "y": cy, "button": "left", "clickCount": 1})
-        await asyncio.sleep(0.7)
+    if isinstance(close_coord, dict) and close_coord.get("x", 0) > 0:
+        await _click_pt(close_coord)
+        await asyncio.sleep(0.5)
 
     # 2. Untoggle 'Agent' mode chip if active (aria-pressed="true")
-    await client.eval("""(() => {
+    chip_pt = await client.eval("""(() => {
         const chip = document.querySelector('button.agent-mode-chip[aria-pressed="true"]');
-        if (chip) chip.click();
+        if (!chip) return null;
+        const r = chip.getBoundingClientRect();
+        return r.width > 0 ? { x: r.x + r.width / 2, y: r.y + r.height / 2 } : null;
     })()""")
-    await asyncio.sleep(0.5)
+    if isinstance(chip_pt, dict) and chip_pt.get("x", 0) > 0:
+        await _click_pt(chip_pt)
+        await asyncio.sleep(0.4)
 
     cred_state = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
     has_warn = bool(cred_state.get("exhausted"))
@@ -1554,42 +1634,55 @@ async def ensure_manual_video_916_mode(
     )
 
     if need_reconfigure:
-        await client.eval("""(() => {
+        st_pt = await client.eval("""(() => {
             const box = document.querySelector('flow-prompt-box-settings');
             const st = document.querySelector('button.settings-trigger-button');
-            if (st && (!box || !(box.innerText || '').includes('Generating will use'))) st.click();
+            if (!st || (box && (box.innerText || '').includes('Generating will use'))) return null;
+            const r = st.getBoundingClientRect();
+            return r.width > 0 ? { x: r.x + r.width / 2, y: r.y + r.height / 2 } : null;
         })()""")
-        await asyncio.sleep(0.5)
-        await client.eval("""(() => {
+        await _click_pt(st_pt)
+        await asyncio.sleep(0.35)
+        vid_pt = await client.eval("""(() => {
             const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-            const vid = btns.find(b => (b.innerText || '').includes('Video'));
-            if (vid) vid.click();
+            const vid = btns.find(b => (b.innerText || '').includes('Video') && b.getAttribute('aria-selected') !== 'true' && b.getAttribute('aria-pressed') !== 'true');
+            if (!vid) return null;
+            const r = vid.getBoundingClientRect();
+            return r.width > 0 ? { x: r.x + r.width / 2, y: r.y + r.height / 2 } : null;
         })()""")
-        await asyncio.sleep(0.4)
+        await _click_pt(vid_pt)
+        await asyncio.sleep(0.3)
+
+        async def _click_setting_btns(want_720: bool, dur_tok: str) -> None:
+            pts = await client.eval(f"""(() => {{
+                const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+                const out = [];
+                const pick = (b) => {{
+                    if (!b || b.disabled) return;
+                    if (b.getAttribute('aria-selected') === 'true' || b.getAttribute('aria-pressed') === 'true') return;
+                    const r = b.getBoundingClientRect();
+                    if (r.width > 0 && r.height > 0) out.push({{ x: r.x + r.width / 2, y: r.y + r.height / 2 }});
+                }};
+                pick(btns.find(b => (b.innerText || '').includes('9:16')));
+                if ({json.dumps(bool(want_720))}) pick(btns.find(b => (b.innerText || '').trim() === '720p'));
+                pick(btns.find(b => (b.innerText || '').trim() === {json.dumps(dur_tok)}) || btns.find(b => (b.innerText || '').trim() === '8s'));
+                pick(btns.find(b => (b.innerText || '').trim() === 'x1'));
+                return out;
+            }})()""")
+            if isinstance(pts, list):
+                for pt_i in pts:
+                    await _click_pt(pt_i)
 
         if not use_lite:
             omni_ok = await select_flow_video_model(client, FLOW_PRIMARY_VIDEO_MODEL)
+            await asyncio.sleep(0.3)
+            await _click_setting_btns(True, target_duration)
             await asyncio.sleep(0.35)
-            await client.eval(f"""(() => {{
-                const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-                const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
-                if (b916) b916.click();
-                const b720 = btns.find(b => (b.innerText || '').trim() === '720p');
-                if (b720) b720.click();
-                const bDur = btns.find(b => (b.innerText || '').trim() === {json.dumps(target_duration)}) || btns.find(b => (b.innerText || '').trim() === '8s');
-                if (bDur) bDur.click();
-                const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
-                if (bx1) bx1.click();
-            }})()""")
-            await asyncio.sleep(0.4)
             post_omni_cred = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
             omni_exhausted = bool(post_omni_cred.get("exhausted")) or not omni_ok
             if omni_exhausted:
                 if mode == "omni":
-                    await client.eval("""(() => {
-                        const bd = document.querySelector('.cdk-overlay-backdrop');
-                        if (bd) bd.click();
-                    })()""")
+                    await press_escape(client)
                     raise FlowCircuitBreakerError(
                         f"[R5] engine_mode='omni' requires {FLOW_PRIMARY_VIDEO_MODEL}, "
                         f"but credits are insufficient or model unavailable: {post_omni_cred}"
@@ -1610,17 +1703,9 @@ async def ensure_manual_video_916_mode(
             lite_ok = False
             for _lite_try in range(2):
                 sel_ok = await select_flow_video_model(client, FLOW_ZERO_CREDIT_MODEL)
+                await asyncio.sleep(0.3)
+                await _click_setting_btns(False, eff_duration)
                 await asyncio.sleep(0.35)
-                await client.eval(f"""(() => {{
-                    const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
-                    const b916 = btns.find(b => (b.innerText || '').includes('9:16'));
-                    if (b916) b916.click();
-                    const bDur = btns.find(b => (b.innerText || '').trim() === {json.dumps(eff_duration)}) || btns.find(b => (b.innerText || '').trim() === '8s');
-                    if (bDur) bDur.click();
-                    const bx1 = btns.find(b => (b.innerText || '').trim() === 'x1');
-                    if (bx1) bx1.click();
-                }})()""")
-                await asyncio.sleep(0.4)
                 fam_now = await read_active_flow_model_family(client)
                 warn_now = bool(await client.eval("Boolean(document.querySelector('button.prompt-warning-button'))"))
                 if sel_ok and fam_now == "veo_3_1_lite_low_priority" and not warn_now:
@@ -1641,10 +1726,10 @@ async def ensure_manual_video_916_mode(
             window.__bci_flow_10s_configured = {json.dumps(eff_duration)};
             window.__bci_flow_mode_configured = {json.dumps('lite' if use_lite else 'omni')};
             window.__bci_flow_0cred_configured = true;
-            const bd = document.querySelector('.cdk-overlay-backdrop');
-            if (bd) bd.click();
         }})()""")
-        await asyncio.sleep(0.3)
+        if await client.eval("Boolean(document.querySelector('.cdk-overlay-pane'))"):
+            await press_escape(client)
+        await asyncio.sleep(0.25)
 
     active_model = FLOW_ZERO_CREDIT_MODEL if use_lite else FLOW_PRIMARY_VIDEO_MODEL
     credit_tier = "zero_credit_fallback" if use_lite else "omni_monthly_credit"
@@ -1742,6 +1827,8 @@ async def submit_prompt_in_flow_tab(
     engine_mode: str = DEFAULT_FLOW_ENGINE_MODE,
     credit_exhausted_event: asyncio.Event | None = None,
     submission_meta_out: dict[str, Any] | None = None,
+    end_reference_file: Any | None = None,
+    use_frames_mode: bool = False,
 ) -> bool:
     """
     reference_files (R51 / R52): QA-passed start / key frame PNGs. The prompt box is cleared of stale chips,
@@ -1774,18 +1861,34 @@ async def submit_prompt_in_flow_tab(
         engine_mode=mode,
         credit_exhausted_event=credit_exhausted_event,
     )
-    from pipeline.flow_ingredients import clear_prompt_ingredients, count_chips, prepare_reference_frames
+    from pipeline.flow_ingredients import (
+        clear_prompt_ingredients,
+        count_chips,
+        prepare_reference_frames,
+        set_flow_video_input_mode,
+    )
 
-    if reference_files:
+    eff_refs = [Path(f) for f in (reference_files or []) if f]
+    if end_reference_file:
+        end_p = Path(end_reference_file)
+        if end_p not in eff_refs:
+            eff_refs.append(end_p)
+    eff_frames_mode = bool(use_frames_mode or end_reference_file)
+    if eff_refs:
         ref_report = await prepare_reference_frames(
             client,
-            [Path(f) for f in reference_files],
+            eff_refs,
             allow_zero_credit_fallback=(mode != "omni"),
+            use_frames_mode=eff_frames_mode,
         )
         print(f"[R52] reference frames: {ref_report}")
+        if submission_meta_out is not None:
+            submission_meta_out["input_mode"] = ref_report.get("input_mode", "VIDEO_REFERENCES")
+            submission_meta_out["end_reference_attached"] = bool(end_reference_file and len(ref_report.get("attached") or []) >= 2)
         if not ref_report.get("ready"):
             return False
     else:
+        await set_flow_video_input_mode(client, use_frames=False)
         if await count_chips(client) > 0:
             await clear_prompt_ingredients(client)
 
@@ -1872,25 +1975,34 @@ async def submit_prompt_in_flow_tab(
             }})()""")
             await asyncio.sleep(0.2)
 
-        # Invoke Angular generate listener or get button coordinates for trusted CDP mouse click
+        from pipeline.flow_ingredients import press_escape
+
+        if await client.eval("Boolean(document.querySelector('.cdk-overlay-pane'))"):
+            await press_escape(client)
+            await asyncio.sleep(0.2)
+
+        # Prefer real trusted CDP mouse click on the Start generation button; keep listener fallback for headless/mock harnesses
         sub_res = await client.eval("""(() => {
-            const fg = document.querySelector('flow-generate-icon-button');
-            const btn = document.querySelector('button[aria-label="Start generation"], button.generate-icon-button');
+            const btn = document.querySelector('button[aria-label="Start generation"], button.generate-icon-button, flow-generate-icon-button button');
             const r = btn ? btn.getBoundingClientRect() : null;
+            if (btn && !btn.disabled && r && r.width > 0) {
+                return { action: 'needs_mouse_click', x: r.x + r.width / 2, y: r.y + r.height / 2 };
+            }
+            const fg = document.querySelector('flow-generate-icon-button');
             const fn = typeof getEventListeners === 'function' && fg ? getEventListeners(fg)?.generate?.[0]?.listener : null;
             if (fn) {
                 fn({isTrusted: true});
                 return { action: 'listener_invoked', x: r ? r.x + r.width / 2 : 0, y: r ? r.y + r.height / 2 : 0 };
-            }
-            if (btn && !btn.disabled && r) {
-                return { action: 'needs_mouse_click', x: r.x + r.width / 2, y: r.y + r.height / 2 };
             }
             return { action: 'not_ready', x: 0, y: 0 };
         })()""") or {}
 
         if sub_res.get("action") == "needs_mouse_click" and sub_res.get("x", 0) > 0:
             mx, my = int(sub_res["x"]), int(sub_res["y"])
-            await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": mx, "y": my})
+            for gx, gy in ((max(80, mx - 240), max(80, my - 55)), (max(80, mx - 110), max(80, my - 22)), (mx - 18, my - 6), (mx, my)):
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": int(gx), "y": int(gy)})
+                await asyncio.sleep(0.045)
+            await asyncio.sleep(0.12)
             await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": mx, "y": my, "button": "left", "clickCount": 1})
             await asyncio.sleep(0.08)
             await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": mx, "y": my, "button": "left", "clickCount": 1})

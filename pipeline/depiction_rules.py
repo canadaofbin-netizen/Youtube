@@ -1479,6 +1479,382 @@ def validate_porcelain_v7_scene(
     return issues
 
 
+# ==============================================================================
+# Schema v8 — Expressive 2.5D Vinyl Cast, 75% X-Ray Brain & Mini-Cortex Cameo (R68)
+# ==============================================================================
+EXPRESSIVE_V8_CAMERA_DESCRIPTORS: dict[str, str] = {
+    "locked_tripod": "Crisp locked-off cinema shot with lively multi-beat 2.5D character and prop motion",
+    "pan_left": "Smooth continuous horizontal camera pan leftward linking Beat A into Beat B",
+    "pan_right": "Smooth continuous horizontal camera pan rightward linking Beat A into Beat B",
+    "tilt_up": "Smooth continuous vertical camera tilt upward across the miniature room",
+    "tilt_down": "Smooth continuous vertical camera tilt downward onto the physical prop action",
+    "gentle_push_in": "Smooth expressive straight-in camera push toward the character reaction",
+    "clean_pullback_reveal": "Smooth continuous straight-back camera pullback revealing the full room context",
+    "dolly_zoom_vertigo": "Dramatic cinema dolly-zoom push-in compressing background depth behind the character reaction",
+    "whip_pan_occlusion": "Brisk horizontal camera whip-pan sweeping past a clean foreground room edge onto the subject",
+}
+
+EXPRESSIVE_V8_WORLD_LEAD = (
+    "Stylized 3D cinematic miniature diorama filling the full-bleed vertical frame "
+    "with tactile architectural surfaces and cinema key-and-rim lighting"
+)
+
+EXPRESSIVE_V8_OPTICS_TAIL = (
+    "Crisp cinema prime lens clarity on earless noseless matte cream-white vinyl, charcoal-black 2D ink expressions, woven fabric, and warm wood."
+)
+
+EXPRESSIVE_V8_XRAY_OPTICS_TAIL = (
+    "Crisp cinema prime lens clarity on the crystal-clear glass cranium dome, bounded 4-color 3D brain circuits, "
+    "and earless noseless matte cream-white vinyl face with charcoal-black 2D ink eyes."
+)
+
+EXPRESSIVE_V8_TRANSITION_CLAUSES: dict[str, str] = {
+    "daisy_chain_bridge": "Holding a clean unobstructed ending pose for seamless next-shot continuity",
+    "occlusion_wipe": "Ending as a foreground architectural pillar or sleeve sweeps cleanly across the lens",
+    "action_impact_cut": "Culminating on a crisp physical prop impact at the final beat",
+    "dissolve_6f": "Settling into a composed atmospheric beat for a smooth cross-dissolve",
+    "dissolve_8f": "Settling into a calm atmospheric beat for a smooth cross-dissolve",
+    "match_cut_bridge": "Ending centered on the primary geometric prop silhouette for a graphic match cut",
+    "split_screen_wipe": "Framing balanced opposing left-and-right visual zones across the room",
+    "portal_crash_zoom_10f": "Pushing smoothly inward toward the character cranium silhouette at the final beat",
+    "whip_pan_blur_8f": "Accelerating into a brisk lateral camera sweep across a foreground room edge at the final beat",
+}
+
+_EXPRESSIVE_V8_GRAMMAR_SLOT_MAP: dict[str, str] = {
+    "expressive_vinyl_world": "expressive_vinyl_world",
+    "expressive_hands_closeup": "expressive_hands_closeup",
+    "expressive_pov_hands": "expressive_pov_hands",
+    "expressive_xray_brain": "expressive_xray_brain",
+    "expressive_literal_analogy": "expressive_literal_analogy",
+    "expressive_cameo_world": "expressive_cameo_world",
+    "expressive_split_contrast": "expressive_split_contrast",
+    "expressive_character_action": "expressive_vinyl_world",
+    "expressive_macro_prop": "expressive_hands_closeup",
+    "porcelain_fullbleed_world": "expressive_vinyl_world",
+    "porcelain_hands_closeup": "expressive_hands_closeup",
+    "porcelain_pov_hands": "expressive_pov_hands",
+    "porcelain_living_brain": "expressive_xray_brain",
+    "porcelain_literal_analogy": "expressive_literal_analogy",
+    "porcelain_cutaway_section": "expressive_split_contrast",
+    "fullbleed_world": "expressive_vinyl_world",
+    "hands_closeup": "expressive_hands_closeup",
+    "pov_hands": "expressive_pov_hands",
+    "xray_brain": "expressive_xray_brain",
+    "living_brain": "expressive_xray_brain",
+    "literal_analogy": "expressive_literal_analogy",
+    "cameo_world": "expressive_cameo_world",
+    "split_contrast": "expressive_split_contrast",
+}
+
+_EXPRESSIVE_V8_BANNED_STYLE_RE = re.compile(
+    r"\b(?:low-poly|low\s+poly|flat-shaded|flat\s+shaded|polygon\s+facets?|"
+    r"pastel\s+clay|museum\s+plinth|bisque-ceramic|"
+    r"featureless\s+(?:solid\s+)?(?:matte-white\s+)?(?:egg-shaped\s+)?oval\s+heads?|"
+    r"smooth\s+featureless|faceless\s+(?:mannequins?|figures?))\b",
+    flags=re.IGNORECASE,
+)
+
+_EXPRESSIVE_V8_HUMAN_FLESH_RE = re.compile(
+    r"\b(?:photorealistic\s+human\s+skin|flesh-toned|human\s+flesh|skin\s+pores|stubble|facial\s+hair|bearded|"
+    r"flowing\s+hair|human\s+ears|human\s+nose|blood\s+splatter|gore)\b",
+    flags=re.IGNORECASE,
+)
+
+
+def normalize_expressive_v8_grammar(grammar: str | None, *, cameo_easter_egg: bool = False) -> str:
+    """Maps generic or v7 grammar slot names onto canonical `expressive_*` v8 grammars (R68)."""
+    if cameo_easter_egg:
+        raw_c = str(grammar or "").strip().lower()
+        if raw_c in ("expressive_xray_brain", "porcelain_living_brain", "xray_brain", "living_brain"):
+            return "expressive_xray_brain"
+        return "expressive_cameo_world"
+    raw = str(grammar or "").strip()
+    if not raw:
+        return "expressive_vinyl_world"
+    return _EXPRESSIVE_V8_GRAMMAR_SLOT_MAP.get(raw.lower(), raw)
+
+
+class ExpressiveVinylWorldRule:
+    """R68 Grammar: Stylized 3D diorama world with clothed 2.5D matte cream-white vinyl characters & bold 2D ink expressions."""
+
+    @staticmethod
+    def compose(
+        environment: str,
+        action: str,
+        lighting: str = "warm cinematic key-and-rim studio lighting",
+        *,
+        cameo_prop_note: str = "",
+        diegetic_text_allowlist: list[str] | tuple[str, ...] | None = None,
+    ) -> str:
+        env = SceneDepictionRule.clean_clause(environment)
+        act = SceneDepictionRule.clean_clause(action)
+        lit = SceneDepictionRule.clean_clause(lighting)
+        combined_low = f"{env} {act}".lower()
+        has_actor = bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(f"{env} {act}"))
+        has_vinyl_spec = "vinyl" in combined_low and ("2d" in combined_low or "ink" in combined_low)
+        actor_clause = (
+            ""
+            if (not has_actor or has_vinyl_spec)
+            else (
+                ", staged as clothed 2.5D matte cream-white vinyl figures with smooth earless hairless noseless oval heads, "
+                "bold charcoal-black 2D cartoon ink eyebrows, eyes, and animated mouths, and four-fingered matte-white vinyl hands"
+            )
+        )
+        allow_list = [str(t).strip() for t in (diegetic_text_allowlist or ()) if str(t).strip()][:2]
+        allow_clause = ""
+        if allow_list and not all(tok.lower() in combined_low for tok in allow_list):
+            quoted = ", ".join(f"'{tok}'" for tok in allow_list)
+            allow_clause = f" Crisp physical prop stencil displays {quoted} only."
+        cameo_clause = ""
+        if cameo_prop_note:
+            cn = SceneDepictionRule.clean_clause(cameo_prop_note)
+            cameo_clause = f" {cn[:1].upper() + cn[1:]}."
+        return (
+            f"{EXPRESSIVE_V8_WORLD_LEAD}: full-bleed view of {env} in {lit}. "
+            f"{act[:1].upper() + act[1:]}{actor_clause}.{allow_clause}{cameo_clause} {EXPRESSIVE_V8_OPTICS_TAIL}"
+        )
+
+
+class ExpressiveHandsActionRule:
+    """R68 Grammar: Tight close-up or POV of four-fingered matte cream-white vinyl hands in tailored cloth cuffs."""
+
+    @staticmethod
+    def compose(
+        attire_and_hands: str,
+        prop_action: str,
+        consequence: str,
+        *,
+        pov: bool = False,
+        diegetic_text_allowlist: list[str] | tuple[str, ...] | None = None,
+    ) -> str:
+        att = SceneDepictionRule.clean_clause(attire_and_hands)
+        act = SceneDepictionRule.clean_clause(prop_action)
+        con = SceneDepictionRule.clean_clause(consequence)
+        lead = (
+            "first-person POV looking down at smooth matte cream-white four-fingered vinyl hands in tailored cloth cuffs"
+            if pov
+            else "tight close-up showing smooth matte cream-white four-fingered vinyl hands in tailored cloth cuffs"
+        )
+        allow_list = [str(t).strip() for t in (diegetic_text_allowlist or ()) if str(t).strip()][:2]
+        combined_low = f"{att} {act} {con}".lower()
+        allow_clause = ""
+        if allow_list and not all(tok.lower() in combined_low for tok in allow_list):
+            quoted = ", ".join(f"'{tok}'" for tok in allow_list)
+            allow_clause = f" Crisp physical prop stencil shows {quoted}."
+        return (
+            f"{EXPRESSIVE_V8_WORLD_LEAD}: {lead} ({att}). "
+            f"{act[:1].upper() + act[1:]}, while {con}.{allow_clause} {EXPRESSIVE_V8_OPTICS_TAIL}"
+        )
+
+
+class ExpressiveLiteralAnalogyRule:
+    """R68 Grammar: Concrete everyday 1-object physical analogy in stylized 3D miniature cinema."""
+
+    @staticmethod
+    def compose(
+        analogy_world: str,
+        comparison_action: str,
+        *,
+        lighting: str = "crisp dramatic studio key-and-rim lighting",
+    ) -> str:
+        aw = SceneDepictionRule.clean_clause(analogy_world)
+        act = SceneDepictionRule.clean_clause(comparison_action)
+        lit = SceneDepictionRule.clean_clause(lighting)
+        has_actor = bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(f"{aw} {act}"))
+        actor_tail = (
+            " Clothed 2.5D matte cream-white vinyl figure with bold charcoal-black 2D cartoon ink eyes and eyebrows reacts clearly."
+            if (has_actor and "vinyl" not in f"{aw} {act}".lower())
+            else ""
+        )
+        return (
+            f"{EXPRESSIVE_V8_WORLD_LEAD}: everyday physical analogy scene in {aw} under {lit}. "
+            f"{act[:1].upper() + act[1:]}.{actor_tail} {EXPRESSIVE_V8_OPTICS_TAIL}"
+        )
+
+
+class ExpressiveXRayBrainRule:
+    """R68 [70–85%] Mechanism Reveal Grammar: Golden forehead ring seam opens into crystal-clear glass dome with bounded 4-color 3D brain."""
+
+    @staticmethod
+    def compose(
+        brain_scene: str | None = None,
+        *,
+        environment: str = "dimly lit cozy bedroom or clinical observation room",
+        character_reaction: str = "the clothed 2.5D matte cream-white vinyl figure blinks its charcoal-black 2D cartoon ink eyes in sudden realization",
+        brain_region: str | None = None,
+    ) -> str:
+        env = SceneDepictionRule.clean_clause(environment)
+        react = SceneDepictionRule.clean_clause(character_reaction)
+        reg = SceneDepictionRule.clean_clause(brain_region or "")
+        reg_focus = f" across the {reg}" if reg else ""
+        if brain_scene:
+            sc_clause = f"{SceneDepictionRule.clean_clause(brain_scene)} strictly inside enclosed anatomical pathways."
+        else:
+            sc_clause = "Electric cyan-blue and amber-gold neural pulses travel strictly inside enclosed anatomical pathways."
+        return (
+            f"{EXPRESSIVE_V8_WORLD_LEAD}: inside {env}, {react} as a thin golden forehead ring seam smoothly transitions "
+            f"the upper matte vinyl cranium into a crystal-clear glass dome revealing a bounded 4-color glowing 3D brain{reg_focus}. "
+            f"{sc_clause[:1].upper() + sc_clause[1:]} {EXPRESSIVE_V8_XRAY_OPTICS_TAIL}"
+        )
+
+
+class ExpressiveCameoWorldRule:
+    """R68 Hybrid Signature Cameo (`안 1 + 안 3 결합형`, 1 cut/episode): subtle 4cm 4-color vinyl `Mini-Cortex` background Easter-egg."""
+
+    @staticmethod
+    def compose(
+        environment: str,
+        action: str,
+        cameo_placement: str = "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex figurine sits quietly on the background nightstand shelf",
+        lighting: str = "warm cinematic key-and-rim studio lighting",
+        *,
+        diegetic_text_allowlist: list[str] | tuple[str, ...] | None = None,
+    ) -> str:
+        cp = SceneDepictionRule.clean_clause(cameo_placement)
+        if "mini-cortex" not in cp.lower():
+            cp = f"a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex figurine rests quietly beside {cp}"
+        return ExpressiveVinylWorldRule.compose(
+            environment=environment,
+            action=action,
+            lighting=lighting,
+            cameo_prop_note=cp,
+            diegetic_text_allowlist=diegetic_text_allowlist,
+        )
+
+
+class ExpressiveV8PromptComposer:
+    """Composes Schema v8 `expressive_25d_v8` 8-second multi-beat prompts with keyframe trajectory & transition choreography (R68)."""
+
+    @staticmethod
+    def compose_clip_prompt(
+        scene_body: str,
+        grammar: str = "expressive_vinyl_world",
+        camera_move: str = "gentle_push_in",
+        transition_out: str | None = None,
+        aspect: str = FLOW_ASPECT_SHORTS,
+        render_sec: int = 8,
+        keyframe_bridge_clause: str | None = None,
+    ) -> str:
+        from pipeline.config import EXPRESSIVE_V8_TRANSITION_TYPES, EXPRESSIVE_V8_VISUAL_GRAMMARS
+
+        _ = grammar if grammar in EXPRESSIVE_V8_VISUAL_GRAMMARS else "expressive_vinyl_world"
+        label = "vertical portrait" if aspect == FLOW_ASPECT_SHORTS else "horizontal widescreen"
+        cam_key = str(camera_move or "gentle_push_in").strip().lower()
+        cam_clause = EXPRESSIVE_V8_CAMERA_DESCRIPTORS.get(
+            cam_key, EXPRESSIVE_V8_CAMERA_DESCRIPTORS["gentle_push_in"]
+        ).rstrip(".")
+        body = SceneDepictionRule.clean_clause(scene_body)
+        body = re.sub(r"\bmuseums?\b", "studio", body, flags=re.IGNORECASE)
+        body = body.rstrip(".")
+        bridge_clause = ""
+        if keyframe_bridge_clause and str(keyframe_bridge_clause).strip():
+            bc = SceneDepictionRule.clean_clause(str(keyframe_bridge_clause))
+            bc = re.sub(r"\bmuseums?\b", "studio", bc, flags=re.IGNORECASE).rstrip(".")
+            if bc and bc.lower() not in body.lower():
+                bridge_clause = f" {bc[:1].upper() + bc[1:]}."
+        trans_key = str(transition_out or "").strip().lower()
+        trans_clause = ""
+        if trans_key in EXPRESSIVE_V8_TRANSITION_TYPES and trans_key in EXPRESSIVE_V8_TRANSITION_CLAUSES:
+            tc = EXPRESSIVE_V8_TRANSITION_CLAUSES[trans_key].rstrip(".")
+            if tc.lower() not in body.lower() and tc.lower() not in bridge_clause.lower():
+                trans_clause = f" {tc}."
+        audio_clause = "Crisp tactile physical foley and subtle room ambience only, silent voice track."
+        return f"Generate an {int(render_sec)}-second {label} video clip. {cam_clause}. {body}.{bridge_clause}{trans_clause} {audio_clause}"
+
+
+def _strip_allowlisted_diegetic_tokens(text: str, allowlist: list[str] | tuple[str, ...] | None) -> str:
+    cleaned = str(text or "")
+    for raw_tok in allowlist or ():
+        tok = str(raw_tok or "").strip()
+        if not tok:
+            continue
+        cleaned = re.sub(re.escape(tok), " ", cleaned, flags=re.IGNORECASE)
+    # Also strip neutral prompt phrasing introducing allowlisted prop stencils
+    cleaned = re.sub(r"\bprop\s+stencil\s+(?:displays|shows)\b", " ", cleaned, flags=re.IGNORECASE)
+    return cleaned
+
+
+def validate_expressive_v8_scene(
+    scene_or_prompt: str,
+    grammar: str = "expressive_vinyl_world",
+    camera_move: str = "",
+    *,
+    diegetic_text_allowlist: list[str] | tuple[str, ...] | None = None,
+    cameo_easter_egg: bool = False,
+) -> list[str]:
+    """
+    R68 Schema v8 `expressive_25d_v8` scene & prompt validator:
+      - Enforces 2.5D matte cream-white vinyl cast + bold 2D cartoon ink facial expressions (zero human flesh).
+      - Enforces crystal-dome golden-seam 4-color 3D brain reveal on `expressive_xray_brain`.
+      - Enforces subtle 4cm `Mini-Cortex` background cameo on `expressive_cameo_world` / `cameo_easter_egg=True`.
+      - Permits <= 2 short uppercase `diegetic_text_allowlist` prop tokens while blocking unrequested signage/paragraphs.
+    """
+    from pipeline.config import EXPRESSIVE_V8_VISUAL_GRAMMARS
+
+    issues: list[str] = []
+    g = str(grammar or "").strip()
+    _ = camera_move
+    if g not in EXPRESSIVE_V8_VISUAL_GRAMMARS:
+        issues.append(f"[expressive_v8] invalid grammar '{g}' (must be in {list(EXPRESSIVE_V8_VISUAL_GRAMMARS)}) (R68)")
+    raw = str(scene_or_prompt or "")
+    low = raw.lower()
+
+    allow_tokens = [str(t).strip() for t in (diegetic_text_allowlist or ()) if str(t).strip()]
+    if len(allow_tokens) > 2:
+        issues.append(
+            f"[expressive_v8] diegetic_text_allowlist has {len(allow_tokens)} items > max 2 short prop stencils (R68)"
+        )
+    for tok in allow_tokens:
+        if len(tok) > 16 or len(tok.split()) > 3:
+            issues.append(
+                f"[expressive_v8] diegetic_text_allowlist token '{tok}' exceeds max 3 words / 16 chars (sentences forbidden) (R68)"
+            )
+
+    if g == "expressive_xray_brain":
+        if "3d brain" not in low and "hemisphere" not in low:
+            issues.append("[expressive_v8] 'expressive_xray_brain' missing '3D brain' or 'hemisphere' reveal anchor (R68)")
+        if not any(k in low for k in ("glass dome", "crystal-clear", "translucent", "golden forehead", "x-ray")):
+            issues.append("[expressive_v8] 'expressive_xray_brain' missing crystal-dome / golden-seam X-Ray transition anchor (R68)")
+    elif g in ("expressive_hands_closeup", "expressive_pov_hands"):
+        if "vinyl" not in low:
+            issues.append(f"[expressive_v8] '{g}' missing 'vinyl' hands material anchor (R68)")
+    elif g in ("expressive_vinyl_world", "expressive_cameo_world"):
+        if _PORCELAIN_V7_ACTOR_NOUN_RE.search(raw) and "vinyl" not in low:
+            issues.append(f"[expressive_v8] '{g}' stages character(s) without 'vinyl' 2.5D figure anchor (R68)")
+
+    if (g == "expressive_cameo_world" or cameo_easter_egg) and "mini-cortex" not in low:
+        issues.append("[expressive_v8] cameo clip missing 'Mini-Cortex' 4cm background Easter-egg figurine anchor (R68)")
+
+    style_hits = sorted({m.group(0).lower() for m in _EXPRESSIVE_V8_BANNED_STYLE_RE.finditer(raw)})
+    if style_hits:
+        issues.append(
+            f"[expressive_v8] scene contains banned legacy low-poly/faceless-mannequin token(s) {style_hits} (R68)"
+        )
+    flesh_hits = sorted({m.group(0).lower() for m in _EXPRESSIVE_V8_HUMAN_FLESH_RE.finditer(raw)})
+    if flesh_hits:
+        issues.append(f"[expressive_v8] scene contains banned human-flesh/gore token(s) {flesh_hits} (R68)")
+
+    toxic_hits = {m.group(0).lower() for m in _PORCELAIN_V7_BANNED_GLOBAL_TOXIC_RE.finditer(raw)}
+    if g == "expressive_xray_brain":
+        toxic_hits |= {m.group(0).lower() for m in _PORCELAIN_V7_BRAIN_UNCONTAINED_SPILL_RE.finditer(raw)}
+    if toxic_hits:
+        issues.append(
+            f"[expressive_v8] scene contains banned uncontained fluorescent/particle/slime token(s) {sorted(toxic_hits)} (R68)"
+        )
+
+    neg_hits = sorted({m.group(0).lower() for m in _PORCELAIN_V7_PINK_ELEPHANT_RE.finditer(raw)})
+    if neg_hits:
+        issues.append(
+            f"[expressive_v8] scene contains banned Pink-Elephant negative noun phrase(s) {neg_hits}; use positive phrasing only (R68)"
+        )
+
+    stripped_for_text = _strip_allowlisted_diegetic_tokens(raw, allow_tokens)
+    txt_hits = sorted({m.group(0).lower() for m in _PORCELAIN_V7_BANNED_IN_SCENE_TEXT_RE.finditer(stripped_for_text)})
+    if txt_hits:
+        issues.append(f"[expressive_v8] scene contains unallowlisted signage/text-trigger token(s) {txt_hits} (R68)")
+    return issues
+
+
 __all__ = [
     "ArchitecturalBrainMaquetteRule",
     "BANNED_BRAIN_PARTICLE_TOKENS",
@@ -1495,6 +1871,17 @@ __all__ = [
     "DioramaCutawayRule",
     "DioramaPromptComposer",
     "DioramaV7PromptComposer",
+    "EXPRESSIVE_V8_CAMERA_DESCRIPTORS",
+    "EXPRESSIVE_V8_OPTICS_TAIL",
+    "EXPRESSIVE_V8_TRANSITION_CLAUSES",
+    "EXPRESSIVE_V8_WORLD_LEAD",
+    "EXPRESSIVE_V8_XRAY_OPTICS_TAIL",
+    "ExpressiveCameoWorldRule",
+    "ExpressiveHandsActionRule",
+    "ExpressiveLiteralAnalogyRule",
+    "ExpressiveV8PromptComposer",
+    "ExpressiveVinylWorldRule",
+    "ExpressiveXRayBrainRule",
     "KineticTracePropRule",
     "LOWPOLY_V7_OPTICS_TAIL",
     "LOWPOLY_V7_SHADER_LEAD",
@@ -1519,10 +1906,13 @@ __all__ = [
     "SensorMotifRule",
     "TactileTokenGridRule",
     "ZERO_FLESH_AND_TEXT_LOCK",
+    "normalize_expressive_v8_grammar",
     "normalize_porcelain_v7_grammar",
+    "validate_expressive_v8_scene",
     "validate_lowpoly_v7_scene",
     "validate_porcelain_v7_scene",
     "validate_zero_flesh_and_crystal_specimen",
 ]
+
 
 

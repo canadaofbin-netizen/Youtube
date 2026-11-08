@@ -40,6 +40,15 @@ from pipeline.config import (
     DIORAMA_V7_US_PROSODY_GEAR_RATES,
     DIORAMA_V7_US_PROSODY_GEARS,
     DIORAMA_V7_US_PROSODY_MODE,
+    EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC,
+    EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC,
+    EXPRESSIVE_V8_PROSODY_BASE_RATE,
+    EXPRESSIVE_V8_PROSODY_GEAR_RATES,
+    EXPRESSIVE_V8_PROSODY_GEARS,
+    EXPRESSIVE_V8_PROSODY_MODE,
+    EXPRESSIVE_V8_TARGET_LUFS,
+    EXPRESSIVE_V8_VOICED_RATIO_MIN,
+    EXPRESSIVE_V8_WPM_ALLOWED_RANGE as EXPRESSIVE_V8_WPM_RANGE,
     PROSODY_P1_FIRST_ONSET_MAX_SEC,
     PROSODY_P2_HOOK_END_MAX_SEC,
     PROSODY_P2_STAMP_END_MAX_SEC,
@@ -48,10 +57,16 @@ from pipeline.config import (
     PROSODY_P5_STAMP_PRE_SILENCE_RANGE,
     PROSODY_P6_ASR_MATCH_MIN,
     PROSODY_P10_OPEN_LOOP_MAX_GAP_SEC,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
+    is_expressive_v8_plan,
 )
 
 GEARS: tuple[str, ...] = ("rush", "stamp", "brisk")
-DYNAMIC_PROSODY_MODES: tuple[str, ...] = ("dynamic_rush_v7", DIORAMA_V7_US_PROSODY_MODE)
+DYNAMIC_PROSODY_MODES: tuple[str, ...] = (
+    "dynamic_rush_v7",
+    DIORAMA_V7_US_PROSODY_MODE,
+    EXPRESSIVE_V8_PROSODY_MODE,
+)
 
 
 def _rate_to_speed(rate: str) -> float:
@@ -71,11 +86,16 @@ def rate_to_speed(rate: str) -> float:
 
 
 def resolve_prosody_mode(explicit: str | None, script_doc: dict[str, Any] | None, v7_mode: bool) -> str:
-    """explicit arg > script.json `prosody_mode` > channel default. Non-v7 projects always stay legacy."""
+    """explicit arg > script.json `prosody_mode` > v8/v7 channel default. Non-v7 projects always stay legacy."""
     if not v7_mode:
         return "uniform_108x"
-    cand = str(explicit or (script_doc or {}).get("prosody_mode") or DIORAMA_V7_PROSODY_MODE).strip().lower()
-    return cand if cand in DIORAMA_V7_PROSODY_MODES else DIORAMA_V7_PROSODY_MODE
+    default_mode = (
+        EXPRESSIVE_V8_PROSODY_MODE
+        if is_expressive_v8_plan(None, script_doc)
+        else DIORAMA_V7_PROSODY_MODE
+    )
+    cand = str(explicit or (script_doc or {}).get("prosody_mode") or default_mode).strip().lower()
+    return cand if cand in DIORAMA_V7_PROSODY_MODES else default_mode
 
 
 def base_rate_for_mode(mode: str) -> str | None:
@@ -86,6 +106,8 @@ def base_rate_for_mode(mode: str) -> str | None:
         return DIORAMA_V7_PROSODY_BASE_RATE
     if mode == DIORAMA_V7_US_PROSODY_MODE:
         return DIORAMA_V7_US_PROSODY_BASE_RATE
+    if mode == EXPRESSIVE_V8_PROSODY_MODE:
+        return EXPRESSIVE_V8_PROSODY_BASE_RATE
     return None
 
 
@@ -195,9 +217,18 @@ def plan_sentence_prosody(
     gears = classify_prosody_gears(sentences, script_doc) if is_dynamic else [
         ("stamp" if any(p in str(s).lower() for p in DIORAMA_V7_PROSODY_STAMP_PHRASES) else "brisk") for s in sentences
     ]
-    active_base_rate = DIORAMA_V7_US_PROSODY_BASE_RATE if mode == DIORAMA_V7_US_PROSODY_MODE else DIORAMA_V7_PROSODY_BASE_RATE
-    active_gears_spec = DIORAMA_V7_US_PROSODY_GEARS if mode == DIORAMA_V7_US_PROSODY_MODE else DIORAMA_V7_PROSODY_GEARS
-    active_gear_rates = DIORAMA_V7_US_PROSODY_GEAR_RATES if mode == DIORAMA_V7_US_PROSODY_MODE else DIORAMA_V7_PROSODY_GEAR_RATES
+    if mode == EXPRESSIVE_V8_PROSODY_MODE:
+        active_base_rate = EXPRESSIVE_V8_PROSODY_BASE_RATE
+        active_gears_spec = EXPRESSIVE_V8_PROSODY_GEARS
+        active_gear_rates = EXPRESSIVE_V8_PROSODY_GEAR_RATES
+    elif mode == DIORAMA_V7_US_PROSODY_MODE:
+        active_base_rate = DIORAMA_V7_US_PROSODY_BASE_RATE
+        active_gears_spec = DIORAMA_V7_US_PROSODY_GEARS
+        active_gear_rates = DIORAMA_V7_US_PROSODY_GEAR_RATES
+    else:
+        active_base_rate = DIORAMA_V7_PROSODY_BASE_RATE
+        active_gears_spec = DIORAMA_V7_PROSODY_GEARS
+        active_gear_rates = DIORAMA_V7_PROSODY_GEAR_RATES
     base_speed = _rate_to_speed(active_base_rate)
     plan: list[dict[str, Any]] = []
     prev_factor = 1.0
@@ -340,6 +371,128 @@ def fade_edges(
     if fade_out:
         arr[-n:] *= ramp[::-1]
     return arr
+
+
+_CLAUSE_PIVOT_RE = re.compile(
+    r"(?:\s*[—–]\s*|\s*;\s*|\s*:\s+|,\s+(?=(?:but|yet|while|until|instead|and\s+yet|except)\b)|(?<=^Wait,)\s+|(?<=^Look,)\s+|(?<=^Listen,)\s+|(?<=^Hold on,)\s+)",
+    flags=re.IGNORECASE,
+)
+
+
+def _parse_hz(pitch: str, default_hz: int = 16) -> int:
+    m = re.fullmatch(r"\s*([+-]?\d+)\s*Hz\s*", str(pitch or ""), flags=re.IGNORECASE)
+    return int(m.group(1)) if m else int(default_hz)
+
+
+def plan_expressive_v8_clauses(
+    sentence: str,
+    base_rate: str = EXPRESSIVE_V8_PROSODY_BASE_RATE,
+    base_pitch: str = "+16Hz",
+) -> list[dict[str, str]]:
+    """
+    Splits a dramatic `expressive_25d_v8` sentence into 1..3 clause turns so each turn carries
+    at most ONE `<prosody>` tag on Microsoft ReadAloud WebSocket (which rejects sibling `<prosody>`
+    tags inside one SSML turn with 0 bytes), giving setup vs reveal clauses distinct micro-rate & pitch.
+    """
+    txt = str(sentence or "").strip()
+    if not txt:
+        return []
+    words = txt.split()
+    if len(words) < 6:
+        return [{"text": txt, "rate": str(base_rate), "pitch": str(base_pitch)}]
+
+    # Split at dramatic pivot markers while keeping conjunction words attached to the right clause
+    parts: list[str] = []
+    last = 0
+    for m in _CLAUSE_PIVOT_RE.finditer(txt):
+        left = txt[last : m.start()].strip()
+        right_preview = txt[m.end() :].strip()
+        left_clean_low = left.rstrip(",;:").strip().lower()
+        min_left_words = 1 if left_clean_low in {"wait", "look", "listen"} else 2
+        if len(left.split()) >= min_left_words and len(right_preview.split()) >= 2:
+            # Preserve trailing comma/dash feel as clean clause punctuation for natural intonation
+            if not re.search(r"[.!?]$", left):
+                left = left.rstrip(",;:") + ","
+            parts.append(left)
+            last = m.end()
+            if len(parts) >= 2:
+                break
+    tail = txt[last:].strip()
+    if tail:
+        parts.append(tail)
+
+    if len(parts) < 2:
+        return [{"text": txt, "rate": str(base_rate), "pitch": str(base_pitch)}]
+
+    base_spd = _rate_to_speed(base_rate)
+    base_pct = int(round((base_spd - 1.0) * 100.0))
+    base_hz = _parse_hz(base_pitch, default_hz=16)
+
+    clauses: list[dict[str, str]] = []
+    for idx, cl_txt in enumerate(parts):
+        if idx == 0:
+            c_pct = max(-15, base_pct - 4)
+            c_hz = base_hz - 2
+        elif idx == len(parts) - 1:
+            c_pct = min(35, base_pct + 5)
+            c_hz = base_hz + 3
+        else:
+            c_pct = base_pct
+            c_hz = base_hz
+        clauses.append(
+            {
+                "text": cl_txt,
+                "rate": f"{c_pct:+d}%",
+                "pitch": f"{c_hz:+d}Hz",
+            }
+        )
+    return clauses
+
+
+def crossfade_clause_pcms(
+    clause_pcms: list[np.ndarray],
+    sr: int = 48000,
+    crossfade_sec: float = EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC,
+) -> np.ndarray:
+    """
+    Joins multi-turn clause PCMs with a click-free `15-25ms` (`EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC` = 20ms)
+    raised-cosine overlap-add crossfade after trimming excess edge dead-air at internal clause seams.
+    """
+    valid = [np.asarray(p, dtype=np.float32) for p in clause_pcms if p is not None and len(p) > 0]
+    if not valid:
+        return np.zeros(0, dtype=np.float32)
+    if len(valid) == 1:
+        return valid[0].copy()
+
+    xfade_n = max(16, int(round(max(0.015, min(0.025, float(crossfade_sec))) * sr)))
+    ramp_in = (0.5 - 0.5 * np.cos(np.linspace(0.0, np.pi, xfade_n, dtype=np.float32))).astype(np.float32)
+    ramp_out = (1.0 - ramp_in).astype(np.float32)
+
+    trimmed_parts: list[np.ndarray] = []
+    for idx, seg in enumerate(valid):
+        arr = seg.copy()
+        env = np.abs(arr) > 0.009
+        if env.any():
+            s0 = max(0, int(np.argmax(env)) - int(0.028 * sr))
+            s1 = min(len(arr), len(arr) - int(np.argmax(env[::-1])) + int((0.050 if idx == len(valid) - 1 else 0.026) * sr))
+            if s1 > s0 + xfade_n * 2:
+                arr = arr[s0:s1]
+        trimmed_parts.append(arr)
+
+    out = trimmed_parts[0]
+    for nxt in trimmed_parts[1:]:
+        n_ov = min(xfade_n, len(out) // 3, len(nxt) // 3)
+        if n_ov < 8:
+            out = np.concatenate([out, nxt])
+            continue
+        if n_ov != xfade_n:
+            r_in = (0.5 - 0.5 * np.cos(np.linspace(0.0, np.pi, n_ov, dtype=np.float32))).astype(np.float32)
+            r_out = (1.0 - r_in).astype(np.float32)
+        else:
+            r_in, r_out = ramp_in, ramp_out
+        seam = out[-n_ov:] * r_out + nxt[:n_ov] * r_in
+        out = np.concatenate([out[:-n_ov], seam, nxt[n_ov:]])
+    return out.astype(np.float32)
 
 
 def _silence_mask(pcm: np.ndarray, sr: int) -> tuple[np.ndarray, int]:
@@ -486,6 +639,10 @@ def _compute_core_prosody_gates(
         DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN,
         DIORAMA_V7_DURATION_MIN_SEC,
         DIORAMA_V7_WPM_MAX,
+        MICRO_SHORT_PROFILE,
+        SHORTS_90S_PROFILE,
+        resolve_shorts_format_profile,
+        shorts_duration_range_for_profile,
     )
 
     pr = json.loads((p_dir / "04_audio" / "prosody_report.json").read_text(encoding="utf-8"))
@@ -495,14 +652,32 @@ def _compute_core_prosody_gates(
     mode = pr.get("prosody_mode")
     gates: dict[str, dict[str, Any]] = {}
 
+    vp_doc: dict[str, Any] = {}
+    vp_p = p_dir / "03_visuals" / "visual_plan.json"
+    if vp_p.exists():
+        try:
+            vp_doc = json.loads(vp_p.read_text(encoding="utf-8"))
+        except Exception:
+            vp_doc = {}
+    sdoc_for_fmt: dict[str, Any] = {}
+    sp_for_fmt = p_dir / "02_script" / "script.json"
+    if sp_for_fmt.exists():
+        try:
+            sdoc_for_fmt = json.loads(sp_for_fmt.read_text(encoding="utf-8"))
+        except Exception:
+            sdoc_for_fmt = {}
+    is_v8 = (mode == EXPRESSIVE_V8_PROSODY_MODE) or is_expressive_v8_plan(vp_doc, sdoc_for_fmt)
+
     first_onset = float(spans[0]["start_sec"]) + float((sents[0] if sents else {}).get("lead_silence_sec") or 0.0) if spans else 99.0
     gates["P1_first_onset"] = {"passed": first_onset <= PROSODY_P1_FIRST_ONSET_MAX_SEC, "first_onset_sec": round(first_onset, 3)}
 
     s2_end = float(spans[1]["end_sec"]) if len(spans) >= 2 else 99.0
-    p2: dict[str, Any] = {"s2_end_sec": s2_end, "passed": s2_end <= PROSODY_P2_HOOK_END_MAX_SEC}
+    s2_max = max(PROSODY_P2_HOOK_END_MAX_SEC, 8.8) if is_v8 else PROSODY_P2_HOOK_END_MAX_SEC
+    s3_max = max(PROSODY_P2_STAMP_END_MAX_SEC, 13.5) if is_v8 else PROSODY_P2_STAMP_END_MAX_SEC
+    p2: dict[str, Any] = {"s2_end_sec": s2_end, "passed": s2_end <= s2_max}
     if len(sents) >= 3 and sents[2].get("gear") == "stamp" and len(spans) >= 3:
         p2["s3_end_sec"] = float(spans[2]["end_sec"])
-        p2["passed"] = p2["passed"] and p2["s3_end_sec"] <= PROSODY_P2_STAMP_END_MAX_SEC
+        p2["passed"] = p2["passed"] and p2["s3_end_sec"] <= s3_max
     gates["P2_hook_timing"] = p2
 
     raw_engine = str(vr.get("engine") or "edge_tts").strip().lower()
@@ -540,7 +715,8 @@ def _compute_core_prosody_gates(
                 tot_d += d_sec
         if tot_d > 0.05:
             gear_wps[g] = round(tot_w / tot_d, 3)
-    acoustic_wps_ok = all(1.4 <= v <= 4.5 for v in gear_wps.values()) if gear_wps else True
+    wps_hi = 5.2 if is_v8 else 4.5
+    acoustic_wps_ok = all(1.4 <= v <= wps_hi for v in gear_wps.values()) if gear_wps else True
     dyn_spread_ok = True
     if is_dyn and len(gear_wps) >= 2:
         wps_spread = max(gear_wps.values()) - min(gear_wps.values())
@@ -566,7 +742,8 @@ def _compute_core_prosody_gates(
     is_dyn = mode in DYNAMIC_PROSODY_MODES
     gates["P4_rush_breathless"] = {"passed": (not rush_bad) or not is_dyn, "violations": rush_bad, "applies": is_dyn}
 
-    lo, hi = PROSODY_P5_STAMP_PRE_SILENCE_RANGE
+    v8_p5_hi = max(0.58, float(EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC[1]) + 0.10)
+    lo, hi = (PROSODY_P5_STAMP_PRE_SILENCE_RANGE[0], v8_p5_hi) if is_v8 else PROSODY_P5_STAMP_PRE_SILENCE_RANGE
     stamp_bad = [
         {"sentence_index": s["sentence_index"], "acoustic_pre_silence_sec": s.get("acoustic_pre_silence_sec")}
         for s in sents
@@ -612,36 +789,18 @@ def _compute_core_prosody_gates(
         if a_s:
             lufs = float(a_s.get("integrated_lufs") if a_s.get("integrated_lufs") is not None else -99)
             tp = float(a_s.get("true_peak_dbtp") if a_s.get("true_peak_dbtp") is not None else 0)
+            target_lufs = EXPRESSIVE_V8_TARGET_LUFS if is_v8 else -15.5
+            lufs_tol = 0.8 if is_v8 else 0.5
             gates["P7_audio_integrity"] = {
-                "passed": (not a_s.get("sibilance_tear_detected")) and abs(lufs + 15.5) <= 0.5 and tp <= -1.5,
+                "passed": (not a_s.get("sibilance_tear_detected")) and abs(lufs - target_lufs) <= lufs_tol and tp <= -1.5,
                 "integrated_lufs": lufs,
+                "target_lufs": target_lufs,
                 "true_peak_dbtp": tp,
                 "sibilance_tear_detected": a_s.get("sibilance_tear_detected"),
             }
         else:
             gates["P7_audio_integrity"] = {"passed": False, "skipped": True, "reason": "autopsy_report.json missing"}
 
-    from pipeline.config import (
-        MICRO_SHORT_PROFILE,
-        SHORTS_90S_PROFILE,
-        resolve_shorts_format_profile,
-        shorts_duration_range_for_profile,
-    )
-
-    vp_doc: dict[str, Any] = {}
-    vp_p = p_dir / "03_visuals" / "visual_plan.json"
-    if vp_p.exists():
-        try:
-            vp_doc = json.loads(vp_p.read_text(encoding="utf-8"))
-        except Exception:
-            vp_doc = {}
-    sdoc_for_fmt: dict[str, Any] = {}
-    sp_for_fmt = p_dir / "02_script" / "script.json"
-    if sp_for_fmt.exists():
-        try:
-            sdoc_for_fmt = json.loads(sp_for_fmt.read_text(encoding="utf-8"))
-        except Exception:
-            sdoc_for_fmt = {}
     fmt_prof = resolve_shorts_format_profile(
         vp_doc,
         sdoc_for_fmt,
@@ -649,7 +808,7 @@ def _compute_core_prosody_gates(
         vr,
         project_id=p_dir.name,
     )
-    if fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE):
+    if fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
         p8_min_dur, p8_max_dur = shorts_duration_range_for_profile(fmt_prof)
     else:
         p8_min_dur = DIORAMA_V7_DURATION_MIN_SEC
@@ -658,10 +817,12 @@ def _compute_core_prosody_gates(
     n_words = sum(len(str(s.get("text") or "").split()) for s in spans)
     wpm = round(n_words / max(0.1, speech_end / 60.0), 1)
     voiced = float(vr.get("true_rms_voiced_ratio") or 0.0)
+    p8_max_wpm = max(DIORAMA_V7_WPM_MAX, float(EXPRESSIVE_V8_WPM_RANGE[1])) if is_v8 else DIORAMA_V7_WPM_MAX
+    p8_min_voiced = EXPRESSIVE_V8_VOICED_RATIO_MIN if is_v8 else DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN
     gates["P8_runtime_density"] = {
         "passed": p8_min_dur <= total <= p8_max_dur
-        and wpm <= DIORAMA_V7_WPM_MAX
-        and voiced >= DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN,
+        and wpm <= p8_max_wpm
+        and voiced >= p8_min_voiced,
         "format_profile": fmt_prof,
         "min_duration_sec": p8_min_dur,
         "max_duration_sec": p8_max_dur,
@@ -715,13 +876,23 @@ def evaluate_prosody_gates_on_audio(
     audio_path: str | Path | None = None,
     gates: tuple[str, ...] | list[str] | None = DEFAULT_AUDIO_PROSODY_GATES,
     run_asr: bool = True,
+    strict_freshness: bool = False,
 ) -> dict[str, Any]:
     """
     Pre-flight / audio-only Prosody QA wrapper: evaluates P1-P6, P8, P10 (or requested `gates` subset)
     directly against `audio_path` (defaulting to `04_audio/audio_master.wav`, then `final_shorts_1080x1920.mp4`)
     using the exact same thresholds (`PROSODY_P6_ASR_MATCH_MIN`, etc.) as post-assembly `evaluate_prosody_gates`.
     """
+    from pipeline.diorama_assembler import verify_script_audio_freshness
+
     p_dir = _resolve_project_dir(project_id_or_dir)
+    freshness_info: dict[str, Any] = {"passed": True}
+    try:
+        verify_script_audio_freshness(p_dir, context="prosody-qa")
+    except RuntimeError as exc:
+        if strict_freshness:
+            raise
+        freshness_info = {"passed": False, "error": str(exc)}
     if audio_path is not None:
         target_audio = Path(audio_path)
     else:
@@ -746,15 +917,30 @@ def evaluate_prosody_gates_on_audio(
         "project_id": p_dir.name,
         "prosody_mode": mode,
         "audio_path": str(target_audio),
-        "passed": bool(selected) and passed_n == len(selected),
+        "passed": bool(freshness_info.get("passed", True)) and bool(selected) and passed_n == len(selected),
         "gates_passed": f"{passed_n}/{len(selected)}",
+        "script_audio_freshness": freshness_info,
         "gates": selected,
     }
 
 
-def evaluate_prosody_gates(project_id_or_dir: str | Path, run_asr: bool = True, save_report: bool = True) -> dict[str, Any]:
+def evaluate_prosody_gates(
+    project_id_or_dir: str | Path,
+    run_asr: bool = True,
+    save_report: bool = True,
+    strict_freshness: bool = False,
+) -> dict[str, Any]:
     """Runs P1-P10 against 04_audio/prosody_report.json, voice_report.json, autopsy + font probe reports."""
+    from pipeline.diorama_assembler import verify_script_audio_freshness
+
     p_dir = _resolve_project_dir(project_id_or_dir)
+    freshness_info: dict[str, Any] = {"passed": True}
+    try:
+        verify_script_audio_freshness(p_dir, context="prosody-qa")
+    except RuntimeError as exc:
+        if strict_freshness:
+            raise
+        freshness_info = {"passed": False, "error": str(exc)}
     final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
     mode, gates = _compute_core_prosody_gates(
         p_dir,
@@ -766,8 +952,9 @@ def evaluate_prosody_gates(project_id_or_dir: str | Path, run_asr: bool = True, 
     rep = {
         "project_id": p_dir.name,
         "prosody_mode": mode,
-        "passed": passed_n == len(gates),
+        "passed": bool(freshness_info.get("passed", True)) and passed_n == len(gates),
         "gates_passed": f"{passed_n}/{len(gates)}",
+        "script_audio_freshness": freshness_info,
         "gates": gates,
     }
     if save_report:
@@ -785,12 +972,14 @@ __all__ = [
     "apply_emphasis",
     "base_rate_for_mode",
     "classify_prosody_gears",
+    "crossfade_clause_pcms",
     "emphasis_words_for",
     "evaluate_prosody_gates",
     "evaluate_prosody_gates_on_audio",
     "fade_edges",
     "measure_edge_silences",
     "measure_internal_max_silence",
+    "plan_expressive_v8_clauses",
     "plan_sentence_prosody",
     "rate_to_speed",
     "resolve_prosody_mode",

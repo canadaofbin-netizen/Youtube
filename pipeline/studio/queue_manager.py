@@ -67,6 +67,7 @@ def passes_v5_publish_gate(
     project_dir: Path,
     allow_legacy_v4: bool = False,
     require_semantic_review: bool = True,
+    fast_stat_only: bool = False,
 ) -> tuple[bool, list[str]]:
     """
     Validates that an unpublished project satisfies Prompt System v5/v6/v7 (R18-V5/R61/R63)
@@ -113,6 +114,7 @@ def passes_v5_publish_gate(
             qa_bundle = verify_publish_ready_qa_bundle(
                 p_dir,
                 require_semantic_review=require_semantic_review,
+                fast_stat_only=fast_stat_only,
             )
             if not qa_bundle["passed"]:
                 return False, list(qa_bundle["issues"])

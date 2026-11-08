@@ -39,13 +39,13 @@ def cmd_info(_args):
     """Displays ALL ABOUT BRAIN channel blueprint and architectural guidelines."""
     print("""
 ========================================================================
-  ALL ABOUT BRAIN — CHANNEL BLUEPRINT & PRODUCTION ARCHITECTURE (v7)
+  ALL ABOUT BRAIN — CHANNEL BLUEPRINT & PRODUCTION ARCHITECTURE (v7/v8)
 ========================================================================
 
 1. Channel One-Line Definition:
    "Combining UCL Neuroscience academic rigor with 100% AI production to
     explain Brain-Computer Interfaces and the mysteries of the brain in
-    3-minute Neuro-Diorama Long-Shorts (Schema v7 porcelain_cinematic_v7)."
+    high-retention Neuro-Diorama Shorts (porcelain_cinematic_v7 & expressive_25d_v8)."
 
 2. Core Profile:
    - Channel Name: ALL ABOUT BRAIN
@@ -53,7 +53,7 @@ def cmd_info(_args):
    - Channel ID: UC4FeioYYv9X04Di07_MfZ7g
    - Channel Residence (Tax/AdSense): South Korea (KR)
    - Video & Metadata Language Lock: English (United States) (en-US)
-   - Default Format: Neuro-Diorama v7 Long-Short 148.0-179.0s @ 24fps (6-Act spine, 56-66+ 1:1 Zero-Reuse clips)
+   - Active Formats: Neuro-Diorama v7 (`porcelain_cinematic_v7`) & v8 (`expressive_25d_v8`, 58-88s <=89.5s @ 24fps, 14-26 clips)
    - Classic Format: Schema v5 Shorts <= 105.0s @ 30fps (5-10 clips)
    - Cadence: Daily uploads (5 slots per day distributed across North American ET peaks)
 
@@ -66,10 +66,10 @@ def cmd_info(_args):
    [brain_health]    Brain Health       -> Slot 1 (07:30 AM ET) [caveman_brain]
    [bci_ethics]      BCI Ethics         -> Slot 5 (10:30 PM ET) [forbidden_lab]
 
-4. Neuro-Diorama System v7 & Dual-Tier Flow Locks (R5, R56-R66):
+4. Neuro-Diorama System v7/v8 & Dual-Tier Flow Locks (R5, R56-R68):
    - Flow Engine (R5): Credit-aware Dual-Tier (`Omni 1.1 Flash` when credits available -> automatic `0-credit` `Veo 3.1 - Lite [Lower Priority]` fallback, zero paid APIs)
-   - Voice Lock (R58/R63/R63-P): `en-US-AndrewMultilingualNeural` (`dynamic_rush_v7` per-gear rates, `+14Hz`, `-10%` Silk Clean EQ, `kokoro-onnx` offline fallback)
-   - Visual Spec (R66 default / R63 legacy): Photorealistic high-key porcelain cast & Contained Living 4-Color 3D Brain (`porcelain_cinematic_v7` default; `lowpoly_pastel_v7` legacy preserved), 3-tier face-excluding framing, `hstack` split, condensed frame-grid subtitles
+   - Voice Lock (R58/R63/R63-P/R68): `emma_v7` (`en-US-EmmaMultilingualNeural`, `dynamic_us_v7` / `expressive_us_v8` + `foil_v8`, legacy `andrew_v7` `en-US-AndrewMultilingualNeural`, `kokoro-onnx` offline fallback)
+   - Visual Spec (R66 default / R68 expressive / R63 legacy): High-key porcelain cast (`porcelain_cinematic_v7` default), matte cream-white vinyl + 2D ink expressions + crystal X-Ray brain (`expressive_25d_v8`), `lowpoly_pastel_v7` legacy preserved
    - Triple Post-Assembly QA Lock (R18/R62/R64): VideoAutopsyEngine + DynamicEpisodeQA (`DQ1-DQ12`) + PostHocSemanticQA (`R64`) + SHA-256 upload gate
 ========================================================================
 """)
@@ -258,8 +258,10 @@ def cmd_flow_parallel(args):
 
 def cmd_verify(args):
     """Verifies lossless storage integrity and QA report for a project."""
+    from pipeline.diorama_assembler import verify_script_audio_freshness
     from pipeline.storage import ProjectStorage
     storage = ProjectStorage(args.project)
+    verify_script_audio_freshness(storage.project_dir, context="verify")
     integrity = storage.verify_integrity()
     manifest = storage.get_manifest()
     print(f"\n--- Project Storage Audit: {args.project} ({manifest.get('title', 'N/A')}) ---")
@@ -314,10 +316,24 @@ def cmd_studio_upload(args):
 
 def cmd_studio_settings(args):
     """Configures and verifies Two-Tier Localization (KR Residence + en-US Upload Defaults) in YouTube Studio."""
+    import json
     from pipeline.studio.uploader import StudioUploader
+
+    if getattr(args, "audit_v8_readiness", False) or getattr(args, "check_auto_dubbing", False):
+        audit = StudioUploader.audit_v8_channel_readiness()
+        if getattr(args, "check_auto_dubbing", False):
+            uploader = StudioUploader(cdp_port=getattr(args, "cdp_port", 9222))
+            dub_check = uploader.inspect_auto_dubbing_settings(dry_run=bool(getattr(args, "dry_run", False)))
+            dub_check["multi_language_audio_checklist"] = audit.get("multi_language_audio_checklist", {})
+            audit["auto_dubbing_check"] = dub_check
+        print(json.dumps(audit, indent=2, ensure_ascii=False))
+        return
+
     uploader = StudioUploader(cdp_port=args.cdp_port)
     print("\n[CLI] Configuring YouTube Studio Localization & Upload Defaults (R36)...")
     res = uploader.configure_studio_localization(dry_run=args.dry_run)
+    audit = StudioUploader.audit_v8_channel_readiness()
+    live_art = audit["channel_art_readiness"]["live_channel_art_replaced"]
     print("\n========================================================")
     print(f"  YOUTUBE STUDIO SETTINGS {'[DRY RUN]' if args.dry_run else '[LIVE VERIFIED]'}!")
     print(f"  Channel: {res['channel_name']} ({res['channel_id']})")
@@ -326,6 +342,8 @@ def cmd_studio_settings(args):
     print(f"  Metadata Language:    {res['title_description_language']} ({res['title_description_language_code']})")
     print(f"  Default Category:     {res['category']}")
     print(f"  Changes Saved:        {res['saved_changes']}")
+    print(f"  v8 Avatar/Banner:     {len(audit['channel_art_readiness']['avatar_drafts_staged'])} avatars, {len(audit['channel_art_readiness']['banner_drafts_staged'])} banners staged (live_replaced={live_art})")
+    print(f"  Format Inventory:     {audit['format_inventory_audit']['shorts_le_89_5s_count']} Shorts <=89.5s | {audit['format_inventory_audit']['legacy_gt_89_5s_count']} legacy >89.5s (frozen)")
     print("========================================================\n")
 
 
@@ -753,6 +771,13 @@ def main():
     # studio-settings
     p_ss = subparsers.add_parser("studio-settings", help="Configure and verify KR Channel Residence + en-US Upload Defaults in YouTube Studio")
     p_ss.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode without browser interaction")
+    p_ss.add_argument("--audit-v8-readiness", action="store_true", default=False, help="Print read-only v8 channel art, multi-language audio, and Shorts format readiness JSON")
+    p_ss.add_argument(
+        "--check-auto-dubbing",
+        action="store_true",
+        default=False,
+        help="Inspect live YouTube Studio Auto-Dubbing / Multi-Language Audio settings read-only via background leased CDP tab (offline with --dry-run)",
+    )
     p_ss.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
     # studio-report (Daily YouTube Studio Analytics & Growth Report Generator)
@@ -762,10 +787,11 @@ def main():
     p_sr.add_argument("--dry-run", action="store_true", default=False, help="Generate report without launching/navigating Naver Whale")
     p_sr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
-    # Prompt System v5 & Neuro-Diorama System v6/v7 (R44-R67)
+    # Prompt System v5 & Neuro-Diorama System v6/v7/v8 (R44-R68)
     p_ds = subparsers.add_parser("dossier", help="Research dossier: init / validate / seed / doi / yt-search / yt-analyze / audit-media (R44)")
     p_ds.add_argument("action", choices=["init", "validate", "seed", "doi", "yt-search", "yt-analyze", "audit-media", "checklist"])
     p_ds.add_argument("--slug", default=None, help="Dossier slug (BCI_Shorts_Channel/research_dossiers/<slug>)")
+    p_ds.add_argument("--root", default=None, help="Optional research_dossiers root directory override")
     p_ds.add_argument("--topic", default="", help="Topic title (init)")
     p_ds.add_argument("--pillar", default="", help="Pillar id (init)")
     p_ds.add_argument("--everyday-domain", default="", help="Everyday domain: sleep|habits|memory|anxiety|relationships (init)")
@@ -774,8 +800,8 @@ def main():
     p_ds.add_argument(
         "--style-profile",
         default=None,
-        choices=["porcelain_cinematic_v7", "lowpoly_pastel_v7"],
-        help="Schema v7 style profile override for seed (default: porcelain_cinematic_v7)",
+        choices=["porcelain_cinematic_v7", "lowpoly_pastel_v7", "expressive_25d_v8"],
+        help="Schema v7/v8 style profile override for seed (default: porcelain_cinematic_v7; v8: expressive_25d_v8)",
     )
     p_ds.add_argument("--require-v2", action="store_true", default=False, help="Require Schema v2 dossier compliance (validate)")
     p_ds.add_argument("--doi", default=None, help="DOI to verify via Crossref (doi)")
@@ -784,11 +810,12 @@ def main():
     p_ds.add_argument("--media-id", default=None, help="Media id folder name under <dossier>/media (yt-analyze)")
     p_ds.add_argument("--section", default=None, help="Optional '*mm:ss-mm:ss' range (yt-analyze)")
     p_ds.add_argument("--all-queued", action="store_true", default=False, help="Audit media suitability across all 65 queued porcelain episodes (audit-media)")
-    p_ds.add_argument("--write", action="store_true", default=False, help="Persist suitability classifications into 04_media_refs.json & dossier.json (audit-media)")
+    p_ds.add_argument("--write", action="store_true", default=False, help="Persist suitability classifications (audit-media) or write seeded draft files to disk (seed)")
+    p_ds.add_argument("--overwrite", action="store_true", default=False, help="Overwrite existing seeded draft files when running `dossier seed`")
 
     p_da = subparsers.add_parser(
         "diorama-assemble",
-        help="Assemble a Schema v7 porcelain_cinematic_v7 / lowpoly_pastel_v7 (+14Hz Andrew Silk Clean, 24fps) or v6 Neuro-Diorama Short (<= 179.0s) (R56-R66)",
+        help="Assemble a Schema v8 expressive_25d_v8 (<= 89.5s), Schema v7 porcelain_cinematic_v7 / lowpoly_pastel_v7, or v6 Neuro-Diorama Short (24fps, R56-R68)",
     )
     p_da.add_argument("--project", required=True, help="Target project ID or directory")
     p_da.add_argument("--force", action=argparse.BooleanOptionalAction, default=True, help="Force rebuild of EDL, WAV, ASS, and MP4 (default: True)")
@@ -808,7 +835,7 @@ def main():
         "--voice-preset",
         default=None,
         choices=list(DIORAMA_VOICE_PRESETS),
-        help="Narrator voice preset from DIORAMA_VOICE_PRESETS (e.g. andrew_v7, emma_v7, ava_v7)",
+        help="Narrator voice preset from DIORAMA_VOICE_PRESETS (e.g. emma_v7, foil_v8, andrew_v7, ava_v7)",
     )
     p_da.add_argument("--preview-sec", type=float, default=None, help="Render only the first N seconds to 05_assembly/preview_0-Ns.mp4 (skips QA)")
     p_da.add_argument("--allow-published-overwrite", action="store_true", default=False, help="Allow rebuilding a project that already has an upload receipt")
@@ -826,7 +853,7 @@ def main():
 
     p_df = subparsers.add_parser(
         "diorama-flow",
-        help="Sharded 5-tab Dual-Tier (Omni 1.1 Flash -> 0-credit auto-fallback) Google Flow generator for Schema v7/v6 neuro_diorama (1:1 Zero-Reuse)",
+        help="Sharded 5-tab Dual-Tier (Omni 1.1 Flash -> 0-credit auto-fallback) Google Flow generator for Schema v8/v7/v6 neuro_diorama (1:1 Zero-Reuse)",
     )
     p_df.add_argument("--project", required=True, help="Target project ID under BCI_Shorts_Channel/projects/")
     p_df.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
@@ -842,7 +869,7 @@ def main():
 
     p_db = subparsers.add_parser(
         "diorama-batch",
-        help="Resumable Wave 1-6 (30-episode) Schema v7/v6 neuro_diorama precheck, Flow generation, assembly & QA orchestrator",
+        help="Resumable Wave 1-6 (30-episode) Schema v8/v7/v6 neuro_diorama precheck, Flow generation, assembly & QA orchestrator",
     )
     p_db.add_argument("--wave", default="all", help="Wave selector: 1, 2, 3, 4, 5, 6, or all (default: all)")
     p_db.add_argument("--projects", default="", help="Optional comma-separated project_ids subset")
@@ -859,18 +886,19 @@ def main():
     p_db.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
     p_db.add_argument("--prosody-mode", default=None, choices=list(DIORAMA_V7_PROSODY_MODES), help="Optional prosody mode override")
 
-    p_pg = subparsers.add_parser("prompt-gate", help="Run the v5/v6/v7 production gate on a project or dossier draft")
+    p_pg = subparsers.add_parser("prompt-gate", help="Run the v5/v6/v7/v8 production gate on a project or dossier draft")
     p_de = subparsers.add_parser(
         "diorama-episode",
-        help="One-shot production of ANY dossier-backed Schema v7 episode: sync draft -> precheck -> Flow -> assembly -> full QA",
+        help="One-shot production of ANY dossier-backed Schema v7/v8 episode: sync draft -> precheck -> Flow -> assembly -> full QA",
     )
     p_de.add_argument(
         "--slug",
         required=True,
-        help="research_dossiers/<slug>/ with a diorama_v7_porcelain/ (or diorama_v7_lowpoly/) draft",
+        help="research_dossiers/<slug>/ with a diorama_v8_expressive/, diorama_v7_porcelain/, or diorama_v7_lowpoly/ draft",
     )
     p_de.add_argument("--project", required=True, help="Target project ID under BCI_Shorts_Channel/projects/")
     p_de.add_argument("--pillar", required=True, help="Content pillar id (P1)")
+    p_de.add_argument("--draft-subdir", default=None, help="Optional draft subfolder override (e.g. diorama_v8_expressive, diorama_v7_porcelain)")
     p_de.add_argument("--precheck-only", action="store_true", default=False, help="Sync + prompt-gate + TTS clock only (no Flow credits)")
     p_de.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
     p_de.add_argument("--force", action="store_true", default=False, help="Purge existing clips and regenerate")
@@ -881,7 +909,7 @@ def main():
 
     p_dp = subparsers.add_parser(
         "diorama-pipeline",
-        help="Pipelined multi-episode Schema v7 production: up-front precheck + overlapped Flow producer & Assembly+QA consumer",
+        help="Pipelined multi-episode Schema v7/v8 production: up-front precheck + overlapped Flow producer & Assembly+QA consumer",
     )
     p_dp.add_argument(
         "--projects",
@@ -958,7 +986,7 @@ def main():
 
     p_th = subparsers.add_parser(
         "thumbnail",
-        help="Run R65 Thumbnail Studio: candidate scoring, v7 hook overlay, TQ1-TQ7 QA & contact sheet",
+        help="Run R65 Thumbnail Studio: candidate scoring, v7/v8 hook overlay, TQ1-TQ7 QA & contact sheet",
     )
     p_th.add_argument("--project", default=None, help="Target project ID or directory")
     p_th.add_argument("--all-diorama", action="store_true", default=False, help="Run across assembled neuro_diorama projects")
@@ -972,13 +1000,14 @@ def main():
     )
     p_kb.add_argument("action", choices=["sync", "stats", "search"], help="Knowledge Base action")
     p_kb.add_argument("--project", default=None, help="Optional single project ID/dir to sync")
+    p_kb.add_argument("--full-rescan", action="store_true", default=False, help="Force full rescan of all projects instead of fast mtime-gated incremental sync")
     p_kb.add_argument("--run-missing-posthoc", action="store_true", default=False, help="Run posthoc-qa on assembled projects missing R64 reports during sync")
     p_kb.add_argument("--pack", default="clips", choices=["clips", "prompts", "analogies", "brain_models", "locations"], help="Target reusable pack for search")
     p_kb.add_argument("--query", default="", help="Keyword query for search")
     p_kb.add_argument("--grammar", default=None, help="Filter by visual grammar")
     p_kb.add_argument("--camera", default=None, help="Filter by camera move")
     p_kb.add_argument("--min-clarity", type=float, default=None, help="Minimum R64 clarity score filter")
-    p_kb.add_argument("--style-profile", default=None, help="Filter by style_profile (e.g., lowpoly_pastel_v7)")
+    p_kb.add_argument("--style-profile", default=None, help="Filter by style_profile (e.g., porcelain_cinematic_v7, expressive_25d_v8, lowpoly_pastel_v7)")
     p_kb.add_argument("--limit", type=int, default=20, help="Max search results")
 
     p_ow = subparsers.add_parser("overwatch", help="Run Deliverable Overwatch Verification Loop across Deliverables A, B, and C")
@@ -1024,7 +1053,7 @@ def main():
 
     p_pr = subparsers.add_parser(
         "porcelain-refs",
-        help="Synthesize & verify Dual-Track porcelain_cinematic_v7 9:16 reference pack via 0-credit Google Flow x4 Image mode (R51/R66/R67)",
+        help="Synthesize & verify Dual-Track porcelain_cinematic_v7 / expressive_25d_v8 9:16 reference pack via 0-credit Google Flow x4 Image mode (R51/R66/R67/R68)",
     )
     p_pr.add_argument("--project", required=True, help="Target project_id or path")
     p_pr.add_argument("--slug", default="", help="Optional research dossier slug override")
@@ -1256,6 +1285,7 @@ def main():
             engine_mode=str(args.engine).replace("-", "_"),
             voice_preset=args.voice_preset,
             prosody_mode=args.prosody_mode,
+            draft_subdir=getattr(args, "draft_subdir", None),
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
         return
@@ -1312,7 +1342,7 @@ def main():
 
         from pipeline.prosody import evaluate_prosody_gates
 
-        rep = evaluate_prosody_gates(args.project, run_asr=not bool(args.no_asr))
+        rep = evaluate_prosody_gates(args.project, run_asr=not bool(args.no_asr), strict_freshness=True)
         print(_json.dumps(rep, indent=2, ensure_ascii=False))
         if not rep["passed"]:
             sys.exit(1)
@@ -1509,10 +1539,11 @@ def cmd_dossier(args):
         if not args.slug:
             print("--slug or --all-queued is required for audit-media", file=sys.stderr)
             sys.exit(2)
+        ds_root = Path(args.root) if getattr(args, "root", None) else None
         print(
             json.dumps(
                 rd.audit_dossier_media_suitability(
-                    rd.dossier_dir(args.slug),
+                    rd.dossier_dir(args.slug, root=ds_root),
                     write_back=bool(getattr(args, "write", False)),
                 ),
                 indent=2,
@@ -1523,6 +1554,7 @@ def cmd_dossier(args):
     if not args.slug:
         print("--slug is required for this action", file=sys.stderr)
         sys.exit(2)
+    ds_root = Path(args.root) if getattr(args, "root", None) else None
     if args.action == "init":
         print(
             rd.init_dossier(
@@ -1530,11 +1562,16 @@ def cmd_dossier(args):
                 args.topic or args.slug,
                 pillar=args.pillar,
                 visual_mode=args.mode,
+                root=ds_root,
                 everyday_domain=getattr(args, "everyday_domain", ""),
             )
         )
     elif args.action == "validate":
-        res = rd.validate_dossier(args.slug, require_schema_v2=bool(getattr(args, "require_v2", False)))
+        res = rd.validate_dossier(
+            args.slug,
+            root=ds_root,
+            require_schema_v2=bool(getattr(args, "require_v2", False)),
+        )
         print(json.dumps(res, indent=2, ensure_ascii=False))
         if not res["ready"]:
             sys.exit(1)
@@ -1542,16 +1579,22 @@ def cmd_dossier(args):
         if getattr(args, "profile", "neuro_diorama") == "neuro_diorama":
             print(
                 json.dumps(
-                    rd.diorama_seed_from_dossier(args.slug, style_profile=getattr(args, "style_profile", None)),
+                    rd.diorama_seed_from_dossier(
+                        args.slug,
+                        root=ds_root,
+                        style_profile=getattr(args, "style_profile", None),
+                        write_draft=True if getattr(args, "write", False) else None,
+                        overwrite=bool(getattr(args, "overwrite", False)),
+                    ),
                     indent=2,
                     ensure_ascii=False,
                 )
             )
         else:
-            print(json.dumps(rd.plan_seed_from_dossier(args.slug), indent=2, ensure_ascii=False))
+            print(json.dumps(rd.plan_seed_from_dossier(args.slug, root=ds_root), indent=2, ensure_ascii=False))
     elif args.action == "yt-analyze":
         media_id = args.media_id or rd.slugify(args.url or "ref")[-24:]
-        out = rd.dossier_dir(args.slug) / "media" / media_id
+        out = rd.dossier_dir(args.slug, root=ds_root) / "media" / media_id
         print(json.dumps(rd.analyze_reference_video(args.url, out, section=args.section), indent=2, ensure_ascii=False))
 
 
@@ -1602,15 +1645,20 @@ def cmd_prompt_gate(args):
     clips = build_flow_prompts(plan, narrations)
     if is_diorama_v6_plan(plan):
         import re as _re
+        from pipeline.config import is_expressive_v8_plan
         from pipeline.diorama_batch_orchestrator import _PLAQUE_TRIGGER_NOUNS_RE
         from pipeline.publish import validate_diorama_paradox_title
 
+        is_v8_gate = is_expressive_v8_plan(plan, script_doc)
         issues = validate_production_diorama_v6(plan, narrations, clips, script_doc=script_doc)
         raw_title = str(script_doc.get("title") or plan.get("title") or "").strip()
         if raw_title:
-            issues.extend(validate_diorama_paradox_title(raw_title))
+            issues.extend(validate_diorama_paradox_title(raw_title, is_expressive_v8=is_v8_gate))
         for c in clips:
             sc = _re.sub(r"\b(?:without|zero|no)\s+[a-z\s,-]{1,35}", " ", str(c.get("scene") or ""), flags=_re.IGNORECASE)
+            for allow_tok in (c.get("diegetic_text_allowlist") or []):
+                if str(allow_tok or "").strip():
+                    sc = _re.sub(_re.escape(str(allow_tok).strip()), " ", sc, flags=_re.IGNORECASE)
             hits = sorted({m.group(0).lower() for m in _PLAQUE_TRIGGER_NOUNS_RE.finditer(sc)})
             if hits:
                 issues.append(f"[plaque_lock] clip {c['clip_number']} positive scene contains plaque-trigger word(s) {hits}")
@@ -1874,7 +1922,10 @@ def cmd_kb(args):
         if args.project:
             res = sync_project_to_knowledge_base(args.project)
         else:
-            res = sync_all_projects_to_knowledge_base(run_missing_posthoc=bool(args.run_missing_posthoc))
+            res = sync_all_projects_to_knowledge_base(
+                run_missing_posthoc=bool(args.run_missing_posthoc),
+                full_rescan=bool(getattr(args, "full_rescan", False)),
+            )
         print(json.dumps(res, indent=2, ensure_ascii=False))
         return
 

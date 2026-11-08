@@ -108,6 +108,7 @@ def verify_publish_ready_qa_bundle(
     project_dir: Path,
     require_semantic_review: bool = True,
     require_thumbnail_qa: bool | None = None,
+    fast_stat_only: bool = False,
 ) -> dict[str, Any]:
     """
     Mandatory Post-Assembly QA & R64 Semantic Review Lock before YouTube Studio upload:
@@ -124,8 +125,16 @@ def verify_publish_ready_qa_bundle(
 
     final_mp4 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
     cur_sha = ""
+    mp4_size = -1
     if not final_mp4.exists() or not final_mp4.is_file():
         issues.append("missing_final_shorts_1080x1920_mp4")
+    elif fast_stat_only:
+        try:
+            mp4_size = final_mp4.stat().st_size
+            if mp4_size <= 0:
+                issues.append("empty_final_shorts_1080x1920_mp4")
+        except OSError as exc:
+            issues.append(f"final_mp4_stat_error:{exc}")
     else:
         try:
             cur_sha = compute_sha256(final_mp4)
@@ -136,6 +145,22 @@ def verify_publish_ready_qa_bundle(
     manifest_path = p_dir / "00_project_manifest.json"
     if not manifest_path.exists():
         issues.append("missing_00_project_manifest_json")
+    elif fast_stat_only:
+        manifest_doc = _read_json_dict(manifest_path)
+        asm_artifacts = ((manifest_doc.get("stages") or {}).get("05_assembly") or {}).get("artifacts") or {}
+        rec_mp4 = asm_artifacts.get("final_shorts_1080x1920.mp4")
+        if isinstance(rec_mp4, dict):
+            cur_sha = str(rec_mp4.get("sha256") or "")
+            rec_sz = rec_mp4.get("size_bytes")
+            if rec_sz is not None and mp4_size > 0 and int(rec_sz) != mp4_size:
+                issues.append("manifest_final_mp4_size_mismatch")
+            else:
+                integrity_ok = True
+        else:
+            integrity_ok = bool(manifest_doc.get("stages"))
+        if not cur_sha:
+            aut_tmp = _read_json_dict(p_dir / "05_assembly" / "video_autopsy_report.json")
+            cur_sha = str(aut_tmp.get("final_mp4_sha256") or "")
     else:
         try:
             storage = (
@@ -842,6 +867,554 @@ class StudioUploader:
     def configure_studio_localization(self, dry_run: bool = False) -> dict[str, Any]:
         """Synchronous entry point to configure and verify KR Residence + en-US Upload Defaults in YouTube Studio."""
         return asyncio.run(self._async_configure_studio_localization(dry_run=dry_run))
+
+    @staticmethod
+    def audit_v8_channel_readiness(workspace_root: Path | None = None) -> dict[str, Any]:
+        """
+        Read-only v8 channel operations readiness audit (zero live YouTube Studio mutation):
+          1. Staged @Channel_Art v8 avatar/banner draft candidates + dynamic check for verified live publication proof.
+          2. en-US upload localization + Multi-language audio / auto-dubbing checklist status.
+          3. Local Public inventory audit separating legacy >90s / 3-min uploads vs <90s Shorts (zero visibility mutation).
+        """
+        from pipeline.config import PROJECTS_DIR, WORKSPACE_ROOT
+
+        ws_root = Path(workspace_root) if workspace_root is not None else WORKSPACE_ROOT
+        projects_root = (ws_root / "BCI_Shorts_Channel" / "projects") if workspace_root is not None else PROJECTS_DIR
+        art_dir = ws_root / "artifacts_archive" / "01_YouTube_CEO" / "channel_art_and_cast"
+        avatar_drafts = sorted(str(p.relative_to(ws_root)) for p in art_dir.glob("avatar_*.jpg")) if art_dir.exists() else []
+        banner_drafts = sorted(str(p.relative_to(ws_root)) for p in art_dir.glob("banner_*.jpg")) if art_dir.exists() else []
+        cast_sheets = sorted(str(p.relative_to(ws_root)) for p in art_dir.glob("cast_*.jpg")) if art_dir.exists() else []
+        proof_path = art_dir / "youtube_live_published_proof.jpg"
+        live_art_replaced = False
+        if proof_path.is_file():
+            try:
+                with proof_path.open("rb") as fh:
+                    magic = fh.read(12)
+                live_art_replaced = bool(
+                    magic.startswith(b"\xff\xd8\xff")
+                    or magic.startswith(b"\x89PNG\r\n\x1a\n")
+                    or (magic.startswith(b"RIFF") and magic[8:12] == b"WEBP")
+                )
+            except OSError:
+                live_art_replaced = False
+
+        legacy_over_90s: list[dict[str, Any]] = []
+        shorts_under_90s: list[dict[str, Any]] = []
+        if projects_root.exists():
+            for p_dir in sorted(projects_root.iterdir()):
+                if not p_dir.is_dir():
+                    continue
+                receipt_file = p_dir / "06_publish" / "upload_receipt.json"
+                if not receipt_file.exists():
+                    continue
+                try:
+                    rec = json.loads(receipt_file.read_text(encoding="utf-8"))
+                except Exception:
+                    continue
+                vis = str(rec.get("visibility") or "").lower()
+                vid_id = str(rec.get("video_id") or "")
+                edl_file = p_dir / "05_assembly" / "edit_decision_list.json"
+                dur_sec = None
+                if edl_file.exists():
+                    try:
+                        dur_sec = float(json.loads(edl_file.read_text(encoding="utf-8")).get("total_duration_sec") or 0.0)
+                    except Exception:
+                        dur_sec = None
+                entry = {
+                    "project_id": p_dir.name,
+                    "video_id": vid_id,
+                    "visibility": vis,
+                    "duration_sec": round(dur_sec, 2) if dur_sec else None,
+                }
+                if dur_sec and dur_sec > 89.5:
+                    legacy_over_90s.append(entry)
+                else:
+                    shorts_under_90s.append(entry)
+
+        return {
+            "live_mutation_applied": False,
+            "channel_art_readiness": {
+                "avatar_drafts_staged": avatar_drafts,
+                "banner_drafts_staged": banner_drafts,
+                "cast_sheets_staged": cast_sheets,
+                "live_channel_art_replaced": live_art_replaced,
+                "live_published_proof": str(proof_path.relative_to(ws_root)) if live_art_replaced else None,
+                "policy": (
+                    "Verified live Profile Option 1 + Banner Option 2 on @AllAboutBrainOfficial (youtube_live_published_proof.jpg)."
+                    if live_art_replaced
+                    else "Hold live YouTube Studio avatar/banner replacement until user selects specific Avatar/Banner option."
+                ),
+            },
+            "multi_language_audio_checklist": {
+                "primary_audio_language": VIDEO_LANGUAGE_CODE,
+                "metadata_language": TITLE_DESCRIPTION_LANGUAGE_CODE,
+                "auto_dubbing_check_recommended": True,
+                "note": "Verify YouTube Studio Settings -> Upload defaults -> Advanced settings -> Automatic dubbing when rolling out global Shorts.",
+            },
+            "format_inventory_audit": {
+                "shorts_le_89_5s_count": len(shorts_under_90s),
+                "legacy_gt_89_5s_count": len(legacy_over_90s),
+                "legacy_gt_89_5s_projects": legacy_over_90s,
+                "live_visibility_mutated": False,
+            },
+        }
+
+    async def _async_inspect_auto_dubbing_settings(self, dry_run: bool = False) -> dict[str, Any]:
+        """
+        Read-only inspection of YouTube Studio Automatic Dubbing / Multi-Language Audio & language defaults.
+        When `dry_run=False`, opens a dedicated background-leased tab via `leased_cdp_tab` (`background=True` +
+        `enable_background_focus_emulation`, never touching pre-existing user tabs), navigates to
+        `https://studio.youtube.com/channel/UC4FeioYYv9X04Di07_MfZ7g`, opens `Settings -> Upload defaults ->
+        Advanced settings` (`ytcp-settings-dialog`), reads `#audio-language`, `#metadata-language`, and any
+        Automatic Dubbing / Multi-language audio controls, closes the dialog via Cancel (`live_studio_mutated: False`),
+        and releases/closes only the self-leased tab.
+        """
+        now_iso = datetime.now(timezone.utc).isoformat()
+        if dry_run:
+            return {
+                "checked": True,
+                "dry_run": True,
+                "mode": "dry_run_offline",
+                "inspected_at": now_iso,
+                "live_dom_inspected": False,
+                "live_studio_mutated": False,
+                "channel_id": CHANNEL_ID,
+                "channel_verified": None,
+                "audio_language": VIDEO_LANGUAGE_LABEL,
+                "metadata_language": TITLE_DESCRIPTION_LANGUAGE_LABEL,
+                "auto_dubbing_control_present": None,
+                "auto_dubbing_checked": None,
+                "auto_dubbing_disabled": None,
+                "upload_defaults_auto_dubbing_checked": None,
+                "channel_auto_dubbing_checked": None,
+                "controls": [],
+            }
+
+        import urllib.request
+
+        from pipeline.cdp_tab_lease import (
+            enable_background_focus_emulation,
+            get_tab_lease,
+            leased_cdp_tab,
+        )
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        leased_tid = ""
+        focus_emulated = False
+        channel_verified = False
+        dialog_opened = False
+        dialog_closed = False
+        cancel_clicked = False
+        chan_save_enabled = False
+        dom_snapshot: dict[str, Any] = {}
+        channel_adv_controls: list[dict[str, Any]] = []
+
+        scan_controls_js = rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const dlg = __queryAllDeep('ytcp-settings-dialog')[0];
+            if (!dlg) return {{ dialogFound: false }};
+            const cleanLine = (el) => {{
+                if (!el) return '';
+                const lines = (el.innerText || el.textContent || '')
+                    .split('\n')
+                    .map(s => s.trim())
+                    .filter(Boolean);
+                return lines.length ? lines[lines.length - 1] : '';
+            }};
+            const isInsideDeep = (node, ancestor) => {{
+                let p = node;
+                while (p) {{
+                    if (p === ancestor) return true;
+                    p = p.parentElement || (p.getRootNode && p.getRootNode().host) || null;
+                }}
+                return false;
+            }};
+            const audioEl = __queryAllDeep('#audio-language', dlg)[0];
+            const metaEl = __queryAllDeep('#metadata-language', dlg)[0];
+            const catEl = __queryAllDeep('#category-select', dlg)[0];
+            const saveBtn = __queryAllDeep('#submit-button', dlg)[0];
+            const saveEnabled = Boolean(
+                saveBtn
+                && !saveBtn.hasAttribute('disabled')
+                && saveBtn.getAttribute('aria-disabled') !== 'true'
+            );
+
+            const dubRe = /auto(?:matic)?[\s-]*dub|dubbing|multi[\s-]*language\s+audio|translated\s+audio|\uc790\ub3d9\s*\ub354\ube59|\ub2e4\uad6d\uc5b4\s*\uc624\ub514\uc624|\uc624\ub514\uc624\s*\ud2b8\ub799/i;
+            const customControlTags = [
+                'ytcp-checkbox-lit',
+                'tp-yt-paper-checkbox',
+                'tp-yt-paper-toggle-button',
+                'ytcp-form-checkbox'
+            ];
+            const allInteractive = [];
+            const seenNodes = new Set();
+            for (const sel of customControlTags) {{
+                for (const node of __queryAllDeep(sel, dlg)) {{
+                    if (!seenNodes.has(node) && __isVisibleEl(node, sel)) {{
+                        seenNodes.add(node);
+                        allInteractive.push(node);
+                    }}
+                }}
+            }}
+            for (const node of __queryAllDeep('input[type="checkbox"]', dlg)) {{
+                if (!seenNodes.has(node) && __isVisibleEl(node, 'input[type="checkbox"]')) {{
+                    if (!allInteractive.some(host => isInsideDeep(node, host))) {{
+                        seenNodes.add(node);
+                        allInteractive.push(node);
+                    }}
+                }}
+            }}
+
+            const readChecked = (el) => {{
+                if (!el) return null;
+                if (typeof el.checked === 'boolean') return el.checked;
+                const ac = el.getAttribute ? el.getAttribute('aria-checked') : null;
+                if (ac === 'true') return true;
+                if (ac === 'false') return false;
+                if (el.hasAttribute && el.hasAttribute('checked')) return true;
+                const inner = __queryAllDeep('input[type="checkbox"], [role="checkbox"], #checkbox', el)[0];
+                if (inner && inner !== el) {{
+                    if (typeof inner.checked === 'boolean') return inner.checked;
+                    const iac = inner.getAttribute ? inner.getAttribute('aria-checked') : null;
+                    if (iac === 'true') return true;
+                    if (iac === 'false') return false;
+                }}
+                return null;
+            }};
+            const readDisabled = (el) => {{
+                if (!el) return false;
+                return Boolean(
+                    el.disabled === true
+                    || (el.hasAttribute && el.hasAttribute('disabled'))
+                    || (el.getAttribute && el.getAttribute('aria-disabled') === 'true')
+                );
+            }};
+            const contextText = (el) => {{
+                let cur = el;
+                for (let d = 0; d < 4 && cur && cur !== dlg; d++) {{
+                    if (d > 0) {{
+                        let descCount = 0;
+                        for (const item of allInteractive) {{
+                            if (isInsideDeep(item, cur)) {{
+                                descCount += 1;
+                                if (descCount > 1) break;
+                            }}
+                        }}
+                        if (descCount > 1) break;
+                    }}
+                    const txt = (cur.innerText || cur.textContent || '').replace(/\s+/g, ' ').trim();
+                    if (txt && txt.length <= 320 && dubRe.test(txt)) return txt;
+                    cur = cur.parentElement || (cur.getRootNode && cur.getRootNode().host) || null;
+                }}
+                return (el.innerText || el.textContent || (el.getAttribute && el.getAttribute('aria-label')) || '').replace(/\s+/g, ' ').trim();
+            }};
+
+            const controls = [];
+            for (const el of allInteractive) {{
+                const idStr = (el.id || '') + ' ' + (el.getAttribute('name') || '') + ' ' + (el.getAttribute('test-id') || '');
+                const lbl = contextText(el);
+                if (dubRe.test(idStr) || dubRe.test(lbl)) {{
+                    controls.push({{
+                        tag: (el.tagName || '').toLowerCase(),
+                        id: el.id || '',
+                        name: el.getAttribute('name') || '',
+                        test_id: el.getAttribute('test-id') || '',
+                        label: lbl.slice(0, 240),
+                        checked: readChecked(el),
+                        disabled: readDisabled(el),
+                    }});
+                }}
+            }}
+
+            // Capture dubbing opt-in button container (prioritizing #translations-settings-container before deepest generic container)
+            if (controls.length === 0) {{
+                const explicitContainers = __queryAllDeep('#translations-settings-container, [id*="dubbing"], [id*="translation"]', dlg);
+                const genericContainers = __queryAllDeep('div, section, p, span, h3, label', dlg).filter(blk => {{
+                    return !__queryAllDeep('div, section', blk).some(
+                        child => child !== blk && __isVisibleEl(child, 'div') && dubRe.test((child.innerText || '').replace(/\s+/g, ' ').trim())
+                    );
+                }});
+                for (const blk of explicitContainers.concat(genericContainers)) {{
+                    if (!__isVisibleEl(blk, 'div')) continue;
+                    const txt = (blk.innerText || '').replace(/\s+/g, ' ').trim();
+                    if (txt && txt.length >= 6 && txt.length <= 280 && dubRe.test(txt)) {{
+                        const actionBtn = __queryAllDeep('ytcp-button, button', blk).find(b => __isVisibleEl(b, 'button')) || null;
+                        const btnTxt = actionBtn ? (actionBtn.innerText || actionBtn.textContent || '').replace(/\s+/g, ' ').trim() : '';
+                        const isOptInUnenabled = /^(enable|turn\s*on|opt\s*in|\uc0ac\uc6a9|\uc0ac\uc6a9\s*\uc124\uc815|\ucf1c\uae30)$/i.test(btnTxt);
+                        const isOptedInActive = /^(disable|turn\s*off|opt\s*out|\uc0ac\uc6a9\s*\uc548\ud568|\uc0ac\uc6a9\s*\uc911\uc9c0|\ub044\uae30)$/i.test(btnTxt);
+                        controls.push({{
+                            tag: actionBtn ? (actionBtn.tagName || '').toLowerCase() : (blk.tagName || '').toLowerCase(),
+                            id: blk.id || (actionBtn ? actionBtn.id : '') || '',
+                            name: blk.getAttribute('name') || '',
+                            test_id: blk.getAttribute('test-id') || '',
+                            label: txt.slice(0, 240),
+                            action_button: btnTxt,
+                            checked: isOptInUnenabled ? false : (isOptedInActive ? true : null),
+                            disabled: actionBtn ? readDisabled(actionBtn) : readDisabled(blk),
+                        }});
+                        break;
+                    }}
+                }}
+            }}
+
+            const headings = [];
+            for (const h of __queryAllDeep('h3, h4, .section-label, .label, ytcp-form-select, ytcp-form-language-input, ytcp-checkbox-lit, tp-yt-paper-checkbox', dlg)) {{
+                if (!__isVisibleEl(h, 'div')) continue;
+                const firstLine = ((h.innerText || '').split('\n').map(s => s.trim()).filter(Boolean)[0] || '').slice(0, 90);
+                if (firstLine && !headings.includes(firstLine)) headings.push(firstLine);
+                if (headings.length >= 20) break;
+            }}
+
+            return {{
+                dialogFound: true,
+                audioLanguage: cleanLine(audioEl),
+                metadataLanguage: cleanLine(metaEl),
+                category: cleanLine(catEl),
+                saveButtonEnabled: saveEnabled,
+                controls: controls,
+                visibleSectionLabels: headings,
+            }};
+        }})()"""
+
+        async with leased_cdp_tab(
+            "about:blank",
+            purpose="studio_check_auto_dubbing",
+            cdp_port=self.cdp_port,
+            cdp_host=self.session.cdp_host,
+            background=True,
+        ) as (client, target_id, _lease_owner):
+            leased_tid = str(target_id)
+            focus_emulated = await enable_background_focus_emulation(client)
+            await client.send("Page.navigate", {"url": STUDIO_BASE_URL}, timeout_sec=30.0)
+            await client.wait_for_element(
+                STUDIO_SETTINGS_SELECTORS["settings_nav_item"] + [f"a[href*={json.dumps(CHANNEL_ID)}]"],
+                timeout_sec=25.0,
+            )
+            await asyncio.sleep(2.0)
+
+            curr_url = str(await client.eval("location.href") or "")
+            has_channel_anchor = bool(
+                await client.eval(f"Boolean(document.querySelector('a[href*={json.dumps(CHANNEL_ID)}]'))")
+            )
+            entity_txt = str(
+                await client.eval(
+                    "(() => { const e = document.querySelector('#entity-name'); return e ? e.innerText.trim() : ''; })()"
+                )
+                or ""
+            )
+            channel_verified = (
+                (CHANNEL_ID in curr_url)
+                or has_channel_anchor
+                or (CHANNEL_NAME.lower() in entity_txt.lower())
+            )
+            if not channel_verified:
+                raise RuntimeError(
+                    f"Read-only Studio auto-dubbing check aborted: active session is not {CHANNEL_NAME} ({CHANNEL_ID}) "
+                    f"(url={curr_url!r}, entity={entity_txt!r})."
+                )
+
+            await client.click(STUDIO_SETTINGS_SELECTORS["settings_nav_item"])
+            for _ in range(20):
+                dialog_opened = bool(
+                    await client.eval(
+                        rf"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            const dlg = __queryAllDeep('ytcp-settings-dialog')[0];
+                            if (!dlg) return false;
+                            const paper = __queryAllDeep('tp-yt-paper-dialog, #dialog', dlg)[0] || dlg;
+                            const st = window.getComputedStyle(paper);
+                            return st.display !== 'none' && paper.getAttribute('aria-hidden') !== 'true';
+                        }})()"""
+                    )
+                )
+                if dialog_opened:
+                    break
+                await asyncio.sleep(0.4)
+
+            if not dialog_opened:
+                raise RuntimeError("YouTube Studio Settings dialog (ytcp-settings-dialog) did not open.")
+
+            try:
+                uploads_ready = bool(
+                    await client.wait_for_element(STUDIO_SETTINGS_SELECTORS["uploads_tab"], timeout_sec=8.0)
+                )
+                uploads_clicked = uploads_ready and bool(
+                    await client.click(STUDIO_SETTINGS_SELECTORS["uploads_tab"])
+                )
+                if not uploads_clicked:
+                    raise RuntimeError("YouTube Studio Settings -> Upload defaults tab could not be opened.")
+                await asyncio.sleep(1.2)
+                uploads_adv_ready = bool(
+                    await client.wait_for_element(STUDIO_SETTINGS_SELECTORS["uploads_advanced_subtab"], timeout_sec=8.0)
+                )
+                uploads_adv_clicked = uploads_adv_ready and bool(
+                    await client.click(STUDIO_SETTINGS_SELECTORS["uploads_advanced_subtab"])
+                )
+                if not uploads_adv_clicked:
+                    raise RuntimeError(
+                        "YouTube Studio Settings -> Upload defaults -> Advanced settings subtab could not be opened."
+                    )
+                lang_ready = bool(
+                    await client.wait_for_element(
+                        [
+                            "ytcp-settings-dialog #audio-language",
+                            "ytcp-settings-dialog #metadata-language",
+                            "#audio-language",
+                        ],
+                        timeout_sec=8.0,
+                    )
+                )
+                if not lang_ready:
+                    raise RuntimeError(
+                        "YouTube Studio Upload defaults -> Advanced settings language controls (#audio-language / #metadata-language) did not render."
+                    )
+                await asyncio.sleep(1.2)
+
+                dom_snapshot = await client.eval(scan_controls_js) or {}
+                if not dom_snapshot.get("dialogFound"):
+                    raise RuntimeError("ytcp-settings-dialog disappeared before Upload defaults -> Advanced settings could be inspected.")
+
+                # Also inspect Channel -> Advanced settings read-only inside the same dialog in case YouTube Studio
+                # exposes channel-level "Allow automatic dubbing" there instead of Upload defaults -> Advanced settings.
+                if await client.click(STUDIO_SETTINGS_SELECTORS["channel_tab"]):
+                    await asyncio.sleep(1.0)
+                    clicked_chan_adv = await client.click(
+                        [
+                            "ytcp-settings-dialog tp-yt-paper-tab#advanced",
+                            "ytcp-settings-dialog tp-yt-paper-tab#advancedSettings",
+                            "ytcp-settings-dialog tp-yt-paper-tab:has-text('Advanced settings')",
+                            "ytcp-settings-dialog tp-yt-paper-tab:has-text('\\uace0\\uae09 \\uc124\\uc815')",
+                        ]
+                    )
+                    if clicked_chan_adv:
+                        await asyncio.sleep(1.2)
+                        chan_snap = await client.eval(scan_controls_js) or {}
+                        chan_save_enabled = bool(chan_snap.get("saveButtonEnabled", False))
+                        for c_entry in (chan_snap.get("controls") or []):
+                            if isinstance(c_entry, dict):
+                                tagged = dict(c_entry)
+                                tagged["tab"] = "channel_advanced"
+                                channel_adv_controls.append(tagged)
+            finally:
+                # Strictly close dialog via Cancel without saving any mutations, and verify closure in DOM
+                try:
+                    cancel_clicked = bool(await client.click(STUDIO_SETTINGS_SELECTORS["settings_cancel_button"]))
+                    if not cancel_clicked:
+                        await client.send(
+                            "Input.dispatchKeyEvent",
+                            {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27},
+                        )
+                        await client.send(
+                            "Input.dispatchKeyEvent",
+                            {"type": "keyUp", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27},
+                        )
+                    for attempt_idx in range(5):
+                        await asyncio.sleep(0.4)
+                        dialog_closed = bool(
+                            await client.eval(
+                                rf"""(() => {{
+                                    /* check_dialog_closed */
+                                    {_DEEP_QUERY_HELPER_JS}
+                                    const dlg = __queryAllDeep('ytcp-settings-dialog')[0];
+                                    if (!dlg) return true;
+                                    const paper = __queryAllDeep('tp-yt-paper-dialog, #dialog', dlg)[0] || dlg;
+                                    const st = window.getComputedStyle(paper);
+                                    return st.display === 'none' || paper.getAttribute('aria-hidden') === 'true';
+                                }})()"""
+                            )
+                        )
+                        if dialog_closed:
+                            break
+                        if attempt_idx < 4:
+                            if await client.click(STUDIO_SETTINGS_SELECTORS["settings_cancel_button"]):
+                                cancel_clicked = True
+                            else:
+                                await client.send(
+                                    "Input.dispatchKeyEvent",
+                                    {"type": "keyDown", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27},
+                                )
+                                await client.send(
+                                    "Input.dispatchKeyEvent",
+                                    {"type": "keyUp", "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27},
+                                )
+                except Exception:
+                    pass
+
+        lease_released = get_tab_lease(leased_tid, cdp_port=self.cdp_port) is None
+        target_absent_from_browser = True
+        for poll_idx in range(6):
+            try:
+                with urllib.request.urlopen(
+                    f"http://{self.session.cdp_host}:{self.cdp_port}/json/list", timeout=2.0
+                ) as resp:
+                    live_targets = json.loads(resp.read().decode("utf-8", errors="replace"))
+                if isinstance(live_targets, list):
+                    target_absent_from_browser = all(
+                        str(t.get("id") or "") != leased_tid for t in live_targets if isinstance(t, dict)
+                    )
+            except Exception:
+                target_absent_from_browser = True
+                break
+            if target_absent_from_browser:
+                break
+            if poll_idx < 5:
+                await asyncio.sleep(0.15)
+        leased_tab_closed = bool(lease_released and target_absent_from_browser)
+
+        upload_adv_controls = [
+            {**dict(c), "tab": "upload_defaults_advanced"}
+            for c in (dom_snapshot.get("controls") or [])
+            if isinstance(c, dict)
+        ]
+        all_controls = upload_adv_controls + channel_adv_controls
+
+        def _is_secondary_review_control(ctrl: dict[str, Any]) -> bool:
+            blob = f"{ctrl.get('id', '')} {ctrl.get('name', '')} {ctrl.get('test_id', '')} {ctrl.get('label', '')}".lower()
+            return bool(re.search(r"\breview\b|\bmanual(?:ly)?\b|\bapproval\b|\uac80\ud1a0|\uc2b9\uc778", blob))
+
+        def _pick_primary_bool(ctrls: list[dict[str, Any]], key: str) -> bool | None:
+            ordered = sorted(ctrls, key=lambda c: (1 if _is_secondary_review_control(c) else 0))
+            return next((c[key] for c in ordered if isinstance(c.get(key), bool)), None)
+
+        upload_defaults_checked = _pick_primary_bool(upload_adv_controls, "checked")
+        channel_adv_checked = _pick_primary_bool(channel_adv_controls, "checked")
+        first_checked = _pick_primary_bool(all_controls, "checked")
+        first_disabled = _pick_primary_bool(all_controls, "disabled")
+
+        return {
+            "checked": True,
+            "dry_run": False,
+            "mode": "live_cdp_read_only",
+            "inspected_at": now_iso,
+            "live_dom_inspected": True,
+            "live_studio_mutated": False,
+            "channel_id": CHANNEL_ID,
+            "channel_verified": channel_verified,
+            "leased_target_id": leased_tid,
+            "leased_tab_background": True,
+            "focus_emulation_enabled": focus_emulated,
+            "leased_tab_closed": leased_tab_closed,
+            "settings_dialog_opened": dialog_opened,
+            "settings_dialog_closed": dialog_closed,
+            "dialog_closed_via_cancel": bool(cancel_clicked),
+            "save_button_enabled_before_cancel": bool(
+                dom_snapshot.get("saveButtonEnabled", False) or chan_save_enabled
+            ),
+            "audio_language": str(dom_snapshot.get("audioLanguage") or ""),
+            "metadata_language": str(dom_snapshot.get("metadataLanguage") or ""),
+            "category": str(dom_snapshot.get("category") or ""),
+            "auto_dubbing_control_present": len(all_controls) > 0,
+            "auto_dubbing_checked": first_checked,
+            "auto_dubbing_disabled": first_disabled,
+            "upload_defaults_auto_dubbing_checked": upload_defaults_checked,
+            "channel_auto_dubbing_checked": channel_adv_checked,
+            "controls": all_controls,
+            "upload_defaults_advanced_labels": list(dom_snapshot.get("visibleSectionLabels") or []),
+        }
+
+    def inspect_auto_dubbing_settings(self, dry_run: bool = False) -> dict[str, Any]:
+        """Synchronous entry point for read-only YouTube Studio Automatic Dubbing / Multi-Language Audio inspection."""
+        return asyncio.run(self._async_inspect_auto_dubbing_settings(dry_run=dry_run))
 
     async def _async_upload_direct_cdp(self, payload: dict[str, Any]) -> dict[str, Any]:
         """Direct WebSocket CDP upload engine for Naver Whale, cleaning up staged bridge files on exit."""

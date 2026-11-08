@@ -57,6 +57,9 @@ from pipeline.config import (
     REF_IMAGE_CROSS_HIST_CORR_MIN,
     REF_IMAGE_CROSS_LUMA_SPREAD_MAX,
     REF_IMAGE_EDGE_DENSITY_MIN,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
+    EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+    EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
     REF_IMAGE_HUMAN_SKIN_MAX,
     REF_IMAGE_LUMA_MAX,
     REF_IMAGE_LUMA_MIN,
@@ -71,6 +74,7 @@ from pipeline.config import (
     REF_IMAGES_DIRNAME,
     clip_roles,
     extract_explicit_v7_style_profile,
+    is_expressive_v8_plan,
 )
 from pipeline.scene_blueprint import (
     cast_for_shot,
@@ -172,6 +176,142 @@ def build_reference_image_specs(
     from pipeline.flow_prompt_builder import is_diorama_v6_plan
 
     mode = str(plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
+    if is_expressive_v8_plan(plan):
+        master_anchors_v8: list[dict[str, Any]] = [
+            {
+                "ref_id": "species_opt1_sheet",
+                "category": "cast_anchor",
+                "role": "cast_master",
+                "scene_id": "MASTER_SPECIES",
+                "setting": "real_env",
+                "filename": EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+                "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+                "generation_order": 1,
+                "conditioned_on": [],
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+                "must_include": ["matte-white 2.5D vinyl cast", "charcoal 2D ink facial features"],
+            },
+            {
+                "ref_id": "cameo_opt3_sheet",
+                "category": "cast_anchor",
+                "role": "cameo_master",
+                "scene_id": "MASTER_CAMEO",
+                "setting": "real_env",
+                "filename": EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+                "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+                "generation_order": 1,
+                "conditioned_on": [],
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+                "must_include": ["Mini-Cortex palm-sized brain cameo mascot"],
+            },
+            {
+                "ref_id": "xray_brain75_master",
+                "category": "brain_anchor",
+                "role": "brain_master",
+                "scene_id": "MASTER_BRAIN",
+                "setting": "brain_studio",
+                "filename": "xray_brain75_master.png",
+                "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+                "generation_order": 1,
+                "conditioned_on": [],
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+                "must_include": ["golden seam crystal dome cranium", "living 4-color 3D brain"],
+            },
+            {
+                "ref_id": "expressive_conflict_master",
+                "category": "environment_anchor",
+                "role": "env_master",
+                "scene_id": "MASTER_CONFLICT",
+                "setting": "real_env",
+                "filename": "expressive_conflict_master.png",
+                "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+                "generation_order": 1,
+                "conditioned_on": [],
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+                "must_include": ["stylized 2.5D tactile room staging", "matte-white vinyl protagonist"],
+            },
+            {
+                "ref_id": "cast_sheet_02_clinical_historical_6roles",
+                "category": "cast_anchor",
+                "role": "cast_master",
+                "scene_id": "MASTER_CAST_CLINICAL",
+                "setting": "real_env",
+                "filename": "cast_sheet_02_clinical_historical_6roles.png",
+                "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+                "generation_order": 2,
+                "conditioned_on": ["species_opt1_sheet"],
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+                "must_include": ["clinical and historical 2.5D vinyl cast"],
+            },
+            {
+                "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+                "category": "cast_anchor",
+                "role": "cast_master",
+                "scene_id": "MASTER_CAST_EVERYDAY",
+                "setting": "real_env",
+                "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+                "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+                "generation_order": 2,
+                "conditioned_on": ["species_opt1_sheet"],
+                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+                "must_include": ["everyday lifestyle 2.5D vinyl cast"],
+            },
+        ]
+        master_fnames_v8 = {m["filename"] for m in master_anchors_v8}
+        clip_anchors_v8: list[dict[str, Any]] = []
+        for idx, raw_anc in enumerate(plan.get("reference_anchors") or [], start=1):
+            if not isinstance(raw_anc, dict):
+                continue
+            fname = str(raw_anc.get("filename") or f"{raw_anc.get('ref_id') or f'ref_clip_{idx:02d}'}.png")
+            if fname in master_fnames_v8:
+                continue
+            c_num = int(raw_anc.get("clip_number") or idx)
+            which = str(raw_anc.get("frame") or "start")
+            ref_id = str(raw_anc.get("ref_id") or Path(fname).stem)
+            setting = str(raw_anc.get("setting") or "real_env")
+            is_brain = setting in (*BRAIN_SETTINGS, "brain_studio")
+            clip_anchors_v8.append(
+                {
+                    "ref_id": ref_id,
+                    "clip_number": c_num,
+                    "frame": which,
+                    "category": str(raw_anc.get("category") or ("brain_anchor" if is_brain else "clip_keyframe_anchor")),
+                    "role": str(raw_anc.get("role") or ("brain_mechanism" if is_brain else "reenactment")),
+                    "scene_id": str(raw_anc.get("scene_id") or ("BRAIN" if is_brain else f"EP{idx:02d}")),
+                    "setting": setting,
+                    "location_id": raw_anc.get("location_id"),
+                    "filename": fname,
+                    "title": str(raw_anc.get("title") or f"Clip {c_num:02d} {which} anchor"),
+                    "generation_order": int(raw_anc.get("generation_order") or 3),
+                    "conditioned_on": list(raw_anc.get("conditioned_on") or (["xray_brain75_master"] if is_brain else ["species_opt1_sheet"])),
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": sanitize_scene(str(raw_anc.get("prompt") or "")),
+                    "diegetic_text_allowlist": list(raw_anc.get("diegetic_text_allowlist") or []),
+                    "present_cast": raw_anc.get("present_cast"),
+                    "must_include": list(raw_anc.get("must_include") or ["matte-white 2.5D vinyl cast, no human skin"]),
+                }
+            )
+        all_v8 = master_anchors_v8 + clip_anchors_v8
+        return {
+            "schema_version": 8,
+            "visual_mode": mode,
+            "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+            "aspect": aspect,
+            "dossier": plan.get("dossier") or plan.get("dossier_slug"),
+            "total_reference_images": len(all_v8),
+            "cast_lock": cast_lock_sentence(plan),
+            "generation_order": "1 pre-verified expressive_25d_v8 species/cameo/brain/conflict masters -> 2 18-character cast sheets -> 3 optional daisy-chain clip keyframes",
+            "master_anchors": master_anchors_v8,
+            "clip_anchors": clip_anchors_v8,
+            "all_specs": all_v8,
+        }
+
     diorama_mode = is_diorama_v6_plan(plan)
     if diorama_mode:
         n_clips = len(plan.get("clips") or []) or (len(narrations) if narrations else 60)
@@ -492,6 +632,8 @@ def inspect_single_reference_image(
     scene_id = str(spec.get("scene_id") or "S1")
     style_profile = extract_explicit_v7_style_profile(spec) or ""
     is_porcelain_v7 = style_profile == PORCELAIN_V7_STYLE_PROFILE
+    is_expressive_v8 = style_profile == EXPRESSIVE_25D_V8_STYLE_PROFILE or is_expressive_v8_plan(spec)
+    is_v7_or_v8_porcelain = is_porcelain_v7 or is_expressive_v8
     is_brain_setting = setting in (*BRAIN_SETTINGS, "brain_studio")
 
     if not path.exists() or not path.is_file():
@@ -542,16 +684,18 @@ def inspect_single_reference_image(
         and not has_black_bars
     )
 
-    # --- Q2: High-Key Daylight Exposure & Dynamic Contrast ---
+    # --- Q2: High-Key Daylight / Expressive 2.5D Exposure & Dynamic Contrast ---
     luma_mean = round(float(np.mean(gray)), 2)
     luma_std = round(float(np.std(gray)), 2)
     dark_ratio = round(float(np.mean(gray < 25)), 4)
     white_ratio = round(float(np.mean(gray > 250)), 4)
-    max_white_ratio = PORCELAIN_REF_WHITE_RATIO_MAX if (is_brain_setting or is_porcelain_v7) else 0.55
+    max_white_ratio = PORCELAIN_REF_WHITE_RATIO_MAX if (is_brain_setting or is_v7_or_v8_porcelain) else 0.55
+    min_luma_req = 32.0 if is_expressive_v8 else REF_IMAGE_LUMA_MIN
+    max_dark_req = 0.68 if is_expressive_v8 else 0.42
     q2_ok = bool(
-        REF_IMAGE_LUMA_MIN <= luma_mean <= REF_IMAGE_LUMA_MAX
+        min_luma_req <= luma_mean <= REF_IMAGE_LUMA_MAX
         and luma_std >= REF_IMAGE_CONTRAST_STD_MIN
-        and dark_ratio <= 0.42
+        and dark_ratio <= max_dark_req
         and white_ratio <= max_white_ratio
     )
 
@@ -563,20 +707,22 @@ def inspect_single_reference_image(
     min_edge = 0.008 if is_brain_setting else REF_IMAGE_EDGE_DENSITY_MIN
     q3_ok = bool(lap_var >= min_sharp and edge_density >= min_edge)
 
-    # --- Q4: Porcelain Mannequin Surface Fidelity & Anti-Human-Skin Lock ---
+    # --- Q4: Porcelain Mannequin / 2.5D Vinyl Surface Fidelity & Anti-Human-Skin Lock ---
     cy0, cy1 = int(h * 0.18), int(h * 0.82)
     cx0, cx1 = int(w * 0.15), int(w * 0.85)
     center_hsv = hsv[cy0:cy1, cx0:cx1]
-    # Matte-white / neutral light porcelain: low saturation (S <= 55), high value (V >= 150)
-    porcelain_mask = (center_hsv[:, :, 1] <= 55) & (center_hsv[:, :, 2] >= 150)
+    # Matte-white porcelain (S <= 55, V >= 150) vs warm cinema cream-white 2.5D vinyl (S <= 85, V >= 130)
+    p_s_max = 85 if is_expressive_v8 else 55
+    p_v_min = 130 if is_expressive_v8 else 150
+    porcelain_mask = (center_hsv[:, :, 1] <= p_s_max) & (center_hsv[:, :, 2] >= p_v_min)
     porcelain_ratio = round(float(np.mean(porcelain_mask)), 4)
     # Narrow human skin cluster in upper-center head zone (H in 6..16, S in 68..145, V in 95..210)
     hy0, hy1 = int(h * 0.15), int(h * 0.48)
     hx0, hx1 = int(w * 0.28), int(w * 0.72)
     head_hsv = hsv[hy0:hy1, hx0:hx1]
-    head_porcelain_mask = (head_hsv[:, :, 1] <= 55) & (head_hsv[:, :, 2] >= 150)
+    head_porcelain_mask = (head_hsv[:, :, 1] <= p_s_max) & (head_hsv[:, :, 2] >= p_v_min)
     head_porcelain_ratio = round(float(np.mean(head_porcelain_mask)), 4)
-    effective_porcelain_ratio = max(porcelain_ratio, head_porcelain_ratio) if is_porcelain_v7 else porcelain_ratio
+    effective_porcelain_ratio = max(porcelain_ratio, head_porcelain_ratio) if is_v7_or_v8_porcelain else porcelain_ratio
     skin_mask = (
         (head_hsv[:, :, 0] >= 6)
         & (head_hsv[:, :, 0] <= 16)
@@ -590,13 +736,25 @@ def inspect_single_reference_image(
     if not is_brain_setting:
         from pipeline.source_reenactment import detect_non_porcelain_human_faces_yunet
 
-        yunet_human_face_count = len(detect_non_porcelain_human_faces_yunet(bgr))
-    if is_porcelain_v7 and category in ("environment_anchor", "prop_anchor"):
-        q4_ok = bool(human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX and yunet_human_face_count == 0)
+        yunet_human_face_count = len(
+            detect_non_porcelain_human_faces_yunet(bgr, allow_expressive_2d_ink=is_expressive_v8)
+        )
+    if is_v7_or_v8_porcelain and (
+        category in ("environment_anchor", "prop_anchor", "cameo_anchor")
+        or role in ("cameo_anchor", "prop_only")
+    ):
+        prop_skin_ceil = 0.28 if is_expressive_v8 else REF_IMAGE_HUMAN_SKIN_MAX
+        q4_ok = bool(human_skin_ratio <= prop_skin_ceil and yunet_human_face_count == 0)
     elif is_brain_setting:
         q4_ok = bool(
             effective_porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
-            and human_skin_ratio <= REF_IMAGE_HUMAN_SKIN_MAX
+            and human_skin_ratio <= (0.24 if is_expressive_v8 else REF_IMAGE_HUMAN_SKIN_MAX)
+        )
+    elif is_expressive_v8:
+        q4_ok = bool(
+            effective_porcelain_ratio >= min(0.015, REF_IMAGE_PORCELAIN_RATIO_MIN)
+            and human_skin_ratio <= 0.26
+            and yunet_human_face_count == 0
         )
     else:
         q4_ok = bool(
@@ -617,7 +775,7 @@ def inspect_single_reference_image(
     else:
         q5_ok = bool(entropy >= 4.2 and fg_edges >= 0.012 and bg_edges >= 0.002)
 
-    # --- Q6: Brain Palette Verification (R53 restrained v5 vs R66 Contained 4-Color Porcelain Brain) ---
+    # --- Q6: Brain Palette Verification (R53 restrained v5 vs R66/v8 Contained 4-Color Brain) ---
     sat_mask = hsv[:, :, 1] >= 18
     val_mask = hsv[:, :, 2] >= 70
     active_c = sat_mask & val_mask
@@ -634,15 +792,16 @@ def inspect_single_reference_image(
     neon_sat = (hsv[:, :, 1] >= 75) & val_mask
     green_ratio = float(np.mean(neon_sat & (hue >= 36) & (hue <= 82)))
     cyan_ratio = float(np.mean(neon_sat & (hue >= 85) & (hue <= 118)))
-    biolum_total = round(crimson_ratio + amber_ivory_ratio + (cyan_active_ratio if is_porcelain_v7 else 0.0), 4)
-    effective_biolum = max(biolum_total, round(center_porcelain_biolum if is_porcelain_v7 else center_biolum, 4))
+    biolum_total = round(crimson_ratio + amber_ivory_ratio + (cyan_active_ratio if is_v7_or_v8_porcelain else 0.0), 4)
+    effective_biolum = max(biolum_total, round(center_porcelain_biolum if is_v7_or_v8_porcelain else center_biolum, 4))
     neon_green_blue = round(green_ratio + cyan_ratio, 4)
     if is_brain_setting:
-        if is_porcelain_v7:
+        if is_v7_or_v8_porcelain:
+            max_green = 0.08 if is_expressive_v8 else PORCELAIN_REF_NEON_GREEN_MAX
             q6_ok = bool(
                 effective_porcelain_ratio >= REF_IMAGE_PORCELAIN_RATIO_MIN
                 and effective_biolum >= REF_IMAGE_BIOLUM_MIN
-                and green_ratio <= PORCELAIN_REF_NEON_GREEN_MAX
+                and green_ratio <= max_green
             )
         else:
             q6_ok = bool(
@@ -793,10 +952,14 @@ def inspect_reference_image_pack(
     for r in existing_reports:
         if r.get("category") == "prop_anchor":
             continue
-        is_brain_rep = r.get("setting") in (*BRAIN_SETTINGS, "brain_studio")
-        grp_key = "BRAIN_GALLERY" if is_brain_rep else str(r.get("scene_id") or r.get("setting") or "real_env")
-        if grp_key.startswith("MASTER"):
+        raw_scene_id = str(r.get("scene_id") or "")
+        if raw_scene_id.startswith("MASTER"):
             continue
+        is_brain_rep = r.get("setting") in (*BRAIN_SETTINGS, "brain_studio")
+        if is_brain_rep and pack_style_profile != EXPRESSIVE_25D_V8_STYLE_PROFILE:
+            grp_key = "BRAIN_GALLERY"
+        else:
+            grp_key = str(raw_scene_id or r.get("setting") or "real_env")
         scene_groups.setdefault(grp_key, []).append(r)
 
     scene_corrs: list[float] = []
@@ -961,7 +1124,11 @@ def inspect_reference_image_pack(
             cond_spec = cond_by_clip.get(c_idx, {})
             mp4_p = native_dir / f"clip_{c_idx}.mp4"
             ref_img_p = ref_dir / str(r.get("filename") or f"{r['ref_id']}.png")
+            expected_total_clips = len(plan.get("clips") or [])
+            is_partial_clip_resume = bool(expected_total_clips > 0 and len(rendered_mp4s) < expected_total_clips)
             if not mp4_p.exists():
+                if is_partial_clip_resume:
+                    continue
                 clip_continuity_scores.append(
                     {
                         "clip_index": c_idx,
@@ -1072,7 +1239,7 @@ def inspect_reference_image_pack(
     low_continuity_clips = sorted({int(x["clip_index"]) for x in clip_continuity_scores if not x["passed"]})
     from pipeline.flow_prompt_builder import is_diorama_v6_plan as _is_diorama_plan_top
     min_mean_cont = 0.36 if _is_diorama_plan_top(plan) else 0.46
-    if has_rendered_clips:
+    if video_continuity_checked and clip_reps:
         q10_ok = bool(
             sufficient_count_ok
             and len(duplicate_ref_pairs) == 0
@@ -1081,7 +1248,7 @@ def inspect_reference_image_pack(
             and (mean_clip_continuity or 0.0) >= min_mean_cont
         )
     else:
-        # Pre-generation mode (no clip_*.mp4 rendered yet): verify shot diversity without faking 1.0 video continuity
+        # Pre-generation mode or master-anchor-only pack (no per-clip ref_clip_XX keyframes): verify shot diversity without faking 1.0 video continuity
         q10_ok = bool(sufficient_count_ok and len(duplicate_ref_pairs) == 0)
 
     # --- Provenance & Q11 semantic review -------------------------------------------------
@@ -1532,9 +1699,24 @@ def build_and_verify_project_reference_pack(
                 for s in existing_all
                 for m in (s.get("must_include") or [])
             )
-            if existing_all and not has_bare_ids and all(
-                (ref_dir / str(s.get("filename") or f"{s.get('ref_id')}.png")).exists()
+            existing_spec_pairs = {
+                (str(s.get("ref_id") or ""), str(s.get("filename") or f"{s.get('ref_id')}.png"))
                 for s in existing_all
+                if isinstance(s, dict)
+            }
+            fresh_spec_pairs = {
+                (str(s.get("ref_id") or ""), str(s.get("filename") or f"{s.get('ref_id')}.png"))
+                for s in (fresh_specs.get("all_specs") or [])
+                if isinstance(s, dict)
+            }
+            if (
+                existing_all
+                and not has_bare_ids
+                and fresh_spec_pairs.issubset(existing_spec_pairs)
+                and all(
+                    (ref_dir / str(s.get("filename") or f"{s.get('ref_id')}.png")).exists()
+                    for s in existing_all
+                )
             ):
                 specs_payload = on_disk_specs
                 preserve_curated = True
@@ -1571,7 +1753,7 @@ def build_and_verify_project_reference_pack(
                     cv2.imwrite(str(ref_dir / str(c_spec["filename"])), raw_f)
                     register_reference_image(p_dir, str(c_spec["filename"]), REF_IMAGE_SOURCE_EXTRACTED)
 
-    diorama_selective_anchors = _is_diorama_plan_top(plan) and bool(plan.get("reference_anchors"))
+    diorama_selective_anchors = (_is_diorama_plan_top(plan) and bool(plan.get("reference_anchors"))) or is_expressive_v8_plan(plan)
     prompts_path = vis_dir / "flow_all_in_one_prompts.json"
     if prompts_path.exists() and not preserve_curated:
         try:

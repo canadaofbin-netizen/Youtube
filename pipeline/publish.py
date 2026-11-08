@@ -14,19 +14,26 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 from pipeline.config import (
     DIORAMA_V7_STYLE_PROFILE,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
     FONT_CONDENSED_BLACK_PATH,
     FONT_FALLBACK_PATH,
     FONT_PRIMARY_PATH,
+    R68_DESCRIPTION_HASHTAG_MAX,
+    R68_TITLE_MAX_CHARS,
+    R68_TITLE_MAX_WORDS,
+    R68_TITLE_MIN_WORDS,
     RGB_DANGER_RED,
     RGB_DEEP_NAVY,
     RGB_NEUTRAL_WHITE,
     RGB_SECONDARY_TEAL,
     RGB_SIGNAL_GOLD,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
     TITLE_MAX_CHARS_DIORAMA,
     VIDEO_HEIGHT,
     VIDEO_WIDTH,
     is_diorama_profile,
     is_diorama_v7_plan,
+    is_expressive_v8_plan,
 )
 try:
     from pipeline.media_integrity import numeric_clip_sort_key  # type: ignore[attr-defined]
@@ -90,15 +97,65 @@ def classify_us_title_archetype(title: str) -> str | None:
     return None
 
 
+def validate_expressive_v8_title(title: str) -> list[str]:
+    """
+    Validates R68 Expressive v8 Shorts Title:
+      - `4..8` words (`R68_TITLE_MIN_WORDS..R68_TITLE_MAX_WORDS`)
+      - `<= 55` characters (`R68_TITLE_MAX_CHARS`)
+      - Zero hashtags (`#`) and 100% English (`en-US`, zero Hangul)
+    """
+    t = str(title or "").strip()
+    issues: list[str] = []
+    if not t:
+        return ["[title] empty title (R68)"]
+    if len(t) > R68_TITLE_MAX_CHARS:
+        issues.append(f"[title] length {len(t)} > {R68_TITLE_MAX_CHARS} chars (R68)")
+    words = [w for w in t.split() if w.strip()]
+    if not (R68_TITLE_MIN_WORDS <= len(words) <= R68_TITLE_MAX_WORDS):
+        issues.append(
+            f"[title] word count {len(words)} outside {R68_TITLE_MIN_WORDS}..{R68_TITLE_MAX_WORDS} words (R68)"
+        )
+    if re.search(r"[\uAC00-\uD7A3\u3130-\u318F]", t):
+        issues.append("[title] non-English Hangul characters forbidden in ALL ABOUT BRAIN title (R36/R68)")
+    if "#" in t:
+        issues.append("[title] hashtags forbidden in R68 Expressive v8 title")
+    return issues
+
+
+def build_expressive_v8_pinned_comment(
+    *,
+    doi: str,
+    debate_question: str = "",
+    cameo_prompt: str = "Did you spot the 4cm Mini-Cortex hiding in the room?",
+) -> str:
+    """Builds R68 zero-hashtag pinned comment combining primary DOI verification + viewer debate/cameo prompt."""
+    raw_doi = str(doi or "").strip()
+    doi_url = raw_doi if raw_doi.startswith("http") else (f"https://doi.org/{raw_doi}" if raw_doi else "")
+    parts: list[str] = []
+    q_clean = re.sub(r"#\w+", "", str(debate_question or "")).strip()
+    c_clean = re.sub(r"#\w+", "", str(cameo_prompt or "")).strip()
+    if q_clean:
+        parts.append(q_clean)
+    if c_clean and c_clean not in q_clean:
+        parts.append(c_clean)
+    if doi_url:
+        parts.append(f"Primary peer-reviewed study: {doi_url}")
+    return "\n\n".join(parts).strip()
+
+
 def validate_diorama_paradox_title(
     title: str,
     *,
     adjacent_titles: list[str] | None = None,
+    is_expressive_v8: bool = False,
 ) -> list[str]:
     """
     Validates R60 US High-CTR Documentary Title (`100% ASCII/en-US`, `<= TITLE_MAX_CHARS_DIORAMA`,
-    matching one of the 5 US CTR archetypes, and optional adjacent-slot archetype diversity).
+    matching one of the 5 US CTR archetypes, and optional adjacent-slot archetype diversity),
+    or R68 (`4..8` words, `<= 55` chars, `0` hashtags) when `is_expressive_v8=True`.
     """
+    if is_expressive_v8:
+        return validate_expressive_v8_title(title)
     t = str(title or "").strip()
     issues: list[str] = []
     if not t:
@@ -125,8 +182,9 @@ def validate_diorama_paradox_title(
 
 
 _INTERNAL_PIPELINE_TOKENS_RE = re.compile(
-    r"\b(?:porcelain_cinematic_v7|lowpoly_pastel_v7|neuro_diorama|classic_v5|dynamic_rush_v7|dynamic_us_v7|"
-    r"schema_version|R57-H2|R63-P|DQ1-DQ12|TQ1-TQ7|RQ1-RQ5|andrew_v7|emma_v7|ava_v7|aria_v7|christopher_v7)\b",
+    r"\b(?:expressive_25d_v8|shorts_expressive_v8|expressive_us_v8|foil_v8|porcelain_cinematic_v7|"
+    r"lowpoly_pastel_v7|neuro_diorama|classic_v5|dynamic_rush_v7|dynamic_us_v7|"
+    r"schema_version|R57-H2|R63-P|R68|DQ1-DQ12|TQ1-TQ7|RQ1-RQ5|andrew_v7|emma_v7|ava_v7|aria_v7|christopher_v7)\b",
     flags=re.IGNORECASE,
 )
 
@@ -141,6 +199,20 @@ def strip_internal_pipeline_tokens(text: str) -> str:
     return cleaned.strip(" \t\r\n-|—")
 
 
+def _scrub_experiment_nicknames(text: str, omit_nicknames: list[str] | None) -> str:
+    raw = str(text or "")
+    split_match = re.search(r"\bPrimary Peer-Reviewed Sources?:", raw)
+    head = raw[: split_match.start()] if split_match else raw
+    tail = raw[split_match.start() :] if split_match else ""
+    cleaned = head
+    for nick in omit_nicknames or []:
+        n_clean = str(nick or "").strip()
+        if n_clean:
+            cleaned = re.sub(re.escape(n_clean), "measured neural protocol", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(r"[ \t]{2,}", " ", cleaned)
+    return (cleaned + tail).strip()
+
+
 def render_editorial_description(
     *,
     title: str,
@@ -150,25 +222,35 @@ def render_editorial_description(
     companion_block: str = "",
     template_id: str | None = None,
     seed: int = 0,
+    zero_hashtags: bool = False,
+    omit_nicknames: list[str] | None = None,
 ) -> str:
-    """Renders one of the 4 rotating US editorial description layouts while preserving R4/R9/R10 markers."""
+    """Renders one of the 4 rotating US editorial description layouts while preserving R4/R9/R10/R68 markers."""
     from pipeline.config import AI_DISCLOSURE_SENTENCE, DESCRIPTION_EDITORIAL_TEMPLATES
 
     clean_title = strip_internal_pipeline_tokens(title)
-    clean_summary = strip_internal_pipeline_tokens(source_summary) or clean_title
+    clean_summary = _scrub_experiment_nicknames(strip_internal_pipeline_tokens(source_summary), omit_nicknames) or clean_title
+    if zero_hashtags:
+        clean_title = re.sub(r"#\w+", "", clean_title).strip()
+        clean_summary = re.sub(r"#\w+", "", clean_summary).strip()
     raw_doi = str(doi_or_url or "").strip()
     doi_url = raw_doi if raw_doi.startswith("http") else (f"https://doi.org/{raw_doi}" if raw_doi else "")
-    tags = " ".join(
-        t if str(t).startswith("#") else f"#{t}"
-        for t in (hashtags or ["#Shorts", "#Neuroscience", "#BrainScience", "#Psychology"])[:5]
-        if str(t).strip()
-    )
+    if zero_hashtags or (hashtags is not None and len(hashtags) == 0):
+        tags_block = ""
+    else:
+        tags = " ".join(
+            t if str(t).startswith("#") else f"#{t}"
+            for t in (hashtags or ["#Shorts", "#Neuroscience", "#BrainScience", "#Psychology"])[:5]
+            if str(t).strip()
+        )
+        tags_block = f"{tags}\n\n" if tags else ""
     chosen = (
         template_id
         if template_id in DESCRIPTION_EDITORIAL_TEMPLATES
         else DESCRIPTION_EDITORIAL_TEMPLATES[int(seed) % len(DESCRIPTION_EDITORIAL_TEMPLATES)]
     )
-    comp = f"{companion_block.strip()}\n\n" if str(companion_block or "").strip() else ""
+    comp_raw = re.sub(r"#\w+", "", str(companion_block or "")) if zero_hashtags else str(companion_block or "")
+    comp = f"{comp_raw.strip()}\n\n" if comp_raw.strip() else ""
     if chosen == "clinical_brief":
         lead = f"{clean_title}\n\nClinical Case Note — {clean_summary}"
         outro = "ALL ABOUT BRAIN documents peer-reviewed clinical neurology and human brain circuits."
@@ -187,7 +269,7 @@ def render_editorial_description(
         f"Source & Verification: {doi_url or raw_doi}\n\n"
         f"{comp}"
         f"AI Disclosure: {AI_DISCLOSURE_SENTENCE}\n\n"
-        f"{tags}\n\n"
+        f"{tags_block}"
         f"{outro}"
     ).strip()
 
@@ -321,11 +403,12 @@ class PublishStage:
         return Image.new("RGB", (VIDEO_WIDTH, VIDEO_HEIGHT), fallback_color)
 
     def _resolve_thumbnail_font(self) -> tuple[Path, str]:
-        """Selects bundled condensed black font for Schema v7 / Neuro-Diorama parity, falling back to primary."""
+        """Selects bundled condensed black font for Schema v7/v8 / Neuro-Diorama parity, falling back to primary."""
         vp_data = self.storage.load_json("03_visuals", "visual_plan.json") or {}
         scr_data = self.storage.load_json("02_script", "script.json") or {}
         use_condensed = (
-            is_diorama_v7_plan(vp_data)
+            is_expressive_v8_plan(vp_data, scr_data)
+            or is_diorama_v7_plan(vp_data)
             or is_diorama_v7_plan(scr_data)
             or is_diorama_profile(vp_data)
             or is_diorama_profile(scr_data)
@@ -644,10 +727,11 @@ class PublishStage:
         publish_dir = self.storage.get_stage_dir("06_publish")
         thumb_path = publish_dir / "thumbnail.png"
 
-        # Validate title length (<= 60 chars for classic_v5; <= TITLE_MAX_CHARS_DIORAMA [95] for neuro_diorama R60)
+        # Validate title length (<= 60 chars for classic_v5; <= 55 chars for R68 expressive_25d_v8; <= 95 for R60)
         vp_data = self.storage.load_json("03_visuals", "visual_plan.json") or {}
         scr_data = self.storage.load_json("02_script", "script.json") or {}
-        is_diorama = is_diorama_profile(vp_data) or is_diorama_profile(scr_data)
+        is_v8 = is_expressive_v8_plan(vp_data, scr_data)
+        is_diorama = is_v8 or is_diorama_profile(vp_data) or is_diorama_profile(scr_data)
         is_v7 = is_diorama_v7_plan(vp_data) or is_diorama_v7_plan(scr_data)
         resolved_profile = str(
             vp_data.get("profile")
@@ -659,13 +743,15 @@ class PublishStage:
         resolved_style_profile = str(
             vp_data.get("style_profile")
             or scr_data.get("style_profile")
-            or (resolve_diorama_v7_style_profile(vp_data) if is_v7 else "")
+            or (EXPRESSIVE_25D_V8_STYLE_PROFILE if is_v8 else (resolve_diorama_v7_style_profile(vp_data) if is_v7 else ""))
         )
         _, resolved_font_label = self._resolve_thumbnail_font()
-        max_title_len = TITLE_MAX_CHARS_DIORAMA if is_diorama else 60
+        max_title_len = R68_TITLE_MAX_CHARS if is_v8 else (TITLE_MAX_CHARS_DIORAMA if is_diorama else 60)
         clean_title = strip_internal_pipeline_tokens(title).strip()
+        if is_v8:
+            clean_title = re.sub(r"#\w+", "", clean_title).strip()
         if len(clean_title) > max_title_len:
-            clean_title = clean_title[: max_title_len - 3] + "..."
+            clean_title = clean_title[: max_title_len - 3].rstrip() + "..."
 
         raw_doi = (doi or "").strip()
         doi_url = (
@@ -692,13 +778,19 @@ class PublishStage:
             vp_data.get("description_template")
             or scr_data.get("description_template")
         )
+        eff_hashtags: list[str] = [] if is_v8 else list((hashtags or [])[:5])
+        omit_nicknames = [
+            str(x).strip()
+            for x in (scr_data.get("omit_experiment_nicknames") or vp_data.get("omit_experiment_nicknames") or [])
+            if str(x).strip()
+        ]
 
-        metadata = {
+        metadata: dict[str, Any] = {
             "title": clean_title,
             "title_char_count": len(clean_title),
             "doi": raw_doi,
             "doi_url": doi_url,
-            "hashtags": hashtags[:5],
+            "hashtags": eff_hashtags,
             "category": DEFAULT_VIDEO_CATEGORY,
             "language": VIDEO_LANGUAGE_CODE,
             "profile": resolved_profile,
@@ -721,12 +813,25 @@ class PublishStage:
                 title=clean_title,
                 doi_or_url=doi_url or raw_doi,
                 source_summary=source_summary,
-                hashtags=hashtags[:5],
+                hashtags=eff_hashtags,
                 companion_block=companion_block,
                 template_id=str(desc_template) if desc_template else None,
                 seed=desc_seed,
+                zero_hashtags=is_v8,
+                omit_nicknames=omit_nicknames if is_v8 else None,
             ),
         }
+        if is_v8:
+            metadata["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
+            metadata["pinned_comment"] = build_expressive_v8_pinned_comment(
+                doi=doi_url or raw_doi,
+                debate_question=str(scr_data.get("debate_question") or vp_data.get("debate_question") or ""),
+                cameo_prompt=str(
+                    scr_data.get("cameo_prompt")
+                    or vp_data.get("cameo_prompt")
+                    or "Did you spot the 4cm Mini-Cortex hiding in the room?"
+                ),
+            )
 
         # Resolve question hook from ideation/scripting if available
         question_hook = None
@@ -819,6 +924,9 @@ class PublishStage:
         self.storage.record_artifact("06_publish", "thumbnail_var_C.png", variants["C"])
         self.storage.save_json("06_publish", "ab_test_manifest.json", ab_manifest)
         self.storage.save_json("06_publish", "metadata.json", metadata)
+        pinned_txt = str(metadata.get("pinned_comment") or "").strip()
+        if pinned_txt:
+            self.storage.save_text("06_publish", "pinned_comment.txt", pinned_txt + "\n")
 
         thumb_rep_doc = self.storage.load_json("06_publish", "thumbnail_report.json") or {}
         cover_sec = thumb_rep_doc.get("cover_frame_sec")

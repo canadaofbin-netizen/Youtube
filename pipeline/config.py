@@ -106,6 +106,10 @@ FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID = "beluga_display"
 FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT = 4                    # x4 free candidate images per prompt in Flow Image mode
 FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS = 4               # Optimal 0-credit concurrent video render ceiling across Flow tabs/outputs
 FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH = 4                      # Up to x4 free candidate videos per prompt when active_tabs * batch <= 4
+FLOW_ZERO_CREDIT_SAFE_PARALLEL_TABS = 2                   # Default safe 0-credit parallel tab cap to prevent 'unusual activity' lockouts
+FLOW_ZERO_CREDIT_SUBMIT_JITTER_SEC: tuple[float, float] = (14.0, 22.0)  # Jittered inter-submit spacing across 0-credit tabs
+FLOW_ZERO_CREDIT_PENALTY_QUIET_SEC = 75.0                 # Immediate cross-tab quiet window on first 'unusual activity' signal
+FLOW_ZERO_CREDIT_RECOVERY_STREAK = 3                      # Consecutive clean 0-credit renders required to step back up from 1 -> 2 tabs
 REENACT_IMAGE_BACKENDS: tuple[str, ...] = ("flow",)
 DEFAULT_REENACT_IMAGE_BACKEND = "flow"                    # Locked: native Google Flow 0-credit x4 Image mode only
 FLOW_OMNI_CREDIT_COST_NO_REF = 12                         # Omni 1.1 Flash credit cost without ingredient chip
@@ -630,10 +634,145 @@ TITLE_MAX_CHARS_DIORAMA = 95                   # Under YouTube 100-char limit; r
 # Prompt & Assembly System v7 — Full-Bleed Low-Poly Pastel Architecture (R63)
 # ==============================================================================
 PROMPT_SCHEMA_VERSION_V7 = 7
+PROMPT_SCHEMA_VERSION_V8 = 8
 DIORAMA_V7_STYLE_PROFILE = "lowpoly_pastel_v7"
 PORCELAIN_V7_STYLE_PROFILE = "porcelain_cinematic_v7"
+EXPRESSIVE_25D_V8_STYLE_PROFILE = "expressive_25d_v8"
 DIORAMA_V7_STYLE_PROFILES: tuple[str, ...] = (DIORAMA_V7_STYLE_PROFILE, PORCELAIN_V7_STYLE_PROFILE)
+ALL_DIORAMA_STYLE_PROFILES: tuple[str, ...] = (
+    DIORAMA_V7_STYLE_PROFILE,
+    PORCELAIN_V7_STYLE_PROFILE,
+    EXPRESSIVE_25D_V8_STYLE_PROFILE,
+)
 DEFAULT_DIORAMA_STYLE_PROFILE = PORCELAIN_V7_STYLE_PROFILE
+
+EXPRESSIVE_V8_WORLD_STYLE = "stylized 3D cinematic miniature diorama studio world with crisp architectural textures"
+EXPRESSIVE_V8_CAST_STYLE = (
+    "clothed 2.5D matte cream-white vinyl art-toy figures with smooth earless hairless noseless oval heads, "
+    "bold charcoal-black 2D cartoon ink eyebrows eyes and mouths, and four-fingered matte-white vinyl hands"
+)
+EXPRESSIVE_V8_OPTICS_LOCK = "crisp cinema prime lens clarity with tactile 3D fabric weave and warm studio key-and-rim lighting"
+EXPRESSIVE_V8_BRAIN_XRAY_STYLE = (
+    "golden forehead ring seam opens into a crystal-clear glass dome revealing a 4-color glowing 3D brain "
+    "(electric cyan-blue, warm amber-gold, crimson-red, calm pearl-aqua)"
+)
+EXPRESSIVE_V8_CAMEO_MINICORTEX_STYLE = (
+    "tiny 4cm glowing 4-color translucent vinyl Mini-Cortex mascot figurine tucked subtly on a background shelf, "
+    "nightstand, timer box, or mug rim"
+)
+EXPRESSIVE_V8_REFS_DIRNAME = "expressive_25d_v8_refs"
+EXPRESSIVE_V8_SPECIES_SHEET_FILENAME = "species_opt1_sheet.png"
+EXPRESSIVE_V8_CAMEO_SHEET_FILENAME = "cameo_opt3_sheet.png"
+EXPRESSIVE_V8_CAST_SHEET_FILENAMES: tuple[str, ...] = (
+    "cast_sheet_01_core_6roles.png",
+    "cast_sheet_02_clinical_historical_6roles.png",
+    "cast_sheet_03_everyday_lifestyle_6roles.png",
+)
+EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE = 4
+EXPRESSIVE_V8_OPENING_QUESTION_MAX_WORDS = 14
+EXPRESSIVE_V8_OPENING_EMPATHY_MAX_WORDS = 10
+EXPRESSIVE_V8_OPENING_QUESTION_STARTERS: tuple[str, ...] = (
+    "ever ",
+    "why do you",
+    "why does your",
+    "have you",
+    "do you",
+    "what if you",
+    "what if your",
+    "how come you",
+)
+EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC = 15.0
+EXPRESSIVE_V8_BRAIN_REVEAL_WINDOW_FRAC: tuple[float, float] = (0.45, 0.85)
+EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC: tuple[float, float] = (0.40, 0.90)
+EXPRESSIVE_V8_MAX_MYTH_FLIPS = 1
+EXPRESSIVE_V8_ADVISORY_PIVOT_MARKERS = True
+EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE = 1
+EXPRESSIVE_V8_VISUAL_GRAMMARS: tuple[str, ...] = (
+    "expressive_vinyl_world",
+    "expressive_hands_closeup",
+    "expressive_pov_hands",
+    "expressive_xray_brain",
+    "expressive_literal_analogy",
+    "expressive_cameo_world",
+    "expressive_split_contrast",
+)
+EXPRESSIVE_V8_TRANSITION_TYPES: tuple[str, ...] = (
+    "daisy_chain_bridge",
+    "occlusion_wipe",
+    "action_impact_cut",
+    "dissolve_6f",
+    "match_cut_bridge",
+    "split_screen_wipe",
+    "portal_crash_zoom_10f",
+    "whip_pan_blur_8f",
+    "dissolve_8f",
+)
+EXPRESSIVE_V8_VIDEO_FPS = 30
+EXPRESSIVE_V8_MIN_CUT_SEC = 1.20
+EXPRESSIVE_V8_MAX_CUT_SEC = 7.80
+EXPRESSIVE_V8_AVG_CUT_MIN_SEC = 2.00
+EXPRESSIVE_V8_AVG_CUT_MAX_SEC = 5.80
+EXPRESSIVE_V8_CUT_CV_MIN = 0.18
+EXPRESSIVE_V8_DISSOLVE_FRAMES = 6
+EXPRESSIVE_V8_DISSOLVE_8_FRAMES = 8
+EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES = 10
+EXPRESSIVE_V8_WHIP_PAN_FRAMES = 8
+EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS = 4
+EXPRESSIVE_V8_MAX_OVERLAP_FRAMES = 10
+EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES = 6
+EXPRESSIVE_V8_DISSOLVE_SEC = 0.25
+EXPRESSIVE_V8_MAX_HARD_JUMP_CUTS = 1
+EXPRESSIVE_V8_OUTRO_TAIL_SEC = 0.20
+EXPRESSIVE_V8_OUTRO_TAIL_RANGE_SEC: tuple[float, float] = (0.16, 0.25)
+EXPRESSIVE_V8_SUBTITLE_FONT_SIZE = 102
+EXPRESSIVE_V8_SUBTITLE_OUTLINE_WIDTH = 6.0
+EXPRESSIVE_V8_SUBTITLE_SHADOW_DEPTH = 0.0
+EXPRESSIVE_V8_SUBTITLE_MARGIN_V = 521
+EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_HEX = "#FFE600"
+EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_ASS_BGR = "&H00E6FF&"
+EXPRESSIVE_V8_AMBIENCE_DBFS = -30.0
+EXPRESSIVE_V8_ROOM_AMBIENCE_DBFS = EXPRESSIVE_V8_AMBIENCE_DBFS
+EXPRESSIVE_V8_BGM_START_DBFS = -30.0
+EXPRESSIVE_V8_BGM_PEAK_DBFS = -23.0
+EXPRESSIVE_V8_BGM_TAIL_DBFS = -29.5
+EXPRESSIVE_V8_FOLEY_PEAK_DBFS = -14.5
+EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC: tuple[float, float] = (0.32, 0.50)
+EXPRESSIVE_V8_TARGET_LUFS = -14.0
+EXPRESSIVE_V8_TRUE_PEAK_MAX_DBTP = -1.5
+EXPRESSIVE_V8_VOICED_RATIO_MIN = 0.72
+EXPRESSIVE_V8_WPM_TARGET_RANGE: tuple[float, float] = (190.0, 210.0)
+EXPRESSIVE_V8_WPM_ALLOWED_RANGE: tuple[float, float] = (175.0, 225.0)
+EXPRESSIVE_V8_PROSODY_MODE = "expressive_us_v8"
+EXPRESSIVE_V8_PROSODY_BASE_RATE = "+10%"
+EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC = 0.020
+EXPRESSIVE_V8_FIRST_ONSET_TARGET_SEC = 0.0
+EXPRESSIVE_V8_PROSODY_GEAR_RATES: dict[str, str] = {
+    "rush": "+14%",
+    "brisk": "+10%",
+    "stamp": "+4%",
+}
+EXPRESSIVE_V8_PROSODY_GEARS: dict[str, dict[str, float]] = {
+    "rush": {"tempo": 1.14, "trim_thresh": 0.06, "trim_keep": 0.02, "gap_before": 0.32},
+    "brisk": {"tempo": 1.10, "trim_thresh": 0.10, "trim_keep": 0.035, "gap_before": 0.36},
+    "stamp": {"tempo": 1.04, "trim_thresh": 0.14, "trim_keep": 0.05, "gap_before": 0.45},
+}
+EXPRESSIVE_V8_VOICE_PRESET = "emma_v7"
+EXPRESSIVE_V8_FOIL_VOICE_PRESET = "foil_v8"
+EXPRESSIVE_V8_FOIL_SENTENCE_RANGE: tuple[int, int] = (0, 0)
+EXPRESSIVE_V8_REQUIRE_FOIL = False
+EXPRESSIVE_V8_FOLEY_TYPES: tuple[str, ...] = (
+    "thud",
+    "whoosh",
+    "click",
+    "pop",
+    "crystal_shimmer",
+    "heartbeat_thump",
+)
+R68_TITLE_WORD_RANGE: tuple[int, int] = (4, 8)
+R68_TITLE_MIN_WORDS, R68_TITLE_MAX_WORDS = R68_TITLE_WORD_RANGE
+R68_TITLE_MAX_CHARS = 55
+R68_DESCRIPTION_HASHTAG_COUNT = 0
+R68_DESCRIPTION_HASHTAG_MAX = R68_DESCRIPTION_HASHTAG_COUNT
 
 PORCELAIN_V7_WORLD_STYLE = "photorealistic bright high-key documentary studio world"
 PORCELAIN_V7_CAST_STYLE = (
@@ -681,7 +820,9 @@ DIORAMA_V7_VISUAL_GRAMMARS: tuple[str, ...] = (
     "lowpoly_literal_analogy",
     "lowpoly_matte_brain",
 )
-ALL_DIORAMA_V7_VISUAL_GRAMMARS: tuple[str, ...] = DIORAMA_V7_VISUAL_GRAMMARS + PORCELAIN_V7_VISUAL_GRAMMARS
+ALL_DIORAMA_V7_VISUAL_GRAMMARS: tuple[str, ...] = (
+    DIORAMA_V7_VISUAL_GRAMMARS + PORCELAIN_V7_VISUAL_GRAMMARS + EXPRESSIVE_V8_VISUAL_GRAMMARS
+)
 DIORAMA_V7_CAMERA_MOVES: tuple[str, ...] = (
     "locked_tripod",
     "pan_left",
@@ -726,6 +867,15 @@ STORYTELLER_VOCAL_FILTER_FEMALE = (
     "equalizer=f=7200:t=q:w=1.6:g=-2.0,"
     "acompressor=threshold=-20dB:ratio=1.25:attack=18:release=180:makeup=1"
 )
+STORYTELLER_VOCAL_FILTER_EXPRESSIVE_V8 = (
+    "aresample=48000:resampler=soxr:precision=28,"
+    "highpass=f=88:poles=2,"
+    "equalizer=f=145:t=q:w=1.05:g=3.2,"
+    "equalizer=f=360:t=q:w=1.4:g=-1.5,"
+    "equalizer=f=3150:t=q:w=1.15:g=1.8,"
+    "equalizer=f=6400:t=q:w=1.3:g=-1.6,"
+    "acompressor=threshold=-19dB:ratio=1.35:attack=14:release=150:makeup=1.2"
+)
 DIORAMA_VOICE_PRESETS: dict[str, dict[str, str]] = {
     "andrew_v7": {
         "voice": "en-US-AndrewMultilingualNeural",
@@ -735,6 +885,15 @@ DIORAMA_VOICE_PRESETS: dict[str, dict[str, str]] = {
         "eq_profile": "male_studio",
         "kokoro_voice": "am_fenrir",
         "flow_voice_anchor": "Voice: Consistent deep male baritone documentary narrator.",
+    },
+    "andrew_v8": {
+        "voice": "en-US-AndrewMultilingualNeural",
+        "gender": "male",
+        "pitch": "+16Hz",
+        "volume": "-8%",
+        "eq_profile": "male_expressive_v8",
+        "kokoro_voice": "am_fenrir",
+        "flow_voice_anchor": "Voice: High-tension young American male thriller storyteller.",
     },
     "emma_v7": {
         "voice": "en-US-EmmaMultilingualNeural",
@@ -772,6 +931,24 @@ DIORAMA_VOICE_PRESETS: dict[str, dict[str, str]] = {
         "kokoro_voice": "am_michael",
         "flow_voice_anchor": "Voice: Measured, authoritative American male documentary narrator.",
     },
+    "foil_v8": {
+        "voice": "en-US-SteffanNeural",
+        "gender": "male",
+        "pitch": "-3Hz",
+        "volume": "-8%",
+        "eq_profile": "male_expressive_v8",
+        "kokoro_voice": "am_michael",
+        "flow_voice_anchor": "Voice: Sharp, contrasting American male foil character voice.",
+    },
+    "guy_foil_v8": {
+        "voice": "en-US-GuyNeural",
+        "gender": "male",
+        "pitch": "+4Hz",
+        "volume": "-8%",
+        "eq_profile": "male_expressive_v8",
+        "kokoro_voice": "am_michael",
+        "flow_voice_anchor": "Voice: Skeptical American male secondary character voice.",
+    },
 }
 DEFAULT_DIORAMA_VOICE_PRESET = "emma_v7"
 DEFAULT_REENACTMENT_VOICE_PRESET = "emma_v7"
@@ -783,8 +960,14 @@ DIORAMA_V7_INTER_SENTENCE_PAUSE_SEC = 0.15
 DIORAMA_V7_ACT_BOUNDARY_PAUSE_SEC = 0.32
 DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN = 0.80  # Natural human-breath RMS voiced density floor (>= 80%, blocks dead air)
 
-# --- Sentence-level Prosody Engine (rush / stamp / brisk gears, R63-P & US 45+ dynamic_us_v7) ---
-DIORAMA_V7_PROSODY_MODES: tuple[str, ...] = ("uniform_108x", "uniform_110x", "dynamic_rush_v7", "dynamic_us_v7")
+# --- Sentence-level Prosody Engine (rush / stamp / brisk gears, R63-P & US 45+ dynamic_us_v7 / expressive_us_v8) ---
+DIORAMA_V7_PROSODY_MODES: tuple[str, ...] = (
+    "uniform_108x",
+    "uniform_110x",
+    "dynamic_rush_v7",
+    "dynamic_us_v7",
+    "expressive_us_v8",
+)
 DIORAMA_V7_PROSODY_MODE = "dynamic_us_v7"       # Channel default (US 45+ ear-first dynamic_us_v7); legacy Public 01..07 preserve dynamic_rush_v7
 DIORAMA_V7_US_PROSODY_MODE = "dynamic_us_v7"   # US 45+ ear-first documentary prosody (~162-174 WPM: rush +10% / brisk +7% / stamp +4%)
 DIORAMA_V7_PROSODY_BASE_RATE = "+8%"           # dynamic_rush_v7 synthesizes once at the approved +8% Silk Clean timbre
@@ -950,10 +1133,16 @@ MICRO_SHORT_CUT_COUNT_MAX = 16
 MICRO_SHORT_CUT_MIN = MICRO_SHORT_CUT_COUNT_MIN
 MICRO_SHORT_CUT_MAX = MICRO_SHORT_CUT_COUNT_MAX
 
-# 90s (`1분 30초`) Shorts Default Profile (<30m end-to-end production target)
+# 90s (`1분 30초`) Shorts Default Profile (<30m end-to-end production target) & Expressive 2.5D v8 Profile
 SHORTS_90S_PROFILE = "shorts_90s_v7"
+SHORTS_EXPRESSIVE_V8_PROFILE = "shorts_expressive_v8"
 SHORTS_180S_PROFILE = "shorts_180s_v7"
-SHORTS_FORMAT_PROFILES: tuple[str, ...] = (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_180S_PROFILE)
+SHORTS_FORMAT_PROFILES: tuple[str, ...] = (
+    MICRO_SHORT_PROFILE,
+    SHORTS_90S_PROFILE,
+    SHORTS_EXPRESSIVE_V8_PROFILE,
+    SHORTS_180S_PROFILE,
+)
 DEFAULT_SHORTS_FORMAT_PROFILE = SHORTS_90S_PROFILE
 SHORTS_90S_DURATION_MIN_SEC = 75.0
 SHORTS_90S_DURATION_TARGET_SEC = 90.0
@@ -967,6 +1156,32 @@ SHORTS_90S_CLIP_COUNT_DEFAULT = 28
 SHORTS_90S_CLIP_COUNT_MAX = 32
 SHORTS_90S_CUT_COUNT_MIN = 24
 SHORTS_90S_CUT_COUNT_MAX = 36
+
+SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC = 55.0
+SHORTS_EXPRESSIVE_V8_DURATION_TARGET_RANGE_SEC: tuple[float, float] = (58.0, 88.0)
+SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC = 89.5
+SHORTS_EXPRESSIVE_V8_HARD_CEILING_SEC = 90.0
+SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN = 160
+SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX = 240
+SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MIN = 12
+SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_TARGET: tuple[int, int] = (13, 15)
+SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MAX = 28
+SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX = 22
+SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN = 14
+SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT = 18
+SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX = 26
+SHORTS_EXPRESSIVE_V8_CUT_COUNT_MIN = 14
+SHORTS_EXPRESSIVE_V8_CUT_COUNT_MAX = 28
+EXPRESSIVE_V8_CLIP_COUNT_MIN = SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN
+EXPRESSIVE_V8_CLIP_COUNT_MAX = SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX
+EXPRESSIVE_V8_CLIP_COUNT_RANGE: tuple[int, int] = (
+    SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN,
+    SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX,
+)
+EXPRESSIVE_V8_CAMERA_MOVES: tuple[str, ...] = DIORAMA_V7_CAMERA_MOVES + (
+    "dolly_zoom_vertigo",
+    "whip_pan_occlusion",
+)
 
 CHANNEL_HANDLE = "@AllAboutBrainOfficial"
 LONGFORM_DEFERRED = True                        # Deferred until the new 90s Shorts concept succeeds (override: --allow-deferred-longform / AAB_ALLOW_DEFERRED_LONGFORM=1)
@@ -1116,11 +1331,13 @@ def _parse_schema_version_int(profile_or_plan: dict[str, Any]) -> int:
 
 def extract_explicit_v7_style_profile(profile_or_plan: Any) -> str | None:
     """
-    Returns an explicit style marker (`'porcelain_cinematic_v7'`, `'lowpoly_pastel_v7'`, `'dark_ceramic_v6'`, `'classic_v5'`)
+    Returns an explicit style marker (`'expressive_25d_v8'`, `'porcelain_cinematic_v7'`, `'lowpoly_pastel_v7'`, `'dark_ceramic_v6'`, `'classic_v5'`)
     when `profile_or_plan` carries an explicit style/shader/grammar signal, or `None` when untagged.
     """
     if isinstance(profile_or_plan, str):
         s_norm = profile_or_plan.strip().lower()
+        if s_norm in (EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", SHORTS_EXPRESSIVE_V8_PROFILE, "diorama_v8", "v8"):
+            return EXPRESSIVE_25D_V8_STYLE_PROFILE
         if s_norm in (PORCELAIN_V7_STYLE_PROFILE, "porcelain_v7"):
             return PORCELAIN_V7_STYLE_PROFILE
         if s_norm == DIORAMA_V7_STYLE_PROFILE:
@@ -1129,8 +1346,12 @@ def extract_explicit_v7_style_profile(profile_or_plan: Any) -> str | None:
             return "dark_ceramic_v6" if "v6" in s_norm else "classic_v5"
         return None
     if isinstance(profile_or_plan, dict):
-        for key in ("style_profile", "profile", "production_profile"):
+        if _parse_schema_version_int(profile_or_plan) >= PROMPT_SCHEMA_VERSION_V8:
+            return EXPRESSIVE_25D_V8_STYLE_PROFILE
+        for key in ("style_profile", "profile", "production_profile", "shorts_format_profile", "format_profile"):
             sp = str(profile_or_plan.get(key) or "").strip().lower()
+            if sp in (EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", SHORTS_EXPRESSIVE_V8_PROFILE, "diorama_v8", "v8"):
+                return EXPRESSIVE_25D_V8_STYLE_PROFILE
             if sp in (PORCELAIN_V7_STYLE_PROFILE, "porcelain_v7"):
                 return PORCELAIN_V7_STYLE_PROFILE
             if sp == DIORAMA_V7_STYLE_PROFILE:
@@ -1140,11 +1361,15 @@ def extract_explicit_v7_style_profile(profile_or_plan: Any) -> str | None:
             if sp == "classic_v5":
                 return "classic_v5"
         shader_low = str(profile_or_plan.get("shader_style") or "").lower()
+        if "vinyl" in shader_low or "2.5d" in shader_low:
+            return EXPRESSIVE_25D_V8_STYLE_PROFILE
         if "low-poly" in shader_low or "low poly" in shader_low:
             return DIORAMA_V7_STYLE_PROFILE
         if "porcelain" in shader_low:
             return PORCELAIN_V7_STYLE_PROFILE
         g_single = str(profile_or_plan.get("grammar") or profile_or_plan.get("visual_grammar") or "").strip().lower()
+        if g_single in EXPRESSIVE_V8_VISUAL_GRAMMARS or g_single.startswith("expressive_"):
+            return EXPRESSIVE_25D_V8_STYLE_PROFILE
         if g_single in PORCELAIN_V7_VISUAL_GRAMMARS or g_single.startswith("porcelain_"):
             return PORCELAIN_V7_STYLE_PROFILE
         if g_single in DIORAMA_V7_VISUAL_GRAMMARS or g_single.startswith("lowpoly_"):
@@ -1157,11 +1382,15 @@ def extract_explicit_v7_style_profile(profile_or_plan: Any) -> str | None:
                 for c in items:
                     if isinstance(c, dict):
                         c_sp = str(c.get("style_profile") or "").strip().lower()
+                        if c_sp in (EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8"):
+                            return EXPRESSIVE_25D_V8_STYLE_PROFILE
                         if c_sp in (PORCELAIN_V7_STYLE_PROFILE, "porcelain_v7"):
                             return PORCELAIN_V7_STYLE_PROFILE
                         if c_sp == DIORAMA_V7_STYLE_PROFILE:
                             return DIORAMA_V7_STYLE_PROFILE
                         cg = str(c.get("grammar") or c.get("visual_grammar") or "").strip().lower()
+                        if cg in EXPRESSIVE_V8_VISUAL_GRAMMARS or cg.startswith("expressive_"):
+                            return EXPRESSIVE_25D_V8_STYLE_PROFILE
                         if cg in PORCELAIN_V7_VISUAL_GRAMMARS or cg.startswith("porcelain_"):
                             return PORCELAIN_V7_STYLE_PROFILE
                         if cg in DIORAMA_V7_VISUAL_GRAMMARS or cg.startswith("lowpoly_"):
@@ -1176,32 +1405,57 @@ def _has_v7_schema_signal(profile_or_plan: Any) -> bool:
         return profile_or_plan.strip().lower() in (
             "neuro_diorama_v7",
             "diorama_v7",
+            "diorama_v8",
             DIORAMA_V7_STYLE_PROFILE,
             PORCELAIN_V7_STYLE_PROFILE,
+            EXPRESSIVE_25D_V8_STYLE_PROFILE,
+            SHORTS_EXPRESSIVE_V8_PROFILE,
+            "expressive_v8",
             "porcelain_v7",
             "v7",
+            "v8",
         )
     if isinstance(profile_or_plan, dict):
         if _parse_schema_version_int(profile_or_plan) >= PROMPT_SCHEMA_VERSION_V7:
             return True
         if str(profile_or_plan.get("style_profile") or "").strip().lower() in (
-            *DIORAMA_V7_STYLE_PROFILES,
+            *ALL_DIORAMA_STYLE_PROFILES,
+            "expressive_v8",
             "porcelain_v7",
         ):
             return True
-        prof = str(profile_or_plan.get("profile") or profile_or_plan.get("production_profile") or "").strip().lower()
+        prof = str(
+            profile_or_plan.get("profile")
+            or profile_or_plan.get("production_profile")
+            or profile_or_plan.get("shorts_format_profile")
+            or ""
+        ).strip().lower()
         if prof in (
             "neuro_diorama_v7",
             "diorama_v7",
+            "diorama_v8",
             DIORAMA_V7_STYLE_PROFILE,
             PORCELAIN_V7_STYLE_PROFILE,
+            EXPRESSIVE_25D_V8_STYLE_PROFILE,
+            SHORTS_EXPRESSIVE_V8_PROFILE,
+            "expressive_v8",
             "porcelain_v7",
             "v7",
+            "v8",
         ):
             return True
         explicit = extract_explicit_v7_style_profile(profile_or_plan)
-        if explicit in DIORAMA_V7_STYLE_PROFILES:
+        if explicit in ALL_DIORAMA_STYLE_PROFILES:
             return True
+    return False
+
+
+def is_expressive_v8_plan(*plans_or_profiles: Any) -> bool:
+    """True when candidate profile string(s) or visual_plan/EDL/script/clip dict(s) select `expressive_25d_v8`."""
+    for item in plans_or_profiles:
+        explicit = extract_explicit_v7_style_profile(item)
+        if explicit is not None:
+            return explicit == EXPRESSIVE_25D_V8_STYLE_PROFILE
     return False
 
 
@@ -1221,22 +1475,24 @@ def is_porcelain_v7_plan(*plans_or_profiles: Any) -> bool:
 
 
 def is_diorama_v7_plan(profile_or_plan: Any) -> bool:
-    """True when a profile string or visual_plan/script dict selects Schema v7 (`porcelain_cinematic_v7` or `lowpoly_pastel_v7`)."""
+    """True when a profile string or visual_plan/script dict selects Schema v7/v8 (`porcelain_cinematic_v7`, `lowpoly_pastel_v7`, or `expressive_25d_v8`)."""
     return _has_v7_schema_signal(profile_or_plan)
 
 
 def resolve_diorama_v7_style_profile(*plans_or_profiles: Any, fallback: str | None = None) -> str:
     """
-    Resolves the canonical Schema v7 style profile (`porcelain_cinematic_v7` vs legacy `lowpoly_pastel_v7`).
+    Resolves the canonical diorama style profile (`expressive_25d_v8`, `porcelain_cinematic_v7`, vs legacy `lowpoly_pastel_v7`).
     Checks explicit style/grammar markers across `plans_or_profiles` in priority order first, then `fallback`,
     and finally `DEFAULT_DIORAMA_STYLE_PROFILE`.
     """
     for item in plans_or_profiles:
         explicit = extract_explicit_v7_style_profile(item)
-        if explicit in DIORAMA_V7_STYLE_PROFILES:
+        if explicit in ALL_DIORAMA_STYLE_PROFILES:
             return explicit
     if fallback:
         fb_norm = str(fallback).strip().lower()
+        if fb_norm in (EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", SHORTS_EXPRESSIVE_V8_PROFILE, "v8"):
+            return EXPRESSIVE_25D_V8_STYLE_PROFILE
         if fb_norm in (PORCELAIN_V7_STYLE_PROFILE, "porcelain_v7"):
             return PORCELAIN_V7_STYLE_PROFILE
         if fb_norm == DIORAMA_V7_STYLE_PROFILE:
@@ -1245,7 +1501,7 @@ def resolve_diorama_v7_style_profile(*plans_or_profiles: Any, fallback: str | No
 
 
 def is_diorama_profile(profile_or_plan: Any) -> bool:
-    """True when a profile string, manifest dict, or visual_plan dict selects Schema v6 or v7 neuro_diorama."""
+    """True when a profile string, manifest dict, or visual_plan dict selects Schema v6, v7, or v8 neuro_diorama."""
     if is_diorama_v7_plan(profile_or_plan):
         return True
     if isinstance(profile_or_plan, str):
@@ -1254,6 +1510,7 @@ def is_diorama_profile(profile_or_plan: Any) -> bool:
             "diorama_v6",
             "v6",
             SHORTS_90S_PROFILE,
+            SHORTS_EXPRESSIVE_V8_PROFILE,
             SHORTS_180S_PROFILE,
         )
     if isinstance(profile_or_plan, dict):
@@ -1265,7 +1522,14 @@ def is_diorama_profile(profile_or_plan: Any) -> bool:
             or profile_or_plan.get("shorts_format_profile")
             or ""
         ).strip().lower()
-        return prof in ("neuro_diorama", "diorama_v6", "v6", SHORTS_90S_PROFILE, SHORTS_180S_PROFILE)
+        return prof in (
+            "neuro_diorama",
+            "diorama_v6",
+            "v6",
+            SHORTS_90S_PROFILE,
+            SHORTS_EXPRESSIVE_V8_PROFILE,
+            SHORTS_180S_PROFILE,
+        )
     return False
 
 
@@ -1278,6 +1542,7 @@ def resolve_shorts_format_profile(
     """
     Resolves the active Shorts duration/clip format contract:
       - `'micro_short_v7'` (`35-45s`, `14-16` cuts)
+      - `'shorts_expressive_v8'` (`55-89.5s`, target `58-88s`, `14-26` clips, default `18`)
       - `'shorts_90s_v7'` (`75-105s`, target `90s` / `1분 30초`, `24-32` clips, default `28`) — **active default**
       - `'shorts_180s_v7'` (`140-179s`, `45-52` clips, default `48`) — preserved for frozen/legacy 3m episodes
     """
@@ -1310,6 +1575,8 @@ def resolve_shorts_format_profile(
     for item in candidates:
         if isinstance(item, str):
             tok = item.strip().lower()
+            if tok in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "diorama_v8", "v8"):
+                return SHORTS_EXPRESSIVE_V8_PROFILE
             if tok in (MICRO_SHORT_PROFILE, "micro_short", "45s"):
                 return MICRO_SHORT_PROFILE
             if tok in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
@@ -1317,8 +1584,12 @@ def resolve_shorts_format_profile(
             if tok in (SHORTS_180S_PROFILE, "shorts_180s", "180s", "long_short_v7"):
                 return SHORTS_180S_PROFILE
         elif isinstance(item, dict):
-            for key in ("shorts_format_profile", "format_profile", "duration_profile", "profile", "production_profile"):
+            if extract_explicit_v7_style_profile(item) == EXPRESSIVE_25D_V8_STYLE_PROFILE:
+                return SHORTS_EXPRESSIVE_V8_PROFILE
+            for key in ("shorts_format_profile", "format_profile", "duration_profile", "style_profile", "profile", "production_profile"):
                 tok = str(item.get(key) or "").strip().lower()
+                if tok in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "diorama_v8", "v8"):
+                    return SHORTS_EXPRESSIVE_V8_PROFILE
                 if tok in (MICRO_SHORT_PROFILE, "micro_short", "45s"):
                     return MICRO_SHORT_PROFILE
                 if tok in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
@@ -1381,14 +1652,24 @@ def resolve_shorts_format_profile(
             if isinstance(dur_t, (int, float)) and float(dur_t) >= 130.0:
                 return SHORTS_180S_PROFILE
 
+    for item in candidates:
+        if isinstance(item, dict):
+            exp_v7_prof = extract_explicit_v7_style_profile(item)
+            if exp_v7_prof in (PORCELAIN_V7_STYLE_PROFILE, "lowpoly_pastel_v7"):
+                return SHORTS_90S_PROFILE
+            if _parse_schema_version_int(item) == PROMPT_SCHEMA_VERSION_V7:
+                return SHORTS_90S_PROFILE
+
     return DEFAULT_SHORTS_FORMAT_PROFILE
 
 
 def clip_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_clips, max_clips) for classic_v5, micro_short_v7, shorts_90s_v7, vs neuro_diorama."""
+    """Returns (min_clips, max_clips) for classic_v5, micro_short_v7, shorts_expressive_v8, shorts_90s_v7, vs neuro_diorama."""
     prof_low = str(profile or "").strip().lower()
     if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_CUT_COUNT_MIN, MICRO_SHORT_CUT_COUNT_MAX)
+    if prof_low in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "v8"):
+        return (SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN, SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX)
     if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
         return (SHORTS_90S_CLIP_COUNT_MIN, SHORTS_90S_CLIP_COUNT_MAX)
     if prof_low in (SHORTS_180S_PROFILE, "shorts_180s", "180s"):
@@ -1399,10 +1680,12 @@ def clip_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
 
 
 def shorts_duration_range_for_profile(profile: str | None = None) -> tuple[float, float]:
-    """Returns (min_duration_sec, max_duration_sec) for classic_v5, micro_short_v7, shorts_90s_v7, vs neuro_diorama."""
+    """Returns (min_duration_sec, max_duration_sec) for classic_v5, micro_short_v7, shorts_expressive_v8, shorts_90s_v7, vs neuro_diorama."""
     prof_low = str(profile or "").strip().lower()
     if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_DURATION_MIN_SEC, MICRO_SHORT_DURATION_MAX_SEC)
+    if prof_low in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "v8"):
+        return (SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC, SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC)
     if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
         return (SHORTS_90S_DURATION_MIN_SEC, SHORTS_90S_DURATION_MAX_SEC)
     if is_diorama_profile(profile or ""):
@@ -1411,10 +1694,12 @@ def shorts_duration_range_for_profile(profile: str | None = None) -> tuple[float
 
 
 def word_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_words, max_words) for classic_v5, micro_short_v7, shorts_90s_v7, vs neuro_diorama."""
+    """Returns (min_words, max_words) for classic_v5, micro_short_v7, shorts_expressive_v8, shorts_90s_v7, vs neuro_diorama."""
     prof_low = str(profile or "").strip().lower()
     if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_WORD_COUNT_MIN, MICRO_SHORT_WORD_COUNT_MAX)
+    if prof_low in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "v8"):
+        return (SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN, SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX)
     if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
         return (SHORTS_90S_WORD_COUNT_MIN, SHORTS_90S_WORD_COUNT_MAX)
     if is_diorama_profile(profile or ""):
@@ -1423,8 +1708,10 @@ def word_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
 
 
 def sentence_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
-    """Returns (min_sentences, max_sentences) for shorts_90s_v7 vs full 180s neuro_diorama."""
+    """Returns (min_sentences, max_sentences) for shorts_expressive_v8, shorts_90s_v7, vs full 180s neuro_diorama."""
     prof_low = str(profile or "").strip().lower()
+    if prof_low in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "v8"):
+        return (SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MIN, SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MAX)
     if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
         return (SHORTS_90S_SENTENCE_COUNT_MIN, SHORTS_90S_SENTENCE_COUNT_MAX)
     return (DIORAMA_SENTENCE_COUNT_MIN, DIORAMA_SENTENCE_COUNT_MAX)
