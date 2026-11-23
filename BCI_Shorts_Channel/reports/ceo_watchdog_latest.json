@@ -1,8 +1,68 @@
 {
-  "checked_at_utc": "2026-11-07T11:44:25.339098+00:00",
+  "checked_at_utc": "2026-11-22T05:59:53.463169+00:00",
   "cdp_connected": true,
-  "studio_video_count": 15,
+  "studio_video_count": 25,
   "studio_videos": [
+    {
+      "vid": "fGxHHP9IuSE",
+      "title": "How Walking Through Doorways Wipes Your Memory",
+      "vis": "Public",
+      "date": "22 Nov 2026\nPublished"
+    },
+    {
+      "vid": "lIvz80VKYPA",
+      "title": "Why Openly Fake Pills Still Cut Pain",
+      "vis": "Public",
+      "date": "21 Nov 2026\nPublished"
+    },
+    {
+      "vid": "w-fCXwKT4LE",
+      "title": "How Sleep Pills Mute Your Brain's Night Wash",
+      "vis": "Public",
+      "date": "20 Nov 2026\nPublished"
+    },
+    {
+      "vid": "tWjrK5enOoM",
+      "title": "Why London Taxi Drivers Grew Bigger Brains",
+      "vis": "Public",
+      "date": "17 Nov 2026\nPublished"
+    },
+    {
+      "vid": "Atd0Pi9HPg4",
+      "title": "Why His Mom Felt Fake Until She Called",
+      "vis": "Public",
+      "date": "16 Nov 2026\nPublished"
+    },
+    {
+      "vid": "K_9IJVShp90",
+      "title": "Why Swap Options Ruin Your Own Choice",
+      "vis": "Public",
+      "date": "15 Nov 2026\nPublished"
+    },
+    {
+      "vid": "sjMteEvcjD0",
+      "title": "How Trying to Fall Asleep Backfires",
+      "vis": "Public",
+      "date": "14 Nov 2026\nPublished"
+    },
+    {
+      "vid": "ut1wde0d19o",
+      "title": "Why a Delayed Robot Can Tickle You",
+      "vis": "Public",
+      "date": "13 Nov 2026\nPublished"
+    },
+    {
+      "vid": "7W8zIOMKPrQ",
+      "title": "Why One Breath Terrified a Fearless Woman",
+      "vis": "Public",
+      "date": "12 Nov 2026\nPublished"
+    },
+    {
+      "vid": "soUNqH7UyKw",
+      "title": "Why Broken Promises Crash Your Self-Control",
+      "vis": "Public",
+      "date": "10 Nov 2026\nPublished"
+    },
     {
       "vid": "jySZ6EL3aYM",
       "title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
@@ -95,33 +155,14 @@
     }
   ],
   "queue_summary": {
-    "completed_inventory": 1,
-    "published_or_live": 0,
-    "v5_ready_unpublished": 1,
-    "staged_in_buffer": 0,
+    "completed_inventory": 24,
+    "published_or_live": 24,
+    "v5_ready_unpublished": 0,
+    "staged_in_buffer": 1,
     "scheduled_slots_count": 1,
-    "vacant_slots_count": 0
+    "vacant_slots_count": 5
   },
-  "hermes_crons": [
-    {
-      "id": "2e725d86049e",
-      "name": "[bot:yt-studio] ALL ABOUT BRAIN Daily YouTube Report (07:00 AM)",
-      "enabled": true,
-      "state": "scheduled",
-      "failure_streak": 0,
-      "last_status": "ok",
-      "next_run_at": "2026-11-08T07:00:00+00:00"
-    },
-    {
-      "id": "7ade40e9b2c3",
-      "name": "50-Video Batch 10-Min Progress Report",
-      "enabled": false,
-      "state": "paused",
-      "failure_streak": 0,
-      "last_status": "ok",
-      "next_run_at": "2026-10-20T22:41:55.734398+00:00"
-    }
-  ],
+  "hermes_crons": [],
   "alerts": [],
   "status": "OK"
 }

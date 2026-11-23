@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern cognitive/fMRI memory study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Why Your Brain Resets at Every Door",
+      "url": "https://www.youtube.com/watch?v=jIIfsq64H3o",
+      "channel": "Humanly Unpacked",
+      "source_id": "SRC_M1",
+      "duration_sec": 435,
+      "timecodes": [
+        {
+          "t": "00:06-00:22",
+          "what": "Opening room-transition framing illustrating an everyday adult walking through an interior doorway and stalling mid-step—anchoring Scene S1's physical threshold pause."
+        },
+        {
+          "t": "00:24-00:48",
+          "what": "Visual breakdown of University of Notre Dame table-to-table object carrying across a single room versus across a doorway boundary (Radvansky et al., 2011)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-00:50 into media/M1/keyframes/.",
+          "Used strictly to inspect pacing and room-threshold framing; staged from scratch via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Doorway Effect",
+      "url": "https://www.youtube.com/watch?v=56SGwPNwV7o",
+      "channel": "ExplainedThis",
+      "source_id": "SRC_M2",
+      "duration_sec": 408,
+      "timecodes": [
+        {
+          "t": "00:15-00:45",
+          "what": "Comparison of virtual-environment versus physical-room doorway trials in Radvansky, Krawietz & Tamplin (2011)."
+        },
+        {
+          "t": "01:10-01:50",
+          "what": "Explanation of the Event Horizon Model and why crossing an architectural boundary archives the prior room's event model."
+        }
+      ],
+      "license_note": "Complementary reference video for pacing and public-science framing; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    }
+  ]
+}

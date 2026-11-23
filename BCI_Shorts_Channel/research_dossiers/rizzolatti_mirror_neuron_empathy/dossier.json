@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "rizzolatti_mirror_neuron_empathy",
   "topic": "Giacomo Rizzolatti, Luciano Fadiga & Gallese (1992-1996): Parma Premotor Area F5 'Mirror Neurons' & Greg Hickok's Critique",
   "pillar": "brain_news",
@@ -40,7 +40,19 @@
     },
     {
       "fact": "Then came the serendipitous shock: while the animal sat completely motionless between trials with zero muscle EMG activity, an experimenter reached out to pick up a raisin from the tray — and the motor neuron's loudspeaker burst into the EXACT same rapid 'pop-pop-pop'.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "sigmoid",
+        "title": "Area F5 Mirror Neuron Firing",
+        "concept": "Goal-Directed Grasp Motor Resonance",
+        "x_label": "Observed Grasp Precision",
+        "y_label": "F5 Firing Rate",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Systematic controls ruled out simple food excitement or generic motion: pushing the food with pliers or miming an empty-handed grasp in midair with no target object failed to fire most F5 mirror neurons — the cell cared specifically about GOAL-DIRECTED hand-to-object action.",
@@ -48,7 +60,17 @@
     },
     {
       "fact": "Remarkably, roughly one-third were 'strictly congruent' (firing ONLY when both watched and executed grasps used a two-finger precision pinch), while two-thirds were 'broadly congruent' (firing for any grasp achieving the same goal).",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Strictly Congruent F5 Cells",
+        "highlighted_k": 1,
+        "total_n": 3,
+        "doi": "10.1007/bf00230027",
+        "source_citation": "di Pellegrino et al. (1992)"
+      }
     },
     {
       "fact": "Later Parma studies (Umiltà 2001; Kohler 2002) showed F5 mirror neurons still fired when the final grasp happened behind an opaque screen (as long as the animal knew an apple was behind it!) OR merely from hearing the dry crunch of a peanut shell cracking in the dark.",
@@ -129,5 +151,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My bet: moods are literally contagious — your motor cortex rehearses someone's tension before they say a word. Whose stress in your life rubs off on you fastest?"
+  "offcenter_creator_bet": "My bet: moods are literally contagious — your motor cortex rehearses someone's tension before they say a word. Whose stress in your life rubs off on you fastest?",
+  "everyday_domain": "sleep",
+  "primary_doi": "10.1007/bf00230027",
+  "three_layer_formula": {
+    "everyday_problem": "Wincing and curling your own toes involuntarily when watching a skateboarder slam a shin on video.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1007/bf00230027",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1007/bf00230027"
+      ],
+      "summary": "G. di Pellegrino, L. Fadiga, L. Fogassi, V. Gallese et al. (1992). Understanding motor events: a neurophysiological study. Experimental Brain Research."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1038/nrn.2016.135",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1038/nrn.2016.135"
+      ],
+      "summary": "G. Rizzolatti, C. Sinigaglia (2016). The mirror mechanism: a basic principle of brain function. Nature Reviews Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Mirror neurons alone explain all human empathy, morality, telepathy, and civilization.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: moods are literally contagious — your motor cortex rehearses someone's tension before they say a word. Whose stress in your life rubs off on you fastest?"
+  }
 }

@@ -52,38 +52,67 @@ class TabLeaseConflictError(RuntimeError):
 
 
 def get_aab_locks_dir() -> Path:
-    """Returns the centralized `/tmp/aab_locks` directory so `/tmp` root stays clean."""
+    """Returns the centralized `/tmp/aab_locks` directory (`0o1777` sticky bit) so `/tmp` root stays clean."""
     override = os.environ.get("AAB_LOCKS_DIR", "").strip()
     root = Path(override) if override else (Path(tempfile.gettempdir()) / "aab_locks")
     root.mkdir(parents=True, exist_ok=True)
-    with contextlib.suppress(OSError):
-        os.chmod(root, 0o777)
+    if os.name != "nt":
+        with contextlib.suppress(OSError):
+            if root.stat().st_uid == os.getuid():
+                os.chmod(root, 0o1777)
     return root
 
 
-def get_cdp_leases_path() -> Path:
+def acquire_shared_flock(lock_path: Path, *, retries: int = 3, backoff_sec: float = 0.04) -> Any:
     """
-    Returns the canonical cross-process CDP tab lease registry path (`/tmp/aab_cdp_leases.json`),
-    respecting `AAB_CDP_LEASES_PATH` (explicit file override) or `AAB_LOCKS_DIR` (hermetic tests).
+    Opens `lock_path` in `a+` mode, ensures `0o666` permissions when owned, and acquires an
+    exclusive `fcntl.flock`. Raises `OSError` on failure — NEVER falls back to unlocked execution.
+    """
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    if _fcntl is None:
+        return open(lock_path, "a+", encoding="utf-8")
+    last_err: OSError | None = None
+    for attempt in range(max(1, int(retries))):
+        fh = None
+        try:
+            fh = open(lock_path, "a+", encoding="utf-8")
+            if os.name != "nt":
+                with contextlib.suppress(OSError):
+                    if lock_path.stat().st_uid == os.getuid():
+                        os.chmod(lock_path, 0o666)
+            _fcntl.flock(fh.fileno(), _fcntl.LOCK_EX)
+            return fh
+        except OSError as exc:
+            last_err = exc
+            if fh is not None:
+                with contextlib.suppress(OSError):
+                    fh.close()
+            if attempt + 1 < max(1, int(retries)):
+                time.sleep(backoff_sec * (attempt + 1))
+    assert last_err is not None
+    raise last_err
+
+
+def get_cdp_leases_path(cdp_port: int = 9222) -> Path:
+    """
+    Returns the canonical cross-process CDP tab lease registry path
+    (`/tmp/aab_locks/aab_cdp_leases_<cdp_port>.json`), respecting `AAB_CDP_LEASES_PATH`
+    (explicit file override) or `AAB_LOCKS_DIR` (hermetic tests).
     """
     explicit = os.environ.get("AAB_CDP_LEASES_PATH", "").strip()
     if explicit:
         p = Path(explicit)
         p.parent.mkdir(parents=True, exist_ok=True)
         return p
-    locks_override = os.environ.get("AAB_LOCKS_DIR", "").strip()
-    if locks_override:
-        p = Path(locks_override) / DEFAULT_CDP_LEASES_FILENAME
-        p.parent.mkdir(parents=True, exist_ok=True)
-        return p
-    return Path(tempfile.gettempdir()) / DEFAULT_CDP_LEASES_FILENAME
+    locks_dir = get_aab_locks_dir()
+    return locks_dir / f"aab_cdp_leases_{int(cdp_port)}.json"
 
 
 def _lease_paths(cdp_port: int = 9222) -> tuple[Path, Path]:
     locks_dir = get_aab_locks_dir()
-    json_path = get_cdp_leases_path()
+    json_path = get_cdp_leases_path(cdp_port=cdp_port)
     return (
-        locks_dir / "aab_cdp_leases.lock",
+        locks_dir / f"aab_cdp_leases_{int(cdp_port)}.lock",
         json_path,
     )
 
@@ -152,28 +181,44 @@ def is_pid_alive(pid: int) -> bool:
 def _locked_lease_registry(cdp_port: int = 9222) -> Iterator[tuple[dict[str, Any], Path]]:
     lock_path, json_path = _lease_paths(cdp_port)
     with _PROC_LOCK:
-        fh = None
-        locked = False
+        fh = acquire_shared_flock(lock_path)
         try:
-            if _fcntl is not None:
-                try:
-                    fh = open(lock_path, "a+", encoding="utf-8")
-                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_EX)
-                    locked = True
-                except OSError:
-                    if fh is not None:
-                        with contextlib.suppress(OSError):
-                            fh.close()
-                        fh = None
             state: dict[str, Any] = {"version": 1, "cdp_port": int(cdp_port), "leases": {}}
             if json_path.exists():
-                with contextlib.suppress(Exception):
-                    loaded = json.loads(json_path.read_text(encoding="utf-8"))
+                raw_size = 0
+                with contextlib.suppress(OSError):
+                    raw_size = json_path.stat().st_size
+                if raw_size > 0:
+                    loaded: Any = None
+                    last_parse_err: Exception | None = None
+                    for r_try in range(3):
+                        try:
+                            txt = json_path.read_text(encoding="utf-8")
+                            if not txt.strip():
+                                loaded = None
+                                break
+                            loaded = json.loads(txt)
+                            last_parse_err = None
+                            break
+                        except Exception as exc:  # noqa: BLE001
+                            last_parse_err = exc
+                            if r_try < 2:
+                                time.sleep(0.03 * (r_try + 1))
+                    if last_parse_err is not None or (
+                        loaded is not None
+                        and (not isinstance(loaded, dict) or not isinstance(loaded.get("leases"), dict))
+                    ):
+                        backup_p = json_path.with_suffix(f".corrupt.{int(time.time())}.json")
+                        with contextlib.suppress(OSError):
+                            os.replace(json_path, backup_p)
+                        raise RuntimeError(
+                            f"Corrupt non-empty CDP lease registry {json_path} (backed up to {backup_p}): {last_parse_err}"
+                        )
                     if isinstance(loaded, dict) and isinstance(loaded.get("leases"), dict):
                         state = loaded
             yield state, json_path
         finally:
-            if locked and fh is not None and _fcntl is not None:
+            if fh is not None and _fcntl is not None:
                 with contextlib.suppress(OSError):
                     _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
             if fh is not None:
@@ -183,6 +228,7 @@ def _locked_lease_registry(cdp_port: int = 9222) -> Iterator[tuple[dict[str, Any
 
 def _write_registry_unlocked(state: dict[str, Any], json_path: Path) -> None:
     state["updated_at"] = round(time.time(), 3)
+    json_path.parent.mkdir(parents=True, exist_ok=True)
     tmp_path = json_path.parent / f".tmp_{os.getpid()}_{threading.get_ident()}_{time.time_ns()}_{json_path.name}"
     try:
         tmp_path.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -190,8 +236,7 @@ def _write_registry_unlocked(state: dict[str, Any], json_path: Path) -> None:
     except OSError:
         with contextlib.suppress(OSError):
             tmp_path.unlink(missing_ok=True)
-        with contextlib.suppress(OSError):
-            json_path.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        raise
 
 
 def _prune_dead_leases_unlocked(
@@ -751,6 +796,32 @@ def _create_target_via_browser_ws(
     }
 
 
+def has_inflight_tab_creations(*, cdp_port: int = 9222, grace_sec: float = 15.0) -> bool:
+    """Returns True if any pipeline worker is actively mid-creation of a new CDP tab within `grace_sec`."""
+    now = time.time()
+    with _locked_lease_registry(cdp_port) as (state, json_path):
+        inflight = state.get("inflight_creations")
+        if not isinstance(inflight, dict) or not inflight:
+            return False
+        dirty = False
+        active_any = False
+        for k, rec in list(inflight.items()):
+            if not isinstance(rec, dict):
+                inflight.pop(k, None)
+                dirty = True
+                continue
+            exp = float(rec.get("expires_at") or (float(rec.get("started_at") or 0.0) + grace_sec))
+            pid_val = int(rec.get("pid") or 0)
+            if now > exp or (pid_val > 0 and not is_pid_alive(pid_val)):
+                inflight.pop(k, None)
+                dirty = True
+            else:
+                active_any = True
+        if dirty:
+            _write_registry_unlocked(state, json_path)
+        return active_any
+
+
 def open_leased_cdp_tab(
     target_url: str,
     *,
@@ -765,37 +836,72 @@ def open_leased_cdp_tab(
     """
     Opens a brand-new CDP tab in the background via `Target.createTarget({"url": ..., "background": True})`
     (falling back to `PUT /json/new?<encoded_url>` only when browser-level WS is unavailable) and
-    immediately registers a `created_by_pipeline=True` lease in `/tmp/aab_cdp_leases.json`.
+    immediately registers a `created_by_pipeline=True` lease in the port-scoped lease registry.
+    Closes the newly created target immediately on any lease acquisition failure so zero tabs leak.
     """
     eff_owner = str(owner_id or make_lease_owner_id(purpose or "cdp_tab")).strip()
-    target = _create_target_via_browser_ws(
-        target_url,
-        cdp_host=cdp_host,
-        cdp_port=cdp_port,
-        background=background,
-        timeout=timeout,
-    )
-    if target is None:
-        encoded_url = urllib.parse.quote(str(target_url), safe="")
-        req = urllib.request.Request(f"http://{cdp_host}:{int(cdp_port)}/json/new?{encoded_url}", method="PUT")
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            target = json.loads(resp.read().decode("utf-8"))
-    tid = str(target.get("id") or "").strip()
-    if not tid:
-        raise RuntimeError(f"CDP tab creation did not return a target id for {target_url!r}: {target}")
-    lease = acquire_tab_lease(
-        tid,
-        owner_id=eff_owner,
-        purpose=purpose or f"open:{target_url[:48]}",
-        cdp_port=cdp_port,
-        ttl_sec=ttl_sec,
-        created_by_pipeline=True,
-        initial_url=target_url,
-    )
-    out = dict(target)
-    out["lease_owner_id"] = lease["owner_id"]
-    out.setdefault("background", bool(background))
-    return out
+    creation_token = f"{os.getpid()}:{uuid.uuid4().hex[:10]}"
+    now_start = time.time()
+    with _locked_lease_registry(cdp_port) as (state, json_path):
+        inflight = state.setdefault("inflight_creations", {})
+        if not isinstance(inflight, dict):
+            inflight = {}
+            state["inflight_creations"] = inflight
+        inflight[creation_token] = {
+            "owner_id": eff_owner,
+            "pid": os.getpid(),
+            "target_url": str(target_url),
+            "started_at": round(now_start, 3),
+            "expires_at": round(now_start + max(15.0, float(timeout) + 5.0), 3),
+        }
+        _write_registry_unlocked(state, json_path)
+
+    tid = ""
+    try:
+        target = _create_target_via_browser_ws(
+            target_url,
+            cdp_host=cdp_host,
+            cdp_port=cdp_port,
+            background=background,
+            timeout=timeout,
+        )
+        if target is None:
+            encoded_url = urllib.parse.quote(str(target_url), safe="")
+            req = urllib.request.Request(f"http://{cdp_host}:{int(cdp_port)}/json/new?{encoded_url}", method="PUT")
+            with urllib.request.urlopen(req, timeout=timeout) as resp:
+                target = json.loads(resp.read().decode("utf-8"))
+        tid = str(target.get("id") or "").strip()
+        if not tid:
+            raise RuntimeError(f"CDP tab creation did not return a target id for {target_url!r}: {target}")
+        try:
+            lease = acquire_tab_lease(
+                tid,
+                owner_id=eff_owner,
+                purpose=purpose or f"open:{target_url[:48]}",
+                cdp_port=cdp_port,
+                ttl_sec=ttl_sec,
+                created_by_pipeline=True,
+                initial_url=target_url,
+            )
+        except BaseException:
+            with contextlib.suppress(Exception):
+                with urllib.request.urlopen(
+                    f"http://{cdp_host}:{int(cdp_port)}/json/close/{tid}",
+                    timeout=min(4.0, float(timeout)),
+                ):
+                    pass
+            raise
+        out = dict(target)
+        out["lease_owner_id"] = lease["owner_id"]
+        out.setdefault("background", bool(background))
+        return out
+    finally:
+        with contextlib.suppress(Exception):
+            with _locked_lease_registry(cdp_port) as (state, json_path):
+                inflight = state.get("inflight_creations")
+                if isinstance(inflight, dict) and creation_token in inflight:
+                    inflight.pop(creation_token, None)
+                    _write_registry_unlocked(state, json_path)
 
 
 @contextlib.asynccontextmanager

@@ -1,0 +1,838 @@
+{
+  "schema": "canonical_assets_v1_research_screening",
+  "screened_at_utc": "2026-11-18T10:35:00Z",
+  "reviewer": "@Research (ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c)",
+  "benchmark_anchor": "artifacts_archive/01_YouTube_CEO/benchmark_31_O2CmlKOk_brain_cuts_4frame_teardown.jpg",
+  "summary": {
+    "total_slots_screened": 42,
+    "passed_slots": 42,
+    "rejected_slots": 0,
+    "total_candidates_inspected": 138,
+    "rank_1_promotions_count": 15,
+    "excluded_outlier_candidates_count": 29,
+    "rank_1_promotions": [
+      {
+        "slot_id": "A05_sulcal_vessel_macro",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "A06_hippocampus_cutaway",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "A08_insula_operculum_retracted",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "A11_region_shutdown_sample",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "D02_drone_medical_hospital_120ft",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "B01_base_adult_male_turnaround",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "B02_base_adult_female_turnaround",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "B04_base_child_turnaround",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "B06_expr_joy",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "B07_expr_worry",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "B08_expr_focus",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "B09_expr_confusion",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_04.png"
+      },
+      {
+        "slot_id": "B11_wardrobe_white_lab_coat",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "B12_wardrobe_surgical_scrubs",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "E10_kitchen_staged",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      }
+    ]
+  },
+  "slots": [
+    {
+      "slot_id": "A01_mode1_translucent_head_lateral",
+      "category": "A_brain",
+      "title_ko": "A1. Mode 1 밝은 회색 반투명 마네킹 두상 + 내부 뇌 (측면)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_04.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "원본 31번 Mode 1과 동일한 밝은 라이트그레이 마네킹 두상 + 상단 투명 두개골 내부 백색 매트 석고 뇌·굵은 불투명 하늘색 혈관 완벽 재현 (cand_03은 두개골 외곽 이중 유리 거품 테두리, cand_02는 상단 여백 협소로 제외)."
+    },
+    {
+      "slot_id": "A02_mode2_whole_brain_lateral",
+      "category": "A_brain",
+      "title_ko": "A2. Mode 2 전체 뇌 외측면 (기본 중립)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "31번 원본(t=39.3s)과 나란히 대조 시 거의 흰색에 가까운 무광 석고 질감, 고랑 속 굵은 불투명 하늘색 혈관 튜브, 이펙트 0%, 단색 진남색 배경 6개 조건 100% 일치 (cand_01이 실비우스열·소뇌 비례 최우수)."
+    },
+    {
+      "slot_id": "A03_mode2_whole_brain_dorsal_topdown",
+      "category": "A_brain",
+      "title_ko": "A3. Mode 2 전체 뇌 상면 (Top-Down 좌우 반구)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "31번 원본(t=68.6s) 상단 부감 양반구 대칭 구도·무광 백색 석고 질감·중심 고랑 불투명 하늘색 혈관 분지 완벽 일치 (cand_01 1순위, cand_02 2순위)."
+    },
+    {
+      "slot_id": "A04_mode2_whole_brain_anterior_frontal",
+      "category": "A_brain",
+      "title_ko": "A4. Mode 2 전체 뇌 전면 (Anterior 정면)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "정면 양측 전두엽 대칭과 하단 뇌간·소뇌 비례가 가장 당당하고 화면 점유율이 이상적인 cand_01을 1순위, cand_02를 2순위로 선정 (광택·입자·발광 0%)."
+    },
+    {
+      "slot_id": "A05_sulcal_vessel_macro",
+      "category": "A_brain",
+      "title_ko": "A5. 주름 고랑 사이 굵은 불투명 하늘색 혈관 근접 (Macro)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png] 원본 31번(t=30.2s) 혈관 매크로와 동일하게 중앙 고랑을 상하로 관통하는 굵고 매끄러운 불투명 하늘색 Y자 혈관 튜브 연속성이 cand_02에서 가장 명확함 (cand_01은 좌하단 고랑 빈 틈이 커 2순위)."
+    },
+    {
+      "slot_id": "A06_hippocampus_cutaway",
+      "category": "A_brain",
+      "title_ko": "A6. 해마 단면 (외측 하방 측두엽 절개 Inferior-Lateral Cutaway)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png / cand_04 제외] 좌향 외측 하방 측두엽 절개창을 통해 단색 매트 황금색 해마가 가장 선명히 드러나는 cand_02를 1순위, cand_01을 2순위로 선정 (cand_04는 하단 바닥 거울 반사광이 있어 단색 남색 배경 위반으로 제외)."
+    },
+    {
+      "slot_id": "A07_thalamus_brainstem_midsagittal",
+      "category": "A_brain",
+      "title_ko": "A7. 시상·뇌간·뇌실 정중시상 단면 (Midsagittal Cutaway)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "정중시상면 뇌량·단색 매트 황금색 시상(Thalamus)·뇌간·소뇌 충부(arbor vitae) 해부 구조가 무발광 석고 질감으로 정확히 구현됨 (시상하부 윤곽이 더 깔끔한 cand_01 1순위, cand_02 2순위)."
+    },
+    {
+      "slot_id": "A08_insula_operculum_retracted",
+      "category": "A_brain",
+      "title_ko": "A8. 섬엽 단면 (외측 실비우스열 덮개 젖힘 Operculum Retracted)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png] 외측 실비우스열 덮개(operculum)를 깔끔히 젖혀 부채꼴 섬엽(Insula) 이랑을 단색 매트 황금색으로 노출한 cand_02가 해부학적으로 가장 정교함 (cand_01은 하단에 종이처럼 늘어진 피질 조각이 있어 2순위)."
+    },
+    {
+      "slot_id": "A09_prefrontal_cortex_3q_anterolateral",
+      "category": "A_brain",
+      "title_ko": "A9. 전전두엽 (3/4 전외측 Anterolateral 시점)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "좌전측방 시점에서 전전두엽 영역만 후광·불꽃 없이 단색 매트 황금 재질로 선명히 구분된 cand_01을 1순위, cand_02를 2순위로 선정."
+    },
+    {
+      "slot_id": "A10_signal_segment_sample",
+      "category": "A_brain",
+      "title_ko": "A10. 신호 전달 표현 표준 샘플 (튜브 속 짧은 불투명 금색 구간, 무입자·무발광)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "원본 31번(t=39.3s)의 고랑 내 황금 세그먼트 표현과 동일하게 입자·빛줄기 없이 고체 매트 황금 튜브 마디만 깔끔히 박힌 cand_01 1순위, cand_03 2순위 (cand_04는 소뇌 경계에 세그먼트가 찍혀 제외)."
+    },
+    {
+      "slot_id": "A11_region_shutdown_sample",
+      "category": "A_brain",
+      "title_ko": "A11. 구역 꺼짐(Shutdown/기능 저하) 표현 표준 샘플",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_03.png / cand_02 제외] 전전두엽 암전 구역 내부의 혈관까지 완전히 소등되어 활성 백색 피질과의 경계가 가장 칼같이 읽히는 cand_03을 1순위, cand_01을 2순위로 선정 (cand_02는 암전 구역 안으로 하늘색 혈관이 침범해 제외)."
+    },
+    {
+      "slot_id": "A12_dual_brain_top_bottom_compare",
+      "category": "A_brain",
+      "title_ko": "A12. 상·하 2개 온전한 뇌 비교 표준 틀 (절단선·잘림 0%)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "단색 진남색 배경 위 잘림·접합선 0%로 온전한 좌향 31번 스타일 두 뇌가 상/하 부유하며 상단 매트 황금 활성 vs 하단 매트 슬레이트 억제가 0.3초 만에 비교되는 cand_01 1순위, cand_02 2순위."
+    },
+    {
+      "slot_id": "C01_arrow_straight_corridor",
+      "category": "C_arrows_r80",
+      "title_ko": "C1. R80 대조 화살표 — 일직선 경로 (Straight Top-Down)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "90도 수직 탑다운 크림색 도시 블록 사이로 하단 흰 출발 원부터 상단 화살촉까지 끊김 0%로 뻗은 단일 #FF2525 3D 직선 화살표 (cand_01 1순위, cand_03 2순위; 무문자·무보행자 완벽)."
+    },
+    {
+      "slot_id": "C02_arrow_adaptive_zigzag",
+      "category": "C_arrows_r80",
+      "title_ko": "C2. R80 대조 화살표 — 지그재그 우회 경로 (Zigzag Top-Down)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "C01(cand_01)과 건물 블록 스케일·도로 폭·하단 흰 출발 원 크기가 1:1로 호환되면서 다중 우회 지그재그 경로를 선명히 보여주는 cand_01 1순위, cand_03 2순위 (cand_02는 블록이 지나치게 잘게 쪼개져 제외)."
+    },
+    {
+      "slot_id": "C03_arrow_doorway_sever_gap",
+      "category": "C_arrows_r80",
+      "title_ko": "C3. R80 대조 화살표 — 문턱 경계 단절 (Doorway Sever Gap Top-Down)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "풀프레임 9:16 탑다운 원목 바닥 위 #FF2525 3D 화살표가 열린 문턱 앞에서 물리적으로 완전히 끊기고 문 너머는 희미한 회색 점선 흔적만 남아 '문지방 단절(sever)'이 즉시 읽히는 cand_01 1순위, cand_03 2순위 (cand_02는 외곽 흰 테두리 노출로 제외)."
+    },
+    {
+      "slot_id": "D01_drone_university_campus_120ft",
+      "category": "D_drone_120ft",
+      "title_ko": "D1. 120ft 상공 대학 캠퍼스 부감 표준 구도 (인물은 작은 점)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_04.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "화면 상하단 인위적 블러나 안개 없이 120ft 상공에서 붉은 벽돌 대학 캠퍼스 돔·잔디 광장과 미세 점 크기 보행자를 선명히 담은 cand_01 1순위, cand_04 2순위 (cand_02는 상하 미니어처 틸트시프트 블러, cand_03은 상단 뿌연 안개로 제외)."
+    },
+    {
+      "slot_id": "D02_drone_medical_hospital_120ft",
+      "category": "D_drone_120ft",
+      "title_ko": "D2. 120ft 상공 임상 병원·뇌연구소 부감 표준 구도 (인물은 작은 점)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_04.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png / cand_01·03 제외] 무문자 현대식 대학병원 원형 중정과 연결 브리지를 가장 또렷한 초점으로 조망한 cand_02 1순위, cand_04 2순위 (cand_01은 상하 가장자리 블러 과다, cand_03은 우상단 빛번짐 안개로 제외)."
+    },
+    {
+      "slot_id": "B01_base_adult_male_turnaround",
+      "category": "B_characters",
+      "title_ko": "B1. 기본형 캐릭터 1 — 성인 남성 3각도 턴어라운드 (정면·3/4·측면)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_02.png",
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_03.png / cand_02·04 제외] 의상·환경 슬롯(B11~B15, E06~E10)과 정확히 호환되는 4.2등신 성인 비례 + 안정적인 2D 먹선 눈을 가진 cand_03을 1순위, cand_01을 2순위로 선정 (cand_02·04는 2.5~3등신 유아/치비 비례 불일치로 제외)."
+    },
+    {
+      "slot_id": "B02_base_adult_female_turnaround",
+      "category": "B_characters",
+      "title_ko": "B2. 기본형 캐릭터 2 — 성인 여성 3각도 턴어라운드 (정면·3/4·측면)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png"
+      ],
+      "reason_ko": "[🚨필수 승격: cand_02.png 단독 확정 / cand_01·03·04 전면 제외] cand_01·03·04는 모두 6.5등신 마네킹 체형에 3D 입술·콧대·음영 눈매가 들어가 실사형 얼굴 드리프트를 유발함. 오직 cand_02만 B01(cand_03)·B03(cand_01)과 100% 일치하는 4.2등신 대머리 크림 비닐 + 순수 2D 먹선 눈 정체성을 지킴."
+    },
+    {
+      "slot_id": "B03_base_older_adult_turnaround",
+      "category": "B_characters",
+      "title_ko": "B3. 기본형 캐릭터 3 — 노인 3각도 턴어라운드 (정면·3/4·측면)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png",
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "모발·실사 주름 질감 없이 담백한 2D 먹선 이마선·눈썹만으로 노년 인상을 표현하고 4.2등신 성인 비례가 일치하는 cand_01 1순위, cand_03 2순위 (cand_02·04는 짧은 치비 비례로 제외)."
+    },
+    {
+      "slot_id": "B04_base_child_turnaround",
+      "category": "B_characters",
+      "title_ko": "B4. 기본형 캐릭터 4 — 아이 3각도 턴어라운드 (정면·3/4·측면)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_04.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_03.png / cand_02 제외] 성인(4.2등신) 대비 명확히 작은 아동 비례(약 3.2등신)와 깔끔한 평면 2D 점/선 먹선 눈을 갖춘 cand_03 1순위, cand_04 2순위 (cand_02는 성인에 가까운 키여서 제외)."
+    },
+    {
+      "slot_id": "B05_expr_surprised",
+      "category": "B_characters",
+      "title_ko": "B5. 모듈형 표정 1 — 놀람 (Surprised)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_04.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "매끈한 대머리 크림 화이트 비닐 위 동그란 2D 먹선 눈과 'O'자 입으로 놀람 표정이 즉각 읽히며 목 이음매 그림자가 가장 깔끔한 cand_01 1순위, cand_04 2순위."
+    },
+    {
+      "slot_id": "B06_expr_joy",
+      "category": "B_characters",
+      "title_ko": "B6. 모듈형 표정 2 — 기쁨·안도 (Joy)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png] 볼에 불필요한 3D 주름 골 없이 매끈한 크림 비닐 표면에 2D 반달 먹선 눈·미소가 가장 깔끔하게 그려진 cand_02 1순위, cand_03 2순위."
+    },
+    {
+      "slot_id": "B07_expr_worry",
+      "category": "B_characters",
+      "title_ko": "B7. 모듈형 표정 3 — 걱정·불안 (Worry)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_03.png / cand_04 제외] 팔자형 2D 먹선 눈썹과 걱정스러운 입매·손동작이 자연스럽고 스튜디오 배경이 균일한 cand_03 1순위, cand_01 2순위 (cand_04는 우측 배경 벽 모서리 세로줄 그림자가 있어 제외)."
+    },
+    {
+      "slot_id": "B08_expr_focus",
+      "category": "B_characters",
+      "title_ko": "B8. 모듈형 표정 4 — 깊은 집중 (Focus)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png / cand_01 제외] 또렷하게 모은 2D 먹선 눈썹과 다문 입으로 '집중/몰입' 감정이 명확히 전달되는 cand_02 1순위, cand_03 2순위 (cand_01은 눈이 크게 떠져 놀람 표정에 가까워 제외)."
+    },
+    {
+      "slot_id": "B09_expr_confusion",
+      "category": "B_characters",
+      "title_ko": "B9. 모듈형 표정 5 — 혼란·의아함 (Confusion)",
+      "verdict": "PASS",
+      "rank_1": "cand_04.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_04.png] 비대칭으로 찌푸린 2D 먹선 눈썹, 물결 모양 입매, 턱을 짚은 손동작이 결합되어 '혼란/의문'이 0.2초 만에 읽히는 cand_04 1순위, cand_01 2순위."
+    },
+    {
+      "slot_id": "B10_expr_eureka",
+      "category": "B_characters",
+      "title_ko": "B10. 모듈형 표정 6 — 깨달음·유레카 (Realization)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "검지를 들어 올린 유레카 포즈와 평면 2D 먹선 눈·미소가 코 음영 과장 없이 가장 담백하게 표현된 cand_01 1순위, cand_03 2순위."
+    },
+    {
+      "slot_id": "B11_wardrobe_white_lab_coat",
+      "category": "B_characters",
+      "title_ko": "B11. 모듈형 의상 1 — 흰 연구·진료 가운 (White Lab Coat)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_03.png] 눈두덩 3D 굴곡 없이 순수 2D 검은 먹선 점눈과 깔끔한 무문자 흰 연구 가운 핏이 가장 단정한 cand_03 1순위, cand_01 2순위."
+    },
+    {
+      "slot_id": "B12_wardrobe_surgical_scrubs",
+      "category": "B_characters",
+      "title_ko": "B12. 모듈형 의상 2 — 청록색 임상·수술복 (Clinical Scrubs)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_03.png / cand_02 제외] B11·B13·B14·B15와 동일한 4.2등신 성인 비례 및 청록색 수술복 톤이 깔끔한 cand_03 1순위, cand_01 2순위 (cand_02는 대두 치비 비례 불일치로 제외)."
+    },
+    {
+      "slot_id": "B13_wardrobe_casual_everyday",
+      "category": "B_characters",
+      "title_ko": "B13. 모듈형 의상 3 — 일상 평상복 (Everyday Casual)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "올리브 니트 스웨터 + 베이지 면바지 일상복 차림으로 E08·E10 실내 배치 캐릭터와 1:1 일치하는 cand_01 1순위, cand_02 2순위."
+    },
+    {
+      "slot_id": "B14_wardrobe_formal_suit",
+      "category": "B_characters",
+      "title_ko": "B14. 모듈형 의상 4 — 단정한 정장·학술복 (Formal Suit)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "네이비 정장 수트·넥타이 핏과 4.2등신 성인 비례가 단정한 cand_01 1순위, cand_02 2순위 (cand_03은 다리가 짧은 치비 체형으로 제외)."
+    },
+    {
+      "slot_id": "B15_wardrobe_student",
+      "category": "B_characters",
+      "title_ko": "B15. 모듈형 의상 5 — 대학생 복장 (University Student)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "버건디 재킷·백팩·청바지 대학생 의상과 4.2등신 대머리 비닐 정체성이 균일하게 잘 나온 cand_01 1순위, cand_03 2순위."
+    },
+    {
+      "slot_id": "E01_laboratory_empty",
+      "category": "E_environments",
+      "title_ko": "E1. 자주 쓰는 장소 1 — 연구실 (인물 없는 빈 공간 기본판)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "따뜻한 채광의 원목 연구 책상·듀얼 모니터·유리 시약장 구도가 깨끗하고 무문자·무결점인 cand_01 1순위(E06 cand_01과 1:1 공간 일치), cand_03 2순위."
+    },
+    {
+      "slot_id": "E02_mri_suite_empty",
+      "category": "E_environments",
+      "title_ko": "E2. 자주 쓰는 장소 2 — MRI 뇌스캔실 (인물 없는 빈 공간 기본판)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "벽면 포스터·문자·균열 0%인 밝고 청결한 3T MRI 검사실 풀프레임 구도로 E07(cand_01)과 조명·카메라 각도가 1:1 일치하는 cand_01 1순위, cand_03 2순위."
+    },
+    {
+      "slot_id": "E03_home_doorway_empty",
+      "category": "E_environments",
+      "title_ko": "E3. 자주 쓰는 장소 3 — 집 현관·방 문턱 (인물 없는 빈 공간 기본판)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "햇살 비치는 원목 마루와 정면 열린 흰 문틀 너머 다음 방까지 깔끔히 이어지며 E08(cand_01)과 1:1 일치하는 cand_01 1순위, cand_02 2순위."
+    },
+    {
+      "slot_id": "E04_lecture_room_empty",
+      "category": "E_environments",
+      "title_ko": "E4. 자주 쓰는 장소 4 — 대학 강의실·세미나실 (인물 없는 빈 공간 기본판)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "아치형 채광창·계단식 원목 강의석·무문자 칠판이 대칭으로 정돈되어 E09(cand_01)와 1:1 일치하는 cand_01 1순위, cand_02 2순위."
+    },
+    {
+      "slot_id": "E05_kitchen_empty",
+      "category": "E_environments",
+      "title_ko": "E5. 자주 쓰는 장소 5 — 일상 주방 (인물 없는 빈 공간 기본판)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "따뜻한 자연광 주방 아일랜드 식탁과 머그잔 구성이 깨끗하고 E10(cand_02·01)과 1:1 화각·가구가 일치하는 cand_01 1순위, cand_03 2순위."
+    },
+    {
+      "slot_id": "E06_laboratory_staged",
+      "category": "E_environments",
+      "title_ko": "E6. 연구실 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png"
+      ],
+      "reason_ko": "[cand_01.png 단독 확정 / cand_02·03·04 전면 제외] E01(cand_01) 연구실 책상·모니터·수납장 구도를 1:1로 유지한 채 흰 가운 대머리 비닐 연구원 1인을 자연스러운 스케일로 배치한 것은 cand_01뿐임 (cand_02·03·04는 장비가 사라지고 빈 나무 상자 방으로 변질되어 제외)."
+    },
+    {
+      "slot_id": "E07_mri_suite_staged",
+      "category": "E_environments",
+      "title_ko": "E7. MRI실 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "reason_ko": "E02(cand_01) MRI실과 1:1 공간 일치를 유지하며 스캐너 베드 옆 흰 가운 비닐 의료진의 키·비례가 자연스러운 cand_01 1순위, cand_03 2순위 (cand_02는 인물 키가 보어 대비 과대해 제외)."
+    },
+    {
+      "slot_id": "E08_home_doorway_staged",
+      "category": "E_environments",
+      "title_ko": "E8. 집 현관·문턱 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "E03(cand_01) 문틀과 1:1 동일한 공간에서 올리브 니트 대머리 비닐 캐릭터가 문턱을 자연스럽게 걸어 나오는 cand_01 1순위, cand_02 2순위."
+    },
+    {
+      "slot_id": "E09_lecture_room_staged",
+      "category": "E_environments",
+      "title_ko": "E9. 강의실 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "E04(cand_01) 강의실 연단 위 정장 차림 대머리 비닐 강연자의 비율과 포즈가 가장 또렷한 cand_01 1순위, cand_02 2순위."
+    },
+    {
+      "slot_id": "E10_kitchen_staged",
+      "category": "E_environments",
+      "title_ko": "E10. 주방 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_03.png",
+        "cand_04.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "[1순위 승격: cand_02.png / cand_03·04 제외] E05(cand_01) 주방 화각·창문·아일랜드 식탁과 1:1 일치하면서 인물 얼굴에 역광 그늘이 덜 지고 2D 먹선 눈이 더 선명한 cand_02 1순위, cand_01 2순위 (cand_03·04는 창문 벽면 위치와 화각이 달라져 제외)."
+    }
+  ]
+}

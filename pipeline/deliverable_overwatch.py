@@ -16,6 +16,7 @@ Closed-loop programmatic verifier that audits:
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -650,10 +651,11 @@ def run_deliverable_overwatch(
     Runs end-to-end Deliverable Overwatch across Deliverables A, B, and C.
     """
     out_dir = Path(outputs_dir) if outputs_dir else (WORKSPACE_ROOT / "Temp_New_R53_Outputs")
-    ssd_cand = Path("/tmp/bci_v5_ssd_workspace/projects/psych_04_phineas_gage_frontal_lobe")
+    env_ssd_ws = os.environ.get("AAB_LOCAL_SSD_WORKSPACE", "").strip()
+    ssd_cand = (Path(env_ssd_ws) / "projects" / "psych_04_phineas_gage_frontal_lobe") if env_ssd_ws else None
     gdrive_cand = PROJECTS_DIR / "psych_04_phineas_gage_frontal_lobe"
     if gage_project_dir is None:
-        gage_project_dir = ssd_cand if ssd_cand.exists() else gdrive_cand
+        gage_project_dir = ssd_cand if (ssd_cand is not None and ssd_cand.exists()) else gdrive_cand
 
     deliv_a = verify_standalone_brain_deliverable(
         mp4_path=out_dir / "06_example_hippocampus_9x16_vertical.mp4",

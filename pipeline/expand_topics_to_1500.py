@@ -439,6 +439,11 @@ def run_expansion(scratch_dir: Path) -> dict[str, Any]:
 
 
 if __name__ == "__main__":
-    default_scratch = Path(r"C:\Users\yunky\.gemini\antigravity\brain\2d7e4ddb-30dd-4eea-bd03-33bf22bff383\scratch")
+    import os
+
+    default_scratch = Path(
+        os.environ.get("AAB_TOPIC_SCRATCH_DIR")
+        or (WORKSPACE_ROOT / "BCI_Shorts_Channel" / "research" / "scratch")
+    )
     result = run_expansion(default_scratch)
     print(json.dumps(result, indent=2))

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "seligman_learned_helplessness",
   "topic": "Martin Seligman & Steven Maier (1967-2016): Learned Helplessness & the Prefrontal-Raphe Passivity Twist",
   "pillar": "brain_health",
@@ -44,11 +44,31 @@
     },
     {
       "fact": "Naive Group 3 subjects and Escapable Group 1 subjects quickly hopped straight over the low barrier on nearly 90 percent of trials.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Escapable Group Escape Rate",
+        "percent": 90.0,
+        "unit": "%",
+        "doi": "10.1037/h0024514",
+        "source_citation": "Seligman & Maier (1967)"
+      }
     },
     {
       "fact": "By contrast, roughly two-thirds (about 67 percent) of the Yoked Inescapable group never jumped the low barrier — lying down passively even though Group 1 had endured the exact same physical input the day before.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Yoked Group Failure Rate",
+        "percent": 67.0,
+        "unit": "%",
+        "doi": "10.1037/h0024514",
+        "source_citation": "Seligman & Maier (1967)"
+      }
     },
     {
       "fact": "Remarkably, one-third (~33 percent) of subjects in the inescapable group NEVER became helpless at all, jumping the barrier just like controls.",
@@ -128,5 +148,37 @@
     "diorama_55_seligman_learned_helplessness"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0024514",
+  "three_layer_formula": {
+    "everyday_problem": "Leaving a closet door unlocked after months of stuck latches and never bothering to turn the handle to check.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0024514",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0024514"
+      ],
+      "summary": "Martin E. Seligman, Steven F. Maier (1967). Failure to escape traumatic shock. Journal of Experimental Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1037/rev0000033",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1037/rev0000033"
+      ],
+      "summary": "Steven F. Maier, Martin E. P. Seligman (2016). Learned helplessness at fifty: Insights from neuroscience. Psychological Review."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Helplessness is an acquired cognitive belief learned from scratch while optimism is automatic.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

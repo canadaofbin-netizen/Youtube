@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "hochberg_braingate_robotic_coffee",
   "topic": "Leigh Hochberg & BrainGate2 (2012): Paralyzed 15 Years, Cathy Hutchinson Drinks Coffee Using Her Own Thoughts and a Robotic Arm",
   "pillar": "bci_tech",
@@ -48,11 +48,31 @@
     },
     {
       "fact": "Across controlled 3D reach-and-grasp tests with two different robotic arms (the German Aerospace Center DLR arm and the DEKA arm), both Participant S3 (age 58) and Participant T2 (age 66, 2006 brainstem stroke) touched and grasped foam targets mounted on flexible supports in 49% to 96% of reaches within 10-second windows (62% overall grasp completion on DEKA trials).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "DEKA Arm Grasp Success (%)",
+        "percent": 62.0,
+        "unit": "%",
+        "doi": "10.1038/nature11076",
+        "source_citation": "Hochberg et al. (2012)"
+      }
     },
     {
       "fact": "On April 11, 2011 (published May 16, 2012 in Nature), Cathy Hutchinson imagined reaching out her own paralyzed right arm, steered the silver DLR five-fingered robotic hand to grasp a cylindrical insulated bottle of cinnamon-latte coffee, lifted it smoothly to a straw, tilted it to take a sip, and placed the bottle safely back on the table in 4 out of 6 attempts (67% success) — her first self-served drink in nearly 15 years!",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Robotic Coffee Sip Trials",
+        "highlighted_k": 4,
+        "total_n": 6,
+        "doi": "10.1038/nature11076",
+        "source_citation": "Hochberg et al. (2012)"
+      }
     },
     {
       "fact": "Subsequent replications rapidly expanded degrees of freedom and speed: Collinger et al. (2013, SRC3) achieved 7-dimensional robotic arm control within months, Ajiboye et al. (2017, SRC6) routed BrainGate signals into functional electrical muscle stimulation so a paralyzed man drank coffee with his OWN reanimated arm, and Willett, Hochberg & Shenoy (2021, SRC7) decoded imagined handwriting at 90 characters per minute.",
@@ -116,5 +136,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A2_section_window",
-  "offcenter_creator_bet": "Honest take: brain chips restore dignity — Cathy's first sip after fifteen paralyzed years beats every sci-fi scare story. Would you trust a motor implant for independence?"
+  "offcenter_creator_bet": "Honest take: brain chips restore dignity — Cathy's first sip after fifteen paralyzed years beats every sci-fi scare story. Would you trust a motor implant for independence?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1038/nature11076",
+  "three_layer_formula": {
+    "everyday_problem": "Lifting your morning coffee mug to your lips takes dozens of effortless 3D shoulder, elbow, wrist, and finger adjustments you never think about — until a stroke cuts the cable at the brainstem.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/nature11076",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/nature11076"
+      ],
+      "summary": "Leigh R. Hochberg, Daniel Bacher, Beata Jarosiewicz, Nicolas Y. Masse, John D. Simeral, Joern Vogel, Sami Haddadin, Jie Liu, Sydney S. Cash, Patrick van der Smagt & John P. Donoghue (2012). Reach and grasp by people with tetraplegia using a neurally controlled robotic arm. Nature, 485, 372–375."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.1016/S0140-6736(17)30601-3",
+      "source_ids": [
+        "SRC6"
+      ],
+      "dois": [
+        "10.1016/S0140-6736(17)30601-3"
+      ],
+      "summary": "A. Bolu Ajiboye, Francis R. Willett, Daniel R. Young, William D. Memberg, Brian A. Murphy, Jonathan P. Miller, Benjamin L. Walter, Jennifer A. Sweet, Harry A. Hoyen, Michael W. Keith, P. Hunter Peckham, John D. Simeral, John P. Donoghue, Leigh R. Hochberg & Robert F. Kirsch (2017). Restoration of reaching and grasping movements through brain-controlled muscle stimulation in a person with tetraplegia: a proof-of-concept demonstration. The Lancet, 389(10081), 1821–1830."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "After a decade of complete paralysis, the brain's movement strip withers away and forgets how to control an arm.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Honest take: brain chips restore dignity — Cathy's first sip after fifteen paralyzed years beats every sci-fi scare story. Would you trust a motor implant for independence?"
+  }
 }

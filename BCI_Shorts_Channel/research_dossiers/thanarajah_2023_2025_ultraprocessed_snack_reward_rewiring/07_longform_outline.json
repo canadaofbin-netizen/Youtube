@@ -1,0 +1,116 @@
+{
+  "target_minutes": 10,
+  "shorts_extract": {
+    "hook": "Think one small daily sugary snack is harmless as long as your weight stays flat? An 8-week brain-scan trial proved otherwise.",
+    "core_experiment": "Thanarajah, Tittgemeyer & Small's 2023 Cell Metabolism 8-week pudding RCT + Hall's NIH +508 kcal/day trial + Kullmann's 2025 brain-insulin study.",
+    "twist": "Zero weight gain on the scale, yet fMRI caught rewired dopamine reward circuits AND lingering brain-insulin lag!"
+  },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "46-year-old adult pushing healthy berries away for a glossy pudding snack cup beside a '0 LBS GAINED' scale",
+    "right_cyan_brain": "Translucent #27D8FF cyan 3D brain highlighting over-lit nucleus accumbens reward center and silenced hypothalamus",
+    "badge_text": "8-WEEK REWIRE"
+  },
+  "r75_clean_seed_tags": [
+    "sugar and the brain",
+    "ultra processed food",
+    "food cravings science",
+    "dopamine reward circuit",
+    "cell metabolism study",
+    "brain insulin resistance",
+    "habitual snacking",
+    "healthy eating habits",
+    "metabolic brain health",
+    "everyday neuroscience"
+  ],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Bathroom-Scale Illusion: 'My Weight Didn't Budge!'",
+      "beats": [
+        "Chicken-and-egg debate: innate dopamine trait vs diet-induced brain rewiring",
+        "Thanarajah et al. (2023): 8 weeks of one daily sweet-fatty pudding in normal-weight adults"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "paired pudding cups & flat floor scale"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Inside the Week-8 Scanner: Amplified Dopamine, Muted Healthy Food",
+      "beats": [
+        "Midbrain-striatal fMRI response surges while low-fat food preference drops",
+        "Heightened general associative learning even outside food tasks"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D brain nucleus accumbens & basal ganglia surge"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why Fat + Carbs Together Trick Millions of Years of Evolution",
+      "beats": [
+        "DiFeliceantonio et al. (2018): nuts (fat) vs fruit (sugar) vs ultra-processed supra-additive combo",
+        "Kevin Hall et al. (2019 NIH RCT): +280 carb kcal + +230 fat kcal = +508 extra kcal/day"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "280 carb vs 230 fat kcal chart & pantry contrast"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "2025 Breakthrough: Brain Insulin Lag & The Sweetener Trap",
+      "beats": [
+        "Kullmann et al. (2025 Nature Metabolism): brain insulin resistance outlasts short-term snacking",
+        "Coccurello (2025): why ultra-sweet artificial substitutes still nudge gut-brain reward loops"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "hypothalamus thermostat & Week-1 withdrawal lag"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Re-Sensitizing Your Adult Palate in 3 to 8 Weeks",
+      "beats": [
+        "Unbundling fat and sugar in afternoon snacks (nuts OR whole fruit)",
+        "Why real food regains vibrant flavor once striatal baseline resets"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit outdoor farmers' market berries & walnuts"
+      ]
+    }
+  ]
+}

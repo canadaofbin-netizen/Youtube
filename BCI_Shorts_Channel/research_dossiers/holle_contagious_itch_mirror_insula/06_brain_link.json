@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "step1",
+      "region": "premotor cortex",
+      "plain": "movement mirror system",
+      "function": "simulating the observed finger-scratching action the second your eyes spot someone raking their sleeve",
+      "scene_id": "S1",
+      "narration_bridge": "Links watching silent scratching vs tapping clips to action-mirroring activation in Holle et al. (2012 PNAS).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "insula",
+      "plain": "body-feeling center",
+      "function": "translating that visual scratch simulation into a vivid internal bodily feeling of skin prickling with zero bug on the skin",
+      "scene_id": "S1",
+      "narration_bridge": "Core central hub of the 'itch matrix' driving subjective itchiness ratings inside the Sussex fMRI scanner.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "somatosensory cortex",
+      "plain": "body-touch map",
+      "function": "lighting up forearm and neck touch territory in direct proportion to how intensely the phantom itch tingles",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why untouched skin physically tingles during silent video viewing.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step2",
+      "region": "basal ganglia",
+      "plain": "habit engine",
+      "function": "firing an automatic motor urge to rake fingernails across the skin unless interrupted by cool flat pressure",
+      "scene_id": "S2",
+      "narration_bridge": "Matches Mochizuki et al. (2017) striatal scratch-habit amplification in chronic and contagious itch.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

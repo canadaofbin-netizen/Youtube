@@ -1,0 +1,168 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Bedside Pill Bottle vs The Sponge-Pump Demonstration in Copenhagen Lab",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2025 University of Copenhagen & Oxford sleep-neurobiology discovery",
+      "layout": {
+        "description": "Split architectural vignette pairing a warm adult nightstand (amber pill vial, water glass, brass lamp) with a sunlit laboratory bench holding a clear borosilicate fluid-pump vessel and porous natural sponge.",
+        "positions": [
+          {
+            "who": "55-year-old adult sleeper (stylized 2.5D vinyl character in burgundy cotton pajama cardigan seated on bed edge)",
+            "where": "holding an unmarked amber prescription vial in one hand and a clear water tumbler in the other before pausing thoughtfully",
+            "facing": "three-quarter view toward the bedside water glass"
+          },
+          {
+            "who": "Neurobiologist (stylized 2.5D vinyl character in crisp white lab coat over navy turtleneck)",
+            "where": "standing at a clean glass laboratory basin rhythmically squeezing and releasing a porous yellow cellulose sponge inside clear flowing water",
+            "facing": "toward the glass basin"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Porous natural sponge submerged in a crystal-clear glass water basin",
+          "period_detail": "tactile laboratory hydraulic analogy prop with zero text labels",
+          "physical_behavior": "State A rhythmic gentle hand squeezes flush dark ink droplets cleanly out of the sponge into clear water -> State B clamped motionless hand leaves murky ink trapped inside the unpumped sponge"
+        },
+        {
+          "name": "Unmarked amber glass pill vial and clear bedside water tumbler",
+          "period_detail": "minimalist apothecary amber bottle with white cap on walnut nightstand",
+          "physical_behavior": "adult sleeper sets the closed amber vial back onto the walnut tray and reaches instead to dim the warm brass bedside lamp"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neurobiologist & Adult sleeper",
+          "verb_sequence": "neurobiologist squeezes the submerged sponge in slow rhythmic pulses flushing dark droplets clear, then holds a second sponge clamped still where dark cloudiness lingers -> sleeper sets the closed amber vial down"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult sleeper",
+          "reaction": "nods with clear recognition that motionless sedation differs from active nightly rinsing"
+        }
+      ],
+      "wardrobe": "Sleeper in burgundy pajama cardigan; researcher in crisp white lab coat over navy turtleneck.",
+      "lighting": "Warm evening bedside amber balanced against crisp high-key laboratory glass refraction.",
+      "recognition_hook": "Being knocked unconscious is not the same as sleeping—certain sedatives mute the 50-second blood-vessel pump that washes your brain at night!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "an adult pausing beside an unmarked amber bedside vial while a neurobiologist rhythmically squeezes a submerged sponge in clear glass water to flush dark droplets clean",
+        "must_show": [
+          "vial|bottle|glass",
+          "sponge|water|basin",
+          "bed|nightstand"
+        ],
+        "source": "M1@00:10-00:25; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Morning Park Walk: Elastic Vessels & Natural Circadian Drive",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit morning neighborhood park path",
+      "layout": {
+        "description": "Sunlit tree-lined neighborhood park path in crisp morning air with older adults walking briskly beneath golden leaves.",
+        "positions": [
+          {
+            "who": "55-year-old adult walker (in olive quilted vest over sweater)",
+            "where": "walking briskly along the sunlit park path enjoying clear-headed morning energy",
+            "facing": "forward down the sunlit tree-lined trail"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Insulated stainless travel mug and park trail milestone post",
+          "period_detail": "clean matte-olive walking gear in bright natural sun",
+          "physical_behavior": "arms swing in an energized brisk morning stride"
+        }
+      ],
+      "actions": [
+        {
+          "who": "55-year-old walker",
+          "verb_sequence": "strides briskly through golden morning park sunlight -> breathes deeply with clear, washed-clean morning focus"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "55-year-old walker",
+          "reaction": "upright, genuinely restored morning vitality"
+        }
+      ],
+      "wardrobe": "Olive quilted walking vest over cream sweater.",
+      "lighting": "Crisp golden morning park sunlight.",
+      "recognition_hook": "Daylight movement and natural sleep rhythm keep your nightly vascular rinse running at full strength.",
+      "sources": [
+        "SRC1",
+        "SRC5",
+        "SRC7"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Boston & Oslo Human Sleep MRI Suite: Coupled Slow Waves & Tracer Washout",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2019–2021 Boston University & Oslo University Hospital MRI suites",
+      "layout": {
+        "description": "Clean architectural MRI suite where a natural unmedicated sleeper rests inside the scanner bore.",
+        "positions": [
+          {
+            "who": "Sleeping MRI volunteer & clinician",
+            "where": "volunteer resting comfortably on MRI cradle while clinician observes rhythmic fluid pulse timing",
+            "facing": "along scanner bore axis"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Cushioned MRI head coil and rhythmic fluid-wave cylinder model",
+          "period_detail": "smooth white clinical MRI bore",
+          "physical_behavior": "clear blue fluid surges smoothly up the demonstration tube every cycle"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Clinician",
+          "verb_sequence": "monitors natural slow-wave sleep inside the scanner -> tracks rhythmic cerebrospinal fluid surges following each blood-volume dip"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Clinician",
+          "reaction": "confirms full natural clearance across cortical regions"
+        }
+      ],
+      "wardrobe": "Soft cotton MRI-safe sleepwear and clinical coat.",
+      "lighting": "Clean cool clinical studio daylight.",
+      "recognition_hook": "Every natural slow wave triggers a fresh wave of clear fluid washing across your cortex.",
+      "sources": [
+        "SRC2",
+        "SRC3"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Natural dark bedroom window & rhythmic pulsing perivascular fluid channels",
+    "landmark_or_object_b": "Bedside Zolpidem pill blister & flattened stalled fluid corridor",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 4,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep from moonlit Copenhagen research institute facade into quiet bedroom nightstand",
+    "cut_b_topdown_3d_arrow": "90-degree top-down comparison track with pulsing cyan 3D fluid arrows vs shortened muted #FF2525 sedated lane",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

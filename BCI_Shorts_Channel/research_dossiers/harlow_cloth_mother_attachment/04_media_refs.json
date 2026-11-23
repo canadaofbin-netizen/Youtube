@@ -48,7 +48,8 @@
         "talking_head_ratio": 0.5,
         "words_per_sec": 0.758,
         "has_strong_archival_cue": true
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     },
     {
       "id": "M2",
@@ -88,7 +89,8 @@
       "reenactment_suitability_metrics": {
         "gate_failed": 1,
         "matched_channel": "scishow"
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     },
     {
       "id": "M3",
@@ -116,10 +118,12 @@
       "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
       "reenactment_suitability_metrics": {
         "gate_failed": 1
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     }
   ],
   "reenactment_track": "track_a",
   "track_subtier": "A1a_ready_keyframes",
-  "suitability_schema_version": 2
+  "suitability_schema_version": 2,
+  "primary_reenactment_media_id": "M1"
 }

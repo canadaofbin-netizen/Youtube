@@ -1,0 +1,183 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "UC Davis & Max Planck Brain Imaging Suite: 1985 Billboard Headphones Lighting Up the Spared Midline Musical Sanctuary",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "2009–2015, UC Davis Center for Mind and Brain & Max Planck 7-Tesla Neuroimaging Suite",
+      "layout": {
+        "description": "Bright glass-walled neuroimaging control room pairing classic 1980s vinyl record sleeves and studio headphones beside a dual-screen 7-Tesla brain monitor showing the glowing midline frontal-cingulate musical island standing bright inside an otherwise dimmed Alzheimer's scan.",
+        "positions": [
+          {
+            "who": "Petr Janata (neuroscientist in dark blazer and open-collar blue shirt)",
+            "where": "standing at the audio-fMRI console sliding the studio fader up to play a 30-second 1985 Billboard excerpt while pointing to the glowing medial prefrontal trace",
+            "facing": "angled between the mixing fader and the brain-scan display"
+          },
+          {
+            "who": "68-year-old listener wearing cushioned over-ear headphones",
+            "where": "seated upright in the sunlit observation chair, lifting chin and tapping fingers on armrest in instant word-for-word song recognition",
+            "facing": "toward the glass observation window"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "cushioned over-ear studio headphones and 1985 vinyl record sleeve stack",
+          "period_detail": "tactile youth-era Billboard music physical anchors wired to precision lab audio deck",
+          "physical_behavior": "State-A listener sits quiet with hands still in lap -> State-B researcher pushes audio fader forward and listener lifts head, taps fingers in rhythm, and sings effortlessly"
+        },
+        {
+          "name": "7-Tesla brain comparison monitor ('Spared Midline Musical Island vs Faded Hippocampus')",
+          "period_detail": "high-contrast clinical neuroimaging display pairing Janata 2009 MPFC tracking with Jacobsen 2015 spared hub",
+          "physical_behavior": "State-A dim baseline cortical map -> State-B midline ventromedial prefrontal and cingulate island lights bright cyan in sync with the chord change"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Petr Janata",
+          "verb_sequence": "places cushioned headphones over the listener's ears and slides the console fader up on a random 30-second youth track"
+        },
+        {
+          "who": "68-year-old listener",
+          "verb_sequence": "blinks at the first three guitar chords -> sits up straight, taps right hand briskly on the chair arm, and sings every lyric without hesitation"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "68-year-old listener",
+          "reaction": "beams with vivid emotional warmth transported forty years back in three seconds"
+        },
+        {
+          "who": "Petr Janata",
+          "reaction": "traces the glowing midline prefrontal-cingulate hub confirming the 42.3% autobiographical lock"
+        }
+      ],
+      "wardrobe": "Smart academic navy blazer and Oxford shirt; warm oatmeal knit cardigan on older listener.",
+      "lighting": "Warm natural tall-window daylight balanced with crisp cyan neuroimaging screen glow.",
+      "recognition_hook": "Forget a new name in five seconds, yet put on a 1985 song and a sheltered midline island in your brain sings every word.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC4",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "a sunlit neuroimaging studio where a researcher slides up an audio fader beside 1980s vinyl sleeves as an older adult in cushioned headphones sits up singing and a 7T monitor highlights the spared midline frontal-cingulate hub",
+        "must_show": [
+          "headphones|music|vinyl",
+          "monitor|brain",
+          "fader|console"
+        ],
+        "source": "M1@00:28-00:49; SRC1; SRC2"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Backyard Patio Handshake to Sunlit Car Dashboard Radio: Dropping 'Greg' vs Nailing Every 1985 Lyric",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern sunlit Saturday afternoon backyard patio and tree-lined suburban street",
+      "layout": {
+        "description": "Open-air sunlit backyard patio table leading out to a parked car along a leafy neighborhood curb.",
+        "positions": [
+          {
+            "who": "52-year-old driver",
+            "where": "shaking a new neighbor's hand on the sunny patio, pausing blankly five seconds later by the gate, then climbing into the car, pressing the dashboard radio knob, and belting out a 1985 chorus",
+            "facing": "from sunlit outdoor patio to open-window car driver's seat"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paper barbecue name tag and classic rotary car-radio volume knob",
+          "period_detail": "everyday adult neighborhood social cue contrasted with tactile car dashboard dial",
+          "physical_behavior": "State-A driver shakes hands and glances blankly at empty palm five seconds later -> State-B twists car radio knob clockwise and taps steering wheel singing every word"
+        }
+      ],
+      "actions": [
+        {
+          "who": "52-year-old driver",
+          "verb_sequence": "shakes hands on the patio and stalls trying to recall the name -> climbs into the sunlit car, clicks the radio knob on, and taps the wheel singing every lyric"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "52-year-old driver",
+          "reaction": "laughs out loud at the contrast between a 5-second name blank and 40-year-old lyric perfection"
+        }
+      ],
+      "wardrobe": "Casual weekend linen shirt and sunglasses pushed up on forehead.",
+      "lighting": "Bright golden late-afternoon outdoor sunlight through street trees.",
+      "recognition_hook": "A new name hangs by one fragile hippocampal thread—a 1985 song is braided across four brain hubs at once.",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Outdoor Sunlit Courtyard Bench: Adult Daughter Sharing a '1965–1975 Youth Playlist' With Her Aging Father",
+      "iconic": false,
+      "shorts_priority": 2,
+      "setting_type": "outdoor",
+      "era": "Modern sunlit morning garden bench",
+      "layout": {
+        "description": "Peaceful sunlit garden bench under a pergola where an adult daughter places lightweight headphones on her 78-year-old father.",
+        "positions": [
+          {
+            "who": "46-year-old daughter & 78-year-old father",
+            "where": "sitting side by side on the outdoor wooden garden bench as she presses play on a saved youth-era song list",
+            "facing": "turned warmly toward each other in morning sunlight"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "silver retro headphone band and pocket music player",
+          "period_detail": "personalized favorite-music care intervention modeled on King et al. (2019) and Cuddy et al. (2015)",
+          "physical_behavior": "State-A father sits slumped looking down quietly -> State-B daughter slips headphones on and presses play, and father lifts head smiling and conducting the beat"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult daughter",
+          "verb_sequence": "gently places the headphones over her father's ears and presses play on his twenty-song youth playlist"
+        },
+        {
+          "who": "78-year-old father",
+          "verb_sequence": "lifts his chin within two seconds, smiles wide in recognition, and conducts the melody with one hand"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Daughter & Father",
+          "reaction": "share immediate eye contact and connection as the spared musical hub wakes up whole-brain synchrony"
+        }
+      ],
+      "wardrobe": "Soft sky-blue sweater on daughter; plaid flannel shirt and cardigan on father.",
+      "lighting": "Warm dappled outdoor morning garden sunlight.",
+      "recognition_hook": "Twenty songs from ages 12 to 25 form a lifelong neural bridge even Alzheimer's struggles to touch.",
+      "sources": [
+        "SRC2",
+        "SRC4",
+        "SRC5"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Backyard barbecue patio where a new acquaintance's name fades in 5 seconds",
+    "landmark_or_object_b": "1985 car stereo cassette deck unlocking a lifelong multi-turn memory highway",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep from UC Davis campus courtyard down to a sunlit parked vintage sedan",
+    "cut_b_topdown_3d_arrow": "90-degree top-down life-timeline neighborhood where #FF2525 3D arrows weave across 1985 teen landmarks",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

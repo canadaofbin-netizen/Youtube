@@ -1,0 +1,32 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "primary visual cortex",
+      "plain": "vision center",
+      "function": "Keeps sampling incoming light at its normal frame rate during the 150-foot drop, giving zero extra flicker speed.",
+      "scene_id": "S1",
+      "narration_bridge": "At the back of your head, your vision center — the primary visual cortex — runs at normal speed.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "amygdala",
+      "plain": "emotional center",
+      "function": "Fires an urgent survival alarm mid-fall that commands memory circuits to record every tiny detail.",
+      "scene_id": "S1",
+      "narration_bridge": "Deep inside, your emotional center — the amygdala — flips emergency recording on.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "hippocampus",
+      "plain": "memory hub",
+      "function": "Packs dense sensory snapshots into the 2.5-second trace so replaying the file afterward feels 36 percent longer.",
+      "scene_id": "S2",
+      "narration_bridge": "Beside it, your memory hub — the hippocampus — packs so many snapshots that two seconds read back like slow motion.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

@@ -1,98 +1,118 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "1975 Scottish scuba diver 20 feet underwater holding a white Formica word slate vs blanking dry on the pier above",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway illuminating the C-shaped hippocampus context tag and prefrontal search hub",
+    "badge_text": "+46% SAME ROOM"
+  },
+  "r75_clean_seed_tags": [
+    "context dependent memory",
+    "godden and baddeley",
+    "why i forget names",
+    "hippocampus memory",
+    "brain science",
+    "cognitive psychology",
+    "neuroscience",
+    "memory retrieval",
+    "everyday psychology",
+    "brain facts",
+    "shorts"
+  ],
   "shorts_extract": {
-    "hook": "Why scuba divers remembered 36% more words by jumping BACK into cold Scottish water — and the 1980 & 2021 twists textbooks leave out.",
-    "core_experiment": "Godden & Baddeley (1975) Oban 2×2 Dry/Wet crossover (13.5 / 8.6 vs 8.4 / 11.4) + 1980 recognition null result.",
-    "twist": "Steven Smith's 30-second 'Mental Context Reinstatement' cure, Murre's 2021 pre-registered scuba replication, and why varied study rooms beat one chair."
+    "hook": "Why 18 Scottish scuba divers forgot words on a sunny beach yet remembered 36% more by plunging back 20 feet into cold water.",
+    "core_experiment": "Godden & Baddeley (1975, Oban): 2x2 Dry Shore vs 20-ft Underwater word recall (13.5 vs 8.6 dry-learned; 11.4 vs 8.4 wet-learned).",
+    "twist": "Multiple-choice tests erased the gap in 1980, and picturing your original room for 20 seconds unlocks the same hippocampal key anywhere."
   },
   "chapters": [
     {
       "n": 1,
-      "title": "Oban, Scotland 1975: 18 Divers & Weighted Formica Slates",
+      "title": "Oban, Scotland 1975: North Sea Divers & Weighted Formica Slates",
       "beats": [
-        "North Sea oil-diver complaints spark a 20-foot underwater test",
-        "The 2×2 Dry/Wet crossover: 13.5 & 11.4 crush 8.6 & 8.4."
+        "Why commercial divers forgot seabed observations back on deck",
+        "18 scuba divers tackle 36 words dry on shore vs 20 feet underwater"
       ],
       "scene_ids": [
         "S1"
       ],
       "reuse_shorts_roles": [
         "setup",
-        "symptom",
-        "pivot"
+        "symptom"
       ],
       "new_shots_needed": [
-        "pier, scuba divers & 2x2 board"
+        "Oban wooden pier and submerged diver writing on Formica slate"
       ]
     },
     {
       "n": 2,
-      "title": "1980 Plot Twist: Why Multiple-Choice Exams Are Immune.",
+      "title": "The 2x2 Crossover Scorecard: 13.5 & 11.4 Beat 8.6 & 8.4",
       "beats": [
-        "Godden & Baddeley send divers back in with recognition sheets to 0% gap.",
-        "Blank-page search cues vs direct familiarity"
+        "Dry-Dry (13.5) plunges to 8.6 underwater",
+        "Wet-Dry (8.4) rebounds to 11.4 when divers jump back in"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "side-by-side wet slate vs dry clipboard"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Hippocampus: How Surroundings Become Retrieval Keys",
+      "beats": [
+        "Hippocampal place tags bind background sights and sounds to words",
+        "Why mismatched surroundings silence temporal cue pathways"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 hippocampus and temporal context circuit"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "1980 & 2021 Twists: Multiple-Choice Immunity & Replication Limits",
+      "beats": [
+        "Godden & Baddeley (1980) show 0% gap on recognition checklists",
+        "Murre (2021) pre-registered scuba replication refines real-world effect size"
       ],
       "scene_ids": [
         "S2"
       ],
       "reuse_shorts_roles": [
-        "step1"
+        "failure"
       ],
       "new_shots_needed": [
-        "1980 Multiple-Choice slate"
+        "1980 recognition checklist on Oban pier"
       ]
     },
     {
-      "n": 3,
-      "title": "Kitchen Doorways, Police Interviews & 2021 Replication",
+      "n": 5,
+      "title": "The 20-Second Mental Room Reset for Everyday Blanks",
       "beats": [
-        "Why walking back to the bedroom doorway brings 'Scissors!' right back",
-        "Murre 2021: honest boundary conditions on subtle room shifts"
+        "Why seeing your doctor at the supermarket freezes name recall",
+        "Picturing your garage workbench in Aisle 7 to unlock missing items"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "failure",
-        "crisis"
-      ],
-      "new_shots_needed": [
-        "study-to-kitchen doorway"
-      ]
-    },
-    {
-      "n": 4,
-      "title": "Flooding the Exam Hall Inside Your Imagination (Smith 1979)",
-      "beats": [
-        "30 seconds of picturing your study lamp restores lost cues",
-        "Police 'Cognitive Interview' mental reinstatement"
-      ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [
-        "step2",
-        "breakthrough"
-      ],
-      "new_shots_needed": [
-        "20-second eyes-closed exam reset"
-      ]
-    },
-    {
-      "n": 5,
-      "title": "Room-Proofing Your Knowledge",
-      "beats": [
-        "Study in 2–3 different spots to cut wallpaper dependence",
-        "Revisit context mentally when stuck"
-      ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [
+        "breakthrough",
         "conclusion"
       ],
       "new_shots_needed": [
-        "portable room-proof outline"
+        "hardware store aisle 20-second eyes-closed reset"
       ]
     }
   ]

@@ -619,16 +619,16 @@ def test_review_anti_boilerplate_sha256_and_rejection_propagation(tmp_path: Path
     rej_src_by_num = {int(s["clip_number"]): s for s in rep_rej["source_clips"]}
     assert rej_src_by_num[2]["passed"] is False
 
-    # 4. Stale MP4 SHA-256 mismatch detected AND does not poison a fresh render when require_review=False
+    # 4. Under R85, stale MP4 SHA-256 mismatch ALWAYS fails posthoc-qa even when require_review=False
     v_stale = validate_posthoc_semantic_review(p_dir, "deadbeef" * 8, rep["edl_sha256"], 4)
     assert v_stale["valid"] is False
     assert "stale_review_final_mp4_sha256_mismatch" in v_stale["issues"]
 
     doc["final_mp4_sha256"] = "deadbeef" * 8
     rev_path.write_text(json.dumps(doc), encoding="utf-8")
-    rep_stale_ignored = run_posthoc_semantic_qa(p_dir, render_strips=False, run_asr_sync=False, require_review=False)
-    assert rep_stale_ignored["cv_passed"] is True
-    assert rep_stale_ignored["passed"] is True
+    rep_stale_blocked = run_posthoc_semantic_qa(p_dir, render_strips=False, run_asr_sync=False, require_review=False)
+    assert rep_stale_blocked["cv_passed"] is True
+    assert rep_stale_blocked["passed"] is False
 
 
 def test_classic_v5_concat_fallback_and_knowledge_hub_roundtrip(tmp_path: Path) -> None:
@@ -852,7 +852,7 @@ def test_unequal_concat_list_no_false_mid_cut_morph_and_empty_script_kb_telemetr
     (p_dir / "04_audio" / "audio_master_spec.json").write_text(
         json.dumps(
             {
-                "voice_profile": "Puck (Google Omni 1.1 Native Storyteller)",
+                "voice_profile": "Puck (Google Omni 1.2 Native Storyteller)",
                 "av_speedup_factor": 1.08,
                 "target_speech_seconds": 4.0,
             }

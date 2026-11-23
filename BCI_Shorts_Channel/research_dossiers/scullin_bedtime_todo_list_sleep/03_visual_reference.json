@@ -1,0 +1,109 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Baylor Polysomnography Sleep Suite & 5-Minute Bedside Paper Notepad",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1996 Virginia Sleep Tape Study & 2018 Baylor Polysomnography Laboratory",
+      "layout": {
+        "description": "Warm bedside lamp beside a quiet sleep-lab bed with an unmarked cream paper notepad, wooden pen, EEG sensor cap leads, and brass desk timer.",
+        "positions": [
+          {
+            "who": "Michael K. Scullin",
+            "where": "standing beside the sleep-lab desk handing a paper notepad and pen",
+            "facing": "toward the seated bedtime participant"
+          },
+          {
+            "who": "Sleep Lab Participant",
+            "where": "seated upright on the edge of the bed writing concrete bullet items before lights out",
+            "facing": "toward the paper notepad under warm lamp light"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Unmarked cream paper bedside notepad and brass pen",
+          "period_detail": "Physical paper pad used during the 5-minute pre-sleep offloading window",
+          "physical_behavior": "captures crisp pen strokes then closes cleanly on the nightstand"
+        },
+        {
+          "name": "Polysomnography bedside EEG junction box and analog timer",
+          "period_detail": "Clinical overnight sleep-monitoring hardware",
+          "physical_behavior": "tracks rapid transition from wakefulness into calm sleep"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sleep Lab Participant",
+          "verb_sequence": "writes specific tasks on paper pad -> sets pen down on nightstand -> settles onto pillow peacefully"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleep Lab Participant",
+          "reaction": "shoulders drop in relief as racing thoughts quiet down"
+        }
+      ],
+      "wardrobe": "Crisp white researcher lab coat and cozy navy pajama sweater for the participant.",
+      "lighting": "Warm amber bedside tungsten lamp contrasting with cool dark bedroom shadows.",
+      "recognition_hook": "In 2018 at Baylor University, 57 young adults wired to overnight sleep monitors spent 5 minutes writing tomorrow's chores and fell asleep in 15.8 minutes vs 25.1 minutes.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC5"
+      ],
+      "key_visual": {
+        "description": "Bedtime sleep-lab participant writing on a physical paper pad beside EEG leads before lights out.",
+        "must_show": [
+          "notepad|pen",
+          "bed|lamp"
+        ],
+        "source": "SRC1; SRC2"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "3D Translucent Glass Brain — Hippocampus & Prefrontal Offloading",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2018-2022 Neuroimaging Suite",
+      "layout": {
+        "description": "Deep midnight studio void showcasing an isolated translucent 3D glass brain with hippocampus and prefrontal cortex tracts.",
+        "positions": [
+          {
+            "who": "Glass Brain Model",
+            "where": "centered in 9:16 frame",
+            "facing": "three-quarter lateral profile"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Translucent 3D Anatomical Glass Brain",
+          "period_detail": "Subsurface 4-color fiber tracts",
+          "physical_behavior": "amber hippocampal loop calms into pearl-aqua prefrontal rest"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Brain Circuit",
+          "verb_sequence": "pulses along hippocampal arch -> settles cleanly in prefrontal cortex"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Brain Circuit",
+          "reaction": "transitions smoothly from alert loop to quiet rest"
+        }
+      ],
+      "wardrobe": "None (isolated 3D brain).",
+      "lighting": "Clean rim-lit observatory lighting.",
+      "recognition_hook": "Offloading concrete future tasks quiets hippocampal-prefrontal prospective memory loops.",
+      "sources": [
+        "SRC1",
+        "SRC5"
+      ]
+    }
+  ]
+}

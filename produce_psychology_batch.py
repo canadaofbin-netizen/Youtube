@@ -1367,7 +1367,6 @@ def assemble_final_shorts_video(
     """
     from pipeline.config import DEFAULT_VOICE_SOURCE, is_diorama_profile
     from pipeline.media_integrity import MediaIntegrityValidator
-    from pipeline.voice_fallback import resolve_voice_track
 
     assembly_dir = storage.get_stage_dir("05_assembly")
     final_video_path = assembly_dir / "final_shorts_1080x1920.mp4"
@@ -1462,24 +1461,17 @@ def assemble_final_shorts_video(
 
     raw_native = (
         None
-        if (DEFAULT_VOICE_SOURCE == "tts" and force_mode != "native") or force_mode in ("tts", "tts_fallback")
+        if force_mode in ("tts", "tts_fallback")
         else extract_native_flow_clip_speech(storage.project_dir, sr=48000, return_windows=True, topic_item=topic_item)
     )
-    voice_decision = resolve_voice_track(
-        storage.project_dir,
-        raw_candidates[: len(clip_scripts)],
-        clip_scripts,
-        native_res=raw_native,
-        sr=48000,
-    )
-    voice_res = voice_decision["res"]
+    voice_res = raw_native
     if voice_res is None:
         raise RuntimeError(
             f"Voice track unavailable for '{storage.project_id}': "
             f"{_native_audio_unavailable_reason(storage.project_dir, topic_item)}."
         )
     _voice_pcm, clip_windows = voice_res
-    tts_events = voice_decision.get("events")
+    tts_events = None
     clip_candidates = raw_candidates[: len(clip_windows)]
 
     vr_file = audio_dir / "voice_report.json"

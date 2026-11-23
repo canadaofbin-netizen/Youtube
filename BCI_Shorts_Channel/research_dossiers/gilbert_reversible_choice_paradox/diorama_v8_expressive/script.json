@@ -1,0 +1,203 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "production_profile": "shorts_expressive_v8",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "r72_mode": true,
+  "r73_mode": true,
+  "r74_mode": true,
+  "opening_mode": "paradox_question",
+  "previous_opening_mode": "case_stamp",
+  "ending_mode": "mic_drop",
+  "post_hook_pause_sec": 0.42,
+  "core_reveal_sentence_index": 13,
+  "sentence_beats": [
+    "paradox_question",
+    "university_bridge",
+    "evidence",
+    "hook_promise",
+    "aggro",
+    "conflict",
+    "evidence",
+    "escalation",
+    "evidence",
+    "evidence",
+    "setback",
+    "evidence",
+    "core",
+    "payoff",
+    "payoff",
+    "mic_drop"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "stamp",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "brisk",
+    "stamp"
+  ],
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "habits",
+  "dossier": "gilbert_reversible_choice_paradox",
+  "dossier_slug": "gilbert_reversible_choice_paradox",
+  "language": "en-US",
+  "title": "Why Swap Options Ruin Your Own Choice",
+  "doi": "10.1037/0022-3514.82.4.503",
+  "secondary_doi": "10.1037/0022-3514.79.6.995",
+  "mechanism_doi": "10.1523/JNEUROSCI.1681-18.2018",
+  "omit_experiment_nicknames": [],
+  "viewer_description": "At Harvard University in 2002, students in a darkroom course printed two favorite photos and chose one to take home. Two out of three people wanted a five-day swap window beforehand, yet students given five days to trade ended up liking their chosen print much less than students whose pick was final.\n\nIn a related market study, thirty percent of shoppers bought jam from a six-jar table versus only three percent from twenty-four jars. Brain imaging shows that open escape hatches keep the anterior cingulate scanning for flaws, while final commitment lets the prefrontal cortex build real satisfaction.\n\nResearch: Gilbert and Ebert, Harvard University (2002).",
+  "debate_question": "When you buy something new, does a long return window calm you down or make you hunt for flaws?",
+  "offcenter_creator_bet": "My bet: final picks win every time — do return windows calm you down or breed regret?",
+  "cameo_prompt": "",
+  "us_anti_clone_v7": true,
+  "acts": [
+    {
+      "act": 1,
+      "name": "Harvard Darkroom Hook & Five-Day Swap Rule",
+      "sentences": [
+        "Why do you end up hating your own choice only when you can swap it?",
+        "To test this, Harvard scientists had students print two favorite photos and keep one.",
+        "Half made a final pick, while others got five days to trade.",
+        "Take your favorite print home, and swap it anytime within five days."
+      ]
+    },
+    {
+      "act": 2,
+      "name": "The 66.3 Percent Forecast Error & Regret Flip",
+      "sentences": [
+        "Most people assume swap rules help, and sixty-six point three percent — two in three — picked it.",
+        "Almost nobody traded, yet swap-group students liked their photo way less!",
+        "Meanwhile, students stuck with a final pick loved theirs fast."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Pivot & Gourmet Jam Collapse",
+      "sentences": [
+        "Hold on! Why does an open exit ruin what you picked?",
+        "At a market stand, psychologists showed twenty-four jam jars, then just six.",
+        "Thirty percent bought from six jars, versus three percent from twenty-four — ten times fewer!"
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Two-Cycle Glass Brain Dive: Choice Alarm vs Choice Builder",
+      "sentences": [
+        "That's because open doors keep your brain's choice alarm — the anterior cingulate — hunting for flaws.",
+        "Every tiny shadow on the frame feels like a mistake.",
+        "Once choices lock, your brain's choice builder — the prefrontal cortex — upgrades what you own!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Everyday Return-Window Trap",
+      "sentences": [
+        "Long return windows and open shopping tabs run that same regret trap."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Mic-Drop Commitment Lock",
+      "sentences": [
+        "Your mind can't love a pick while one foot stays outside.",
+        "Close the backup tabs fast so your brain builds real joy."
+      ]
+    }
+  ],
+  "sentences": [
+    "Why do you end up hating your own choice only when you can swap it?",
+    "To test this, Harvard scientists had students print two favorite photos and keep one.",
+    "Half made a final pick, while others got five days to trade.",
+    "Take your favorite print home, and swap it anytime within five days.",
+    "Most people assume swap rules help, and sixty-six point three percent — two in three — picked it.",
+    "Almost nobody traded, yet swap-group students liked their photo way less!",
+    "Meanwhile, students stuck with a final pick loved theirs fast.",
+    "Hold on! Why does an open exit ruin what you picked?",
+    "At a market stand, psychologists showed twenty-four jam jars, then just six.",
+    "Thirty percent bought from six jars, versus three percent from twenty-four — ten times fewer!",
+    "That's because open doors keep your brain's choice alarm — the anterior cingulate — hunting for flaws.",
+    "Every tiny shadow on the frame feels like a mistake.",
+    "Once choices lock, your brain's choice builder — the prefrontal cortex — upgrades what you own!",
+    "Long return windows and open shopping tabs run that same regret trap.",
+    "Your mind can't love a pick while one foot stays outside.",
+    "Close the backup tabs fast so your brain builds real joy."
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 5,
+      "mode": "study",
+      "preset": "arc_gauge",
+      "chart": "arc_gauge",
+      "style": "ink_pen",
+      "format": "single_percent",
+      "title": "Picked the Swap Window",
+      "value": 66.3,
+      "unit": "%",
+      "doi": "10.1037/0022-3514.82.4.503",
+      "source_citation": "Gilbert & Ebert (2002)"
+    },
+    {
+      "sentence_index": 10,
+      "mode": "study",
+      "preset": "bar_compare",
+      "chart": "bar_compare",
+      "style": "ink_pen",
+      "format": "group_means",
+      "title": "Gourmet Jam Buyers",
+      "unit": "%",
+      "bars": [
+        {
+          "label": "6 Jars",
+          "value": 30,
+          "unit": "%"
+        },
+        {
+          "label": "24 Jars",
+          "value": 3,
+          "unit": "%"
+        }
+      ],
+      "doi": "10.1037/0022-3514.79.6.995",
+      "source_citation": "Iyengar & Lepper (2000)"
+    }
+  ]
+}

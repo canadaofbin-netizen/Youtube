@@ -2,203 +2,178 @@
   "scenes": [
     {
       "id": "S1",
-      "title": "1974 North Vancouver: 230-Foot Swaying Capilano Canyon Bridge (50% Phone Calls!) vs Solid 10-Foot Cedar Bridge (12.5%)",
+      "title": "1974 North Vancouver Outdoor Gorge: 230-Foot Swaying Capilano Suspension Bridge vs 10-Foot Solid Cedar Bridge",
       "iconic": true,
       "shorts_priority": 1,
-      "era": "1974, Capilano Canyon, North Vancouver, British Columbia, Canada",
+      "setting_type": "outdoor",
+      "era": "1974, Capilano Canyon Suspension Bridge, North Vancouver, British Columbia",
       "layout": {
-        "description": "Sunlit high-key Pacific Northwest cedar-forest gorge spanning the iconic **450-foot-long, 5-foot-wide swaying wooden-plank and wire-cable Capilano Suspension Bridge** high above rushing canyon water, paired in clear documentary split comparison with the **sturdy low 10-foot cedar bridge** upstream and a crisp **Post-Bridge Callback Board ('Low Solid Bridge: 12.5% Called | 230-Ft Swaying Bridge: 50.0% Called — 4x!')**.",
+        "description": "Sunlit Pacific Northwest cedar-forest gorge spanned by the narrow 450-foot swaying wooden-plank and steel-cable suspension bridge 230 feet above churning whitewater rapids, where a female UBC researcher hands a torn paper contact slip to a traveler gripping the wire cable.",
         "positions": [
           {
-            "who": "Female UBC Interviewer mannequin ('Gloria', in 1974 denim-and-knit Pacific Northwest jacket holding a clipboard and tear-off phone number slip)",
-            "where": "standing mid-span on the swaying wooden planks handing the tear-off study contact slip to a male crosser",
-            "facing": "mid-span on suspension bridge"
+            "who": "Female UBC interviewer (in 1974 corduroy jacket over knit turtleneck holding wooden clipboard)",
+            "where": "standing mid-span on the swaying cedar planks tearing the top-right phone-number corner off a questionnaire sheet",
+            "facing": "angled toward the arriving traveler mid-bridge"
           },
           {
-            "who": "Male Bridge Crosser mannequin (in 1974 windbreaker and jeans, one hand steadying on the wire cable handrail)",
-            "where": "feeling his heart pound over the 230-foot drop while smiling intently as he pockets the tear-off phone number slip!",
-            "facing": "gripping bridge cable opposite interviewer"
+            "who": "38-year-old male traveler (in 1974 nylon windbreaker and denim, one hand gripping the steel handrail cable)",
+            "where": "glancing down at the 230-foot canyon drop with chest rising rapidly before smiling warmly as he accepts the paper slip",
+            "facing": "facing the interviewer mid-span on the suspension bridge"
           }
         ]
       },
       "props": [
         {
-          "name": "swaying wooden-plank & steel-cable suspension bridge vs low solid cedar bridge comparison",
-          "period_detail": "embodies high vs low sympathetic arousal visually in one glance",
-          "physical_behavior": "Dutton & Aron's world-famous 1974 natural lab"
+          "name": "swaying cedar-plank suspension bridge deck and steel handrail cable",
+          "period_detail": "1974 Capilano 5-foot-wide, 230-foot-high gorge span contrasting against the solid 10-foot creek bridge",
+          "physical_behavior": "State-A wooden planks tilt gently over whitewater gorge as traveler grips steel cable tightly -> State-B traveler steadies stance leaning in attentively toward interviewer"
         },
         {
-          "name": "clipboard with TAT picture card + perforated tear-off phone number corner ('50% vs 12.5%')",
-          "period_detail": "the exact behavioral dependent measure from JPSP 1974",
-          "physical_behavior": "anchors the 4x callback surge"
+          "name": "wooden research clipboard and torn paper phone-number corner slip",
+          "period_detail": "exact 1974 JPSP dependent measure tracking voluntary post-bridge phone calls (50.0% vs 12.5%)",
+          "physical_behavior": "State-A interviewer tears paper corner cleanly from clipboard sheet -> State-B traveler tucks paper slip carefully into jacket pocket"
         }
       ],
       "actions": [
         {
-          "who": "Male Crosser mannequin",
-          "verb_sequence": "steps onto the swaying 230-foot bridge gripping the cable as his chest pounds -> Female Interviewer shows TAT card and hands over the tear-off phone slip -> Crosser misreads canyon adrenaline as chemistry and dials her number at 4x the low-bridge rate!"
+          "who": "Male traveler",
+          "verb_sequence": "steadies one hand on the swaying steel bridge cable as his pulse races -> takes the torn paper slip from the interviewer and tucks it straight into his breast pocket"
+        },
+        {
+          "who": "UBC interviewer",
+          "verb_sequence": "presents the picture card on her clipboard, tears off the contact corner, and hands it across the swaying span"
         }
       ],
       "reactions": [
         {
-          "who": "Male Crosser mannequin",
-          "reaction": "grins convinced he just felt 'love at first sight' mid-canyon"
+          "who": "Male traveler",
+          "reaction": "bright, captivated grin mistaking canyon adrenaline for instant interpersonal spark"
         },
         {
-          "who": "Dutton & Aron mannequins (at trailhead with Study 2 park-bench timer)",
-          "reaction": "log calls dropping from 65% on-bridge to 30% once pulses cool 10 minutes later"
+          "who": "UBC interviewer",
+          "reaction": "neutral, professional nod keeping script identical across both bridges"
         }
       ],
-      "wardrobe": "1974 Canadian outdoor casual attire: nylon hiking windbreaker, plaid flannel overshirt, knit sweater, and denim.",
-      "lighting": "Crisp high-key Pacific Northwest forest-canyon daylight.",
-      "recognition_hook": "Meet the exact same interviewer on a sturdy 10-foot creek bridge and 12.5% of men call — meet her 230 feet up a swaying canyon suspension bridge and 50% dial her number!",
+      "wardrobe": "1974 Pacific Northwest outdoor wear: rust nylon windbreaker, plaid flannel shirt, corduroy jacket, and denim.",
+      "lighting": "Crisp sunlit evergreen-canyon daylight above bright whitewater spray.",
+      "recognition_hook": "Meet on a sturdy 10-foot creek bridge and 12.5% call; meet 230 feet up a swaying gorge bridge and 50.0% dial the number.",
       "sources": [
         "SRC1",
-        "SRC2",
+        "SRC5",
         "SRC_M1",
-        "SRC_M2",
         "SRC_STILL"
       ],
       "key_visual": {
-        "description": "a sunlit Pacific Northwest forest canyon suspension bridge high above rapids where a clipboard interviewer hands a tear-off phone slip to a male crosser gripping the wire rail beside a 50%-vs-12.5% callback chart",
+        "description": "a sunlit forest canyon suspension bridge high above rapids where a researcher with a wooden clipboard hands a torn paper slip to a traveler gripping the steel cable",
         "must_show": [
           "bridge|planks|cable",
           "clipboard|slip",
-          "canyon|chart"
+          "canyon|rapids"
         ],
         "source": "M1@00:44-00:57; M3@still; SRC1"
       }
     },
     {
       "id": "S2",
-      "title": "Study 2 Proof: Waiting 10 Minutes on a Park Bench Halves the Spark!",
+      "title": "Study 2 Cedar Park Bench 10 Minutes Past the Bridge Exit: Cooled Pulse Halves the Spark",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "1974, Capilano Park cedar bench past the bridge exit",
+      "setting_type": "outdoor",
+      "era": "1974, shaded cedar park bench beyond the Capilano bridge exit",
       "layout": {
-        "description": "Calm sunlit park bench 10 minutes past the suspension bridge exit with resting heart-rate comparison.",
+        "description": "Peaceful dappled-sunlight park clearing ten minutes past the suspension bridge exit with a solid cedar bench.",
         "positions": [
           {
-            "who": "Cooled-down Crosser & Interviewer mannequins",
-            "where": "talking calmly once heart rate returns to normal — callback rate drops from 65% (on bridge) to 30% (on bench)!",
-            "facing": "at sunlit park bench"
+            "who": "Cooled-down bridge traveler and interviewer",
+            "where": "conversing calmly beside the cedar bench ten minutes after crossing once breathing and pulse have returned to resting baseline",
+            "facing": "standing calmly beside shaded park bench"
           }
         ]
       },
       "props": [
         {
-          "name": "On-Bridge (65%) vs 10-Min Cooled Bench (30%) placard",
-          "period_detail": "proves thrill-seeker personality did NOT explain the effect",
-          "physical_behavior": "Dutton & Aron 1974 Study 2"
+          "name": "solid cedar park bench and stainless wristwatch",
+          "period_detail": "Dutton & Aron Study 2 10-minute post-crossing heart-rate recovery window",
+          "physical_behavior": "State-A traveler sits resting hands on knees for 10 minutes as chest breathing slows -> State-B accepts paper slip casually with half the callback urgency (30% vs 65%)"
         }
       ],
       "actions": [
         {
-          "who": "Crosser",
-          "verb_sequence": "sits 10 minutes calming pulse -> meets interviewer -> half the misattribution vanishes"
+          "who": "Bridge traveler",
+          "verb_sequence": "rests ten minutes on the cedar bench until pulse cools, glances calmly at the clipboard, and walks on unhurriedly"
         }
       ],
       "reactions": [
         {
-          "who": "Researchers",
-          "reaction": "rule out daredevil self-selection cleanly"
+          "who": "Bridge traveler",
+          "reaction": "friendly but unhurried composure once canyon adrenaline fades"
         }
       ],
-      "wardrobe": "1974 outdoor jackets and sweaters.",
-      "lighting": "Dappled sunlit park daylight.",
-      "recognition_hook": "Same thrill-seekers, same scary bridge — simply waiting ten minutes on a park bench for their hearts to slow down cut phone calls in half!",
+      "wardrobe": "Same 1974 outdoor jackets and sweaters.",
+      "lighting": "Calm dappled forest-park sunlight.",
+      "recognition_hook": "Same thrill-seekers, same scary bridge—waiting ten minutes on a park bench for their pulse to cool cut phone calls from 65% to 30%.",
       "sources": [
         "SRC1",
-        "SRC2",
         "SRC_M1",
         "SRC_M2"
       ]
     },
     {
       "id": "S3",
-      "title": "Inside the Brain: Amygdala + Insula Pulse, Prefrontal Mislabel",
-      "iconic": false,
-      "shorts_priority": 1,
-      "era": "Modern affective neuroscience gallery",
-      "layout": {
-        "description": "Clean high-key studio brain gallery linking autonomic heartbeat signals to prefrontal context labeling.",
-        "positions": [
-          {
-            "who": "Neuroscientist & Subject mannequins",
-            "where": "tracing how unlabelled sympathetic arousal amplifies attractive cues AND amplifies irritation toward annoying cues",
-            "facing": "beside 3D translucent brain model"
-          }
-        ]
-      },
-      "props": [
-        {
-          "name": "Arousal Amplifier Chart ('Attractive -> More Attractive | Annoying -> More Annoying')",
-          "period_detail": "captures Zillmann & Foster's crucial boundary rule",
-          "physical_behavior": "prevents pop-science oversimplification"
-        }
-      ],
-      "actions": [
-        {
-          "who": "Neuroscientist",
-          "verb_sequence": "traces amygdala-insula arousal up to prefrontal attribution"
-        }
-      ],
-      "reactions": [
-        {
-          "who": "Subject",
-          "reaction": "recognizes caffeine and traffic jitters spilling into mood"
-        }
-      ],
-      "wardrobe": "Modern tailored blazer and knit top.",
-      "lighting": "Clean gallery daylight.",
-      "recognition_hook": "Adrenaline isn't a blind love potion — it's an emotional volume knob that makes charming people magnetic and annoying people intolerable!",
-      "sources": [
-        "SRC1",
-        "SRC2"
-      ]
-    },
-    {
-      "id": "S4",
-      "title": "Arthur Aron's Long-Term Lesson: Novel Shared Adventures Reignite Couples",
+      "title": "Long-Term Couple Shared Adventure Overlook: Using Excitation Transfer Together on Purpose",
       "iconic": false,
       "shorts_priority": 2,
-      "era": "Modern sunlit coastal kayak / hiking trail",
+      "setting_type": "outdoor",
+      "era": "Modern sunlit coastal trail overlook",
       "layout": {
-        "description": "Bright scenic trail where a long-term couple tries an exciting novel activity together instead of routine couch TV.",
+        "description": "Sunlit coastal wooden overlook trail where a 55-year-old married couple finishes an invigorating climb together.",
         "positions": [
           {
-            "who": "Couple mannequins",
-            "where": "laughing energized after a brisk scenic climb together",
-            "facing": "on sunlit overlook"
+            "who": "55-year-old couple",
+            "where": "laughing warmly together at the sunlit scenic railing with energized posture after completing a brisk new trail",
+            "facing": "sharing a warm look beside coastal wooden railing"
           }
         ]
       },
       "props": [
         {
-          "name": "Novelty & Shared Excitement Card (Aron et al. 2000)",
-          "period_detail": "shows Arthur Aron turned his 1974 bridge discovery into a science of lasting marriage vitality",
-          "physical_behavior": "inspiring real-life takeaway"
+          "name": "two lightweight hiking poles and insulated trail thermos",
+          "period_detail": "Arthur Aron's long-term couple shared-novelty takeaway",
+          "physical_behavior": "State-A couple props hiking poles against overlook rail -> State-B clasp hands warmly sharing energized post-climb laughter"
         }
       ],
       "actions": [
         {
-          "who": "Couple",
-          "verb_sequence": "completes novel energizing challenge together -> shares heightened warmth and closeness"
+          "who": "55-year-old couple",
+          "verb_sequence": "leans hiking poles against the wooden overlook rail and clasps hands laughing as shared healthy excitement boosts warmth"
         }
       ],
       "reactions": [
         {
-          "who": "Couple",
-          "reaction": "warm, revitalized connection"
+          "who": "55-year-old couple",
+          "reaction": "genuine, revitalized closeness"
         }
       ],
-      "wardrobe": "Modern outdoor activewear.",
-      "lighting": "Warm golden daylight.",
-      "recognition_hook": "Arthur Aron spent the next thirty years proving long-term couples who share novel, heart-pumping adventures together rekindle real romantic spark!",
+      "wardrobe": "Modern breathable outdoor fleece jackets and trail shirts.",
+      "lighting": "Warm golden coastal daylight.",
+      "recognition_hook": "Sharing a novel, heart-pumping activity with your long-term partner channels healthy adrenaline straight into renewed closeness.",
       "sources": [
         "SRC1",
-        "SRC2"
+        "SRC2",
+        "SRC_M2"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Low 10-foot solid cedar creek bridge where heart rate stays calm (12.5% callbacks)",
+    "landmark_or_object_b": "High 230-foot swaying Capilano gorge suspension bridge spiking unlabelled adrenaline (50.0% callbacks)",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial canyon dive down North Vancouver's towering evergreens past the 230-foot swaying Capilano Suspension Bridge and upstream low creek bridge",
+    "cut_b_topdown_3d_arrow": "Top-down canyon twin-bridge comparison where a calm baseline path crosses the low cedar span while a surging #FF2525 3D arrow crosses the 230-foot gorge at 4x callback rate",
+    "ricks_tempo_sec_range": [
+      2.3,
+      3.1
+    ]
+  }
 }

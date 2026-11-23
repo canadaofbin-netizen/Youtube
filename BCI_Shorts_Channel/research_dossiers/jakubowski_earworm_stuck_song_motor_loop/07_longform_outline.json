@@ -1,0 +1,115 @@
+{
+  "target_minutes": 10,
+  "shorts_extract": {
+    "hook": "Why does 10 seconds of a grocery-store song loop inside your head for four hours — and how does plain chewing gum shut it off?",
+    "core_experiment": "Philip Beaman's 2015 Reading chewing-gum vs finger-tapping trial (-33% earworms) + Jakubowski's 3,000-person 124-bpm anatomy study.",
+    "twist": "Stuck songs aren't just in your ears — your throat and jaw planner silently sings them, AND spontaneous replay helps file life memories!"
+  },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "48-year-old adult pulling off headphones and unwrapping a silver stick of gum to stop a looping song",
+    "right_cyan_brain": "Translucent #27D8FF cyan 3D brain linking active auditory sound center to silenced Broca's speech-jaw loop",
+    "badge_text": "STOP STUCK SONGS"
+  },
+  "r75_clean_seed_tags": [
+    "earworms explained",
+    "song stuck in head",
+    "chewing gum brain trick",
+    "music and the brain",
+    "kelly jakubowski",
+    "philip beaman",
+    "auditory cortex",
+    "habit loops",
+    "everyday neuroscience",
+    "cognitive psychology"
+  ],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Supermarket Chorus Trap: Why 10 Seconds Loops for Hours",
+      "beats": [
+        "Hyman et al. (2013): why songs you know and like ambush idle chores",
+        "Jakubowski et al. (2017): 3,000 listeners & the 124-bpm walking-tempo sweet spot"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "commuter catching 124-bpm cafe chorus"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Inside the Earworm Loop: Sound Center + Speech-Jaw Planner",
+      "beats": [
+        "Farrugia & Jakubowski (2015) MRI: auditory cortex + inferior frontal Broca's link",
+        "Why your throat and jaw silently 'sing' every stuck tune"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D brain auditory-to-Broca motor loop"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Beaman et al. (2015): Chewing Gum Cuts Earworms by 33%",
+      "beats": [
+        "44 volunteers, 'Play Hard', and 3-minute computer keypress tracking",
+        "Experiment 3 killer control: why jaw chewing beat finger-tapping"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "unwrapping foil gum stick vs finger-tapping"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Not Just a Glitch: Kubit & Janata (2022) Memory Bonus",
+      "beats": [
+        "How spontaneous mental music replay cements everyday episodic memories",
+        "Why fighting the tune with 'Don't sing it!' backfires"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "memory filing comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your 2-Minute Toolkit to Clear Any Stuck Song",
+      "beats": [
+        "Mint gum, reading 3 sentences aloud, or light verbal anagrams",
+        "Occupying Broca's articulatory loop cleanly before sleep"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "evening kitchen calm reset"
+      ]
+    }
+  ]
+}

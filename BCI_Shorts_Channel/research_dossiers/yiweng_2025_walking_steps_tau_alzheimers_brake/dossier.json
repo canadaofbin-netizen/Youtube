@@ -1,0 +1,197 @@
+{
+  "schema_version": 2,
+  "slug": "yiweng_2025_walking_steps_tau_alzheimers_brake",
+  "topic": "New Harvard Scan Study: How Just 5,000 Daily Steps Slow Brain Aging by Years",
+  "pillar": "brain_news",
+  "everyday_domain": "memory",
+  "created_at": "2026-11-16T03:30:00+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Pairs Mass General Brigham / Harvard Aging Brain Study longitudinal PET-MRI step-counter findings (2019 JAMA Neurology + 2025 Nature Medicine) and outdoor neighborhood brisk walking (R72/R79-M pedometer & walking-shoe action) with 3D cyan MNI152 temporal-hippocampal tau-brake preservation (R78).",
+  "setup_18w": "Harvard doctors tracked step counters and long-term brain scans in older adults carrying early Alzheimer's plaques.",
+  "primary_doi": "10.1001/jamaneurol.2019.1879",
+  "primary_case": {
+    "title": "Harvard Aging Brain Study Longitudinal Step-Counter & Tau/Amyloid Brain-Scan Discovery (2019 JAMA Neurology & 2025 Nature Medicine)",
+    "year": 2025,
+    "place": "Mass General Brigham & Harvard Medical School (Harvard Aging Brain Study, Boston, Massachusetts, USA)",
+    "summary": "Following older adults aged 50 to 90 carrying elevated beta-amyloid plaques with objective waist pedometers, annual memory tests, and longitudinal PET/MRI scans, Harvard Aging Brain Study investigators proved you do not need 10,000 grueling steps—walking 3,000 to 5,000 daily steps delayed cognitive decline by 3 years, and 5,000 to 7,500 steps delayed decline by 7 years by braking toxic tau tangle spread.",
+    "people": [
+      {
+        "name": "Jennifer S. Rabin, Wai-Ying Wendy Yau, Reisa A. Sperling & Jasmeer P. Chhatwal",
+        "role": "Mass General Brigham & Harvard Aging Brain Study investigators who tracked pedometer steps against longitudinal amyloid-PET, tau-PET, hippocampal MRI volume, and memory scores",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Borja del Pozo Cruz, Matthew Ahmadi & Emmanuel Stamatakis",
+        "role": "UK Biobank wrist-accelerometer investigators (JAMA Neurology, 2022) who tracked daily step counts and brisk cadence across 78,430 adults aged 40 to 79",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Gill Livingston & The 2024 Lancet Standing Commission",
+        "role": "Global dementia-prevention panel (The Lancet, 2024) and Voss et al. (Trends in Cognitive Sciences, 2019) mapping how sustained midlife-to-late-life walking protects hippocampal memory",
+        "source_id": "SRC5"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Feeling discouraged past age 45 or 60 by fitness apps demanding 10,000 daily steps—and wondering whether an achievable 25-minute neighborhood walk actually changes physical Alzheimer's risk inside your brain.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1001/jamaneurol.2019.1879",
+      "source_ids": [
+        "SRC1",
+        "SRC3"
+      ],
+      "dois": [
+        "10.1001/jamaneurol.2019.1879",
+        "10.1001/jamaneurol.2022.2672"
+      ],
+      "summary": "Rabin, Chhatwal, Sperling et al. (2019, JAMA Neurology) tracked objective pedometer steps and annual cognitive scores over 6 years in 182 clinically normal Harvard older adults (mean age 73.4), paired with del Pozo Cruz et al.'s (2022, JAMA Neurology) 78,430-adult UK Biobank step-dose cohort."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1038/s41591-025-04081-z",
+      "year": 2025,
+      "source_ids": [
+        "SRC2",
+        "SRC6",
+        "SRC7"
+      ],
+      "dois": [
+        "10.1038/s41591-025-04081-z",
+        "10.1001/jamanetworkopen.2019.2745",
+        "10.1016/j.tics.2019.01.006"
+      ],
+      "summary": "The 2025 Nature Medicine Harvard Aging Brain Study follow-up (296 adults aged 50–90) proved daily walking does not scrub existing amyloid plaques—instead, 5,000 to 7,500 daily steps act as a biological brake slowing tau protein tangle accumulation across temporal and hippocampal memory circuits, delaying decline by ~7 years."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1001/jamaneurol.2019.1879",
+        "year": 2019,
+        "summary": "Rabin et al. (2019, JAMA Neurology) Harvard Aging Brain Study 182-participant pedometer + longitudinal cognitive composite study."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1001/jamaneurol.2022.2672",
+        "year": 2022,
+        "summary": "del Pozo Cruz et al. (2022, JAMA Neurology) 78,430-adult UK Biobank accelerometer dementia-incidence dose-response study."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1038/s41591-025-04081-z",
+        "year": 2025,
+        "summary": "Yau, Chhatwal et al. (2025, Nature Medicine) longitudinal tau-PET + pedometer study demonstrating slower tau accumulation and 3-to-7-year cognitive delay at 3,000–7,500 steps."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1001/jamanetworkopen.2019.2745",
+        "year": 2019,
+        "summary": "Spartano et al. (2019, JAMA Network Open) Framingham accelerometer MRI study linking light daily walking to larger total brain volume."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 2019 (JAMA Neurology), Jennifer Rabin, Jasmeer Chhatwal, Reisa Sperling, and Harvard Aging Brain Study colleagues tracked 182 clinically normal older adults (mean age 73.4 years) wearing baseline pedometers alongside amyloid-PET scans and up to 6 years of annual cognitive tests.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Rabin et al. (2019) discovered that among older adults carrying elevated beta-amyloid plaques, higher daily step counts strongly slowed both longitudinal cognitive decline and gray-matter volume loss on structural MRI—completely independent of vascular heart-risk scores.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In the 2025 Nature Medicine Harvard Aging Brain Study of 296 cognitively unimpaired older adults aged 50 to 90 with elevated amyloid plaques, walking 3,000 to 5,000 daily steps delayed cognitive decline by roughly 3 years, while walking 5,000 to 7,500 daily steps delayed decline by roughly 7 years through slower tau tangle buildup.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Cognitive Decline Delay",
+        "unit": "years",
+        "bars": [
+          {
+            "label": "3k to 5k Steps",
+            "value": 3.0,
+            "unit": "years"
+          },
+          {
+            "label": "5k to 7.5k Steps",
+            "value": 7.0,
+            "unit": "years"
+          }
+        ],
+        "doi": "10.1038/s41591-025-04081-z",
+        "source_citation": "Yau, Chhatwal et al. (2025)"
+      }
+    },
+    {
+      "fact": "Crucially, the 2025 Nature Medicine PET scans revealed *how* walking protected memory: daily steps did not erase early amyloid-beta plaques, but significantly slowed the downstream spread of toxic tau protein tangles into the temporal lobe and hippocampus—and the benefit plateaued right around 7,500 steps.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In a massive UK Biobank study of 78,430 adults aged 40 to 79 followed for 6.9 years (del Pozo Cruz et al., 2022, JAMA Neurology), just 3,826 daily steps already delivered 50% of the maximum dementia-risk reduction (25% lower hazard), peaking near 9,826 steps (51% lower hazard).",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "That same 78,430-person study (del Pozo Cruz et al., 2022) showed walking pace amplifies every step: 6,315 purposeful steps per day (at least 40 steps per minute) or a brisk 30-minute walk at 112 steps per minute was linked to up to a 57% to 62% lower dementia hazard.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Across 10,705 adults followed for 17.4 years from age 60 in the ARIC cohort (Palta et al., 2019, Alzheimer's & Dementia) and Framingham MRI scans (Spartano et al., 2019, JAMA Network Open), sustained midlife-to-late-life walking preserved brain volume equivalent to roughly 1.1 to 2 years of slower brain aging per hour of light daily movement.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Synthesizing global evidence, Voss et al. (2019, Trends in Cognitive Sciences) and the 2024 Lancet Standing Commission (Livingston et al., 2024) confirm rhythmic aerobic walking boosts hippocampal blood flow, neurotrophic growth signaling, and resilience against Alzheimer's pathology.",
+      "source_id": "SRC7"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "You do NOT need 10,000 steps to protect an aging brain: in Harvard's 2025 Nature Medicine scan study, moving from sedentary (<3,000) to just 5,000–7,500 daily steps delayed amyloid-linked cognitive decline by an average of 7 years—and leveled off past 7,500.",
+      "why_surprising": "Shatters the intimidating 10,000-step marketing myth with longitudinal PET brain scans.",
+      "source_id": "SRC2",
+      "rank": 1
+    },
+    {
+      "fact": "Daily walking didn't scrub away existing amyloid plaques—instead, it slammed the brakes on **tau tangles**, the downstream protein that actually kills temporal and hippocampal memory neurons.",
+      "why_surprising": "Even if silent early plaques have already started forming at 55 or 70, daily walking interrupts the jump to memory loss.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Across 78,430 UK adults (del Pozo Cruz et al., 2022), walking just 3,826 steps a day captured half of the entire dementia-prevention benefit—and adding one brisk 30-minute walk amplified protection even further.",
+      "why_surprising": "Going from the couch to a 30-minute neighborhood walk delivers the steepest brain dividend on the entire curve.",
+      "source_id": "SRC3",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Walking under 10,000 steps a day is useless for preventing Alzheimer's memory decline.",
+      "truth": "10,000 came from a 1960s pedometer slogan, not neurology; Harvard's 2025 Nature Medicine PET study found tau-braking benefits start at 3,000–5,000 steps (+3 years) and peak right at 5,000–7,500 steps (+7 years), while UK Biobank saw half the max benefit at 3,826 steps.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Once silent Alzheimer's amyloid plaques appear in your 50s or 60s, lifestyle habits can no longer slow memory loss.",
+      "truth": "Both Rabin et al. (2019) and the 2025 Nature Medicine Harvard cohort specifically found the strongest cognitive protection *inside* older adults who already carried elevated amyloid plaques—by slowing downstream tau accumulation.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Glancing at your phone or watch at 6 PM, seeing 4,800 steps instead of 10,000, and feeling like you failed—until you learn 5,000 steps sits right in Harvard's tau-braking sweet spot.",
+    "Taking a brisk 25-minute after-dinner walk around the block to cross from 2,800 sedentary steps into the 5,500-step neuroprotective zone.",
+    "Sharing concrete hope with a 60- or 75-year-old parent that gentle, consistent daily walks protect the hippocampus even if family risk or early plaques exist."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "Millions of adults give up on walking because 10,000 steps feels out of reach on busy workdays, when Harvard PET scans show the brain-aging brake peaks between 5,000 and 7,500 steps.",
+    "open_verdict_question": "For keeping your brain sharp long-term, do you aim for a daily step number on your watch or a brisk 30-minute walk outdoors?",
+    "offcenter_creator_bet": "My bet: daily walks beat weekend workouts — do you track daily steps or walk neighborhood routes by time?"
+  },
+  "offcenter_creator_bet": "My bet: daily walks beat weekend workouts — do you track daily steps or walk neighborhood routes by time?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

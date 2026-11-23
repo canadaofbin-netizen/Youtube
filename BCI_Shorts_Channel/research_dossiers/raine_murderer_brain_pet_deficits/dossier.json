@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "raine_murderer_brain_pet_deficits",
   "topic": "Adrian Raine (1997): PET Scans of 41 Homicide Defendants — AND Why Raine's Own Scan Shattered 'Born Criminal' Determinism!",
   "pillar": "brain_history",
@@ -32,7 +32,28 @@
   "core_facts": [
     {
       "fact": "In **September 1997 (*Biological Psychiatry*)**, **Adrian Raine, Monte Buchsbaum, and Lori LaCasse** at UC Irvine published the first large-scale controlled functional brain-scan study of violent offenders: **41 homicide defendants** (pleading Not Guilty by Reason of Insanity) matched **1-for-1** on age and sex against **41 healthy controls**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Matched PET Study Cohorts",
+        "unit": "subjects",
+        "bars": [
+          {
+            "label": "Homicide Defendants",
+            "value": 41.0,
+            "unit": "subjects"
+          },
+          {
+            "label": "Healthy Controls",
+            "value": 41.0,
+            "unit": "subjects"
+          }
+        ],
+        "doi": "10.1016/s0006-3223(96)00362-9",
+        "source_citation": "Raine, Buchsbaum & LaCasse (1997)"
+      }
     },
     {
       "fact": "Every participant received an **FDG-PET (fluorodeoxyglucose positron emission tomography)** glucose-uptake scan while performing a **32-minute Continuous Performance Task (CPT)** specifically designed to engage frontal attention and impulse control (medication-free for at least 2 weeks prior).",
@@ -52,7 +73,19 @@
     },
     {
       "fact": "**Impulsive/Affective offenders** drove the entire **low prefrontal braking deficit** (hot subcortical rage + weak frontal brakes!), whereas **Planned/Predatory offenders had COMPLETELY NORMAL prefrontal metabolism** (intact executive planning paired with heightened subcortical drive).",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "inverted_u",
+        "title": "Prefrontal Impulse Braking",
+        "concept": "Prefrontal Regulation vs Subcortical Drive",
+        "x_label": "Subcortical Threat Arousal",
+        "y_label": "Prefrontal Control",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Even more unforgettable (**Raine's biosocial interaction findings & UC Irvine neuroscientist James Fallon**): when Raine also compared offenders from **abusive/neglected homes** vs **benign homes**, AND when both **James Fallon and Adrian Raine** later inspected their **OWN personal brain scans**, both non-violent university professors discovered startlingly **low orbital/prefrontal activity patterns** — cushioned by **warm, non-violent childhood families**.",
@@ -116,5 +149,37 @@
     "diorama_40_raine_murderer_brain_pet_deficits"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/s0006-3223(96)00362-9",
+  "three_layer_formula": {
+    "everyday_problem": "Hearing a true-crime podcast claim *'Scientists found the criminal brain scan!'* and knowing the real twist — two UC Irvine professors found that exact scan inside their own heads.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/s0006-3223(96)00362-9",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/s0006-3223(96)00362-9"
+      ],
+      "summary": "Adrian Raine, Monte Buchsbaum, Lori Lacasse (1997). Brain abnormalities in murderers indicated by positron emission tomography. Biological Psychiatry."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1093/jlb/lsz006",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1093/jlb/lsz006"
+      ],
+      "summary": "Miha Hafner (2019). Judging homicide defendants by their brains: an empirical study on the use of neuroscience in homicide trials in Slovenia. Journal of Law and the Biosciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "A brain scan can spot a 'born violent criminal' or predict with certainty who will offend.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

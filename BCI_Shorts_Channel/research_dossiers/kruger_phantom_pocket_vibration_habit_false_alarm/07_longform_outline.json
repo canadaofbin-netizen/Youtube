@@ -1,0 +1,140 @@
+{
+  "target_minutes": 10,
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "46-year-old adult in crisp shirt looking down baffled at an empty turned-out pocket while a dark silent phone rests on a table behind",
+    "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan cortex and bright amber-crimson basal ganglia habit loop firing into the upper somatosensory touch strip",
+    "badge_text": "FAKE POCKET BUZZ"
+  },
+  "r75_clean_seed_tags": [
+    "phantom vibration syndrome",
+    "phone habit neuroscience",
+    "why my pocket buzzes",
+    "somatosensory cortex",
+    "predictive brain illusions",
+    "basal ganglia habits",
+    "attention and focus",
+    "everyday psychology",
+    "brain habits explained"
+  ],
+  "shorts_extract": {
+    "hook": "Why you feel a crisp two-beat phone buzz inside an empty pocket while your phone sits across the room.",
+    "core_experiment": "Rothberg's 2010 BMJ hospital survey (68% of doctors & nurses) + Powers & Corlett's 2017 Yale Science fMRI hallucination study.",
+    "twist": "Vibrate mode trains top-down priors on that exact inch of skin — moving the phone to a bag resets your touch map."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "chapter": 1,
+      "title": "The Empty-Pocket Grab: Why Everyone Thought Their Nerves Were Weird",
+      "beats": [
+        "Grabbing cotton air while phone sits dark on the counter",
+        "Why doctors at Baystate Hospital started comparing notes"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook"
+      ],
+      "new_shots_needed": [
+        "Empty trouser pocket turn-out close-up"
+      ]
+    },
+    {
+      "n": 2,
+      "chapter": 2,
+      "title": "BMJ 2010 & 2012 Follow-Up: 68% of Clinicians, 89% of Heavy Users",
+      "beats": [
+        "169 medical staff surveyed",
+        "Why switching pockets stopped false buzzes at the old spot"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Hospital station phone-across-desk reveal"
+      ]
+    },
+    {
+      "n": 3,
+      "chapter": 3,
+      "title": "Ringxiety & Signal Detection: Preferring 10 False Checks Over 1 Missed Call",
+      "beats": [
+        "Kruger & Djerf 2016 attachment vigilance",
+        "Why on-call stress lowers sensory thresholds"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "Split comparison: calm vs on-call threshold"
+      ]
+    },
+    {
+      "n": 4,
+      "chapter": 4,
+      "title": "Zurich EEG (2015) & Yale Science fMRI (2017): How Priors Invent Touch",
+      "beats": [
+        "Gindrat & Ghosh somatosensory expansion",
+        "Powers, Mathys & Corlett Pavlovian hallucinations in healthy brains"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D insula + basal ganglia -> somatosensory strip"
+      ]
+    },
+    {
+      "n": 5,
+      "chapter": 5,
+      "title": "Why Vibrate Mode Is Harder on Your Brain Than an Audible Ring",
+      "beats": [
+        "Continuous skin conditioning",
+        "Micro-fragmentation of adult focus"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "Fabric crease vs silent phone macro"
+      ]
+    },
+    {
+      "n": 6,
+      "chapter": 6,
+      "title": "The 48-Hour Pocket Reset",
+      "beats": [
+        "Moving phone off skin into bag/desk",
+        "Turning routine vibrate alerts off"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Sunlit courtyard bench bag zip"
+      ]
+    }
+  ]
+}

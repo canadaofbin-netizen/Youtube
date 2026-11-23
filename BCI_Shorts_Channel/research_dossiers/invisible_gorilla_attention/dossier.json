@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "invisible_gorilla_attention",
   "topic": "The Invisible Gorilla — Selective Attention and Inattentional Blindness (Simons & Chabris, 1999)",
   "pillar": "brain_mysteries",
@@ -33,7 +33,17 @@
     },
     {
       "fact": "In the famous 9-second chest-thumping live-action (Opaque) Gorilla video—where the gorilla walked from right to left into the middle of the players after 35 seconds, stopped, turned to face the camera, thumped its chest, and walked off while observers counted the White team's 15 passes—exactly 50% of observers (6 of 12) completely missed the gorilla.",
-      "source_id": "S_simons1999"
+      "source_id": "S_simons1999",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Missed the Opaque Gorilla",
+        "highlighted_k": 6,
+        "total_n": 12,
+        "doi": "10.1068/p281059",
+        "source_citation": "Simons & Chabris (1999)"
+      }
     },
     {
       "fact": "In the standard 5-second Opaque Gorilla condition, 58% of observers counting White-team passes in the Easy task missed the gorilla (42% noticed), and 50% missed it in the Hard task (counting bounce and aerial passes separately).",
@@ -41,7 +51,28 @@
     },
     {
       "fact": "Feature similarity strongly controlled blindness: across the Gorilla conditions, only 27% of observers attending to the White-shirt team noticed the black gorilla (73% missed it), whereas 58% of observers attending to the Black-shirt team noticed the black gorilla.",
-      "source_id": "S_simons1999"
+      "source_id": "S_simons1999",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Gorilla Noticed by Team (%)",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Watched White Team",
+            "value": 27.0,
+            "unit": "%"
+          },
+          {
+            "label": "Watched Black Team",
+            "value": 58.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1068/p281059",
+        "source_citation": "Simons & Chabris (1999)"
+      }
     },
     {
       "fact": "Task difficulty significantly increased blindness: 64% noticed the unexpected event in the Easy total-count task versus 45% in the Hard separate bounce-and-aerial count task.",
@@ -125,5 +156,38 @@
   ],
   "shorts_projects": [
     "diorama_07_invisible_gorilla_attention"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1068/p281059",
+  "three_layer_formula": {
+    "everyday_problem": "Drivers looking down a street exclusively for oncoming cars look straight at a cyclist or motorcycle in plain sight and pull out anyway ('looked-but-failed-to-see' crashes).",
+    "psychology_experiment": {
+      "source_id": "S_simons1999",
+      "doi": "10.1068/p281059",
+      "source_ids": [
+        "S_simons1999"
+      ],
+      "dois": [
+        "10.1068/p281059"
+      ],
+      "summary": "Simons, D. J., & Chabris, C. F. (1999). Gorillas in our midst: Sustained inattentional blindness for dynamic events. Perception, 28(9), 1059–1074."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1098/rstb.2013.0205",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1098/rstb.2013.0205"
+      ],
+      "summary": "N. Lavie, D. Beck, N. Konstantinou (2015). Blinded by the load: attention, awareness and the role of perceptual load. Philosophical Transactions of the Royal Society B."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "People who miss the gorilla only miss it because their eyes happened to be looking at the edges of the screen when the gorilla walked by.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

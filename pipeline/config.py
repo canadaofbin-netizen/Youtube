@@ -1,10 +1,13 @@
 """
 ALL ABOUT BRAIN - Video Production Pipeline Configuration.
 
-Single numeric source of truth for the 5-10 clip Google Flow (Puck) pipeline (Production Contract v4).
+Single numeric source of truth for Neuro-Diorama Schema v7/v8 (`porcelain_cinematic_v7` &
+`expressive_25d_v8`) and preserved legacy Schema v4-v6 contracts.
 Every value here is documented 1:1 in .agents/rules/production_constants.md.
 """
 
+import os
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -14,7 +17,10 @@ CHANNEL_ROOT = WORKSPACE_ROOT / "BCI_Shorts_Channel"
 PROJECTS_DIR = CHANNEL_ROOT / "projects"
 DOSSIERS_DIR = CHANNEL_ROOT / "research_dossiers"
 PROJECTS_QUARANTINE_DIR = CHANNEL_ROOT / "projects_quarantine_pending_flow"
-FLOW_DOWNLOAD_HARVEST_LOCK_FILE = CHANNEL_ROOT / ".flow_download_harvest.lock"
+FLOW_DOWNLOAD_HARVEST_LOCK_FILE = (
+    Path(os.environ.get("AAB_LOCKS_DIR", "").strip() or (Path(tempfile.gettempdir()) / "aab_locks"))
+    / "flow_download_harvest.lock"
+)
 ASSETS_DIR = CHANNEL_ROOT / "assets"
 FONTS_DIR = ASSETS_DIR / "fonts"
 BASE_CLIPS_DIR = ASSETS_DIR / "base_clips"
@@ -34,7 +40,7 @@ CLIP_PRE_PIVOT_HOLD_SEC = 0.45           # Post-speech hold on the clip right be
 CLIP_PRE_ROLL_TRIM_SEC = 0.40            # Minimum pre-roll trim on clips 2..N when speech starts later than this
 AV_SPEEDUP_FACTOR = 1.00                 # Synchronized video (setpts) + vocal (atempo) speedup
 
-# Speech-window detection (produce_psychology_batch.measure_clip_speech_window), 10 ms analysis windows
+# Speech-window detection (legacy Flow clip speech window detector, 10 ms analysis windows)
 VOCAL_ONSET_PROTECT_SEC = 0.22           # speech_start = first voiced edge - 0.22 s (protects soft /w/ onsets below 750 Hz)
 VOCAL_ONSET_PAD_SEC = 0.05               # trim_start = speech_start - 0.05 s (effective pre-speech pad = 0.27 s)
 PROMPT_BLEED_SYLLABLE_SEC = 0.185        # Expected speech length = max(PROMPT_BLEED_MIN_EXPECTED_SEC, syllables x 0.185 s)
@@ -51,7 +57,7 @@ SOFT_TAIL_MAX_GAP_SEC = 0.32             # Stop extending after this much contin
 SPEECH_END_PAD_SEC = 0.36                # speech_end pad after a normal (non-bleed) sentence end
 SPEECH_END_PAD_BROKE_EARLY_SEC = 0.12    # speech_end pad when the prompt-bleed cutoff fired
 
-# Native Flow vocal chain (produce_psychology_batch.extract_native_flow_clip_speech)
+# Native Flow vocal chain (legacy Flow clip speech extractor)
 VOCAL_BANDPASS_HZ: tuple[int, int] = (95, 13500)              # highpass / lowpass corner frequencies
 VOCAL_EQ_BANDS: tuple[tuple[int, float, float], ...] = (      # (centre Hz, Q width, gain dB)
     (180, 1.2, 2.5),                                          # chest warmth
@@ -72,38 +78,62 @@ MASTER_TAIL_MUTE_SEC = 0.095             # Linear mute across all 4 mixed layers
 # Documented 1:1 in .agents/rules/production_constants.md. Never restate these values elsewhere.
 # ==============================================================================
 NATIVE_FLOW_WPS = 2.7                    # Speaking rate requested from Google Flow (Puck)
-EFFECTIVE_WPS = round(NATIVE_FLOW_WPS * AV_SPEEDUP_FACTOR, 3)  # ~2.92 WPS after the 1.08x A/V speedup
-# Flow video models as shown in the settings pane (verified live 2026-10-24). Production uses OMNI ONLY (owner decision
-# 2026-10-24; matches ALLOWED_FLOW_MODELS). Veo is listed only so the guard can recognise and refuse it.
-#   Omni 1.1 Flash -> 4s / 6s / 8s / 10s, 12 credits without an ingredient; with an ingredient attached the length is
-#                     locked ("Length based on ingredient · 8s") and the cost is 20 credits
-#   Veo 3.1 - Lite [Lower Priority] -> 4s / 6s / 8s, 0 credits (NOT USED)
+EFFECTIVE_WPS = round(NATIVE_FLOW_WPS * AV_SPEEDUP_FACTOR, 3)  # 2.7 WPS at AV_SPEEDUP_FACTOR = 1.00
+# Flow video models as shown in the settings pane (R5 Monthly Credit Dual-Tier Flow;
+# Omni 1.1 Flash / Veo 3.1 - Fast / Veo 3.1 - Quality retired 2026-12-05):
+#   Omni 1.2 Flash (macaron_cookie, gemini-omni-1.2-flash) -> Ingredients (3s-15s) & Frames to Video Start+End (3s-10s)
+#   Veo 3.1 - Lite [Lower Priority] -> 4s / 6s / 8s, 0 credits, Start+End supported (seamless unlimited 0-credit fallback)
 FLOW_VIDEO_MODEL_PROFILES: dict[str, dict] = {
-    "Omni 1.1 Flash": {
+    "Omni 1.2 Flash": {
         "durations": ("4s", "6s", "8s", "10s"),
+        "extended_durations_v83": tuple(f"{s}s" for s in range(3, 16)),
         "max_sec": 10,
         "max_sec_with_ingredient": 8,
-        "model_family_id": "omni_1_1_flash",
+        "max_ingredients_v83": 8,
+        "supports_start_end_frames": True,
+        "first_and_last_max_sec": 10,
+        "api_model_id": "gemini-omni-1.2-flash",
+        "supports_native_1080p_upscale": True,
+        "supports_conversational_edit": True,
+        "model_family_id": "macaron_cookie",
         "zero_credit": False,
     },
     "Veo 3.1 - Lite [Lower Priority]": {
         "durations": ("4s", "6s", "8s"),
         "max_sec": 8,
         "max_sec_with_ingredient": 8,
+        "supports_start_end_frames": True,
+        "first_and_last_max_sec": 8,
         "model_family_id": "veo_3_1_lite_low_priority",
         "zero_credit": True,
     },
 }
-FLOW_ACTIVE_VIDEO_MODEL = "Omni 1.1 Flash"
+FLOW_ACTIVE_VIDEO_MODEL = "Omni 1.2 Flash"
 FLOW_PRIMARY_VIDEO_MODEL = FLOW_ACTIVE_VIDEO_MODEL
+FLOW_PRIMARY_OMNI_MODEL_LABEL = FLOW_PRIMARY_VIDEO_MODEL
+FLOW_PRIMARY_OMNI_MODEL_KEY = "macaron_cookie"
+FLOW_SECONDARY_OMNI_MODEL: str | None = None
+FLOW_RETIRED_VIDEO_MODELS: tuple[str, ...] = (
+    "Omni 1.1 Flash",
+    "Omni 1.1 Quality",
+    "Veo 3.1 - Fast",
+    "Veo 3.1 - Quality",
+)
 FLOW_ZERO_CREDIT_MODEL = "Veo 3.1 - Lite [Lower Priority]"
 FLOW_ENGINE_MODES: tuple[str, ...] = ("auto", "omni", "zero-credit")
 DEFAULT_FLOW_ENGINE_MODE = "auto"
 FLOW_BANNED_VIDEO_MODEL_MARKERS: tuple[str, ...] = ("Veo 2",)
 FLOW_ZERO_CREDIT_TEXT = "Generating will use 0 credits"   # 0-credit verification marker when monthly credits are exhausted
 FLOW_ZERO_CREDIT_IMAGE_MODEL = "Nano Banana 2.1"          # Google Flow native 0-credit Image engine (beluga_display)
+FLOW_ZERO_CREDIT_IMAGE_FALLBACK_MODELS: tuple[str, ...] = (
+    "Nano Banana 2.1",
+    "Nano Banana Pro",
+    "Nano Banana 2 Lite",
+)
 FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID = "beluga_display"
-FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT = 4                    # x4 free candidate images per prompt in Flow Image mode
+FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT = 1                    # 1st-pass default: x1 (saves ~75-86% daily Flow image volume)
+FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT = 2              # Retry / Gate 1 rejected targeted regen: x2
+FLOW_ZERO_CREDIT_IMAGE_THUMBNAIL_BATCH_COUNT = 2          # R65 v4 hero thumbnail keyart (1 prompt/ep): x2
 FLOW_ZERO_CREDIT_MAX_CONCURRENT_RENDERS = 4               # Optimal 0-credit concurrent video render ceiling across Flow tabs/outputs
 FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH = 4                      # Up to x4 free candidate videos per prompt when active_tabs * batch <= 4
 FLOW_ZERO_CREDIT_SAFE_PARALLEL_TABS = 2                   # Default safe 0-credit parallel tab cap to prevent 'unusual activity' lockouts
@@ -111,16 +141,75 @@ FLOW_ZERO_CREDIT_SUBMIT_JITTER_SEC: tuple[float, float] = (14.0, 22.0)  # Jitter
 FLOW_ZERO_CREDIT_PENALTY_QUIET_SEC = 75.0                 # Immediate cross-tab quiet window on first 'unusual activity' signal
 FLOW_ZERO_CREDIT_RECOVERY_STREAK = 3                      # Consecutive clean 0-credit renders required to step back up from 1 -> 2 tabs
 REENACT_IMAGE_BACKENDS: tuple[str, ...] = ("flow",)
-DEFAULT_REENACT_IMAGE_BACKEND = "flow"                    # Locked: native Google Flow 0-credit x4 Image mode only
-FLOW_OMNI_CREDIT_COST_NO_REF = 12                         # Omni 1.1 Flash credit cost without ingredient chip
-FLOW_OMNI_CREDIT_COST_WITH_REF = 20                       # Omni 1.1 Flash credit cost with ingredient chip attached
-FLOW_AUTO_CLEANUP_ON_SUCCESS = True                       # Auto-delete temporary Flow project rooms once local clips/refs verify
+DEFAULT_REENACT_IMAGE_BACKEND = "flow"                    # Locked: native Google Flow 0-credit x1 first-pass / x2 retry Image mode only
+
+
+def resolve_flow_image_batch_count(
+    batch_count: int | None = None,
+    *,
+    is_retry: bool = False,
+    force: bool = False,
+    retry_batch_count: int | None = None,
+) -> int:
+    """Resolves Google Flow 0-credit Image batch size: explicit override > retry/force x2 > 1st-pass x1."""
+    if batch_count is not None:
+        return max(1, min(4, int(batch_count)))
+    if is_retry or force:
+        eff_retry = FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT if retry_batch_count is None else int(retry_batch_count)
+        return max(1, min(4, eff_retry))
+    return max(1, min(4, int(FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT)))
+FLOW_OMNI_CREDIT_COST_NO_REF = 24                         # Omni 1.2 Flash credit cost per 8s clip
+FLOW_OMNI_CREDIT_COST_WITH_REF = 24                       # Omni 1.2 Flash credit cost with Start/End frame attached
+FLOW_OMNI_EPISODE_CREDIT_CAP = 200                        # Default fallback per-episode Omni credit cap (dynamic balance override via compute_dynamic_omni_episode_budget)
+FLOW_OMNI_BALANCE_SAFETY_MARGIN = 20                      # Safety reserve kept when computing real-time dynamic Omni episode budget (C3)
+FLOW_OMNI_HERO_MAX_CLIPS = 8                              # Max hero cuts tagged engine="omni" per episode when budget is capped (Cuts 1-3 + core reveal + X-Ray brain + climax)
+FLOW_OMNI_MAX_ATTEMPTS_PER_CLIP = 2                       # Max Omni attempts per clip (1 initial + 1 retry) before auto-demoting to 0-credit
+FLOW_AUTO_CLEANUP_ON_SUCCESS = False                      # Keep cleanly named AAB_<project_id> rooms in Google Flow (never delete episode rooms!)
+# Schema v8.3 Phase 0 Feature Flags (C2 / C9: default False until verified on live Flow UI via `main.py flow-probe`)
+FLOW_OMNI_ENABLE_EXTENDED_DURATIONS = False               # Unlock 3s..15s (1s steps) when verified in Flow UI
+FLOW_OMNI_EXTENDED_DURATIONS: tuple[str, ...] = tuple(f"{s}s" for s in range(3, 16))
+FLOW_OMNI_EXTENDED_DURATION_CHOICES: tuple[int, ...] = tuple(range(3, 16))
+FLOW_OMNI_ENABLE_NATIVE_1080P_DOWNLOAD = False            # Prefer More -> Download -> Upscaled (1080p) when verified in Flow UI
+FLOW_OMNI_ENABLE_CONVERSATIONAL_EDIT = False              # Enable 1-turn Flow conversational edit repair before full regen
+FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83 = False            # Unlock up to 8 multi-ingredients + 3s Previs motion guide MP4
+FLOW_OMNI_MAX_INGREDIENTS_V83 = 8
+FLOW_ENABLE_720P_LANCZOS_UNSHARP = False                  # Optional 720p -> 1080p Lanczos + adaptive unsharp fallback
+FLOW_UI_CAPABILITIES_CACHE_FILE = CHANNEL_ROOT / ".cache" / "flow_ui_capabilities.json"
+
+
+def compute_dynamic_omni_episode_budget(
+    credits_remaining: int | None,
+    clip_count: int = 20,
+    cost_per_clip: int = FLOW_OMNI_CREDIT_COST_WITH_REF,
+    safety_margin: int = FLOW_OMNI_BALANCE_SAFETY_MARGIN,
+) -> dict[str, Any]:
+    """
+    Computes the real-time balance-based Omni credit budget and clip allocation for an episode (`C3`):
+      `budget_credits = min(max(0, credits_remaining - safety_margin), clip_count * cost_per_clip)`.
+    When `credits_remaining` is `None` (unprobed), uses `FLOW_OMNI_EPISODE_CREDIT_CAP`.
+    """
+    n_clips = max(0, int(clip_count))
+    unit_cost = max(1, int(cost_per_clip))
+    full_episode_cost = n_clips * unit_cost
+    if credits_remaining is None:
+        budget_credits = min(int(FLOW_OMNI_EPISODE_CREDIT_CAP), full_episode_cost)
+    else:
+        usable = max(0, int(credits_remaining) - max(0, int(safety_margin)))
+        budget_credits = min(usable, full_episode_cost)
+    max_omni = min(n_clips, budget_credits // unit_cost)
+    return {
+        "credits_remaining": credits_remaining,
+        "budget_credits": int(budget_credits),
+        "max_omni_clips": int(max_omni),
+        "zero_credit_fallback_clips": max(0, n_clips - int(max_omni)),
+        "all_omni_possible": bool(n_clips > 0 and max_omni >= n_clips),
+    }
 FLOW_TAB_OPEN_STAGGER_SEC = 2.5                           # Normal tab-creation stagger across parallel shards (<30m target)
 FLOW_TAB_OPEN_COOLDOWN_STAGGER_SEC = 12.0                 # Elevated tab-creation stagger after a rate-limit cooldown
 FLOW_SUBMIT_STAGGER_SEC = 3.0                             # Normal prompt-submit stagger across parallel shards (<30m target)
 FLOW_SUBMIT_COOLDOWN_STAGGER_SEC = 9.5                    # Elevated prompt-submit stagger after a rate-limit cooldown
 PERSISTENT_SHA_CACHE_MAX_ENTRIES = 8192                   # Compact LRU cap for BCI_Shorts_Channel/.cache/persistent_sha256_cache.json
-UNMANNED_QA_SIGNOFF_DEFAULT = True                        # Deterministic CV-verified unmanned signoff for ref-qa & posthoc-qa
+UNMANNED_QA_SIGNOFF_DEFAULT = False                       # R85: semantic review must be a real VLM/human visual sign-off
 FLOW_ALLOWED_DURATION_TARGETS: tuple[str, ...] = tuple(FLOW_VIDEO_MODEL_PROFILES[FLOW_ACTIVE_VIDEO_MODEL]["durations"])
 FLOW_CLIP_DURATION_TARGET = "10s"        # Omni, no ingredient; clamps to 8s automatically when an ingredient is attached
 FLOW_SHORT_CLIP_MAX_WORDS = 19           # Clips <= 19 words & <= 32 syllables dynamically route to "8s"
@@ -134,7 +223,6 @@ PROMPT_SCENE_WORDS_MIN = 50              # Visual scene description words per Fl
 PROMPT_SCENE_WORDS_MAX = 80
 FINAL_TAIL_SEC = 0.20                    # Post-speech hold on the final clip (independent conclusion, no loop)
 END_FADE_SEC = 0.09                      # Clean end fade on the final clip (keeps the truncation check passing)
-PUCK_F0_RANGE_HZ = (85.0, 185.0)         # Puck male voice fundamental-frequency acceptance window
 FLOW_PROMPT_PREFIX = (
     "Generate a 9:16 vertical video clip (video animation with spoken voiceover only, never a static image):"
 )
@@ -182,18 +270,16 @@ def script_word_range(n_clips: int) -> tuple[int, int]:
     return (n_clips * CLIP_WORDS_MIN, n_clips * CLIP_WORDS_MAX)
 
 
-# Google Flow Video Generation Model (MANDATORY OMNI 1.1 EXCLUSIVE LOCK)
-# All video generation MUST proceed ONLY with Gemini Omni 1.1 (Flash / Quality).
-# Other engines (including legacy Veo) are strictly prohibited.
-DEFAULT_FLOW_MODEL = "Omni 1.1 Flash"
-FLOW_MODEL_QUALITY = "Omni 1.1 Quality"
+# Google Flow Video Generation Models (R5 Dual-Tier Engine Policy: Omni 1.2 Flash primary -> 0-credit Veo 3.1 - Lite fallback; Omni 1.1 / Veo 3.1 Fast & Quality retired 2026-12-05; Veo 2 banned)
+DEFAULT_FLOW_MODEL = "Omni 1.2 Flash"
+FLOW_MODEL_QUALITY = "Omni 1.2 Flash"
 FLOW_ZERO_CREDIT_FALLBACK_MODEL = "Veo 3.1 - Lite [Lower Priority]"
-ALLOWED_FLOW_MODELS = ["Omni 1.1 Flash", "Omni 1.1 Quality", "Veo 3.1 - Lite [Lower Priority]"]
+ALLOWED_FLOW_MODELS = ["Omni 1.2 Flash", "Veo 3.1 - Lite [Lower Priority]"]
 FLOW_MODELS = {
-    "Omni 1.1 Flash": "Omni 1.1 Flash - High-throughput, multimodal video engine (Default)",
-    "Omni 1.1 Quality": "Omni 1.1 Quality - Maximum cinematic photorealism & cutaway detail",
-    "Veo 3.1 - Lite [Lower Priority]": "Veo 3.1 - Lite [Lower Priority] - Unlimited 0-credit Google AI Ultra fallback",
+    "Omni 1.2 Flash": "Omni 1.2 Flash - Flagship high-throughput multimodal video engine (Ingredients 3s-15s & Start+End Frames 3s-10s; Default)",
+    "Veo 3.1 - Lite [Lower Priority]": "Veo 3.1 - Lite [Lower Priority] - Unlimited 0-credit Google AI Ultra fallback (4s/6s/8s; Start+End supported)",
 }
+FLOW_MODEL_DESCRIPTIONS = FLOW_MODELS
 
 # Google Flow Native Voice (Puck only — male documentary narrator)
 FLOW_DEFAULT_VOICE = "Puck"
@@ -259,17 +345,8 @@ READABILITY_CLIP_FK_MAX = 11.0           # Flesch-Kincaid grade, any single clip
 JARGON_TERMS_MAX = 1                     # Non-anatomical technical terms per script
 SECOND_PERSON_CLIPS_MIN = 1              # Clips that connect the story to "you" (everyday consequence)
 
-# Voice consistency (R49) — semitone gates on per-clip median F0, never corrected by pitch shifting.
-VOICE_F0_CLIP_DEV_MAX_ST = 1.5           # |clip F0 - project median| in semitones
-VOICE_F0_ADJ_JUMP_MAX_ST = 2.0           # |clip k+1 - clip k| in semitones
-VOICE_F0_SPREAD_MAX_ST = 3.0             # max - min across the project, semitones
-VOICE_REGEN_MAX_ROUNDS = 4               # Flow regeneration rounds for voice outliers before the TTS fallback
-VOICE_FALLBACK_ENABLED = True            # Decision 2026-10-24: local free TTS fallback when Flow voice stays inconsistent
-VOICE_FALLBACK_ENGINE = "kokoro-onnx"    # Apache-2.0 local model, zero paid APIs
-VOICE_FALLBACK_VOICE = "am_fenrir"       # Deep cinematic American male baritone; fixed for the whole channel
-VOICE_FALLBACK_SPEED = 1.00              # Natural 1.00x documentary pacing for Kokoro am_fenrir
-VOICE_FALLBACK_MODEL_DIR = Path.home() / ".cache" / "aab_tts"
-VOICE_FALLBACK_VIDEO_SPEED_RANGE: tuple[float, float] = (0.75, 1.15)  # video setpts factor range to fit TTS length
+# Voice regeneration cap (legacy Flow native voice telemetry)
+VOICE_REGEN_MAX_ROUNDS = 4               # Flow regeneration rounds for clip outliers
 
 # Research dossier + longform reuse (R44, R50)
 RESEARCH_DOSSIERS_DIRNAME = "research_dossiers"
@@ -299,8 +376,24 @@ REF_IMAGE_MIN_DHASH_DISTANCE = 6         # Q10: two clip keyframes closer than t
 REF_IMAGE_BIOLUM_MIN = 0.005             # Q6: minimum saturated 4-point colour-code pixel ratio in brain shots
 # Provenance: only images generated inside Google Flow Image mode count before clip generation. Frames pulled out of
 # already-rendered clips ("extracted_from_clip") or external web apps can never satisfy the pre-generation gate.
-REF_IMAGE_SOURCES_PRE_GENERATION: tuple[str, ...] = ("flow_image_generation",)
+REF_IMAGE_SOURCE_CANONICAL_V1 = "canonical_assets_v1"
+REF_IMAGE_SOURCE_CANONICAL_V1_1 = "canonical_assets_v1_1"
+REF_IMAGE_SOURCE_CANONICAL_V1_2 = "canonical_assets_v1_2"
+CANONICAL_REF_IMAGE_SOURCES: tuple[str, ...] = (
+    REF_IMAGE_SOURCE_CANONICAL_V1,
+    REF_IMAGE_SOURCE_CANONICAL_V1_1,
+    REF_IMAGE_SOURCE_CANONICAL_V1_2,
+)
+REF_IMAGE_SOURCES_PRE_GENERATION: tuple[str, ...] = (
+    "flow_image_generation",
+    REF_IMAGE_SOURCE_CANONICAL_V1,
+    REF_IMAGE_SOURCE_CANONICAL_V1_1,
+    REF_IMAGE_SOURCE_CANONICAL_V1_2,
+)
 REF_IMAGE_SOURCE_EXTRACTED = "extracted_from_clip"
+CANONICAL_ASSETS_DEFAULT_VERSION = "v1"
+CANONICAL_ASSETS_VERSIONS: tuple[str, ...] = ("v1", "v1_1", "v1_2")
+CANONICAL_PROVENANCE_FILENAME = "canonical_assets_provenance.json"
 
 # Source-to-prompt architecture (R52): research dossier -> scene blueprint -> reference frames -> clip packets
 SCENE_BLUEPRINT_FILENAME = "scene_blueprint.json"
@@ -596,14 +689,10 @@ DIORAMA_ENTRY_RAMP_MAIN_SPEED = 1.10
 DIORAMA_ACT5_MONTAGE_CUT_MIN_SEC = 0.65
 DIORAMA_ACT5_MONTAGE_CUT_MAX_SEC = 1.10
 
-# Documentary restraint audio, crisp high-tenor en-US-AndrewMultilingualNeural storyteller voice & Y=64% subtitles (R59)
-DIORAMA_TTS_ENGINE = "edge_tts"                 # Free Microsoft Neural storyteller engine (kokoro-onnx offline fallback)
-DIORAMA_TTS_VOICE = "en-US-AndrewMultilingualNeural"  # Crisp, natural American male documentary storyteller (Option 4A Silk Clean)
-DIORAMA_TTS_OUTPUT_FORMAT = "audio-24khz-96kbitrate-mono-mp3"  # 2x raw CBR bitrate over 48kbps default (0.000s timing diff)
-DIORAMA_TTS_BITRATE_BPS = 96000                 # Exact CBR bps for multi-chunk SentenceBoundary offset compensation
-DIORAMA_TTS_RATE = "+32%"                       # Legacy Schema v6 fast journalistic cadence (Schema v7 uses DIORAMA_V7_TTS_RATE)
-DIORAMA_TTS_PITCH = "+14Hz"                     # Native neural high-tenor pitch (+14Hz, zero formant/asetrate distortion)
-DIORAMA_TTS_SPEED = 1.10                        # Offline kokoro-onnx fallback speed
+# Documentary restraint audio, ElevenLabs eleven_v4 sole production voice engine & Y=64% subtitles (R59, R68)
+DIORAMA_TTS_ENGINE = "eleven_v4"                # Sole production TTS engine (ElevenLabs eleven_v4, fail-fast on error)
+DIORAMA_TTS_RATE = "+32%"                       # Legacy Schema v6 cadence constant (Schema v7/v8 uses gear rates)
+DIORAMA_TTS_PITCH = "+14Hz"                     # Legacy Schema v6 pitch constant
 DIORAMA_MIN_CONVERSATIONAL_QUESTIONS = 4        # Minimum rhetorical '?' hooks across 6 Acts for storyteller tone (R57)
 DIORAMA_SPEECH_PAUSE_SEC = 0.14                 # Snappy inter-sentence breath gap (when synthesized line-by-line)
 DIORAMA_ACT_BOUNDARY_PAUSE_SEC = 0.24           # Crisp structural breath transition between Acts 1->2->3->4->5->6
@@ -653,7 +742,8 @@ EXPRESSIVE_V8_CAST_STYLE = (
 )
 EXPRESSIVE_V8_OPTICS_LOCK = "crisp cinema prime lens clarity with tactile 3D fabric weave and warm studio key-and-rim lighting"
 EXPRESSIVE_V8_BRAIN_XRAY_STYLE = (
-    "golden forehead ring seam opens into a crystal-clear glass dome revealing a 4-color glowing 3D brain "
+    "anatomically accurate translucent glass human brain with real cortical folds, cerebellum and brainstem, "
+    "deep subcortical structures visible inside with 4-color neural illumination "
     "(electric cyan-blue, warm amber-gold, crimson-red, calm pearl-aqua)"
 )
 EXPRESSIVE_V8_CAMEO_MINICORTEX_STYLE = (
@@ -661,6 +751,16 @@ EXPRESSIVE_V8_CAMEO_MINICORTEX_STYLE = (
     "nightstand, timer box, or mug rim"
 )
 EXPRESSIVE_V8_REFS_DIRNAME = "expressive_25d_v8_refs"
+TRANSLUCENT_BRAIN_V8_REFS_DIRNAME = "translucent_brain_v8_refs"
+TRANSLUCENT_BRAIN_V8_CANDIDATE_FILENAMES: tuple[str, ...] = (
+    "cand_01_3q_subcortical_limbic_xray_9x16.png",
+    "cand_02_side_profile_pfc_accumbens_xray_9x16.png",
+    "cand_03_anterior_3q_dual_hub_xray_9x16.png",
+    "cand_04_neutral_master_translucent_glass_9x16.png",
+    "cand_05_elevated_3q_frontal_cyan_brainstem_red_9x16.png",
+    "cand_06_ghost_xray_contour_translucent_brain_9x16.png",
+)
+EXPRESSIVE_ACTING_LEXICON_PATH = ASSETS_DIR / "expression_acting_lexicon.json"
 EXPRESSIVE_V8_SPECIES_SHEET_FILENAME = "species_opt1_sheet.png"
 EXPRESSIVE_V8_CAMEO_SHEET_FILENAME = "cameo_opt3_sheet.png"
 EXPRESSIVE_V8_CAST_SHEET_FILENAMES: tuple[str, ...] = (
@@ -668,9 +768,159 @@ EXPRESSIVE_V8_CAST_SHEET_FILENAMES: tuple[str, ...] = (
     "cast_sheet_02_clinical_historical_6roles.png",
     "cast_sheet_03_everyday_lifestyle_6roles.png",
 )
-EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE = 4
-EXPRESSIVE_V8_OPENING_QUESTION_MAX_WORDS = 14
-EXPRESSIVE_V8_OPENING_EMPATHY_MAX_WORDS = 10
+EXPRESSIVE_V8_US_NATIVE_OPENING_MODES: tuple[str, ...] = (
+    "immediate_brain_shock",
+    "bizarre_experiment",
+    "paradox_action",
+    "paradox_question",
+    "myth_flip_claim",
+    "sensory_test",
+    "action_first_stamp",
+    "action",
+)
+EXPRESSIVE_V8_LEGACY_CASE_STAMP_OPENING_MODE = "case_stamp"
+EXPRESSIVE_V8_DEFAULT_OPENING_MODE = "immediate_brain_shock"
+EXPRESSIVE_V8_ALLOWED_OPENING_MODES: tuple[str, ...] = (
+    *EXPRESSIVE_V8_US_NATIVE_OPENING_MODES,
+    "case_stamp",
+    "question",
+    "situation",
+)
+EXPRESSIVE_V8_R73_OPENING_WORD_RANGES: dict[str, tuple[int, int]] = {
+    "immediate_brain_shock": (6, 12),
+    "bizarre_experiment": (6, 12),
+    "paradox_action": (6, 12),
+    "paradox_question": (8, 18),
+    "myth_flip_claim": (8, 18),
+    "sensory_test": (8, 18),
+    "action_first_stamp": (8, 20),
+    "action": (8, 22),
+}
+EXPRESSIVE_V8_BANNED_GENERIC_QUESTION_PREFIXES: tuple[str, ...] = (
+    "have you ever wondered",
+    "have you ever noticed",
+    "did you know",
+    "do you ever feel",
+    "ever wondered",
+)
+EXPRESSIVE_V8_BANNED_AI_CLICHES: tuple[str, ...] = (
+    "delve into",
+    "delve deeper",
+    "delving into",
+    "testament to",
+    "crucial role",
+    "pivotal role",
+    "paramount",
+    "plays a vital role",
+    "play a vital role",
+    "shed light on",
+    "sheds light on",
+    "in conclusion",
+    "to summarize",
+    "in summary",
+    "paradigm shift",
+    "furthermore",
+    "moreover",
+    "tapestry",
+    "it is important to note",
+    "worth noting",
+)
+EXPRESSIVE_V8_US_NATIVE_PIVOT_BRIDGES: tuple[str, ...] = (
+    "in fact",
+    "that's because",
+    "that is because",
+    "in other words",
+    "instead",
+    "except",
+    "until",
+    "but here's",
+    "but here is",
+    "which means",
+    "turns out",
+    "the problem is",
+    "wait, what",
+    "wait—what",
+    "wait - what",
+)
+EXPRESSIVE_V8_ENDING_MODES: tuple[str, ...] = ("mic_drop", "seamless_loop")
+EXPRESSIVE_V8_DEFAULT_ENDING_MODE = "mic_drop"
+EXPRESSIVE_V8_POST_HOOK_PAUSE_SEC = 0.42
+EXPRESSIVE_V8_POST_HOOK_PAUSE_RANGE_SEC: tuple[float, float] = (0.38, 0.48)
+EXPRESSIVE_V8_MAX_HARD_JARGON_TERMS = 2
+EXPRESSIVE_V8_IMMEDIATE_GLOSS_WINDOW_WORDS = 8
+EXPRESSIVE_V8_OPENING_CASE_STAMP_MIN_WORDS = 10
+EXPRESSIVE_V8_OPENING_CASE_STAMP_MAX_WORDS = 22
+EXPRESSIVE_V8_CASE_STAMP_ANCHOR_WINDOW_WORDS = 9
+PRE_R68H_FROZEN_V8_PROJECTS: tuple[str, ...] = (
+    "v8_pilot_01_sleep_first_night_watch",
+    "v8_pilot_02_sleep_night_watch_cam3d",
+    "v8_pilot_03_marshmallow_trust_previs",
+)
+EXPRESSIVE_V8_OPENING_ACTION_MAX_WORDS = 30
+EXPRESSIVE_V8_LEGACY_FIRST_CUT_MAX_SEC = 10.50
+EXPRESSIVE_V8_LEGACY_FIRST_15S_MAX_CUT_SEC = 12.50
+EXPRESSIVE_V8_FIRST_CUT_MAX_SEC = 2.60
+EXPRESSIVE_V8_FIRST_MOTION_MAX_FRAMES = 10
+EXPRESSIVE_V8_FIRST_15S_MAX_CUT_SEC = 3.20
+EXPRESSIVE_V8_FIRST_15S_MIN_CUTS = 3
+PRE_R72_FROZEN_V8_PROJECTS: tuple[str, ...] = (
+    "v8_pilot_01_sleep_first_night_watch",
+    "v8_pilot_02_sleep_night_watch_cam3d",
+    "v8_pilot_03_marshmallow_trust_previs",
+    "v8_ep04_patient_sm_fearless_amygdala",
+    "v8_ep05_ucl_tickle_delay_robot",
+    "v8_ep06_bedtime_todo_list_sleep",
+)
+PRE_R72_FROZEN_V8_DOSSIERS: tuple[str, ...] = (
+    "v2_sleep_first_night_hemisphere_watch",
+    "feinstein_patient_sm_amygdala_co2",
+    "blakemore_tickle_prediction_delay",
+    "scullin_bedtime_todo_list_sleep",
+)
+PRE_R73_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R72_FROZEN_V8_PROJECTS
+PRE_R73_FROZEN_V8_DOSSIERS: tuple[str, ...] = PRE_R72_FROZEN_V8_DOSSIERS
+PRE_R74_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R72_FROZEN_V8_PROJECTS
+PRE_R74_FROZEN_V8_DOSSIERS: tuple[str, ...] = PRE_R72_FROZEN_V8_DOSSIERS
+PRE_R74B_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R72_FROZEN_V8_PROJECTS + (
+    "v8_ep07_harvard_reversible_choice_paradox",
+)
+PRE_R74B_FROZEN_V8_DOSSIERS: tuple[str, ...] = PRE_R72_FROZEN_V8_DOSSIERS + (
+    "gilbert_reversible_choice_paradox",
+)
+PRE_R76_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R74B_FROZEN_V8_PROJECTS + (
+    "v8_ep08_capgras_imposter_delusion",
+)
+PRE_R76_FROZEN_V8_DOSSIERS: tuple[str, ...] = PRE_R74B_FROZEN_V8_DOSSIERS + (
+    "capgras_imposter_delusion_v1_frozen",
+)
+PRE_R77_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R76_FROZEN_V8_PROJECTS + (
+    "v8_ep08_capgras_imposter_delusion_r76",
+)
+PRE_R77_FROZEN_V8_DOSSIERS: tuple[str, ...] = PRE_R76_FROZEN_V8_DOSSIERS
+PRE_R79M_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R77_FROZEN_V8_PROJECTS
+PRE_R79M_FROZEN_V8_DOSSIERS: tuple[str, ...] = PRE_R77_FROZEN_V8_DOSSIERS
+PRE_R82_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R79M_FROZEN_V8_PROJECTS + (
+    "v8_ep08_capgras_imposter_delusion_r77",
+    "v8_ep09_maguire_london_taxi_hippocampus",
+    "v8_ep10_sleep_pill_brain_wash",
+    "v8_ep11_open_label_placebo_pain",
+    "v8_ep12_doorway_effect_memory",
+)
+PRE_R88_FROZEN_V8_PROJECTS: tuple[str, ...] = PRE_R82_FROZEN_V8_PROJECTS
+R79M_HUMAN_CUT_MAX_MAIN_SPEED = 1.45
+R79M_HUMAN_CUT_SNAPPY_SPEED_RANGE: tuple[float, float] = (1.12, 1.35)
+R79M_HUMAN_MIN_SUBJ_P90_PX = 2.00
+R79M_HUMAN_MIN_SECOND_HALF_RATIO = 0.40
+PRE_R75_DURATION_GRANDFATHER_PROJECTS: tuple[str, ...] = PRE_R72_FROZEN_V8_PROJECTS
+EXPRESSIVE_V8_BANNED_EMPATHY_FILLERS: tuple[str, ...] = (
+    "you're not alone",
+    "you are not alone",
+    "almost everyone has",
+    "we've all been there",
+    "we have all been there",
+)
+EXPRESSIVE_V8_OPENING_QUESTION_MAX_WORDS = 20
+EXPRESSIVE_V8_OPENING_EMPATHY_MAX_WORDS = 12
 EXPRESSIVE_V8_OPENING_QUESTION_STARTERS: tuple[str, ...] = (
     "ever ",
     "why do you",
@@ -681,67 +931,423 @@ EXPRESSIVE_V8_OPENING_QUESTION_STARTERS: tuple[str, ...] = (
     "what if your",
     "how come you",
 )
-EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC = 15.0
-EXPRESSIVE_V8_BRAIN_REVEAL_WINDOW_FRAC: tuple[float, float] = (0.45, 0.85)
-EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC: tuple[float, float] = (0.40, 0.90)
+EXPRESSIVE_V8_HOOK_PROMISE_MAX_SEC = 16.0
+EXPRESSIVE_V8_CORE_REVEAL_FRAC_RANGE: tuple[float, float] = (0.55, 0.85)
+EXPRESSIVE_V8_CORE_REVEAL_MAX_SENTENCE = 16
+EXPRESSIVE_V8_CORE_REVEAL_MAX_SEC = 95.0
+EXPRESSIVE_V8_BRAIN_REVEAL_WINDOW_FRAC: tuple[float, float] = (0.55, 0.88)
+EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC: tuple[float, float] = (0.50, 0.92)
+EXPRESSIVE_V8_FORBID_SPOKEN_CITATIONS = False
+EXPRESSIVE_V8_FORBID_SPOKEN_OUTRO_QUESTION = True
 EXPRESSIVE_V8_MAX_MYTH_FLIPS = 1
 EXPRESSIVE_V8_ADVISORY_PIVOT_MARKERS = True
-EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE = 1
+EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE = 0
+EXPRESSIVE_V8_SOLO_NARRATOR_DEFAULT = True
+EXPRESSIVE_V8_REQUIRE_CAMEO = False
+EXPRESSIVE_V8_ALLOWED_SPEAKER_ROLES: tuple[str, ...] = (
+    "narrator",
+    "researcher",
+    "mini_cortex",
+    "foil",
+)
+EXPRESSIVE_V8_MAX_VOICES_PER_EPISODE = 3
+EXPRESSIVE_V8_MIN_NARRATOR_SHARE = 0.75
+DATA_STAMP_MIN_PER_EPISODE = 2          # Warning-only target (>= 2 charts per episode)
+DATA_STAMP_MAX_PER_EPISODE = 2          # Hard ceiling (<= 2 charts per episode / dossier)
+DATA_STAMP_MIN_GAP_SEC = 18.0
+DATA_STAMP_MIN_SENTENCE_GAP = 4
+DATA_STAMP_OVERLAY_BUFFER_SEC = 2.0
+DATA_STAMP_CROSS_CUT_BUFFER_SEC = 0.08  # R81: hard-cut separation between adjacent cut callout & stamp
+R81_CALLOUT_XL_SINGLE_LINE_MAX_PX = 84
+R81_CALLOUT_XL_SINGLE_LINE_MIN_PX = 72
+R81_CALLOUT_XL_STACK_MAX_PX = 82
+R81_CALLOUT_XL_STACK_MIN_PX = 64
+R81_CALLOUT_XL_SUB_MAX_PX = 56
+R81_CALLOUT_XL_SUB_MIN_PX = 44
+R81_CALLOUT_UNDERLINE_GAP_PX = 10
+R81_TRACKING_MIN_Y_PX = 395
+R81_TRACKING_MAX_Y_PX = 1350
+R81_TRACKING_SMOOTH_SIGMA_FRAMES = 2.2
+R81_VIEW_FLIP_MIN_SPAN_RATIO = 0.24
+R81_VIEW_FLIP_FADE_SEC = 0.32
+DATA_STAMP_Y_FRAC_RANGE: tuple[float, float] = (0.12, 0.62)
+UNIVERSAL_SAFE_X_RIGHT_PX = 910         # 3-platform right-rail UI icon safe ceiling (84.2% of 1080px)
+DATA_STAMP_HERO_MODE = True
+DATA_STAMP_BG_BLUR_SIGMA = 14
+DATA_STAMP_BG_DIM = 0.35
+DATA_STAMP_DEFAULT_STYLE = "ink_pen"
+DATA_STAMP_MIN_HOLD_SEC = 0.6
+DATA_STAMP_BASE_HOLD_SEC = 4.2
+DATA_STAMP_COMPLEXITY_STEP_SEC = 0.8
+DATA_STAMP_MAX_HOLD_SEC = 7.5
+DATA_STAMP_ILLUSTRATION_TAG = "Concept"
+DATA_STAMP_MODES: tuple[str, ...] = ("study", "illustrative")
+DATA_STAMP_LAYER_TYPES: tuple[str, ...] = (
+    "bar",
+    "dot_array",
+    "arc_gauge",
+    "points",
+    "scatter",
+    "regression",
+    "line",
+    "function_curve",
+)
+DATA_STAMP_PRESETS: tuple[str, ...] = (
+    "bar_compare",
+    "arc_gauge",
+    "dot_array",
+    "line",
+    "curve_marker",
+    "scatter_fit",
+)
+DATA_STAMP_BANNED_PRESETS: tuple[str, ...] = (
+    "raincloud",
+    "violin",
+    "violin_box",
+    "box",
+    "box_points",
+    "bar_points_error",
+    "hist_density",
+    "range_band",
+    "slope_paired",
+    "line_band",
+    "panel_bar_scatter",
+    "panel_raincloud_line",
+    "panel_slope_bar",
+    "panel_curve_bar",
+)
+DATA_STAMP_BANNED_PLACEHOLDER_PATTERNS: tuple[str, ...] = (
+    "group 1",
+    "group 2",
+    "baseline /",
+    "experimental /",
+    "quantitative study comparison",
+    "reported study percentage",
+    "experimental comparison (%)",
+    "observed participant ratio",
+    "verified study comparison",
+    ": result (",
+    ": outcome rate",
+    "test cohort",
+    "control cohort",
+    "measured cohort",
+    "reference (100%)",
+    "comparison (s)",
+    "classic year numbers",
+    "the time",
+    "striatal habit automation",
+    "step- -step",
+    "people have lifel",
+    "repeating it mechanica",
+    "linearly and then",
+)
+DATA_STAMP_MAX_PANELS = 1
+DATA_STAMP_MAX_LAYERS_PER_PANEL = 2
+DATA_STAMP_MAX_GROUPS = 3
+DATA_STAMP_MAX_SCATTER_POINTS = 120
+EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS: tuple[str, ...] = (
+    "axial_portal_dive",
+    "xray_peel_micro",
+    "ghost_twin_offset",
+    "lid_lift_reveal",
+    "locked_exploded_vs_shatter",
+    "blueprint_3d_extrusion",
+    "architectural_cutaway_portal",
+)
 EXPRESSIVE_V8_VISUAL_GRAMMARS: tuple[str, ...] = (
     "expressive_vinyl_world",
+    "expressive_exterior_establishing",
     "expressive_hands_closeup",
     "expressive_pov_hands",
     "expressive_xray_brain",
+    "brain_simulator_3d",
+    "spatial_3d_arrow_diorama",
     "expressive_literal_analogy",
     "expressive_cameo_world",
     "expressive_split_contrast",
+    "expressive_reaction_closeup",
+    *EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS,
 )
+EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES: tuple[str, ...] = (
+    "sensory_to_brain_drone",
+    "circuit_cooperation_drone",
+    "global_system_orbit_drone",
+    "1p_nerve_canyon_drone",
+    "3p_region_shutdown_pullout",
+)
+R78M_BRAIN_MATERIAL_MODES: tuple[str, ...] = ("xray_glass", "cool_matte_silver_31")
+DEFAULT_SIMULATOR_BLENDER_BIN = Path.home() / "opt" / "blender" / "blender"
+R76_BRAIN_SIM_SQ_PASS_REQUIRED = True
+EXPRESSIVE_V8_UNIFIED_BRAIN_SIM_DURATION_RATIO_RANGE: tuple[float, float] = (0.38, 0.48)
+EXPRESSIVE_V8_R76_BRAIN_REVEAL_WINDOW_FRAC: tuple[float, float] = (0.16, 0.34)
+EXPRESSIVE_V8_R76_MAX_CONSECUTIVE_BRAIN_CUTS = 6
+EXPRESSIVE_V8_R76_HUMAN_MIN_CUT_SEC = 2.80
+EXPRESSIVE_V8_SPATIAL_RELAY_MIN_CUT_SEC = 2.20
+R80_3D_ARROW_ACCENT_HEX = "#FF2525"
+R80_SPATIAL_FLIGHT_SPEED_RAMP_RANGE: tuple[float, float] = (1.24, 1.42)
+R80_SPATIAL_ARROW_MODES: tuple[str, ...] = (
+    "adaptive_landmark_zigzag",
+    "fixed_linear_corridor",
+    "doorway_boundary_sever",
+    "dual_speed_race_lanes",
+    "split_hemisphere_watch",
+)
+EXPRESSIVE_V8_R76_BRAIN_SIM_MIN_CUT_SEC = 3.80
+EXPRESSIVE_V8_R76_MAX_CUT_SEC = 6.50
+EXPRESSIVE_V8_R76_AVG_CUT_TARGET_RANGE: tuple[float, float] = (3.40, 5.20)
+EXPRESSIVE_V8_R76_CUT_COUNT_RANGE: tuple[int, int] = (15, 22)
+EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE: tuple[int, int] = (15, 22)
+EXPRESSIVE_V8_R76_MIN_HUMAN_OUTDOOR_RATIO = 0.25
+# Rule R82 — Dual-Speed Cognitive Pacing × Mandatory Institution Aerial Drone × Head-to-Head Brain Comparison
+R82_CLIP_COUNT_RANGE: tuple[int, int] = (18, 28)
+R82_CUT_COUNT_RANGE: tuple[int, int] = (18, 28)
+R82_HUMAN_MIN_CUT_SEC = 1.90
+R82_HUMAN_MAX_CUT_SEC = 4.25
+R82_BRAIN_MIN_CUT_SEC = 4.20
+R82_BRAIN_MAX_CUT_SEC = 6.80
+R82_AVG_CUT_TARGET_RANGE: tuple[float, float] = (2.60, 4.40)
+R82_FIRST_CUT_MAX_SEC = 3.20
+R82_FIRST_15S_MAX_CUT_SEC = 3.80
+R82_FIRST_15S_MIN_CUTS = 4
+R82_BRAIN_DURATION_RATIO_RANGE: tuple[float, float] = (0.42, 0.58)
+R82_BRAIN_CLIP_RATIO_RANGE: tuple[float, float] = (0.28, 0.55)
+R82_BRAIN_BANNED_FAST_MOTION_TOKENS: tuple[str, ...] = (
+    "racing backward",
+    "hurtling",
+    "whip pan",
+    "rapid spin",
+    "fast 360",
+    "violent spin",
+    "speeding tunnel",
+)
+# Rule R87 — 0.0s–3.0s 3-Second Hook 80%+ Recovery (R87-H) & Conditional Spatial Arrows (R87-A)
+R87_HOOK_VISUAL_MODES: tuple[str, ...] = (
+    "mode1_daily_xray_shock",
+    "mode2_instant_brain_shock",
+    "bizarre_prop_interrupt",
+)
+R87_OPENING_MODES: tuple[str, ...] = (
+    "immediate_brain_shock",
+    "bizarre_experiment",
+    "paradox_action",
+)
+R87_BANNED_S01_OPENING_PREFIXES: tuple[str, ...] = (
+    "why do ",
+    "why does ",
+    "why did ",
+    "how come ",
+    "have you ever",
+    "did you know",
+    "do you ever",
+    "ever wondered",
+    "imagine ",
+    "what if you ",
+    "picture this",
+)
+R87_FIRST_CUT_MIN_SEC = 1.90
+R87_FIRST_CUT_MAX_SEC = 2.60
+R87_S01_MIN_WORDS = 6
+R87_S01_MAX_WORDS = 12
+R87_S01_WORD_RANGE: tuple[int, int] = (R87_S01_MIN_WORDS, R87_S01_MAX_WORDS)
+R87_S01_WARN_SEC = 3.10
+R87_S01_MAX_SEC = 3.50
+R87_HOOK_TITLE_FONT_SIZE = 118
+R87_HOOK_TITLE_FONT_SIZE_RANGE: tuple[int, int] = (96, 126)
+R87_HOOK_TITLE_MAX_WIDTH_PX = 820
+R87_HOOK_TITLE_SCALE_X = 92
+R87_HOOK_TITLE_OUTLINE = 7.0
+R87_HOOK_TITLE_SHADOW = 3.0
+R87_HOOK_TITLE_MARGIN_L = 85
+R87_HOOK_TITLE_MARGIN_R = 170
+R87_HOOK_TITLE_MARGIN_V = 238
+R87_HOOK_TITLE_DURATION_SEC = 2.20
+R87_HOOK_TITLE_MAX_WORDS = 4
+R87_HOOK_TITLE_MAX_CHARS = 24
+R87_HOOK_TITLE_ACCENT_HEX = "#FFE14A"
+R87_HOOK_TITLE_ACCENT_ASS_BGR = "&H004AE1FF&"
+R87_ALLOWED_SPATIAL_ARROW_MODES: tuple[str, ...] = (
+    "adaptive_landmark_zigzag",
+    "fixed_linear_corridor",
+    "doorway_boundary_sever",
+    "dual_route_race_lanes",
+    "dual_speed_race_lanes",
+)
+R87_NON_SPATIAL_CONTRAST_GRAMMARS: tuple[str, ...] = (
+    "expressive_split_contrast",
+    "expressive_hands_closeup",
+    "expressive_xray_brain",
+    "expressive_literal_analogy",
+)
+R87_SPATIAL_ELIGIBLE_KEYWORDS: tuple[str, ...] = (
+    "london taxi",
+    "taxi driver",
+    "black cab",
+    "navigation",
+    "spatial map",
+    "cognitive map",
+    "doorway effect",
+    "doorway",
+    "event boundary",
+    "walk through a door",
+    "walking through",
+    "room boundary",
+    "cross a threshold",
+    "corridor",
+    "street route",
+    "street grid",
+    "maze",
+    "labyrinth",
+    "landmark route",
+    "wayfinding",
+    "gps navigation",
+    "spatial memory route",
+)
+R87_NON_SPATIAL_BANNED_ARROW_KEYWORDS: tuple[str, ...] = (
+    "sleep pill",
+    "zolpidem",
+    "ambien",
+    "glymphatic",
+    "caffeine",
+    "coffee",
+    "ultraprocessed",
+    "snack",
+    "pudding",
+    "junk food",
+    "sugar",
+    "insulin",
+    "diet",
+    "placebo",
+    "pain",
+    "analgesia",
+    "cyclic sighing",
+    "breathing",
+    "vagal",
+    "sleep paralysis",
+    "rem atonia",
+    "depression",
+    "capgras",
+    "imposter",
+    "reversible choice",
+    "conformity",
+    "bystander",
+    "false memory",
+    "white bear",
+    "power nap",
+    "melatonin",
+    "night light",
+    "handholding",
+)
+R87_GATE_VIEWER_COMMON_SENSE_KEYS: tuple[str, ...] = (
+    "silent_3s_scroll_stop",
+    "narration_visual_logic_match",
+    "thumbnail_to_0s_promise_kept",
+)
+# Schema v8.3 M1~M9, C1, C4 Constants (R55-B, R58-K, R68-A)
+EXPRESSIVE_V8_SINGLE_START_FRAME_DEFAULT = True
+EXPRESSIVE_V8_DAISY_CHAIN_END_FRAME_DEFAULT = False
+EXPRESSIVE_V8_FORBID_SLOWMO_STRETCH = True
+EXPRESSIVE_V8_KEYWORD_BEAT_TARGET_SEC = 2.0
+EXPRESSIVE_V8_DUAL_HARVEST_WINDOWS_SEC: tuple[tuple[float, float], tuple[float, float]] = (
+    (0.25, 2.15),
+    (5.20, 7.40),
+)
+EXPRESSIVE_V8_DRONE_PEAK_CORE_WINDOW_SEC: tuple[float, float] = (0.45, 2.75)
+EXPRESSIVE_V8_NEURAL_DIVE_PEAK_WINDOW_SEC: tuple[float, float] = (0.40, 2.55)
+EXPRESSIVE_V8_REQUIRE_NEURAL_DIVE_RELAY = True
+EXPRESSIVE_V8_DEFAULT_NEURAL_DIVE_CYCLES = 2
+EXPRESSIVE_V8_MAX_CONSECUTIVE_BRAIN_CUTS = 3
+NEURAL_WHOOSH_GAIN_DB = -21.0
+NEURAL_WHOOSH_DURATION_SEC = 0.36
+NEURAL_WHOOSH_BAND_HZ: tuple[float, float] = (160.0, 850.0)
+EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR = 0.90
+EXPRESSIVE_V8_MIN_P15_CENTER_SHARPNESS = 1.65
+EXPRESSIVE_V8_CAMERA_Z_FORWARD_TARGET_RATIO = 0.55
+EXPRESSIVE_V8_CAMERA_FAST_FPV_MAX_RATIO = 0.25
+EXPRESSIVE_V8_CAMERA_ORBIT_MAX_RATIO = 0.30
+EXPRESSIVE_V8_CAMERA_LOCKED_MIN_RATIO = 0.15
 EXPRESSIVE_V8_TRANSITION_TYPES: tuple[str, ...] = (
     "daisy_chain_bridge",
+    "seamless_relay_cut",
     "occlusion_wipe",
     "action_impact_cut",
     "dissolve_6f",
+    "dissolve_8f",
+    "dissolve_12f",
+    "dissolve_15f",
     "match_cut_bridge",
     "split_screen_wipe",
     "portal_crash_zoom_10f",
     "whip_pan_blur_8f",
-    "dissolve_8f",
 )
 EXPRESSIVE_V8_VIDEO_FPS = 30
-EXPRESSIVE_V8_MIN_CUT_SEC = 1.20
-EXPRESSIVE_V8_MAX_CUT_SEC = 7.80
-EXPRESSIVE_V8_AVG_CUT_MIN_SEC = 2.00
-EXPRESSIVE_V8_AVG_CUT_MAX_SEC = 5.80
+EXPRESSIVE_V8_MIN_CUT_SEC = 0.85
+EXPRESSIVE_V8_LEGACY_MAX_CUT_SEC = 10.50
+EXPRESSIVE_V8_LEGACY_LONG_TAKE_MAX_SEC = 14.50
+EXPRESSIVE_V8_MAX_CUT_SEC = 4.80
+EXPRESSIVE_V8_LONG_TAKE_MAX_SEC = 14.50
+EXPRESSIVE_V8_LEGACY_AVG_CUT_TARGET_RANGE: tuple[float, float] = (2.20, 7.50)
+EXPRESSIVE_V8_LEGACY_AVG_CUT_RANGE = EXPRESSIVE_V8_LEGACY_AVG_CUT_TARGET_RANGE
+EXPRESSIVE_V8_AVG_CUT_TARGET_RANGE: tuple[float, float] = (2.05, 3.30)
+EXPRESSIVE_V8_AVG_CUT_MIN_SEC = EXPRESSIVE_V8_AVG_CUT_TARGET_RANGE[0]
+EXPRESSIVE_V8_AVG_CUT_MAX_SEC = EXPRESSIVE_V8_AVG_CUT_TARGET_RANGE[1]
 EXPRESSIVE_V8_CUT_CV_MIN = 0.18
+EXPRESSIVE_V8_FLIGHT_SPEED_RAMP_RANGE: tuple[float, float] = (2.80, 3.50)
+EXPRESSIVE_V8_MIN_3D_FLIGHT_RATIO = 0.50
 EXPRESSIVE_V8_DISSOLVE_FRAMES = 6
 EXPRESSIVE_V8_DISSOLVE_8_FRAMES = 8
+EXPRESSIVE_V8_DISSOLVE_12_FRAMES = 12
+EXPRESSIVE_V8_DISSOLVE_15_FRAMES = 15
+EXPRESSIVE_V8_BG_DISSOLVE_FRAME_RANGE: tuple[int, int] = (8, 15)
 EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES = 10
 EXPRESSIVE_V8_WHIP_PAN_FRAMES = 8
-EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS = 4
-EXPRESSIVE_V8_MAX_OVERLAP_FRAMES = 10
-EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES = 6
-EXPRESSIVE_V8_DISSOLVE_SEC = 0.25
+EXPRESSIVE_V8_MAX_STYLED_TRANSITION_RATIO = 0.50
+EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS = 13
+EXPRESSIVE_V8_MAX_OVERLAP_FRAMES = 15
+EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES = 15
+EXPRESSIVE_V8_DISSOLVE_SEC = 0.50
 EXPRESSIVE_V8_MAX_HARD_JUMP_CUTS = 1
 EXPRESSIVE_V8_OUTRO_TAIL_SEC = 0.20
-EXPRESSIVE_V8_OUTRO_TAIL_RANGE_SEC: tuple[float, float] = (0.16, 0.25)
-EXPRESSIVE_V8_SUBTITLE_FONT_SIZE = 102
-EXPRESSIVE_V8_SUBTITLE_OUTLINE_WIDTH = 6.0
-EXPRESSIVE_V8_SUBTITLE_SHADOW_DEPTH = 0.0
-EXPRESSIVE_V8_SUBTITLE_MARGIN_V = 521
+EXPRESSIVE_V8_OUTRO_TAIL_RANGE_SEC: tuple[float, float] = (0.10, 0.50)
+EXPRESSIVE_V8_CONTEXT_SPLIT_WORDS_RANGE: tuple[int, int] = (18, 64)
+EXPRESSIVE_V8_MIN_DISTINCT_LOCATIONS = 6
+EXPRESSIVE_V8_MIN_LUMA = 28.0
+EXPRESSIVE_V8_MIN_SATURATION = 26.0
+EXPRESSIVE_V8_MIN_FG_BG_CONTRAST = 18.0
+EXPRESSIVE_V8_SUBTITLE_FONT_SIZE_RANGE: tuple[int, int] = (78, 86)
+EXPRESSIVE_V8_SUBTITLE_FONT_SIZE = 82
+EXPRESSIVE_V8_SUBTITLE_OUTLINE_WIDTH = 5.5
+EXPRESSIVE_V8_SUBTITLE_SHADOW_DEPTH = 1.5
+EXPRESSIVE_V8_SUBTITLE_MARGIN_V = 510
+EXPRESSIVE_V8_SUBTITLE_MARGIN_L = 80
+EXPRESSIVE_V8_SUBTITLE_MARGIN_R = 165
+EXPRESSIVE_V8_SUBTITLE_MAX_WORDS = 3
 EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_HEX = "#FFE600"
-EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_ASS_BGR = "&H00E6FF&"
+EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_ASS_BGR = "&H0000E6FF&"
 EXPRESSIVE_V8_AMBIENCE_DBFS = -30.0
 EXPRESSIVE_V8_ROOM_AMBIENCE_DBFS = EXPRESSIVE_V8_AMBIENCE_DBFS
-EXPRESSIVE_V8_BGM_START_DBFS = -30.0
-EXPRESSIVE_V8_BGM_PEAK_DBFS = -23.0
-EXPRESSIVE_V8_BGM_TAIL_DBFS = -29.5
+EXPRESSIVE_V8_BGM_MODE = "elevenlabs_music"
+EXPRESSIVE_V8_MUSIC_MODEL_ID = "music_v2_5"
+EXPRESSIVE_V8_DEFAULT_BGM_MOOD = "curious_marimba_strings"
+EXPRESSIVE_V8_BGM_DUCK_DB = -21.5
+EXPRESSIVE_V8_BGM_BREATH_DB = -16.5
+EXPRESSIVE_V8_ROOM_TONE_DBFS = -40.0
+EXPRESSIVE_V8_SYNTH_TONAL_FOLEY = False
+EXPRESSIVE_V8_CURVE_RAMP = False
+BGM_BANK_DIR = CHANNEL_ROOT / "knowledge_base" / "reusable_packs" / "bgm_bank"
+EXPRESSIVE_V8_BGM_START_DB = -25.0
+EXPRESSIVE_V8_BGM_PEAK_DB = -18.0
+EXPRESSIVE_V8_BGM_END_DB = -18.0
+EXPRESSIVE_V8_BGM_START_DBFS = EXPRESSIVE_V8_BGM_START_DB
+EXPRESSIVE_V8_BGM_PEAK_DBFS = EXPRESSIVE_V8_BGM_PEAK_DB
+EXPRESSIVE_V8_BGM_TAIL_DBFS = EXPRESSIVE_V8_BGM_END_DB
+EXPRESSIVE_V8_FLIGHT_WHOOSH_DBFS = -19.5
 EXPRESSIVE_V8_FOLEY_PEAK_DBFS = -14.5
 EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC: tuple[float, float] = (0.32, 0.50)
 EXPRESSIVE_V8_TARGET_LUFS = -14.0
 EXPRESSIVE_V8_TRUE_PEAK_MAX_DBTP = -1.5
 EXPRESSIVE_V8_VOICED_RATIO_MIN = 0.72
-EXPRESSIVE_V8_WPM_TARGET_RANGE: tuple[float, float] = (190.0, 210.0)
-EXPRESSIVE_V8_WPM_ALLOWED_RANGE: tuple[float, float] = (175.0, 225.0)
+EXPRESSIVE_V8_WPM_TARGET_RANGE: tuple[float, float] = (155.0, 205.0)
+EXPRESSIVE_V8_WPM_ALLOWED_RANGE: tuple[float, float] = (135.0, 225.0)
 EXPRESSIVE_V8_PROSODY_MODE = "expressive_us_v8"
 EXPRESSIVE_V8_PROSODY_BASE_RATE = "+10%"
 EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC = 0.020
@@ -750,14 +1356,58 @@ EXPRESSIVE_V8_PROSODY_GEAR_RATES: dict[str, str] = {
     "rush": "+14%",
     "brisk": "+10%",
     "stamp": "+4%",
+    "surprised_lift": "+6%",
+    "insider_reveal": "+4%",
+    "hushed_suspense": "+2%",
+    "deadpan_drop": "-2%",
 }
 EXPRESSIVE_V8_PROSODY_GEARS: dict[str, dict[str, float]] = {
     "rush": {"tempo": 1.14, "trim_thresh": 0.06, "trim_keep": 0.02, "gap_before": 0.32},
     "brisk": {"tempo": 1.10, "trim_thresh": 0.10, "trim_keep": 0.035, "gap_before": 0.36},
     "stamp": {"tempo": 1.04, "trim_thresh": 0.14, "trim_keep": 0.05, "gap_before": 0.45},
+    "surprised_lift": {"tempo": 1.06, "trim_thresh": 0.08, "trim_keep": 0.03, "gap_before": 0.32},
+    "insider_reveal": {"tempo": 1.04, "trim_thresh": 0.09, "trim_keep": 0.03, "gap_before": 0.34},
+    "hushed_suspense": {"tempo": 1.02, "trim_thresh": 0.10, "trim_keep": 0.035, "gap_before": 0.36},
+    "deadpan_drop": {"tempo": 0.98, "trim_thresh": 0.12, "trim_keep": 0.04, "gap_before": 0.40},
 }
-EXPRESSIVE_V8_VOICE_PRESET = "emma_v7"
-EXPRESSIVE_V8_FOIL_VOICE_PRESET = "foil_v8"
+PROSODY_P11_F0_SPAN_MIN_ST = 6.5
+PROSODY_P11_LIFT_VS_DROP_MIN_ST = 1.2
+EXPRESSIVE_V8_VOICE_PRESET = "elevenlabs_v4"
+EXPRESSIVE_V8_FOIL_VOICE_PRESET = "elevenlabs_v4_male"
+EXPRESSIVE_V8_LEGACY_MAX_FK_GRADE = 9.0
+EXPRESSIVE_V8_MAX_FK_GRADE = 6.2
+# Rule R77-N Conversational Storytelling, Readability & Pacing Defaults
+EXPRESSIVE_V8_R77N_MAX_FK_GRADE = 6.5
+EXPRESSIVE_V8_R77N_MAX_EXCLAMATIONS = 2
+EXPRESSIVE_V8_R77N_MAX_STAMP_SENTENCES = 3
+BANNED_R77N_PSEUDO_JARGON_COMPOUNDS: tuple[str, ...] = (
+    "face part",
+    "fear hub",
+    "sound hub",
+    "sight hub",
+    "front check",
+    "think part",
+    "warmth wire",
+    "feel hub",
+    "brain hub",
+    "eye wire",
+)
+EXPRESSIVE_V8_R77N_GAP_WINDOW_RANGE_SEC: tuple[float, float] = (0.12, 0.45)
+EXPRESSIVE_V8_R77N_POST_HOOK_PAUSE_SEC = 0.36
+EXPRESSIVE_V8_R77N_PROSODY_GEARS: dict[str, dict[str, float]] = {
+    "rush": {"tempo": 1.14, "trim_thresh": 0.06, "trim_keep": 0.02, "gap_before": 0.16},
+    "brisk": {"tempo": 1.10, "trim_thresh": 0.09, "trim_keep": 0.03, "gap_before": 0.18},
+    "stamp": {"tempo": 1.04, "trim_thresh": 0.12, "trim_keep": 0.04, "gap_before": 0.22},
+    "surprised_lift": {"tempo": 1.06, "trim_thresh": 0.08, "trim_keep": 0.03, "gap_before": 0.18},
+    "insider_reveal": {"tempo": 1.04, "trim_thresh": 0.08, "trim_keep": 0.03, "gap_before": 0.18},
+    "hushed_suspense": {"tempo": 1.02, "trim_thresh": 0.10, "trim_keep": 0.035, "gap_before": 0.20},
+    "deadpan_drop": {"tempo": 0.98, "trim_thresh": 0.11, "trim_keep": 0.04, "gap_before": 0.22},
+}
+# Rule R77 Standalone 3D Brain Simulator Showcase Mode (`render_mode == "brain_simulator_3d_only"`)
+BRAIN_SIM_ONLY_RENDER_MODE = "brain_simulator_3d_only"
+BRAIN_SIM_ONLY_CLIP_COUNT_RANGE: tuple[int, int] = (6, 12)
+BRAIN_SIM_ONLY_DURATION_RANGE_SEC: tuple[float, float] = (30.0, 62.0)
+BRAIN_SIM_ONLY_WORD_COUNT_RANGE: tuple[int, int] = (75, 190)
 EXPRESSIVE_V8_FOIL_SENTENCE_RANGE: tuple[int, int] = (0, 0)
 EXPRESSIVE_V8_REQUIRE_FOIL = False
 EXPRESSIVE_V8_FOLEY_TYPES: tuple[str, ...] = (
@@ -771,8 +1421,36 @@ EXPRESSIVE_V8_FOLEY_TYPES: tuple[str, ...] = (
 R68_TITLE_WORD_RANGE: tuple[int, int] = (4, 8)
 R68_TITLE_MIN_WORDS, R68_TITLE_MAX_WORDS = R68_TITLE_WORD_RANGE
 R68_TITLE_MAX_CHARS = 55
-R68_DESCRIPTION_HASHTAG_COUNT = 0
+R68_DESCRIPTION_HASHTAG_COUNT = 1
 R68_DESCRIPTION_HASHTAG_MAX = R68_DESCRIPTION_HASHTAG_COUNT
+R68D_DESCRIPTION_WORD_RANGE: tuple[int, int] = (55, 135)
+R68D_BANNED_AI_CLICHES: tuple[str, ...] = (
+    "—",
+    " -- ",
+    "documentary case briefing on",
+    "at the circuit level",
+    "measured neural protocol",
+    "primary peer-reviewed source",
+    "source & verification:",
+    "turns out,",
+    "what's wild is",
+    "here's the catch",
+    "here is the catch",
+    "when you first hear about",
+    "sounds like a superpower",
+    "movie superpower",
+    "what happened next",
+    "you're not imagining things",
+    "bring real brain",
+    "crafted with ai",
+    "created with ai",
+    "visuals and voice",
+    "what didn't fit",
+    "how to use this today",
+    "delve",
+    "testament to",
+    "game-changer",
+)
 
 PORCELAIN_V7_WORLD_STYLE = "photorealistic bright high-key documentary studio world"
 PORCELAIN_V7_CAST_STYLE = (
@@ -854,10 +1532,9 @@ PORCELAIN_V7_LITERAL_ANALOGY_MAX_CLIPS = 2     # Max porcelain_literal_analogy c
 DIORAMA_V7_SPLIT_MODE = "split_hstack"         # Left/Right vertical split-screen in 9:16 portrait
 DIORAMA_V7_SPLIT_DIVIDER_PX = 6                # Solid #000000 black vertical divider bar
 DIORAMA_V7_VISUAL_PLAYBACK_SPEED = 1.00        # Unified 1.00x natural 24fps visual playback speed (0% speed-ramp knees)
-DIORAMA_V7_TTS_RATE = "+8%"                    # Unified 1.08x (+8%) crisp en-US-AndrewMultilingualNeural storyteller cadence
-DIORAMA_V7_TTS_PITCH = "+14Hz"                 # Native neural high-tenor pitch (+14Hz, F0 ~132Hz) for mobile speaker clarity
-DIORAMA_V7_TTS_VOLUME = "-10%"                 # Internal neural vocoder headroom (-10%) preventing high-pitch plosive tearing
-DIORAMA_V7_TTS_SPEED = 1.08                    # Unified 1.08x offline kokoro-onnx fallback speed for Schema v7
+DIORAMA_V7_TTS_RATE = "+8%"                    # Unified 1.08x (+8%) storyteller cadence reference
+DIORAMA_V7_TTS_PITCH = "+14Hz"                 # High-tenor pitch reference
+DIORAMA_V7_TTS_VOLUME = "-10%"                 # Internal vocoder headroom (-10%) reference
 STORYTELLER_VOCAL_FILTER_FEMALE = (
     "aresample=48000:resampler=soxr:precision=28,"
     "highpass=f=95:poles=2,"
@@ -877,81 +1554,107 @@ STORYTELLER_VOCAL_FILTER_EXPRESSIVE_V8 = (
     "acompressor=threshold=-19dB:ratio=1.35:attack=14:release=150:makeup=1.2"
 )
 DIORAMA_VOICE_PRESETS: dict[str, dict[str, str]] = {
-    "andrew_v7": {
-        "voice": "en-US-AndrewMultilingualNeural",
+    "elevenlabs_v4": {
+        "voice": "CwhRBWXzGAHq8TQ4Fs17",
+        "elevenlabs_voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+        "elevenlabs_fallback_voice_id": "nPczCjzI2devNBz1zQrb",
+        "tts_backend": "elevenlabs_v4",
         "gender": "male",
-        "pitch": "+14Hz",
-        "volume": "-10%",
-        "eq_profile": "male_studio",
-        "kokoro_voice": "am_fenrir",
-        "flow_voice_anchor": "Voice: Consistent deep male baritone documentary narrator.",
-    },
-    "andrew_v8": {
-        "voice": "en-US-AndrewMultilingualNeural",
-        "gender": "male",
-        "pitch": "+16Hz",
-        "volume": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%",
         "eq_profile": "male_expressive_v8",
-        "kokoro_voice": "am_fenrir",
-        "flow_voice_anchor": "Voice: High-tension young American male thriller storyteller.",
+        "flow_voice_anchor": "Voice: Laid-back, resonant American male documentary storyteller (Roger).",
     },
-    "emma_v7": {
-        "voice": "en-US-EmmaMultilingualNeural",
+    "el_siren_v4": {
+        "voice": "eXpIbVcVbLo8ZJQDlDnl",
+        "elevenlabs_voice_id": "eXpIbVcVbLo8ZJQDlDnl",
+        "elevenlabs_fallback_voice_id": "tnSpp4vdxKPjI9w0GnoV",
+        "tts_backend": "elevenlabs_v4",
         "gender": "female",
         "pitch": "+0Hz",
-        "volume": "-10%",
+        "volume": "+0%",
         "eq_profile": "female_studio",
-        "kokoro_voice": "af_bella",
-        "flow_voice_anchor": "Voice: Warm, articulate American female documentary narrator.",
+        "flow_voice_anchor": "Voice: Natural, crisp, expressive American female documentary storyteller (Siren).",
     },
-    "ava_v7": {
-        "voice": "en-US-AvaMultilingualNeural",
+    "el_researcher_v4": {
+        "voice": "tnSpp4vdxKPjI9w0GnoV",
+        "elevenlabs_voice_id": "tnSpp4vdxKPjI9w0GnoV",
+        "elevenlabs_fallback_voice_id": "WQP7cQUF5aAS6Axh5yaa",
+        "tts_backend": "elevenlabs_v4",
         "gender": "female",
         "pitch": "+0Hz",
-        "volume": "-10%",
+        "volume": "+0%",
         "eq_profile": "female_studio",
-        "kokoro_voice": "af_heart",
-        "flow_voice_anchor": "Voice: Clear, expressive American female documentary narrator.",
+        "flow_voice_anchor": "Voice: Upbeat, clear American female researcher (Hope).",
     },
-    "aria_v7": {
-        "voice": "en-US-AriaNeural",
+    "el_minicortex_v4": {
+        "voice": "FGY2WhTYpPnrIDTdsKH5",
+        "elevenlabs_voice_id": "FGY2WhTYpPnrIDTdsKH5",
+        "elevenlabs_fallback_voice_id": "hpp4J3VqNfWAUOO0d1Us",
+        "tts_backend": "elevenlabs_v4",
         "gender": "female",
         "pitch": "+0Hz",
-        "volume": "-10%",
+        "volume": "+0%",
         "eq_profile": "female_studio",
-        "kokoro_voice": "af_nova",
-        "flow_voice_anchor": "Voice: Calm, authoritative American female documentary narrator.",
+        "flow_voice_anchor": "Voice: Quirky, enthusiastic Mini-Cortex mascot voice (Laura).",
     },
-    "christopher_v7": {
-        "voice": "en-US-ChristopherNeural",
-        "gender": "male",
-        "pitch": "+4Hz",
-        "volume": "-10%",
-        "eq_profile": "male_studio",
-        "kokoro_voice": "am_michael",
-        "flow_voice_anchor": "Voice: Measured, authoritative American male documentary narrator.",
+    "elevenlabs_v4_female": {
+        "voice": "tnSpp4vdxKPjI9w0GnoV",
+        "elevenlabs_voice_id": "tnSpp4vdxKPjI9w0GnoV",
+        "elevenlabs_fallback_voice_id": "WQP7cQUF5aAS6Axh5yaa",
+        "tts_backend": "elevenlabs_v4",
+        "gender": "female",
+        "pitch": "+0Hz",
+        "volume": "+0%",
+        "eq_profile": "female_studio",
+        "flow_voice_anchor": "Voice: Crisp, expressive American female pro documentary narrator.",
     },
-    "foil_v8": {
-        "voice": "en-US-SteffanNeural",
+    "elevenlabs_v4_male": {
+        "voice": "nPczCjzI2devNBz1zQrb",
+        "elevenlabs_voice_id": "nPczCjzI2devNBz1zQrb",
+        "elevenlabs_fallback_voice_id": "cjVigY5qzO86Huf0OWal",
+        "tts_backend": "elevenlabs_v4",
         "gender": "male",
-        "pitch": "-3Hz",
-        "volume": "-8%",
+        "pitch": "+0Hz",
+        "volume": "+0%",
         "eq_profile": "male_expressive_v8",
-        "kokoro_voice": "am_michael",
-        "flow_voice_anchor": "Voice: Sharp, contrasting American male foil character voice.",
-    },
-    "guy_foil_v8": {
-        "voice": "en-US-GuyNeural",
-        "gender": "male",
-        "pitch": "+4Hz",
-        "volume": "-8%",
-        "eq_profile": "male_expressive_v8",
-        "kokoro_voice": "am_michael",
-        "flow_voice_anchor": "Voice: Skeptical American male secondary character voice.",
+        "flow_voice_anchor": "Voice: Deep, resonant American male character foil (Brian).",
     },
 }
-DEFAULT_DIORAMA_VOICE_PRESET = "emma_v7"
-DEFAULT_REENACTMENT_VOICE_PRESET = "emma_v7"
+HISTORICAL_LEGACY_VOICE_PRESET_IDS: frozenset[str] = frozenset(
+    {
+        "andrew_v7",
+        "andrew_v8",
+        "emma_v7",
+        "ava_v7",
+        "aria_v7",
+        "christopher_v7",
+        "foil_v8",
+        "guy_foil_v8",
+    }
+)
+ELEVENLABS_ENV_FILE = Path.home() / ".config" / "aab" / "elevenlabs.env"
+ELEVENLABS_CREDIT_STATE_FILE = CHANNEL_ROOT / ".cache" / "elevenlabs_credit_state.json"
+ELEVENLABS_DEFAULT_MODEL_ID = "eleven_v4"
+ELEVENLABS_OUTPUT_FORMAT_CREATOR = "mp3_44100_192"
+ELEVENLABS_DEFAULT_STABILITY = 0.45
+ELEVENLABS_DEFAULT_SIMILARITY_BOOST = 0.78
+ELEVENLABS_MIN_RESERVE_CREDITS = 500
+ELEVENLABS_VOICE_SIREN_ID = "eXpIbVcVbLo8ZJQDlDnl"
+ELEVENLABS_VOICE_ROGER_ID = "CwhRBWXzGAHq8TQ4Fs17"
+EXPRESSIVE_V8_R76_VOICE_PRESET = "el_siren_v4"
+ELEVENLABS_VOICE_HOPE_ID = "tnSpp4vdxKPjI9w0GnoV"
+ELEVENLABS_VOICE_LAURA_ID = "FGY2WhTYpPnrIDTdsKH5"
+ELEVENLABS_VOICE_BRIAN_ID = "nPczCjzI2devNBz1zQrb"
+ELEVENLABS_VOICE_ERIC_ID = "cjVigY5qzO86Huf0OWal"
+ELEVENLABS_VOICE_ELARA_ID = "WQP7cQUF5aAS6Axh5yaa"
+ELEVENLABS_VOICE_BELLA_ID = "hpp4J3VqNfWAUOO0d1Us"
+ELEVENLABS_VOICE_DARIAN_ID = "gOupLcAkjEnguROwi4oS"
+ELEVENLABS_VOICE_SAWYER_ID = "8dEUmyPMdDdK91vboYih"
+CAST_REGISTRY_PATH = CHANNEL_ROOT / "knowledge_base" / "reusable_packs" / "cast_registry.json"
+LOCATION_REGISTRY_PATH = CHANNEL_ROOT / "knowledge_base" / "reusable_packs" / "location_registry.json"
+DEFAULT_DIORAMA_VOICE_PRESET = "elevenlabs_v4"
+DEFAULT_REENACTMENT_VOICE_PRESET = "elevenlabs_v4"
 DIORAMA_V7_WPM_MIN = 135.0                     # Minimum spoken WPM gate at unified 1.08x (+8%) trimmed cadence
 DIORAMA_V7_WPM_MAX = 212.0                     # Maximum spoken WPM gate for Schema v7
 DIORAMA_V7_INTERNAL_SILENCE_TRIM_THRESHOLD_SEC = 0.28
@@ -1026,6 +1729,7 @@ DIORAMA_V7_PROSODY_REHOOK_PHRASES: tuple[str, ...] = tuple(
             "but here's",
             "but here is",
             "here is what went wrong",
+            "that is why,",
             *(p.strip() for p in DIORAMA_MIDPOINT_REHOOK_BANK),
             *(p.strip() for p in DIORAMA_CRISIS_BEAT_BANK[:6]),
         )
@@ -1157,31 +1861,930 @@ SHORTS_90S_CLIP_COUNT_MAX = 32
 SHORTS_90S_CUT_COUNT_MIN = 24
 SHORTS_90S_CUT_COUNT_MAX = 36
 
-SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC = 55.0
-SHORTS_EXPRESSIVE_V8_DURATION_TARGET_RANGE_SEC: tuple[float, float] = (58.0, 88.0)
-SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC = 89.5
-SHORTS_EXPRESSIVE_V8_HARD_CEILING_SEC = 90.0
-SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN = 160
-SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX = 240
+SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC = 61.5
+SHORTS_EXPRESSIVE_V8_DURATION_TARGET_RANGE_SEC: tuple[float, float] = (62.0, 86.0)
+SHORTS_EXPRESSIVE_V8_R75_MAX_SEC = 88.0
+SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC = 120.0
+EXPRESSIVE_V8_HARD_CEILING_SEC = 120.0
+SHORTS_EXPRESSIVE_V8_HARD_CEILING_SEC = EXPRESSIVE_V8_HARD_CEILING_SEC
+SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN = 145
+SHORTS_EXPRESSIVE_V8_WORD_COUNT_MAX = 420
 SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MIN = 12
-SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_TARGET: tuple[int, int] = (13, 15)
+SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_TARGET: tuple[int, int] = (14, 22)
 SHORTS_EXPRESSIVE_V8_SENTENCE_COUNT_MAX = 28
-SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX = 22
-SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN = 14
+SHORTS_EXPRESSIVE_V8_LEGACY_SENTENCE_WORDS_MAX = 30
+SHORTS_EXPRESSIVE_V8_R73_SENTENCE_WORDS_MAX = 22
+SHORTS_EXPRESSIVE_V8_SENTENCE_WORDS_MAX = SHORTS_EXPRESSIVE_V8_LEGACY_SENTENCE_WORDS_MAX
+EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN = 14
+EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE: tuple[int, int] = (18, 26)
+SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN = 15
 SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT = 18
-SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX = 26
-SHORTS_EXPRESSIVE_V8_CUT_COUNT_MIN = 14
-SHORTS_EXPRESSIVE_V8_CUT_COUNT_MAX = 28
+SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX = 36
+SHORTS_EXPRESSIVE_V8_CUT_COUNT_MIN = 15
+SHORTS_EXPRESSIVE_V8_CUT_COUNT_MAX = 46
 EXPRESSIVE_V8_CLIP_COUNT_MIN = SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN
 EXPRESSIVE_V8_CLIP_COUNT_MAX = SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX
 EXPRESSIVE_V8_CLIP_COUNT_RANGE: tuple[int, int] = (
     SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN,
     SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX,
 )
+# Rule R72 + R72-R Open-World Drone, Real-World Landmark Reference & Fast-Cut Locks
+EXPRESSIVE_V8_REQUIRE_EXTERIOR_COLD_OPEN = True
+EXPRESSIVE_V8_MIN_OUTDOOR_OR_ARCH_RATIO = 0.35
+EXPRESSIVE_V8_MIN_DRONE_FLIGHT_RATIO = 0.35
+EXPRESSIVE_V8_MAX_CONSECUTIVE_SAME_INDOOR_LOC = 2
+EXPRESSIVE_V8_REQUIRE_REAL_LANDMARK_REFS = True
+REAL_WORLD_REFS_QUARANTINE_ROOT = Path("/tmp/aab_real_refs")
+REAL_WORLD_REFS_MANIFEST_FILENAME = "real_world_refs_manifest.json"
+REAL_WORLD_REFS_MIN_DHASH_DISTANCE = 14
+REAL_WORLD_REFS_MIN_EDGE_ALIGNMENT = 0.30
+
+EXPRESSIVE_V8_DRONE_CAMERA_MOVES: tuple[str, ...] = (
+    "drone_aerial_approach",
+    "fpv_window_portal_breach",
+    "drone_high_orbit_drop",
+    "vertical_90_topdown_dive",
+    "drone_skyline_pullback",
+    "drone_landmark_ascend",
+    "topdown_3d_route_glide",
+)
+EXPRESSIVE_V8_NEURAL_DIVE_MOVES: tuple[str, ...] = (
+    "neural_fpv_dive_in",
+    "neural_macro_orbit_hold",
+    "neural_fpv_pullback_out",
+    "neural_tract_relay_flight",
+)
+# Rule R74-B & R71-B Topic-Specific Brain Density, 4-State Pathology & 2-Node Pathway Callout Locks
+EXPRESSIVE_V8_TOPIC_FOCUSES: tuple[str, ...] = ("psychology", "neuroscience")
+EXPRESSIVE_V8_PSYCH_BRAIN_CLIP_RATIO_RANGE: tuple[float, float] = (0.12, 0.26)
+EXPRESSIVE_V8_NEURO_BRAIN_CLIP_RATIO_RANGE: tuple[float, float] = (0.24, 0.38)
+EXPRESSIVE_V8_NEURO_BRAIN_REVEAL_WINDOW_FRAC: tuple[float, float] = (0.45, 0.88)
+EXPRESSIVE_V8_NEURAL_STATES: tuple[str, ...] = ("active", "silenced", "severed", "rerouted")
+R71_CALLOUT_MODES: tuple[str, ...] = ("single_region", "pathway_relay", "pathway_severed")
+EXPRESSIVE_V8_3D_FLIGHT_MOVES: tuple[str, ...] = (
+    "dolly_zoom_vertigo",
+    "whip_pan_occlusion",
+    "orbital_3d_arc_sweep",
+    "crane_swoop_dive",
+    "portal_dive_flight",
+    "fpv_3d_flight",
+    "axial_portal_dive",
+    "gentle_push_in",
+    "clean_pullback_reveal",
+    *EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+    *EXPRESSIVE_V8_NEURAL_DIVE_MOVES,
+    *EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES,
+)
 EXPRESSIVE_V8_CAMERA_MOVES: tuple[str, ...] = DIORAMA_V7_CAMERA_MOVES + (
     "dolly_zoom_vertigo",
     "whip_pan_occlusion",
+    "orbital_3d_arc_sweep",
+    "crane_swoop_dive",
+    "portal_dive_flight",
+    "fpv_3d_flight",
+    "axial_portal_dive",
+    *EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+    *EXPRESSIVE_V8_NEURAL_DIVE_MOVES,
+    *EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES,
 )
+
+
+def is_r73_us_native_v8_script(
+    script_doc: dict[str, Any] | None = None,
+    plan: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R73 (US Native Spoken Narration & S1->S2 R72 Bridge) applies:
+    default-on for all new `expressive_25d_v8` episodes (`Ep #7+` / `r73_mode` / US-native opening modes),
+    while preserving `PRE_R73_FROZEN_V8_PROJECTS` (`Ep #1..#6`) and explicit legacy `action`/`question`/`situation`/`allow_legacy_case_stamp` fixtures.
+    """
+    s = script_doc if isinstance(script_doc, dict) else {}
+    p = plan if isinstance(plan, dict) else {}
+    if bool(s.get("r73_mode")) or bool(s.get("enforce_r73_us_native")) or bool(p.get("r73_mode")):
+        return True
+    if (
+        bool(s.get("allow_legacy_pre_r73"))
+        or bool(s.get("allow_legacy_case_stamp"))
+        or bool(p.get("allow_legacy_pre_r73"))
+        or bool(p.get("allow_legacy_case_stamp"))
+    ):
+        return False
+    eff_pid = str(project_id or s.get("project_id") or p.get("project_id") or "").strip()
+    if eff_pid in PRE_R73_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(s.get("dossier") or s.get("dossier_slug") or p.get("dossier") or p.get("dossier_slug") or "").strip()
+    if eff_dossier in PRE_R73_FROZEN_V8_DOSSIERS:
+        return False
+    raw_open = str(s.get("opening_mode") or p.get("opening_mode") or "").strip().lower()
+    if raw_open == "action":
+        if bool(s.get("r77n_conversational_storytelling")) or bool(p.get("r77n_conversational_storytelling")):
+            return True
+        return bool(eff_pid and (eff_pid.startswith("v8_ep") or eff_pid.startswith("r73_") or eff_pid.endswith("_r77")))
+    if raw_open in EXPRESSIVE_V8_US_NATIVE_OPENING_MODES:
+        return True
+    if raw_open in ("question", "situation"):
+        return False
+    if raw_open == "case_stamp":
+        # Explicit legacy `case_stamp` in synthetic unit-test fixtures stays compatible UNLESS new project_id (`v8_ep*` / `r73_*`) is passed
+        return bool(eff_pid and (eff_pid.startswith("v8_ep") or eff_pid.startswith("r73_")))
+    # Default (unspecified opening_mode on non-frozen v8 script) -> R73 US-Native active!
+    return True
+
+
+def is_brain_sim_only_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+) -> bool:
+    """Returns True when a plan/script explicitly targets standalone `brain_simulator_3d_only` rendering (Rule R77)."""
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    rm = str(p.get("render_mode") or s.get("render_mode") or "").strip().lower()
+    return rm == BRAIN_SIM_ONLY_RENDER_MODE
+
+
+def is_r77n_v8_script(
+    script_doc: dict[str, Any] | None = None,
+    plan: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R77-N (Conversational Storytelling, Anti-Caveman Pseudo-Jargon Ban,
+    Conversational FK <= 6.5 & 0.16-0.22s Inter-Sentence Breaths) applies.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(s.get("allow_legacy_pre_r77")) or bool(p.get("allow_legacy_pre_r77")):
+        return False
+    eff_pid = str(project_id or s.get("project_id") or p.get("project_id") or "").strip()
+    if eff_pid in PRE_R77_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(s.get("dossier") or s.get("dossier_slug") or p.get("dossier") or p.get("dossier_slug") or "").strip()
+    if not eff_pid and eff_dossier in PRE_R77_FROZEN_V8_DOSSIERS:
+        return False
+    if (
+        bool(s.get("r77n_conversational_storytelling"))
+        or bool(p.get("r77n_conversational_storytelling"))
+        or bool(s.get("r77_mode"))
+        or bool(p.get("r77_mode"))
+        or eff_pid.endswith("_r77")
+        or eff_pid.startswith("r77_")
+        or eff_pid.endswith("_r82")
+        or eff_pid.startswith("r82_")
+        or bool(s.get("r82_mode"))
+        or bool(p.get("r82_mode"))
+        or is_brain_sim_only_plan(p, s)
+    ):
+        return True
+    if eff_pid and eff_pid.startswith("v8_ep"):
+        return True
+    return False
+
+
+def is_r79m_character_motion_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R79-M (Snappy 2.5D Character Motion & State-A Keyframe Lock:
+    subject+verb prompt integrity, smudge-free 2D ink step-snap, main_speed <= 1.45x,
+    and human acting DISOpticalFlow subj_p90_px >= 2.0) applies.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(s.get("allow_legacy_pre_r79m")) or bool(p.get("allow_legacy_pre_r79m")):
+        return False
+    if is_brain_sim_only_plan(p, s):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if eff_pid in PRE_R79M_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(p.get("dossier") or p.get("dossier_slug") or s.get("dossier") or s.get("dossier_slug") or "").strip()
+    if not eff_pid and eff_dossier in PRE_R79M_FROZEN_V8_DOSSIERS:
+        return False
+    if (
+        bool(p.get("r79m_character_motion"))
+        or bool(s.get("r79m_character_motion"))
+        or bool(p.get("r82_mode"))
+        or bool(s.get("r82_mode"))
+        or eff_pid.endswith("_r82")
+        or eff_pid.startswith("r82_")
+    ):
+        return True
+    if eff_pid and eff_pid.startswith("v8_ep"):
+        return True
+    return False
+
+
+def is_r72_open_world_v8_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R72 + R72-R Open-World Drone + Fast-Cut enforcement applies (default-on for all
+    new `expressive_25d_v8` episodes from `Ep #7` onward), while preserving frozen `Ep #1..#6` archives
+    and legacy indoor `emma_v7` / untagged synthetic unit test fixtures.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if is_brain_sim_only_plan(p, s):
+        return False
+    if (
+        bool(p.get("r72_mode"))
+        or bool(p.get("enforce_r72_open_world"))
+        or bool(s.get("r72_mode"))
+        or bool(p.get("real_world_targets"))
+        or bool(p.get("r72_cold_open_relay"))
+    ):
+        return True
+    if (
+        bool(p.get("allow_legacy_indoor_v8"))
+        or bool(p.get("allow_legacy_v8_clip_count"))
+        or bool(s.get("allow_legacy_indoor_v8"))
+        or bool(s.get("allow_legacy_v8_clip_count"))
+    ):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if eff_pid in PRE_R72_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(p.get("dossier") or p.get("dossier_slug") or s.get("dossier") or s.get("dossier_slug") or "").strip()
+    if eff_dossier in PRE_R72_FROZEN_V8_DOSSIERS:
+        return False
+    vp_voice = str(p.get("voice_preset") or s.get("voice_preset") or "").strip().lower()
+    vp_opening = str(p.get("opening_mode") or s.get("opening_mode") or "").strip().lower()
+    if vp_voice == "emma_v7" or vp_opening in ("action", "question", "situation"):
+        if not (eff_pid and (eff_pid.startswith("v8_ep") or eff_pid.endswith("_r77"))):
+            return False
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    has_r72_clip_signal = any(
+        isinstance(c, dict)
+        and (
+            bool(c.get("real_world_target_id"))
+            or str(c.get("grammar") or "") in ("expressive_exterior_establishing", "architectural_cutaway_portal")
+            or str(c.get("camera_move") or "") in EXPRESSIVE_V8_DRONE_CAMERA_MOVES
+        )
+        for c in raw_clips
+    )
+    if (
+        has_r72_clip_signal
+        or vp_opening in EXPRESSIVE_V8_US_NATIVE_OPENING_MODES
+        or vp_opening == "case_stamp"
+        or vp_voice == "elevenlabs_v4"
+        or (eff_pid and (eff_pid.startswith("v8_ep") or eff_pid.startswith("r72_")))
+        or len(raw_clips) >= SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN
+    ):
+        return bool(EXPRESSIVE_V8_REQUIRE_EXTERIOR_COLD_OPEN)
+    return False
+
+
+def is_r76_v8_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R76 (`Siren` Solo Narrator × Deterministic `Blender 4.2` MNI152 3D Brain
+    Simulator × `Anti-Noise` Pacing) applies: explicit `r76_mode` / `r76_brain_simulator`, `_r76` / `_r77` project,
+    any `brain_simulator_3d` / `blender_3d_simulator` clip, or non-frozen `v8_ep*` projects (`Ep #9+`).
+    Preserves frozen `Ep #1..#8 v1` and legacy R72/R74/R74-B unit-test fixtures cleanly.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if is_r85_flow_31_brain_plan(p, s, project_id=eff_pid):
+        return False
+    if (
+        bool(p.get("r76_mode"))
+        or bool(p.get("r76_brain_simulator"))
+        or bool(s.get("r76_mode"))
+        or eff_pid.endswith("_r76")
+        or eff_pid.startswith("r76_")
+        or eff_pid.endswith("_r77")
+        or eff_pid.startswith("r77_")
+        or eff_pid.endswith("_r82")
+        or eff_pid.startswith("r82_")
+        or bool(p.get("r82_mode"))
+        or bool(s.get("r82_mode"))
+        or is_brain_sim_only_plan(p, s)
+    ):
+        return True
+    if bool(p.get("allow_legacy_pre_r76")) or bool(s.get("allow_legacy_pre_r76")):
+        return False
+    if eff_pid in PRE_R76_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(p.get("dossier") or p.get("dossier_slug") or s.get("dossier") or s.get("dossier_slug") or "").strip()
+    if not eff_pid and eff_dossier in PRE_R76_FROZEN_V8_DOSSIERS:
+        return False
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    if any(
+        isinstance(c, dict)
+        and (
+            str(c.get("grammar") or "") == "brain_simulator_3d"
+            or str(c.get("render_engine") or "") == "blender_3d_simulator"
+            or str(c.get("camera_move") or "") in EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES
+        )
+        for c in raw_clips
+    ):
+        return True
+    if any(isinstance(c, dict) and str(c.get("camera_move") or "") in EXPRESSIVE_V8_NEURAL_DIVE_MOVES for c in raw_clips):
+        return False
+    if bool(p.get("cameo_easter_egg")) or any(isinstance(c, dict) and bool(c.get("cameo_easter_egg")) for c in raw_clips):
+        return False
+    return False
+
+
+def is_r82_dual_speed_pacing_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R82 (Dual-Speed Cognitive Pacing: crisp `1.90–4.25s` purposeful 2-beat human cuts,
+    poised `4.20–6.80s` anti-spin 3D brain cuts across `42–58%` episode share, mandatory institution aerial
+    drone cold-open bridge, and `>=2` R70-M Data Stamps) applies.
+    Preserves `PRE_R82_FROZEN_V8_PROJECTS` (`Ep #1..#12`) and synthetic unit-test fixtures (`*_test`, `*_unit_check`).
+    """
+    import re as _re_r82
+
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(p.get("allow_legacy_pre_r82")) or bool(s.get("allow_legacy_pre_r82")):
+        return False
+    if is_brain_sim_only_plan(p, s):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if (
+        bool(p.get("r82_mode"))
+        or bool(s.get("r82_mode"))
+        or eff_pid.endswith("_r82")
+        or eff_pid.startswith("r82_")
+    ):
+        return True
+    if eff_pid in PRE_R82_FROZEN_V8_PROJECTS:
+        return False
+    if any(tok in eff_pid.lower() for tok in ("_test", "_unit_check", "_synth", "_dryrun", "v8_ep99")):
+        return False
+    m_ep = _re_r82.match(r"^v8_ep(\d+)_", eff_pid)
+    if m_ep and int(m_ep.group(1)) >= 13:
+        return True
+    return False
+
+
+# ==============================================================================
+# Rule R84 — Blender 4.2 Cycles MNI152 PBR Surgical Cutaway & 2.5x Dashed Volume Compare
+# ==============================================================================
+R84_BLENDER_RENDER_ENGINE = "CYCLES"
+R84_CYCLES_SAMPLES = 16
+R84_MATTE_ROUGHNESS_RANGE: tuple[float, float] = (0.58, 0.65)
+R84_TARGET_SUBSURF_LEVELS = 2
+R84_STACKED_CUTAWAY_ZOOM = 2.5
+R84_DASHED_BASELINE_WIDTH_PX = 3
+R84_DASHED_BASELINE_DASH_GAP_PX: tuple[int, int] = (22, 9)
+R84_DEEP_CUTAWAY_REGIONS: tuple[str, ...] = (
+    "hippocampus",
+    "amygdala",
+    "thalamus",
+    "insula",
+    "basal ganglia",
+    "caudate",
+    "putamen",
+    "nucleus accumbens",
+    "hypothalamus",
+    "fusiform face area",
+    "brainstem",
+    "anterior cingulate cortex",
+    "corpus callosum",
+    "ventromedial prefrontal cortex",
+)
+
+
+def is_r84_mni152_cutaway_pbr_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R84 (`Blender 4.2 Cycles` + `OpenImageDenoise` + `AgX` Matte Medical Subsurface PBR +
+    `EXACT` Boolean Surgical Cutaway + `9:16` Stacked `2.5x` `1.0x` Dashed Baseline Volume/State Compare) applies:
+    default-on for `v8_ep13+` and any plan/script/clip with `r84_mode` / `stacked_cutaway_brain_compare` / `surgical_cutaway`.
+    """
+    import re as _re_r84
+
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(p.get("allow_legacy_pre_r84")) or bool(s.get("allow_legacy_pre_r84")):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if (
+        bool(p.get("r84_mode"))
+        or bool(s.get("r84_mode"))
+        or eff_pid.endswith("_r84")
+        or eff_pid.startswith("r84_")
+    ):
+        return True
+    if is_r85_flow_31_brain_plan(p, s, project_id=eff_pid):
+        return False
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    if any(
+        isinstance(c, dict)
+        and (
+            bool(c.get("stacked_cutaway_brain_compare"))
+            or bool(c.get("surgical_cutaway"))
+            or bool(c.get("dashed_baseline"))
+            or bool(c.get("r84_pbr"))
+        )
+        for c in raw_clips
+    ):
+        return True
+    if any(tok in eff_pid.lower() for tok in ("_test", "_unit_check", "_synth", "_dryrun", "v8_ep99")):
+        return False
+    return False
+
+
+# ==============================================================================
+# Rule R85 & R86 — 100% Google Flow Ep #31 6-Scale Brain, QA Honesty & Semantic Beat Contract
+# ==============================================================================
+R85_BRAIN_RENDER_ENGINE = "google_flow"
+R85_FLOW_BRAIN_SHOT_ROTATION: tuple[str, ...] = (
+    "xray_head_dive",
+    "split_cutaway",
+    "sulcal_cyan_dive",
+    "vessel_csf_macro",
+    "1p_tract_canyon",
+    "3p_shutdown_or_top_bottom",
+)
+R85_MNI152_GUIDE_TMP_ROOT = Path("/tmp/aab_real_refs")
+R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX = (
+    "smooth bald matte cream-white 2.5D vinyl head, zero hair, zero beard, zero photorealistic skin texture, "
+    "2D black ink eyes, minimalist earless noseless silhouette preferred"
+)
+R88_FACELESS_CAST_PROFILE = "r88_faceless_porcelain"
+R85_HUMAN_IDENTITY_LOCK_SUFFIX = (
+    "smooth featureless matte-white architectural porcelain figure, zero eyes, zero mouth, zero eyebrows, "
+    "zero cartoon face, zero hair, zero photorealistic skin; frame via hands-only close-up, "
+    "back/three-quarter silhouette, or translucent Mode 1 x-ray cranium"
+)
+R88_HUMAN_IDENTITY_LOCK_SUFFIX = R85_HUMAN_IDENTITY_LOCK_SUFFIX
+R88_RETIRED_CARTOON_CAST_SLOTS: tuple[str, ...] = (
+    "B01_base_adult_male_turnaround",
+    "B02_base_adult_female_turnaround",
+    "B03_base_older_adult_turnaround",
+    "B04_base_child_turnaround",
+    "B05_expr_surprised",
+    "B06_expr_joy",
+    "B07_expr_worry",
+    "B08_expr_focus",
+    "B09_expr_confusion",
+    "B10_expr_eureka",
+    "B11_wardrobe_white_lab_coat",
+    "B12_wardrobe_surgical_scrubs",
+    "B13_wardrobe_casual_everyday",
+    "B14_wardrobe_formal_suit",
+    "B15_wardrobe_student",
+)
+R88_BANNED_CARTOON_FACE_TOKENS: tuple[str, ...] = (
+    "2d black ink",
+    "2d charcoal-black",
+    "charcoal-black 2d",
+    "2d cartoon ink",
+    "2d ink eyes",
+    "2d ink eyebrows",
+    "2d ink mouth",
+    "2d ink shock",
+    "2d ink expression",
+    "cartoon facial expression",
+    "cartoon ink facial",
+    "open-o shocked mouth",
+    "furrowed curiosity",
+)
+R85_OPEN_LICENSE_KEYWORDS: tuple[str, ...] = (
+    "public domain",
+    "cc0",
+    "cc-by",
+    "cc by",
+    "cc-by-sa",
+    "cc by-sa",
+    "pd-",
+    "usgov",
+    "nih",
+    "wikimedia_open",
+    "open_license",
+)
+R85_DRONE_ALTITUDE_LOCK_CLAUSE = "120ft altitude, figures read as tiny dots"
+R85_GENUINE_EP31_ANCHOR_FILES: tuple[str, ...] = (
+    "ep31_orig_mode1_head_9x16.png",
+    "ep31_orig_mode2_lateral_9x16.png",
+    "ep31_orig_mode2_dorsal_9x16.png",
+    "ep31_orig_mode2_vessel_macro_9x16.png",
+)
+R85_RETIRED_DERIVATIVE_BRAIN_ANCHORS: tuple[str, ...] = (
+    "xray_brain75_master",
+    "xray_brain75_master.png",
+    "ref_r78m_cut05",
+    "ref_r78m_cut05.png",
+    "ref_r78m_cut06",
+    "ref_r78m_cut06.png",
+    "ep31_mode2_silver_cyan_style_master",
+    "ep31_mode2_silver_cyan_style_master.png",
+)
+R85_BRAIN_BANNED_VFX_TOKENS: tuple[str, ...] = (
+    "glow",
+    "glowing",
+    "glows",
+    "neon",
+    "sparkle",
+    "sparkles",
+    "sparkling",
+    "particles",
+    "particle",
+    "sparks",
+    "spark",
+    "embers",
+    "ember",
+    "bloom",
+    "light beam",
+    "light beams",
+    "ethereal",
+    "energy",
+    "smoke",
+    "smoky",
+    "haze",
+    "hazy",
+    "lightning",
+    "luminous",
+    "radiance",
+    "radiant",
+    "halo",
+    "aura",
+    "frosted-glass",
+    "optical-glass",
+    "borosilicate",
+)
+R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE = (
+    "Thick sky-blue branching vessel network spreads naturally over the cortical surface without outlining every sulcal fold. "
+    "Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze"
+)
+R85_EP31_CORTEX_SAT_MAX = 48.0
+R85_EP31_CORTEX_LUMA_MIN = 152.0
+R85_EP31_MODE1_LUMA_MIN = 135.0
+R85_EP31_MODE1_HEAD_P75_MIN = 155.0
+R85_EP31_MAX_SPARK_CLUSTERS = 22
+R85_EP31_MAX_VOID_HALO_P90 = 40.0
+R85_EP31_MAX_VOID_HALO_BLOOM = 0.040
+R85_ANATOMY_VIEWPOINT_RULES: dict[str, dict[str, tuple[str, ...]]] = {
+    "hippocampus": {
+        "allowed": ("inferior_lateral_cutaway", "coronal_cutaway", "oblique_inferior_lateral_cutaway"),
+        "forbidden": ("dorsal_callosum", "corpus_callosum_highlight", "dorsal_top_down"),
+    },
+    "thalamus": {
+        "allowed": ("midsagittal_cutaway",),
+        "forbidden": ("lateral_cortical_surface", "lateral_surface"),
+    },
+    "brainstem": {
+        "allowed": ("midsagittal_cutaway",),
+        "forbidden": ("lateral_cortical_surface", "lateral_surface"),
+    },
+    "csf": {
+        "allowed": ("midsagittal_cutaway", "ventricular_midsagittal_cutaway"),
+        "forbidden": ("lateral_cortical_surface", "lateral_surface"),
+    },
+    "insula": {
+        "allowed": ("lateral_opercular_retracted", "operculum_retracted_lateral"),
+        "forbidden": ("midsagittal", "midsagittal_cutaway", "sagittal_midline"),
+    },
+    "prefrontal cortex": {
+        "allowed": ("anterior_three_quarter_lateral", "three_quarter_anterolateral"),
+        "forbidden": (),
+    },
+}
+
+R86_VISUAL_PROOF_TYPES: tuple[str, ...] = (
+    "mechanism",
+    "comparison",
+    "causal_arrow",
+    "scale",
+    "misconception_flip",
+    "data",
+    "metaphor",
+    "reaction",
+)
+R86_MAX_CONSECUTIVE_SAME_PROOF = 2
+R86_MAX_REACTION_CUTS_PER_EPISODE = 2
+
+
+def is_r85_flow_31_brain_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R85 (100% Google Flow Ep #31 6-Scale Brain + Off-Screen MNI152/Wikimedia
+    Structural Guides + Anatomy Viewpoint Lock) applies: explicit `r85_mode`, `*_r85` / `r85_*` project,
+    clips carrying `r85_shot_scale` / `r85_brain_clip`, or `v8_ep13+` (unless explicitly `r76_mode`/`r84_mode`).
+    """
+    import re as _re_r85
+
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(p.get("allow_legacy_pre_r85")) or bool(s.get("allow_legacy_pre_r85")):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if (
+        bool(p.get("r85_mode"))
+        or bool(s.get("r85_mode"))
+        or eff_pid.endswith("_r85")
+        or eff_pid.startswith("r85_")
+    ):
+        return True
+    if (
+        bool(p.get("r76_mode"))
+        or bool(p.get("r76_brain_simulator"))
+        or bool(s.get("r76_mode"))
+        or bool(p.get("r84_mode"))
+        or bool(s.get("r84_mode"))
+        or eff_pid.endswith(("_r76", "_r77", "_r82", "_r84"))
+        or eff_pid.startswith(("r76_", "r77_", "r82_", "r84_"))
+        or is_brain_sim_only_plan(p, s)
+    ):
+        return False
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    if any(
+        isinstance(c, dict)
+        and (bool(c.get("r85_brain_clip")) or bool(str(c.get("r85_shot_scale") or "").strip()))
+        for c in raw_clips
+    ):
+        return True
+    if any(
+        isinstance(c, dict)
+        and (
+            str(c.get("grammar") or "") == "brain_simulator_3d"
+            or str(c.get("render_engine") or "") == "blender_3d_simulator"
+        )
+        for c in raw_clips
+    ):
+        return False
+    if any(tok in eff_pid.lower() for tok in ("_test", "_unit_check", "_synth", "_dryrun", "v8_ep99")):
+        return False
+    m_ep = _re_r85.match(r"^v8_ep(\d+)_", eff_pid)
+    if m_ep and int(m_ep.group(1)) >= 13:
+        return True
+    return False
+
+
+def is_r86_semantic_beat_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R86 (Semantic Beat Contract: per-cut `claim`, `viewer_must_understand`,
+    `visual_proof_type`, `concrete_referent`, `metaphor_continuity_id`, `anti_filler_check`) applies.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(p.get("allow_legacy_pre_r86")) or bool(s.get("allow_legacy_pre_r86")):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if (
+        bool(p.get("r86_mode"))
+        or bool(s.get("r86_mode"))
+        or eff_pid.endswith("_r86")
+        or eff_pid.startswith("r86_")
+    ):
+        return True
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    if any(
+        isinstance(c, dict)
+        and any(
+            k in c
+            for k in (
+                "viewer_must_understand",
+                "visual_proof_type",
+                "concrete_referent",
+                "anti_filler_check",
+            )
+        )
+        for c in raw_clips
+    ):
+        return True
+    return is_r85_flow_31_brain_plan(p, s, project_id=eff_pid)
+
+
+def is_r87_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R87 (`R87-H` 0–3s 80%+ Hook Recovery + `R87-A` Conditional Spatial Arrows +
+    Canonical v1.2 anchor binding + Gate 1/2 viewer common-sense checks) applies:
+    default-on for `v8_ep13+` and any plan/script declaring `r87_mode`, `hook_visual_mode`,
+    `hook_title_text`, `opening_hook_title`, or `spatial_arrow_eligible`.
+    Preserves legacy `Ep #01–#12` projects and pre-R87 synthetic unit tests cleanly.
+    """
+    import re as _re_r87
+
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(p.get("allow_legacy_pre_r87")) or bool(s.get("allow_legacy_pre_r87")):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if (
+        bool(p.get("r87_mode"))
+        or bool(s.get("r87_mode"))
+        or eff_pid.endswith("_r87")
+        or eff_pid.startswith("r87_")
+    ):
+        return True
+    if any(
+        k in p
+        for k in ("hook_visual_mode", "hook_title_text", "opening_hook_title", "spatial_arrow_eligible")
+    ) or any(
+        k in s
+        for k in ("hook_visual_mode", "hook_title_text", "opening_hook_title", "spatial_arrow_eligible")
+    ):
+        return True
+    m_ep = _re_r87.search(r"v8_ep(\d+)", eff_pid.lower())
+    if m_ep and int(m_ep.group(1)) >= 13:
+        return True
+    return False
+
+
+def is_r88_faceless_cast_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R88 (Faceless Architectural Porcelain Cast + B01-B15 Retirement) applies:
+    explicit `r88_mode`, `cast_profile == R88_FACELESS_CAST_PROFILE`, `r88_*`/`*_r88` project ID,
+    or `v8_ep13+` (excluding frozen `Ep #01-#12` and synthetic test IDs unless explicitly flagged).
+    """
+    import re as _re_r88
+
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if bool(p.get("allow_legacy_pre_r88")) or bool(s.get("allow_legacy_pre_r88")):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if eff_pid and eff_pid in PRE_R88_FROZEN_V8_PROJECTS:
+        return False
+    eff_low = eff_pid.lower()
+    if (
+        bool(p.get("r88_mode"))
+        or bool(s.get("r88_mode"))
+        or str(p.get("cast_profile") or "").strip() == R88_FACELESS_CAST_PROFILE
+        or str(s.get("cast_profile") or "").strip() == R88_FACELESS_CAST_PROFILE
+        or eff_low.startswith("r88_")
+        or eff_low.endswith("_r88")
+    ):
+        return True
+    if any(tok in eff_low for tok in ("_test", "_unit_check", "_synth", "_dryrun", "v8_ep98", "v8_ep99")):
+        return False
+    m_ep = _re_r88.match(r"^v8_ep(\d+)", eff_low)
+    if m_ep and int(m_ep.group(1)) >= 13:
+        return True
+    return False
+
+
+def is_r74_neural_dive_v8_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+) -> bool:
+    """
+    Returns True when Rule R74 (3D Neural FPV Dive & Pullback Relay `B0 <-> B1`) applies:
+    default-on for pre-R76 `expressive_25d_v8` production episodes, disabled when Rule R76
+    (`Blender 4.2` MNI152 3D Brain Simulator) supersedes Flow brain dive generation.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if is_r76_v8_plan(p, s, project_id=project_id) or is_r85_flow_31_brain_plan(p, s, project_id=project_id):
+        return False
+    if (
+        bool(p.get("r74_mode"))
+        or bool(p.get("enforce_r74_neural_dive"))
+        or bool(s.get("r74_mode"))
+        or bool(s.get("enforce_r74_neural_dive"))
+    ):
+        return True
+    if (
+        bool(p.get("allow_legacy_static_brain_v8"))
+        or bool(p.get("allow_legacy_indoor_v8"))
+        or bool(p.get("allow_legacy_v8_clip_count"))
+        or bool(s.get("allow_legacy_static_brain_v8"))
+        or bool(s.get("allow_legacy_indoor_v8"))
+        or bool(s.get("allow_legacy_v8_clip_count"))
+    ):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if eff_pid in PRE_R74_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(p.get("dossier") or p.get("dossier_slug") or s.get("dossier") or s.get("dossier_slug") or "").strip()
+    if eff_dossier in PRE_R74_FROZEN_V8_DOSSIERS:
+        return False
+    vp_voice = str(p.get("voice_preset") or s.get("voice_preset") or "").strip().lower()
+    if vp_voice == "emma_v7":
+        return False
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    if any(
+        isinstance(c, dict)
+        and (
+            bool(c.get("neural_dive_relay"))
+            or str(c.get("camera_move") or c.get("camera_movement") or "") in EXPRESSIVE_V8_NEURAL_DIVE_MOVES
+        )
+        for c in raw_clips
+    ):
+        return True
+    if eff_pid and (eff_pid.startswith("v8_ep") or eff_pid.startswith("r74_")):
+        return bool(EXPRESSIVE_V8_REQUIRE_NEURAL_DIVE_RELAY)
+    return False
+
+
+def resolve_expressive_v8_topic_focus(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    dossier_brain_link: dict[str, Any] | None = None,
+) -> str:
+    """
+    Rule R74-B: Resolves whether an `expressive_25d_v8` episode follows the `"psychology"` (`12-26%` brain cuts)
+    or `"neuroscience"` (`24-38%` brain cuts + `neural_tract_relay_flight` + pathology state) contract.
+    Precedence:
+      1. Explicit `plan["topic_focus"]` or `script_doc["topic_focus"]` in `EXPRESSIVE_V8_TOPIC_FOCUSES`.
+      2. Explicit `dossier_brain_link["visual_mode"] == "NEURO_BIOLOGY"` or `plan["visual_mode"] == "NEURO_BIOLOGY"`.
+      3. Explicit `dossier_brain_link["visual_mode"] == "BEHAVIORAL_PSYCH"` or `plan["visual_mode"] == "BEHAVIORAL_PSYCH"`.
+      4. Clip-level R74-B pathology/pathway signal (`neural_tract_relay_flight`, `end_brain_region`, or non-active `neural_state`).
+      5. Default `"psychology"`.
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    b = dossier_brain_link if isinstance(dossier_brain_link, dict) else {}
+
+    for raw_tf in (p.get("topic_focus"), s.get("topic_focus"), b.get("topic_focus")):
+        tf = str(raw_tf or "").strip().lower()
+        if tf in EXPRESSIVE_V8_TOPIC_FOCUSES:
+            return tf
+
+    for raw_vm in (b.get("visual_mode"), p.get("visual_mode"), s.get("visual_mode")):
+        vm = str(raw_vm or "").strip().upper()
+        if vm == "NEURO_BIOLOGY":
+            return "neuroscience"
+        if vm in ("BEHAVIORAL_PSYCH", "HYBRID"):
+            return "psychology"
+
+    raw_clips = p.get("clips") if isinstance(p.get("clips"), list) else []
+    for c in raw_clips:
+        if not isinstance(c, dict):
+            continue
+        cm = str(c.get("camera_move") or c.get("camera") or c.get("camera_movement") or "").strip().lower()
+        ns = str(c.get("neural_state") or "").strip().lower()
+        if (
+            cm == "neural_tract_relay_flight"
+            or bool(str(c.get("end_brain_region") or "").strip())
+            or ns in ("silenced", "severed", "rerouted")
+        ):
+            return "neuroscience"
+
+    return "psychology"
+
+
+def is_r74b_neuro_pathway_v8_plan(
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+    project_id: str | None = None,
+    dossier_brain_link: dict[str, Any] | None = None,
+) -> bool:
+    """
+    Returns True when Rule R74-B topic-focus density & neuroscience pathway gates apply (non-frozen `expressive_25d_v8`
+    episodes from `Ep #8` onward or plans explicitly opting into `r74b_mode` / `topic_focus`).
+    """
+    p = plan if isinstance(plan, dict) else {}
+    s = script_doc if isinstance(script_doc, dict) else {}
+    if is_r76_v8_plan(p, s, project_id=project_id) or is_r85_flow_31_brain_plan(p, s, project_id=project_id):
+        return False
+    if bool(p.get("r74b_mode")) or bool(s.get("r74b_mode")) or bool(p.get("topic_focus")) or bool(s.get("topic_focus")):
+        return True
+    if (
+        bool(p.get("allow_legacy_pre_r74b"))
+        or bool(p.get("allow_legacy_static_brain_v8"))
+        or bool(p.get("allow_legacy_indoor_v8"))
+        or bool(p.get("allow_legacy_v8_clip_count"))
+        or bool(s.get("allow_legacy_pre_r74b"))
+    ):
+        return False
+    eff_pid = str(project_id or p.get("project_id") or s.get("project_id") or "").strip()
+    if eff_pid in PRE_R74B_FROZEN_V8_PROJECTS:
+        return False
+    eff_dossier = str(p.get("dossier") or p.get("dossier_slug") or s.get("dossier") or s.get("dossier_slug") or "").strip()
+    if eff_dossier in PRE_R74B_FROZEN_V8_DOSSIERS:
+        return False
+    if not is_r74_neural_dive_v8_plan(p, s, project_id=eff_pid):
+        return False
+    if resolve_expressive_v8_topic_focus(p, s, dossier_brain_link=dossier_brain_link) == "neuroscience":
+        return True
+    return bool(eff_pid and (eff_pid.startswith("v8_ep") or eff_pid.startswith("r74b_")))
 
 CHANNEL_HANDLE = "@AllAboutBrainOfficial"
 LONGFORM_DEFERRED = True                        # Deferred until the new 90s Shorts concept succeeds (override: --allow-deferred-longform / AAB_ALLOW_DEFERRED_LONGFORM=1)
@@ -1202,7 +2805,7 @@ LONGFORM_BGM_DUCK_DB = -22.0
 LONGFORM_BGM_SWELL_PEAK_DB = -13.5              # Chapter transition stereo orchestral swell (-22.0 dB -> -13.5 dB -> -22.0 dB)
 LONGFORM_CHAPTER_SWELL_GAIN_DB = 8.5
 LONGFORM_PROSODY_MODE = "longform_us_v7"
-LONGFORM_DEFAULT_VOICE_PRESET = "emma_v7"
+LONGFORM_DEFAULT_VOICE_PRESET = "elevenlabs_v4"
 LONGFORM_PROSODY_GEAR_RATES: dict[str, str] = {
     "rush": "+4%",                              # Hook / suspense beat (native edge-tts rate, zero WSOLA)
     "explain": "+0%",                           # Calm conversational documentary body (~142-148 WPM effective)
@@ -1542,7 +3145,7 @@ def resolve_shorts_format_profile(
     """
     Resolves the active Shorts duration/clip format contract:
       - `'micro_short_v7'` (`35-45s`, `14-16` cuts)
-      - `'shorts_expressive_v8'` (`55-89.5s`, target `58-88s`, `14-26` clips, default `18`)
+      - `'shorts_expressive_v8'` (`61.5-120.0s`, target `62-118s`, `18-26` clips, default `20`)
       - `'shorts_90s_v7'` (`75-105s`, target `90s` / `1분 30초`, `24-32` clips, default `28`) — **active default**
       - `'shorts_180s_v7'` (`140-179s`, `45-52` clips, default `48`) — preserved for frozen/legacy 3m episodes
     """
@@ -1663,12 +3266,21 @@ def resolve_shorts_format_profile(
     return DEFAULT_SHORTS_FORMAT_PROFILE
 
 
-def clip_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
+def clip_count_range_for_profile(
+    profile: str | None = None,
+    *,
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+) -> tuple[int, int]:
     """Returns (min_clips, max_clips) for classic_v5, micro_short_v7, shorts_expressive_v8, shorts_90s_v7, vs neuro_diorama."""
+    if is_brain_sim_only_plan(plan, script_doc):
+        return (int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0]), int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[1]))
     prof_low = str(profile or "").strip().lower()
     if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_CUT_COUNT_MIN, MICRO_SHORT_CUT_COUNT_MAX)
     if prof_low in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "v8"):
+        if (plan is not None or script_doc is not None) and is_r82_dual_speed_pacing_plan(plan, script_doc):
+            return (int(R82_CLIP_COUNT_RANGE[0]), int(R82_CLIP_COUNT_RANGE[1]))
         return (SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN, SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX)
     if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
         return (SHORTS_90S_CLIP_COUNT_MIN, SHORTS_90S_CLIP_COUNT_MAX)
@@ -1679,13 +3291,24 @@ def clip_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
     return (CLIP_COUNT_MIN, CLIP_COUNT_MAX)
 
 
-def shorts_duration_range_for_profile(profile: str | None = None) -> tuple[float, float]:
+def shorts_duration_range_for_profile(
+    profile: str | None = None,
+    *,
+    project_id: str | None = None,
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+) -> tuple[float, float]:
     """Returns (min_duration_sec, max_duration_sec) for classic_v5, micro_short_v7, shorts_expressive_v8, shorts_90s_v7, vs neuro_diorama."""
+    if is_brain_sim_only_plan(plan, script_doc):
+        return (float(BRAIN_SIM_ONLY_DURATION_RANGE_SEC[0]), float(BRAIN_SIM_ONLY_DURATION_RANGE_SEC[1]))
     prof_low = str(profile or "").strip().lower()
     if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_DURATION_MIN_SEC, MICRO_SHORT_DURATION_MAX_SEC)
     if prof_low in (SHORTS_EXPRESSIVE_V8_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE, "expressive_v8", "v8"):
-        return (SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC, SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC)
+        eff_pid = str(project_id or "").strip()
+        if eff_pid and eff_pid in PRE_R75_DURATION_GRANDFATHER_PROJECTS:
+            return (SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC, SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC)
+        return (SHORTS_EXPRESSIVE_V8_DURATION_MIN_SEC, SHORTS_EXPRESSIVE_V8_R75_MAX_SEC)
     if prof_low in (SHORTS_90S_PROFILE, "shorts_90s", "90s"):
         return (SHORTS_90S_DURATION_MIN_SEC, SHORTS_90S_DURATION_MAX_SEC)
     if is_diorama_profile(profile or ""):
@@ -1693,8 +3316,15 @@ def shorts_duration_range_for_profile(profile: str | None = None) -> tuple[float
     return (FINAL_SHORTS_DURATION_MIN_SEC, FINAL_SHORTS_DURATION_MAX_SEC)
 
 
-def word_count_range_for_profile(profile: str | None = None) -> tuple[int, int]:
+def word_count_range_for_profile(
+    profile: str | None = None,
+    *,
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+) -> tuple[int, int]:
     """Returns (min_words, max_words) for classic_v5, micro_short_v7, shorts_expressive_v8, shorts_90s_v7, vs neuro_diorama."""
+    if is_brain_sim_only_plan(plan, script_doc):
+        return (int(BRAIN_SIM_ONLY_WORD_COUNT_RANGE[0]), int(BRAIN_SIM_ONLY_WORD_COUNT_RANGE[1]))
     prof_low = str(profile or "").strip().lower()
     if prof_low == MICRO_SHORT_PROFILE:
         return (MICRO_SHORT_WORD_COUNT_MIN, MICRO_SHORT_WORD_COUNT_MAX)
@@ -1737,8 +3367,20 @@ RGB_SIGNAL_GOLD = (255, 215, 0)
 RGB_DANGER_RED = (255, 51, 51)
 RGB_DEEP_NAVY = (10, 17, 40)
 
-# --- R65 Thumbnail Studio & In-Video Cover Frame (pipeline/thumbnail_studio.py) ---
+# --- R65 v4 In-Skull 3D Cutaway Split & v2 Keyart Thumbnail Studio (pipeline/thumbnail_studio.py) ---
+R65_V4_THUMBNAIL_PROFILE = "in_skull_cutaway_split_v4"
+R65_V4_DARK_PARADOX_PROFILE = "dark_void_paradox_v4"
+DEFAULT_SHORTS_THUMBNAIL_PROFILE = R65_V4_THUMBNAIL_PROFILE
+THUMB_V4_OVERLAY_MODE = "r65_v4_in_skull_split"
+THUMB_V4_MIN_MEAN_LUMA = 105.0               # Bright high-key studio daylight floor on R65 v4 split covers (TQ3)
+THUMB_V4_TARGET_MEAN_LUMA = 110.0            # Target bright studio daylight luma in R65 v4 prompt contract
+THUMB_V4_MIN_ACTIVATION_DELTA = 0.015        # Bottom 50% red/cyan brain+arrow activation minus Top 50% dormant grey (TQ8)
+THUMB_V4_TOP_LABEL_Y_RANGE: tuple[int, int] = (170, 390)    # 2:3 Shorts shelf-safe (y >= 150) upper-left Top 50% micro-label band (y ≈ 176)
+THUMB_V4_BOT_LABEL_Y_RANGE: tuple[int, int] = (980, 1450)   # Clean upper-left Bottom 50% 2-3w micro-label band (y ≈ 1016)
+THUMB_V4_BOTTOM_TITLE_SAFE_Y = 1520          # Bottom Shorts UI title zone (y >= 1520) strictly clear of text/labels (TQ4/TQ9)
 THUMBNAIL_REPORT_FILENAME = "thumbnail_report.json"
+THUMBNAIL_QA_REPORT_FILENAME = "thumbnail_qa_report.json"
+THUMBNAIL_SELECTED_FILENAME = "thumbnail_selected.png"
 THUMBNAIL_CONTACT_SHEET_FILENAME = "thumbnail_contact_sheet.png"
 THUMB_CANDIDATE_SAMPLES_PER_CUT = 3          # Sample offsets at 25 / 50 / 75 % of each eligible EDL cut
 THUMB_EXCLUDE_MODES = ("split_hstack", "split_vstack")  # Split-screen cuts never become covers
@@ -1752,10 +3394,17 @@ THUMB_SCORE_WEIGHTS = {
 }
 THUMB_INTENT_BONUS = {
     "cover_sentence": 1.0,
+    "cutaway_xray": 1.0,
+    "brain_badge": 0.95,
     "act1": 0.6,
-    "brain_badge": 0.4,
     "default": 0.0,
 }
+THUMB_SHORTS_SHELF_CROP_Y: tuple[int, int] = (150, 1770)  # True YouTube Shorts 2:3 (1080x1620) shelf crop band
+THUMB_V8_Z_TOP_Y_RANGE: tuple[int, int] = (215, 395)      # Top-left Z-pattern hook band inside 2:3 shelf
+THUMB_V8_Z_BOT_Y_RANGE: tuple[int, int] = (1240, 1445)    # Bottom-right Z-pattern hook band (< 1480px, above y=1520 title mask)
+THUMB_POINTER_RED_RGB: tuple[int, int, int] = (255, 37, 37)     # #FF2525 3D vector arrow / dimension ruler accent
+THUMB_POINTER_CYAN_RGB: tuple[int, int, int] = (0, 212, 255)    # #00D4FF glowing neural pathway / glass-brain accent
+THUMB_ACCENT_YELLOW_RGB: tuple[int, int, int] = (255, 225, 74)  # #FFE14A high-visibility bottom-right hook fill
 THUMB_MIN_SHARPNESS = 60.0                   # Laplacian variance floor at 540x960 (TQ3)
 THUMB_MIN_LUMA_STD = 38.0                    # Global luminance standard deviation floor (TQ3)
 THUMB_MIN_CENTER_SALIENCE = 1.15             # Centre 3:4 Canny edge density / border edge density floor (TQ2)
@@ -2003,3 +3652,91 @@ def resolve_narrative_style(
         if k in clean_pillar or clean_pillar in k:
             return v
     return "chronicle_cutaway"
+
+
+# ==============================================================================
+# 8-Core AMD EPYC Genoa & 64GB RAM (`/dev/shm/aab_scratch`) Acceleration SSOT
+# ==============================================================================
+AAB_MAX_STANDALONE_CPU_BUDGET = 8
+AAB_OVERLAPPED_FLOW_RESERVED_CORES = 2          # 8 - 2 = 6 vCPUs for overlapped Blender/Assembly/QA while Chrome Flow runs
+BLENDER_SIM_THREADS_PER_WORKER = 2              # Mesa llvmpipe LP_NUM_THREADS=2 & Blender -t 2 (4x2=8 standalone / 3x2=6 overlapped)
+AAB_SHM_MOUNT_ROOT = Path("/dev/shm")
+AAB_SHM_SCRATCH_DEFAULT_DIR = Path("/dev/shm/aab_scratch")
+AAB_SHM_MIN_FREE_BYTES = 4 * (1024**3)          # >= 4 GiB free on /dev/shm auto-enables RAM-disk scratch
+AAB_SHM_MAX_TOTAL_BYTES = 22 * (1024**3)        # Hard 22 GiB LRU cap on 64 GiB host (leaves >= 40 GiB physical RAM free)
+AAB_SPEED_CACHE_STAGED_MAX_BYTES = 8_000_000_000
+AAB_SPEED_CACHE_SEGMENTS_MAX_BYTES = 6_000_000_000
+AAB_SPEED_CACHE_TTS_NPZ_MAX_BYTES = 2_500_000_000
+AAB_SPEED_CACHE_POSTHOC_CV_MAX_BYTES = 2_000_000_000
+
+
+# ==============================================================================
+# R89 Archival & Supplementary Experiment Video SSOT (Split-Sync & Viewfinder)
+# ==============================================================================
+R89_VIDEO_DURATION_RANGE: tuple[float, float] = (2.0, 4.0)
+R89_COMBINED_ARCHIVAL_MAX_CUTS: int = 2
+R89_COMBINED_ARCHIVAL_MAX_DURATION_SHARE: float = 0.10
+R89_MIN_CUT_INDEX: int = 2
+R89_MIN_START_SEC: float = 2.20
+R89_SAFE_OUTER_BOX: tuple[int, int, int, int] = (80, 288, 908, 1218)
+R89_MODE1_TOP_VIDEO_BOX: tuple[int, int, int, int] = (80, 288, 908, 728)
+R89_MODE1_CREDIT_BOX: tuple[int, int, int, int] = (80, 735, 908, 767)
+R89_MODE1_BOTTOM_BRAIN_BOX: tuple[int, int, int, int] = (80, 774, 908, 1218)
+R89_MODE2_VIEWFINDER_BOX: tuple[int, int, int, int] = (80, 288, 908, 1058)
+R89_MODE2_LOCATOR_BADGE_BOX: tuple[int, int, int, int] = (94, 948, 294, 1148)
+R89_MODE2_CREDIT_BOX: tuple[int, int, int, int] = (312, 1084, 896, 1138)
+R89_YUNET_SAMPLE_FPS: float = 5.0
+R89_YUNET_FACE_SCORE_THRESHOLD: float = 0.42
+R89_MIN_FRAME_DIFF: float = 0.30
+R89_CAPTION_EXCLUSION_PATTERNS: tuple[str, ...] = (
+    "excluded from",
+    "third party",
+    "third-party",
+    "permission",
+    "all rights reserved",
+    "not covered by",
+)
+R89_CLASSIC_BANNED_SOURCE_KEYWORDS: tuple[str, ...] = (
+    "milgram",
+    "gazzaniga",
+    "split-brain joe",
+    "chedd-angier",
+    "pbs",
+    "scientific american frontiers",
+    "marshmallow test",
+    "mischel",
+    "ainsworth",
+    "strange situation",
+    "skinner foundation",
+    "harvard film archive",
+    "henry molaison",
+    "patient h.m.",
+    "patient hm",
+    "harlow",
+    "coronet films",
+    "alexander street",
+    "proquest",
+    "60 minutes",
+    "cbs news",
+    "bbc",
+    "fair use",
+    "youtube.com/watch",
+    "youtu.be/",
+)
+R89_FEDERAL_INTRAMURAL_AGENCIES: tuple[str, ...] = (
+    "nih intramural",
+    "nimh",
+    "ninds",
+    "darpa",
+    "nasa",
+    "national archives",
+    "nara",
+    "cdc",
+    "usgs",
+    "noaa",
+    "us military",
+    "u.s. army",
+    "u.s. navy",
+    "u.s. government",
+)
+

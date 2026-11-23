@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "ekman_microexpressions_deception",
   "topic": "Paul Ekman & Wallace Friesen (1969-1978): Frame-by-Frame Microexpressions, FACS & the 'Pinocchio Nose' Myth",
   "pillar": "brain_mysteries",
@@ -56,7 +56,28 @@
     },
     {
       "fact": "Empirical high-stakes courtroom and laboratory studies by Stephen Porter & Leanne ten Brinke (2008) confirmed complete full-face microexpressions are actually rare (appearing in only ~2% of expressions, mostly partial upper- or lower-face leaks) and untrained human lie-detection accuracy averages just 54 percent — barely above a 50/50 toss.",
-      "source_id": "SRC4"
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Human Lie-Detection Accuracy",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Coin-Toss Chance",
+            "value": 50.0,
+            "unit": "%"
+          },
+          {
+            "label": "Untrained Judges",
+            "value": 54.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1111/j.1467-9280.2008.02116.x",
+        "source_citation": "Porter & ten Brinke (2008)"
+      }
     },
     {
       "fact": "Cross-cultural field studies with isolated Fore communities in Papua New Guinea (Ekman & Friesen, 1971) showed shared recognition of core macro-expressions (anger, fear, disgust, sadness, enjoyment) while cultural 'display rules' govern when people mask them in public.",
@@ -64,7 +85,17 @@
     },
     {
       "fact": "Slow-motion 24-fps film inspection (isolating 1-to-2-frame leaks around frame 14 on a tabletop Steenbeck viewer) inspired Ekman's microexpression model, though Porter and ten Brinke (2008) found full-face leaks (<1/10 to 1/5 second) in only ~2% of trials.",
-      "source_id": "SRC4"
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Full-Face Microexpression Rate",
+        "percent": 2.0,
+        "unit": "%",
+        "doi": "10.1111/j.1467-9280.2008.02116.x",
+        "source_citation": "Porter & ten Brinke (2008)"
+      }
     }
   ],
   "wow_facts": [
@@ -128,5 +159,37 @@
     "diorama_49_ekman_microexpressions_deception"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1080/00332747.1969.11023575",
+  "three_layer_formula": {
+    "everyday_problem": "Catching a split-second tighten around a friend's eyes right before they smile and say 'No, really, it's totally fine!'",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1080/00332747.1969.11023575",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1080/00332747.1969.11023575"
+      ],
+      "summary": "Paul Ekman, Wallace V. Friesen (1969). Nonverbal Leakage and Clues to Deception †. Psychiatry."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.56238/levv17n58-033",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.56238/levv17n58-033"
+      ],
+      "summary": "Santiago González Suárez, Abner Gilead Araujo Guedes, Alfredo Parteli Gomes, Victor Machado Alves et al. (2026). SEVENEBASIC: DETECCIÓN Y ANÁLISIS DE EXPRESIONES FACIALES ASOCIADAS A LAS SIETE EMOCIONES BÁSICAS DE PAUL EKMAN. LUMEN ET VIRTUS."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "There is a 'Pinocchio nose' facial tic or eye-direction tell ('looking up-left = lying') that proves deception 100% of the time.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

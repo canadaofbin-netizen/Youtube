@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Why a tiny Tuesday problem feels like an unsolvable life disaster at 3:12 AM—and looks completely manageable at 8:00 AM.",
+    "core_experiment": "Tubbs & Perlis (2022 Mind After Midnight) + Yoo & Ben Simon / Walker fMRI prefrontal-amygdala disconnect studies.",
+    "twist": "At 3 AM your prefrontal brake is offline while your amygdala threat alarm fires 60% hotter—built for savanna predators, not emails."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 3:12 AM Courtroom: Why Everyone Spirals in the Dark",
+      "beats": [
+        "Ordinary adult worries turning catastrophic at 3 AM",
+        "Why quiet rooms aren't the real cause"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook",
+        "setup"
+      ],
+      "new_shots_needed": [
+        "3 AM bolt-upright bedroom shot"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Severed Brakes: The +60% Amygdala Disconnect Inside fMRI",
+      "beats": [
+        "Yoo & Walker (2007) prefrontal-amygdala wire cut",
+        "Goldstein (2013) anticipatory dread"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "symptom",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D #27D8FF severed prefrontal-amygdala pathway"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Tubbs & Perlis (2022): The Mind After Midnight Hypothesis",
+      "beats": [
+        "Hypothalamic 2–3 AM trough",
+        "Nucleus accumbens impulse trap & Chellappa's 4-day mood trial"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "core_experiment",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "24-hour circadian trough dial"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Savanna Predators vs Modern Mortgages—And Deep Sleep's Reset",
+      "beats": [
+        "Evolutionary mismatch at night",
+        "Ben Simon (2020): how NREM slow waves erase the 30% anxiety spike"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "deep blue slow-wave reconnection"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The Bedside Notepad Rule: Never Negotiate After Midnight",
+      "beats": [
+        "Three words on paper, zero screens",
+        "Judging the worry over sunlit 8 AM coffee"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "8 AM garden patio coffee & notepad chuckle"
+      ]
+    }
+  ],
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Wide-awake worried 50-year-old sitting upright in dark 3 AM bedroom staring into shadows",
+    "right_cyan_brain": "Glowing #27D8FF 3D brain with dimmed severed prefrontal forehead brake and blazing crimson amygdala alarm",
+    "badge_text": "3 AM TRAP"
+  },
+  "r75_clean_seed_tags": [
+    "waking up at 3am",
+    "3am anxiety",
+    "mind after midnight",
+    "sleep science",
+    "overthinking at night",
+    "amygdala",
+    "circadian rhythm",
+    "brain health",
+    "insomnia tips"
+  ]
+}

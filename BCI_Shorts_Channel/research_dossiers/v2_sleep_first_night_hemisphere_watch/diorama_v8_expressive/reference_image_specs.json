@@ -1,0 +1,538 @@
+{
+  "schema_version": 8,
+  "visual_mode": "HYBRID",
+  "style_profile": "expressive_25d_v8",
+  "aspect": "9:16",
+  "dossier": "v2_sleep_first_night_hemisphere_watch",
+  "total_reference_images": 12,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire; foil in 2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire.",
+  "generation_order": "1 pre-verified expressive_25d_v8 species/cameo/brain/conflict masters -> 2 18-character cast sheets -> 3 optional daisy-chain clip keyframes",
+  "master_anchors": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "hotel_sleeper_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP01_HOTEL",
+      "setting": "real_env",
+      "location_id": "bedroom_sleeper",
+      "filename": "hotel_sleeper_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Cozy stylized 3D miniature luxury hotel bedroom at night with warm amber brass bedside sconce rim-light, crisp white hotel sheets, and a walnut nightstand holding a digital clock reading '03:00'. The 2.5D matte cream-white vinyl traveler in navy cotton pajamas sits upright in bed looking startled with bold charcoal-black 2D cartoon ink eyes and oval mouth.",
+      "diegetic_text_allowlist": [
+        "03:00"
+      ],
+      "present_cast": [
+        "one clothed 2.5D matte cream-white vinyl traveler in navy cotton pajamas with smooth earless noseless hairless oval head, wide startled charcoal-black 2D cartoon ink eyes and eyebrows, and four-fingered matte-white vinyl hands"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_lobby_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP04_LOBBY",
+      "setting": "real_env",
+      "location_id": "hotel_lobby_luggage",
+      "filename": "hotel_lobby_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 stylized 3D miniature boutique hotel lobby beside a polished brass luggage cart and brown leather suitcases under warm cinema key-and-rim lighting. Standing beside the brass luggage cart is one clothed 2.5D matte cream-white vinyl friend in an olive travel jacket holding an unmarked white takeaway coffee cup, with a completely smooth round earless noseless hairless cream-white vinyl oval head and bold charcoal-black 2D cartoon ink eyes, raised skeptical eyebrow, and teasing smirk, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one skeptical clothed 2.5D matte cream-white vinyl friend in an olive travel jacket holding an unmarked white takeaway coffee cup, completely smooth round earless noseless hairless cream-white vinyl oval head, bold charcoal-black 2D cartoon ink eyes with one raised skeptical eyebrow and smirk, and four-fingered matte-white vinyl hands"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "sleep_lab_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP05_LAB",
+      "setting": "real_env",
+      "location_id": "brown_sleep_lab",
+      "filename": "sleep_lab_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_02_clinical_historical_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Stylized 3D miniature university sleep neuroimaging suite with warm cinema key-and-rim lighting, padded sleep cot, brushed-aluminum sensor console with glowing cyan and amber wave traces, and observation window. Smooth earless noseless matte cream-white vinyl characters with bold charcoal-black 2D cartoon ink expressions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one 2.5D matte cream-white vinyl neuroscientist in a crisp white lab coat with black rimmed glasses and charcoal-black 2D cartoon ink eyes",
+        "one resting 2.5D matte cream-white vinyl volunteer in grey cotton pajamas on a padded sleep cot"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP10_CAMEO",
+      "setting": "real_env",
+      "location_id": "hotel_cameo_nightstand",
+      "filename": "hotel_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "cameo_opt3_sheet.png",
+        "species_opt1_sheet.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 stylized 3D miniature closeup of a warm walnut hotel bedside table under amber cinema key-and-rim lighting: on the left sits a kinetic translucent blue glass wave sculpture holding a sculpted matte-white porcelain dolphin with one open black 2D ink eye, and on the right beside the brushed-brass table lamp base stands a clearly visible 4cm palm-sized glowing 4-color translucent vinyl Mini-Cortex brain figurine (crimson-rose, amber-gold, cyan-aqua, and indigo lobes) with tiny matte-white vinyl limbs and cute charcoal-black 2D ink eyes, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one sculpted matte-white porcelain dolphin tabletop ornament on a translucent blue glass wave tray with one open black 2D ink eye",
+        "one palm-sized 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine (crimson-rose frontal, amber-gold parietal, cyan-aqua temporal, indigo brainstem) with tiny matte-white vinyl limbs and small charcoal-black 2D cartoon ink eyes perched right beside the brushed-brass bedside lamp base"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_corridor_9x16",
+      "clip_number": 13,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP13_CORRIDOR",
+      "setting": "real_env",
+      "location_id": "hotel_corridor_door",
+      "filename": "hotel_corridor_9x16.png",
+      "title": "Clip 13 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 stylized 3D miniature dim carpeted hotel corridor at night outside a clean solid walnut hotel room door with flat wood panels, warm brass lever handle, and unmarked brass key fob. Walking softly past the doorway on the plush corridor runner is one clothed 2.5D matte cream-white vinyl hotel guest in a dark charcoal wool coat and dark leather boots with a smooth earless noseless hairless cream-white oval head and calm charcoal-black 2D cartoon ink eyes, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one clothed 2.5D matte cream-white vinyl hotel guest in a dark charcoal wool coat and dark leather boots walking softly along the carpeted hotel corridor, smooth earless noseless hairless cream-white vinyl oval head with calm charcoal-black 2D cartoon ink eyes"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_xray_brain_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "hotel_xray_brain_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master.png",
+        "species_opt1_sheet.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Side-three-quarter closeup on a crisp white hotel pillow in warm brass sconce rim-light: a clothed 2.5D matte cream-white vinyl sleeper in navy cotton pajamas with a completely smooth earless noseless hairless oval face, one alert wide-open charcoal-black 2D cartoon ink eye and one closed ink eye, where a thin metallic gold forehead ring seam opens the upper cranium into a crystal-clear glass dome revealing a bounded 4-color glowing 3D brain (crimson-amber vigilance on the left hemisphere, calm cyan-aqua on the right hemisphere).",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "hotel_sleeper_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP01_HOTEL",
+      "setting": "real_env",
+      "location_id": "bedroom_sleeper",
+      "filename": "hotel_sleeper_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Cozy stylized 3D miniature luxury hotel bedroom at night with warm amber brass bedside sconce rim-light, crisp white hotel sheets, and a walnut nightstand holding a digital clock reading '03:00'. The 2.5D matte cream-white vinyl traveler in navy cotton pajamas sits upright in bed looking startled with bold charcoal-black 2D cartoon ink eyes and oval mouth.",
+      "diegetic_text_allowlist": [
+        "03:00"
+      ],
+      "present_cast": [
+        "one clothed 2.5D matte cream-white vinyl traveler in navy cotton pajamas with smooth earless noseless hairless oval head, wide startled charcoal-black 2D cartoon ink eyes and eyebrows, and four-fingered matte-white vinyl hands"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_lobby_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP04_LOBBY",
+      "setting": "real_env",
+      "location_id": "hotel_lobby_luggage",
+      "filename": "hotel_lobby_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 stylized 3D miniature boutique hotel lobby beside a polished brass luggage cart and brown leather suitcases under warm cinema key-and-rim lighting. Standing beside the brass luggage cart is one clothed 2.5D matte cream-white vinyl friend in an olive travel jacket holding an unmarked white takeaway coffee cup, with a completely smooth round earless noseless hairless cream-white vinyl oval head and bold charcoal-black 2D cartoon ink eyes, raised skeptical eyebrow, and teasing smirk, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one skeptical clothed 2.5D matte cream-white vinyl friend in an olive travel jacket holding an unmarked white takeaway coffee cup, completely smooth round earless noseless hairless cream-white vinyl oval head, bold charcoal-black 2D cartoon ink eyes with one raised skeptical eyebrow and smirk, and four-fingered matte-white vinyl hands"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "sleep_lab_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP05_LAB",
+      "setting": "real_env",
+      "location_id": "brown_sleep_lab",
+      "filename": "sleep_lab_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_02_clinical_historical_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Stylized 3D miniature university sleep neuroimaging suite with warm cinema key-and-rim lighting, padded sleep cot, brushed-aluminum sensor console with glowing cyan and amber wave traces, and observation window. Smooth earless noseless matte cream-white vinyl characters with bold charcoal-black 2D cartoon ink expressions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one 2.5D matte cream-white vinyl neuroscientist in a crisp white lab coat with black rimmed glasses and charcoal-black 2D cartoon ink eyes",
+        "one resting 2.5D matte cream-white vinyl volunteer in grey cotton pajamas on a padded sleep cot"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP10_CAMEO",
+      "setting": "real_env",
+      "location_id": "hotel_cameo_nightstand",
+      "filename": "hotel_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "cameo_opt3_sheet.png",
+        "species_opt1_sheet.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 stylized 3D miniature closeup of a warm walnut hotel bedside table under amber cinema key-and-rim lighting: on the left sits a kinetic translucent blue glass wave sculpture holding a sculpted matte-white porcelain dolphin with one open black 2D ink eye, and on the right beside the brushed-brass table lamp base stands a clearly visible 4cm palm-sized glowing 4-color translucent vinyl Mini-Cortex brain figurine (crimson-rose, amber-gold, cyan-aqua, and indigo lobes) with tiny matte-white vinyl limbs and cute charcoal-black 2D ink eyes, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one sculpted matte-white porcelain dolphin tabletop ornament on a translucent blue glass wave tray with one open black 2D ink eye",
+        "one palm-sized 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine (crimson-rose frontal, amber-gold parietal, cyan-aqua temporal, indigo brainstem) with tiny matte-white vinyl limbs and small charcoal-black 2D cartoon ink eyes perched right beside the brushed-brass bedside lamp base"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_corridor_9x16",
+      "clip_number": 13,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP13_CORRIDOR",
+      "setting": "real_env",
+      "location_id": "hotel_corridor_door",
+      "filename": "hotel_corridor_9x16.png",
+      "title": "Clip 13 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet.png",
+        "cast_sheet_03_everyday_lifestyle_6roles.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 stylized 3D miniature dim carpeted hotel corridor at night outside a clean solid walnut hotel room door with flat wood panels, warm brass lever handle, and unmarked brass key fob. Walking softly past the doorway on the plush corridor runner is one clothed 2.5D matte cream-white vinyl hotel guest in a dark charcoal wool coat and dark leather boots with a smooth earless noseless hairless cream-white oval head and calm charcoal-black 2D cartoon ink eyes, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": [
+        "one clothed 2.5D matte cream-white vinyl hotel guest in a dark charcoal wool coat and dark leather boots walking softly along the carpeted hotel corridor, smooth earless noseless hairless cream-white vinyl oval head with calm charcoal-black 2D cartoon ink eyes"
+      ],
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "hotel_xray_brain_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "hotel_xray_brain_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master.png",
+        "species_opt1_sheet.png"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Side-three-quarter closeup on a crisp white hotel pillow in warm brass sconce rim-light: a clothed 2.5D matte cream-white vinyl sleeper in navy cotton pajamas with a completely smooth earless noseless hairless oval face, one alert wide-open charcoal-black 2D cartoon ink eye and one closed ink eye, where a thin metallic gold forehead ring seam opens the upper cranium into a crystal-clear glass dome revealing a bounded 4-color glowing 3D brain (crimson-amber vigilance on the left hemisphere, calm cyan-aqua on the right hemisphere).",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ]
+}

@@ -6,6 +6,9 @@ import os
 import sys
 from pathlib import Path
 
+sys.dont_write_bytecode = True
+os.environ.setdefault("PYTHONDONTWRITEBYTECODE", "1")
+
 # Add project root to sys.path
 WORKSPACE_ROOT = Path(__file__).resolve().parent
 if str(WORKSPACE_ROOT) not in sys.path:
@@ -25,7 +28,8 @@ def _ensure_media_interpreter() -> None:
     for cand in candidates:
         if cand and Path(cand).exists() and Path(cand).resolve() != Path(sys.executable).resolve():
             os.environ["AAB_REEXEC_DONE"] = "1"
-            os.execv(cand, [cand, *sys.argv])
+            os.environ.setdefault("PYTHONDONTWRITEBYTECODE", "1")
+            os.execv(cand, [cand, "-B", *sys.argv])
 
 
 _ensure_media_interpreter()

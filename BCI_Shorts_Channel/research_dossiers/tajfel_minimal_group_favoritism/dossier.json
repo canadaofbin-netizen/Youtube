@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "tajfel_minimal_group_favoritism",
   "topic": "Henri Tajfel (1971): Klee vs Kandinsky Paintings — How Meaningless Labels Spark Instant 'Us vs Them' Tribalism",
   "pillar": "brain_basics",
@@ -48,11 +48,51 @@
     },
     {
       "fact": "Look at the **stunner inside Matrix B**: Column 1 gave **19 points to your fellow Klee member and 25 points to the Kandinsky kid** (BIGGEST payout for your own teammate + biggest total wealth = 44!); Column 13 gave **only 7 points to your Klee teammate and 1 point to the Kandinsky kid**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Matrix B Column 13 Split",
+        "unit": "pts",
+        "bars": [
+          {
+            "label": "Klee In-Group",
+            "value": 7.0,
+            "unit": "pts"
+          },
+          {
+            "label": "Kandinsky Out-Group",
+            "value": 1.0,
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1002/ejsp.2420010202",
+        "source_citation": "Tajfel et al. (1971)"
+      }
     },
     {
       "fact": "Time after time, Bristol boys **sacrificed 12 points of their OWN teammate's real money** just to select **Maximum Difference (MD)** — choosing **7-vs-1 ('We beat Them by +6!')** over **19-vs-25 ('Everyone gets rich, yet They get more than Us!')**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Sacrificed In-Group Payout",
+        "unit": "pts",
+        "series": [
+          {
+            "label": "Teammate Points",
+            "values": [
+              19.0,
+              7.0
+            ],
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1002/ejsp.2420010202",
+        "source_citation": "Tajfel et al. (1971)"
+      }
     },
     {
       "fact": "Two years later (**Billig & Tajfel, 1973, SRC2**), they stripped away even the fake Klee/Kandinsky art excuse — telling participants straight to their faces they were split into **Group X and Group W purely by random chance** — and **in-group favoritism STILL emerged significantly**.",
@@ -118,5 +158,37 @@
     "diorama_85_tajfel_minimal_group_favoritism"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "anxiety",
+  "primary_doi": "10.1002/ejsp.2420010202",
+  "three_layer_formula": {
+    "everyday_problem": "Laughing at how fast people judge a stranger's text bubble color, phone brand, or airline boarding group.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1002/ejsp.2420010202",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1002/ejsp.2420010202"
+      ],
+      "summary": "Henri Tajfel, M. G. Billig, R. P. Bundy, Claude Flament (1971). Social categorization and intergroup behaviour. European Journal of Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2015",
+      "doi": "10.4324/9781003042426",
+      "source_ids": [
+        "SRC_NEURO_2015"
+      ],
+      "dois": [
+        "10.4324/9781003042426"
+      ],
+      "summary": "P. Molenberghs (2022). The Neuroscience of Intergroup Relations. Routledge."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Prejudice and 'us-vs-them' favoritism require decades of real historical grievances or scarce food.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

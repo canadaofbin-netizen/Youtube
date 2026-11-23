@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern behavioral/fMRI topic staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "\"It's On the Tip of My Tongue\" Syndrome | Memory Techniques",
+      "url": "https://www.youtube.com/watch?v=elpdo1C9Z5Q",
+      "channel": "Howcast",
+      "source_id": "SRC_M1",
+      "duration_sec": 109,
+      "timecodes": [
+        {
+          "t": "00:08-00:22",
+          "what": "Opening visual framing (kf_002.jpg–kf_005.jpg) depicting an adult pausing mid-sentence when a familiar name locks on the tip of the tongue despite clear recall of who the person is."
+        },
+        {
+          "t": "00:26-00:46",
+          "what": "Mid-clip sequence (kf_007.jpg–kf_011.jpg) illustrating how partial first-letter clues surface while straining for wrong blocker names deepens the retrieval stall."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05–00:50) from Howcast's \"\"It's On the Tip of My Tongue\" Syndrome | Memory Techniques\".",
+          "Used strictly as research reference for visual pacing and everyday behavioral framing; zero frames or audio reused."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate3_flat_slide_or_2d_cartoon(median_flat=0.6667>0.62)"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Transient forgetting: on the tip of your tongue",
+      "url": "https://www.youtube.com/watch?v=5sJ2wDENrUc",
+      "channel": "Scripps Research",
+      "source_id": "SRC_M2",
+      "duration_sec": 229,
+      "timecodes": [
+        {
+          "t": "00:15-00:45",
+          "what": "Scripps Research overview distinguishing transient retrieval blocks (intact stored memory with temporary phonological link failure) from true memory erasure."
+        },
+        {
+          "t": "01:10-01:50",
+          "what": "Discussion of why stepping away or changing retrieval context lets the blocked word surface spontaneously."
+        }
+      ],
+      "license_note": "Complementary reference video logged for conceptual pacing only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_behavioral_fmri_topic_track_b"
+    }
+  ]
+}

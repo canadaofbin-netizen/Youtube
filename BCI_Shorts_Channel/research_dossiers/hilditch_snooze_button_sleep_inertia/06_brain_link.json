@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "setup",
+      "region": "brainstem",
+      "plain": "base wake switch",
+      "function": "Restores blood flow and basic conscious movement within seconds of your morning alarm.",
+      "scene_id": "S1",
+      "narration_bridge": "At the base of your skull, the brainstem, your survival autopilot, flips on in seconds.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "thalamus",
+      "plain": "central sensory relay",
+      "function": "Rapidly restarts sensory awareness so you hear the alarm and stand up.",
+      "scene_id": "S1",
+      "narration_bridge": "Right above it, the thalamus, your sensory switchboard, wakes your eyes and hands.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "prefrontal cortex",
+      "plain": "forehead decision planner",
+      "function": "Stays starved of full blood flow and network speed for 20 to 30 minutes after waking.",
+      "scene_id": "S1",
+      "narration_bridge": "Yet behind your forehead, the prefrontal cortex, your decision planner, stays dark and sluggish.",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "crisis",
+      "region": "default mode network",
+      "plain": "daydream network",
+      "function": "Remains tangled with slow sleep waves after deep N3 awakenings, blurring focus.",
+      "scene_id": "S3",
+      "narration_bridge": "Across the middle, the default mode network, your daydream hub, leaks slow sleep waves into your morning.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

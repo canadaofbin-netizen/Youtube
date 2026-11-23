@@ -1,3 +1,109 @@
 {
-  "scenes": []
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Blakemore, Wolpert & Frith (1998/1999): Why Your Cerebellum Cancels Self-Tickling Until a ",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "1998, Wellcome Department of Cognitive Neurology, University College London (UCL)",
+      "layout": {
+        "description": "Sarah-Jayne Blakemore, Daniel Wolpert, and Chris Frith (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999) placed 16 volunteers in fMRI with a master-slave robotic tickling lever, proving that cerebellar forward models cancel self-generated touch at 0 ms delay — but inserting a 100–200 ms robotic delay restores full ticklishness!",
+        "positions": [
+          {
+            "who": "Sarah-Jayne Blakemore, Daniel M. Wolpert & Chris D. Frith",
+            "where": "standing beside the primary experimental apparatus and quantitative monitoring console",
+            "facing": "toward the participant and precision instrument"
+          },
+          {
+            "who": "Konstantina Kilteni & H. Henrik Ehrsson",
+            "where": "seated at the experimental test station undergoing the critical trial condition",
+            "facing": "toward the experimental stimulus"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Primary experimental apparatus and timing controller",
+          "period_detail": "Authentic 1998 clinical/neuroscience laboratory hardware",
+          "physical_behavior": "switches cleanly between baseline control and experimental trigger state"
+        },
+        {
+          "name": "Quantitative physiological readout & comparison display",
+          "period_detail": "Displays trial-by-trial behavioral and neural response metrics",
+          "physical_behavior": "shifts sharply between the two experimental conditions"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Konstantina Kilteni & H. Henrik Ehrsson",
+          "verb_sequence": "completes baseline control trial -> experiences experimental manipulation -> exhibits dramatic quantitative shift"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Konstantina Kilteni & H. Henrik Ehrsson",
+          "reaction": "immediate, unmistakable behavioral and physiological response"
+        }
+      ],
+      "wardrobe": "Clean clinical laboratory coats and smart-casual participant attire.",
+      "lighting": "High-key warm museum-grade tungsten and daylight studio illumination.",
+      "recognition_hook": "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left palm by a soft foam robotic arm showed 62 percent of external",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC5"
+      ],
+      "key_visual": {
+        "description": "Sarah-Jayne Blakemore, Daniel Wolpert, and Chris Frith (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999) placed 16 volunteers in fMRI with a master-slave robotic tickling lever, ",
+        "must_show": [
+          "apparatus|monitor",
+          "researcher|participant"
+        ],
+        "source": "SRC1; SRC2"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "3D Translucent Brain Circuit Breakdown",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "1998–2023 Neuroimaging Suite",
+      "layout": {
+        "description": "High-key studio with Contained Living 4-Color 3D Brain illustrating the primary subcortical-cortical pathway.",
+        "positions": [
+          {
+            "who": "Sarah-Jayne Blakemore, Daniel M. Wolpert & Chris D. Frith",
+            "where": "tracing the neural signal pathway across the translucent 3D brain pedestal",
+            "facing": "toward the 3D brain model"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Contained Living 4-Color 3D Brain Pedestal",
+          "period_detail": "Anatomical glass brain with subsurface fiber-optic tracts",
+          "physical_behavior": "pulses along the active neural pathway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "points to primary region -> pathway illuminates"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "comprehends the underlying neural mechanism"
+        }
+      ],
+      "wardrobe": "Laboratory attire.",
+      "lighting": "High-key studio light.",
+      "recognition_hook": "At 0 milliseconds delay, mean subjective ticklishness ratings averaged 2.1 out of 10, whereas inserting a 200-millisecond delay boosted ticklishness t",
+      "sources": [
+        "SRC1",
+        "SRC5"
+      ]
+    }
+  ]
 }

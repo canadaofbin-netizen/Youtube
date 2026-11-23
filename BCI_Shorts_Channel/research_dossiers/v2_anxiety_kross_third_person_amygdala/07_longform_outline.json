@@ -1,34 +1,138 @@
 {
   "target_minutes": 10,
-  "chapters": [
-    {
-      "chapter": 1,
-      "title": "Why 'I've Got This!' Backfires Under Panic"
-    },
-    {
-      "chapter": 2,
-      "title": "2 Minutes to Prep: Inside the Trier Social Stress Test (2014)"
-    },
-    {
-      "chapter": 3,
-      "title": "What Blind Speech Judges Saw When Speakers Dropped 'I'"
-    },
-    {
-      "chapter": 4,
-      "title": "2017 ERP + fMRI: Cooling the Amygdala in 1,000 Milliseconds"
-    },
-    {
-      "chapter": 5,
-      "title": "Zero Willpower Burn: Why Pronoun Shifts Work at Peak Stress"
-    },
-    {
-      "chapter": 6,
-      "title": "How to Use Silent Name-Switching Before High-Stakes Talks"
-    }
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "45-year-old adult in navy sweater standing poised at a chrome floor microphone in bright clean daylight",
+    "right_cyan_brain": "In-skull 3D translucent glass brain cutaway where deep crimson amygdala alarm cools rapidly into calm #27D8FF cyan prefrontal clarity",
+    "badge_text": "1-SECOND CALM"
+  },
+  "r75_clean_seed_tags": [
+    "ethan kross chatter",
+    "third person self talk",
+    "amygdala anxiety relief",
+    "public speaking anxiety",
+    "psychology of self talk",
+    "emotion regulation science",
+    "solomons paradox",
+    "neuroscience of calm",
+    "adult stress habits"
   ],
   "shorts_extract": {
-    "hook": "Why saying 'I am calm' spikes panic while silently using your own first name cools anxiety in 1 second.",
-    "core_experiment": "Kross (2014) Trier Social Stress Test 5-minute speech + Moser & Kross (2017) ERP/fMRI.",
-    "twist": "Using your own name drops amygdala & self-chatter reactivity in 1 second without burning effortful willpower."
-  }
+    "hook": "Why whispering 'I've got this' spikes stage fright — while silently using your own first name cools panic in 1 second.",
+    "core_experiment": "Kross (2014) Trier Social Stress Test 5-minute speech + Moser & Kross (2017, Scientific Reports) ERP/fMRI.",
+    "twist": "Swapping 'I' for your first name drops emotional brainwaves in 1,000 ms with zero willpower burn."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "chapter": 1,
+      "title": "Solomon's Paradox: Wise With Friends, Panicked With Yourself",
+      "beats": [
+        "Why 'I am calm!' glues attention onto threat",
+        "The hidden power of pronouns"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook"
+      ],
+      "new_shots_needed": [
+        "Outside meeting door pause"
+      ]
+    },
+    {
+      "n": 2,
+      "chapter": 2,
+      "title": "2 Minutes to Prep: Inside the Trier Social Stress Crucible (1x -> 4x Cortisol)",
+      "beats": [
+        "Stone-faced white-coated judges & camera",
+        "'Why am I nervous?' vs '[Name], why are you nervous?'"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Chrome floor mic and two judges wide"
+      ]
+    },
+    {
+      "n": 3,
+      "chapter": 3,
+      "title": "What Blind Judges Saw — And Why 3 AM Shame Spirals Stopped",
+      "beats": [
+        "Higher blind-rated speech confidence",
+        "Escaping post-speech rumination"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "Clipboard scoring & relaxed walk home"
+      ]
+    },
+    {
+      "n": 4,
+      "chapter": 4,
+      "title": "2017 ERP + fMRI: Cooling the Amygdala in 1,000 Milliseconds",
+      "beats": [
+        "Late Positive Potential drop within 1 second",
+        "Medial prefrontal & amygdala quieting"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "Scalp sensor cap & 1-second trace drop"
+      ]
+    },
+    {
+      "n": 5,
+      "chapter": 5,
+      "title": "Zero Willpower Burn: Why Pronoun Shifts Work When Your Brain Is Fried",
+      "beats": [
+        "Dorsolateral prefrontal fuel stays unstrained",
+        "Orvell 2021 peak-intensity proof"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3D amygdala + mPFC + dlPFC cutaway"
+      ]
+    },
+    {
+      "n": 6,
+      "chapter": 6,
+      "title": "How to Use Silent First-Name Coaching Without Feeling Weird",
+      "beats": [
+        "Keep it 100% silent inside your head",
+        "Your 1-second pre-meeting reset"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Sunlit brick courtyard confident stride"
+      ]
+    }
+  ]
 }

@@ -237,6 +237,16 @@ def test_reporter_multiline_video_row_comment_parsing_and_zero_preserved():
     assert parsed_zero["views"] == 215
     assert parsed_zero["comments"] == 0
 
+    compact_analytics = "Channel analytics\nViews\n8.5K\nEngaged views\n5.4K\nWatch time (hours)\n133.1"
+    parsed_analytics = StudioAnalyticsReporter._parse_analytics_text_block(compact_analytics, period_hint="24h")
+    assert parsed_analytics["views_24h"] == 8500
+    assert parsed_analytics["engaged_views"] == 5400
+
+    ko_analytics = "채널 분석\n조회수\n8.5천\n유효 조회수\n5.4천"
+    parsed_ko = StudioAnalyticsReporter._parse_analytics_text_block(ko_analytics, period_hint="24h")
+    assert parsed_ko["views_24h"] == 8500
+    assert parsed_ko["engaged_views"] == 5400
+
 
 # ==============================================================================
 # Workstream C: Standalone 16:9 (1920x1080) Long-Form Pipeline Tests
@@ -384,7 +394,7 @@ def test_longform_relaxed_audio_kokoro_synthesis_and_natural_pauses(tmp_path: Pa
     initialize_longform_project("longform_93_audio", spec, projects_longform_dir=lf_root)
     p_dir = lf_root / "longform_93_audio"
 
-    rep = synthesize_longform_master_audio(p_dir, voice_preset="emma_v7", engine="kokoro")
+    rep = synthesize_longform_master_audio(p_dir, voice_preset="elevenlabs_v4", allow_test_stub=True)
     wav_path = p_dir / "04_audio" / "audio_master.wav"
     ass_path = p_dir / "04_audio" / "subtitles.ass"
     assert wav_path.exists() and wav_path.stat().st_size > 100_000
@@ -770,12 +780,7 @@ def test_longform_audio_preserves_reference_anchor_bindings(tmp_path: Path, monk
     vp_before = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
     assert sum(1 for c in vp_before["clips"] if c.get("reference_image")) > 0
 
-    def _fast_synth_line(text: str, *, sr: int = 48000, **kwargs) -> np.ndarray:
-        t = np.linspace(0.0, 2.2, int(sr * 2.2), endpoint=False, dtype=np.float32)
-        return (0.18 * np.sin(2.0 * math.pi * 190.0 * t)).astype(np.float32)
-
-    monkeypatch.setattr("pipeline.longform_audio.synthesize_line", _fast_synth_line)
-    synthesize_longform_master_audio(p_dir, voice_preset="emma_v7", engine="kokoro-onnx", force=True)
+    synthesize_longform_master_audio(p_dir, voice_preset="elevenlabs_v4", allow_test_stub=True, force=True)
 
     vp_after = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
     fp_after = json.loads((p_dir / "03_visuals" / "flow_longform_prompts.json").read_text(encoding="utf-8"))

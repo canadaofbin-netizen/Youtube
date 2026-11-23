@@ -1,0 +1,724 @@
+{
+  "schema_version": 8,
+  "visual_mode": "HYBRID",
+  "style_profile": "expressive_25d_v8",
+  "aspect": "9:16",
+  "dossier": "feinstein_patient_sm_fearless_amygdala",
+  "total_reference_images": 16,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire; foil in 2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire.",
+  "generation_order": "1 pre-verified expressive_25d_v8 species/cameo/brain/conflict masters -> 2 18-character cast sheets -> 3 optional daisy-chain clip keyframes",
+  "master_anchors": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_loc_iowa_reptile_room_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP01",
+      "setting": "real_env",
+      "location_id": "iowa_reptile_room",
+      "filename": "ref_loc_iowa_reptile_room_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm sunlit exotic reptile testing room with glass terrariums, oak counter, and brushed brass lamps with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_haunted_corridor_set_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP02",
+      "setting": "real_env",
+      "location_id": "haunted_corridor_set",
+      "filename": "ref_loc_haunted_corridor_set_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of dim moody stone haunted-house corridor lit by warm amber wall sconces and cool theatrical moonlight with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_lecture_study_desk_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP03",
+      "setting": "real_env",
+      "location_id": "lecture_study_desk",
+      "filename": "ref_loc_lecture_study_desk_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm walnut academic study desk with unmarked leather volumes and a brass desk lamp with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_screening_diary_lounge_9x16",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP04",
+      "setting": "real_env",
+      "location_id": "screening_diary_lounge",
+      "filename": "ref_loc_screening_diary_lounge_9x16.png",
+      "title": "Clip 06 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of dim cinema screening room with cool silver projector beam and a small wooden side table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_iowa_observation_booth_9x16",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP05",
+      "setting": "real_env",
+      "location_id": "iowa_observation_booth",
+      "filename": "ref_loc_iowa_observation_booth_9x16.png",
+      "title": "Clip 07 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of cool slate-blue neurology observation booth with a wide glass viewing window and oak console with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_iowa_breathing_lab_9x16",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP06",
+      "setting": "real_env",
+      "location_id": "iowa_breathing_lab",
+      "filename": "ref_loc_iowa_breathing_lab_9x16.png",
+      "title": "Clip 08 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean sunlit University of Iowa respiratory neurology lab with brushed-steel breathing valve and blue medical chair with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_dual_alarm_studio_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP07",
+      "setting": "real_env",
+      "location_id": "dual_alarm_studio",
+      "filename": "ref_loc_dual_alarm_studio_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of sculpted architectural tabletop studio displaying two distinct brass bell alarms — an unlit outer window bell and a glowing red inner pipe valve alarm with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_sunlit_office_desk_9x16",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP08",
+      "setting": "real_env",
+      "location_id": "sunlit_office_desk",
+      "filename": "ref_loc_sunlit_office_desk_9x16.png",
+      "title": "Clip 17 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of quiet sunlit modern home office with warm oak desk, potted fern, and closed laptop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP09",
+      "setting": "real_env",
+      "location_id": "iowa_breathing_lab",
+      "filename": "ref_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean University of Iowa respiratory neurology lab with stainless-steel instrument shelf and blue medical chair featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly on the stainless-steel instrument shelf in the background, cinema key-and-rim lighting, zero floating captions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_9x16.png",
+      "title": "Clip 15 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void: an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, soft cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_iowa_reptile_room_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP01",
+      "setting": "real_env",
+      "location_id": "iowa_reptile_room",
+      "filename": "ref_loc_iowa_reptile_room_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm sunlit exotic reptile testing room with glass terrariums, oak counter, and brushed brass lamps with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_haunted_corridor_set_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP02",
+      "setting": "real_env",
+      "location_id": "haunted_corridor_set",
+      "filename": "ref_loc_haunted_corridor_set_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of dim moody stone haunted-house corridor lit by warm amber wall sconces and cool theatrical moonlight with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_lecture_study_desk_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP03",
+      "setting": "real_env",
+      "location_id": "lecture_study_desk",
+      "filename": "ref_loc_lecture_study_desk_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm walnut academic study desk with unmarked leather volumes and a brass desk lamp with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_screening_diary_lounge_9x16",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP04",
+      "setting": "real_env",
+      "location_id": "screening_diary_lounge",
+      "filename": "ref_loc_screening_diary_lounge_9x16.png",
+      "title": "Clip 06 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of dim cinema screening room with cool silver projector beam and a small wooden side table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_iowa_observation_booth_9x16",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP05",
+      "setting": "real_env",
+      "location_id": "iowa_observation_booth",
+      "filename": "ref_loc_iowa_observation_booth_9x16.png",
+      "title": "Clip 07 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of cool slate-blue neurology observation booth with a wide glass viewing window and oak console with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_iowa_breathing_lab_9x16",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP06",
+      "setting": "real_env",
+      "location_id": "iowa_breathing_lab",
+      "filename": "ref_loc_iowa_breathing_lab_9x16.png",
+      "title": "Clip 08 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean sunlit University of Iowa respiratory neurology lab with brushed-steel breathing valve and blue medical chair with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_dual_alarm_studio_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP07",
+      "setting": "real_env",
+      "location_id": "dual_alarm_studio",
+      "filename": "ref_loc_dual_alarm_studio_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of sculpted architectural tabletop studio displaying two distinct brass bell alarms — an unlit outer window bell and a glowing red inner pipe valve alarm with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_sunlit_office_desk_9x16",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP08",
+      "setting": "real_env",
+      "location_id": "sunlit_office_desk",
+      "filename": "ref_loc_sunlit_office_desk_9x16.png",
+      "title": "Clip 17 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of quiet sunlit modern home office with warm oak desk, potted fern, and closed laptop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP09",
+      "setting": "real_env",
+      "location_id": "iowa_breathing_lab",
+      "filename": "ref_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean University of Iowa respiratory neurology lab with stainless-steel instrument shelf and blue medical chair featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly on the stainless-steel instrument shelf in the background, cinema key-and-rim lighting, zero floating captions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_9x16.png",
+      "title": "Clip 15 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void: an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, soft cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ]
+}

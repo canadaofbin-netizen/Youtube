@@ -8,6 +8,7 @@ and sequential A/B testing.
 import argparse
 import sys
 from pathlib import Path
+from typing import Any
 
 from pipeline.config import (
     ALLOWED_NARRATIVE_STYLES,
@@ -53,24 +54,24 @@ def cmd_info(_args):
    - Channel ID: UC4FeioYYv9X04Di07_MfZ7g
    - Channel Residence (Tax/AdSense): South Korea (KR)
    - Video & Metadata Language Lock: English (United States) (en-US)
-   - Active Formats: Neuro-Diorama v7 (`porcelain_cinematic_v7`) & v8 (`expressive_25d_v8`, 58-88s <=89.5s @ 24fps, 14-26 clips)
+   - Active Formats: Neuro-Diorama v7 (`porcelain_cinematic_v7`, ~90s @ 24fps) & v8 (`expressive_25d_v8`, 62-118s <=120.0s @ 30fps, 18-26 clips)
    - Classic Format: Schema v5 Shorts <= 105.0s @ 30fps (5-10 clips)
    - Cadence: Daily uploads (5 slots per day distributed across North American ET peaks)
 
 3. 7 Content Pillars & 5-Slot Mapping (with Default Narrative Archetype):
    [bci_tech]        BCI Tech Explained -> Slot 2 (12:00 PM ET) [chronicle_cutaway]
    [brain_news]      Brain News         -> Slot 2 (12:00 PM ET) [chronicle_cutaway]
-   [brain_history]   Brain History      -> Slot 4 (08:00 PM ET) [delusion_museum]
+   [brain_history]   Brain History      -> Slot 4 (07:30 PM ET) [delusion_museum]
    [brain_basics]    Brain Basics       -> Slot 3 (04:00 PM ET) [icon_autopsy]
    [brain_mysteries] Brain Mysteries    -> Slot 3 / Slot 5      [case_file]
    [brain_health]    Brain Health       -> Slot 1 (07:30 AM ET) [caveman_brain]
    [bci_ethics]      BCI Ethics         -> Slot 5 (10:30 PM ET) [forbidden_lab]
 
 4. Neuro-Diorama System v7/v8 & Dual-Tier Flow Locks (R5, R56-R68):
-   - Flow Engine (R5): Credit-aware Dual-Tier (`Omni 1.1 Flash` when credits available -> automatic `0-credit` `Veo 3.1 - Lite [Lower Priority]` fallback, zero paid APIs)
+   - Flow Engine (R5): Credit-aware Dual-Tier (`Omni 1.2 Flash` when credits available -> automatic `0-credit` `Veo 3.1 - Lite [Lower Priority]` fallback, zero paid APIs)
    - Voice Lock (R58/R63/R63-P/R68): `emma_v7` (`en-US-EmmaMultilingualNeural`, `dynamic_us_v7` / `expressive_us_v8` + `foil_v8`, legacy `andrew_v7` `en-US-AndrewMultilingualNeural`, `kokoro-onnx` offline fallback)
    - Visual Spec (R66 default / R68 expressive / R63 legacy): High-key porcelain cast (`porcelain_cinematic_v7` default), matte cream-white vinyl + 2D ink expressions + crystal X-Ray brain (`expressive_25d_v8`), `lowpoly_pastel_v7` legacy preserved
-   - Triple Post-Assembly QA Lock (R18/R62/R64): VideoAutopsyEngine + DynamicEpisodeQA (`DQ1-DQ12`) + PostHocSemanticQA (`R64`) + SHA-256 upload gate
+   - Triple Post-Assembly QA Lock (R18/R62/R64): VideoAutopsyEngine + DynamicEpisodeQA (`DQ1-DQ13` + `DQ_CAMEO`, 14 gates on v8; `DQ1-DQ12` on v7) + PostHocSemanticQA (`R64`) + SHA-256 upload gate
 ========================================================================
 """)
 
@@ -141,7 +142,7 @@ def cmd_produce(args):
 
 
 def cmd_import_clips(args):
-    """Imports downloaded Google Flow Omni 1.1 video clips using ASR ordering and optionally auto-assembles."""
+    """Imports downloaded Google Flow Omni 1.2 video clips using ASR ordering and optionally auto-assembles."""
     from pipeline.flow_live_single_worker import order_downloaded_flow_clips_for_project
     from pipeline.storage import ProjectStorage
     from produce_psychology_batch import resolve_topic_item
@@ -287,7 +288,7 @@ def cmd_studio_upload(args):
 
     burn_first_frame = getattr(args, "burn_first_frame", False)
     auto_link = bool(getattr(args, "auto_link", False))
-    assign_playlist = bool(getattr(args, "assign_playlist", False))
+    allow_instant_public = bool(getattr(args, "allow_instant_public", False))
     receipt = uploader.upload_project(
         project_id=args.project,
         slot_id=args.slot,
@@ -296,7 +297,8 @@ def cmd_studio_upload(args):
         dry_run=args.dry_run,
         burn_first_frame=burn_first_frame,
         auto_link=auto_link,
-        assign_playlist=assign_playlist,
+        assign_playlist=False,
+        allow_instant_public=allow_instant_public,
     )
     print("\n========================================================")
     print(f"  YOUTUBE STUDIO UPLOAD {'[DRY RUN]' if args.dry_run else '[LIVE]'} SUCCESS!")
@@ -315,23 +317,50 @@ def cmd_studio_upload(args):
 
 
 def cmd_studio_settings(args):
-    """Configures and verifies Two-Tier Localization (KR Residence + en-US Upload Defaults) in YouTube Studio."""
+    """Configures and verifies Two-Tier Localization, Clean Keywords, Empty Default Tags & Playlist Purge (R36 + R75)."""
     import json
     from pipeline.studio.uploader import StudioUploader
 
-    if getattr(args, "audit_v8_readiness", False) or getattr(args, "check_auto_dubbing", False):
+    if (
+        getattr(args, "audit_v8_readiness", False)
+        or getattr(args, "check_auto_dubbing", False)
+        or getattr(args, "lock_auto_dubbing_off", False)
+        or getattr(args, "check_home_shelves", False)
+    ):
         audit = StudioUploader.audit_v8_channel_readiness()
-        if getattr(args, "check_auto_dubbing", False):
+        uploader = None
+        if getattr(args, "check_auto_dubbing", False) or getattr(args, "lock_auto_dubbing_off", False):
             uploader = StudioUploader(cdp_port=getattr(args, "cdp_port", 9222))
-            dub_check = uploader.inspect_auto_dubbing_settings(dry_run=bool(getattr(args, "dry_run", False)))
+            if getattr(args, "lock_auto_dubbing_off", False):
+                dub_check = uploader.lock_auto_dubbing_off(dry_run=bool(getattr(args, "dry_run", False)))
+                audit["auto_dubbing_lock"] = dub_check
+            else:
+                dub_check = uploader.inspect_auto_dubbing_settings(dry_run=bool(getattr(args, "dry_run", False)))
             dub_check["multi_language_audio_checklist"] = audit.get("multi_language_audio_checklist", {})
             audit["auto_dubbing_check"] = dub_check
+        if getattr(args, "check_home_shelves", False):
+            if uploader is None:
+                uploader = StudioUploader(cdp_port=getattr(args, "cdp_port", 9222))
+            audit["home_shelves_check"] = uploader.inspect_channel_home_shelves(
+                dry_run=bool(getattr(args, "dry_run", False))
+            )
         print(json.dumps(audit, indent=2, ensure_ascii=False))
         return
 
     uploader = StudioUploader(cdp_port=args.cdp_port)
-    print("\n[CLI] Configuring YouTube Studio Localization & Upload Defaults (R36)...")
-    res = uploader.configure_studio_localization(dry_run=args.dry_run)
+    purge_res = None
+    if getattr(args, "purge_playlists", False):
+        pl_shot = Path(args.playlists_screenshot) if getattr(args, "playlists_screenshot", None) else None
+        print("\n[CLI] Purging ALL YouTube Studio Playlists permanently (Rule R75)...")
+        purge_res = uploader.purge_all_channel_playlists(dry_run=args.dry_run, screenshot_path=pl_shot)
+        print(
+            f"[CLI] Playlist Purge Complete: deleted={purge_res.get('deleted_count', 0)} | "
+            f"remaining={purge_res.get('remaining_count', 0)}"
+        )
+
+    settings_shot = Path(args.settings_screenshot) if getattr(args, "settings_screenshot", None) else None
+    print("\n[CLI] Configuring YouTube Studio Localization, Clean Keywords & Empty Upload Defaults (R36 + R75)...")
+    res = uploader.configure_studio_localization(dry_run=args.dry_run, screenshot_path=settings_shot)
     audit = StudioUploader.audit_v8_channel_readiness()
     live_art = audit["channel_art_readiness"]["live_channel_art_replaced"]
     print("\n========================================================")
@@ -341,6 +370,10 @@ def cmd_studio_settings(args):
     print(f"  Video Language:       {res['video_language']} ({res['video_language_code']})")
     print(f"  Metadata Language:    {res['title_description_language']} ({res['title_description_language_code']})")
     print(f"  Default Category:     {res['category']}")
+    print(f"  Channel Keywords:     {len(res.get('channel_keywords', []))} clean chips")
+    print(f"  Upload Default Tags:  {len(res.get('upload_default_tags', []))} chips (0/500 locked)")
+    if purge_res is not None:
+        print(f"  Playlists Purged:     deleted={purge_res.get('deleted_count', 0)} | remaining={purge_res.get('remaining_count', 0)}")
     print(f"  Changes Saved:        {res['saved_changes']}")
     print(f"  v8 Avatar/Banner:     {len(audit['channel_art_readiness']['avatar_drafts_staged'])} avatars, {len(audit['channel_art_readiness']['banner_drafts_staged'])} banners staged (live_replaced={live_art})")
     print(f"  Format Inventory:     {audit['format_inventory_audit']['shorts_le_89_5s_count']} Shorts <=89.5s | {audit['format_inventory_audit']['legacy_gt_89_5s_count']} legacy >89.5s (frozen)")
@@ -353,12 +386,14 @@ def cmd_studio_pin(args):
     from pipeline.studio.community import CommunityManager
 
     manager = CommunityManager(cdp_port=args.cdp_port)
+    force_immediate_pin = bool(getattr(args, "force_immediate_pin", False))
     if getattr(args, "all_public", False):
         print(f"\n[CLI] Scanning projects to stage prepared comments and pin unpinned Public Shorts (Dry-Run: {args.dry_run}, Replace-Existing: {args.replace_existing})...")
         summary = manager.pin_all_public_unpinned(
             dry_run=args.dry_run,
             replace_existing=args.replace_existing,
             project_filter={args.project} if args.project else None,
+            force_immediate_pin=force_immediate_pin,
         )
         print(json.dumps(summary, indent=2, ensure_ascii=False))
         return
@@ -375,6 +410,7 @@ def cmd_studio_pin(args):
         video_id=args.video_id,
         dry_run=args.dry_run,
         replace_existing=args.replace_existing,
+        force_immediate_pin=force_immediate_pin,
     )
     print("\n========================================================")
     print(f"  COMMUNITY COMMENT STATUS: {receipt.get('status', '').upper()} {'[DRY RUN]' if args.dry_run else '[LIVE]'}!")
@@ -448,7 +484,7 @@ def cmd_studio_queue(args):
     action = args.action
     allow_legacy_v4 = bool(getattr(args, "allow_legacy_v4", False))
     auto_link = bool(getattr(args, "auto_link", True))
-    assign_playlist = bool(getattr(args, "assign_playlist", True))
+    assign_playlist = False
 
     if action == "scan":
         ready = manager.scan_ready_projects(allow_legacy_v4=allow_legacy_v4)
@@ -543,7 +579,7 @@ def cmd_studio_link(args):
     linker = StudioShortLinker(cdp_port=args.cdp_port)
     res = linker.run(
         mode=mode,
-        assign_playlists=args.assign_playlists,
+        assign_playlists=False,
         dry_run=args.dry_run,
         force=args.force,
         project_id=args.project,
@@ -607,6 +643,274 @@ def cmd_research(args):
         print(f"\n[CLI] Saved top research card to project '{args.save_project}/01_ideation/research_card.json'.")
 
 
+def _shrink_json_payload(payload: dict[str, Any], *, max_bytes: int) -> dict[str, Any]:
+    """Iteratively trims list fields so serialized JSON fits strictly within `max_bytes` UTF-8 bytes."""
+    import json
+
+    def _size(obj: dict[str, Any]) -> int:
+        return len(json.dumps(obj, ensure_ascii=False).encode("utf-8"))
+
+    out = dict(payload)
+    if _size(out) <= max_bytes:
+        return out
+    for list_key in ("top_defects", "failed_gates", "suspect_clips"):
+        vals = out.get(list_key)
+        if isinstance(vals, list):
+            while vals and _size(out) > max_bytes:
+                vals = vals[:-1]
+                out[list_key] = vals
+                if vals and list_key == "top_defects":
+                    out["truncated_defects"] = True
+    if _size(out) > max_bytes and isinstance(out.get("metrics"), dict):
+        out["metrics"] = {}
+    if _size(out) > max_bytes and isinstance(out.get("stages"), dict):
+        out["stages"] = {
+            k: {"passed": v.get("passed")} if isinstance(v, dict) else v
+            for k, v in out["stages"].items()
+        }
+    while _size(out) > max_bytes and isinstance(out.get("top_defects"), list) and out["top_defects"]:
+        out["top_defects"].pop()
+    if _size(out) > max_bytes:
+        out = {
+            "project_id": str(out.get("project_id") or "")[:64],
+            "passed": bool(out.get("passed")),
+            "failed_gates": list(out.get("failed_gates") or [])[:5],
+            "suspect_clips": list(out.get("suspect_clips") or [])[:10],
+            "top_defects": [],
+        }
+    return out
+
+
+def build_compact_qa_digest(
+    report: dict[str, Any],
+    *,
+    stage: str = "",
+    max_bytes: int = 1500,
+) -> dict[str, Any]:
+    """Build a compact defect-first JSON QA digest strictly bounded to `<= max_bytes` bytes (Tier A-1)."""
+    rep = report if isinstance(report, dict) else {}
+    if "passed" in rep:
+        passed = bool(rep.get("passed"))
+    elif "all_passed" in rep:
+        passed = bool(rep.get("all_passed"))
+    elif "pre_generation_ready" in rep:
+        passed = bool(rep.get("pre_generation_ready"))
+    elif "ready" in rep:
+        passed = bool(rep.get("ready"))
+    else:
+        passed = False
+
+    failed_gates: list[str] = []
+    gates_obj = rep.get("gates")
+    if isinstance(gates_obj, dict):
+        for g_name, g_val in gates_obj.items():
+            if isinstance(g_val, dict):
+                if g_val.get("passed") is False or str(g_val.get("status") or "").lower() in ("fail", "failed", "error"):
+                    failed_gates.append(str(g_name)[:48])
+            elif g_val is False:
+                failed_gates.append(str(g_name)[:48])
+    checklist_obj = rep.get("checklist")
+    if isinstance(checklist_obj, dict):
+        for c_name, c_val in checklist_obj.items():
+            if c_val is False:
+                failed_gates.append(str(c_name)[:48])
+
+    defects: list[str] = []
+    for dk in ("gate1_issues", "defects", "issues", "blocking_issues", "errors", "failed_reasons"):
+        raw_list = rep.get(dk)
+        if isinstance(raw_list, list):
+            for item in raw_list:
+                if isinstance(item, dict):
+                    txt = str(item.get("message") or item.get("reason") or item.get("issue") or item.get("gate") or item)
+                else:
+                    txt = str(item)
+                txt = " ".join(txt.split())[:140]
+                if txt and txt not in defects:
+                    defects.append(txt)
+                    if len(defects) >= 12:
+                        break
+        if len(defects) >= 12:
+            break
+
+    suspect_clips: set[int] = set()
+    summary_obj = rep.get("summary") if isinstance(rep.get("summary"), dict) else {}
+    for sk in ("suspect_clips", "weak_cut_indices", "regenerate_clip_indices"):
+        for container in (rep, summary_obj):
+            vals = container.get(sk)
+            if isinstance(vals, list):
+                for v in vals:
+                    try:
+                        suspect_clips.add(int(v))
+                    except (TypeError, ValueError):
+                        pass
+    for list_k in ("cuts", "clips", "specs", "slots"):
+        entries = rep.get(list_k)
+        if isinstance(entries, list):
+            for entry in entries:
+                if isinstance(entry, dict) and (entry.get("passed") is False or entry.get("ready") is False):
+                    cnum = entry.get("clip_number") or entry.get("cut_index") or entry.get("clip_index")
+                    if cnum is not None:
+                        try:
+                            suspect_clips.add(int(cnum))
+                        except (TypeError, ValueError):
+                            pass
+
+    metrics: dict[str, Any] = {}
+    for mk in ("autopsy_score", "schema_version", "ready", "pre_generation_ready", "clips", "defect_count"):
+        if mk in rep and not isinstance(rep[mk], (list, dict)):
+            metrics[mk] = rep[mk]
+    for smk in ("cut_count", "passed_cuts", "weak_cut_count", "mean_clarity_score"):
+        if smk in summary_obj and not isinstance(summary_obj[smk], (list, dict)):
+            metrics[smk] = summary_obj[smk]
+
+    digest: dict[str, Any] = {
+        "stage": str(stage or rep.get("stage") or "qa"),
+        "project_id": str(rep.get("project_id") or rep.get("slug") or Path(str(rep.get("dir") or "")).name or ""),
+        "passed": passed,
+        "failed_gates": failed_gates[:16],
+        "suspect_clips": sorted(suspect_clips)[:24],
+        "top_defects": defects[:12],
+        "metrics": metrics,
+    }
+    return _shrink_json_payload(digest, max_bytes=int(max_bytes))
+
+
+def collect_project_qa_summary(project_dir: Path, *, max_bytes: int = 1500) -> dict[str, Any]:
+    """Read on-disk QA reports in `project_dir` and return a <=1500B defect-first summary (Tier A-1)."""
+    import json
+
+    p_dir = Path(project_dir)
+    stage_candidates: tuple[tuple[str, tuple[str, ...]], ...] = (
+        ("ref_qa", ("03_visuals/reference_image_qa_report.json", "03_visuals/reference_images/reference_image_qa_report.json", "03_visuals/reference_qa_report.json", "reference_qa_report.json")),
+        ("real_world_refs", ("03_visuals/real_world_refs_manifest.json", "real_world_refs_manifest.json")),
+        (
+            "prosody",
+            (
+                "05_assembly/prosody_qa_report.json",
+                "04_audio/prosody_qa_report.json",
+                "04_audio/prosody_preflight_report.json",
+                "prosody_qa_report.json",
+                "prosody_preflight_report.json",
+                "04_audio/prosody_report.json",
+                "prosody_report.json",
+            ),
+        ),
+        ("episode_qa", ("05_assembly/dynamic_episode_qa_report.json", "dynamic_episode_qa_report.json")),
+        ("posthoc_qa", ("05_assembly/posthoc_semantic_qa_report.json", "posthoc_semantic_qa_report.json")),
+        ("autopsy", ("05_assembly/video_autopsy_report.json", "05_assembly/autopsy_report.json", "autopsy_report.json")),
+        ("thumbnail_qa", ("06_publish/thumbnail_qa_report.json", "06_publish/thumbnail_report.json", "thumbnail_qa_report.json")),
+    )
+
+    stages: dict[str, dict[str, Any]] = {}
+    failed_gates: list[str] = []
+    top_defects: list[str] = []
+    suspect_clips: set[int] = set()
+    any_present = False
+    all_present_passed = True
+
+    for st_name, rels in stage_candidates:
+        found: Path | None = None
+        parsed_data: Any = None
+        parse_err: Exception | None = None
+        for rel in rels:
+            cand = p_dir / rel
+            if not (cand.exists() and cand.is_file()):
+                continue
+            try:
+                cand_data = json.loads(cand.read_text(encoding="utf-8"))
+            except Exception as exc:
+                found = cand
+                parse_err = exc
+                break
+            if (
+                cand.name == "prosody_report.json"
+                and isinstance(cand_data, dict)
+                and not any(
+                    k in cand_data
+                    for k in ("passed", "all_passed", "gates", "ready", "pre_generation_ready")
+                )
+            ):
+                continue
+            found = cand
+            parsed_data = cand_data
+            break
+        if found is None:
+            stages[st_name] = {"present": False, "passed": None}
+            continue
+        any_present = True
+        if parse_err is not None:
+            all_present_passed = False
+            stages[st_name] = {"present": True, "passed": False}
+            failed_gates.append(f"{st_name}:parse_error")
+            top_defects.append(f"{st_name}: invalid JSON ({parse_err})"[:140])
+            continue
+        data = parsed_data
+        if not isinstance(data, dict):
+            all_present_passed = False
+            stages[st_name] = {"present": True, "passed": False}
+            failed_gates.append(f"{st_name}:invalid_format")
+            continue
+
+        if st_name == "real_world_refs" and "passed" not in data and "pre_generation_ready" not in data and "ready" not in data:
+            if "all_rq_real_passed" in data:
+                st_passed = bool(data.get("all_rq_real_passed"))
+            else:
+                st_issues = data.get("issues") or data.get("missing") or []
+                st_passed = not bool(st_issues)
+        else:
+            st_digest = build_compact_qa_digest(data, stage=st_name, max_bytes=1200)
+            st_passed = bool(st_digest["passed"])
+            for fg in st_digest.get("failed_gates", []):
+                tag = f"{st_name}:{fg}"
+                if tag not in failed_gates:
+                    failed_gates.append(tag)
+            for td in st_digest.get("top_defects", []):
+                msg = f"[{st_name}] {td}"[:140]
+                if msg not in top_defects:
+                    top_defects.append(msg)
+            for sc in st_digest.get("suspect_clips", []):
+                suspect_clips.add(int(sc))
+
+        if not st_passed:
+            all_present_passed = False
+            if not any(g.startswith(f"{st_name}:") for g in failed_gates):
+                failed_gates.append(st_name)
+        stages[st_name] = {"present": True, "passed": st_passed}
+
+    overall_passed = bool(any_present and all_present_passed)
+    if not any_present:
+        failed_gates.append("no_qa_reports_found")
+
+    summary: dict[str, Any] = {
+        "project_id": p_dir.name,
+        "passed": overall_passed,
+        "stages": stages,
+        "failed_gates": failed_gates[:20],
+        "suspect_clips": sorted(suspect_clips)[:24],
+        "top_defects": top_defects[:12],
+    }
+    return _shrink_json_payload(summary, max_bytes=int(max_bytes))
+
+
+def cmd_qa_summary(args):
+    """Prints a compact defect-first summary of all on-disk QA reports for a project directory."""
+    import json
+
+    raw_dir = getattr(args, "dir", None)
+    raw_proj = getattr(args, "project", None)
+    if raw_dir:
+        p_dir = Path(raw_dir)
+    elif raw_proj:
+        p_dir = Path(raw_proj) if Path(raw_proj).is_dir() else (Path(PROJECTS_DIR) / raw_proj)
+    else:
+        print(json.dumps({"passed": False, "error": "Specify --project or --dir"}))
+        sys.exit(1)
+    rep = collect_project_qa_summary(p_dir, max_bytes=1500)
+    print(json.dumps(rep, ensure_ascii=False))
+    if getattr(args, "strict", False) and not rep.get("passed"):
+        sys.exit(1)
+
+
 def cmd_autopsy(args):
     """Runs multimodal video/audio/subtitle/thumbnail forensic autopsy on one or all projects."""
     import json
@@ -616,7 +920,10 @@ def cmd_autopsy(args):
         report = VideoAutopsyEngine.inspect_project(args.project, save_report=True)
     else:
         report = VideoAutopsyEngine.inspect_all_projects(save_reports=True)
-    print(json.dumps(report, indent=2, ensure_ascii=False))
+    if getattr(args, "summary", False):
+        print(json.dumps(build_compact_qa_digest(report, stage="autopsy"), ensure_ascii=False))
+    else:
+        print(json.dumps(report, indent=2, ensure_ascii=False))
     passed = report.get("passed", report.get("all_passed", False))
     if not passed:
         sys.exit(1)
@@ -667,7 +974,7 @@ def main():
     subparsers.add_parser("list", help="List all 7 content pillars and sample scripts")
 
     # import-clips
-    p_import = subparsers.add_parser("import-clips", help="Import downloaded Google Flow Omni 1.1 MP4 video clips into project with ASR ordering")
+    p_import = subparsers.add_parser("import-clips", help="Import downloaded Google Flow Omni 1.2 MP4 video clips into project with ASR ordering")
     p_import.add_argument("--project", required=True, help="Target project ID")
     p_import.add_argument("--dir", required=True, help="Path to folder containing downloaded MP4 clips")
     p_import.add_argument("--auto-assemble", action="store_true", help="Immediately assemble final video after importing")
@@ -697,8 +1004,19 @@ def main():
     p_qa.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
     # autopsy (Multimodal Video/Audio Forensic Autopsy Engine)
-    p_autopsy = subparsers.add_parser("autopsy", help="Run multimodal video/audio/subtitle/thumbnail forensic autopsy")
+    p_autopsy = subparsers.add_parser(
+        "autopsy",
+        aliases=["video-autopsy"],
+        help="Run multimodal video/audio/subtitle/thumbnail forensic autopsy",
+    )
     p_autopsy.add_argument("--project", default=None, help="Optional single project ID to inspect (inspects all rendered projects if omitted)")
+    p_autopsy.add_argument("--summary", action="store_true", default=False, help="Print compact <=1800B JSON QA digest")
+
+    # qa-summary (Tier A-1 Defect-First On-Disk QA Summary)
+    p_qs = subparsers.add_parser("qa-summary", help="Print compact <=2000B defect-first summary from on-disk QA reports")
+    p_qs.add_argument("--project", default=None, help="Target project ID or directory")
+    p_qs.add_argument("--dir", default=None, help="Explicit project directory override")
+    p_qs.add_argument("--strict", action="store_true", default=False, help="Exit with code 1 if any present stage failed")
 
     # evolve (Closed-Loop Autonomous Self-Evolution Engine)
     p_evolve = subparsers.add_parser("evolve", help="Execute closed-loop self-evolution to remediate audio, subtitles, video, and thumbnails")
@@ -711,13 +1029,14 @@ def main():
     # studio-upload
     p_su = subparsers.add_parser("studio-upload", help="Upload project video to YouTube Studio with 5-slot scheduling or unlisted staging")
     p_su.add_argument("--project", required=True, help="Target project ID")
-    p_su.add_argument("--visibility", default="unlisted", choices=["unlisted", "scheduled", "public", "private"], help="Visibility mode (default: unlisted)")
+    p_su.add_argument("--visibility", default="unlisted", choices=["unlisted", "scheduled", "public", "private"], help="Visibility mode (default: unlisted; public banned unless --allow-instant-public)")
+    p_su.add_argument("--allow-instant-public", action="store_true", default=False, help="Explicit emergency override allowing instant Public upload (banned by default under R75)")
     p_su.add_argument("--slot", type=int, choices=[1, 2, 3, 4, 5], default=None, help="Target slot (1-5)")
     p_su.add_argument("--date", default=None, help="Target release date YYYY-MM-DD")
     p_su.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode without actual browser interaction")
     p_su.add_argument("--burn-first-frame", action="store_true", default=False, help="Burn thumbnail into first frame of video for guaranteed Shorts cover fallback")
     p_su.add_argument("--auto-link", action=argparse.BooleanOptionalAction, default=False, help="Automatically link Related video post-upload (R35-B)")
-    p_su.add_argument("--assign-playlist", action=argparse.BooleanOptionalAction, default=False, help="Assign 7-Pillar playlist post-upload (R35-B)")
+    p_su.add_argument("--assign-playlist", action=argparse.BooleanOptionalAction, default=False, help="[DISABLED R75] Playlist assignment permanently banned")
     p_su.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
     # studio-pin
@@ -726,6 +1045,7 @@ def main():
     p_sp.add_argument("--video-id", default=None, help="Target YouTube Video ID (optional)")
     p_sp.add_argument("--all-public", action="store_true", default=False, help="Stage prepared comments across projects and pin any unpinned Public Shorts")
     p_sp.add_argument("--replace-existing", action="store_true", default=False, help="Delete previous @AllAboutBrainOfficial comment before posting and pinning the updated comment")
+    p_sp.add_argument("--force-immediate-pin", action="store_true", default=False, help="Override R75 100-view / 12.0h seed-protection defer on Public Shorts")
     p_sp.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode")
     p_sp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
@@ -737,7 +1057,7 @@ def main():
     p_sab.add_argument("--evaluate", action="store_true", help="Run Two-Proportion Z-Test statistical significance evaluation")
     p_sab.add_argument("--video-id", default=None, help="Target YouTube Video ID")
     p_sab.add_argument("--impressions-a", type=int, default=None, help="Impressions for Variant A")
-    p_sab.add_argument("--clicks-a", type=int, default=None, help="Clicks for Variant A")
+    p_sab.add_argument("--clicks-a", type=int, help="Clicks for Variant A", default=None)
     p_sab.add_argument("--impressions-b", type=int, default=None, help="Impressions for Variant B")
     p_sab.add_argument("--clicks-b", type=int, default=None, help="Clicks for Variant B")
     p_sab.add_argument("--impressions-c", type=int, default=None, help="Impressions for Variant C")
@@ -753,30 +1073,45 @@ def main():
     p_sq.add_argument("--visibility", default="unlisted", choices=["unlisted", "scheduled", "public"], help="Staging visibility")
     p_sq.add_argument("--allow-legacy-v4", action="store_true", default=False, help="Allow legacy v4 projects into queue scan/plan (blocked by default)")
     p_sq.add_argument("--auto-link", action=argparse.BooleanOptionalAction, default=True, help="Link Related video during load-all (default: True)")
-    p_sq.add_argument("--assign-playlist", action=argparse.BooleanOptionalAction, default=True, help="Assign 7-Pillar playlist during load-all (default: True)")
+    p_sq.add_argument("--assign-playlist", action=argparse.BooleanOptionalAction, default=False, help="[DISABLED R75] Playlist assignment permanently banned (default: False)")
     p_sq.add_argument("--dry-run", action="store_true", default=False, help="Run load-all in simulation mode")
     p_sq.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
-    # studio-link (R35-B Short-to-Short Related Video & 7-Pillar Playlist Ring)
-    p_sl = subparsers.add_parser("studio-link", help="Plan or apply Short-to-Short Related Video circular ring & 7-Pillar playlists (R35-B)")
+    # studio-link (R35-B Short-to-Short Related Video Ring; Playlists Banned under R75)
+    p_sl = subparsers.add_parser("studio-link", help="Plan or apply Short-to-Short Related Video circular ring (R35-B; playlists disabled under R75)")
     p_sl.add_argument("--action", choices=["plan", "apply", "seed-boost", "status"], default="plan", help="Action: plan | apply | seed-boost | status")
     p_sl.add_argument("--mode", choices=["seed_boost", "semantic_chain"], default="seed_boost", help="Routing strategy (default: seed_boost)")
     p_sl.add_argument("--project", default=None, help="Optional single source project ID")
     p_sl.add_argument("--target", default=None, help="Optional explicit 11-char target YouTube video ID")
-    p_sl.add_argument("--assign-playlists", action=argparse.BooleanOptionalAction, default=True, help="Assign/create 7-Pillar playlist on each video (default: True)")
+    p_sl.add_argument("--assign-playlists", action=argparse.BooleanOptionalAction, default=False, help="[DISABLED R75] Playlist assignment permanently banned (default: False)")
     p_sl.add_argument("--dry-run", action="store_true", default=False, help="Simulate without writing Studio changes")
     p_sl.add_argument("--force", action="store_true", default=False, help="Override 24h seed-protection lock and re-apply existing links")
     p_sl.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
     # studio-settings
-    p_ss = subparsers.add_parser("studio-settings", help="Configure and verify KR Channel Residence + en-US Upload Defaults in YouTube Studio")
+    p_ss = subparsers.add_parser("studio-settings", help="Configure and verify KR Residence, Clean Keywords, Empty Default Tags & Playlist Purge (R36 + R75)")
     p_ss.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode without browser interaction")
+    p_ss.add_argument("--purge-playlists", action="store_true", default=False, help="Permanently delete ALL live YouTube Studio playlists and assert 0 rows remain (R75)")
+    p_ss.add_argument("--playlists-screenshot", default=None, help="Optional PNG path for post-purge /content/playlists screenshot")
+    p_ss.add_argument("--settings-screenshot", default=None, help="Optional PNG path for post-save Channel Keywords + Empty Upload Default Tags screenshot")
     p_ss.add_argument("--audit-v8-readiness", action="store_true", default=False, help="Print read-only v8 channel art, multi-language audio, and Shorts format readiness JSON")
     p_ss.add_argument(
         "--check-auto-dubbing",
         action="store_true",
         default=False,
         help="Inspect live YouTube Studio Auto-Dubbing / Multi-Language Audio settings read-only via background leased CDP tab (offline with --dry-run)",
+    )
+    p_ss.add_argument(
+        "--lock-auto-dubbing-off",
+        action="store_true",
+        default=False,
+        help="Disable Automatic dubbing in YouTube Studio Settings -> Upload defaults -> Advanced settings if enabled (burned-in English ASS protection)",
+    )
+    p_ss.add_argument(
+        "--check-home-shelves",
+        action="store_true",
+        default=False,
+        help="Inspect YouTube Studio Customization -> Home tab shelves to verify Short videos + Posts shelves",
     )
     p_ss.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
@@ -804,6 +1139,7 @@ def main():
         help="Schema v7/v8 style profile override for seed (default: porcelain_cinematic_v7; v8: expressive_25d_v8)",
     )
     p_ds.add_argument("--require-v2", action="store_true", default=False, help="Require Schema v2 dossier compliance (validate)")
+    p_ds.add_argument("--summary", action="store_true", default=False, help="Print compact <=1800B JSON digest (validate)")
     p_ds.add_argument("--doi", default=None, help="DOI to verify via Crossref (doi)")
     p_ds.add_argument("--query", default=None, help="YouTube search query (yt-search)")
     p_ds.add_argument("--url", default=None, help="Reference video URL (yt-analyze)")
@@ -815,7 +1151,7 @@ def main():
 
     p_da = subparsers.add_parser(
         "diorama-assemble",
-        help="Assemble a Schema v8 expressive_25d_v8 (<= 89.5s), Schema v7 porcelain_cinematic_v7 / lowpoly_pastel_v7, or v6 Neuro-Diorama Short (24fps, R56-R68)",
+        help="Assemble a Schema v8 expressive_25d_v8 (<= 120.0s @ 30fps), Schema v7 porcelain_cinematic_v7 / lowpoly_pastel_v7, or v6 Neuro-Diorama Short (24fps, R56-R68)",
     )
     p_da.add_argument("--project", required=True, help="Target project ID or directory")
     p_da.add_argument("--force", action=argparse.BooleanOptionalAction, default=True, help="Force rebuild of EDL, WAV, ASS, and MP4 (default: True)")
@@ -823,7 +1159,7 @@ def main():
         "--posthoc-qa",
         action=argparse.BooleanOptionalAction,
         default=True,
-        help="Run R64 post-hoc clip-by-clip expressive clarity QA, DQ1-DQ12, Autopsy, and sync Knowledge Hub after assembly (default: True)",
+        help="Run R64 post-hoc clip-by-clip expressive clarity QA, DQ1-DQ13 (14 gates on v8; DQ1-DQ12 on v7), Autopsy, and sync Knowledge Hub after assembly (default: True)",
     )
     p_da.add_argument(
         "--prosody-mode",
@@ -835,7 +1171,7 @@ def main():
         "--voice-preset",
         default=None,
         choices=list(DIORAMA_VOICE_PRESETS),
-        help="Narrator voice preset from DIORAMA_VOICE_PRESETS (e.g. emma_v7, foil_v8, andrew_v7, ava_v7)",
+        help="Narrator voice preset from DIORAMA_VOICE_PRESETS (e.g. elevenlabs_v4, el_researcher_v4, el_minicortex_v4)",
     )
     p_da.add_argument("--preview-sec", type=float, default=None, help="Render only the first N seconds to 05_assembly/preview_0-Ns.mp4 (skips QA)")
     p_da.add_argument("--allow-published-overwrite", action="store_true", default=False, help="Allow rebuilding a project that already has an upload receipt")
@@ -853,7 +1189,7 @@ def main():
 
     p_df = subparsers.add_parser(
         "diorama-flow",
-        help="Sharded 5-tab Dual-Tier (Omni 1.1 Flash -> 0-credit auto-fallback) Google Flow generator for Schema v8/v7/v6 neuro_diorama (1:1 Zero-Reuse)",
+        help="Sharded 5-tab Dual-Tier (Omni 1.2 Flash -> 0-credit auto-fallback) Google Flow generator for Schema v8/v7/v6 neuro_diorama (1:1 Zero-Reuse)",
     )
     p_df.add_argument("--project", required=True, help="Target project ID under BCI_Shorts_Channel/projects/")
     p_df.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
@@ -864,7 +1200,19 @@ def main():
         "--engine",
         default="auto",
         choices=["auto", "omni", "zero_credit", "zero-credit"],
-        help="Flow engine policy: auto (Omni 1.1 Flash when credits > 0 else 0-credit fallback), omni, or zero-credit",
+        help="Flow engine policy: auto (Omni 1.2 Flash when credits > 0 else 0-credit fallback), omni, or zero-credit",
+    )
+    p_df.add_argument(
+        "--human-submit",
+        action="store_true",
+        default=False,
+        help="Human-in-the-Loop pre-fill mode: stage Start/End frames, model/aspect/duration/x1, and prompt in a foreground single tab, stop before clicking Submit (→), passively poll for the user's click, and auto-download",
+    )
+    p_df.add_argument(
+        "--fresh-room",
+        action="store_true",
+        default=False,
+        help="Create a brand-new Google Flow project room instead of reusing the prior receipt URL",
     )
 
     p_db = subparsers.add_parser(
@@ -881,12 +1229,21 @@ def main():
         "--engine",
         default="auto",
         choices=["auto", "omni", "zero_credit", "zero-credit"],
-        help="Flow engine policy: auto (Omni 1.1 Flash -> 0-credit auto-fallback), omni, or zero-credit",
+        help="Flow engine policy: auto (Omni 1.2 Flash -> 0-credit auto-fallback), omni, or zero-credit",
     )
     p_db.add_argument("--voice-preset", default=None, choices=list(DIORAMA_VOICE_PRESETS), help="Optional narrator voice preset override")
     p_db.add_argument("--prosody-mode", default=None, choices=list(DIORAMA_V7_PROSODY_MODES), help="Optional prosody mode override")
+    p_db.add_argument(
+        "--sequential",
+        action="store_true",
+        default=False,
+        help="Run batch strictly sequentially instead of overlapped Level B pipeline",
+    )
 
     p_pg = subparsers.add_parser("prompt-gate", help="Run the v5/v6/v7/v8 production gate on a project or dossier draft")
+    p_cp = subparsers.add_parser("chart-preview", help="Render R70-M hand-drawn chart preview PNGs for a project or dossier draft")
+    p_cp.add_argument("--project", required=True, help="Project ID or path containing script.json")
+    p_cp.add_argument("--out", default=None, help="Output directory for chart preview PNGs")
     p_de = subparsers.add_parser(
         "diorama-episode",
         help="One-shot production of ANY dossier-backed Schema v7/v8 episode: sync draft -> precheck -> Flow -> assembly -> full QA",
@@ -900,6 +1257,12 @@ def main():
     p_de.add_argument("--pillar", required=True, help="Content pillar id (P1)")
     p_de.add_argument("--draft-subdir", default=None, help="Optional draft subfolder override (e.g. diorama_v8_expressive, diorama_v7_porcelain)")
     p_de.add_argument("--precheck-only", action="store_true", default=False, help="Sync + prompt-gate + TTS clock only (no Flow credits)")
+    p_de.add_argument(
+        "--stop-after",
+        default=None,
+        choices=["audio", "keyframes"],
+        help="Checkpoint halt after master audio or 0-credit keyframes + contact sheet (before Flow video credits)",
+    )
     p_de.add_argument("--tabs", type=int, default=5, help="Max concurrent Google Flow shard tabs (<=5)")
     p_de.add_argument("--force", action="store_true", default=False, help="Purge existing clips and regenerate")
     p_de.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
@@ -931,9 +1294,6 @@ def main():
     p_am = subparsers.add_parser("asset-manifest", help="Write 05_assembly/asset_manifest.json + asset library index (R50)")
     p_am.add_argument("--project", required=True)
 
-    p_vc = subparsers.add_parser("voice-check", help="Semitone voice-consistency report for a project's native Flow clips (R49)")
-    p_vc.add_argument("--project", required=True)
-
     p_rq = subparsers.add_parser("ref-qa", help="Build Reference Image Bible & run 10-Axis Granular Image QA Gate (R51)")
     p_rq.add_argument("--project", required=True, help="Target project ID or directory")
     p_rq.add_argument("--audit", action="store_true", default=False,
@@ -953,6 +1313,7 @@ def main():
         default=False,
         help="Auto-populate reference_semantic_review.json from measured Q1-Q7 CV telemetry",
     )
+    p_rq.add_argument("--summary", action="store_true", default=False, help="Print compact <=1800B JSON QA digest")
 
     p_pk = subparsers.add_parser("packets", help="Scene blueprint + per-clip generation packets (start / key / end frame, timed prompt) (R52)")
     p_pk.add_argument("--project", required=True, help="Target project ID or directory")
@@ -967,10 +1328,11 @@ def main():
 
     p_eq = subparsers.add_parser(
         "episode-qa",
-        help="Run R62 Dynamic Per-Episode QA Contract compiler + 12-Axis DQ1-DQ12 multimodal verification",
+        help="Run R62/R68 Dynamic Per-Episode QA Contract compiler + 14-Gate DQ1-DQ13/DQ_CAMEO (12-Gate DQ1-DQ12 on v7) multimodal verification",
     )
     p_eq.add_argument("--project", required=True, help="Target project ID or directory")
     p_eq.add_argument("--compile-only", action="store_true", default=False, help="Only compile episode_qa_contract.json + Gate 1 check")
+    p_eq.add_argument("--summary", action="store_true", default=False, help="Print compact <=1800B JSON QA digest")
 
     p_ph = subparsers.add_parser(
         "posthoc-qa",
@@ -986,13 +1348,17 @@ def main():
 
     p_th = subparsers.add_parser(
         "thumbnail",
-        help="Run R65 Thumbnail Studio: candidate scoring, v7/v8 hook overlay, TQ1-TQ7 QA & contact sheet",
+        help="Run R65 v2 Thumbnail Studio: 0-credit cutaway keyart, #FF2525 pointer, Z-hook, TQ1-TQ9 QA & contact sheet",
     )
     p_th.add_argument("--project", default=None, help="Target project ID or directory")
     p_th.add_argument("--all-diorama", action="store_true", default=False, help="Run across assembled neuro_diorama projects")
     p_th.add_argument("--unpublished-only", action="store_true", default=False, help="Skip projects that already have upload_receipt.json")
     p_th.add_argument("--force", action="store_true", default=False, help="Force rebuild even if cached thumbnail_report.json matches")
-    p_th.add_argument("--soft", action="store_true", default=False, help="Warn instead of exiting non-zero on TQ1-TQ7 gate failures")
+    p_th.add_argument("--soft", action="store_true", default=False, help="Warn instead of exiting non-zero on TQ1-TQ9 gate failures")
+    p_th.add_argument("--generate-keyart", action="store_true", default=False, help="Generate x2 0-credit 3D cutaway keyarts via Google Flow Image")
+    p_th.add_argument("--keyart-only", action="store_true", default=False, help="Require 0-credit Google Flow keyart candidates (fail if CDP offline)")
+    p_th.add_argument("--frames-only", action="store_true", default=False, help="Score video frames only (skip Google Flow keyart generation)")
+    p_th.add_argument("--cdp-port", type=int, default=9222, help="Naver Whale / Chrome CDP port for --generate-keyart (default: 9222)")
 
     p_kb = subparsers.add_parser(
         "kb",
@@ -1040,27 +1406,28 @@ def main():
 
     p_rr = subparsers.add_parser(
         "reenact-refs",
-        help="Stage 3 source-conditioned reenactment: translate sanitized guides into porcelain 9:16 reference PNGs via 0-credit Google Flow x4 Image mode (R67)",
+        help="Stage 3 source-conditioned reenactment: translate sanitized guides into porcelain 9:16 reference PNGs via 0-credit Google Flow Image mode (x1 first-pass / x2 retry, R67)",
     )
     p_rr.add_argument("--project", required=True, help="Target project_id")
     p_rr.add_argument("--slug", required=True, help="Research dossier slug")
     p_rr.add_argument("--refs", default="", help="Optional comma-separated reference_ids to regenerate")
     p_rr.add_argument("--backend", default="flow", choices=["flow"], help="0-credit image backend (locked: flow)")
-    p_rr.add_argument("--batch-count", type=int, default=4, help="0-credit candidate images per Flow submission (1..4, default: 4)")
+    p_rr.add_argument("--batch-count", type=int, default=None, help="Override 0-credit candidate images per Flow submission (1..4; default: auto x1 first-pass / x2 retry)")
     p_rr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
     p_rr.add_argument("--force", action="store_true", default=False, help="Overwrite existing reference PNGs")
     p_rr.add_argument("--purge-quarantine", action="store_true", default=False, help="Purge /tmp/aab_reenact after translation")
 
     p_pr = subparsers.add_parser(
         "porcelain-refs",
-        help="Synthesize & verify Dual-Track porcelain_cinematic_v7 / expressive_25d_v8 9:16 reference pack via 0-credit Google Flow x4 Image mode (R51/R66/R67/R68)",
+        help="Synthesize & verify Dual-Track porcelain_cinematic_v7 / expressive_25d_v8 9:16 reference pack via 0-credit Google Flow Image mode (x1 first-pass / x2 retry, R51/R66/R67/R68)",
     )
     p_pr.add_argument("--project", required=True, help="Target project_id or path")
     p_pr.add_argument("--slug", default="", help="Optional research dossier slug override")
+    p_pr.add_argument("--refs", default="", help="Optional comma-separated target ref_ids to regenerate (e.g. Gate 1 rejected cuts with --force -> x2)")
     p_pr.add_argument("--backend", default="flow", choices=["flow"], help="0-credit image backend (locked: flow)")
-    p_pr.add_argument("--batch-count", type=int, default=4, help="0-credit candidate images per Flow submission (1..4, default: 4)")
+    p_pr.add_argument("--batch-count", type=int, default=None, help="Override 0-credit candidate images per Flow submission (1..4; default: auto x1 first-pass / x2 retry)")
     p_pr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
-    p_pr.add_argument("--force", action="store_true", default=False, help="Force regenerate all reference PNGs")
+    p_pr.add_argument("--force", action="store_true", default=False, help="Force regenerate reference PNGs (auto x2; combine with --refs for targeted Gate 1 retries)")
     p_pr.add_argument("--require-review", action="store_true", default=False, help="Require SHA-256-bound reference_semantic_review.json")
     p_pr.add_argument("--auto-populate-review", action="store_true", default=False, help="Auto-populate reference_semantic_review.json from measured CV telemetry")
 
@@ -1071,7 +1438,7 @@ def main():
     p_rp.add_argument("--slug", required=True, help="Research dossier slug")
     p_rp.add_argument("--project", required=True, help="Target project_id")
     p_rp.add_argument("--pillar", required=True, help="Channel pillar id")
-    p_rp.add_argument("--voice-preset", default="emma_v7", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: emma_v7)")
+    p_rp.add_argument("--voice-preset", default="elevenlabs_v4", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: elevenlabs_v4)")
     p_rp.add_argument("--prosody-mode", default="dynamic_us_v7", choices=list(DIORAMA_V7_PROSODY_MODES), help="Prosody mode (default: dynamic_us_v7)")
     p_rp.add_argument("--tabs", type=int, default=5, help="Parallel Flow tabs (max 5)")
     p_rp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
@@ -1096,6 +1463,15 @@ def main():
     p_sw.add_argument("--apply", action="store_true", default=False, help="Execute live pins/links/promotions (default: dry-run)")
     p_sw.add_argument("--no-pins", action="store_true", default=False, help="Skip R35 DOI comment pinning")
     p_sw.add_argument("--no-links", action="store_true", default=False, help="Skip R35-B Short-to-Short related video linking")
+    p_sw.add_argument("--force-immediate-pin", action="store_true", default=False, help="Override R75 100-view / 12.0h seed-protection defer")
+
+    p_qs = subparsers.add_parser(
+        "qa-scheduler",
+        help="Daily 08:00 Cross-Platform QA Scheduler (YouTube, Instagram, TikTok): inspects Daily Report, decides HOLD/GO, checks anti-penalty rules & derives execution plan",
+    )
+    p_qs.add_argument("--date", default=None, help="Target date YYYY-MM-DD (default: today UTC)")
+    p_qs.add_argument("--no-write", action="store_true", default=False, help="Do not write schedule report files to BCI_Shorts_Channel/reports/")
+    p_qs.add_argument("--json", action="store_true", default=False, help="Print full JSON report instead of Markdown summary")
 
     p_su = subparsers.add_parser(
         "studio-unschedule",
@@ -1128,6 +1504,13 @@ def main():
     p_fc.add_argument("--dry-run", action="store_true", default=False, help="Inspect matching Flow rooms and /tmp files without deleting")
     p_fc.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
 
+    p_fp = subparsers.add_parser(
+        "flow-probe",
+        help="Phase 0 zero-credit Google Flow UI capability probe (model dropdown, 3..15s durations, native 1080p download, conversational edit)",
+    )
+    p_fp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+    p_fp.add_argument("--save", action=argparse.BooleanOptionalAction, default=True, help="Save probe report to flow_ui_capabilities.json (default: True)")
+
     p_lfi = subparsers.add_parser(
         "longform-init",
         help="[DEFERRED] Initialize standalone 16:9 (1920x1080) Long-Form project in projects_longform/<project_id>/",
@@ -1141,18 +1524,18 @@ def main():
         help="[DEFERRED] Synthesize standalone Long-Form relaxed narration (longform_us_v7, -14.0 LUFS) + 1920x1080 ASS subtitles + EDL retiming",
     )
     p_lfa.add_argument("--project", required=True, help="Target Long-Form project_id or path")
-    p_lfa.add_argument("--voice-preset", default="emma_v7", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: emma_v7)")
-    p_lfa.add_argument("--engine", default="edge-tts", choices=["edge-tts", "kokoro-onnx"], help="TTS engine (default: edge-tts)")
+    p_lfa.add_argument("--voice-preset", default="elevenlabs_v4", choices=list(DIORAMA_VOICE_PRESETS), help="Voice preset (default: elevenlabs_v4)")
+    p_lfa.add_argument("--engine", default="eleven_v4", choices=["eleven_v4"], help="TTS engine (locked: eleven_v4)")
     p_lfa.add_argument("--force", action="store_true", default=False, help="Re-synthesize all sentence audio ignoring cache")
     p_lfa.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
     p_lfr = subparsers.add_parser(
         "longform-refs",
-        help="[DEFERRED] Synthesize & Q1-Q10 verify 1920x1080 (16:9) Hybrid Track A + Track B Reference Anchor Pack via 0-credit Google Flow Image x4",
+        help="[DEFERRED] Synthesize & Q1-Q10 verify 1920x1080 (16:9) Hybrid Track A + Track B Reference Anchor Pack via 0-credit Google Flow Image (x1 first-pass / x2 retry)",
     )
     p_lfr.add_argument("--project", required=True, help="Target Long-Form project_id or path")
     p_lfr.add_argument("--backend", default="flow", choices=["flow"], help="Reference image backend (locked: flow)")
-    p_lfr.add_argument("--batch-count", type=int, default=4, help="0-credit Flow Image candidates per prompt (1..4, default: 4)")
+    p_lfr.add_argument("--batch-count", type=int, default=None, help="Override 0-credit Flow Image candidates per prompt (1..4; default: auto x1 first-pass / x2 retry)")
     p_lfr.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port")
     p_lfr.add_argument("--force", action="store_true", default=False, help="Regenerate existing 16:9 reference PNGs")
     p_lfr.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
@@ -1198,10 +1581,141 @@ def main():
     p_lfp.add_argument("--upload-cc", action="store_true", default=False, help="Enable external .srt CC upload (default: False)")
     p_lfp.add_argument("--allow-deferred-longform", action="store_true", default=False, help="Override LONGFORM_DEFERRED hold")
 
+    p_mb = subparsers.add_parser(
+        "multi-bundle",
+        help="Export TikTok & Instagram Reels/Carousel + YouTube Quiz distribution bundle (06_publish/multi_platform_bundle/) without mutating YouTube metadata.json",
+    )
+    p_mb.add_argument("--project", required=True, help="Project ID or path (e.g. v8_ep08_capgras_imposter_delusion_r77)")
+    p_mb.add_argument("--no-copy-video", action="store_true", default=False, help="Skip copying video_clean.mp4 while generating cover, carousel, quiz, captions, and upload_checklist.json")
+
+    p_sqz = subparsers.add_parser(
+        "studio-quiz",
+        help="Publish or schedule a 4-option YouTube Community Quiz Post from 06_publish/multi_platform_bundle/youtube_quiz_post.json via isolated background CDP tab",
+    )
+    p_sqz.add_argument("--project", required=True, help="Target project ID or directory")
+    p_sqz.add_argument("--schedule", default=None, help="Optional US Eastern schedule timestamp (15-min increment, e.g. '2026-11-15 16:00 ET')")
+    p_sqz.add_argument("--dry-run", action="store_true", default=False, help="Validate quiz payload and schedule math without opening browser")
+    p_sqz.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
+    p_sin = subparsers.add_parser(
+        "studio-inbox",
+        help="Zero-Playback YouTube Studio /comments/inbox scanner & approved heart+reply applier (0 self-views)",
+    )
+    p_sin.add_argument("--scan-only", action="store_true", default=False, help="Scan unreplied comments to reports/daily/pending_comment_replies.json without posting")
+    p_sin.add_argument("--apply-approved", action="store_true", default=False, help="Creator-heart + reply ONLY to items marked approved: true in pending_comment_replies.json")
+    p_sin.add_argument("--dry-run", action="store_true", default=False, help="Run in simulation mode without browser mutations")
+    p_sin.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
+    p_igp = subparsers.add_parser(
+        "ig-publish",
+        help="Publish Instagram 4:5 Carousel (slide_01..06.png) or 9:16 Reel (with >=1,000 follower Trial Reel gate) via Graph API or CDP",
+    )
+    p_igp.add_argument("--project", required=True, help="Target project ID or directory")
+    p_igp.add_argument("--kind", required=True, choices=["reel", "carousel"], help="Asset type: reel | carousel")
+    p_igp.add_argument("--engine", default="auto", choices=["auto", "graph-api", "cdp"], help="Publishing engine (default: auto)")
+    p_igp.add_argument("--handle", default="allaboutbrain.official", help="Instagram Creator handle")
+    p_igp.add_argument("--trial-strategy", default=None, choices=["SS_PERFORMANCE", "MANUAL"], help="Optional Trial Reel graduation strategy (Graph API Reels only; gated on >=1,000 followers)")
+    p_igp.add_argument("--require-trial", action="store_true", default=False, help="Abort instead of falling back to standard Reel if followers_count < 1,000")
+    p_igp.add_argument("--image-urls", default="", help="Comma-separated public HTTPS slide URLs when using Graph API carousel")
+    p_igp.add_argument("--video-url", default="", help="Public HTTPS MP4 URL when using Graph API reel")
+    p_igp.add_argument("--cover-url", default="", help="Optional public HTTPS cover URL when using Graph API reel")
+    p_igp.add_argument("--dry-run", action="store_true", default=False, help="Validate bundle assets, aspect ratios, and safety gates without publishing")
+    p_igp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
+    p_ttp = subparsers.add_parser(
+        "tiktok-publish",
+        help="Publish or schedule a >=60.0s clean 9:16 Short to TikTok Studio (zero commercial sound, AIGC ON, immediate CAPTCHA halt)",
+    )
+    p_ttp.add_argument("--project", required=True, help="Target project ID or directory")
+    p_ttp.add_argument("--schedule-utc", default=None, help="Optional UTC schedule ISO timestamp (5-min increment, +15m..+10d, e.g. '2026-11-16T00:30:00Z')")
+    p_ttp.add_argument("--handle", default="allaboutbrain_official", help="TikTok Creator handle")
+    p_ttp.add_argument("--dry-run", action="store_true", default=False, help="Validate >=60s duration, zero commercial sound, and schedule window without browser upload")
+    p_ttp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
+    p_ttpp = subparsers.add_parser(
+        "tiktok-pin-profile",
+        help="Pin up to 3 top-performing videos on TikTok profile via isolated background CDP tab (immediate CAPTCHA halt)",
+    )
+    p_ttpp.add_argument("--video-ids", required=True, help="Comma-separated TikTok video IDs (max 3)")
+    p_ttpp.add_argument("--handle", default="allaboutbrain_official", help="TikTok Creator handle")
+    p_ttpp.add_argument("--dry-run", action="store_true", default=False, help="Validate video IDs and <=3 pin ceiling without opening browser")
+    p_ttpp.add_argument("--cdp-port", type=int, default=9222, help="Whale DevTools CDP port (default: 9222)")
+
+    p_bs = subparsers.add_parser(
+        "brain-sim",
+        help="Render R76 MNI152 3D Brain Simulator clips in parallel on /dev/shm scratch (4x2 standalone / 3x2 overlapped)",
+    )
+    p_bs.add_argument("--project", required=True, help="Target project ID or directory")
+    p_bs.add_argument("--cpu-budget", type=int, default=None, help="Explicit CPU budget override (default: 8 standalone / 6 overlapped)")
+    p_bs.add_argument("--overlapped", action="store_true", default=False, help="Use 6-vCPU overlapped worker plan (3x2) alongside Google Flow")
+    p_bs.add_argument("--force", action="store_true", default=False, help="Ignore sim_spec_sha256 cache and re-render all brain_simulator_3d clips")
+
+    p_hb = subparsers.add_parser(
+        "hw-bench",
+        help="Run isolated /dev/shm c3d-highmem-8 hardware, tmpfs I/O, EXDEV atomic commit, and 1x2 vs 4x2 Blender parallel benchmark",
+    )
+    p_hb.add_argument(
+        "--project",
+        default="v8_ep08_capgras_imposter_delusion_r77",
+        help="Optional read-only reference project ID for R76 brain_simulator_3d shot specs (never modified)",
+    )
+    p_hb.add_argument("--clips", type=int, default=4, help="Number of R76 brain_simulator_3d clips to benchmark (default: 4)")
+    p_hb.add_argument("--frames", type=int, default=90, help="Frames per benchmark clip at 30fps (default: 90 = 3.0s)")
+
     args = parser.parse_args()
+
+    if args.command == "brain-sim":
+        cmd_brain_sim(args)
+        return
+    if args.command == "hw-bench":
+        cmd_hw_bench(args)
+        return
+
+    if args.command == "multi-bundle":
+        import json as _json
+        from pipeline.publish import export_multi_platform_bundle
+
+        res = export_multi_platform_bundle(args.project, copy_video=not bool(args.no_copy_video))
+        print(_json.dumps(res, indent=2, ensure_ascii=False))
+        return
+    if args.command == "studio-quiz":
+        cmd_studio_quiz(args)
+        return
+    if args.command == "studio-inbox":
+        cmd_studio_inbox(args)
+        return
+    if args.command == "ig-publish":
+        cmd_ig_publish(args)
+        return
+    if args.command == "tiktok-publish":
+        cmd_tiktok_publish(args)
+        return
+    if args.command == "tiktok-pin-profile":
+        cmd_tiktok_pin_profile(args)
+        return
 
     if args.command == "flow-clean":
         cmd_flow_clean(args)
+        return
+    if args.command == "flow-probe":
+        import asyncio
+        import json as _json
+        from pipeline.cdp_tab_lease import leased_cdp_tab
+        from pipeline.config import GOOGLE_FLOW_URL
+        from pipeline.flow_workspace import probe_flow_ui_capabilities
+
+        async def _run_flow_probe() -> dict:
+            async with leased_cdp_tab(
+                GOOGLE_FLOW_URL,
+                purpose="flow-probe",
+                cdp_port=int(args.cdp_port),
+            ) as (client, _tab_id, _owner):
+                await client.send("Page.enable")
+                await asyncio.sleep(3.2)
+                return await probe_flow_ui_capabilities(client, persist_cache=bool(args.save))
+
+        rep = asyncio.run(_run_flow_probe())
+        print(_json.dumps(rep, indent=2, ensure_ascii=False))
         return
     if args.command == "gemini-produce":
         cmd_gemini_produce(args)
@@ -1223,6 +1737,9 @@ def main():
         return
     if args.command == "studio-watchdog":
         cmd_studio_watchdog(args)
+        return
+    if args.command == "qa-scheduler":
+        cmd_qa_scheduler(args)
         return
     if args.command == "studio-unschedule":
         cmd_studio_unschedule(args)
@@ -1267,6 +1784,7 @@ def main():
             engine_mode=eng_mode,
             voice_preset=args.voice_preset,
             prosody_mode=args.prosody_mode,
+            sequential=bool(args.sequential),
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False))
         return
@@ -1286,6 +1804,7 @@ def main():
             voice_preset=args.voice_preset,
             prosody_mode=args.prosody_mode,
             draft_subdir=getattr(args, "draft_subdir", None),
+            stop_after=getattr(args, "stop_after", None),
         )
         print(_json.dumps(rep, indent=2, ensure_ascii=False, default=str))
         return
@@ -1309,7 +1828,36 @@ def main():
     if args.command == "diorama-flow":
         import asyncio
         import inspect
+        import json as _json
         from pipeline.flow_diorama_sharded_worker import run_sharded_diorama_flow_generation
+        from pipeline.reference_image_qa import inspect_reference_image_pack
+
+        cand_p = Path(args.project)
+        p_dir_df = cand_p if cand_p.is_dir() else (Path(PROJECTS_DIR) / str(args.project).strip())
+        ref_dir_df = p_dir_df / "03_visuals" / "reference_images"
+        if ref_dir_df.exists() and any(ref_dir_df.glob("*.png")):
+            ref_gate = inspect_reference_image_pack(p_dir_df, require_review=True, save_report=True)
+            if not ref_gate.get("pre_generation_ready"):
+                from pipeline.diorama_batch_orchestrator import render_keyframe_contact_sheet
+
+                sheet_p = render_keyframe_contact_sheet(p_dir_df)
+                print(
+                    _json.dumps(
+                        {
+                            "status": "REVIEW_PENDING" if ref_gate.get("cv_pre_generation_ready") else "QA_FAILED",
+                            "stage": "Gate1_keyframe_semantic_review",
+                            "project_id": p_dir_df.name,
+                            "cv_pre_generation_ready": bool(ref_gate.get("cv_pre_generation_ready")),
+                            "pre_generation_ready": False,
+                            "contact_sheet": str(sheet_p) if sheet_p else None,
+                            "review_file": str(ref_dir_df / "reference_semantic_review.json"),
+                            "regenerate_image_ids": ref_gate.get("regenerate_image_ids") or [],
+                        },
+                        indent=2,
+                        ensure_ascii=False,
+                    )
+                )
+                sys.exit(2 if ref_gate.get("cv_pre_generation_ready") else 1)
 
         only = [int(x.strip()) for x in args.clips.split(",") if x.strip()] if args.clips.strip() else None
         eng_mode = str(args.engine).replace("-", "_")
@@ -1324,6 +1872,12 @@ def main():
             flow_kwargs["cdp_port"] = int(args.cdp_port)
         if "engine_mode" in flow_sig.parameters:
             flow_kwargs["engine_mode"] = eng_mode
+        if "human_submit" in flow_sig.parameters:
+            flow_kwargs["human_submit"] = bool(getattr(args, "human_submit", False))
+        if "fresh_room" in flow_sig.parameters:
+            flow_kwargs["fresh_room"] = bool(getattr(args, "fresh_room", False))
+        if bool(getattr(args, "human_submit", False)):
+            flow_kwargs["max_parallel_tabs"] = 1
         asyncio.run(run_sharded_diorama_flow_generation(**flow_kwargs))
         return
     if args.command == "diorama-assemble":
@@ -1365,20 +1919,19 @@ def main():
     if args.command == "prompt-gate":
         cmd_prompt_gate(args)
         return
+    if args.command == "chart-preview":
+        cmd_chart_preview(args)
+        return
     if args.command == "audit-prompts":
         cmd_audit_prompts(args)
         return
     if args.command == "asset-manifest":
         import json as _json
         from pipeline.asset_manifest import build_asset_manifest
-        from pipeline.config import PROJECTS_DIR
 
         p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
         m = build_asset_manifest(p_dir)
         print(_json.dumps({"project_id": m["project_id"], "assets": len(m["assets"])}, indent=2))
-        return
-    if args.command == "voice-check":
-        cmd_voice_check(args)
         return
     if args.command == "ref-qa":
         cmd_ref_qa(args)
@@ -1416,8 +1969,10 @@ def main():
         print(json.dumps(report, indent=2, ensure_ascii=False))
         if not report["all_passed"]:
             sys.exit(1)
-    elif args.command == "autopsy":
+    elif args.command in ("autopsy", "video-autopsy"):
         cmd_autopsy(args)
+    elif args.command == "qa-summary":
+        cmd_qa_summary(args)
     elif args.command == "evolve":
         cmd_evolve(args)
     elif args.command == "test-all":
@@ -1572,7 +2127,10 @@ def cmd_dossier(args):
             root=ds_root,
             require_schema_v2=bool(getattr(args, "require_v2", False)),
         )
-        print(json.dumps(res, indent=2, ensure_ascii=False))
+        if getattr(args, "summary", False):
+            print(json.dumps(build_compact_qa_digest(res, stage="dossier"), ensure_ascii=False))
+        else:
+            print(json.dumps(res, indent=2, ensure_ascii=False))
         if not res["ready"]:
             sys.exit(1)
     elif args.action == "seed":
@@ -1647,13 +2205,33 @@ def cmd_prompt_gate(args):
         import re as _re
         from pipeline.config import is_expressive_v8_plan
         from pipeline.diorama_batch_orchestrator import _PLAQUE_TRIGGER_NOUNS_RE
+        from pipeline.flow_prompt_builder import validate_flow_credit_safety_lint
         from pipeline.publish import validate_diorama_paradox_title
 
         is_v8_gate = is_expressive_v8_plan(plan, script_doc)
         issues = validate_production_diorama_v6(plan, narrations, clips, script_doc=script_doc)
+        issues.extend(validate_flow_credit_safety_lint(plan, clips))
         raw_title = str(script_doc.get("title") or plan.get("title") or "").strip()
         if raw_title:
             issues.extend(validate_diorama_paradox_title(raw_title, is_expressive_v8=is_v8_gate))
+        if is_v8_gate:
+            from pipeline.config import PRE_R68H_FROZEN_V8_PROJECTS
+            from pipeline.publish import validate_v8_viewer_description
+
+            gate_pid = str(script_doc.get("project_id") or plan.get("project_id") or folder.name or "").strip()
+            meta_gate_path = next(
+                (p for p in (folder / "06_publish" / "metadata.json", folder / "metadata.json") if p.exists()),
+                None,
+            )
+            if meta_gate_path is not None and gate_pid not in PRE_R68H_FROZEN_V8_PROJECTS:
+                meta_gate_doc = json.loads(meta_gate_path.read_text(encoding="utf-8"))
+                if isinstance(meta_gate_doc, dict) and "description" in meta_gate_doc:
+                    for desc_err in validate_v8_viewer_description(
+                        str(meta_gate_doc.get("description") or ""),
+                        project_id=gate_pid,
+                    ):
+                        if desc_err not in issues:
+                            issues.append(desc_err)
         for c in clips:
             sc = _re.sub(r"\b(?:without|zero|no)\s+[a-z\s,-]{1,35}", " ", str(c.get("scene") or ""), flags=_re.IGNORECASE)
             for allow_tok in (c.get("diegetic_text_allowlist") or []):
@@ -1690,9 +2268,43 @@ def cmd_prompt_gate(args):
 
         compile_clip_qa_contract(folder, save=True)
         contract_compiled = True
-    print(json.dumps({"passed": not issues, "issues": issues, "contract_compiled": contract_compiled}, indent=2, ensure_ascii=False))
+    warnings: list[str] = []
+    if is_diorama_v6_plan(plan) and isinstance(script_doc, dict):
+        from pipeline.data_stamp_overlay import validate_data_stamps
+
+        _, warnings = validate_data_stamps(script_doc, narrations, return_warnings=True)
+    print(
+        json.dumps(
+            {
+                "passed": not issues,
+                "issues": issues,
+                "warnings": warnings,
+                "contract_compiled": contract_compiled,
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
     if issues:
         sys.exit(1)
+
+
+def cmd_chart_preview(args):
+    import json
+    from pipeline.data_stamp_overlay import render_data_stamp_rgba_frame
+
+    p_dir = Path(args.project) if Path(args.project).exists() else (Path(PROJECTS_DIR) / args.project)
+    _, _, script_doc = _load_gate_inputs(p_dir)
+    stamps = script_doc.get("data_stamps") or []
+    out_dir = Path(args.out) if args.out else (p_dir / "05_assembly" / "chart_previews")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    saved: list[str] = []
+    for idx, st in enumerate(stamps, start=1):
+        im = render_data_stamp_rgba_frame(st, t_rel=3.8, total_dur=4.5)
+        out_p = out_dir / f"chart_preview_{idx:02d}.png"
+        im.save(out_p, format="PNG")
+        saved.append(str(out_p))
+    print(json.dumps({"project": str(p_dir), "count": len(saved), "previews": saved}, indent=2, ensure_ascii=False))
 
 
 def cmd_episode_qa(args):
@@ -1712,7 +2324,10 @@ def cmd_episode_qa(args):
     gate1_issues = verify_pre_flow_contract(plan, narrations, clips, script_doc=script_doc)
     if args.compile_only:
         rep = {"passed": not gate1_issues, "gate1_issues": gate1_issues, "clips": len(clips)}
-        print(json.dumps(rep, indent=2, ensure_ascii=False))
+        if getattr(args, "summary", False):
+            print(json.dumps(build_compact_qa_digest(rep, stage="episode-qa"), ensure_ascii=False))
+        else:
+            print(json.dumps(rep, indent=2, ensure_ascii=False))
         if gate1_issues:
             sys.exit(1)
         return
@@ -1720,7 +2335,10 @@ def cmd_episode_qa(args):
     if gate1_issues:
         rep["passed"] = False
         rep["gate1_issues"] = gate1_issues
-    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if getattr(args, "summary", False):
+        print(json.dumps(build_compact_qa_digest(rep, stage="episode-qa"), ensure_ascii=False))
+    else:
+        print(json.dumps(rep, indent=2, ensure_ascii=False))
     if not rep.get("passed"):
         sys.exit(1)
 
@@ -1754,14 +2372,9 @@ def cmd_diorama_assemble(args):
     if run_ph:
         ep_rep = verify_final_mp4_against_contract(p_dir, save_report=True)
         aut_rep = VideoAutopsyEngine.inspect_project(p_dir, save_report=True)
-        ph_ok = bool((res.get("posthoc_qa") or {}).get("passed", True))
-        if ph_ok:
-            from pipeline.config import UNMANNED_QA_SIGNOFF_DEFAULT
-
-            if UNMANNED_QA_SIGNOFF_DEFAULT:
-                from pipeline.posthoc_semantic_qa import auto_signoff_posthoc_semantic_review
-
-                auto_signoff_posthoc_semantic_review(p_dir)
+        ph_summary = res.get("posthoc_qa") or {}
+        ph_ok = bool(ph_summary.get("passed", False))
+        ph_cv_ok = bool(ph_summary.get("cv_passed", ph_ok))
         ep_ok = bool(ep_rep.get("passed"))
         aut_ok = bool(aut_rep.get("passed"))
         res["episode_qa_passed"] = ep_ok
@@ -1773,7 +2386,19 @@ def cmd_diorama_assemble(args):
             res["cover_frame_sec"] = th_doc.get("cover_frame_sec")
         qa_all_ok = ph_ok and ep_ok and aut_ok
         if qa_all_ok:
+            res["status"] = "PASSED"
             sync_project_to_knowledge_base(p_dir)
+        elif ph_cv_ok and ep_ok and aut_ok and not ph_ok:
+            from pipeline.posthoc_semantic_qa import init_posthoc_semantic_review_template
+
+            rev_f = p_dir / "05_assembly" / "posthoc_semantic_review.json"
+            if not rev_f.exists():
+                init_posthoc_semantic_review_template(p_dir, auto_populate_from_cv=False)
+            res["status"] = "REVIEW_PENDING"
+            res["review_file"] = str(rev_f)
+            res["contact_sheets"] = list(ph_summary.get("viewer_sheets") or [])
+            print(json.dumps(res, indent=2, ensure_ascii=False))
+            sys.exit(2)
     print(json.dumps(res, indent=2, ensure_ascii=False))
     if not qa_all_ok:
         sys.exit(1)
@@ -1811,7 +2436,16 @@ def cmd_thumbnail(args):
     summaries = []
     any_failed = False
     for p_dir in targets:
-        rep = thumbnail_studio.run(p_dir, force=bool(args.force), strict=False, mode=mode)
+        rep = thumbnail_studio.run(
+            p_dir,
+            force=bool(args.force or getattr(args, "generate_keyart", False) or getattr(args, "keyart_only", False)),
+            strict=False,
+            mode=mode,
+            generate_keyart=bool(getattr(args, "generate_keyart", False)),
+            keyart_only=bool(getattr(args, "keyart_only", False)),
+            frames_only=bool(getattr(args, "frames_only", False)),
+            cdp_port=int(getattr(args, "cdp_port", 9222) or 9222),
+        )
         if (p_dir / "00_project_manifest.json").exists():
             ProjectStorage.sync_existing_manifest_from_disk(p_dir)
         try:
@@ -1854,7 +2488,7 @@ def cmd_posthoc_qa(args):
         project_id_or_dir=args.project,
         render_strips=not bool(args.no_strips),
         run_asr_sync=not bool(args.no_asr),
-        require_review=bool(args.require_review),
+        require_review=(True if args.require_review else None),
         save_report=True,
         sync_knowledge_base=bool(args.sync_kb),
     )
@@ -1966,38 +2600,6 @@ def cmd_audit_prompts(args):
     print(f"Score sheet: {out} ({len(rows)} projects)")
 
 
-def cmd_voice_check(args):
-    import json
-
-    from pipeline.flow_live_single_worker import analyze_flow_clip_candidate
-    from pipeline.storage import numeric_clip_sort_key
-    from pipeline.voice_consistency import evaluate_f0_series
-
-    p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / args.project)
-    clips_dir = p_dir / "03_visuals" / "flow_native_clips"
-    files = sorted(clips_dir.glob("clip_*.mp4"), key=numeric_clip_sort_key) if clips_dir.exists() else []
-    f0s = [float(analyze_flow_clip_candidate(f).get("f0_median_hz", 0.0)) for f in files]
-    rep = evaluate_f0_series(f0s)
-    aud_dir = p_dir / "04_audio"
-    aud_dir.mkdir(parents=True, exist_ok=True)
-    vr_path = aud_dir / "voice_report.json"
-    if vr_path.exists():
-        try:
-            existing = json.loads(vr_path.read_text(encoding="utf-8"))
-        except Exception:
-            existing = {}
-        existing["native_f0"] = rep
-        vr_path.write_text(json.dumps(existing, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    else:
-        vr_path.write_text(
-            json.dumps({"source": "native", "native_f0": rep, **rep}, indent=2, ensure_ascii=False) + "\n",
-            encoding="utf-8",
-        )
-    print(json.dumps(rep, indent=2))
-    if not rep.get("passed"):
-        sys.exit(1)
-
-
 def cmd_ref_qa(args):
     import json
 
@@ -2013,7 +2615,10 @@ def cmd_ref_qa(args):
         auto_populate_review=bool(getattr(args, "auto_populate_review", False)),
     )
     rep.pop("images", None)
-    print(json.dumps(rep, indent=2, ensure_ascii=False))
+    if getattr(args, "summary", False):
+        print(json.dumps(build_compact_qa_digest(rep, stage="ref-qa"), ensure_ascii=False))
+    else:
+        print(json.dumps(rep, indent=2, ensure_ascii=False))
     if not rep.get("pre_generation_ready"):
         sys.exit(1)
 
@@ -2205,6 +2810,7 @@ def cmd_reenact_refs(args):
 
     p_dir = Path(PROJECTS_DIR) / str(args.project).strip()
     only_ids = {x.strip() for x in str(args.refs).split(",") if x.strip()} or None
+    raw_batch = getattr(args, "batch_count", None)
     res = translate_porcelain_keyframes(
         project_dir=p_dir,
         slug=str(args.slug).strip(),
@@ -2212,10 +2818,10 @@ def cmd_reenact_refs(args):
         only_ref_ids=only_ids,
         force=bool(args.force),
         backend=str(getattr(args, "backend", "flow")),
-        batch_count=int(getattr(args, "batch_count", 4)),
+        batch_count=(int(raw_batch) if raw_batch is not None else None),
     )
     if bool(args.purge_quarantine):
-        res["quarantine_purge"] = purge_reenactment_quarantine()
+        res["quarantine_purge"] = purge_reenactment_quarantine(slug=str(args.slug).strip())
     print(json.dumps(res, indent=2, ensure_ascii=False))
     if res.get("failed_ids"):
         sys.exit(1)
@@ -2229,19 +2835,28 @@ def cmd_porcelain_refs(args):
     p_dir = Path(args.project) if Path(args.project).is_dir() else (Path(PROJECTS_DIR) / str(args.project).strip())
     slug = str(getattr(args, "slug", "") or "").strip()
     d_dir = (Path(DOSSIERS_DIR) / slug) if slug and (Path(DOSSIERS_DIR) / slug).exists() else None
+    from pipeline.diorama_batch_orchestrator import render_keyframe_contact_sheet
+
+    raw_batch = getattr(args, "batch_count", None)
+    raw_refs = str(getattr(args, "refs", "") or "").strip()
+    only_ids = {x.strip() for x in raw_refs.split(",") if x.strip()} or None
     res = ensure_porcelain_reference_pack(
         project_dir=p_dir,
         dossier_dir=d_dir,
         cdp_port=int(args.cdp_port),
         backend=str(getattr(args, "backend", "flow")),
-        batch_count=int(getattr(args, "batch_count", 4)),
+        batch_count=(int(raw_batch) if raw_batch is not None else None),
+        only_ref_ids=only_ids,
         force=bool(args.force),
-        require_review=bool(getattr(args, "require_review", False)),
-        auto_populate_review=bool(getattr(args, "auto_populate_review", False)),
+        require_review=(True if getattr(args, "require_review", False) else None),
+        auto_populate_review=False,
     )
+    sheet_p = render_keyframe_contact_sheet(p_dir)
+    if sheet_p:
+        res["contact_sheet"] = str(sheet_p)
     print(json.dumps(res, indent=2, ensure_ascii=False))
     if not res.get("pre_generation_ready"):
-        sys.exit(1)
+        sys.exit(2 if res.get("cv_pre_generation_ready") else 1)
 
 
 def cmd_reenact_produce(args):
@@ -2271,7 +2886,7 @@ def cmd_reenact_produce(args):
         if not ep_res.get("passed", True):
             sys.exit(1)
         return
-    purge_res = purge_reenactment_quarantine()
+    purge_res = purge_reenactment_quarantine(slug=slug)
     rqa = validate_reenactment_non_infringement(
         project_dir=p_dir,
         dossier_dir=d_dir if d_dir.exists() else None,
@@ -2289,10 +2904,15 @@ def cmd_reenact_qa(args):
 
     from pipeline.source_reenactment import purge_reenactment_quarantine, validate_reenactment_non_infringement
 
-    if bool(args.purge):
-        purge_reenactment_quarantine()
     p_dir = Path(PROJECTS_DIR) / str(args.project).strip()
     slug = str(args.slug).strip()
+    if not slug:
+        vp_p = p_dir / "03_visuals" / "visual_plan.json"
+        if vp_p.exists():
+            vp_doc = json.loads(vp_p.read_text(encoding="utf-8"))
+            slug = str(vp_doc.get("dossier_slug") or vp_doc.get("dossier") or "").strip()
+    if bool(args.purge):
+        purge_reenactment_quarantine(slug=slug or p_dir.name)
     d_dir = (Path(DOSSIERS_DIR) / slug) if slug else None
     rep = validate_reenactment_non_infringement(
         project_dir=p_dir,
@@ -2315,8 +2935,25 @@ def cmd_studio_watchdog(args):
         dry_run=not bool(args.apply),
         apply_pins=not bool(args.no_pins),
         apply_links=not bool(args.no_links),
+        force_immediate_pin=bool(getattr(args, "force_immediate_pin", False)),
     )
     print(json.dumps(rep, indent=2, ensure_ascii=False, default=str))
+
+
+def cmd_qa_scheduler(args):
+    import json
+
+    from pipeline.studio.qa_scheduler import run_qa_scheduler
+
+    rep = run_qa_scheduler(
+        target_date=getattr(args, "date", None),
+        write_outputs=not bool(getattr(args, "no_write", False)),
+    )
+    if getattr(args, "json", False):
+        payload = {k: v for k, v in rep.items() if k != "markdown"}
+        print(json.dumps(payload, indent=2, ensure_ascii=False, default=str))
+    else:
+        print(rep.get("markdown", ""))
 
 
 def cmd_studio_unschedule(args):
@@ -2431,10 +3068,11 @@ def cmd_longform_refs(args):
 
     from pipeline.longform_refs import ensure_longform_reference_pack
 
+    raw_batch = getattr(args, "batch_count", None)
     res = ensure_longform_reference_pack(
         args.project,
         cdp_port=int(args.cdp_port),
-        batch_count=int(args.batch_count),
+        batch_count=(int(raw_batch) if raw_batch is not None else None),
         backend=str(args.backend),
         force=bool(args.force),
     )
@@ -2511,6 +3149,484 @@ def cmd_longform_publish(args):
         upload_cc_srt=bool(args.upload_cc),
     )
     print(json.dumps(rep, indent=2, ensure_ascii=False))
+
+
+def _resolve_cli_project_dir(project_or_path: str) -> Path:
+    from pipeline.config import PROJECTS_DIR
+
+    cand = Path(project_or_path)
+    if cand.is_dir():
+        return cand.resolve()
+    proj = PROJECTS_DIR / str(project_or_path).strip()
+    if proj.is_dir():
+        return proj.resolve()
+    raise FileNotFoundError(f"Project directory not found: {project_or_path}")
+
+
+def cmd_studio_quiz(args):
+    import json
+    from pipeline.studio.community_posts import YouTubeCommunityPostManager
+
+    p_dir = _resolve_cli_project_dir(args.project)
+    mgr = YouTubeCommunityPostManager(cdp_port=int(args.cdp_port))
+    res = mgr.publish_or_schedule_quiz(
+        p_dir,
+        schedule_et=args.schedule,
+        dry_run=bool(args.dry_run),
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_studio_inbox(args):
+    import json
+    from pipeline.studio.comments_inbox import StudioCommentsInboxManager
+
+    mgr = StudioCommentsInboxManager(cdp_port=int(args.cdp_port))
+    if getattr(args, "apply_approved", False):
+        res = mgr.apply_approved_replies(dry_run=bool(args.dry_run))
+    else:
+        res = mgr.scan_unreplied_comments(dry_run=bool(args.dry_run))
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_ig_publish(args):
+    import asyncio
+    import json
+    import os
+    from pipeline.studio.instagram_uploader import (
+        publish_instagram_carousel_graph_api,
+        publish_instagram_reel_graph_api,
+        upload_instagram_carousel_cdp,
+        upload_instagram_reel_cdp,
+        validate_instagram_carousel_slides,
+    )
+
+    p_dir = _resolve_cli_project_dir(args.project)
+    bundle_dir = p_dir / "06_publish" / "multi_platform_bundle"
+    receipt_path = p_dir / "06_publish" / f"instagram_{args.kind}_receipt.json"
+    shot_path = p_dir / "06_publish" / f"instagram_{args.kind}_live_proof.png"
+
+    ig_user_id = os.environ.get("IG_USER_ID", "").strip()
+    ig_token = os.environ.get("IG_ACCESS_TOKEN", "").strip()
+
+    if args.kind == "carousel":
+        slides_dir = bundle_dir / "carousel_4x5"
+        slide_paths = sorted(slides_dir.glob("slide_*.png"))
+        if not slide_paths:
+            raise FileNotFoundError(f"No carousel slides found in {slides_dir}; run `multi-bundle` first.")
+        dims = validate_instagram_carousel_slides(slide_paths)
+        cap_file = bundle_dir / "carousel_caption.txt"
+        if not cap_file.is_file():
+            raise FileNotFoundError(f"Missing carousel caption file: {cap_file}")
+        caption = cap_file.read_text(encoding="utf-8").strip()
+        image_urls = [u.strip() for u in str(args.image_urls or "").split(",") if u.strip()]
+        use_graph = args.engine == "graph-api" or (args.engine == "auto" and bool(ig_user_id and ig_token and image_urls))
+
+        if args.dry_run:
+            res = {
+                "status": "dry_run",
+                "platform": "instagram",
+                "kind": "carousel",
+                "selected_engine": "graph_api" if use_graph else "cdp",
+                "project_id": p_dir.name,
+                "slide_count": len(slide_paths),
+                "validated_dimensions": [f"{w}x{h}" for w, h in dims],
+                "caption_chars": len(caption),
+                "handle": f"@{str(args.handle).lstrip('@')}",
+            }
+            print(json.dumps(res, indent=2, ensure_ascii=False))
+            return
+
+        if use_graph:
+            res = publish_instagram_carousel_graph_api(
+                ig_user_id=ig_user_id,
+                access_token=ig_token,
+                image_urls=image_urls,
+                caption=caption,
+                slide_paths=slide_paths,
+                receipt_path=receipt_path,
+            )
+        else:
+            res = asyncio.run(
+                upload_instagram_carousel_cdp(
+                    slide_paths=slide_paths,
+                    caption=caption,
+                    handle=args.handle,
+                    receipt_path=receipt_path,
+                    live_screenshot_path=shot_path,
+                    cdp_port=int(args.cdp_port),
+                )
+            )
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        return
+
+    # kind == "reel"
+    video_path = bundle_dir / "video_clean.mp4"
+    cover_path = bundle_dir / "cover_9x16.png"
+    cap_file = bundle_dir / "reels_caption.txt"
+    if not video_path.is_file():
+        raise FileNotFoundError(f"Missing Reel clean MP4: {video_path}")
+    if not cover_path.is_file():
+        raise FileNotFoundError(f"Missing Reel 9:16 cover PNG: {cover_path}")
+    if not cap_file.is_file():
+        raise FileNotFoundError(f"Missing Reel caption file: {cap_file}")
+    caption = cap_file.read_text(encoding="utf-8").strip()
+    video_url = str(args.video_url or "").strip()
+    cover_url = str(args.cover_url or "").strip() or None
+    use_graph = args.engine == "graph-api" or (args.engine == "auto" and bool(ig_user_id and ig_token and video_url))
+
+    if args.dry_run:
+        res = {
+            "status": "dry_run",
+            "platform": "instagram",
+            "kind": "reel",
+            "selected_engine": "graph_api" if use_graph else "cdp",
+            "project_id": p_dir.name,
+            "video_path": str(video_path),
+            "cover_path": str(cover_path),
+            "caption_chars": len(caption),
+            "trial_graduation_strategy": args.trial_strategy,
+            "require_trial": bool(args.require_trial),
+            "handle": f"@{str(args.handle).lstrip('@')}",
+        }
+        print(json.dumps(res, indent=2, ensure_ascii=False))
+        return
+
+    if use_graph:
+        res = publish_instagram_reel_graph_api(
+            ig_user_id=ig_user_id,
+            access_token=ig_token,
+            video_url=video_url,
+            caption=caption,
+            cover_url=cover_url,
+            trial_graduation_strategy=args.trial_strategy,
+            require_trial=bool(args.require_trial),
+            receipt_path=receipt_path,
+        )
+    else:
+        res = asyncio.run(
+            upload_instagram_reel_cdp(
+                video_path=video_path,
+                cover_path=cover_path,
+                caption=caption,
+                handle=args.handle,
+                receipt_path=receipt_path,
+                live_screenshot_path=shot_path,
+                cdp_port=int(args.cdp_port),
+            )
+        )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_tiktok_publish(args):
+    import asyncio
+    import json
+    from pipeline.studio.tiktok_uploader import upload_tiktok_video_cdp
+
+    p_dir = _resolve_cli_project_dir(args.project)
+    bundle_dir = p_dir / "06_publish" / "multi_platform_bundle"
+    video_path = bundle_dir / "video_clean.mp4"
+    cover_path = bundle_dir / "cover_9x16.png"
+    cap_file = bundle_dir / "tiktok_caption.txt"
+    if not cap_file.is_file():
+        raise FileNotFoundError(f"Missing TikTok caption file: {cap_file}; run `multi-bundle` first.")
+    caption = cap_file.read_text(encoding="utf-8").strip()
+
+    res = asyncio.run(
+        upload_tiktok_video_cdp(
+            video_path=video_path,
+            cover_path=cover_path,
+            caption=caption,
+            handle=args.handle,
+            schedule_at_utc=args.schedule_utc,
+            dry_run=bool(args.dry_run),
+            receipt_path=p_dir / "06_publish" / "tiktok_upload_receipt.json",
+            live_screenshot_path=p_dir / "06_publish" / "tiktok_live_proof.png",
+            cdp_port=int(args.cdp_port),
+        )
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_tiktok_pin_profile(args):
+    import asyncio
+    import json
+    from pipeline.studio.tiktok_uploader import sync_tiktok_pinned_videos_cdp
+
+    vids = [v.strip() for v in str(args.video_ids or "").split(",") if v.strip()]
+    res = asyncio.run(
+        sync_tiktok_pinned_videos_cdp(
+            vids,
+            handle=args.handle,
+            dry_run=bool(args.dry_run),
+            cdp_port=int(args.cdp_port),
+        )
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+
+
+def cmd_brain_sim(args):
+    import json
+    from pipeline.brain_simulator_blender import render_project_brain_simulator_clips_parallel
+
+    p_dir = _resolve_cli_project_dir(args.project)
+    edl_frame_map: dict[int, int] | None = None
+    lock_path = p_dir / "05_assembly" / "edl_timing_lock.json"
+    if lock_path.is_file():
+        try:
+            lock_doc = json.loads(lock_path.read_text(encoding="utf-8"))
+            raw_map = lock_doc.get("edl_frame_map")
+            if isinstance(raw_map, dict):
+                edl_frame_map = {int(k): int(v) for k, v in raw_map.items()}
+        except Exception:  # noqa: BLE001
+            edl_frame_map = None
+
+    res = render_project_brain_simulator_clips_parallel(
+        p_dir,
+        edl_frame_map=edl_frame_map,
+        cpu_budget=args.cpu_budget,
+        overlapped=bool(args.overlapped),
+        threads_per_worker=4,
+        force=bool(args.force),
+    )
+    print(json.dumps(res, indent=2, ensure_ascii=False))
+    if not res.get("all_passed", True):
+        sys.exit(1)
+
+
+def cmd_hw_bench(args):
+    import hashlib
+    import json
+    import os
+    import shutil
+    import time
+    from pipeline.brain_simulator_blender import (
+        is_brain_simulator_clip_spec,
+        render_project_brain_simulator_clips_parallel,
+    )
+    from pipeline.config import PROJECTS_DIR
+    from pipeline.hardware_profile import (
+        detect_host_hardware,
+        resolve_blender_parallel_plan,
+        resolve_cpu_budget,
+    )
+    from pipeline.media_cache import atomic_commit_from_scratch, get_ram_scratch_root
+
+    t_bench0 = time.monotonic()
+    hw = detect_host_hardware()
+    shm_root = get_ram_scratch_root()
+    bench_id = f"bench_{int(time.time())}_{os.getpid()}"
+    bench_dir = shm_root / bench_id
+    tmp_ext_dir = Path(f"/tmp/aab_{bench_id}")
+    bench_dir.mkdir(parents=True, exist_ok=True)
+    tmp_ext_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        # 1. Sequential scratch I/O throughput (/dev/shm tmpfs vs /tmp ext4, 128 MiB)
+        buf_bytes = os.urandom(4 * 1024 * 1024) * 32  # 128 MiB
+        buf_mb = len(buf_bytes) / (1024.0 * 1024.0)
+
+        shm_io_p = bench_dir / "io_probe.bin"
+        t0 = time.perf_counter()
+        shm_io_p.write_bytes(buf_bytes)
+        shm_w_s = max(1e-6, time.perf_counter() - t0)
+        t0 = time.perf_counter()
+        _ = shm_io_p.read_bytes()
+        shm_r_s = max(1e-6, time.perf_counter() - t0)
+        shm_io_p.unlink(missing_ok=True)
+
+        tmp_io_p = tmp_ext_dir / "io_probe.bin"
+        t0 = time.perf_counter()
+        tmp_io_p.write_bytes(buf_bytes)
+        tmp_w_s = max(1e-6, time.perf_counter() - t0)
+        t0 = time.perf_counter()
+        _ = tmp_io_p.read_bytes()
+        tmp_r_s = max(1e-6, time.perf_counter() - t0)
+        tmp_io_p.unlink(missing_ok=True)
+
+        # 2. Guard 1: Cross-device EXDEV-safe atomic_commit_from_scratch (/dev/shm -> /tmp)
+        commit_payload = os.urandom(2 * 1024 * 1024)
+        expected_sha = hashlib.sha256(commit_payload).hexdigest()
+        src_commit = bench_dir / "commit_src.mp4"
+        dst_commit = tmp_ext_dir / "commit_dst.mp4"
+        src_commit.write_bytes(commit_payload)
+        cross_dev = os.stat(bench_dir).st_dev != os.stat(tmp_ext_dir).st_dev
+        t0 = time.perf_counter()
+        atomic_commit_from_scratch(src_commit, dst_commit)
+        commit_ms = round((time.perf_counter() - t0) * 1000.0, 3)
+        actual_sha = hashlib.sha256(dst_commit.read_bytes()).hexdigest()
+        temp_leftovers = [p.name for p in tmp_ext_dir.glob(".tmp_*")]
+
+        # 3. Read-only R76 clip spec extraction (NEVER writes to reference project)
+        n_clips = max(1, min(8, int(args.clips)))
+        n_frames = max(60, int(args.frames))
+        ref_project_id = str(args.project or "").strip()
+        ref_vp_path = next(
+            (
+                p
+                for p in (
+                    Path(PROJECTS_DIR) / ref_project_id / "03_visuals" / "visual_plan.json",
+                    Path(PROJECTS_DIR) / ref_project_id / "02_script" / "visual_plan.json",
+                )
+                if ref_project_id and p.is_file()
+            ),
+            None,
+        )
+        from pipeline.config import EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES
+
+        sim_specs: list[dict] = []
+        if ref_vp_path is not None:
+            ref_vp = json.loads(ref_vp_path.read_text(encoding="utf-8"))
+            ref_sim_dir = ref_vp_path.parent.parent / "03_visuals" / "brain_simulator_clips"
+            for idx_ref, c_item in enumerate(ref_vp.get("clips") or [], start=1):
+                if (
+                    isinstance(c_item, dict)
+                    and is_brain_simulator_clip_spec(c_item)
+                    and str(c_item.get("camera_move") or "") in EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES
+                ):
+                    c_num_ref = int(c_item.get("clip_number") or c_item.get("id") or idx_ref)
+                    ref_qa_p = ref_sim_dir / f"clip_{c_num_ref}_sim_qa.json"
+                    if ref_qa_p.is_file():
+                        try:
+                            if not bool(json.loads(ref_qa_p.read_text(encoding="utf-8")).get("passed")):
+                                continue
+                        except Exception:  # noqa: BLE001
+                            continue
+                    else:
+                        continue
+                    sim_specs.append(dict(c_item))
+                    if len(sim_specs) >= n_clips:
+                        break
+        fallback_Presets = (
+            ("sensory_to_brain_drone", "eyes", "primary visual cortex", "active"),
+            ("circuit_cooperation_drone", "primary visual cortex", "fusiform face area", "active"),
+            ("circuit_cooperation_drone", "fusiform face area", "amygdala", "severed"),
+            ("global_system_orbit_drone", "amygdala", "prefrontal cortex", "silenced"),
+        )
+        while len(sim_specs) < n_clips:
+            cam_m, s_reg, e_reg, n_st = fallback_Presets[len(sim_specs) % len(fallback_Presets)]
+            sim_specs.append(
+                {
+                    "grammar": "brain_simulator_3d",
+                    "render_engine": "blender_3d_simulator",
+                    "camera_move": cam_m,
+                    "start_brain_region": s_reg,
+                    "end_brain_region": e_reg,
+                    "brain_region": e_reg,
+                    "neural_state": n_st,
+                }
+            )
+
+        bench_clips_payload = []
+        bench_fmap: dict[int, int] = {}
+        for idx_b, raw_sp in enumerate(sim_specs[:n_clips], start=1):
+            sp_clean = dict(raw_sp)
+            sp_clean["clip_number"] = idx_b
+            sp_clean["id"] = idx_b
+            sp_clean["duration_sec"] = round(n_frames / 30.0, 4)
+            bench_clips_payload.append(sp_clean)
+            bench_fmap[idx_b] = n_frames
+
+        vp_bench = {
+            "schema": 8,
+            "style_profile": "expressive_25d_v8",
+            "fps": 30,
+            "width": 1080,
+            "height": 1920,
+            "clips": bench_clips_payload,
+        }
+
+        proj_1x2 = bench_dir / "proj_1x2"
+        proj_4x2 = bench_dir / "proj_4x2"
+        for p_b in (proj_1x2, proj_4x2):
+            (p_b / "02_script").mkdir(parents=True, exist_ok=True)
+            (p_b / "02_script" / "visual_plan.json").write_text(
+                json.dumps(vp_bench, indent=2), encoding="utf-8"
+            )
+
+        res_1x2 = render_project_brain_simulator_clips_parallel(
+            proj_1x2,
+            edl_frame_map=bench_fmap,
+            cpu_budget=2,
+            overlapped=False,
+            threads_per_worker=2,
+            force=True,
+        )
+        res_4x2 = render_project_brain_simulator_clips_parallel(
+            proj_4x2,
+            edl_frame_map=bench_fmap,
+            cpu_budget=8,
+            overlapped=False,
+            threads_per_worker=2,
+            force=True,
+        )
+        res_cache = render_project_brain_simulator_clips_parallel(
+            proj_4x2,
+            edl_frame_map=bench_fmap,
+            cpu_budget=8,
+            overlapped=False,
+            threads_per_worker=2,
+            force=False,
+        )
+
+        speedup = round(
+            float(res_1x2["elapsed_sec"]) / max(0.001, float(res_4x2["elapsed_sec"])),
+            2,
+        )
+        report = {
+            "benchmark": "c3d-highmem-8_workstream_b_hw_bench",
+            "isolated_scratch_dir": str(bench_dir),
+            "reference_project_read_only": ref_project_id if ref_vp_path else "synthetic_r76",
+            "hardware": {
+                **hw,
+                "active_ram_scratch_root": str(shm_root),
+                "cpu_budget_standalone": resolve_cpu_budget(overlapped=False),
+                "cpu_budget_overlapped": resolve_cpu_budget(overlapped=True),
+                "blender_plan_standalone_8vcpu": list(resolve_blender_parallel_plan(8, overlapped=False)),
+                "blender_plan_overlapped_6vcpu": list(resolve_blender_parallel_plan(6, overlapped=True)),
+            },
+            "scratch_io_128mib": {
+                "shm_write_mb_s": round(buf_mb / shm_w_s, 1),
+                "shm_read_mb_s": round(buf_mb / shm_r_s, 1),
+                "tmp_write_mb_s": round(buf_mb / tmp_w_s, 1),
+                "tmp_read_mb_s": round(buf_mb / tmp_r_s, 1),
+            },
+            "guard1_atomic_commit": {
+                "cross_device_tmpfs_to_ext4": bool(cross_dev),
+                "sha256_verified": actual_sha == expected_sha,
+                "src_cleaned": not src_commit.exists(),
+                "zero_temp_leftovers": len(temp_leftovers) == 0,
+                "commit_2mib_ms": commit_ms,
+            },
+            "blender_parallel_1080x1920_30fps": {
+                "clip_count": n_clips,
+                "frames_per_clip": n_frames,
+                "single_worker_1x2": {
+                    "n_workers": res_1x2["n_workers"],
+                    "threads_per_worker": res_1x2["threads_per_worker"],
+                    "elapsed_sec": res_1x2["elapsed_sec"],
+                    "all_passed": res_1x2["all_passed"],
+                },
+                "parallel_workers_4x2": {
+                    "n_workers": res_4x2["n_workers"],
+                    "threads_per_worker": res_4x2["threads_per_worker"],
+                    "elapsed_sec": res_4x2["elapsed_sec"],
+                    "all_passed": res_4x2["all_passed"],
+                },
+                "sha256_cache_skip_rerun": {
+                    "elapsed_sec": res_cache["elapsed_sec"],
+                    "cache_hits": res_cache["cache_hits"],
+                    "rendered_count": res_cache["rendered_count"],
+                    "all_passed": res_cache["all_passed"],
+                },
+                "speedup_4x2_vs_1x2": speedup,
+            },
+            "total_bench_elapsed_sec": round(time.monotonic() - t_bench0, 2),
+        }
+        print(json.dumps(report, indent=2, ensure_ascii=False))
+    finally:
+        shutil.rmtree(bench_dir, ignore_errors=True)
+        shutil.rmtree(tmp_ext_dir, ignore_errors=True)
 
 
 if __name__ == "__main__":

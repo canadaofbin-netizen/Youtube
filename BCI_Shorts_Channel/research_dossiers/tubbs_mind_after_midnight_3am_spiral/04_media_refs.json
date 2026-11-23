@@ -1,0 +1,80 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern neuroimaging/sleep-lab topic staged from R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "UF neuroscientists develop map of human brain’s sleep-wake states",
+      "url": "https://www.youtube.com/watch?v=sp79Phj_diY",
+      "channel": "UF Health",
+      "source_id": "SRC_M1",
+      "duration_sec": 115,
+      "timecodes": [
+        {
+          "t": "00:08-00:22",
+          "what": "Neuroscience mapping of human sleep-wake transition states across night hours paralleling Tubbs et al. (2022)."
+        },
+        {
+          "t": "00:24-00:46",
+          "what": "Brain network visualization contrasting regulated daytime wakefulness against nocturnal sleep-wake dysregulation."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (10 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 10,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (10 frames sampled across 00:05-00:50) from UF Health's \"UF neuroscientists develop map of human brain’s sleep-wake states\".",
+          "Analyzed strictly for apparatus layout, lighting contrast, and pacing; zero video frames or audio reused in channel productions."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.625,wps=0.0)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 10,
+        "median_dark_ratio": 0.1979,
+        "median_gray_sat_ratio": 0.2049,
+        "median_p90_sat": 152.5,
+        "max_p90_sat": 204.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.4125,
+        "median_motion_diff": 73.699,
+        "talking_head_ratio": 0.625,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The 2-Process Model of Sleep",
+      "url": "https://www.youtube.com/watch?v=k9iafVwln2Y",
+      "channel": "The BioClock Studio",
+      "source_id": "SRC_M2",
+      "duration_sec": 296,
+      "timecodes": [
+        {
+          "t": "00:10-00:26",
+          "what": "24-hour circadian pacemaker curve versus homeostatic sleep pressure crossing the 2:00-4:00 AM biological night trough."
+        },
+        {
+          "t": "00:28-00:48",
+          "what": "Illustration of circadian misalignment during nocturnal wakefulness eroding mood and executive control."
+        }
+      ],
+      "license_note": "Complementary video reference logged for visual blocking context only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "no_verified_archival_or_experiment_footage_for_track_a",
+      "reenactment_suitability_metrics": {
+        "duration_sec": 296.0
+      }
+    }
+  ]
+}

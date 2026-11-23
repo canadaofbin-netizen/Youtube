@@ -1,0 +1,29 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "region": "brainstem",
+      "plain": "autopilot",
+      "function": "Generates ascending noradrenergic arousal pulses (locus coeruleus) that widen pupils even in pitch darkness.",
+      "narration_bridge": "Deep inside the brainstem, a tiny autopilot hub sends micro wake-like pulses up every minute, pulling your hidden pupils wide even behind closed eyelids."
+    },
+    {
+      "region": "thalamus",
+      "plain": "relay station",
+      "function": "Generates 12-16 Hz sleep spindles that block external sounds from disturbing cortex when brainstem tone drops.",
+      "narration_bridge": "When pupils shrink right before sleep spindles, the thalamus relay station slams shut against bedroom sounds like 45-decibel noise bursts."
+    },
+    {
+      "region": "prefrontal cortex",
+      "plain": "spot behind the forehead",
+      "function": "Registers 30-45 Hz arousal slope shifts and slow-wave synchronization tracked by Fpz scalp electrodes.",
+      "narration_bridge": "Front sensors sitting right over the spot behind the forehead moved in lockstep with pupil width as infraslow waves washed over the cortex."
+    },
+    {
+      "region": "auditory cortex",
+      "plain": "hearing center",
+      "function": "Responds differently to gentle 45 dB pink-noise pulses depending on whether baseline brainstem pupil tone is calm or dilated.",
+      "narration_bridge": "Only when baseline pupils sat quiet could soft tones push through the hearing center to strengthen restorative sleep rhythms."
+    }
+  ]
+}

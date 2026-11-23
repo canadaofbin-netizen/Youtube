@@ -1,0 +1,41 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "setup",
+      "region": "temporal lobe",
+      "plain": "side lobe meaning store",
+      "function": "activating the person's face, job, and life story cleanly even while the spoken name stalls",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why you know everything about the person during a tip-of-the-tongue freeze (SRC1, SRC4).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "Broca's area",
+      "plain": "speech center",
+      "function": "failing to receive enough sound-pattern signal across the weakened lexical-to-phonological bridge",
+      "scene_id": "S1",
+      "narration_bridge": "Shows the speech sound builder starving for the final syllables (SRC1, SRC4).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "crisis",
+      "region": "anterior cingulate cortex",
+      "plain": "conflict detector",
+      "function": "firing an intense conflict alarm signaling 'I definitely know this name!' while wrong blocker names crowd the exit",
+      "scene_id": "S2",
+      "narration_bridge": "Matches Maril, Wagner & Schacter's 2001 Neuron fMRI tip-of-the-tongue signature (SRC5).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "insula",
+      "plain": "body-feeling center",
+      "function": "coordinating articulatory sound assembly with left frontal-temporal white-matter tracts once the name is spoken aloud",
+      "scene_id": "S3",
+      "narration_bridge": "Completes phonological retrieval and vocal articulation recovery (SRC4, SRC6).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

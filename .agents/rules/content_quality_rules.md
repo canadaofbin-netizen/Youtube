@@ -1,19 +1,17 @@
-# Content Quality & Narrative Rules (`R1–R3`, `R15`, `R24`, `R26`, `R42`, `R49-T`)
+---
+trigger: model_decision
+description: "Load when writing or fact-checking episode scripts, verifying single-study DOI & species accuracy, or checking plain conversational US English readability and TTS normalization (R1, R3, R15, R49-T, R73)."
+---
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Active v7 Spine: [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md) (`R57`, `R57-H2`) | Code: [`pipeline/flow_prompt_builder.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/flow_prompt_builder.py), [`pipeline/plain_language.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/plain_language.py)
+# Content Quality & Narrative Rules (`R1`, `R3`, `R15`, `R49-T`, `R73`)
 
-## R1 — Fact Accuracy, Verified DOI & Single-Case Lock
-- **Verified DOI**: >=1 peer-reviewed paper (`Nature`, `Science`, `Cell`, `NEJM`, `Lancet`, `Neuron`, `Brain`, `JAMA`, `Proc. R. Soc. B`, PubMed) verified via `verify_doi` in `01_sources.json` (`R44`), `research_card.json`, and `06_publish/metadata.json`.
-- **Single-Case Purity**: 1 video = 1 case + 1 cast + 1 primary experiment. Never blend distinct patients/papers; cast roles/genders/era and all statistics MUST match the source (`check_narration_facts`).
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | US Narration Spec: [real_world_drone_refs_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/real_world_drone_refs_rules.md) (`R73`) | Retired (`R2, R2-B, R24, R26, R42`): [retired_rules_2026-11-18.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/_archive/retired_rules_2026-11-18.md)
 
-## R3, R15 & R49-T — Pathway Alignment, Plain US English & TTS Safety
-- **R3 Signal Spine**: Narration traces the exact `visual_plan.signal_path` (`organ -> nerve -> region -> target`), glossing every brain structure in plain words on first mention (`05_plain_language.json`); zero mechanical metaphors (`R38`).
-- **R15 / R15 v5 Readability (`validate_production_v5`)**: Conversational US English (`DIORAMA_V7_MAX_FK_GRADE` on v7; `<= READABILITY_SCRIPT_FK_MAX` / `READABILITY_CLIP_FK_MAX` on v5), zero 1st-person (`I/we/my/our`), `>= SECOND_PERSON_CLIPS_MIN` `"you/your"` viewer link, `<= JARGON_TERMS_MAX` non-anatomy jargon, `<= MAX_ANATOMY_TERMS_BY_MODE[mode]` region names, zero `"Step one/two/three"`, zero academic paper/seminar clichés (`DIORAMA_BANNED_AI_CLICHES`, `DIORAMA_BANNED_SEMINAR_TRANSITIONS`).
-- **R49-T TTS-Safe Text**: Classic `clip_narrations` spell out numbers/years with zero digits, zero `! ? — – ; ( ) % & /`, and zero dotted abbreviations (`Dr.`, `U.S.`); `to_tts_text` normalizes speech while `to_display_text` restores compact numerals for subtitles. (For Schema v7 punctuation/prosody rules `R57-H2` / `R63-P`, see [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md).)
+## R1 — Fact Accuracy, Verified DOI & Species Fidelity (`Tier-1 #1`)
+- **Verified DOI & Exact Numbers**: Every episode is anchored to verified peer-reviewed DOI(s) in `01_sources.json` (`verify_doi`); spoken claims, charts, and captions must match exact source statistics (`check_narration_facts`, e.g. never round `99.2%` or conflate `29%` vs `30%`).
+- **Species Precision**: Never refer to animal-study cohorts (`mice`, `rats`, `macaques`) as human `"subjects"` or `"patients"`; state the exact species in spoken lines, chart titles (`(Mice)`), and `R35` pinned comment notes when human + animal papers are paired.
 
-## R2, R2-B, R24, R26 & R42 — Classic v4/v5 Role Spine & Word Budget
-- **R2 Budget**: `CLIP_COUNT_MIN..CLIP_COUNT_MAX` (default `DEFAULT_CLIP_COUNT`), `CLIP_WORDS_MIN..CLIP_WORDS_MAX` words/clip, `script_word_range(n)` (`SCRIPT_WORD_MIN..SCRIPT_WORD_MAX`), `<= MAX_WORDS_PER_SENTENCE`, `compute_clip_target_duration` (`<= FLOW_CLIP_SAFE_MAX_SYLLABLES`), total `<= FINAL_SHORTS_DURATION_MAX_SEC` (Shorts target `~90s`, hard ceiling `<= SHORTS_HARD_CEILING_SEC`).
-- **R42 Role Spine (`CLIP_ROLE_SEQUENCES`, narration at frame 0)**: `setup` (iconic cold open `1..ICONIC_SCENE_MAX_CLIP`) -> `symptom` -> `failure` -> `crisis` -> `pivot` -> `mechanism` / `step1..3` -> `breakthrough` -> `conclusion`.
-- **R26 Openers**: `pivot` contains `"Instead of"`; `mechanism`/`step1..3` open with `"First,"` / `"Next,"` / `"Then,"` / `"From there,"` / `"Finally,"` / `"Here is how it works"`; `conclusion` opens with `"Which proves"` or `"Which is why"`.
-- **R24 Signature Memes**: `#1` `"For your/his/her brain, this is/was a total nightmare."` (`symptom`/`crisis`); `#2` `"The researchers were left completely stunned."` (`breakthrough`, or `mechanism`/`conclusion` if no breakthrough).
-- **R2-B Archetypes (`ALLOWED_NARRATIVE_STYLES`)**: `case_file`, `delusion_museum`, `forbidden_lab`, `icon_autopsy`, `caveman_brain`, `chronicle_cutaway` (`PILLAR_DEFAULT_STYLE_MAP`).
+## R3, R15, R49-T & R73 — Pathway Spine, Conversational US English & TTS Safety
+- **R3 Signal Spine**: Narration traces a clear causal biological mechanism (`stimulus -> brain hub/pathway -> behavioral outcome`) aligned 1:1 with `visual_plan`.
+- **R15 & R73 Readability (`Tier-2 Advisory` Metrics, `Tier-1` Anti-Cliché)**: Natural US English, zero 1st-person (`I/we`), zero academic seminar transitions or AI clichés (`DIORAMA_BANNED_AI_CLICHES`, `EXPRESSIVE_V8_BANNED_AI_CLICHES`). Numeric targets (`FK <= 6.5`, `<= 22` words/sentence, `<= 2` plain-first glossed neuro terms) are **Tier-2 Advisories** (`advisories` list, non-blocking).
+- **R49-T TTS Normalization**: `to_expressive_tts_text` / `to_tts_text` ensures clean ElevenLabs `v4` pronunciation while `to_display_text` renders crisp numerals in ASS subtitles.

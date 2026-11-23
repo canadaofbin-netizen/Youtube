@@ -1,21 +1,161 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "scangos_closed_loop_depression_dbs",
   "topic": "Scangos, Chang & Krystal (2021): Closed-Loop Amygdala-Guided Brain Pacemaker for Severe Depression",
   "pillar": "brain_news",
-  "created_at": "2026-11-02T11:15:48+00:00",
-  "status": "draft",
+  "everyday_domain": "anxiety",
   "visual_mode": "NEURO_BIOLOGY",
-  "visual_mode_reason": "",
+  "visual_mode_reason": "Stages the 2021 UCSF 10-day intracranial stereo-EEG mapping suite and Responsive Neurostimulation (RNS) closed-loop implant with a Contained Living 4-Color 3D Brain cutaway of amygdala gamma bursts triggering 6-second ventral capsule/ventral striatum pulses.",
+  "primary_doi": "10.1038/s41591-021-01480-w",
   "primary_case": {
-    "title": "",
-    "year": null,
-    "place": "",
-    "people": []
+    "year": 2021,
+    "place": "UCSF Weill Institute for Neurosciences, University of California, San Francisco",
+    "summary": "Katherine Scangos, Edward Chang, Andrew Krystal, and colleagues (Nature Medicine, Oct 2021) mapped a 36-year-old woman ('Sarah') with severe treatment-resistant depression using 10 days of multi-site intracranial stereo-EEG, discovering a right-amygdala gamma biomarker that predicted symptom spikes with 87% accuracy and triggered a closed-loop ventral striatum pacemaker (~300 six-second pulses/day) that dropped her MADRS depression score from 36 to 10!",
+    "people": [
+      {
+        "name": "Katherine W. Scangos, Edward F. Chang & Andrew D. Krystal",
+        "role": "UCSF psychiatrists and neurosurgeons (Nature Medicine, Jan & Oct 2021)",
+        "bio": "Performed 10-day personalized intracranial circuit mapping and implanted the first biomarker-driven closed-loop RNS brain pacemaker for severe treatment-resistant depression."
+      },
+      {
+        "name": "Patient 'Sarah' (36-year-old participant with severe treatment-resistant depression)",
+        "role": "First-in-human closed-loop depression neuromodulation recipient at UCSF",
+        "bio": "After failing 20+ medications, ECT, and TMS, experienced rapid, sustained remission (MADRS 36 -> 10) when amygdala gamma bursts triggered automatic 6-second VC/VS pulses."
+      }
+    ]
   },
-  "core_facts": [],
-  "wow_facts": [],
-  "misconceptions": [],
-  "everyday_hooks": [],
-  "linked_projects": []
+  "people": [
+    {
+      "name": "Katherine W. Scangos, Edward F. Chang & Andrew D. Krystal",
+      "role": "UCSF psychiatrists and neurosurgeons (Nature Medicine, Jan & Oct 2021)",
+      "bio": "Performed 10-day personalized intracranial circuit mapping and implanted the first biomarker-driven closed-loop RNS brain pacemaker for severe treatment-resistant depression."
+    },
+    {
+      "name": "Patient 'Sarah' (36-year-old participant with severe treatment-resistant depression)",
+      "role": "First-in-human closed-loop depression neuromodulation recipient at UCSF",
+      "bio": "After failing 20+ medications, ECT, and TMS, experienced rapid, sustained remission (MADRS 36 -> 10) when amygdala gamma bursts triggered automatic 6-second VC/VS pulses."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "People assume severe depression is just a uniform 'low serotonin soup' that should respond to the same constant pill or continuous brain stimulation 24 hours a day.",
+    "psychology_experiment": {
+      "source_id": "SRC2",
+      "doi": "10.1038/s41591-020-01175-8",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1038/s41591-020-01175-8"
+      ],
+      "summary": "K. W. Scangos, G. S. Makhoul, L. P. Sugrue, E. F. Chang, A. D. Krystal (2021). State-dependent responses to intracranial brain stimulation in a patient with depression. Nature Medicine."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1038/s41591-021-01480-w",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/s41591-021-01480-w"
+      ],
+      "summary": "K. W. Scangos, A. N. Khambhati, P. M. Daly, G. S. Makhoul, L. P. Sugrue, H. Mao, T. X. Lin, M. B.amo, E. F. Chang, A. D. Krystal (2021). Closed-loop neuromodulation in an individual with treatment-resistant depression. Nature Medicine."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "People assume severe depression is just a uniform 'low serotonin soup' that should respond to the same constant pill or continuous brain stimulation 24 hours a day.",
+    "open_verdict_question": "If medications failed, would you trust a closed-loop brain pacemaker that zaps depressive spikes in 6 seconds or refuse any neural implant?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "core_facts": [
+    {
+      "fact": "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracranial stereo-EEG mapping in a 36-year-old woman with severe treatment-resistant depression identified bilateral amygdala high-frequency gamma power (30–110 Hz) as a personalized neural biomarker that classified high vs low symptom severity with 87 percent cross-validated accuracy.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Amygdala Biomarker Accuracy",
+        "percent": 87.0,
+        "unit": "%",
+        "doi": "10.1038/s41591-021-01480-w",
+        "source_citation": "Scangos et al. (2021)"
+      }
+    },
+    {
+      "fact": "Delivering brief 6-second bursts of 100 Hz, 1 mA electrical stimulation to the right ventral capsule/ventral striatum (VC/VS) exclusively when right amygdala gamma power crossed threshold suppressed pathologically elevated amygdala gamma activity and acutely relieved depressive distress without conscious paresthesia.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The implanted NeuroPace RNS closed-loop device delivered approximately 300 six-second stimulation bursts per day (totalling roughly 30 minutes of daily stimulation, capped to stop before 8:00 p.m. to protect sleep) rather than 24-hour continuous open-loop stimulation.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The patient's Montgomery-Åsberg Depression Rating Scale (MADRS) score dropped from 36 out of 54 at pre-surgical baseline to 14 within 12 days of closed-loop activation and achieved clinical remission at 10 (a 72 percent reduction) sustained across 15 months of follow-up.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "MADRS Depression Score Drop",
+        "unit": "pts",
+        "series": [
+          {
+            "start_label": "Pre-Op Baseline",
+            "label": "Remission Score",
+            "values": [
+              36.0,
+              10.0
+            ],
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1038/s41591-021-01480-w",
+        "source_citation": "Scangos et al. (2021)"
+      }
+    },
+    {
+      "fact": "Daily visual-analog depression severity ratings (VAS-D) fell from 77 out of 100 before closed-loop therapy to 16 out of 100 after activation, with daily detections correlating strongly (r = 0.68) with naturalistic emotional stress.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Scangos et al. (Jan 2021 Nature Medicine), identical intracranial stimulation parameters produced opposite mood effects depending on whether the patient's baseline brain network was in a low-arousal vs hyper-aroused state, explaining why fixed continuous DBS trials like Holtzheimer et al. (2017 Lancet Psychiatry) struggled.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Effective white-matter tractography and evoked potential mapping proved that right amygdala and right VC/VS formed a tightly coupled structural-functional subnetwork with a 25–40 ms directional signal latency.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Alagapan et al. (2023 Nature) further demonstrated in a 10-patient cohort that intracranial electrophysiological biomarkers can predict clinical relapse weeks before behavioral depression scores worsen.",
+      "source_id": "SRC5"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracranial stereo-EEG mapping in a 36-year-old woman with severe treatment-resistant depression identified bilateral amygdala high-frequency gamma power (30–110 Hz) as a personalized neural biomarker that classified high vs low symptom severity with 87 percent cross-validated accuracy.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Delivering brief 6-second bursts of 100 Hz, 1 mA electrical stimulation to the right ventral capsule/ventral striatum (VC/VS) exclusively when right amygdala gamma power crossed threshold suppressed pathologically elevated amygdala gamma activity and acutely relieved depressive distress without conscious paresthesia.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The implanted NeuroPace RNS closed-loop device delivered approximately 300 six-second stimulation bursts per day (totalling roughly 30 minutes of daily stimulation, capped to stop before 8:00 p.m. to protect sleep) rather than 24-hour continuous open-loop stimulation.",
+      "source_id": "SRC1"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "People assume severe depression is just a uniform 'low serotonin soup' that should respond to the same constant pill or continuous brain stimulation 24 hours a day.",
+      "reality": "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracranial stereo-EEG mapping in a 36-year-old woman with severe treatment-resistant depression identified bilateral amygdala high-frequency gamma power (30–110 Hz) as a personalized neural biomarker that classified high vs low symptom severity with 87 percent cross-validated accuracy.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "People assume severe depression is just a uniform 'low serotonin soup' that should respond to the same constant pill or continuous brain stimulation 24 hours a day.",
+    "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracranial stereo-EEG map",
+    "The implanted NeuroPace RNS closed-loop device delivered approximately 300 six-second stimulation bursts per day (totall"
+  ],
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B1_porcelain_anchor_pack"
 }

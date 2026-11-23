@@ -1,0 +1,1540 @@
+{
+  "schema_version": 8,
+  "visual_mode": "HYBRID",
+  "style_profile": "expressive_25d_v8",
+  "aspect": "9:16",
+  "dossier": "scullin_bedtime_todo_list_sleep",
+  "total_reference_images": 26,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire; foil in 2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire.",
+  "generation_order": "1 pre-verified expressive_25d_v8 species/cameo/brain/conflict masters -> 2 18-character cast sheets -> 3 optional daisy-chain clip keyframes",
+  "master_anchors": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "ref_loc_virginia_sleep_bedroom_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP01",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "ref_loc_virginia_sleep_bedroom_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_home_night_bedroom_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP02",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "ref_loc_home_night_bedroom_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of quiet dark bedroom pillow lit by cool blue moonlight through sheer curtains with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_baylor_sleep_lab_9x16",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP03",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "ref_loc_baylor_sleep_lab_9x16.png",
+      "title": "Clip 08 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warmly lit Baylor University sleep suite with an unmarked cream paper notepad and wooden pen with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_watchman_lantern_battlement_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP04",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "filename": "ref_loc_watchman_lantern_battlement_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_living_room_sofa_9x16",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP05",
+      "setting": "real_env",
+      "location_id": "living_room_sofa",
+      "filename": "ref_loc_living_room_sofa_9x16.png",
+      "title": "Clip 17 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm evening living room with a plush oatmeal sofa, knit throw blanket, and soft floor lamp with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_01_virginia_sleep_bedro_pv_start_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_01_virginia_sleep_bedro_pv_start_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones staging places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a tired volunteer in navy pajamas lying on the bed",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_01_virginia_sleep_bedro_pv_end_9x16",
+      "clip_number": 1,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_01_virginia_sleep_bedro_pv_end_9x16.png",
+      "title": "Clip 01 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones staging places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a tired volunteer in navy pajamas lying on the bed",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_virginia_sleep_bedro_pv_start_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_04_virginia_sleep_bedro_pv_start_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow staging pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_virginia_sleep_bedro_pv_end_9x16",
+      "clip_number": 4,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_04_virginia_sleep_bedro_pv_end_9x16.png",
+      "title": "Clip 04 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow staging pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_baylor_sleep_lab_pv_start_9x16",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "kf_09_baylor_sleep_lab_pv_start_9x16.png",
+      "title": "Clip 09 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp staging clips a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleep scientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated young adult volunteer in a sage sweater",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_baylor_sleep_lab_pv_end_9x16",
+      "clip_number": 9,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "kf_09_baylor_sleep_lab_pv_end_9x16.png",
+      "title": "Clip 09 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp staging clips a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleep scientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated young adult volunteer in a sage sweater",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_11_baylor_sleep_lab_pv_start_9x16",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S11",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "kf_11_baylor_sleep_lab_pv_start_9x16.png",
+      "title": "Clip 11 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of observation corridor window looking into the warm Baylor sleep room staging leans forward toward the observation glass and shakes the head slightly in skeptical suspense with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#1)",
+          "entity_kind": "actor"
+        },
+        "researcher_2": {
+          "color_name": "Deep Indigo",
+          "color_hex": "#2B3A67",
+          "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#2)",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_14_watchman_lantern_bat_pv_start_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S14",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "filename": "kf_14_watchman_lantern_bat_pv_start_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_watchman_lantern_battlement_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg staging paces briskly along the moonlit stone wall holding the glowing brass lantern and tapping an unmarked clipboard with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a clothed 2.5D matte cream-white vinyl night watchman in a dark wool coat carrying a glowing brass lantern",
+          "entity_kind": "actor"
+        },
+        "prop_diary_book": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "experiment diary notebook",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_home_night_bedroom_pv_start_9x16",
+      "clip_number": 18,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S18",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_18_home_night_bedroom_pv_start_9x16.png",
+      "title": "Clip 18 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of quiet dark bedroom lit by cool window moonlight over the white duvet staging turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_home_night_bedroom_pv_end_9x16",
+      "clip_number": 18,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S18",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_18_home_night_bedroom_pv_end_9x16.png",
+      "title": "Clip 18 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of quiet dark bedroom lit by cool window moonlight over the white duvet staging turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_19_watchman_lantern_bat_pv_start_9x16",
+      "clip_number": 19,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S19",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "filename": "kf_19_watchman_lantern_bat_pv_start_9x16.png",
+      "title": "Clip 19 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_watchman_lantern_battlement_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of warmly lit miniature stone guardhouse doorway with a brass wall hook staging hangs the brass lantern and wooden clipboard onto the wall hook and tips his cap in gentle relief with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the clothed 2.5D matte cream-white vinyl night watchman in the dark wool coat",
+          "entity_kind": "actor"
+        },
+        "prop_diary_book": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "experiment diary notebook",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_home_night_bedroom_pv_start_9x16",
+      "clip_number": 20,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S20",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_20_home_night_bedroom_pv_start_9x16.png",
+      "title": "Clip 20 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch staging sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+          "entity_kind": "actor"
+        },
+        "prop_toggle_switch": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "heavy toggle switch",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_home_night_bedroom_pv_end_9x16",
+      "clip_number": 20,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S20",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_20_home_night_bedroom_pv_end_9x16.png",
+      "title": "Clip 20 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch staging sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+          "entity_kind": "actor"
+        },
+        "prop_toggle_switch": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "heavy toggle switch",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP19",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "ref_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm wooden nightstand in the Baylor sleep suite with an unmarked cream paper pad, brass pen, and warm lamp featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly beside the warm brass lamp on the wooden nightstand, cinema key-and-rim lighting, zero floating captions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_9x16.png",
+      "title": "Clip 15 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void: an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, soft cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_virginia_sleep_bedroom_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP01",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "ref_loc_virginia_sleep_bedroom_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_home_night_bedroom_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP02",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "ref_loc_home_night_bedroom_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of quiet dark bedroom pillow lit by cool blue moonlight through sheer curtains with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_baylor_sleep_lab_9x16",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP03",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "ref_loc_baylor_sleep_lab_9x16.png",
+      "title": "Clip 08 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warmly lit Baylor University sleep suite with an unmarked cream paper notepad and wooden pen with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_watchman_lantern_battlement_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP04",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "filename": "ref_loc_watchman_lantern_battlement_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_loc_living_room_sofa_9x16",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "scene_id": "EP05",
+      "setting": "real_env",
+      "location_id": "living_room_sofa",
+      "filename": "ref_loc_living_room_sofa_9x16.png",
+      "title": "Clip 17 start anchor",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm evening living room with a plush oatmeal sofa, knit throw blanket, and soft floor lamp with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_01_virginia_sleep_bedro_pv_start_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_01_virginia_sleep_bedro_pv_start_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones staging places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a tired volunteer in navy pajamas lying on the bed",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_01_virginia_sleep_bedro_pv_end_9x16",
+      "clip_number": 1,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S01",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_01_virginia_sleep_bedro_pv_end_9x16.png",
+      "title": "Clip 01 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones staging places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a tired volunteer in navy pajamas lying on the bed",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_virginia_sleep_bedro_pv_start_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_04_virginia_sleep_bedro_pv_start_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow staging pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_virginia_sleep_bedro_pv_end_9x16",
+      "clip_number": 4,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S04",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "filename": "kf_04_virginia_sleep_bedro_pv_end_9x16.png",
+      "title": "Clip 04 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow staging pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_baylor_sleep_lab_pv_start_9x16",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "kf_09_baylor_sleep_lab_pv_start_9x16.png",
+      "title": "Clip 09 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp staging clips a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleep scientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated young adult volunteer in a sage sweater",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_baylor_sleep_lab_pv_end_9x16",
+      "clip_number": 9,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S09",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "kf_09_baylor_sleep_lab_pv_end_9x16.png",
+      "title": "Clip 09 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp staging clips a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleep scientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated young adult volunteer in a sage sweater",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_11_baylor_sleep_lab_pv_start_9x16",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S11",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "kf_11_baylor_sleep_lab_pv_start_9x16.png",
+      "title": "Clip 11 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of observation corridor window looking into the warm Baylor sleep room staging leans forward toward the observation glass and shakes the head slightly in skeptical suspense with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#1)",
+          "entity_kind": "actor"
+        },
+        "researcher_2": {
+          "color_name": "Deep Indigo",
+          "color_hex": "#2B3A67",
+          "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#2)",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_14_watchman_lantern_bat_pv_start_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S14",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "filename": "kf_14_watchman_lantern_bat_pv_start_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_watchman_lantern_battlement_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg staging paces briskly along the moonlit stone wall holding the glowing brass lantern and tapping an unmarked clipboard with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a clothed 2.5D matte cream-white vinyl night watchman in a dark wool coat carrying a glowing brass lantern",
+          "entity_kind": "actor"
+        },
+        "prop_diary_book": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "experiment diary notebook",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_home_night_bedroom_pv_start_9x16",
+      "clip_number": 18,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S18",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_18_home_night_bedroom_pv_start_9x16.png",
+      "title": "Clip 18 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tiny f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of quiet dark bedroom lit by cool window moonlight over the white duvet staging turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_home_night_bedroom_pv_end_9x16",
+      "clip_number": 18,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S18",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_18_home_night_bedroom_pv_end_9x16.png",
+      "title": "Clip 18 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of quiet dark bedroom lit by cool window moonlight over the white duvet staging turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+          "entity_kind": "actor"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_19_watchman_lantern_bat_pv_start_9x16",
+      "clip_number": 19,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S19",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "filename": "kf_19_watchman_lantern_bat_pv_start_9x16.png",
+      "title": "Clip 19 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_watchman_lantern_battlement_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of warmly lit miniature stone guardhouse doorway with a brass wall hook staging hangs the brass lantern and wooden clipboard onto the wall hook and tips his cap in gentle relief with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the clothed 2.5D matte cream-white vinyl night watchman in the dark wool coat",
+          "entity_kind": "actor"
+        },
+        "prop_diary_book": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "experiment diary notebook",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_home_night_bedroom_pv_start_9x16",
+      "clip_number": 20,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S20",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_20_home_night_bedroom_pv_start_9x16.png",
+      "title": "Clip 20 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch staging sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+          "entity_kind": "actor"
+        },
+        "prop_toggle_switch": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "heavy toggle switch",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_home_night_bedroom_pv_end_9x16",
+      "clip_number": 20,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "S20",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "filename": "kf_20_home_night_bedroom_pv_end_9x16.png",
+      "title": "Clip 20 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny f/8 deep-focus cinema composition facing the foreground action) of cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch staging sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+          "entity_kind": "actor"
+        },
+        "prop_toggle_switch": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "heavy toggle switch",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP19",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "filename": "ref_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm wooden nightstand in the Baylor sleep suite with an unmarked cream paper pad, brass pen, and warm lamp featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly beside the warm brass lamp on the wooden nightstand, cinema key-and-rim lighting, zero floating captions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_9x16.png",
+      "title": "Clip 15 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void: an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, soft cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ]
+}

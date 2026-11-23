@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "hippocampal_memory_prosthesis",
   "topic": "Robert Hampson, Dong Song, Sam Deadwyler & Theodore Berger (2018): Hippocampal CA3-to-CA1 MIMO Memory Prosthesis",
   "pillar": "bci_tech",
@@ -66,7 +66,17 @@
     },
     {
       "fact": "Playing the personalized MIMO code into CA1 boosted short-term delayed-match-to-sample memory performance by an average of 37 percent over non-stimulated baseline trials.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Short-Term Memory Boost (%)",
+        "percent": 37.0,
+        "unit": "%",
+        "doi": "10.1088/1741-2552/aaaed7",
+        "source_citation": "Hampson et al. (2018)"
+      }
     },
     {
       "fact": "On a separate delayed recognition test conducted up to 75 minutes later (long-term retention), items encoded with MIMO stimulation showed a 35 percent memory improvement.",
@@ -82,7 +92,33 @@
     },
     {
       "fact": "In Hampson, Song, Deadwyler, and Berger (2018), 17 epilepsy patients implanted with CA3-to-CA1 microwires showed +37% short-term and +35% 75-minute delayed recognition gains under MIMO stimulation, compared with 0% gain under random/scrambled control pulses.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "MIMO Memory Prosthesis Gain",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Scrambled Control",
+            "value": 0.0,
+            "unit": "%"
+          },
+          {
+            "label": "75-Min Recognition",
+            "value": 35.0,
+            "unit": "%"
+          },
+          {
+            "label": "Short-Term Recall",
+            "value": 37.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1088/1741-2552/aaaed7",
+        "source_citation": "Hampson et al. (2018)"
+      }
     }
   ],
   "wow_facts": [
@@ -144,5 +180,38 @@
   ],
   "shorts_projects": [
     "diorama_05_hippocampal_memory_prosthesis"
-  ]
+  ],
+  "everyday_domain": "memory",
+  "primary_doi": "10.1109/ner.2015.7146623",
+  "three_layer_formula": {
+    "everyday_problem": "Walking out of a parking garage and realizing the floor number vanished because your tired brain dropped the handoff during encoding.",
+    "psychology_experiment": {
+      "source_id": "SRC2",
+      "doi": "10.1109/ner.2015.7146623",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1109/ner.2015.7146623"
+      ],
+      "summary": "Dong Song, Robert E. Hampson, Brian S. Robinson, Ioan Opris et al. (2015). Nonlinear dynamical modeling of human hippocampal CA3-CA1 functional connectivity for memory prostheses. 2015 7th International IEEE/EMBS Conference on Neural Engineering (NER)."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1088/1741-2552/aaaed7",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1088/1741-2552/aaaed7"
+      ],
+      "summary": "Robert E Hampson, Dong Song, Brian S Robinson, Dustin Fetterhoff et al. (2018). Developing a hippocampal neural prosthetic to facilitate human memory encoding and recall. Journal of Neural Engineering."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "The memory chip uploads fake movie memories like The Matrix or Total Recall.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

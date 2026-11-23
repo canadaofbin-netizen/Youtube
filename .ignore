@@ -43,5 +43,7 @@ Completed_Psychology_100_Shorts/
 *.npz
 *.new
 *.tmp
+.tmp_*
+*.corrupt.*.json
 *.log
 *.lock

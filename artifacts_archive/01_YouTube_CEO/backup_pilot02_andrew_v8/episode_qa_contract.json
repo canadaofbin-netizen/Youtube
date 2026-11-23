@@ -1,0 +1,173 @@
+{
+  "schema": "episode_qa_contract_v3",
+  "is_v7": true,
+  "is_expressive_v8": true,
+  "style_profile": "expressive_25d_v8",
+  "dossier": "v2_sleep_first_night_hemisphere_watch",
+  "project_id": "",
+  "sentence_count": 18,
+  "clip_count": 18,
+  "analogy_locks": [],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 5,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 6,
+      "act": 2,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 7,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 8,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 9,
+      "act": 3,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 11,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 12,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 13,
+      "act": 4,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 16,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 17,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 18,
+      "act": 6,
+      "requires_wardrobe_or_hat": true,
+      "min_action_verbs": 2,
+      "cv_signature": "expressive_25d_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 14,
+      "sentence_text": "You see, your default mode network, your daydream network, stays clocked in.",
+      "anatomy_terms": [
+        "default mode network"
+      ],
+      "bound_clip_numbers": [
+        14
+      ]
+    },
+    {
+      "sentence_index": 15,
+      "sentence_text": "Bright red sparks hold the left side ready while your auditory cortex, your sound center, scans.",
+      "anatomy_terms": [
+        "auditory cortex"
+      ],
+      "bound_clip_numbers": [
+        15
+      ]
+    }
+  ],
+  "early_hook_sentences": [
+    3
+  ],
+  "require_early_ceramic_reenactment_min_clips": 2,
+  "tempo_targets": {
+    "wpm_min": 182.0,
+    "wpm_max": 238.0,
+    "min_cut_sec": 1.2,
+    "avg_cut_min_sec": 1.4,
+    "avg_cut_max_sec": 5.8,
+    "fast_cut_threshold_sec": 2.5,
+    "fast_cut_ratio_min": 0.0,
+    "cut_duration_cv_min": 0.12,
+    "max_single_sentence_cut_sec": 7.8,
+    "max_single_speech_cut_sec": 7.8,
+    "max_clip_reuse": 1
+  }
+}

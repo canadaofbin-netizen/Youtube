@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "cotard_walking_corpse_syndrome",
   "topic": "Jules Cotard (1880) & Berrios (1995): Cotard's Nihilistic Delusion — When the Brain Insists You No Longer Exist",
   "pillar": "brain_mysteries",
@@ -40,7 +40,33 @@
     },
     {
       "fact": "Over a century later (1995 *Acta Psychiatrica Scandinavica*), **German Berrios and R. Luque** analyzed **100 clinical cases** with statistical factor analysis and busted a huge myth: **only 55% of cases actually deny being alive**, whereas **86% present with nihilistic delusions about their own body/organs**, 69% deny aspects of existence, 65% show severe anxiety, and **55% paradoxically express delusions of immortality**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Cotard Delusion Profile",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Organ Negation",
+            "value": 86.0,
+            "unit": "%"
+          },
+          {
+            "label": "Existence Denial",
+            "value": 69.0,
+            "unit": "%"
+          },
+          {
+            "label": "Deny Being Alive",
+            "value": 55.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1111/j.1600-0447.1995.tb09764.x",
+        "source_citation": "Berrios & Luque (1995, Acta Psychiatr. Scand.)"
+      }
     },
     {
       "fact": "Berrios & Luque uncovered **three clinical subtypes** across those 100 patients: (1) **Psychotic Depression** (melancholia + guilt + auditory voices), (2) **Cotard Type I** (pure organ/existence negation WITHOUT mood depression — pointing straight to focal neurological disconnect!), and (3) **Cotard Type II** (mixed anxiety, depression, and immortality).",
@@ -119,5 +145,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hard take: feeling alive is a gut signal — when insular body maps go dark, logic invents impossible delusions. Do you trust logic or gut feelings first?"
+  "offcenter_creator_bet": "Hard take: feeling alive is a gut signal — when insular body maps go dark, logic invents impossible delusions. Do you trust logic or gut feelings first?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1111/j.1600-0447.1995.tb09764.x",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling briefly 'hollow' or detached during severe flu fever or jet lag — yet your intact right prefrontal cortex immediately reminds you 'I'm just exhausted,' preventing a delusion.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1111/j.1600-0447.1995.tb09764.x",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1111/j.1600-0447.1995.tb09764.x"
+      ],
+      "summary": "G. E. Berrios, R. Luque (1995). Cotard's syndrome: analysis of 100 cases. Acta Psychiatrica Scandinavica."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2018",
+      "doi": "10.1093/brain/aww288",
+      "source_ids": [
+        "SRC_NEURO_2018"
+      ],
+      "dois": [
+        "10.1093/brain/aww288"
+      ],
+      "summary": "R. R. Darby, A. Laganiere, A. Pascual-Leone, G. Prasad, M. D. Fox (2017). Lesion network localization of criminal behavior and delusional misidentification. Brain."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Cotard's syndrome is an untreatable lifelong curse.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hard take: feeling alive is a gut signal — when insular body maps go dark, logic invents impossible delusions. Do you trust logic or gut feelings first?"
+  }
 }

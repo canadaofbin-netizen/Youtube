@@ -1,0 +1,181 @@
+{
+  "schema": "episode_qa_contract_v3",
+  "is_v7": true,
+  "is_expressive_v8": true,
+  "style_profile": "expressive_25d_v8",
+  "dossier": "blakemore_cerebellar_tickle_prediction",
+  "project_id": "",
+  "sentence_count": 20,
+  "clip_count": 20,
+  "analogy_locks": [],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 6,
+      "act": 2,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 7,
+      "act": 2,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 8,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 9,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 10,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 11,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 12,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 13,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 17,
+      "act": 5,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 18,
+      "act": 5,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 19,
+      "act": 6,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 20,
+      "act": 6,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 15,
+      "sentence_text": "Your cerebellum — your coordination center — predicts each move and cancels expected touch.",
+      "anatomy_terms": [
+        "cerebellum"
+      ],
+      "bound_clip_numbers": [
+        15
+      ]
+    },
+    {
+      "sentence_index": 16,
+      "sentence_text": "When touch arrives late, your somatosensory cortex — your touch map — fires a surprise alert!",
+      "anatomy_terms": [
+        "somatosensory cortex"
+      ],
+      "bound_clip_numbers": [
+        16
+      ]
+    }
+  ],
+  "early_hook_sentences": [],
+  "require_early_ceramic_reenactment_min_clips": 0,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 238.0,
+    "min_cut_sec": 0.85,
+    "avg_cut_min_sec": 2.2,
+    "avg_cut_max_sec": 7.5,
+    "first_cut_max_sec": 10.5,
+    "first_15s_max_cut_sec": 12.5,
+    "fast_cut_threshold_sec": 2.5,
+    "fast_cut_ratio_min": 0.0,
+    "cut_duration_cv_min": 0.12,
+    "max_single_sentence_cut_sec": 10.5,
+    "max_single_speech_cut_sec": 14.5,
+    "max_clip_reuse": 1
+  }
+}

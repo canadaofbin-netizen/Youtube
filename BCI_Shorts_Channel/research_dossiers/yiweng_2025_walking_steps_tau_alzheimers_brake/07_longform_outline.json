@@ -1,0 +1,120 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Active 60-year-old striding briskly down a sunlit tree-lined sidewalk as wristwatch crosses 5,200 steps",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing protected cyan hippocampus and braked temporal tau spread",
+    "badge_text": "5,000 STEPS = +7 YRS"
+  },
+  "r75_clean_seed_tags": [
+    "5000 steps brain aging",
+    "walking prevents alzheimers",
+    "harvard aging brain study",
+    "tau protein memory",
+    "hippocampus exercise",
+    "brain health",
+    "neuroscience news",
+    "brain science",
+    "dementia prevention",
+    "healthy aging",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why feeling guilty about missing 10,000 steps is backwards—new Harvard PET brain scans show just 5,000 to 7,500 daily steps delay Alzheimer's memory decline by ~7 years.",
+    "core_experiment": "Harvard Aging Brain Study (2019 JAMA Neurology N=182; 2025 Nature Medicine N=296) + UK Biobank 78,430-adult accelerometer study.",
+    "twist": "Walking didn't erase amyloid plaques—it slammed the brakes on downstream tau tangles that actually destroy memory cells, plateauing right around 7,500 steps."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 10,000-Step Marketing Myth vs Harvard's Brain Scanners",
+      "beats": [
+        "Why 5,200 steps on your watch feels like failure—and why neurology disagrees",
+        "Inside Boston's Harvard Aging Brain Study (ages 50 to 90)"
+      ],
+      "scene_ids": [
+        "S3",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "wristwatch at 5,200 steps and Boston clinic"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "3 Years at 3,000 Steps, 7 Years at 5,000–7,500 Steps (2025 Nature Medicine)",
+      "beats": [
+        "296 cognitively normal adults carrying silent amyloid plaques",
+        "Why cognitive protection plateaus past 7,500 daily steps"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "pedometer dock and 3-vs-7-year PET comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Biological Brake: Stopping Tau Tangles Cold",
+      "beats": [
+        "Amyloid sparks vs tau tangle brushfires in temporal and hippocampal circuits",
+        "Why plaques stayed flat while tau spread slowed dramatically"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 temporal tau brake + active hippocampus"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "78,430 Wrist Trackers: Why 3,826 Steps & Brisk Pace Count Double",
+      "beats": [
+        "UK Biobank (2022): half of max dementia reduction at 3,826 steps",
+        "112 steps/minute brisk 30-minute walk + additive blood-pressure protection"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "brisk autumn sidewalk stride"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your 25-Minute After-Dinner Tau Brake",
+      "beats": [
+        "Turning a 2,800-step desk day into a 5,300-step brain shield",
+        "Practical cadence and consistency habits for ages 40 to 80+"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "lacing walking shoes at 6 PM doorway"
+      ]
+    }
+  ]
+}

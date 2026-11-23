@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "steele_aronson_stereotype_threat",
   "topic": "Claude Steele & Joshua Aronson (1995): Stereotype Threat — How Working-Memory Anxiety Hijacks High-Stakes Tests",
   "pillar": "bci_ethics",
@@ -56,7 +56,18 @@
     },
     {
       "fact": "Cognitive neuroscientists Toni Schmader and Sian Beilock uncovered the exact bottleneck: students who care DEEPLY about doing well suddenly burn dorsolateral prefrontal working-memory slots monitoring 'Am I confirming the stereotype?' right when complex multi-step problems need every slot.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Prefrontal Threat Load",
+        "concept": "Working-Memory Threat Interference",
+        "fn": "inverted_u",
+        "x_label": "Evaluative Threat Load",
+        "y_label": "Working-Memory Capacity",
+        "doi": ""
+      }
     },
     {
       "fact": "Modern preregistered replications and meta-analyses (Flore & Wicherts 2015; Shewach et al. 2019) tempered exaggerated claims that framing alone erases all educational gaps (average lab effects sit around d ~ 0.25-0.30, smaller when publication bias is trimmed), while validating simple zero-cost fixes like moving demographic checkboxes to the END of exams (adopted by AP/ETS!).",
@@ -64,7 +75,28 @@
     },
     {
       "fact": "Large-scale meta-analyses indicate that stereotype threat accounts for a modest effect size around d = 0.2 to 0.3 rather than 100% of real-world achievement gaps, with null (0) effects in several pre-registered replications.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Meta-Analytic Effect Size",
+        "unit": "d",
+        "bars": [
+          {
+            "label": "Lab Meta-Analysis",
+            "value": 0.3,
+            "unit": "d"
+          },
+          {
+            "label": "Null Replications",
+            "value": 0.0,
+            "unit": "d"
+          }
+        ],
+        "doi": "10.1037/0003-066x.59.1.47",
+        "source_citation": "Steele & Aronson (2004)"
+      }
     }
   ],
   "wow_facts": [
@@ -128,5 +160,37 @@
     "diorama_41_steele_aronson_stereotype_threat"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1037/0022-3514.69.5.797",
+  "three_layer_formula": {
+    "everyday_problem": "Blanking on an easy algebra step during an interview right after thinking 'If I miss this, they'll think I don't belong here.'",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/0022-3514.69.5.797",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/0022-3514.69.5.797"
+      ],
+      "summary": "Claude M. Steele, Joshua Aronson (1995). Stereotype threat and the intellectual test performance of African Americans. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2015",
+      "doi": "10.1146/annurev-psych-073115-103235",
+      "source_ids": [
+        "SRC_NEURO_2015"
+      ],
+      "dois": [
+        "10.1146/annurev-psych-073115-103235"
+      ],
+      "summary": "S. J. Spencer, C. Logel, P. G. Davies (2016). Stereotype threat. Annual Review of Psychology."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Stereotype threat only happens if a student secretly believes the negative stereotype is true.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

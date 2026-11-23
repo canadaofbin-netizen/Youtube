@@ -1,4 +1,29 @@
 {
   "visual_mode": "HYBRID",
-  "links": []
+  "links": [
+    {
+      "role": "pivot",
+      "region": "cerebellum",
+      "plain": "predictive forward model computing exact sensory consequences of your own motor command",
+      "function": "sending an efference-copy cancellation signal to somatosensory cortex when touch arrives within 0–50 ms of predicted contact",
+      "scene_id": "S1",
+      "narration_bridge": "Blakemore et al. 1998 Nature Neuroscience & Kilteni 2020 J. Neurosci."
+    },
+    {
+      "role": "symptom",
+      "region": "somatosensory cortex",
+      "plain": "secondary somatosensory cortex (SII) touch-intensity amplifier",
+      "function": "dampened by 38% during zero-delay self-touch, then snapping back to full tickle alarm when a 200 ms robotic delay breaks cerebellar prediction",
+      "scene_id": "S1",
+      "narration_bridge": "Primary fMRI peak in Blakemore et al. 1998 (SRC1)."
+    },
+    {
+      "role": "step1",
+      "region": "anterior cingulate cortex",
+      "plain": "affective tickle & surprise salience hub",
+      "function": "triggers involuntary laughter and withdrawal reflex when unexpected or 200 ms-delayed touch violates the cerebellar forward model",
+      "scene_id": "S2",
+      "narration_bridge": "Coupled with SII in Nature Neuroscience 1998."
+    }
+  ]
 }

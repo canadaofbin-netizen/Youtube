@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "kross_distanced_self_talk_chatter",
   "topic": "Ethan Kross (2014): Why Coaching Yourself by Your Own First Name ('You / [Name]') Quiets Panic Under Pressure",
   "pillar": "brain_health",
@@ -56,7 +56,19 @@
     },
     {
       "fact": "In 2017 (Scientific Reports, Moser & Kross), dual ERP and fMRI studies proved silent third-person '[Name]' self-talk drops emotional Late Positive Potential (LPP) amplitude within 1 SECOND of viewing distressing images and lowers medial prefrontal self-referential chatter — WITHOUT increasing frontoparietal cognitive effort.",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "exp_decay",
+        "title": "Distanced Self-Talk LPP Drop",
+        "concept": "Third-Person Affective Attenuation",
+        "x_label": "Time Post-Stimulus",
+        "y_label": "Emotional LPP Wave",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Children as young as age 5 ('Batman Effect', White & Carlson) and world champions like LeBron James ('LeBron wanted to make the right decision') and Malala Yousafzai naturally use named self-talk under extreme pressure.",
@@ -123,5 +135,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My bet: first-person venting traps panic — coaching yourself by your own first name cools amygdala stress in seconds. Do you talk to yourself as 'I' or by name under pressure?"
+  "offcenter_creator_bet": "My bet: first-person venting traps panic — coaching yourself by your own first name cools amygdala stress in seconds. Do you talk to yourself as 'I' or by name under pressure?",
+  "everyday_domain": "anxiety",
+  "primary_doi": "10.1037/a0035173",
+  "three_layer_formula": {
+    "everyday_problem": "Heart pounding outside a conference room 3 minutes before pitching or interviewing.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/a0035173",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/a0035173"
+      ],
+      "summary": "Ethan Kross, Emma Bruehlman-Senecal, Jiyoung Park, Aleah Burson et al. (2014). Self-talk as a regulatory mechanism: How you do it matters. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1097/corr.0000000000002411",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1097/corr.0000000000002411"
+      ],
+      "summary": "Seth S. Leopold (2022). A Conversation with … Ethan Kross PhD, the Psychologist Who Knows What We Should Say When We Talk to Ourselves. Clinical Orthopaedics & Related Research."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Talking to yourself by your own name is weird narcissism or a sign of losing touch.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: first-person venting traps panic — coaching yourself by your own first name cools amygdala stress in seconds. Do you talk to yourself as 'I' or by name under pressure?"
+  }
 }

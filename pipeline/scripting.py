@@ -327,7 +327,7 @@ class ScriptingStage:
         g9_reason = "One camera move per clip following the role sequence (real environment -> drill-down -> brain -> pull-out)."
         g10_pass = True
         g10_reason = (
-            f"Voice locked to Google Flow Omni 1.1 {FLOW_DEFAULT_VOICE} at {NATIVE_FLOW_WPS} wps native "
+            f"Voice locked to Google Flow Omni 1.2 {FLOW_DEFAULT_VOICE} at {NATIVE_FLOW_WPS} wps native "
             f"(~{EFFECTIVE_WPS} wps after the {AV_SPEEDUP_FACTOR}x speedup)."
         )
 

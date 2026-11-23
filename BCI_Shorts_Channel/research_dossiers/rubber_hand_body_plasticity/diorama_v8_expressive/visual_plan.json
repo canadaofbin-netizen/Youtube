@@ -1,0 +1,3346 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "v8_3_mode": true,
+  "single_start_frame_default": true,
+  "auto_previs": true,
+  "hybrid_previs_v8": true,
+  "enable_dual_keyframe_parallax": true,
+  "auto_scene_anchors": true,
+  "daisy_chain_keyframes": false,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "camera_profile": "expressive_dynamic_v8",
+  "core_reveal_sentence_index": 15,
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "project_id": "v8_ep06_rubber_hand_illusion",
+  "dossier": "rubber_hand_body_plasticity",
+  "dossier_slug": "rubber_hand_body_plasticity",
+  "pillar": "brain_basics",
+  "everyday_domain": "anxiety",
+  "title": "How a Fake Rubber Hand Hijacks Your Brain",
+  "doi": "10.1038/35784",
+  "secondary_doi": "10.1126/science.1097011",
+  "mechanism_doi": "10.1016/j.psycom.2022.100058",
+  "omit_experiment_nicknames": [],
+  "default_location_id": "pittsburgh_psych_table",
+  "real_environment": "bright Pittsburgh cognitive psychology lab with a warm oak table, upright birch wooden partition, prosthetic rubber hand, and two small camel-hair paintbrushes",
+  "thumbnail": {
+    "profile": "in_skull_cutaway_split_v4",
+    "top_split_label": "OUT OF SYNC",
+    "bottom_split_label": "FAKE HAND HIT!",
+    "top_human_action": "calm deadpan young woman in a sage knit sweater watching a small paintbrush touch a fake rubber hand out of sync on a bright white lab table",
+    "bottom_human_action": "same young woman gasping wide-eyed in shock and pulling back as a medical reflex hammer strikes the fake rubber hand on the bright white lab table",
+    "target_anatomy": "premotor cortex and deep insula",
+    "render_micro_labels": false,
+    "cover_sentence_index": 1,
+    "hook_text": "FAKE HAND HIT!",
+    "in_skull_split_prompt": "Vertical 9:16 50/50 horizontal split-screen 3D medical-editorial visualization in bright high-key studio daylight (mean luminance >= 110) with a crisp white horizontal center divider line, featuring the same real expressive adult human volunteer with natural skin in both halves, real expressive human face, never a white mannequin or featureless doll. TOP HALF: calm deadpan face showing zero reaction during expected stimulus for neuroscience paradox, in-skull surgical 3D glass cutaway window revealing a dormant cool-grey brain, upper-left zone positioned 10 percent below the top border (shelf-safe y >= 176px, never touching top edge) clean bold white condensed sans-serif text \"NO REACTION\" with crisp black outline and no box. BOTTOM HALF: visceral shock reaction to the paradox trigger, volumetric 3D bright-red directional arrow pointing to the trigger, in-skull surgical 3D glass cutaway window exploding in fiery crimson-red and electric-cyan neural activation, upper-left corner just below center divider clean bold white condensed sans-serif text \"1 TRIGGER: SHOCK!\" with crisp black outline and no box, bottom 22 percent strictly clear of any text or labels."
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "end_sentence_index": 1,
+      "act": 1,
+      "scene_id": "S01",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "dolly_zoom_vertigo",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright Pittsburgh cognitive psychology lab with a warm oak table, upright wooden partition, and soft daylight window",
+      "cast": "a clothed 2.5D matte cream-white vinyl neuroscientist in a white lab coat and a seated volunteer in a sage-green sweater",
+      "action": "sets an upright wooden partition beside the volunteer's hidden left arm while placing a sculpted cream rubber hand in plain view",
+      "consequence": "curious 2D charcoal-black ink eyes lock onto the fake rubber hand on the oak table",
+      "expression_id": "curious_head_tilt_perk",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.8655,
+            1.0958
+          ],
+          "look_at": [
+            0.0,
+            0.1345,
+            0.8958
+          ],
+          "fov_deg": 52.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -1.996,
+            1.0787
+          ],
+          "look_at": [
+            0.0,
+            0.115,
+            0.8958
+          ],
+          "fov_deg": 62.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "a clothed 2.5D matte cream-white vinyl neuroscientist in a white lab coat",
+            "pos_start": [
+              -0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              -0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 16.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "protagonist",
+            "label": "a seated volunteer in a sage-green sweater",
+            "pos_start": [
+              0.34,
+              0.12,
+              0.0
+            ],
+            "pos_end": [
+              0.30000000000000004,
+              0.09,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": -16.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "a clothed 2.5D matte cream-white vinyl neuroscientist in a white lab coat",
+            "entity_kind": "actor"
+          },
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "a seated volunteer in a sage-green sweater",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_01_pittsburgh_psych_tab_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_01_pittsburgh_psych_tab_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "end_sentence_index": 2,
+      "act": 1,
+      "scene_id": "S02",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright oak experiment tabletop split cleanly by an upright birch wooden partition",
+      "cast": "researcher's two four-fingered matte-white vinyl hands holding matching wooden camel-hair paintbrushes",
+      "action": "strokes the hidden real left fingers behind the partition and the visible rubber fingers in exact unison",
+      "consequence": "both soft paintbrush tips glide down the index knuckles at the exact same beat",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0,
+            -1.9092,
+            1.7116
+          ],
+          "look_at": [
+            0.0,
+            0.0706,
+            0.9564
+          ],
+          "fov_deg": 62.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "researcher's two four-fingered matte-white vinyl hands holding matching wooden camel-hair paintbrushes",
+            "pos_start": [
+              -0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "researcher's two four-fingered matte-white vinyl hands holding matching wooden camel-hair paintbrushes",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 1
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_02_pittsburgh_psych_tab_pv_start_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "end_sentence_index": 3,
+      "act": 1,
+      "scene_id": "S03",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright Pittsburgh psychology lab across the oak tabletop beside the wooden partition",
+      "cast": "female neuroscientist as a clothed 2.5D matte cream-white vinyl researcher in a crisp white lab coat",
+      "action": "points gently with one wooden paintbrush toward the visible rubber hand on the oak tabletop",
+      "consequence": "focused 2D charcoal-black ink eyes and eyebrows guide the volunteer's gaze steadily",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.36,
+            -2.3765,
+            1.4984
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            1.2784
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.118,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "female neuroscientist as a clothed 2.5D matte cream-white vinyl researcher in a crisp white lab coat",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "female neuroscientist as a clothed 2.5D matte cream-white vinyl researcher in a crisp white lab coat",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_pittsburgh_psych_table_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "end_sentence_index": 4,
+      "act": 1,
+      "scene_id": "S04",
+      "grammar": "expressive_pov_hands",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "first-person tabletop view over the sage-green sweater sleeve and upright birch partition",
+      "cast": "seated volunteer in a sage-green sweater staring down at the lifelike rubber left hand on the oak table",
+      "action": "watches the soft paintbrush sweep along the visible rubber fingers while leaning closer in amazement",
+      "consequence": "startled 2D charcoal-black ink eyes widen as the rubber hand feels alive",
+      "expression_id": "double_blink_shock",
+      "transition_to_next": "dissolve_8f",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.118,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.04,
+            0.12,
+            1.508
+          ],
+          "look_at": [
+            0.25,
+            0.95,
+            0.82
+          ],
+          "fov_deg": 54.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "seated volunteer in a sage-green sweater staring down at the lifelike rubber left hand on the oak table",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "reaching",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "seated volunteer in a sage-green sweater staring down at the lifelike rubber left hand on the oak table",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 3
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_04_pittsburgh_psych_tab_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_04_pittsburgh_psych_tab_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 2,
+      "scene_id": "S05",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "gentle_push_in",
+      "location_id": "living_room_sofa",
+      "environment": "sunlit minimalist studio desk with a tailored navy wool jacket sleeve and brass cufflink",
+      "analogy_object": "a tailored navy jacket sleeve stitched firmly onto a wooden coat hanger",
+      "cast": "clothed 2.5D matte cream-white vinyl adult in a navy cardigan tapping their own wrist calmly",
+      "action": "taps the back of their own four-fingered wrist twice with confident certainty",
+      "consequence": "unbothered 2D charcoal-black ink eyebrows rest in calm everyday certainty",
+      "expression_id": "deadpan_blink_pause",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.12,
+            -2.3265,
+            1.1718
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9518
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl adult in a navy cardigan tapping their own wrist calmly",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl adult in a navy cardigan tapping their own wrist calmly",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_05_living_room_sofa_pv_start_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 2,
+      "scene_id": "S06",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright Pittsburgh psychology lab with oak table, birch partition, and a brass desk stopwatch",
+      "cast": "volunteer in sage-green sweater seated opposite the lab-coat researcher wielding two paintbrushes",
+      "action": "gasps softly and leans forward as both paintbrushes stroke the hidden hand and rubber hand in rhythm",
+      "consequence": "amazed 2D charcoal-black ink eyebrows lift high as ownership snaps onto the rubber fingers",
+      "expression_id": "wide_eureka_realization",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -1.2027,
+            -2.9023,
+            1.2012
+          ],
+          "look_at": [
+            0.0347,
+            0.0565,
+            0.9457
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            1.1211,
+            -2.6608,
+            1.169
+          ],
+          "look_at": [
+            0.0412,
+            0.0392,
+            0.9849
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer in sage-green sweater seated",
+            "pos_start": [
+              -0.34,
+              0.12,
+              0.0
+            ],
+            "pos_end": [
+              -0.30000000000000004,
+              0.09,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "leaning",
+            "yaw_deg": 16.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          },
+          {
+            "role_id": "researcher",
+            "label": "the lab-coat researcher wielding two paintbrushes",
+            "pos_start": [
+              0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "leaning",
+            "yaw_deg": -16.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "prop_stopwatch",
+            "label": "brass stopwatch",
+            "shape": "cylinder",
+            "pos_start": [
+              0.16,
+              -0.18,
+              0.98
+            ],
+            "pos_end": [
+              0.19,
+              -0.19999999999999998,
+              0.98
+            ],
+            "size_xyz": [
+              0.09,
+              0.09,
+              0.05
+            ],
+            "yaw_deg": 0.0,
+            "compound_type": "stopwatch",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer in sage-green sweater seated",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "the lab-coat researcher wielding two paintbrushes",
+            "entity_kind": "actor"
+          },
+          "prop_stopwatch": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "brass stopwatch",
+            "entity_kind": "prop"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_06_pittsburgh_psych_tab_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_06_pittsburgh_psych_tab_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 7,
+      "end_sentence_index": 7,
+      "act": 2,
+      "scene_id": "S07",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "pan_right",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "underside and edge of the oak experiment table with hidden real hand and visible rubber hand above",
+      "cast": "volunteer in sage-green sweater wearing a soft dark cloth blindfold",
+      "action": "slides the right four-fingered index finger beneath the oak tabletop and points upward toward the rubber hand",
+      "consequence": "the pointing finger stops noticeably shifted toward the fake rubber hand position",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.646,
+            -2.5877,
+            2.0606
+          ],
+          "look_at": [
+            0.0144,
+            0.0441,
+            0.9814
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer in sage-green sweater wearing a soft dark cloth blindfold",
+            "pos_start": [
+              -0.30000000000000004,
+              0.09,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer in sage-green sweater wearing a soft dark cloth blindfold",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 6
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_pittsburgh_psych_table_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 8,
+      "end_sentence_index": 8,
+      "act": 3,
+      "scene_id": "S08",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright Pittsburgh psychology lab beside the upright wooden partition",
+      "cast": "researcher in a white lab coat raising two wooden paintbrushes at staggered heights",
+      "action": "holds one paintbrush high while dipping the second brush early with a questioning tilt",
+      "consequence": "playful 2D charcoal-black ink eyebrows arch in sharp experimental curiosity",
+      "expression_id": "asymmetric_skeptical_brow",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.36,
+            -2.3765,
+            1.4984
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            1.2784
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.17,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "researcher in a white lab coat raising two wooden paintbrushes at staggered heights",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "researcher in a white lab coat raising two wooden paintbrushes at staggered heights",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_pittsburgh_psych_table_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 9,
+      "end_sentence_index": 9,
+      "act": 3,
+      "scene_id": "S09",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright oak tabletop divided by the birch partition showing both paintbrushes clearly",
+      "cast": "researcher's two four-fingered matte-white hands holding wooden camel-hair paintbrushes",
+      "action": "strokes the hidden real hand first then taps the visible rubber hand half a beat later out of sync",
+      "consequence": "alternating brush strokes break the visual and tactile rhythm cleanly",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0901,
+            -1.5105,
+            1.6759
+          ],
+          "look_at": [
+            0.0091,
+            0.0842,
+            1.0667
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "researcher's two four-fingered matte-white hands holding wooden camel-hair paintbrushes",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "researcher's two four-fingered matte-white hands holding wooden camel-hair paintbrushes",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 8
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_pittsburgh_psych_table_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 10,
+      "end_sentence_index": 10,
+      "act": 3,
+      "scene_id": "S10",
+      "grammar": "expressive_cameo_world",
+      "cameo_easter_egg": true,
+      "cameo_placement": "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes sitting quietly on the corner of the oak table beside a brass brush cup",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright Pittsburgh psychology lab with oak table, brass brush holder, and birch partition",
+      "cast": "volunteer in sage-green sweater leaning back unimpressed from the lifeless rubber glove",
+      "action": "shrugs lightly at the rubber hand while a tiny 4cm Mini-Cortex figurine sits beside the brush cup",
+      "consequence": "unimpressed 2D charcoal-black ink eyes blink calmly at the plain rubber prop",
+      "expression_id": "deadpan_blink_pause",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.92,
+            -2.0265,
+            1.1446
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9546
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.9591,
+            -2.1788,
+            1.1136
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.9546
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer in sage-green sweater leaning back unimpressed from the lifeless rubber glove",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          },
+          {
+            "role_id": "mini_cortex",
+            "label": "mini_cortex",
+            "pos_start": [
+              1.45,
+              1.78,
+              1.22
+            ],
+            "pos_end": [
+              1.45,
+              1.78,
+              1.22
+            ],
+            "height_m": 0.22,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -20.0,
+            "color_hex": "#8F2D75",
+            "color_name": "Plum Magenta"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer in sage-green sweater leaning back unimpressed from the lifeless rubber glove",
+            "entity_kind": "actor"
+          },
+          "mini_cortex": {
+            "color_name": "Plum Magenta",
+            "color_hex": "#8F2D75",
+            "target_label": "mini_cortex",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "reference_image": "03_visuals/reference_images/ref_cameo_9x16.png",
+      "secondary_reference_image": "03_visuals/reference_images/cameo_opt3_sheet.png",
+      "reference_images": [
+        "03_visuals/reference_images/ref_cameo_9x16.png",
+        "03_visuals/reference_images/cameo_opt3_sheet.png"
+      ]
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 3,
+      "scene_id": "S11",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "bright oak tabletop beside the birch partition",
+      "cast": "researcher's four-fingered matte-white hand rotating the sculpted rubber hand on the table",
+      "action": "rotates the fake rubber hand upside down toward the volunteer at an awkward backward wrist angle",
+      "consequence": "skeptical 2D charcoal-black ink brow furrows as the mismatched pose breaks the illusion",
+      "expression_id": "squint_suspicion_lean",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.5548,
+            -2.1897,
+            1.9054
+          ],
+          "look_at": [
+            0.0091,
+            0.0842,
+            0.9729
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "researcher's four-fingered matte-white hand rotating the sculpted rubber hand on the table",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "researcher's four-fingered matte-white hand rotating the sculpted rubber hand on the table",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 10
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_pittsburgh_psych_table_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 3,
+      "scene_id": "S12",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "karolinska_scanner_lab",
+      "environment": "clean white neuroimaging lab bench with finger pulse sensors and a rubber reflex mallet",
+      "cast": "neuroscientist in a white lab coat standing beside the volunteer in the sage-green sweater",
+      "action": "lifts and swings a small rubber-tipped medical reflex mallet down above the adopted rubber hand on the bench",
+      "consequence": "alarmed 2D charcoal-black ink eyes lock wide onto the descending reflex mallet",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.2,
+            -2.629,
+            1.4266
+          ],
+          "look_at": [
+            0.0,
+            0.121,
+            0.9266
+          ],
+          "fov_deg": 56.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1377,
+            -2.8598,
+            1.5043
+          ],
+          "look_at": [
+            0.0,
+            0.0665,
+            0.8846
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "neuroscientist in a white lab coat standing",
+            "pos_start": [
+              -0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              -0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 16.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "protagonist",
+            "label": "the volunteer in the sage-green sweater",
+            "pos_start": [
+              0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": -16.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "neuroscientist in a white lab coat standing",
+            "entity_kind": "actor"
+          },
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "the volunteer in the sage-green sweater",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_12_karolinska_scanner_l_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_12_karolinska_scanner_l_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 3,
+      "scene_id": "S13",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "karolinska_scanner_lab",
+      "environment": "clean white neuroimaging lab bench beside the upright partition and unmarked conductance dial",
+      "cast": "volunteer in sage-green sweater wearing small fingertip sweat sensors behind the partition",
+      "action": "snatches the hidden real left hand backward behind the partition as the mallet taps the rubber hand",
+      "consequence": "startled 2D charcoal-black ink eyes pop wide with a crisp ink sweat drop at the temple",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.1377,
+            -2.747,
+            1.821
+          ],
+          "look_at": [
+            0.0,
+            0.1793,
+            1.2013
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.026,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer in sage-green sweater wearing small fingertip sweat sensors behind the partition",
+            "pos_start": [
+              0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer in sage-green sweater wearing small fingertip sweat sensors behind the partition",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 12
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_karolinska_scanner_lab_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 14,
+      "end_sentence_index": 14,
+      "act": 4,
+      "scene_id": "S14",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "gentle_push_in",
+      "location_id": "karolinska_scanner_lab",
+      "environment": "warm studio tabletop displaying a lifelike cream rubber glove beside two wooden paintbrushes",
+      "analogy_object": "a hollow cream-colored rubber glove resting motionless beside two wooden paintbrushes",
+      "cast": "clothed 2.5D matte cream-white vinyl researcher lifting the empty rubber glove slightly off the table",
+      "action": "turns the hollow rubber cuff upward to show it is completely empty inside",
+      "consequence": "wide 2D charcoal-black ink eyes frame the surprising body-map puzzle",
+      "expression_id": "curious_head_tilt_perk",
+      "transition_to_next": "portal_crash_zoom_10f",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0091,
+            -2.296,
+            1.1411
+          ],
+          "look_at": [
+            0.0091,
+            0.2099,
+            0.9937
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "clothed 2.5D matte cream-white vinyl researcher lifting the empty rubber glove slightly off the table",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl researcher lifting the empty rubber glove slightly off the table",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 13
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_14_karolinska_scanner_l_pv_start_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 4,
+      "scene_id": "S15",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": false,
+      "brain_region": "premotor cortex",
+      "camera_move": "gentle_push_in",
+      "location_id": "xray_brain_observatory",
+      "environment": "deep midnight-navy studio void showcasing an isolated semi-transparent frosted-glass 3D human brain",
+      "cast": "standalone isolated semi-transparent frosted-glass 3D human brain with folded gyri, cerebellum, and brainstem",
+      "action": "synchronized cyan-blue visual streams and amber-gold touch streams converge brightly inside the frontal premotor cortex",
+      "consequence": "the premotor cortex strip glows warm pearl-aqua as sight and touch lock together",
+      "transition_to_next": "action_impact_cut",
+      "single_start_frame_lock": true,
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.2803,
+            -1.5485,
+            1.4538
+          ],
+          "look_at": [
+            0.0,
+            0.184,
+            1.3774
+          ],
+          "fov_deg": 42.0
+        },
+        "camera_end": {
+          "pos": [
+            0.3869,
+            -1.8403,
+            1.4231
+          ],
+          "look_at": [
+            0.026,
+            0.1645,
+            1.383
+          ],
+          "fov_deg": 38.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "standalone isolated semi-transparent frosted-glass 3D human brain with folded gyri and cerebellum and and brainstem",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#808690"
+          },
+          {
+            "block_id": "curved_backdrop",
+            "pos": [
+              0.0,
+              2.25,
+              1.6
+            ],
+            "size_xyz": [
+              4.6,
+              0.18,
+              3.2
+            ],
+            "color_hex": "#9298A2"
+          },
+          {
+            "block_id": "pedestal_plinth",
+            "pos": [
+              0.0,
+              0.05,
+              0.35
+            ],
+            "size_xyz": [
+              0.9,
+              0.9,
+              0.7
+            ],
+            "color_hex": "#767C87"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "standalone isolated semi-transparent frosted-glass 3D human brain with folded gyri and cerebellum and and brainstem",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png"
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 4,
+      "scene_id": "S16",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": false,
+      "brain_region": "insula",
+      "camera_move": "gentle_push_in",
+      "location_id": "xray_brain_observatory",
+      "environment": "deep midnight-navy studio void showcasing the isolated semi-transparent frosted-glass 3D human brain in side profile",
+      "cast": "standalone isolated semi-transparent frosted-glass 3D human brain revealing the deep folded lateral insula",
+      "action": "deep crimson-red alarm pulses flare brightly inside the folded insula cortex and stream down toward the brainstem",
+      "consequence": "contained crimson-red threat waves illuminate the deep insula hub cleanly",
+      "transition_to_next": "dissolve_8f",
+      "single_start_frame_lock": true,
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.37,
+            -1.7912,
+            1.3809
+          ],
+          "look_at": [
+            0.0091,
+            0.2136,
+            1.3408
+          ],
+          "fov_deg": 38.0
+        },
+        "camera_end": {
+          "pos": [
+            0.3869,
+            -1.8403,
+            1.4231
+          ],
+          "look_at": [
+            0.026,
+            0.1645,
+            1.383
+          ],
+          "fov_deg": 38.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "standalone isolated semi-transparent frosted-glass 3D human brain revealing the deep folded lateral insula",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#808690"
+          },
+          {
+            "block_id": "curved_backdrop",
+            "pos": [
+              0.0,
+              2.25,
+              1.6
+            ],
+            "size_xyz": [
+              4.6,
+              0.18,
+              3.2
+            ],
+            "color_hex": "#9298A2"
+          },
+          {
+            "block_id": "pedestal_plinth",
+            "pos": [
+              0.0,
+              0.05,
+              0.35
+            ],
+            "size_xyz": [
+              0.9,
+              0.9,
+              0.7
+            ],
+            "color_hex": "#767C87"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "standalone isolated semi-transparent frosted-glass 3D human brain revealing the deep folded lateral insula",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 15
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png"
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 17,
+      "end_sentence_index": 17,
+      "act": 5,
+      "scene_id": "S17",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "gentle_push_in",
+      "location_id": "living_room_sofa",
+      "environment": "cozy modern living room with plush rug, warm floor lamp, and open floor space",
+      "cast": "clothed 2.5D matte cream-white vinyl young adult in a cobalt hoodie wearing a sleek white VR headset",
+      "action": "reaches one four-fingered hand cautiously forward in empty air then flinches back onto heels",
+      "consequence": "2D charcoal-black ink mouth gasps below the headset visor in sudden reflex surprise",
+      "expression_id": "double_blink_shock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.12,
+            -2.3265,
+            1.1718
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9518
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl young adult in a cobalt hoodie wearing a sleek white VR headset",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl young adult in a cobalt hoodie wearing a sleek white VR headset",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_living_room_sofa_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 18,
+      "end_sentence_index": 18,
+      "act": 5,
+      "scene_id": "S18",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "modern_bionics_bench",
+      "environment": "sunlit rehabilitation studio workbench with a sleek articulated white-and-titanium bionic hand",
+      "cast": "clothed 2.5D matte cream-white vinyl user in a charcoal sweater testing a sleek articulated bionic hand",
+      "action": "closes the articulated bionic fingers gently around a smooth wooden sphere while watching closely",
+      "consequence": "warm 2D charcoal-black ink eyes brighten as sight and touch align seamlessly",
+      "expression_id": "confident_half_smile_lock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.1555,
+            -1.5295,
+            1.5629
+          ],
+          "look_at": [
+            0.0,
+            -0.0467,
+            0.9464
+          ],
+          "fov_deg": 44.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl user in a charcoal sweater testing a sleek articulated bionic hand",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl user in a charcoal sweater testing a sleek articulated bionic hand",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_modern_bionics_bench_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 19,
+      "end_sentence_index": 19,
+      "act": 6,
+      "scene_id": "S19",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "modern_study_desk",
+      "environment": "sunlit wooden music room with an acoustic guitar neck and warm morning window light",
+      "cast": "clothed 2.5D matte cream-white vinyl young adult in a sage-green sweater holding an acoustic guitar",
+      "action": "watches four-fingered fingertips press a clean chord on the guitar strings as the warm note rings",
+      "consequence": "focused 2D charcoal-black ink eyes nod with crisp motor confidence",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.3765,
+            1.4984
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            1.2784
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.026,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl young adult in a sage-green sweater holding an acoustic guitar",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "leaning",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.4,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.1,
+              1.55
+            ],
+            "size_xyz": [
+              4.4,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "bookshelf_block",
+            "pos": [
+              -1.35,
+              1.85,
+              1.15
+            ],
+            "size_xyz": [
+              1.1,
+              0.36,
+              2.3
+            ],
+            "color_hex": "#777D88"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.38
+            ],
+            "size_xyz": [
+              1.45,
+              0.72,
+              0.76
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl young adult in a sage-green sweater holding an acoustic guitar",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_modern_study_desk_9x16.png",
+      "single_start_frame_lock": true
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 6,
+      "scene_id": "S20",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "pittsburgh_psych_table",
+      "environment": "sunlit psychology studio beside the oak table where the rubber hand and wooden paintbrushes rest peacefully",
+      "cast": "calm 2.5D matte cream-white vinyl volunteer in the sage-green sweater looking down at both real hands",
+      "action": "lifts both real four-fingered hands and presses the palms together cleanly above the sunlit oak table",
+      "consequence": "bright 2D charcoal-black ink eyes settle into a confident knowing smile",
+      "expression_id": "confident_half_smile_lock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.92,
+            -2.0265,
+            1.1446
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9546
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.9591,
+            -2.1788,
+            1.1136
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.9546
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "calm 2.5D matte cream-white vinyl volunteer in the sage-green sweater looking down at both real hands",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "calm 2.5D matte cream-white vinyl volunteer in the sage-green sweater looking down at both real hands",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_20_pittsburgh_psych_tab_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_20_pittsburgh_psych_tab_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true
+    }
+  ],
+  "require_signature_hooks": true,
+  "us_anti_clone_v7": true,
+  "reenactment_track": "track_b",
+  "environment_props": [
+    "a tactile brushed-metal experimental instrument on a wooden desk"
+  ],
+  "cast": {
+    "subject": "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire",
+    "foil": "2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire"
+  },
+  "previs_role_color_registry": {
+    "protagonist": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "patient": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "patient_sm": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "child_subject": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "subject": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "neurologist": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "neurologist_1": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "neurologist_2": {
+      "color_name": "Deep Indigo",
+      "color_hex": "#2B3A67"
+    },
+    "researcher": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "researcher_1": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "researcher_2": {
+      "color_name": "Deep Indigo",
+      "color_hex": "#2B3A67"
+    },
+    "professor": {
+      "color_name": "Slate Petrol",
+      "color_hex": "#4F6D7A"
+    },
+    "monster_actor": {
+      "color_name": "Saddle Ochre",
+      "color_hex": "#8C5A2B"
+    },
+    "foil": {
+      "color_name": "Saddle Ochre",
+      "color_hex": "#8C5A2B"
+    },
+    "assistant": {
+      "color_name": "Deep Indigo",
+      "color_hex": "#2B3A67"
+    },
+    "mini_cortex": {
+      "color_name": "Plum Magenta",
+      "color_hex": "#8F2D75"
+    },
+    "actor_1": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "prop_stopwatch": {
+      "color_name": "Saddle Ochre",
+      "color_hex": "#8C5A2B"
+    }
+  },
+  "reference_anchors": [
+    {
+      "ref_id": "ref_loc_pittsburgh_psych_table_9x16",
+      "filename": "ref_loc_pittsburgh_psych_table_9x16.png",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of bright Pittsburgh cognitive psychology lab with a warm oak table, upright wooden partition, and soft daylight window with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_living_room_sofa_9x16",
+      "filename": "ref_loc_living_room_sofa_9x16.png",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "living_room_sofa",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of sunlit minimalist studio desk with a tailored navy wool jacket sleeve and brass cufflink with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_karolinska_scanner_lab_9x16",
+      "filename": "ref_loc_karolinska_scanner_lab_9x16.png",
+      "clip_number": 12,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "karolinska_scanner_lab",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean white neuroimaging lab bench with finger pulse sensors and a rubber reflex mallet with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_modern_bionics_bench_9x16",
+      "filename": "ref_loc_modern_bionics_bench_9x16.png",
+      "clip_number": 18,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "modern_bionics_bench",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of sunlit rehabilitation studio workbench with a sleek articulated white-and-titanium bionic hand with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_modern_study_desk_9x16",
+      "filename": "ref_loc_modern_study_desk_9x16.png",
+      "clip_number": 19,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "modern_study_desk",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of sunlit wooden music room with an acoustic guitar neck and warm morning window light with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "kf_01_pittsburgh_psych_tab_pv_start_9x16",
+      "filename": "kf_01_pittsburgh_psych_tab_pv_start_9x16.png",
+      "clip_number": 1,
+      "scene_id": "S01",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of bright Pittsburgh cognitive psychology lab with a warm oak table, upright wooden partition, and soft daylight window staging sets an upright wooden partition beside the volunteer's hidden left arm while placing a sculpted cream rubber  with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl neuroscientist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated volunteer in a sage-green sweater",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_01_pittsburgh_psych_tab_pv_end_9x16",
+      "filename": "kf_01_pittsburgh_psych_tab_pv_end_9x16.png",
+      "clip_number": 1,
+      "scene_id": "S01",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of bright Pittsburgh cognitive psychology lab with a warm oak table, upright wooden partition, and soft daylight window staging sets an upright wooden partition beside the volunteer's hidden left arm while placing a sculpted cream rubber  with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl neuroscientist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated volunteer in a sage-green sweater",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_02_pittsburgh_psych_tab_pv_start_9x16",
+      "filename": "kf_02_pittsburgh_psych_tab_pv_start_9x16.png",
+      "clip_number": 2,
+      "scene_id": "S02",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of bright oak experiment tabletop split cleanly by an upright birch wooden partition staging strokes the hidden real left fingers behind the partition and the visible rubber fingers in exact unison with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "researcher's two four-fingered matte-white vinyl hands holding matching wooden camel-hair paintbrushes",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_04_pittsburgh_psych_tab_pv_start_9x16",
+      "filename": "kf_04_pittsburgh_psych_tab_pv_start_9x16.png",
+      "clip_number": 4,
+      "scene_id": "S04",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "three_quarter_orbit_right",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of first-person tabletop view over the sage-green sweater sleeve and upright birch partition staging watches the soft paintbrush sweep along the visible rubber fingers while leaning closer in amazement with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "seated volunteer in a sage-green sweater staring down at the lifelike rubber left hand on the oak table",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_04_pittsburgh_psych_tab_pv_end_9x16",
+      "filename": "kf_04_pittsburgh_psych_tab_pv_end_9x16.png",
+      "clip_number": 4,
+      "scene_id": "S04",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of first-person tabletop view over the sage-green sweater sleeve and upright birch partition staging watches the soft paintbrush sweep along the visible rubber fingers while leaning closer in amazement with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "seated volunteer in a sage-green sweater staring down at the lifelike rubber left hand on the oak table",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_05_living_room_sofa_pv_start_9x16",
+      "filename": "kf_05_living_room_sofa_pv_start_9x16.png",
+      "clip_number": 5,
+      "scene_id": "S05",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "living_room_sofa",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_living_room_sofa_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of sunlit minimalist studio desk with a tailored navy wool jacket sleeve and brass cufflink staging taps the back of their own four-fingered wrist twice with confident certainty with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "clothed 2.5D matte cream-white vinyl adult in a navy cardigan tapping their own wrist calmly",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_06_pittsburgh_psych_tab_pv_start_9x16",
+      "filename": "kf_06_pittsburgh_psych_tab_pv_start_9x16.png",
+      "clip_number": 6,
+      "scene_id": "S06",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of bright Pittsburgh psychology lab with oak table, birch partition, and a brass desk stopwatch staging gasps softly and leans forward as both paintbrushes stroke the hidden hand and rubber hand in rhythm with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "volunteer in sage-green sweater seated",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "the lab-coat researcher wielding two paintbrushes",
+          "entity_kind": "actor"
+        },
+        "prop_stopwatch": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "brass stopwatch",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_06_pittsburgh_psych_tab_pv_end_9x16",
+      "filename": "kf_06_pittsburgh_psych_tab_pv_end_9x16.png",
+      "clip_number": 6,
+      "scene_id": "S06",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "three_quarter_orbit_left",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of bright Pittsburgh psychology lab with oak table, birch partition, and a brass desk stopwatch staging gasps softly and leans forward as both paintbrushes stroke the hidden hand and rubber hand in rhythm with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "volunteer in sage-green sweater seated",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "the lab-coat researcher wielding two paintbrushes",
+          "entity_kind": "actor"
+        },
+        "prop_stopwatch": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "brass stopwatch",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_12_karolinska_scanner_l_pv_start_9x16",
+      "filename": "kf_12_karolinska_scanner_l_pv_start_9x16.png",
+      "clip_number": 12,
+      "scene_id": "S12",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "karolinska_scanner_lab",
+      "camera_angle_tag": "three_quarter_orbit_right",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_karolinska_scanner_lab_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of clean white neuroimaging lab bench with finger pulse sensors and a rubber reflex mallet staging lifts and swings a small rubber-tipped medical reflex mallet down above the adopted rubber hand on the bench with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "neuroscientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in the sage-green sweater",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_12_karolinska_scanner_l_pv_end_9x16",
+      "filename": "kf_12_karolinska_scanner_l_pv_end_9x16.png",
+      "clip_number": 12,
+      "scene_id": "S12",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "karolinska_scanner_lab",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_karolinska_scanner_lab_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of clean white neuroimaging lab bench with finger pulse sensors and a rubber reflex mallet staging lifts and swings a small rubber-tipped medical reflex mallet down above the adopted rubber hand on the bench with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "neuroscientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in the sage-green sweater",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_14_karolinska_scanner_l_pv_start_9x16",
+      "filename": "kf_14_karolinska_scanner_l_pv_start_9x16.png",
+      "clip_number": 14,
+      "scene_id": "S14",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "karolinska_scanner_lab",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_karolinska_scanner_lab_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of warm studio tabletop displaying a lifelike cream rubber glove beside two wooden paintbrushes staging turns the hollow rubber cuff upward to show it is completely empty inside with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "clothed 2.5D matte cream-white vinyl researcher lifting the empty rubber glove slightly off the table",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_20_pittsburgh_psych_tab_pv_start_9x16",
+      "filename": "kf_20_pittsburgh_psych_tab_pv_start_9x16.png",
+      "clip_number": 20,
+      "scene_id": "S20",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "three_quarter_orbit_right",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of sunlit psychology studio beside the oak table where the rubber hand and wooden paintbrushes rest peacefully staging lifts both real four-fingered hands and presses the palms together cleanly above the sunlit oak table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "calm 2.5D matte cream-white vinyl volunteer in the sage-green sweater looking down at both real hands",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_20_pittsburgh_psych_tab_pv_end_9x16",
+      "filename": "kf_20_pittsburgh_psych_tab_pv_end_9x16.png",
+      "clip_number": 20,
+      "scene_id": "S20",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_pittsburgh_psych_table_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of sunlit psychology studio beside the oak table where the rubber hand and wooden paintbrushes rest peacefully staging lifts both real four-fingered hands and presses the palms together cleanly above the sunlit oak table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "calm 2.5D matte cream-white vinyl volunteer in the sage-green sweater looking down at both real hands",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "filename": "ref_cameo_9x16.png",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "setting": "real_env",
+      "location_id": "pittsburgh_psych_table",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of bright Pittsburgh psychology lab with oak table, brass brush holder, and birch partition featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes sitting quietly on the corner of the oak table beside a brass brush cup, cinema key-and-rim lighting, zero floating captions."
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "filename": "ref_xray_brain_9x16.png",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "setting": "brain_studio",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void (#050811): an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, electric cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text."
+    }
+  ]
+}

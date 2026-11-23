@@ -21,6 +21,7 @@ from typing import Any
 from pipeline.config import (
     BRAIN_SETTINGS,
     DIORAMA_V7_BRAIN_RENDER_MODES,
+    EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
     FLOW_ASPECT_LABELS,
     FLOW_ASPECT_SHORTS,
     FLOW_MOTION_STYLE_V5,
@@ -227,13 +228,71 @@ class CastDepictionRule:
         )
 
 
+SELECTIVE_COLOR_BACKDROP_CLAUSE = (
+    "warm muted low-saturation architectural backdrop isolating the vivid full-color hero prop"
+)
+
+ACT_LIGHTING_ARC_HINTS: dict[str, str] = {
+    "act_1": "high-key alert daylight illuminating foreground action",
+    "act_2": "cool clinical lab contrast lighting",
+    "act_3_5": "crisp sculptural studio rim lighting",
+    "act_6": "warm golden-hour resolution lighting",
+}
+
+
+def resolve_act_lighting_hint(act_index_or_role: int | str | None) -> str:
+    """Resolve concise Act-level lighting direction (P0-2) without bloating context-split prompts."""
+    if act_index_or_role is None:
+        return "warm cinematic key-and-rim studio lighting"
+    if isinstance(act_index_or_role, int) and not isinstance(act_index_or_role, bool):
+        if act_index_or_role <= 1:
+            return ACT_LIGHTING_ARC_HINTS["act_1"]
+        if act_index_or_role == 2:
+            return ACT_LIGHTING_ARC_HINTS["act_2"]
+        if act_index_or_role <= 5:
+            return ACT_LIGHTING_ARC_HINTS["act_3_5"]
+        return ACT_LIGHTING_ARC_HINTS["act_6"]
+    raw = str(act_index_or_role).strip().lower()
+    if not raw:
+        return "warm cinematic key-and-rim studio lighting"
+    m_num = re.search(r"(?:^|\bact[\s_-]*)([0-9]+)\b", raw)
+    if m_num:
+        return resolve_act_lighting_hint(int(m_num.group(1)))
+    if any(k in raw for k in ("hook", "opener", "opening", "intro", "problem", "symptom", "alert", "cold_open")):
+        return ACT_LIGHTING_ARC_HINTS["act_1"]
+    if any(k in raw for k in ("context", "setup", "experiment", "study", "lab", "method", "trial", "baseline")):
+        return ACT_LIGHTING_ARC_HINTS["act_2"]
+    if any(
+        k in raw
+        for k in (
+            "resolution",
+            "conclusion",
+            "takeaway",
+            "outro",
+            "closing",
+            "payoff",
+            "summary",
+            "golden",
+        )
+    ):
+        return ACT_LIGHTING_ARC_HINTS["act_6"]
+    return ACT_LIGHTING_ARC_HINTS["act_3_5"]
+
+
 class SceneDepictionRule:
     """Rule R14-A (Environment/Lighting/Scale), R46 (Iconic Scene), R46-K (Key Visual), R47 (Action-Physics)."""
+
+    SELECTIVE_COLOR_BACKDROP_CLAUSE = SELECTIVE_COLOR_BACKDROP_CLAUSE
 
     @staticmethod
     def clean_clause(text: str) -> str:
         t = str(text or "").strip()
         return t[:-1].strip() if t.endswith(".") else t
+
+    @classmethod
+    def selective_color_backdrop_clause(cls, is_brain: bool = False) -> str:
+        """Return warm low-saturation backdrop isolation cue for non-brain 2.5D vinyl scenes (P0-2)."""
+        return "" if is_brain else cls.SELECTIVE_COLOR_BACKDROP_CLAUSE
 
     @classmethod
     def environment_clause(cls, plan: dict[str, Any], shot: dict[str, Any]) -> str:
@@ -690,7 +749,7 @@ class DioramaCameraRule:
 
 
 class DioramaPromptComposer:
-    """Composes Schema v6 Google Flow Omni 1.1 motion clip prompts for `neuro_diorama` (R56, R58)."""
+    """Composes Schema v6 Google Flow Omni 1.2 motion clip prompts for `neuro_diorama` (R56, R58)."""
 
     @staticmethod
     def compose_clip_prompt(
@@ -1482,17 +1541,146 @@ def validate_porcelain_v7_scene(
 # ==============================================================================
 # Schema v8 — Expressive 2.5D Vinyl Cast, 75% X-Ray Brain & Mini-Cortex Cameo (R68)
 # ==============================================================================
+FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD = (
+    "No flying drone, quadcopter, camera rig, camera lens ring or circular vignette border. "
+    "No voiceover, no narration, no background music, no lip movement."
+)
+BANNED_FLOW_CAMERA_HARDWARE_RE = re.compile(
+    r"\b(?:drones?|quadcopters?|uavs?|fpv|cameras?|lens(?:es)?|fisheye|gimbals?|tripods?|cranes?|doll(?:y|ies)|camcorders?|viewfinders?)\b",
+    re.IGNORECASE,
+)
+
+
+def sanitize_flow_viewpoint_hardware_terms(text: str) -> str:
+    """Rewrites physical camera/drone/lens hardware nouns into disembodied viewpoint motion (Rule R77)."""
+    raw = str(text or "")
+    if not raw.strip():
+        return ""
+    guard_stripped = raw.replace(FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD, "").strip()
+    sentinel = "__AAB_RADCLIFFE_ROTUNDA__"
+    out = re.sub(r"\bRadcliffe\s+Camera\b", sentinel, guard_stripped, flags=re.IGNORECASE)
+    replacements: tuple[tuple[re.Pattern[str], str], ...] = (
+        (re.compile(r"\b(?:high-altitude\s+)?(?:3D\s+)?(?:aerial|flying|fpv)?\s*(?:drones?|quadcopters?|uavs?)\b", re.IGNORECASE), "aerial viewpoint"),
+        (re.compile(r"\b(?:continuous\s+|vertical\s+)?fpv\b", re.IGNORECASE), "forward-gliding"),
+        (re.compile(r"\b(?:locked[-\s]+on\s+|locked[-\s]+)?(?:tripods?|on\s+a\s+tripod)\b", re.IGNORECASE), "locked-off framing"),
+        (re.compile(r"\b(?:cinema\s+prime|anamorphic|macro|probe|fisheye)\s+lens(?:es)?\b", re.IGNORECASE), "deep-focus clarity"),
+        (re.compile(r"\bacross\s+the\s+lens\b", re.IGNORECASE), "across the frame"),
+        (re.compile(r"\blens(?:es)?\b", re.IGNORECASE), "perspective"),
+        (re.compile(r"\bfisheye\b", re.IGNORECASE), "wide-angle"),
+        (re.compile(r"\b(?:camera\s+)?cranes?\b", re.IGNORECASE), "elevated sweep"),
+        (re.compile(r"\bdolly[-\s]*zoom\b", re.IGNORECASE), "vertigo perspective"),
+        (re.compile(r"\b(?:doll(?:y|ies)|gimbals?)\b", re.IGNORECASE), "smooth glide"),
+        (re.compile(r"\btoward\s+(?:the\s+)?camera\b", re.IGNORECASE), "toward the viewer"),
+        (re.compile(r"\bpast\s+(?:the\s+)?camera\b", re.IGNORECASE), "past the foreground"),
+        (re.compile(r"\bnear\s+(?:the\s+)?camera\b", re.IGNORECASE), "near the foreground"),
+        (re.compile(r"\bto\s+(?:the\s+)?camera\b", re.IGNORECASE), "forward"),
+        (re.compile(r"\b(?:camcorders?|viewfinders?|cameras?)\b", re.IGNORECASE), "viewpoint"),
+    )
+    for pat, repl in replacements:
+        out = pat.sub(repl, out)
+    out = out.replace(sentinel, "Radcliffe Camera")
+    out = re.sub(r"\baerial viewpoint\s+aerial viewpoint\b", "aerial viewpoint", out, flags=re.IGNORECASE)
+    out = re.sub(r"\bforward-gliding\s+aerial viewpoint\b", "forward-gliding aerial sweep", out, flags=re.IGNORECASE)
+    out = re.sub(r"\s+", " ", out).strip()
+    return out
+
+
 EXPRESSIVE_V8_CAMERA_DESCRIPTORS: dict[str, str] = {
-    "locked_tripod": "Crisp locked-off cinema shot with lively multi-beat 2.5D character and prop motion",
-    "pan_left": "Smooth continuous horizontal camera pan leftward linking Beat A into Beat B",
-    "pan_right": "Smooth continuous horizontal camera pan rightward linking Beat A into Beat B",
-    "tilt_up": "Smooth continuous vertical camera tilt upward across the miniature room",
-    "tilt_down": "Smooth continuous vertical camera tilt downward onto the physical prop action",
-    "gentle_push_in": "Smooth expressive straight-in camera push toward the character reaction",
-    "clean_pullback_reveal": "Smooth continuous straight-back camera pullback revealing the full room context",
-    "dolly_zoom_vertigo": "Dramatic cinema dolly-zoom push-in compressing background depth behind the character reaction",
-    "whip_pan_occlusion": "Brisk horizontal camera whip-pan sweeping past a clean foreground room edge onto the subject",
+    "locked_tripod": "Crisp locked-off cinema framing with lively multi-beat 2.5D character and prop motion",
+    "pan_left": "Smooth continuous horizontal viewpoint pan leftward linking Beat A into Beat B",
+    "pan_right": "Smooth continuous horizontal viewpoint pan rightward linking Beat A into Beat B",
+    "tilt_up": "Smooth continuous vertical viewpoint tilt upward across the miniature room",
+    "tilt_down": "Smooth continuous vertical viewpoint tilt downward onto the physical prop action",
+    "gentle_push_in": "Smooth expressive straight-in perspective push-in toward the character reaction",
+    "clean_pullback_reveal": "Smooth continuous straight-back viewpoint pullback revealing the full room context",
+    "dolly_zoom_vertigo": "Punchy 3D perspective push-in toward the subject while background walls and table stay strictly straight and rigid",
+    "whip_pan_occlusion": "Brisk horizontal whip-pan sweeping past a clean foreground room edge onto the subject",
+    "orbital_3d_arc_sweep": "Continuous 3D orbital viewpoint arc sweeping smoothly around the subject with strong parallax",
+    "crane_swoop_dive": "Dynamic 3D elevated swoop diving from high angle down into the physical prop action",
+    "portal_dive_flight": "Continuous 3D forward viewpoint flight diving smoothly from the room into the close-up focal beat",
+    "fpv_3d_flight": "Agile continuous 3D forward tracking flight gliding through foreground space onto the subject",
+    "axial_portal_dive": "Continuous 90-degree vertical portal dive plunging straight through the foreground aperture",
+    "drone_aerial_approach": "High-altitude 3D aerial swoop diving smoothly past foreground tree canopies toward the landmark facade",
+    "fpv_window_portal_breach": "Continuous forward-gliding sweep skimming stone columns and breaching cleanly through the sliced architectural facade into the interior lab",
+    "drone_high_orbit_drop": "Sweeping elevated 3D orbital arc descending from campus rooftops down onto the courtyard action",
+    "vertical_90_topdown_dive": "Continuous 90-degree bird's-eye top-down aerial descent dropping straight onto the street-level scene",
+    "drone_skyline_pullback": "Continuous ascending 3D aerial pullback rising away from the scene to reveal the sunlit campus skyline",
+    "drone_landmark_ascend": "Fast sweeping 3D aerial arc skimming close past the landmark silhouette before soaring steeply skyward above sunlit rooftops",
+    "topdown_3d_route_glide": "Vertical 90-degree bird's-eye top-down glide tracking thick solid matte-crimson 3D extruded directional arrows along sunlit street canyons",
+    "neural_fpv_dive_in": "Fast macro viewpoint plunges straight through translucent frosted crystal-glass outer cortex folds into the deep subcortical chamber",
+    "neural_macro_orbit_hold": "Close-range 3D macro orbital hold gliding smoothly around the luminous optical-glass subcortical structure inside parted crystal-glass cortical ribs",
+    "neural_fpv_pullback_out": "Rapid reverse macro viewpoint pulls straight back out through parted frosted crystal-glass cortical folds into full 3D brain view",
+    "neural_tract_relay_flight": "Continuous 3D macro trajectory tracking luminous optical-glass fiber bundles from the first subcortical chamber into the target cortical hub",
+    "sensory_to_brain_drone": "Smooth clinical 3D anatomical flight sweeping from the external sensory organ along matte nerve tracts into the primary cortex",
+    "circuit_cooperation_drone": "Steady 3D clinical anatomical orbit gliding smoothly from the source MNI152 nucleus along translucent white-matter tracts to the target region",
+    "global_system_orbit_drone": "Wide three-quarter clinical 3D anatomical orbit framing the translucent head silhouette, cortex, cerebellum, brainstem, and active neural network",
+    "1p_nerve_canyon_drone": "Immersive first-person 3D anatomical flight gliding forward down the shadowed sulcal canyon along braided white-matter nerve bundles",
+    "3p_region_shutdown_pullout": "Smooth third-person 3D anatomical pullback revealing the whole cerebral cortex and localized regional shutdown",
 }
+
+EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS: dict[str, str] = {
+    "locked_tripod": "Locked-off framing showing brisk multi-beat character and prop motion",
+    "pan_left": "Continuous 3D viewpoint pan leftward tracking Beat A into Beat B",
+    "pan_right": "Continuous 3D viewpoint pan rightward tracking Beat A into Beat B",
+    "tilt_up": "Continuous 3D vertical tilt upward following the motion",
+    "tilt_down": "Continuous 3D vertical tilt downward onto the hand action",
+    "gentle_push_in": "Continuous 3D perspective push-in gliding toward the subject reaction",
+    "clean_pullback_reveal": "Continuous 3D viewpoint pullback revealing the wider spatial action",
+    "smooth_pull_back": "Continuous 3D perspective pullback revealing the wider spatial action",
+    "hero_low_angle": "Subtle upward low-angle hero framing (~40% frame fill) with smooth disembodied push-in.",
+    "dolly_zoom_vertigo": "Punchy 3D push-in toward the subject while background walls and table stay strictly straight and rigid",
+    "whip_pan_occlusion": "Brisk 3D whip-pan sweeping past a foreground edge onto the action",
+    "orbital_3d_arc_sweep": "3D orbital arc sweeping around the subject with strong parallax",
+    "crane_swoop_dive": "3D elevated swoop diving from high angle into the prop action",
+    "portal_dive_flight": "3D forward flight diving smoothly into the close-up beat",
+    "fpv_3d_flight": "Agile 3D forward tracking flight gliding straight toward the subject",
+    "axial_portal_dive": "3D vertical portal dive plunging straight through the aperture",
+    "drone_aerial_approach": "High-altitude 3D aerial swoop diving past foreground treetops toward the building facade",
+    "fpv_window_portal_breach": "Continuous forward-gliding sweep skimming facade columns into the cutaway interior room",
+    "drone_high_orbit_drop": "Elevated 3D orbital arc descending smoothly onto the outdoor courtyard action",
+    "vertical_90_topdown_dive": "90-degree vertical bird's-eye descent dropping onto the outdoor scene",
+    "drone_skyline_pullback": "Ascending 3D aerial pullback rising over rooftops into the sunlit skyline",
+    "drone_landmark_ascend": "Fast 3D aerial sweep skimming the landmark before soaring steeply skyward",
+    "topdown_3d_route_glide": "Vertical 90-degree bird's-eye top-down glide tracking thick matte-crimson 3D directional arrows",
+    "neural_fpv_dive_in": "Fast macro viewpoint plunges through translucent frosted-glass cortical folds into the deep chamber",
+    "neural_macro_orbit_hold": "Close-range 3D macro viewpoint orbits smoothly around the luminous optical-glass subcortical hub",
+    "neural_fpv_pullback_out": "Rapid reverse macro viewpoint pulls back through frosted-glass cortical folds into wide 3D brain view",
+    "neural_tract_relay_flight": "Continuous 3D macro flight glides along luminous optical-glass fiber bundles between subcortical hubs",
+    "sensory_to_brain_drone": "Clinical 3D anatomical sweep glides smoothly from external sensory organ into cortical hub",
+    "circuit_cooperation_drone": "Clinical 3D anatomical orbit glides smoothly along translucent MNI152 subcortical pathway",
+    "global_system_orbit_drone": "Wide 3D anatomical orbit framing translucent skull, cortex, and coordinated neural hubs",
+    "1p_nerve_canyon_drone": "First-person 3D anatomical flight gliding down the sulcal nerve canyon",
+    "3p_region_shutdown_pullout": "Third-person 3D anatomical pullback revealing global cortical shutdown",
+}
+
+EXPRESSIVE_V8_SUPPLEMENTAL_CAMERA_DESCRIPTORS: dict[str, str] = {
+    "smooth_pull_back": "Smooth continuous straight-back perspective pullback revealing surrounding room space",
+    "hero_low_angle": "Subtle upward 3D low-angle hero perspective (~40% frame fill) with smooth disembodied push-in",
+}
+
+EXPRESSIVE_V8_ALTERNATING_NON_BRAIN_MOVES: tuple[str, ...] = (
+    "gentle_push_in",
+    "smooth_pull_back",
+    "hero_low_angle",
+)
+_EXPRESSIVE_V8_ALTERNATING_BRAIN_MOVES: tuple[str, ...] = (
+    "neural_fpv_dive_in",
+    "neural_macro_orbit_hold",
+)
+
+
+def resolve_alternating_camera_move(
+    clip_index: int,
+    is_brain: bool = False,
+    explicit_move: str | None = None,
+) -> str:
+    """Alternate non-brain push-in / pull-back / hero low-angle moves (P1-4), preserving explicit moves."""
+    if explicit_move is not None and str(explicit_move).strip():
+        return str(explicit_move).strip()
+    idx = max(0, int(clip_index))
+    if is_brain:
+        return _EXPRESSIVE_V8_ALTERNATING_BRAIN_MOVES[idx % len(_EXPRESSIVE_V8_ALTERNATING_BRAIN_MOVES)]
+    return EXPRESSIVE_V8_ALTERNATING_NON_BRAIN_MOVES[idx % len(EXPRESSIVE_V8_ALTERNATING_NON_BRAIN_MOVES)]
 
 EXPRESSIVE_V8_WORLD_LEAD = (
     "Stylized 3D cinematic miniature diorama filling the full-bleed vertical frame "
@@ -1500,34 +1688,64 @@ EXPRESSIVE_V8_WORLD_LEAD = (
 )
 
 EXPRESSIVE_V8_OPTICS_TAIL = (
-    "Crisp cinema prime lens clarity on earless noseless matte cream-white vinyl, charcoal-black 2D ink expressions, woven fabric, and warm wood."
+    "Clean 3D architectural rendering, tack-sharp deep-focus clarity on smooth featureless matte-white architectural porcelain figures, hands-only or silhouette framing, woven fabric, and warm wood."
 )
 
 EXPRESSIVE_V8_XRAY_OPTICS_TAIL = (
-    "Crisp cinema prime lens clarity on the crystal-clear glass cranium dome, bounded 4-color 3D brain circuits, "
-    "and earless noseless matte cream-white vinyl face with charcoal-black 2D ink eyes."
+    "Clean 3D architectural rendering, tack-sharp deep-focus clarity on the crystal-clear glass cranium dome, bounded 4-color 3D brain circuits, "
+    "and smooth featureless matte-white architectural porcelain figure."
 )
 
 EXPRESSIVE_V8_TRANSITION_CLAUSES: dict[str, str] = {
     "daisy_chain_bridge": "Holding a clean unobstructed ending pose for seamless next-shot continuity",
-    "occlusion_wipe": "Ending as a foreground architectural pillar or sleeve sweeps cleanly across the lens",
+    "seamless_relay_cut": "Arriving smoothly on the exact shared keyframe composition for an unbroken one-take relay",
+    "occlusion_wipe": "Ending as a foreground architectural pillar or sleeve sweeps cleanly across the frame",
     "action_impact_cut": "Culminating on a crisp physical prop impact at the final beat",
     "dissolve_6f": "Settling into a composed atmospheric beat for a smooth cross-dissolve",
     "dissolve_8f": "Settling into a calm atmospheric beat for a smooth cross-dissolve",
+    "dissolve_12f": "Settling into a composed spatial beat for a smooth background dissolve",
+    "dissolve_15f": "Settling into a steady spatial beat for a smooth 15-frame dissolve",
     "match_cut_bridge": "Ending centered on the primary geometric prop silhouette for a graphic match cut",
     "split_screen_wipe": "Framing balanced opposing left-and-right visual zones across the room",
     "portal_crash_zoom_10f": "Pushing smoothly inward toward the character cranium silhouette at the final beat",
-    "whip_pan_blur_8f": "Accelerating into a brisk lateral camera sweep across a foreground room edge at the final beat",
+    "whip_pan_blur_8f": "Accelerating into a brisk lateral viewpoint sweep across a foreground room edge at the final beat",
+}
+
+EXPRESSIVE_V8_COMPACT_TRANSITION_CLAUSES: dict[str, str] = {
+    "daisy_chain_bridge": "Holds clean ending pose for next cut",
+    "seamless_relay_cut": "Locks exact shared keyframe for seamless relay",
+    "occlusion_wipe": "Foreground edge sweeps cleanly across the frame at end",
+    "action_impact_cut": "Ends on crisp physical prop impact",
+    "dissolve_6f": "Settles smoothly for brief dissolve",
+    "dissolve_8f": "Settles smoothly for 8-frame dissolve",
+    "dissolve_12f": "Settles smoothly for 12-frame background dissolve",
+    "dissolve_15f": "Settles smoothly for 15-frame background dissolve",
+    "match_cut_bridge": "Ends centered on prop silhouette for match cut",
+    "split_screen_wipe": "Balances opposing left-and-right motion zones",
+    "portal_crash_zoom_10f": "Pushes inward onto cranium silhouette at end",
+    "whip_pan_blur_8f": "Accelerates into brisk lateral edge sweep at end",
 }
 
 _EXPRESSIVE_V8_GRAMMAR_SLOT_MAP: dict[str, str] = {
     "expressive_vinyl_world": "expressive_vinyl_world",
+    "expressive_exterior_establishing": "expressive_exterior_establishing",
+    "exterior_establishing": "expressive_exterior_establishing",
+    "architectural_cutaway_portal": "architectural_cutaway_portal",
+    "spatial_3d_arrow_diorama": "spatial_3d_arrow_diorama",
     "expressive_hands_closeup": "expressive_hands_closeup",
     "expressive_pov_hands": "expressive_pov_hands",
     "expressive_xray_brain": "expressive_xray_brain",
     "expressive_literal_analogy": "expressive_literal_analogy",
     "expressive_cameo_world": "expressive_cameo_world",
     "expressive_split_contrast": "expressive_split_contrast",
+    "expressive_reaction_closeup": "expressive_reaction_closeup",
+    "reaction_closeup": "expressive_reaction_closeup",
+    "axial_portal_dive": "axial_portal_dive",
+    "xray_peel_micro": "xray_peel_micro",
+    "ghost_twin_offset": "ghost_twin_offset",
+    "lid_lift_reveal": "lid_lift_reveal",
+    "locked_exploded_vs_shatter": "locked_exploded_vs_shatter",
+    "blueprint_3d_extrusion": "blueprint_3d_extrusion",
     "expressive_character_action": "expressive_vinyl_world",
     "expressive_macro_prop": "expressive_hands_closeup",
     "porcelain_fullbleed_world": "expressive_vinyl_world",
@@ -1550,7 +1768,7 @@ _EXPRESSIVE_V8_BANNED_STYLE_RE = re.compile(
     r"\b(?:low-poly|low\s+poly|flat-shaded|flat\s+shaded|polygon\s+facets?|"
     r"pastel\s+clay|museum\s+plinth|bisque-ceramic|"
     r"featureless\s+(?:solid\s+)?(?:matte-white\s+)?(?:egg-shaped\s+)?oval\s+heads?|"
-    r"smooth\s+featureless|faceless\s+(?:mannequins?|figures?))\b",
+    r"smooth\s+featureless\s+mannequin|faceless\s+mannequins?)\b",
     flags=re.IGNORECASE,
 )
 
@@ -1585,19 +1803,27 @@ class ExpressiveVinylWorldRule:
         *,
         cameo_prop_note: str = "",
         diegetic_text_allowlist: list[str] | tuple[str, ...] | None = None,
+        selective_color: bool = True,
     ) -> str:
         env = SceneDepictionRule.clean_clause(environment)
         act = SceneDepictionRule.clean_clause(action)
         lit = SceneDepictionRule.clean_clause(lighting)
         combined_low = f"{env} {act}".lower()
         has_actor = bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(f"{env} {act}"))
-        has_vinyl_spec = "vinyl" in combined_low and ("2d" in combined_low or "ink" in combined_low)
+        has_vinyl_spec = (
+            ("vinyl" in combined_low and ("2d" in combined_low or "ink" in combined_low))
+            or (
+                "porcelain" in combined_low
+                and any(tok in combined_low for tok in ("featureless", "silhouette", "hands-only", "x-ray"))
+            )
+        )
         actor_clause = (
             ""
             if (not has_actor or has_vinyl_spec)
             else (
-                ", staged as clothed 2.5D matte cream-white vinyl figures with smooth earless hairless noseless oval heads, "
-                "bold charcoal-black 2D cartoon ink eyebrows, eyes, and animated mouths, and four-fingered matte-white vinyl hands"
+                ", staged as clothed smooth featureless matte-white architectural porcelain figures framed via "
+                "back or three-quarter silhouette, hands-only close-up, or translucent Mode 1 x-ray cranium, "
+                "with four-fingered matte-white porcelain hands"
             )
         )
         allow_list = [str(t).strip() for t in (diegetic_text_allowlist or ()) if str(t).strip()][:2]
@@ -1609,8 +1835,15 @@ class ExpressiveVinylWorldRule:
         if cameo_prop_note:
             cn = SceneDepictionRule.clean_clause(cameo_prop_note)
             cameo_clause = f" {cn[:1].upper() + cn[1:]}."
+        sc_clause = ""
+        if (
+            selective_color
+            and "low-saturation" not in combined_low
+            and "isolating the vivid" not in combined_low
+        ):
+            sc_clause = f", {SceneDepictionRule.SELECTIVE_COLOR_BACKDROP_CLAUSE}"
         return (
-            f"{EXPRESSIVE_V8_WORLD_LEAD}: full-bleed view of {env} in {lit}. "
+            f"{EXPRESSIVE_V8_WORLD_LEAD}: full-bleed view of {env}{sc_clause} in {lit}. "
             f"{act[:1].upper() + act[1:]}{actor_clause}.{allow_clause}{cameo_clause} {EXPRESSIVE_V8_OPTICS_TAIL}"
         )
 
@@ -1661,9 +1894,10 @@ class ExpressiveLiteralAnalogyRule:
         act = SceneDepictionRule.clean_clause(comparison_action)
         lit = SceneDepictionRule.clean_clause(lighting)
         has_actor = bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(f"{aw} {act}"))
+        has_cast_mat = any(k in f"{aw} {act}".lower() for k in ("vinyl", "porcelain"))
         actor_tail = (
-            " Clothed 2.5D matte cream-white vinyl figure with bold charcoal-black 2D cartoon ink eyes and eyebrows reacts clearly."
-            if (has_actor and "vinyl" not in f"{aw} {act}".lower())
+            " Clothed smooth featureless matte-white architectural porcelain figure in back or three-quarter silhouette reacts clearly."
+            if (has_actor and not has_cast_mat)
             else ""
         )
         return (
@@ -1680,7 +1914,7 @@ class ExpressiveXRayBrainRule:
         brain_scene: str | None = None,
         *,
         environment: str = "dimly lit cozy bedroom or clinical observation room",
-        character_reaction: str = "the clothed 2.5D matte cream-white vinyl figure blinks its charcoal-black 2D cartoon ink eyes in sudden realization",
+        character_reaction: str = "the smooth featureless matte-white architectural porcelain figure turns in three-quarter silhouette",
         brain_region: str | None = None,
     ) -> str:
         env = SceneDepictionRule.clean_clause(environment)
@@ -1722,6 +1956,158 @@ class ExpressiveCameoWorldRule:
         )
 
 
+def load_expression_acting_lexicon() -> dict[str, Any]:
+    """Loads `BCI_Shorts_Channel/assets/expression_acting_lexicon.json` (`F1~F5` 12-archetype 2.5D ink acting lexicon)."""
+    import json
+    from pipeline.config import EXPRESSIVE_ACTING_LEXICON_PATH
+
+    p = EXPRESSIVE_ACTING_LEXICON_PATH
+    if p.is_file():
+        try:
+            doc = json.loads(p.read_text(encoding="utf-8"))
+            if isinstance(doc, dict) and isinstance(doc.get("expressions"), dict):
+                return doc
+        except Exception:
+            pass
+    return {"expressions": {}, "speaker_mouth_rules": {}}
+
+
+def format_expression_acting_clause(
+    expression_id: str | None = None,
+    *,
+    speaker_role: str = "narrator",
+    compact: bool = True,
+) -> str:
+    """
+    Composes the `F1~F5` 2.5D charcoal-ink micro-acting transition (`State A -> State B` + `Saccade` + `<=10°` head pose)
+    paired with the `F5` Speaker-Synced Mouth Rule (`Hope`/`Laura`/`foil` speaking vs `Roger` narrator closed reactive mouth).
+    """
+    lex = load_expression_acting_lexicon()
+    exprs = lex.get("expressions") or {}
+    mouth_rules = lex.get("speaker_mouth_rules") or {}
+    role_key = str(speaker_role or "narrator").strip().lower()
+    if role_key in ("researcher", "mini_cortex", "foil"):
+        mouth_clause = str(
+            mouth_rules.get(role_key)
+            or mouth_rules.get("on_camera_mouth_clause")
+            or "animated 2D black ink mouth speaking crisply"
+        )
+    else:
+        mouth_clause = str(
+            mouth_rules.get("narrator")
+            or mouth_rules.get("narrator_mouth_clause")
+            or "closed reactive 2D black ink mouth"
+        )
+
+    default_snap = f"crisp 2D black ink eyebrows and mouth snap cleanly on the smooth matte cream-white head with {mouth_clause}"
+    exp_key = str(expression_id or "").strip().lower()
+    entry = exprs.get(exp_key) if exp_key in exprs else None
+    if not isinstance(entry, dict):
+        return default_snap
+    if compact:
+        clause = str(entry.get("compact_prompt_clause") or "").strip().rstrip(".")
+        clause = re.sub(r"\b(?:charcoal\s+)?ink\s+eyes\s+shift\b", "2D black ink eyebrows and mouth snap cleanly", clause, flags=re.IGNORECASE)
+        return f"{clause}, {mouth_clause}" if clause else default_snap
+    st_a = str(entry.get("state_a") or "").strip()
+    st_b = str(entry.get("state_b") or "").strip()
+    sac = sanitize_flow_viewpoint_hardware_terms(str(entry.get("saccade_and_head_pose") or "").strip())
+    return f"crisp 2D black ink face snaps cleanly from {st_a} into {st_b} with {sac} and {mouth_clause}"
+
+
+_EXPLICIT_SUBJECT_START_RE = re.compile(
+    r"^(?:the|a|an|two|both|three|young|older|female|male|clothed|2\.5d|"
+    r"doctor|dr\.|neurologist|clinician|researcher|mother|father|son|daughter|woman|man|patient|subject|figure|protagonist)\b",
+    flags=re.IGNORECASE,
+)
+
+
+class ExpressiveReactionCloseupRule:
+    """F2 / M5 / R79-M Grammar (`expressive_reaction_closeup`): Bust-up reaction shot foregrounding subject + snappy physical action + smudge-free 2D ink step-snap."""
+
+    @staticmethod
+    def compose(
+        environment: str = "studio observation room",
+        character_desc: str = "clothed 2.5D matte cream-white vinyl character",
+        expression_id: str = "double_blink_shock",
+        *,
+        speaker_role: str = "narrator",
+        action: str = "",
+        prop_detail: str = "",
+        compact: bool = True,
+    ) -> str:
+        env = SceneDepictionRule.clean_clause(environment)
+        char_c = SceneDepictionRule.clean_clause(character_desc)
+        act_clause = format_expression_acting_clause(expression_id, speaker_role=speaker_role, compact=compact)
+        phys_c = SceneDepictionRule.clean_clause(action or prop_detail)
+        if phys_c:
+            phys_c = re.sub(
+                r"^first\s*,?\s+(?=(?:the|a|an|two|both|three|2\.5d|doctor|neurologist|clinician|researcher|pharmacist|patient|woman|man|subject|four-fingered)\b)",
+                "",
+                phys_c,
+                flags=re.IGNORECASE,
+            ).strip()
+            if phys_c:
+                phys_c = phys_c[:1].upper() + phys_c[1:]
+            if _EXPLICIT_SUBJECT_START_RE.search(phys_c) or "2.5d" in phys_c[:68].lower() or bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(phys_c[:68])):
+                subj_action = phys_c
+            else:
+                subj_action = f"{char_c} {phys_c[:1].lower() + phys_c[1:]}"
+            if compact:
+                return f"Bust-up close-up: {subj_action}, and {act_clause}"
+            return (
+                f"{EXPRESSIVE_V8_WORLD_LEAD}: bust-up close-up in {env} where {subj_action}, "
+                f"and {act_clause}. {EXPRESSIVE_V8_OPTICS_TAIL}"
+            )
+        if compact:
+            return f"Bust-up close-up in {env}: {char_c} leans sharply as {act_clause}"
+        return (
+            f"{EXPRESSIVE_V8_WORLD_LEAD}: bust-up close-up in {env} framing {char_c} leaning sharply as {act_clause}. "
+            f"{EXPRESSIVE_V8_OPTICS_TAIL}"
+        )
+
+
+class ExpressiveRigidPhysicsRule:
+    """M7 (`R68-A`) 6 Rigid Diorama Physics Grammars inspired by architectural/medical breakdown documentaries."""
+
+    RIGID_GRAMMARS: tuple[str, ...] = (
+        "axial_portal_dive",
+        "xray_peel_micro",
+        "ghost_twin_offset",
+        "lid_lift_reveal",
+        "locked_exploded_vs_shatter",
+        "blueprint_3d_extrusion",
+        "architectural_cutaway_portal",
+    )
+
+    @classmethod
+    def compose(
+        cls,
+        grammar: str,
+        subject_or_structure: str = "Subject",
+        mechanism_action: str = "separates along rigid mechanical seams",
+        *,
+        subject: str | None = None,
+        action: str | None = None,
+        compact: bool = True,
+    ) -> str:
+        g = str(grammar or "axial_portal_dive").strip().lower()
+        subj = SceneDepictionRule.clean_clause(subject or subject_or_structure)
+        act = SceneDepictionRule.clean_clause(action or mechanism_action)
+        templates_compact = {
+            "axial_portal_dive": f"90-degree vertical portal dive plunging straight through {subj} as {act}, tack-sharp f/8 deep focus",
+            "xray_peel_micro": f"Rigid outer shell of {subj} slides cleanly aside to expose translucent internal 3D pathways as {act}",
+            "ghost_twin_offset": f"Translucent amber-gold ghost twin silhouette slides smoothly beside {subj} to compare {act}",
+            "lid_lift_reveal": f"Rigid architectural ceiling lid of {subj} lifts vertically upward in clean mechanical unison revealing {act}",
+            "locked_exploded_vs_shatter": f"Locked-off view of {subj} separating into weightless aligned exploded-view layers while {act}",
+            "blueprint_3d_extrusion": f"Crisp white 3D wireframe brain and rigid geometry extrude vertically upward from {subj} as {act}",
+            "architectural_cutaway_portal": f"Exterior masonry facade of {subj} slices cleanly open into a 3D architectural cross-section revealing {act}",
+        }
+        clause = templates_compact.get(g, templates_compact["axial_portal_dive"])
+        if compact:
+            return clause
+        return f"{EXPRESSIVE_V8_WORLD_LEAD}: {clause}. {EXPRESSIVE_V8_OPTICS_TAIL}"
+
+
 class ExpressiveV8PromptComposer:
     """Composes Schema v8 `expressive_25d_v8` 8-second multi-beat prompts with keyframe trajectory & transition choreography (R68)."""
 
@@ -1734,22 +2120,165 @@ class ExpressiveV8PromptComposer:
         aspect: str = FLOW_ASPECT_SHORTS,
         render_sec: int = 8,
         keyframe_bridge_clause: str | None = None,
+        *,
+        context_split: bool = False,
+        r85_mode: bool = False,
     ) -> str:
-        from pipeline.config import EXPRESSIVE_V8_TRANSITION_TYPES, EXPRESSIVE_V8_VISUAL_GRAMMARS
+        from pipeline.config import (
+            EXPRESSIVE_V8_CONTEXT_SPLIT_WORDS_RANGE,
+            EXPRESSIVE_V8_TRANSITION_TYPES,
+            EXPRESSIVE_V8_VISUAL_GRAMMARS,
+            PROMPT_SCENE_WORDS_MAX,
+        )
 
-        _ = grammar if grammar in EXPRESSIVE_V8_VISUAL_GRAMMARS else "expressive_vinyl_world"
+        g = grammar if grammar in EXPRESSIVE_V8_VISUAL_GRAMMARS else "expressive_vinyl_world"
         label = "vertical portrait" if aspect == FLOW_ASPECT_SHORTS else "horizontal widescreen"
         cam_key = str(camera_move or "gentle_push_in").strip().lower()
-        cam_clause = EXPRESSIVE_V8_CAMERA_DESCRIPTORS.get(
-            cam_key, EXPRESSIVE_V8_CAMERA_DESCRIPTORS["gentle_push_in"]
-        ).rstrip(".")
         body = SceneDepictionRule.clean_clause(scene_body)
-        body = re.sub(r"\bmuseums?\b", "studio", body, flags=re.IGNORECASE)
-        body = body.rstrip(".")
+        body = re.sub(r"\bmuseums?\b", "studio", body, flags=re.IGNORECASE).rstrip(".")
+        body = sanitize_flow_viewpoint_hardware_terms(body)
+        guard_tail = "" if g == "brain_simulator_3d" else f" {FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD}"
+
+        if context_split:
+            lo_w, hi_w = EXPRESSIVE_V8_CONTEXT_SPLIT_WORDS_RANGE
+            cam_clause = EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS.get(
+                cam_key, EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS["gentle_push_in"]
+            ).rstrip(".")
+            if r85_mode and g == "expressive_xray_brain":
+                cam_clause = (
+                    cam_clause.replace("translucent frosted-glass cortical folds", "matte silver-white sculpted gypsum cortical folds")
+                    .replace("frosted-glass cortical folds", "matte silver-white cortical folds")
+                    .replace("luminous optical-glass subcortical hub", "solid matte-shaded subcortical hub")
+                    .replace("luminous optical-glass fiber bundles", "opaque sulcal and white-matter tubes")
+                )
+            # Prompt Diet: Flow UI already sets 9:16, 8s, and Start/End Frames, and dissolve happens in NLE assembly.
+            # Strip `8s vertical video.`, `Bridges opening...`, and `Settles smoothly...` so Veo focuses 100% on action.
+            audio_tail = "Silent voice track."
+            core_body = body[:1].upper() + body[1:] if body else "Subject shifts posture crisply with smooth matte-white porcelain arms and four-fingered hands"
+            if r85_mode and g == "expressive_xray_brain" and ":" in core_body and core_body.lower().startswith("episode #31 mode"):
+                head_ep31, motion_ep31 = core_body.rsplit(":", 1)
+                motion_clean = motion_ep31.strip()
+                if len(motion_clean.split()) >= 8:
+                    hl = head_ep31.lower()
+                    if "mode 1" in hl:
+                        compact_head = "Episode #31 Mode 1 clear-cranium X-ray mannequin bust revealing matte white gypsum 3D brain"
+                    elif "dual-specimen" in hl or "two complete" in hl:
+                        compact_head = "Episode #31 Mode 2 dual-specimen matte white gypsum 3D brains over dark navy void"
+                    elif "canyon" in hl:
+                        compact_head = "Episode #31 Mode 2 macro sulcal canyon inside matte white gypsum 3D brain"
+                    elif "coronal" in hl:
+                        compact_head = "Episode #31 Mode 2 front-facing coronal matte white gypsum 3D brain cutaway"
+                    else:
+                        compact_head = "Episode #31 Mode 2 matte white gypsum 3D brain over dark navy void"
+                    core_body = f"{compact_head}: {motion_clean}"
+            req_tail = ""
+            if g == "expressive_xray_brain" and not (
+                any(k in core_body.lower() for k in ("3d brain", "3d human brain", "hemisphere", "cerebral", "cutaway", "cortical"))
+                and any(
+                    k in core_body.lower()
+                    for k in (
+                        "glass dome",
+                        "crystal-clear",
+                        "translucent",
+                        "frosted-glass",
+                        "golden forehead",
+                        "x-ray",
+                        "silver-white",
+                        "silver-gray",
+                        "gypsum",
+                        "sulcal",
+                        "cutaway",
+                    )
+                )
+            ):
+                req_tail = (
+                    "Matte silver-white 3D brain reveals thick sky-blue branching surface vessel tubes."
+                    if r85_mode
+                    else "Translucent frosted-glass 3D brain reveals internal tracts."
+                )
+            elif g == "expressive_cameo_world" and "mini-cortex" not in core_body.lower():
+                req_tail = "Tiny 4cm Mini-Cortex rests nearby."
+            tail_block = f"{req_tail} {audio_tail}".strip() if req_tail else audio_tail
+            draft = f"{cam_clause}. {core_body}. {tail_block}"
+            draft = re.sub(r"\s+", " ", draft).strip()
+            words_cur = draft.split()
+            if len(words_cur) < lo_w:
+                from pipeline.config import EXPRESSIVE_V8_DRONE_CAMERA_MOVES, EXPRESSIVE_V8_NEURAL_DIVE_MOVES
+
+                is_arch_or_drone = g in (
+                    "expressive_exterior_establishing",
+                    "architectural_cutaway_portal",
+                    "spatial_3d_arrow_diorama",
+                ) or cam_key in (
+                    *EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+                    "drone_pullback_skyline",
+                )
+                if cam_key in EXPRESSIVE_V8_NEURAL_DIVE_MOVES or g == "expressive_xray_brain":
+                    pad_detail = (
+                        "Matte silver-white sculpted gypsum gyri and thick sky-blue branching surface vessel tubes glide past with clean 3D parallax."
+                        if r85_mode
+                        else "Frosted borosilicate crystal-glass cortical ribs sweep past foreground edges with crisp optical parallax."
+                    )
+                elif is_arch_or_drone:
+                    pad_detail = "Crisp sunlight casts sharp architectural shadows across foreground tree canopies, masonry columns, and walkways."
+                else:
+                    pad_detail = "Smooth matte-white architectural porcelain arms and four-fingered hands complete the prop motion crisply."
+                draft = f"{cam_clause}. {core_body}. {pad_detail} {tail_block}"
+                draft = re.sub(r"\s+", " ", draft).strip()
+                words_cur = draft.split()
+            max_core_w = hi_w
+            if guard_tail:
+                guard_words = len(guard_tail.split())
+                if PROMPT_SCENE_WORDS_MAX - guard_words >= lo_w:
+                    max_core_w = min(hi_w, PROMPT_SCENE_WORDS_MAX - guard_words)
+            if len(words_cur) > max_core_w:
+                fixed_prefix = f"{cam_clause}."
+                fixed_suffix = tail_block
+                budget = max(10, max_core_w - len(fixed_prefix.split()) - len(fixed_suffix.split()))
+                trimmed_body = _trim_v8_body_clause_safe(core_body, budget)
+                if g == "expressive_xray_brain":
+                    tb_low = trimmed_body.lower()
+                    has_brain_noun = any(
+                        k in tb_low
+                        for k in ("3d brain", "3d human brain", "hemisphere", "cerebral", "cutaway", "cortical")
+                    )
+                    has_xray_mat = any(
+                        k in tb_low
+                        for k in (
+                            "glass dome",
+                            "crystal-clear",
+                            "translucent",
+                            "frosted-glass",
+                            "golden forehead",
+                            "x-ray",
+                            "silver-white",
+                            "silver-gray",
+                            "gypsum",
+                            "sulcal",
+                            "cutaway",
+                        )
+                    )
+                    if not (has_brain_noun and has_xray_mat):
+                        anchor_tail = (
+                            "Inside matte silver-white 3D brain cutaway."
+                            if r85_mode
+                            else "Inside translucent frosted-glass 3D brain."
+                        )
+                        trimmed_body = _trim_v8_body_clause_safe(core_body, max(10, budget - len(anchor_tail.split())))
+                        trimmed_body = f"{trimmed_body} {anchor_tail}".strip()
+                draft = re.sub(r"\s+", " ", f"{fixed_prefix} {trimmed_body} {fixed_suffix}").strip()
+            return f"{draft}{guard_tail}".strip()
+
+        cam_clause = (
+            EXPRESSIVE_V8_CAMERA_DESCRIPTORS.get(cam_key)
+            or EXPRESSIVE_V8_SUPPLEMENTAL_CAMERA_DESCRIPTORS.get(cam_key)
+            or EXPRESSIVE_V8_CAMERA_DESCRIPTORS["gentle_push_in"]
+        ).rstrip(".")
         bridge_clause = ""
         if keyframe_bridge_clause and str(keyframe_bridge_clause).strip():
             bc = SceneDepictionRule.clean_clause(str(keyframe_bridge_clause))
             bc = re.sub(r"\bmuseums?\b", "studio", bc, flags=re.IGNORECASE).rstrip(".")
+            bc = sanitize_flow_viewpoint_hardware_terms(bc)
             if bc and bc.lower() not in body.lower():
                 bridge_clause = f" {bc[:1].upper() + bc[1:]}."
         trans_key = str(transition_out or "").strip().lower()
@@ -1759,7 +2288,84 @@ class ExpressiveV8PromptComposer:
             if tc.lower() not in body.lower() and tc.lower() not in bridge_clause.lower():
                 trans_clause = f" {tc}."
         audio_clause = "Crisp tactile physical foley and subtle room ambience only, silent voice track."
-        return f"Generate an {int(render_sec)}-second {label} video clip. {cam_clause}. {body}.{bridge_clause}{trans_clause} {audio_clause}"
+        return f"Generate an {int(render_sec)}-second {label} video clip. {cam_clause}. {body}.{bridge_clause}{trans_clause} {audio_clause}{guard_tail}"
+
+
+_EXPRESSIVE_V8_CONTEXT_SPLIT_BLOAT_RE = re.compile(
+    r"(?:stylized\s+3d\s+cinematic\s+miniature\s+diorama\s+filling|"
+    r"tactile\s+architectural\s+surfaces\s+and\s+cinema\s+key-and-rim|"
+    r"crisp\s+cinema\s+prime\s+lens\s+clarity|"
+    r"smooth\s+earless\s+hairless\s+noseless\s+oval\s+heads)",
+    flags=re.IGNORECASE,
+)
+
+_R79M_BANNED_INK_SMUDGE_RE = re.compile(
+    r"\b(?:(?:charcoal[-\s]+)?ink\s+eyes\s+shift|pupils?\s+dart|eyes\s+slowly\s+widen|eyebrows?\s+morph|facial\s+lines?\s+flow)\b",
+    flags=re.IGNORECASE,
+)
+
+_R79M_BANNED_WALL_WARP_RE = re.compile(
+    r"\b(?:warping\s+background\s+depth|perspective\s+warp\s+compressing\s+background)\b",
+    flags=re.IGNORECASE,
+)
+
+_R79M_DANGLING_TRUNCATION_RE = re.compile(
+    r"\b(?:in|on|at|to|of|for|with|from|into|onto|across|toward|towards|through|under|over|"
+    r"between|behind|beside|beneath|the|a|an|his|her|their|its|and|or|but|as|while|2d|unblinking)\s*\.(?:\s|$)",
+    flags=re.IGNORECASE,
+)
+
+_R79M_TRAILING_DANGLING_WORD_RE = re.compile(
+    r"^(?:in|on|at|to|of|for|with|from|into|onto|across|toward|towards|through|under|over|"
+    r"between|behind|beside|beneath|the|a|an|his|her|their|its|and|or|but|as|while|2d|flat|unblinking|matte|cream-white|charcoal-black)$",
+    flags=re.IGNORECASE,
+)
+
+_R79M_PHYSICAL_ACTION_VERB_RE = re.compile(
+    r"\b(?:recoils?|leans?|raises?|lifts?|sets?|places?|flips?|pushes?|pulls?|steps?|walks?|strides?|"
+    r"turns?|nods?|shakes?|folds?|crosses?|reaches?|hands?|takes?|presses?|grips?|grabs?|taps?|opens?|"
+    r"closes?|shuts?|swings?|spreads?|slides?|points?|gestures?|stands?|sits?|drops?|catches?|holds?|"
+    r"tilts?|draws?|shifts?|snaps?|blinks?|reacts?|waves?|slams?|spins?|twists?|bows?|kneels?|crouches?|"
+    r"backs?|jerks?|jumps?|springs?|pivots?|glances?|peers?|smiles?|frowns?|squints?|furrows?|perks?|"
+    r"shines?|writes?|checks?|clicks?|locks?|adjusts?|moves?|passes?|offers?|cradles?|clutches?|rests?|"
+    r"sweeps?|separates?|extrudes?|slices?|softens?|curves?|darts?|speaks?|speaking)\b",
+    flags=re.IGNORECASE,
+)
+
+
+def _trim_v8_body_clause_safe(core_body: str, budget: int) -> str:
+    """
+    Trims an over-budget context-split body strictly on complete clause boundaries
+    while preserving subject + core physical action verb and stripping any dangling trailing stopword (Rule R79-M).
+    """
+    txt = str(core_body or "").strip().rstrip(".")
+    if len(txt.split()) <= budget:
+        return f"{txt}."
+
+    clause_seps = ("; ", ". ", ", and ", ", while ", ", as ", ", then ", ", ")
+    cur = txt
+    for sep in clause_seps:
+        while len(cur.split()) > budget and sep in cur:
+            head, _ = cur.rsplit(sep, 1)
+            head_clean = head.strip(" ,;:")
+            if len(head_clean.split()) >= 8 and _R79M_PHYSICAL_ACTION_VERB_RE.search(head_clean):
+                cur = head_clean
+            else:
+                break
+        if len(cur.split()) <= budget:
+            break
+
+    words = cur.split()
+    if len(words) > budget:
+        words = words[:budget]
+    while len(words) > 6:
+        w_last = words[-1].rstrip(".,;:")
+        if _R79M_TRAILING_DANGLING_WORD_RE.match(w_last):
+            words.pop()
+        else:
+            break
+    out = " ".join(words).rstrip(".,;:")
+    return f"{out}."
 
 
 def _strip_allowlisted_diegetic_tokens(text: str, allowlist: list[str] | tuple[str, ...] | None) -> str:
@@ -1781,15 +2387,20 @@ def validate_expressive_v8_scene(
     *,
     diegetic_text_allowlist: list[str] | tuple[str, ...] | None = None,
     cameo_easter_egg: bool = False,
+    image_conditioned: bool = False,
+    allow_legacy_hardware: bool = False,
+    allow_legacy_r79m: bool = False,
 ) -> list[str]:
     """
     R68 Schema v8 `expressive_25d_v8` scene & prompt validator:
-      - Enforces 2.5D matte cream-white vinyl cast + bold 2D cartoon ink facial expressions (zero human flesh).
+      - Enforces 2.5D matte cream-white vinyl cast + bold 2D cartoon ink facial expressions on unconditioned text prompts,
+        and Previs Rule ③ Context-Splitting (zero world/material/optics bloat) when `image_conditioned=True`.
       - Enforces crystal-dome golden-seam 4-color 3D brain reveal on `expressive_xray_brain`.
       - Enforces subtle 4cm `Mini-Cortex` background cameo on `expressive_cameo_world` / `cameo_easter_egg=True`.
+      - Enforces Rule R77 ban on physical camera/drone/lens hardware terms in non-simulator Flow prompts.
       - Permits <= 2 short uppercase `diegetic_text_allowlist` prop tokens while blocking unrequested signage/paragraphs.
     """
-    from pipeline.config import EXPRESSIVE_V8_VISUAL_GRAMMARS
+    from pipeline.config import EXPRESSIVE_V8_VISUAL_GRAMMARS, R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE
 
     issues: list[str] = []
     g = str(grammar or "").strip()
@@ -1797,7 +2408,13 @@ def validate_expressive_v8_scene(
     if g not in EXPRESSIVE_V8_VISUAL_GRAMMARS:
         issues.append(f"[expressive_v8] invalid grammar '{g}' (must be in {list(EXPRESSIVE_V8_VISUAL_GRAMMARS)}) (R68)")
     raw = str(scene_or_prompt or "")
-    low = raw.lower()
+    raw_wo_guard = (
+        raw.replace(FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD, "")
+        .replace(R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE + ".", "")
+        .replace(R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE, "")
+        .strip()
+    )
+    low = raw_wo_guard.lower()
 
     allow_tokens = [str(t).strip() for t in (diegetic_text_allowlist or ()) if str(t).strip()]
     if len(allow_tokens) > 2:
@@ -1810,17 +2427,28 @@ def validate_expressive_v8_scene(
                 f"[expressive_v8] diegetic_text_allowlist token '{tok}' exceeds max 3 words / 16 chars (sentences forbidden) (R68)"
             )
 
-    if g == "expressive_xray_brain":
-        if "3d brain" not in low and "hemisphere" not in low:
+    if image_conditioned:
+        bloat_hits = sorted({m.group(0).lower() for m in _EXPRESSIVE_V8_CONTEXT_SPLIT_BLOAT_RE.finditer(raw)})
+        if bloat_hits:
+            issues.append(
+                f"[expressive_v8] image-conditioned clip repeats redundant world/material/optics bloat {bloat_hits}; "
+                "use Previs Rule 3 context-split prompt (30-60 words: camera trajectory + physical action + hand/expression only) (R68)"
+            )
+
+    if g == "brain_simulator_3d":
+        if not any(k in low for k in ("mni152", "3d brain", "blender", "clinical", "cortex", "pathway")):
+            issues.append("[expressive_v8] 'brain_simulator_3d' missing MNI152 3D clinical simulator specification (R76)")
+    elif g == "expressive_xray_brain":
+        if not any(k in low for k in ("3d brain", "3d human brain", "hemisphere", "anatomical brain", "cerebral cortex", "cutaway", "cerebral")):
             issues.append("[expressive_v8] 'expressive_xray_brain' missing '3D brain' or 'hemisphere' reveal anchor (R68)")
-        if not any(k in low for k in ("glass dome", "crystal-clear", "translucent", "golden forehead", "x-ray")):
-            issues.append("[expressive_v8] 'expressive_xray_brain' missing crystal-dome / golden-seam X-Ray transition anchor (R68)")
-    elif g in ("expressive_hands_closeup", "expressive_pov_hands"):
-        if "vinyl" not in low:
-            issues.append(f"[expressive_v8] '{g}' missing 'vinyl' hands material anchor (R68)")
-    elif g in ("expressive_vinyl_world", "expressive_cameo_world"):
-        if _PORCELAIN_V7_ACTOR_NOUN_RE.search(raw) and "vinyl" not in low:
-            issues.append(f"[expressive_v8] '{g}' stages character(s) without 'vinyl' 2.5D figure anchor (R68)")
+        if not any(k in low for k in ("glass dome", "crystal-clear", "translucent", "frosted-glass", "golden forehead", "x-ray", "silver-white", "silver-gray", "gypsum", "matte silver", "sulcal", "cutaway")):
+            issues.append("[expressive_v8] 'expressive_xray_brain' missing X-Ray or Ep #31 silver-white cutaway anchor (R68/R85)")
+    elif not image_conditioned and g in ("expressive_hands_closeup", "expressive_pov_hands"):
+        if not any(k in low for k in ("vinyl", "porcelain")):
+            issues.append(f"[expressive_v8] '{g}' missing 'vinyl' or 'porcelain' hands material anchor (R68/R88)")
+    elif not image_conditioned and g in ("expressive_vinyl_world", "expressive_cameo_world"):
+        if _PORCELAIN_V7_ACTOR_NOUN_RE.search(raw) and not any(k in low for k in ("vinyl", "porcelain")):
+            issues.append(f"[expressive_v8] '{g}' stages character(s) without 'vinyl'/'porcelain' 2.5D figure anchor (R68/R88)")
 
     if (g == "expressive_cameo_world" or cameo_easter_egg) and "mini-cortex" not in low:
         issues.append("[expressive_v8] cameo clip missing 'Mini-Cortex' 4cm background Easter-egg figurine anchor (R68)")
@@ -1834,30 +2462,77 @@ def validate_expressive_v8_scene(
     if flesh_hits:
         issues.append(f"[expressive_v8] scene contains banned human-flesh/gore token(s) {flesh_hits} (R68)")
 
-    toxic_hits = {m.group(0).lower() for m in _PORCELAIN_V7_BANNED_GLOBAL_TOXIC_RE.finditer(raw)}
+    toxic_hits = {m.group(0).lower() for m in _PORCELAIN_V7_BANNED_GLOBAL_TOXIC_RE.finditer(raw_wo_guard)}
     if g == "expressive_xray_brain":
-        toxic_hits |= {m.group(0).lower() for m in _PORCELAIN_V7_BRAIN_UNCONTAINED_SPILL_RE.finditer(raw)}
+        toxic_hits |= {m.group(0).lower() for m in _PORCELAIN_V7_BRAIN_UNCONTAINED_SPILL_RE.finditer(raw_wo_guard)}
     if toxic_hits:
         issues.append(
             f"[expressive_v8] scene contains banned uncontained fluorescent/particle/slime token(s) {sorted(toxic_hits)} (R68)"
         )
 
-    neg_hits = sorted({m.group(0).lower() for m in _PORCELAIN_V7_PINK_ELEPHANT_RE.finditer(raw)})
+    neg_hits = sorted({m.group(0).lower() for m in _PORCELAIN_V7_PINK_ELEPHANT_RE.finditer(raw_wo_guard)})
     if neg_hits:
         issues.append(
             f"[expressive_v8] scene contains banned Pink-Elephant negative noun phrase(s) {neg_hits}; use positive phrasing only (R68)"
         )
 
-    stripped_for_text = _strip_allowlisted_diegetic_tokens(raw, allow_tokens)
+    if g != "brain_simulator_3d" and not allow_legacy_hardware:
+        hw_check = re.sub(r"\bRadcliffe\s+Camera\b", "Radcliffe_Rotunda", raw_wo_guard, flags=re.IGNORECASE)
+        hw_match = BANNED_FLOW_CAMERA_HARDWARE_RE.search(hw_check)
+        if hw_match:
+            issues.append(
+                f"[r77_hardware_ban] Flow prompt contains banned physical camera/drone/lens hardware term '{hw_match.group(0)}' "
+                "(use disembodied viewpoint motion instead) (R77)"
+            )
+
+    stripped_for_text = _strip_allowlisted_diegetic_tokens(raw_wo_guard, allow_tokens)
     txt_hits = sorted({m.group(0).lower() for m in _PORCELAIN_V7_BANNED_IN_SCENE_TEXT_RE.finditer(stripped_for_text)})
     if txt_hits:
         issues.append(f"[expressive_v8] scene contains unallowlisted signage/text-trigger token(s) {txt_hits} (R68)")
+
+    if not allow_legacy_r79m and g != "brain_simulator_3d":
+        smudge_hit = _R79M_BANNED_INK_SMUDGE_RE.search(raw_wo_guard)
+        if smudge_hit:
+            issues.append(
+                f"[r79m_ink_smudge_ban] scene contains banned smudge-trigger phrase '{smudge_hit.group(0)}' "
+                "(use crisp 2D black ink step-snap phrasing instead) (R79-M)"
+            )
+        warp_hit = _R79M_BANNED_WALL_WARP_RE.search(raw_wo_guard)
+        if warp_hit:
+            issues.append(
+                f"[r79m_wall_warp_ban] scene contains banned rubber-architecture warp phrase '{warp_hit.group(0)}' "
+                "(keep background walls and tables strictly straight and rigid) (R79-M)"
+            )
+        trunc_hit = _R79M_DANGLING_TRUNCATION_RE.search(raw_wo_guard)
+        if trunc_hit:
+            issues.append(
+                f"[r79m_dangling_truncation] prompt contains mid-sentence truncated ending '{trunc_hit.group(0).strip()}' (R79-M)"
+            )
+        if g in (
+            "expressive_vinyl_world",
+            "expressive_reaction_closeup",
+            "expressive_hands_closeup",
+            "expressive_pov_hands",
+            "expressive_cameo_world",
+            "expressive_split_contrast",
+        ) and str(camera_move or "").strip() not in EXPRESSIVE_V8_DRONE_CAMERA_MOVES:
+            body_check = raw_wo_guard
+            for cam_desc in (*EXPRESSIVE_V8_CAMERA_DESCRIPTORS.values(), *EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS.values()):
+                body_check = body_check.replace(cam_desc, " ")
+            body_check = re.sub(r"silent\s+voice\s+track\.?", " ", body_check, flags=re.IGNORECASE)
+            body_check = re.sub(r"\bclose-ups?\b", " ", body_check, flags=re.IGNORECASE)
+            if not _R79M_PHYSICAL_ACTION_VERB_RE.search(body_check) and "zero people" not in body_check.lower():
+                issues.append(
+                    f"[r79m_missing_action_verb] '{g}' human character scene lacks an explicit physical action verb (R79-M)"
+                )
     return issues
 
 
 __all__ = [
+    "ACT_LIGHTING_ARC_HINTS",
     "ArchitecturalBrainMaquetteRule",
     "BANNED_BRAIN_PARTICLE_TOKENS",
+    "BANNED_FLOW_CAMERA_HARDWARE_RE",
     "BRAIN_DARK_VOID_NEGATIVE_LOCK",
     "BrainDepictionRule",
     "CRYSTAL_SPECIMEN_NEGATIVE_LOCK",
@@ -1871,17 +2546,26 @@ __all__ = [
     "DioramaCutawayRule",
     "DioramaPromptComposer",
     "DioramaV7PromptComposer",
+    "EXPRESSIVE_V8_ALTERNATING_NON_BRAIN_MOVES",
     "EXPRESSIVE_V8_CAMERA_DESCRIPTORS",
+    "EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS",
+    "EXPRESSIVE_V8_COMPACT_TRANSITION_CLAUSES",
     "EXPRESSIVE_V8_OPTICS_TAIL",
+    "EXPRESSIVE_V8_SUPPLEMENTAL_CAMERA_DESCRIPTORS",
     "EXPRESSIVE_V8_TRANSITION_CLAUSES",
     "EXPRESSIVE_V8_WORLD_LEAD",
     "EXPRESSIVE_V8_XRAY_OPTICS_TAIL",
+    "FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD",
     "ExpressiveCameoWorldRule",
     "ExpressiveHandsActionRule",
     "ExpressiveLiteralAnalogyRule",
+    "ExpressiveReactionCloseupRule",
+    "ExpressiveRigidPhysicsRule",
     "ExpressiveV8PromptComposer",
     "ExpressiveVinylWorldRule",
     "ExpressiveXRayBrainRule",
+    "format_expression_acting_clause",
+    "load_expression_acting_lexicon",
     "KineticTracePropRule",
     "LOWPOLY_V7_OPTICS_TAIL",
     "LOWPOLY_V7_SHADER_LEAD",
@@ -1902,12 +2586,16 @@ __all__ = [
     "PorcelainWorldRule",
     "PromptComposer",
     "ReferenceDepictionRule",
+    "SELECTIVE_COLOR_BACKDROP_CLAUSE",
     "SceneDepictionRule",
     "SensorMotifRule",
     "TactileTokenGridRule",
     "ZERO_FLESH_AND_TEXT_LOCK",
     "normalize_expressive_v8_grammar",
     "normalize_porcelain_v7_grammar",
+    "resolve_act_lighting_hint",
+    "resolve_alternating_camera_move",
+    "sanitize_flow_viewpoint_hardware_terms",
     "validate_expressive_v8_scene",
     "validate_lowpoly_v7_scene",
     "validate_porcelain_v7_scene",

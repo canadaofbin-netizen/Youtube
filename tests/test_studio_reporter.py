@@ -896,3 +896,398 @@ def test_unrendered_awaiting_render_and_error_queue_items_excluded():
     finally:
         shutil.rmtree(tmp_dir, ignore_errors=True)
 
+
+def test_new_studio_insights_uk_english_and_shadow_row_parsing():
+    """
+    Regression test for YouTube Studio 'Channel insights / Video insights' DOM text
+    (UK-English dates, 'Total subscribers', '48-hour views', 'Engaged views 5.4K',
+    '75.0%\\nStayed to watch\\n25.0%\\nSwiped away', and pre-label AVD/APV/00:30 retention).
+    """
+    row_txt = (
+        "1:55 How Trying to Fall Asleep Backfires In Public Health 1996 and 2018 studies, "
+        "volunteers wired 57 young adults — Public 14 Nov 2026 Published 531 1"
+    )
+    row_parsed = StudioAnalyticsReporter._parse_video_row_text(row_txt)
+    assert row_parsed["views"] == 531
+    assert row_parsed["comments"] == 1
+
+    overview_txt = (
+        "Channel insights\nViews\n8.5K\nWatch time (hours)\n133.1\nSubscribers\n+61\n"
+        "48-hour views\n204\nTotal subscribers\n61\n"
+    )
+    ov_parsed = StudioAnalyticsReporter._parse_analytics_text_block(overview_txt)
+    assert ov_parsed["views_28d"] == 8500
+    assert "views_24h" not in ov_parsed
+    assert ov_parsed["watch_hours_28d"] == 133.1
+    assert ov_parsed["subscribers_total"] == 61
+    assert ov_parsed["subscribers_gained_28d"] == 61
+    assert ov_parsed["realtime_48h_views"] == 204
+
+    content_txt = (
+        "Content\nViews\n8.5K\nEngaged views\n5.4K\nLikes\n370\n"
+        "How viewers engaged\nLast 28 days\n75.0%\nStayed to watch\n25.0%\nSwiped away\n"
+        "Shorts feed\n90.6%\nYouTube search\n6.5%\n"
+    )
+    ct_parsed = StudioAnalyticsReporter._parse_analytics_text_block(content_txt)
+    assert ct_parsed["engaged_views"] == 5400
+    assert ct_parsed["likes_total"] == 370
+    assert ct_parsed["viewed_pct"] == 75.0
+    assert ct_parsed["swiped_pct"] == 25.0
+    assert ct_parsed["traffic_sources_map"]["Shorts feed"] == 90.6
+
+    audience_txt = (
+        "Device type\nMobile phone\n78.9%\nTV\n7.4%\n"
+        "Watch time from subscribers\n0.7%\nSubscribed\n99.3%\nNot subscribed\n"
+        "Top geographies\nUnited States\n66.8%\n"
+    )
+    aud_parsed = StudioAnalyticsReporter._parse_analytics_text_block(audience_txt)
+    assert aud_parsed["tv_device_pct"] == 7.4
+    assert aud_parsed["subscribed_watch_pct"] == 0.7
+    assert aud_parsed["non_subscribed_watch_pct"] == 99.3
+    assert aud_parsed["geographies_map"]["US"] == 66.8
+
+    vid_ov_txt = (
+        "Video insights\nViews\n531\nWatch time (hours)\n8.3\nSubscribers\n+6\n"
+        "48-hour views\n69\nHow viewers engaged\nSince published\n76.5%\nStayed to watch\n"
+        "23.5%\nSwiped away\nLikes\nSince published\n18\n"
+    )
+    vid_eng_txt = (
+        "Engagement\nEngaged views\n375\n"
+        "Average view duration\n1:19\n1:07\n2:00\n1:00\n0:00\nAverage view duration\n"
+        "Key moments for audience retention\nSince published\n"
+        "1:19\nAverage view duration\n69%\nAverage percentage viewed\n"
+        "82.2%\nStill watching at 00:30\n"
+    )
+    pv = StudioAnalyticsReporter._parse_video_analytics_overview(vid_ov_txt)
+    pv_eng = StudioAnalyticsReporter._parse_video_analytics_overview(vid_eng_txt)
+    for k, v in pv_eng.items():
+        pv.setdefault(k, v)
+    assert pv["views"] == 531
+    assert pv["engaged_views"] == 375
+    assert pv["watch_hours"] == 8.3
+    assert pv["subs_gained"] == 6
+    assert pv["realtime_48h"] == 69
+    assert pv["likes"] == 18
+    assert pv["viewed_pct"] == 76.5
+    assert pv["swiped_pct"] == 23.5
+    assert pv["avd_sec"] == 79.0
+    assert pv["apv_pct"] == 69.0
+    assert pv["ret_30s_mark_pct"] == 82.2
+
+
+def test_studio_reporter_period_separation_dom_honesty_and_outlier_masking(tmp_path: Path):
+    """
+    Regression test for [STUDIO_REPORTER_FIX_DONE]:
+      1. Period-specific URLs (`period-week` vs `period-default`) in `STUDIO_ANALYTICS_URLS`
+         and zero `views_24h = views_28d` or `7d == 28d == cumulative` cloning.
+      2. Zero hardcoded fake `realtime_60m_views: 32` or `unique_viewers_*: 1200` (`None` when absent,
+         parsed integers when present in DOM).
+      3. Missing-'K' corrupted historical snapshots (`views=8, subs=6` with `watch_hours>=120`)
+         masked as `None` outliers in `trend_7d` and `snapshot_3d_ago` / `snapshot_7d_ago`.
+    """
+    from pipeline.studio.config import STUDIO_ANALYTICS_URLS
+
+    assert "period-week" in STUDIO_ANALYTICS_URLS["analytics_overview_7d"]
+    assert "period-default" in STUDIO_ANALYTICS_URLS["analytics_overview_28d"]
+    assert "period-week" in STUDIO_ANALYTICS_URLS["analytics_audience_7d"]
+
+    # 1. Period-specific DOM parsing (7d vs 28d, plus realtime 60m & unique viewers)
+    ov_7d = StudioAnalyticsReporter._parse_analytics_text_block(
+        "Your channel got 1.4K views in the last 7 days\nWatch time (hours)\n21.5\n"
+        "Subscribers\n+9\n60-minute views\n11\nUnique viewers\n980\n",
+        period_hint="7d",
+    )
+    assert ov_7d["views_7d"] == 1400
+    assert "views_24h" not in ov_7d
+    assert "views_28d" not in ov_7d
+    assert ov_7d["watch_hours_7d"] == 21.5
+    assert ov_7d["subscribers_gained_7d"] == 9
+    assert ov_7d["realtime_60m_views"] == 11
+    assert ov_7d["unique_viewers_7d"] == 980
+
+    ov_28d = StudioAnalyticsReporter._parse_analytics_text_block(
+        "Your channel got 8.9K views in the last 28 days\nWatch time (hours)\n133.8\n"
+        "Subscribers\n+61\nUnique viewers\n6.2K\n",
+        period_hint="28d",
+    )
+    assert ov_28d["views_28d"] == 8900
+    assert "views_24h" not in ov_28d
+    assert ov_28d["watch_hours_28d"] == 133.8
+    assert ov_28d["subscribers_gained_28d"] == 61
+    assert ov_28d["unique_viewers_28d"] == 6200
+
+    # 2 & 3. Missing-K outlier masking (11/13..11/15 views=8, subs=6) + None when 60m/unique unscraped
+    seed_snaps = {
+        "2026-11-12": {"views": 8668, "subs": 55, "wh": 127.4},
+        "2026-11-13": {"views": 8, "subs": 6, "wh": 127.3},
+        "2026-11-14": {"views": 8, "subs": 6, "wh": 126.9},
+        "2026-11-15": {"views": 8, "subs": 6, "wh": 132.6},
+        "2026-11-16": {"views": 8804, "subs": 61, "wh": 133.1},
+        "2026-11-17": {"views": 8857, "subs": 61, "wh": 133.8},
+    }
+    for d_iso, vals in seed_snaps.items():
+        (tmp_path / f"{d_iso}_studio_metrics.json").write_text(
+            json.dumps(
+                {
+                    "report_date": d_iso,
+                    "data_source_mode": "LIVE_CDP_DOM",
+                    "channel_kpis": {
+                        "views_24h": vals["views"],
+                        "subscribers_total": vals["subs"],
+                        "watch_hours_24h": vals["wh"],
+                        "realtime_48h_views": 180,
+                        "realtime_60m_views": 32,
+                        "unique_viewers_24h": 1200,
+                    },
+                    "retention_kpis": {"viewed_pct": 72.0, "avd_seconds": 54.0, "apv_pct": 66.0},
+                    "traffic_sources": [{"short_name": "Shorts Feed", "pct": 88.0}],
+                    "geographies": [{"country": "US", "pct": 58.0}],
+                }
+            ),
+            encoding="utf-8",
+        )
+
+    rep = StudioAnalyticsReporter(reports_dir=tmp_path)
+    out = rep.generate_daily_report(report_date="2026-11-18", compare_date="2026-11-17", dry_run=True)
+    payload = json.loads(Path(out["json_path"]).read_text(encoding="utf-8"))
+    ck = payload["channel_kpis"]
+    t7 = payload["trend_7d"]
+
+    # Hardcoded 32 and 1200 must be gone (None when unscraped)
+    assert ck["realtime_60m_views"] is None
+    assert ck["realtime_60m_prev"] is None
+    assert ck["unique_viewers_24h"] is None
+    assert ck["unique_viewers_7d"] is None
+    assert ck["unique_viewers_28d"] is None
+
+    # Explicit separated cumulative vs 1d delta vs 7d vs 28d keys (zero blind cloning!)
+    assert "views_cumulative" in ck and "views_delta_1d" in ck
+    assert ck["views_7d"] != ck["views_cumulative"]
+    assert ck["subscribers_7d"] != ck["subscribers_total"]
+    assert ck["subscribers_28d"] is None
+
+    # 11/13, 11/14, 11/15 corrupted views=8/subs=6 MUST be masked as None outliers!
+    assert t7["masked_outlier_dates"] == ["2026-11-13", "2026-11-14", "2026-11-15"]
+    assert t7["views"][1:4] == [None, None, None]
+    assert t7["subscribers"][1:4] == [None, None, None]
+    assert t7["snapshot_3d_ago"]["outlier_masked"] is True
+    assert t7["snapshot_3d_ago"]["views"] is None
+    assert t7["snapshot_3d_ago"]["subscribers"] is None
+
+
+def test_studio_reporter_7d_dom_period_guard_blocks_28d_leakage(tmp_path: Path):
+    """
+    Regression test for [STUDIO_REPORTER_7D_FIX_ORDER]:
+      1. When `period_hint='7d'` receives a DOM still showing `Last 28 days` / `지난 28일`
+         (e.g. Studio SPA ignoring `/period-week`), `views_7d`, `watch_hours_7d`,
+         `subscribers_gained_7d`, and `unique_viewers_7d` MUST stay absent (`None`).
+      2. `+55 in the last 28 days` NEVER leaks into `subscribers_gained_7d`, and
+         `+9 in the last 7 days` NEVER leaks into `subscribers_gained_28d`.
+      3. Korean `지난 7일` DOM succeeds cleanly while `지난 28일` DOM is blocked under `7d`.
+      4. `sec1_channel_growth.png` renders cleanly with `N/A` labels on masked outlier dates.
+    """
+    # 1. English 28d DOM mistakenly passed under period_hint='7d' (exact 2026-11-19 failure mode)
+    stale_28d_dom = (
+        "Channel analytics\nLast 28 days\n"
+        "Your channel got 7.3K views in the last 28 days\n"
+        "Views\n7.3K\n"
+        "Watch time (hours)\n120.0\n"
+        "Subscribers\n+55\n+55 in the last 28 days\n"
+        "Unique viewers\n5.1K\n"
+    )
+    res_7d_guarded = StudioAnalyticsReporter._parse_analytics_text_block(stale_28d_dom, period_hint="7d")
+    assert "views_7d" not in res_7d_guarded
+    assert "watch_hours_7d" not in res_7d_guarded
+    assert "subscribers_gained_7d" not in res_7d_guarded
+    assert "unique_viewers_7d" not in res_7d_guarded
+    assert "views_28d" not in res_7d_guarded
+    assert "subscribers_gained_28d" not in res_7d_guarded
+
+    # 2. Korean 28d DOM under period_hint='7d' -> blocked; Korean 7d DOM -> accepted
+    ko_28d_dom = "채널 분석\n지난 28일\n조회수\n7.3천\n시청 시간(단위: 시간)\n120.0\n구독자\n+55\n순 시청자\n5.1천\n"
+    res_ko_28_as_7 = StudioAnalyticsReporter._parse_analytics_text_block(ko_28d_dom, period_hint="7d")
+    assert "views_7d" not in res_ko_28_as_7
+    assert "watch_hours_7d" not in res_ko_28_as_7
+    assert "subscribers_gained_7d" not in res_ko_28_as_7
+    assert "unique_viewers_7d" not in res_ko_28_as_7
+
+    ko_7d_dom = "채널 분석\n지난 7일\n조회수\n1.2천\n시청 시간(단위: 시간)\n18.4\n구독자\n+7\n순 시청자\n890\n"
+    res_ko_7d = StudioAnalyticsReporter._parse_analytics_text_block(ko_7d_dom, period_hint="7d")
+    assert res_ko_7d["views_7d"] == 1200
+    assert res_ko_7d["watch_hours_7d"] == 18.4
+    assert res_ko_7d["subscribers_gained_7d"] == 7
+    assert res_ko_7d["unique_viewers_7d"] == 890
+
+    # 3. Unmarked DOM (no Last 7 days header at all) under period_hint='7d' -> refused
+    unmarked_dom = "Views\n7.3K\nWatch time (hours)\n120.0\nSubscribers\n+55\n"
+    res_unmarked = StudioAnalyticsReporter._parse_analytics_text_block(unmarked_dom, period_hint="7d")
+    assert "views_7d" not in res_unmarked
+    assert "watch_hours_7d" not in res_unmarked
+    assert "subscribers_gained_7d" not in res_unmarked
+
+    # 4. Explicit 7d subscriber delta under period_hint='28d' never contaminates subscribers_gained_28d
+    mixed_28d = "Last 28 days\n+9 in the last 7 days\n+55 in the last 28 days\nWatch time (hours)\n120.0\n"
+    res_28d = StudioAnalyticsReporter._parse_analytics_text_block(mixed_28d, period_hint="28d")
+    assert res_28d["subscribers_gained_7d"] == 9
+    assert res_28d["subscribers_gained_28d"] == 55
+    assert res_28d["watch_hours_28d"] == 120.0
+
+    # 4b. New YouTube Studio Insights Hub (`hub_overview`) DOM where Key metrics is switched to `7 days`
+    # while lower `Top content` still prints `Last 28 days`:
+    hub_7d_dom = (
+        "Channel insights\nKey metrics\n7 days\n28 days\n90 days\nMore\n"
+        "Views\n811\nNov 11, 2026\nNov 17, 2026\n"
+        "Watch time (hours)\n9.9\nSubscribers\n+6\n48-hour views\n47\n"
+        "Top content\nViews • Last 28 days\nSome Video\n2.0K\n"
+    )
+    # Without live chip verification (`verified_dom_period=None`), lower `Last 28 days` blocks accidental 7d capture
+    res_hub_unverified = StudioAnalyticsReporter._parse_analytics_text_block(hub_7d_dom, period_hint="7d")
+    assert "views_7d" not in res_hub_unverified
+    assert "watch_hours_7d" not in res_hub_unverified
+    assert "subscribers_gained_7d" not in res_hub_unverified
+    # With live chip verification (`verified_dom_period='7d'` from aria-selected='true'), exact 7d KPIs are extracted
+    res_hub_verified = StudioAnalyticsReporter._parse_analytics_text_block(
+        hub_7d_dom,
+        period_hint="7d",
+        verified_dom_period="7d",
+    )
+    assert res_hub_verified["views_7d"] == 811
+    assert res_hub_verified["watch_hours_7d"] == 9.9
+    assert res_hub_verified["subscribers_gained_7d"] == 6
+    assert "views_28d" not in res_hub_verified
+
+    # 5. Chart generation with masked outlier dates produces sec1_channel_growth.png cleanly
+    for d_iso, v_val in (("2026-11-12", 8668), ("2026-11-13", 8), ("2026-11-14", 8), ("2026-11-15", 8), ("2026-11-17", 8857)):
+        (tmp_path / f"{d_iso}_studio_metrics.json").write_text(
+            json.dumps(
+                {
+                    "report_date": d_iso,
+                    "data_source_mode": "LIVE_CDP_DOM",
+                    "channel_kpis": {"views_24h": v_val, "subscribers_total": 61 if v_val > 100 else 6, "watch_hours_24h": 133.0},
+                    "retention_kpis": {"viewed_pct": 72.0, "avd_seconds": 54.0, "apv_pct": 66.0},
+                    "traffic_sources": [{"short_name": "Shorts Feed", "pct": 88.0}],
+                    "geographies": [{"country": "US", "pct": 58.0}],
+                }
+            ),
+            encoding="utf-8",
+        )
+    rep = StudioAnalyticsReporter(reports_dir=tmp_path)
+    out = rep.generate_daily_report(report_date="2026-11-18", compare_date="2026-11-17", dry_run=True)
+    sec1_png = tmp_path / "2026-11-18_sec1_channel_growth.png"
+    assert sec1_png.is_file() and sec1_png.stat().st_size > 10_000
+    assert Path(out["json_path"]).is_file()
+
+    md_txt = Path(out["markdown_path"]).read_text(encoding="utf-8")
+    assert "`outlier`" in md_txt
+    assert "`unscraped`" in md_txt
+
+
+def test_r87_lock4_retention_regression_alert_triggered_and_cleared(tmp_path: Path) -> None:
+    """Lock 4: +48h & >=15 views consecutive >=2 dip (<70% 3s hook OR <60% APV) triggers alert & top banner."""
+    from pipeline.studio.reporter import StudioAnalyticsReporter
+
+    # 1. Triggered: latest 2 qualifying (+48h, views >= 15) videos dip below 70% hook or 60% APV;
+    #    young (<48h) and low-view (<15) videos are cleanly excluded from breaking or faking the streak.
+    recs_bad = [
+        {
+            "video_id": "v_ok_1",
+            "project_id": "v8_ep06_ok",
+            "status": "published",
+            "measured": True,
+            "date": "2026-11-12",
+            "time_et": "12:00",
+            "views": 500,
+            "viewed_pct": 76.0,
+            "apv_pct": 68.0,
+        },
+        {
+            "video_id": "v_dip_1",
+            "project_id": "v8_ep07_dip",
+            "status": "published",
+            "measured": True,
+            "date": "2026-11-14",
+            "time_et": "12:00",
+            "views": 37,
+            "viewed_pct": 30.0,
+            "apv_pct": 53.5,
+        },
+        {
+            "video_id": "v_dip_2",
+            "project_id": "v8_ep08_dip",
+            "status": "published",
+            "measured": True,
+            "date": "2026-11-16",
+            "time_et": "12:00",
+            "views": 102,
+            "viewed_pct": 64.3,
+            "apv_pct": 64.0,
+        },
+        {
+            # Only +12h old -> excluded from +48h regression window
+            "video_id": "v_fresh",
+            "project_id": "v8_ep10_fresh",
+            "status": "published",
+            "measured": True,
+            "date": "2026-11-20",
+            "time_et": "00:00",
+            "views": 80,
+            "viewed_pct": 88.0,
+            "apv_pct": 85.0,
+        },
+        {
+            # Views < 15 -> excluded
+            "video_id": "v_low",
+            "project_id": "v8_ep09_low",
+            "status": "published",
+            "measured": True,
+            "date": "2026-11-17",
+            "time_et": "12:00",
+            "views": 9,
+            "viewed_pct": 90.0,
+            "apv_pct": 90.0,
+        },
+    ]
+    alert_on = StudioAnalyticsReporter.detect_retention_regression_alert(
+        recs_bad, report_date="2026-11-20", generated_at_et="2026-11-20 12:00 ET"
+    )
+    assert alert_on["triggered"] is True
+    assert alert_on["consecutive_count"] == 2
+    assert [v["project_id"] for v in alert_on["affected_videos"]] == ["v8_ep07_dip", "v8_ep08_dip"]
+    assert "⚠️ [RETENTION_REGRESSION_ALERT]" in alert_on["banner"]
+
+    # 2. Non-triggered: latest qualifying video recovers (>=70% hook AND >=60% APV)
+    recs_recovered = recs_bad[:3] + [
+        {
+            "video_id": "v_rec_1",
+            "project_id": "v8_ep13_recovered",
+            "status": "published",
+            "measured": True,
+            "date": "2026-11-18",
+            "time_et": "11:00",
+            "views": 180,
+            "viewed_pct": 82.5,
+            "apv_pct": 71.0,
+        }
+    ]
+    alert_off = StudioAnalyticsReporter.detect_retention_regression_alert(
+        recs_recovered, report_date="2026-11-20", generated_at_et="2026-11-20 12:00 ET"
+    )
+    assert alert_off["triggered"] is False
+    assert alert_off["affected_videos"] == []
+    assert alert_off["banner"] == ""
+
+    # 3. Markdown top-of-report banner rendering check
+    rep = StudioAnalyticsReporter(reports_dir=tmp_path)
+    out = rep.generate_daily_report(report_date="2026-11-20", compare_date="2026-11-19", dry_run=True)
+    metrics_doc = json.loads(Path(out["json_path"]).read_text(encoding="utf-8"))
+    assert "retention_regression_alert" in metrics_doc
+    metrics_doc["retention_regression_alert"] = alert_on
+    md_with_banner = rep.render_markdown_report(metrics_doc, charts_filename="charts.png")
+    first_300 = md_with_banner[:450]
+    assert "⚠️ [RETENTION_REGRESSION_ALERT]" in first_300
+    assert "v8_ep07_dip" in first_300
+    assert "v8_ep08_dip" in first_300
+
+
+
+

@@ -1,0 +1,120 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "50-year-old adult sleeping with eyes closed beside an afternoon espresso cup",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway pulsing with wired awake-like prefrontal and thalamic criticality waves",
+    "badge_text": "BRAIN STILL WIRED"
+  },
+  "r75_clean_seed_tags": [
+    "caffeine and sleep",
+    "coffee before bed",
+    "deep sleep brain waves",
+    "adenosine sleep",
+    "sleep science",
+    "why i wake up tired",
+    "neuroscience",
+    "brain health",
+    "afternoon coffee",
+    "circadian rhythm",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why falling asleep fast after a 3 PM coffee still leaves your sleeping brain wired like daytime.",
+    "core_experiment": "Thölke, Carrier & Jerbi (2025, Communications Biology): overnight EEG across 40 adults showed caffeine shifts unconscious NREM sleep into wake-like criticality.",
+    "twist": "Gardiner et al. (2023) proved even one regular cup of coffee needs 8.8 hours before bed—and evening doses delay your circadian clock by 40 minutes."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 'Espresso Never Affects Me' Myth",
+      "beats": [
+        "Falling asleep vs sleeping deeply",
+        "Why sleepers miss 45–60 minutes of lost restorative depth"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "3 PM patio espresso check"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Montreal 2025: Inside 40 Sleeping Brains on Caffeine",
+      "beats": [
+        "Double-blind caffeine vs placebo crossover",
+        "NREM complexity surge and wake-like criticality"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "sleep lab EEG waveform comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Adenosine Blockade & The 40-Minute Clock Shift",
+      "beats": [
+        "Thalamocortical delta-wave suppression",
+        "Burke et al. (2015) circadian melatonin delay"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 brainstem -> thalamus -> prefrontal criticality"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Midlife Receptor Shifts & Daily Habit Tolerance",
+      "beats": [
+        "20–27 vs 41–58 age differences in Thölke et al. (2025)",
+        "Why daily coffee drinkers still lose REM promotion (Weibel et al. 2021)"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "morning temple-rub fatigue"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 8.8-Hour Rule That Protects Deep Sleep",
+      "beats": [
+        "Gardiner et al. (2023) 24-study meta-analysis cutoffs",
+        "Timing your last cup for clean morning energy"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "swapping afternoon coffee for sparkling lemon water"
+      ]
+    }
+  ]
+}

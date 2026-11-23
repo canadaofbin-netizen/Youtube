@@ -1,0 +1,132 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2011 Columbia-Harvard Computer Lab: Typing 40 Trivia Facts Into 'Saved' Folder vs 'Erased' Screen",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "2011, Harvard & Columbia cognitive psychology testing suite",
+      "layout": {
+        "description": "Sunlit wood-paneled university testing room with two desktop stations: at Station A, a 49-year-old volunteer watches typed trivia slide into a yellow desktop file folder icon and relaxes back; at Station B, a volunteer sees the typed entry vanish cleanly and leans forward rehearsing the fact.",
+        "positions": [
+          {
+            "who": "49-year-old adult volunteer (in collared Oxford shirt and olive knit vest)",
+            "where": "seated at the wooden testing desk typing trivia statements on a mechanical keyboard before facing a blank sheet recall test",
+            "facing": "seated facing desktop monitor and researcher"
+          },
+          {
+            "who": "Betsy Sparrow (researcher in tailored navy blazer holding folder-recall scoring sheet)",
+            "where": "standing beside the desk comparing weak content recall against pinpoint folder-location recall",
+            "facing": "angled toward the volunteer and desktop station"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "desktop computer keyboard and color-tabbed physical manila folder tray",
+          "period_detail": "2011 Experiment 2 & 3 saved-vs-erased and 6-folder location memory test",
+          "physical_behavior": "State-A fingers finish typing trivia card and drop it into labeled folder slot -> State-B volunteer points straight to the exact folder tab while shrugging blankly at what the card inside actually said"
+        },
+        {
+          "name": "surprise blank recall pad and uncapped fountain pen",
+          "period_detail": "measures verbatim statement recall (29% erased vs 19% saved)",
+          "physical_behavior": "State-A saved-condition pad sits half-empty at 19% -> State-B erased-condition volunteer writes briskly reaching 29% recall"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult volunteer",
+          "verb_sequence": "types the final keystroke, watches the file drop into the saved folder -> taps temple blankly on the fact quiz yet points unhesitatingly to the exact folder slot"
+        },
+        {
+          "who": "Betsy Sparrow",
+          "verb_sequence": "lifts the folder tab revealing the brain stored the filing address instead of the sentence"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult volunteer",
+          "reaction": "laughs in recognition realizing 'I know right where it's saved, just not what it says!'"
+        },
+        {
+          "who": "Betsy Sparrow",
+          "reaction": "nods marking transactive external memory offloading"
+        }
+      ],
+      "wardrobe": "Smart-casual olive vest over white Oxford shirt; tailored navy jacket on researcher.",
+      "lighting": "Clean high-key afternoon campus window light.",
+      "recognition_hook": "Promise the brain a file is saved, and recall drops from 29% to 19%—while memory for which folder holds it stays razor-sharp.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "an adult volunteer at a wooden university desk pointing confidently to a specific file folder tab while pausing over a surprise memory pad beside a researcher",
+        "must_show": [
+          "computer|monitor|desk",
+          "folder|tray",
+          "pad|pen"
+        ],
+        "source": "M1@00:15-00:50; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Sunlit Sculpture Courtyard Tour: Point-and-Shoot Whole Photo vs Pausing & Zooming In (Henkel 2014)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern sunlit outdoor museum sculpture courtyard",
+      "layout": {
+        "description": "Sunlit open-air limestone museum courtyard lined with classical bronze and marble sculptures under blue sky.",
+        "positions": [
+          {
+            "who": "56-year-old museum visitor (in light linen jacket carrying compact digital camera)",
+            "where": "walking past a classical bronze courtyard statue—first snapping a hasty one-second wide photo, then stopping at the next sculpture to observe closely and zoom the lens barrel onto carved hands",
+            "facing": "standing in sunlit sculpture courtyard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "compact zoom camera and classical courtyard bronze sculpture",
+          "period_detail": "Linda Henkel's 2014 point-and-shoot vs optical-zoom encoding test",
+          "physical_behavior": "State-A hasty one-handed wide shutter click walking right past -> State-B two-handed steady optical zoom ring turn studying carved detail for five full seconds"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Museum visitor",
+          "verb_sequence": "lowers the camera for five quiet seconds to take in the sunlit bronze sculpture with naked eyes -> gently twists the zoom ring onto a single detail"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Museum visitor",
+          "reaction": "warm, attentive smile absorbing the real moment instead of outsourcing it"
+        }
+      ],
+      "wardrobe": "Light sand linen jacket over navy polo shirt.",
+      "lighting": "Bright golden outdoor courtyard sunlight.",
+      "recognition_hook": "Snap a lazy wide photo and your hippocampus skips encoding; pause five seconds or zoom onto one detail and your memory keeps the whole scene.",
+      "sources": [
+        "SRC2",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Sculpture A photographed in one hasty second and immediately forgotten down the gallery path",
+    "landmark_or_object_b": "Sculpture B observed directly with naked eyes or zoomed in closely, locking full detail into memory",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep over a sunlit university museum courtyard descending into an open gallery walkway",
+    "cut_b_topdown_3d_arrow": "Top-down courtyard floorplan where a #FF2525 3D volumetric arrow zigzags from sculpture pedestal to pedestal—fading on hasty shutter clicks and glowing bright on paused eye contact",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

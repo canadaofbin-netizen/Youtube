@@ -1,0 +1,80 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern neuroimaging/sleep-lab topic staged from R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "What Sleep Does to Your Brain: Inside the Glymphatic System",
+      "url": "https://www.youtube.com/watch?v=x_go148NwkY",
+      "channel": "URochester School of Medicine & Dentistry",
+      "source_id": "SRC_M1",
+      "duration_sec": 67,
+      "timecodes": [
+        {
+          "t": "00:06-00:22",
+          "what": "University of Rochester Nedergaard-lab visualization of perivascular cerebrospinal fluid flushing metabolic waste during non-REM sleep."
+        },
+        {
+          "t": "00:24-00:46",
+          "what": "Arterial pulsatility and interstitial space expansion driving nightly glymphatic clearance across brain tissue."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05-00:50) from URochester School of Medicine & Dentistry's \"What Sleep Does to Your Brain: Inside the Glymphatic System\".",
+          "Analyzed strictly for apparatus layout, lighting contrast, and pacing; zero video frames or audio reused in channel productions."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate3_flat_slide_or_2d_cartoon(median_flat=0.6708>0.62)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.0011,
+        "median_gray_sat_ratio": 0.3296,
+        "median_p90_sat": 245.0,
+        "max_p90_sat": 248.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": true,
+        "median_flat_patch_ratio": 0.6708,
+        "median_motion_diff": 95.009,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false,
+        "gate_failed": 3
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Scientists Uncover Drain Pipes in Our Brains",
+      "url": "https://www.youtube.com/watch?v=T9y_5vzJZtk",
+      "channel": "NIHNINDS",
+      "source_id": "SRC_M2",
+      "duration_sec": 206,
+      "timecodes": [
+        {
+          "t": "00:10-00:26",
+          "what": "NIH NINDS demonstration of brain fluid drainage channels operating preferentially during natural sleep."
+        },
+        {
+          "t": "00:28-00:48",
+          "what": "Comparison of active nightly fluid clearance waves versus stalled daytime/disrupted clearance."
+        }
+      ],
+      "license_note": "Complementary video reference logged for visual blocking context only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "no_verified_archival_or_experiment_footage_for_track_a",
+      "reenactment_suitability_metrics": {
+        "duration_sec": 206.0
+      }
+    }
+  ]
+}

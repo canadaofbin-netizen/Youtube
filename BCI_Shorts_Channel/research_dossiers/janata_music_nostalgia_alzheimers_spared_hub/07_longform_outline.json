@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Older adult putting on cushioned headphones and lighting up singing every word of a 1985 song",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing dimmed hippocampus vs blazing cyan ventromedial prefrontal and anterior cingulate musical sanctuary",
+    "badge_text": "SPARED HUB"
+  },
+  "r75_clean_seed_tags": [
+    "music and memory",
+    "why i remember old songs",
+    "alzheimers music memory",
+    "nostalgia brain",
+    "brain science",
+    "neuroscience",
+    "petr janata",
+    "hippocampus vs prefrontal",
+    "healthy brain aging",
+    "everyday psychology",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why you forget a new name in five seconds at a barbecue—yet climb in the car and sing every single word from 1985.",
+    "core_experiment": "Petr Janata (2009, UC Davis fMRI: 42.3% of random youth Billboard hits sparked vivid memories) + Jacobsen et al. (2015, Brain 7T MRI in Alzheimer's).",
+    "twist": "Long-loved songs don't live in your fragile name-learning hippocampus—they live in a sheltered midline brain sanctuary that Alzheimer's touches last."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 5-Second Name Blank vs The 40-Year Radio Chorus",
+      "beats": [
+        "Dropping 'Greg' at a barbecue while nailing every 1985 lyric in the car",
+        "Why advanced Alzheimer's patients still sing childhood melodies"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "patio handshake blank to car radio sing-along"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "UC Davis 2009: Random Youth Billboard Hits Inside an fMRI",
+      "beats": [
+        "30 random Top-100 clips from ages 7–19: 56.2% familiar, 42.3% vivid life memories",
+        "Belfi et al. (2016): why songs beat famous faces for sensory detail"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "UC Davis console fader and 1985 vinyl stack"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "2015 7-Tesla Breakthrough: The Sheltered Sanctuary in Brain",
+      "beats": [
+        "Jacobsen et al. (2015) decode unknown vs 1-hour vs long-known songs at 7T",
+        "20 Alzheimer's PET/MRI scans prove minimal atrophy & preserved glucose in the musical hub"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 silenced hippocampus vs active midline sanctuary"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "One Fragile Thread vs Four Braided Neural Cables",
+      "beats": [
+        "Auditory + motor rhythm + emotion + medial prefrontal self-identity",
+        "King et al. (2019): 17 Alzheimer's patients gain whole-brain network synchrony"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "whole-brain cyan tract synchronization"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Building Your 'Ages 12-to-22' Playlist Sanctuary Today",
+      "beats": [
+        "How to anchor new names with a second visual cable",
+        "Saving 20 youth songs now for yourself and aging parents"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit garden bench headphone moment"
+      ]
+    }
+  ]
+}

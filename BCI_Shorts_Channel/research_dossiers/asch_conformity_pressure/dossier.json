@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "asch_conformity_pressure",
   "topic": "Solomon Asch (1951-1956): Perceptual Line-Judgment Conformity & One-Ally Liberation",
   "pillar": "bci_ethics",
@@ -52,11 +52,42 @@
     },
     {
       "fact": "Across all critical trials, genuine participants conformed to the unanimous wrong majority 36.8 percent of the time.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Critical-Trial Conformity",
+        "percent": 36.8,
+        "unit": "%",
+        "doi": "10.1037/h0093718",
+        "source_citation": "Asch (1956, Psychol. Monogr.)"
+      }
     },
     {
       "fact": "Roughly 75 percent of participants yielded to the group's obviously false answer at least once, while 25 percent remained completely independent across all 12 critical trials.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Asch Conformity Split",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Yielded Once+",
+            "value": 75.0,
+            "unit": "%"
+          },
+          {
+            "label": "Stayed Independent",
+            "value": 25.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/h0093718",
+        "source_citation": "Asch (1956, Psychol. Monogr.)"
+      }
     },
     {
       "fact": "Post-experiment interviews revealed three motives: rare perceptual distortion, distortion of judgment ('my eyes must be wrong'), and commonest distortion of action (knowing the group was wrong but dreading ridicule).",
@@ -145,5 +176,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A2_section_window",
-  "offcenter_creator_bet": "Hot take: smart people fold to crowds — seventy-five percent doubted their own eyes just to avoid standing alone. Would you call out a wrong consensus in a meeting?"
+  "offcenter_creator_bet": "Hot take: smart people fold to crowds — seventy-five percent doubted their own eyes just to avoid standing alone. Would you call out a wrong consensus in a meeting?",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1037/h0093718",
+  "three_layer_formula": {
+    "everyday_problem": "Nodding along in a work meeting when five colleagues praise a flawed slide deck that visibly contradicts the numbers on the display.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0093718",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0093718"
+      ],
+      "summary": "Solomon E. Asch (1956). Studies of independence and conformity: I. A minority of one against a unanimous majority. Psychological Monographs: General and Applied."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.2298/psi190107018h",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.2298/psi190107018h"
+      ],
+      "summary": "Alen Hajnal, Jennifer Vonk, Virgil Zeigler-Hill (2020). Peer influence on conformity and confidence in a perceptual judgment task. Psihologija."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Asch proved people are blind sheep who conform almost 100 percent of the time.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hot take: smart people fold to crowds — seventy-five percent doubted their own eyes just to avoid standing alone. Would you call out a wrong consensus in a meeting?"
+  }
 }

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "dehaene_conscious_brain_ignition",
   "topic": "Stanislas Dehaene (2006): Global Neuronal Workspace — The 300-Millisecond 'Brain-Wide Ignition' That Turns Sight Into Consciousness!",
   "pillar": "brain_mysteries",
@@ -48,11 +48,44 @@
     },
     {
       "fact": "What happens at **Conscious Access**? As you nudge mask delay step-by-step past **~50 milliseconds**, early visual cortex rises *smoothly and linearly* — and then around **270 to 300 milliseconds after the flash**, brain activity undergoes a sudden **ALL-OR-NONE NONLINEAR PHASE TRANSITION ('Global Ignition' / P3b wave)**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Conscious Ignition Timeline",
+        "unit": "ms",
+        "series": [
+          {
+            "label": "Global Ignition",
+            "start_label": "Mask Threshold",
+            "values": [
+              50.0,
+              300.0
+            ],
+            "unit": "ms"
+          }
+        ],
+        "doi": "10.1016/j.tics.2006.03.007",
+        "source_citation": "Dehaene et al. (2006)"
+      }
     },
     {
       "fact": "In that ~300-ms ignition, restrained, coherent **long-range white-matter axonal loops** link sensory cortex reciprocally with **bilateral prefrontal and inferior parietal 'Global Workspace' hubs** — broadcasting that ONE piece of information simultaneously to **speech (Broca's), working memory, planning, and episodic memory** so you can *report it, hold it, and think about it*.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Global Workspace Ignition",
+        "concept": "Global Workspace Ignition",
+        "fn": "sigmoid",
+        "x_label": "Mask Delay (ms)",
+        "y_label": "Cortical Broadcast",
+        "marker_x": 0.65,
+        "marker_label": "P3b Ignition",
+        "doi": ""
+      }
     },
     {
       "fact": "This Global Ignition signature gave coma clinics a **life-saving bedside tool** (King, Faugeras, Naccache & Dehaene): detecting long-range frontoparietal 'global oddball' sharing helps identify **minimally conscious patients** trapped inside unresponsive bodies.",
@@ -119,5 +152,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My honest bet: awareness is single-file — unseen words prime habits, yet conscious thought ignites one broadcast at a time. Can anyone truly follow two conversations at once?"
+  "offcenter_creator_bet": "My honest bet: awareness is single-file — unseen words prime habits, yet conscious thought ignites one broadcast at a time. Can anyone truly follow two conversations at once?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/j.tics.2006.03.007",
+  "three_layer_formula": {
+    "everyday_problem": "Experiencing the **'Attentional Blink'**: spot Target #1 in a fast stream, and for the next **300 milliseconds** while your Global Workspace broadcasts #1, Target #2 vanishes right in front of your open eyes.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/j.tics.2006.03.007",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/j.tics.2006.03.007"
+      ],
+      "summary": "Stanislas Dehaene, Jean-Pierre Changeux, Lionel Naccache, Jérôme Sackur et al. (2006). Conscious, preconscious, and subliminal processing: a testable taxonomy. Trends in Cognitive Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1016/j.neuron.2020.01.026",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2020.01.026"
+      ],
+      "summary": "George A. Mashour, Pieter Roelfsema, Jean-Pierre Changeux, Stanislas Dehaene (2020). Conscious Processing and the Global Neuronal Workspace Hypothesis. Neuron."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Unconscious processing is foolish or tiny — if you aren't conscious of a word or face, it stops at your eyeball.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My honest bet: awareness is single-file — unseen words prime habits, yet conscious thought ignites one broadcast at a time. Can anyone truly follow two conversations at once?"
+  }
 }

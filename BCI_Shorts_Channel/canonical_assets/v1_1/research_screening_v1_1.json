@@ -1,0 +1,916 @@
+{
+  "schema": "canonical_assets_v1_1_research_screening",
+  "version": "1.1.0",
+  "screened_at_utc": "2026-11-18T19:07:29.341675+00:00",
+  "reviewer": "@Research (ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c)",
+  "parent_locked_library": {
+    "version": "v1",
+    "manifest_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1/manifest.json",
+    "manifest_sha256": "c9d2e271b8134363605890c289512ebd304ba09529260265f45bcbbc844a3892"
+  },
+  "spec_ssot": ".agents/research/canonical_v1_1_spec.json",
+  "benchmark_anchor": "artifacts_archive/01_YouTube_CEO/benchmark_31_O2CmlKOk_brain_cuts_4frame_teardown.jpg",
+  "summary": {
+    "total_slots_screened": 43,
+    "passed_slots": 43,
+    "rejected_slots": 0,
+    "total_candidates_inspected": 111,
+    "rank_1_promotions_count": 7,
+    "excluded_outlier_candidates_count": 23,
+    "f03a_to_f03b_daisy_chain_sha256_verified": true,
+    "rank_1_promotions": [
+      {
+        "slot_id": "A16_eyes_optic_nerve_to_v1_pathway",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "A17_brain_spinal_body_descending_xray",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "E14_night_bedroom_staged",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "E16_urban_street_sidewalk_staged",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "H01_padlocked_acrylic_plaster_brain_case",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      },
+      {
+        "slot_id": "H04_physical_red_x_over_simple_diagram_card",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_03.png"
+      },
+      {
+        "slot_id": "I03_callout_safezone_brain_headroom_frame",
+        "previous_rank1": "cand_01.png",
+        "new_rank1": "cand_02.png"
+      }
+    ],
+    "total_candidate_files_inspected": 137
+  },
+  "slots": [
+    {
+      "slot_id": "F01_human_profile_to_mode1_xray_head",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F1. 일상 인물 옆모습 → Mode 1 밝은 회색 반투명 두상 + 뇌 투시 진입",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "Pair 1 시작 프레임(측면 클로즈업 백색 민머리 비닐 인물)과 끝 프레임(A01 Mode 1 반투명 마네킹 두상)의 두상 크기·높이·좌향 각도가 1:1로 일치해 디졸브 전환 시 위화감 0%.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "aeaf4321a52ae0ad2a9abf63a11490cc1abf617df9d130c24a751bf0d4e130b9",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10"
+    },
+    {
+      "slot_id": "F02_mode1_xray_head_to_mode2_whole_brain",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F2. Mode 1 반투명 두상 → Mode 2 화면 가득 찬 전체 뇌 크래니엄 돌파",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "A01 Mode 1 두상에서 A02 cand_02 정본 외측면 백색 석고 뇌(75% 프레임 충전, 굵은 하늘색 고랑 혈관, #040711 배경)로 두개골만 걷히며 자연스럽게 연결됨.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c"
+    },
+    {
+      "slot_id": "F03a_whole_brain_to_sulcal_vessel_macro",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F3a. 뇌 스케일 1단계 줌인: 전체 뇌(Mode 2) → 고랑 속 분지 혈관 그물 매크로",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "A02 전체 외측 뇌에서 무광 백색 회(gyri) 사이 굵은 불투명 하늘색(#27D8FF) 혈관 분지 매크로로 매끄럽게 줌인되며 F03b Pair 1 시작 프레임과 SHA-256 데이지체인 일치.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "f9d7c46cdc1ba98c485444becc6dea236ab0b16a16ac2cb0a9b49f1d99c10bc5"
+    },
+    {
+      "slot_id": "F03b_sulcal_vessel_macro_to_1p_tract_canyon",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F3b. 뇌 스케일 2단계 다이브: 고랑 혈관 매크로 → 1P 심부 신경섬유·유체 골짜기",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "F03a Pair 1 끝 프레임과 바이트 단위 일치하는 시작 프레임에서 협곡 바닥 황금 백질 다발(1P tract canyon)로 진입하며 발광·입자 이펙트 0%.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "f9d7c46cdc1ba98c485444becc6dea236ab0b16a16ac2cb0a9b49f1d99c10bc5",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "0bab450bb1b80d6902b253879339d7afcdeb156faa21940ff061ca86f3dc1e4b"
+    },
+    {
+      "slot_id": "F04_metaphor_prop_to_anatomy_shape_bridge",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F4. 일상 비유 물체 → 실제 뇌 해부 구조 형태·색상 1:1 매치 브리지",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02_end.png"
+      ],
+      "valid_candidates": [
+        "cand_01_end.png"
+      ],
+      "reason_ko": "Pair 1 보정본 최종 통과: 백자 접시 위 순수 타원형 황금 천연 해면 스펀지에서 하늘색(#27D8FF) 물줄기가 짜여 나오는 시작 프레임 -> 동일 중심 좌표의 정중시상 백색 석고 뇌 단면 내 황금 시상 코어(A07) + 하늘색 뇌실 CSF 수로(A15) 끝 프레임으로 형태·색상 브릿지 100% 일치 (Pair 2 기계 태엽 뇌는 제외 유지).",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "0d36df142cac2aa4515550c46cd2b8969c23bda703e7e010aee5f019e3ea171a",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "7fc229c9af81a822d6d3b8411b2042486589a98b0e6940193b8d1610c2e0ffb6"
+    },
+    {
+      "slot_id": "F05a_drone_120ft_to_courtyard_portico",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F5a. 공간 진입 1단계: 120ft 대학·병원 상공 드론 → 정문 기둥 광장 하강",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "Pair 1(고전 붉은 벽돌 대학 120ft 드론 -> 기둥 포티코 계단) 1순위, Pair 2(현대 의학센터 120ft 드론 -> 유리 병원 정문 광장) 2순위로 기관 유형별 완벽 대응.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "1f84b4b1ed6160f57f04087efde86a28dab6596a02314d9529eba44d61d90615",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "7f3e40673cc03df170cf5cfa977c2496c110185fb2d5897248914864c7e0962f"
+    },
+    {
+      "slot_id": "F05b_window_threshold_to_staged_interior",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F5b. 공간 진입 2단계: 햇살 창가 실내 경계 → 연구실·진료실 인물 컷(C04 모발 유출 근절형)",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_03_end.png"
+      ],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "Pair 1(연구실)·Pair 2(MRI실)는 빈 방과 인물 배치 후 건축 구조가 1:1 일치함. Pair 3은 어두운 목재 실험실에서 흰색 현대 오피스로 방 구조가 바뀌어(Start!=End) 제외.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "a55af79fb54f287bff4e391ceae098102897715b43d71488be65bafc00d08c59",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "70959a2a9e2843e23fce54393d75886c497f0e31675a9168a7d6bbd181af71a0"
+    },
+    {
+      "slot_id": "F06_oblique_corridor_to_topdown_r80_arrow",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F6. 실험 공간·대로 부감 → 90° 수직 탑다운 R80 #FF2525 3D 대조 화살표 전환",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png",
+        "cand_03_end.png"
+      ],
+      "reason_ko": "Pair 1(도시 직선 통제 경로 #FF2525 화살표) 1순위, Pair 2(도시 다중 분기 실험 경로 #FF2525 화살표) 2순위, Pair 3(문턱 단절 경로) 보조 활용 가능.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "533f625c373c90d6e45c314f40bce191cb208fa2182f977ed05cea587524a04c",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "e0eadd91b4e62b13e4ff06786b677da0f5dd0ae97d3624ea104bda5ab039fa73"
+    },
+    {
+      "slot_id": "F07_mode2_brain_to_vinyl_character_return",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F7. Mode 2 뇌 해부 → 따뜻한 실내 2.5D 비닐 캐릭터 표정·행동 복귀",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": "cand_02_end.png",
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01_end.png",
+        "cand_02_end.png"
+      ],
+      "reason_ko": "Pair 1(따뜻한 주방 미디엄 바스트 복귀, 인물 비중 65%) 1순위, Pair 2(전전두엽 황금 뇌 -> 따뜻한 복도 전신 복귀) 2순위로 모두 모발·피부 유출 0%.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "948e0417c4b5ad961d7f67eccdc8bf62e2ea8a36852026cc2486683954562250"
+    },
+    {
+      "slot_id": "F08a_prop_settle_for_data_stamp_entry",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F8a. 데이터 스탬프 진입 구도 전환 (실물 소품): 중앙 액션 → 하단 30% 정박 + 상단 70% 차트 여백 개방",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02_end.png"
+      ],
+      "valid_candidates": [
+        "cand_01_end.png"
+      ],
+      "reason_ko": "Pair 1(좌측 프레임 연결 손이 갈색 약병 파지 -> I01 상단 70% 여백 테이블) 1순위 확정. Pair 2 시작 프레임은 책상 위에 절단된 마네킹 손목 토막(severed wrist stump)이 놓여 있어 즉시 제외.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "fafdcd0beda0d6b66268a36d33091e9f1caabe489c543b2cebc91b42fd6134fd",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "e488a516cd588320adbf56e18cd72c4ae84a00f978779839aeb650ebd8505f83"
+    },
+    {
+      "slot_id": "F08b_brain_settle_for_data_stamp_entry",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F8b. 데이터 스탬프 진입 구도 전환 (뇌 해부): 화면 가득 찬 뇌 → 하단 38% 정박 + 상단 62% 남색 차트 슬레이트 개방",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02_end.png"
+      ],
+      "valid_candidates": [
+        "cand_01_end.png"
+      ],
+      "reason_ko": "Pair 1은 중립 백색 석고 외측 뇌(A02)가 그대로 하단 38%(I02)로 내려앉아 색상 연속성 100%. Pair 2는 시작의 황금 전두엽 하이라이트가 끝 프레임에서 사라져 제외.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "7043ae8207f7beadc221e604badbee063ac5d11fb2d1bb6a4fc14b92305bc4ac"
+    },
+    {
+      "slot_id": "F09_single_brain_to_dual_top_bottom_compare",
+      "category": "F_transitions",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "F9. 단일 Mode 2 뇌 → 상/하 2뇌(실험군 vs 대조군) 무분할 동시 부피·활성 비교 전환",
+      "verdict": "PASS",
+      "rank_1": "cand_01_end.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01_end.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02_end.png"
+      ],
+      "valid_candidates": [
+        "cand_01_end.png"
+      ],
+      "reason_ko": "Pair 1(전두엽 황금 단일 뇌 -> 상단 황금 활성 vs 하단 슬레이트 비활성 2단 비교 A12)은 외형 연속성 우수. Pair 2는 측두엽 절개창이 중간에 닫히며 상부 피질로 색이 점프해 제외.",
+      "rank_1_start_filename": "cand_01_start.png",
+      "rank_1_start_sha256": "839395292d05808729c65c5b313f2cea817446ac0ac59b26ffb1fe25a7e22d7d",
+      "rank_1_end_filename": "cand_01_end.png",
+      "rank_1_end_sha256": "7d936ebbd227c33489bb24c7031e187ac5ab49212670a7521db624efdec18bf3"
+    },
+    {
+      "slot_id": "A13_1p_white_matter_tract_canyon",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A13. 1인칭(1P) 심부 백질 신경섬유 다발 골짜기",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "무광 백색 석고 피질 협곡 양벽의 굵은 불투명 하늘색 혈관과 바닥의 매트 황금 신경섬유 다발이 발광·입자 0%로 구현됨 (cand_01 양측 혈관 분지 최우수).",
+      "rank_1_sha256": "0bab450bb1b80d6902b253879339d7afcdeb156faa21940ff061ca86f3dc1e4b"
+    },
+    {
+      "slot_id": "A14_neuron_synapse_junction_macro",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A14. 신경세포·시냅스 간극 및 신경전달물질 소포 매크로",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png"
+      ],
+      "reason_ko": "cand_01은 백색 피질 배경 앞 시냅스 전·후 말단과 매트 골드/시안 신경전달물질 구체를 정확히 묘사. cand_02는 거대 시냅스 기둥 위에 통뇌가 얹힌 초현실 합성이라 영구 제외.",
+      "rank_1_sha256": "89dc8dab491a5475973bc204563430fb6caa0c2b1866971ebfbf978dbd5b0cc2"
+    },
+    {
+      "slot_id": "A15_ventricular_csf_aqueduct_cutaway",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A15. 뇌실계(측뇌실·제3뇌실·중뇌수도관) & 뇌척수액(CSF) 순환 단면",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "cand_01·cand_03은 측뇌실-제3뇌실-중뇌수도관-제4뇌실 하늘색 뇌척수액(CSF) 경로 해부학 비례가 정확함. cand_02는 뇌실이 수두증처럼 과도하게 파여 제외.",
+      "rank_1_sha256": "3220694f46143441704c1bc39f92e17fd56583b8766e445ec2140fa28b43c601"
+    },
+    {
+      "slot_id": "A16_eyes_optic_nerve_to_v1_pathway",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A16. 안구 → 시신경·시교차 → 후두엽 일차시각피질(V1) 감각 진입 경로",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_03.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_03): cand_01·02는 얼굴 내부에 기괴한 유리 해골 치아·턱뼈(human skull teeth)가 노출되고 cand_02는 목 쪽 오분지까지 있음. cand_03은 하안면 불투명 밝은 회색 마네킹 피부와 시신경->후두엽 V1 황금 경로가 가장 깔끔함.",
+      "rank_1_sha256": "d033552c440ecb3955425a5c181eddb4add8eebca939cdb0643fbccd0d0ad2ec"
+    },
+    {
+      "slot_id": "A17_brain_spinal_body_descending_xray",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A17. 뇌 → 뇌간 → 척수 → 상체 말초신경 반투명 전신(상반신) 투시도",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_02): cand_01은 우향 유리 해골 치아가 노출되고 cand_03은 목 둘레 검은 구멍·근육질 흉부가 이질적임. cand_02가 31번 Mode 1과 100% 동일한 좌향 매끄러운 진주회색 마네킹 + 황금 척수·신경근 정본.",
+      "rank_1_sha256": "d431c6d42ffc5078e5819632f2aa74c0c8408ae617ed69610aa2ad20c47ee717"
+    },
+    {
+      "slot_id": "A18_coronal_bilateral_hippocampus_ventricles",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A18. [추가 발굴] 관상면(Coronal) 양측 심부 해마·측뇌실·기저핵 대칭 절개",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "관상면 양반구 대칭 절개, 백색 회백질·백질 경계, 표면 굵은 하늘색 혈관, 양측 내측두엽 황금 해마 단면이 발광 0%로 선명함 (cand_01~03 모두 통과).",
+      "rank_1_sha256": "a344ee67d3517c36b33c8bedeb621856d443f6d8fd4f557ebcd2fb40809a8e9a"
+    },
+    {
+      "slot_id": "A19_anterior_cingulate_amygdala_limbic_cutaway",
+      "category": "A_brain_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "A19. [추가 발굴] 전대상피질(ACC) & 편도체 변연계 통증·위협 경보 절개",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "뇌량을 감싸는 매트 코랄-크림슨(#E05A5A) 전대상피질(ACC)과 편도체 변연계 허브가 백색 석고 정중시상면 위에 과장된 네온 광원 없이 선명하게 분리됨.",
+      "rank_1_sha256": "cfa4c3b5bddfa2c50c9d7b893e80efe11c19ae973f8aa42b03ec3382ab96ab14"
+    },
+    {
+      "slot_id": "E11_night_bedroom_empty",
+      "category": "E_environments_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "E11. 밤 침실 기본판 (빈 공간 — 따뜻한 침대 협탁 스탠드 + 은은한 달빛 창가)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "따뜻한 협탁 스탠드 조명과 좌측 야간 창문이 조화된 실사 촉감 미니어처 침실 빈 방 (폐허/얼룩 0%).",
+      "rank_1_sha256": "9e2aab50b2ed4a6b89a773333961c4e07744e694a5ee7725278e8099ba952ec0"
+    },
+    {
+      "slot_id": "E12_clinic_consult_office_empty",
+      "category": "E_environments_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "E12. 의사 진료·상담실 기본판 (빈 공간 — 따뜻한 원목 진료 책상 + 채광창)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "따뜻한 자연광 원목 책상·책장·의자가 갖춰진 진료 상담실 빈 방 기준판.",
+      "rank_1_sha256": "e8f45b2e420ad66a6c1987d4a9bdcfd196b8493dca1d6746bd0db4578c7c9594"
+    },
+    {
+      "slot_id": "E13_urban_street_sidewalk_empty",
+      "category": "E_environments_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "E13. 따뜻한 자연광 도심 가로수 보도·거리 기본판 (빈 공간)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "햇살 비치는 가로수 브라운스톤 보도블록 빈 배경으로, cand_01이 E16 인물 배치 컷과 1:1 배경 일치를 이뤄 1순위 유지.",
+      "rank_1_sha256": "52243e0cd959acada6e9a9a9954073fac2cf564418844957a5cbc3fa25cadf01"
+    },
+    {
+      "slot_id": "E14_night_bedroom_staged",
+      "category": "E_environments_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "E14. 밤 침실 스케일 기준판 (E11 동일 방 + 침대 맡 4.2등신 비닐 캐릭터 1인)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_01.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_02): cand_02가 비닐 손가락 조형, 침대 걸터앉은 성인 비례, 야간 창문 대비 따뜻한 스탠드 조명 밸런스가 가장 뛰어남 (cand_03은 유아 체형 축소로 제외).",
+      "rank_1_sha256": "40cf3e458b226ec173049350991dc6d81e361b3795a9f28b9ffc593273a8a746"
+    },
+    {
+      "slot_id": "E15_clinic_consult_office_staged",
+      "category": "E_environments_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "E15. 의사 진료·상담실 스케일 기준판 (E12 동일 방 + 흰 가운 의사 1인)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "cand_01·02는 흰 가운을 입은 민머리 크림 비닐 의사의 성인 비례와 따뜻한 서재형 진료실 질감이 완벽함 (cand_03은 두부 과대 비율로 제외).",
+      "rank_1_sha256": "395642340d519d9fc3ab23ad30e0cf25c8d0c50a7d3e54db379252c81fa5193f"
+    },
+    {
+      "slot_id": "E16_urban_street_sidewalk_staged",
+      "category": "E_environments_expansion",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "E16. 도심 가로수 보도 스케일 기준판 (E13 동일 거리 + 일상복 비닐 캐릭터 1인)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_02): cand_01·03은 가로수 화단 대비 캐릭터 키가 유아/난쟁이 크기로 축소됨. cand_02만 성인 B01 정상 스케일로 E13 cand_01 보도블록 위를 자연스럽게 보행함.",
+      "rank_1_sha256": "f3026c8a58fc6c381f182ba6cc57cd2a39cc8678be69c47cfb709ed528df2a7c"
+    },
+    {
+      "slot_id": "G01_mri_lightbox_dual_brain_scans",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G1. [CEO 초안 'MRI' 정교화] 백라이트 뇌 MRI 필름 2장 나란히 비교 라이트박스",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "cand_01은 가로형 라이트박스에 좌측 회색 대조군 vs 우측 후방 황금 활성 뇌 스캔이 여백 낭비·문자 없이 꽉 차게 배치됨 (cand_03은 하단 절반이 빈 흰 판이라 제외).",
+      "rank_1_sha256": "11d3d4261f4f3223f72140859c9faf59b4216a8c0df578f29b483c3dfe9f0ce0"
+    },
+    {
+      "slot_id": "G02_eeg_electrode_cap_vinyl_head",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G2. 무문자 뇌파(EEG) 센서 캡 착용 대머리 크림 비닐 두상",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "모발·인간 피부 유출 0% 매끄러운 크림 비닐 두상 위에 반투명 실리콘 EEG 캡과 하늘색 원형 전극이 깔끔하게 밀착됨.",
+      "rank_1_sha256": "f8b9f6f12152d668df6f1519482ddf09dc88065c2f871776b5a751913894e752"
+    },
+    {
+      "slot_id": "G03_unlabeled_amber_pill_bottle_and_capsules",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G3. 완전 무라벨 호박색 유리 약병 + 무문자 투톤 캡슐 2알 + 투명 물컵",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "라벨·문자 0% 호박색 유리 약병, 하늘색/흰색 캡슐 2알, 투명 물컵이 햇살 드는 원목 테이블 위에 선명히 배치됨.",
+      "rank_1_sha256": "35f629d9fd0f532c31b47cff7a57f7ee47019538d4fdfe72c2ebc11c319ea2c9"
+    },
+    {
+      "slot_id": "G04_tabletop_3d_experimental_maze",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G4. 실험실 원목·매트 화이트 3D 공간 학습 미로(Maze) 모형",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "문자·숫자 0% 자작나무 입체 실험 미로 모형이 따뜻한 원목 책상 위에 정갈하게 놓임.",
+      "rank_1_sha256": "5023d30e0959110c095d0008ba6fdddcb023daa5eed77f694051277af41b0bef"
+    },
+    {
+      "slot_id": "G05_unlabeled_street_map_and_pointer",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G5. 무문자 그래픽 거리 지도(방사형 도로망) + 빨간 원목 포인터 막대",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "지명 텍스트 0% 순수 강줄기·도로망 일러스트 지도와 붉은 원목 포인터 막대가 선명함.",
+      "rank_1_sha256": "77fc2aa49f659d6ddd0b3c90b108cdc833a9ee353ca9306c3f17dcaada5e97c4"
+    },
+    {
+      "slot_id": "G06_numeral_free_brass_stopwatch",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G6. 무숫자(눈금 전용) 클래식 황동 스톱워치 타이머",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "아라비아 숫자·로고 0% 눈금만 있는 앤틱 황동 아날로그 초시계 정본 (cand_01~03 모두 무문자 통과).",
+      "rank_1_sha256": "cbab9b283d33859eaf43c61bf91ddae98998d8f38f44bd38c418a77aec048b25"
+    },
+    {
+      "slot_id": "G07_white_occlusion_box_and_plain_blocks",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G7. [통합 최적화] 흰색 뚜껑 수납 상자 + 무문자 단색 원목 블록 세트",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "무문자 흰색 차폐 상자와 단색 원목 블록(빨강·파랑·노랑)이 자연광 테이블 위에 깔끔하게 구성됨.",
+      "rank_1_sha256": "8aff47860f3a764fe99111a3c1190b1d00f9f8e22182e07f03f4abf87c25f325"
+    },
+    {
+      "slot_id": "G08_geometric_stimulus_cards_and_sketchpads",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G8. [추가 발굴] 무문자 기하 도형 기억 검사 카드 & 이중 스케치패드",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "문자 0% 굵은 흑색 기하 도형 자극 카드 더미, 스프링 스케치패드, 흑색 펜이 가장 또렷한 대비로 배치됨.",
+      "rank_1_sha256": "bb0ff30c200c0ff1823bf7d8935de49791c22a8c17336edf7098550d424224b6"
+    },
+    {
+      "slot_id": "G09_graphic_icon_smartphone_and_tablet",
+      "category": "G_experimental_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "G9. [추가 발굴] 무문자 순수 그래픽 아이콘 스마트폰 & 태블릿 화면",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png"
+      ],
+      "reason_ko": "cand_01은 스마트폰·태블릿 화면이 100% 순수 파형·도형 UI로만 구성됨. cand_02·03은 파형 축 주변에 미세 깨진 의사문자(micro-glyphs)가 섞여 제외.",
+      "rank_1_sha256": "bbb6ce9ce7282b846874ef1a5932e91471e1d031f1c440068c41762ebc36b814"
+    },
+    {
+      "slot_id": "H01_padlocked_acrylic_plaster_brain_case",
+      "category": "H_misconception_flip_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "H1. 자물쇠 채워진 투명 아크릴 케이스 속 백색 석고 뇌 ('고정 불변 통념' 상징)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_01.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_02): cand_01은 좌하단 모서리에 물리적으로 불가능한 금속 막대가 떠 있고 좌측 반사 아티팩트가 있음. cand_02·03은 상단 뚜껑 걸쇠에 자물쇠가 정확히 체결됨.",
+      "rank_1_sha256": "a82c5d90fff98cff2115ebe5feb5f0b7fc1e29fad13a126ca1d148fba145d1e4"
+    },
+    {
+      "slot_id": "H02_dormant_off_toggle_switch_panel",
+      "category": "H_misconception_flip_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "H2. 아래로 내려간 무문자 기계식 스위치 레버 & 꺼진 유리 전구 ('완전 정지 착각' 상징)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "ON/OFF 텍스트 0% 세라믹 블록의 황동 토글이 아래(OFF)로 내려가 있고 상단 필라멘트 전구가 완전히 꺼져 있음 (cand_02는 전구 상단 크롭으로 제외).",
+      "rank_1_sha256": "22adc122acd678b57acc4410d7e823b69f52be1d2298ef32e2cee0c4b72f8162"
+    },
+    {
+      "slot_id": "H03_pulled_apart_empty_clear_capsule",
+      "category": "H_misconception_flip_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "H3. 양쪽으로 분리되어 속이 100% 텅 빈 투명 캡슐 ('성분 0% = 효과 0% 통념' 상징)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "reason_ko": "양쪽 크림 비닐 손이 내용물 0% 투명 빈 캡슐을 좌우로 분리해 보여주어 위약/빈 효과 통념 반전이 0.3초 만에 전달됨.",
+      "rank_1_sha256": "3516383ffbc982e67db054389170dc7cce8761c628b2f455d736f0b612a2ca2c"
+    },
+    {
+      "slot_id": "H04_physical_red_x_over_simple_diagram_card",
+      "category": "H_misconception_flip_props",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "H4. 단순 선화 카드 위에 놓인 무광 #FF2525 3D X자 기각 블록 ('기존 가설 기각' 범용)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_03.png",
+        "cand_02.png",
+        "cand_01.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_03): cand_03·02는 단일 인과 화살표(점->점) 한가운데를 입체 #FF2525 붉은 X 블록이 물리적으로 차단해 인과 통념 반전 가독성이 최상임 (cand_01 양방향 화살표는 3순위).",
+      "rank_1_sha256": "d366af7c57c3f29e23cb8385b205e90e8c11ceddad7634f144767796f1c97baf"
+    },
+    {
+      "slot_id": "I01_data_stamp_backdrop_warm_tabletop_low30",
+      "category": "I_layout_composition_frames",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "I1. R70-M 데이터 스탬프 전용 여백 틀 (실내 원목 하단 30% + 난백색 무배경 상단 70%)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "하단 25% 따뜻한 원목 테이블 + 상단 75% 완전 무지 크림 벽면으로 R70-M 다크 슬레이트 카드형 차트 배치에 최적.",
+      "rank_1_sha256": "e488a516cd588320adbf56e18cd72c4ae84a00f978779839aeb650ebd8505f83"
+    },
+    {
+      "slot_id": "I02_data_stamp_backdrop_dark_brain_low38",
+      "category": "I_layout_composition_frames",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "I2. [추가 발굴] R70-M 데이터 스탬프 전용 뇌 여백 틀 (하단 38% 31번 뇌 + 상단 62% 진남색 보이드)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "하단 38%에 A02 정본 백색 석고 뇌를 배치하고 상단 62%를 단색 #040711 네이비 여백으로 확보해 차트 중첩 0% 보장.",
+      "rank_1_sha256": "7043ae8207f7beadc221e604badbee063ac5d11fb2d1bb6a4fc14b92305bc4ac"
+    },
+    {
+      "slot_id": "I03_callout_safezone_brain_headroom_frame",
+      "category": "I_layout_composition_frames",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "I3. [규칙 충돌 방지 보정] R81 해부 콜아웃 전용 상단 28% 여백 뇌 구도 (펜 선·글자는 Python 후처리 전용)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": true,
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_01.png"
+      ],
+      "reason_ko": "1순위 교체(cand_01->cand_02): cand_02가 A06 cand_02 정본과 동일한 깔끔한 측두엽 절개창·매끄러운 황금 해마 곡선·상단 35% PatrickHand XL 콜아웃 안전 여백을 모두 충족 (cand_03은 과다 주름 덩어리로 제외).",
+      "rank_1_sha256": "820c3bb73aa77da8a9154697fccd6dc1a155e9a2345b777c3c698d1747d77efc"
+    },
+    {
+      "slot_id": "I04_thumbnail_50_50_in_skull_split_frame",
+      "category": "I_layout_composition_frames",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "I4. R65 v4 쇼츠 썸네일 50/50 정면 두개골 내 좌우 뇌 대조 구도 틀 (무문자 베이스)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "reason_ko": "cand_01은 열린 백색 비닐 두개골 테두리 내부에 좌측 황금 활성 반구 vs 우측 슬레이트 비활성 반구 50/50 분할이 정확히 수납됨 (cand_02는 뇌가 두개골 밖으로 솟아올라 제외).",
+      "rank_1_sha256": "204f2cb1d43bfbc46616ff440cfab361572a706f54ce70a4e4fe0b17f5210d5a"
+    },
+    {
+      "slot_id": "I05_ending_warm_takeaway_resolution_frame",
+      "category": "I_layout_composition_frames",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "I5. 엔딩 실생활 해법·여운 마무리 구도 틀 (골든아워 정면 미디엄 + 하단 자막 안전 여백)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": null,
+      "previous_operator_rank_1": "cand_01.png",
+      "rank_1_promoted": false,
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "valid_candidates": [
+        "cand_01.png"
+      ],
+      "reason_ko": "cand_01은 9:16 전체 화면을 채운 따뜻한 골든아워 창가 크림 비닐 주인공의 온화한 미소 정본. cand_02는 하단 18%에 흰색 잘림 여백 바(letterbox artifact)가 있어 즉시 제외.",
+      "rank_1_sha256": "a2cdbbcb3e562244e789a665ca974158216deffef8c2c55f5002c4515176706c"
+    }
+  ]
+}

@@ -59,38 +59,26 @@
   "three_layer_formula": {
     "everyday_problem": "Falling asleep on the sofa yet snapping wide awake on the bedroom pillow, surviving on six-hour weeknights, or taking a sedative sleeping pill assuming eight unconscious hours washes the brain clean.",
     "psychology_experiment": {
-      "source_id": "perlis_1997",
-      "doi": "10.1046/j.1365-2869.1997.00045.x",
+      "source_id": "van_dongen_2003",
+      "doi": "10.1093/sleep/26.2.117",
       "source_ids": [
-        "perlis_1997",
-        "van_dongen_2003",
-        "yoo_2007"
+        "van_dongen_2003"
       ],
       "dois": [
-        "10.1046/j.1365-2869.1997.00045.x",
-        "10.1093/sleep/26.2.117",
-        "10.1016/j.cub.2007.08.007"
+        "10.1093/sleep/26.2.117"
       ],
-      "summary": "Perlis & Bootzin (1997) proved frustrated time awake in bed conditions Pavlovian cortical beta arousal onto the mattress; Van Dongen & Dinges (2003) proved 14 nights of 6-hour sleep causes 48-hour total-deprivation lapses while blinding subjective fatigue; Yoo & Walker (2007) showed a 60% amygdala alarm spike when sleep loss disconnects the medial prefrontal brake."
+      "summary": "The Cumulative Cost of Additional Wakefulness: Dose-Response Effects on Neurobehavioral Functions and Sleep Physiology From Chronic Sleep Restriction and Total Sleep Deprivation"
     },
     "neuroscience_mechanism": {
       "source_id": "fultz_2019",
       "doi": "10.1126/science.aax5440",
       "source_ids": [
-        "fultz_2019",
-        "eide_2021",
-        "hauglund_2025",
-        "xie_2013",
-        "miao_2024"
+        "fultz_2019"
       ],
       "dois": [
-        "10.1126/science.aax5440",
-        "10.1093/brain/awaa443",
-        "10.1016/j.cell.2024.11.027",
-        "10.1126/science.1241224",
-        "10.1038/s41593-024-01638-y"
+        "10.1126/science.aax5440"
       ],
-      "summary": "Xie & Nedergaard (2013) discovered slow-wave sleep widens interstitial channels by >60%; Fultz & Lewis (2019) imaged 20-second coupled slow-wave blood-volume dips and CSF surges in sleeping humans; Eide et al. (2021) proved one sleepless night impairs human cortical tracer clearance on MRI; Hauglund & Nedergaard (2025) revealed zolpidem suppresses the 50-second norepinephrine vascular pump by ~50%."
+      "summary": "Coupled electrophysiological, hemodynamic, and cerebrospinal fluid oscillations in human sleep"
     }
   },
   "debate_ignition": {
@@ -109,11 +97,42 @@
     },
     {
       "fact": "Thirty-five hours without sleep triggered a 60 percent surge in human amygdala emotional reactivity and severed functional coupling from the medial prefrontal brake.",
-      "source_id": "yoo_2007"
+      "source_id": "yoo_2007",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Sleep-Deprived Amygdala Surge",
+        "percent": 60.0,
+        "unit": "%",
+        "doi": "10.1016/j.cub.2007.08.007",
+        "source_citation": "Yoo et al. (2007)"
+      }
     },
     {
       "fact": "Entering natural slow-wave delta sleep expands cortical interstitial fluid alleys by more than 60 percent (from roughly 14 percent to 23 percent of tissue volume) and clears beta-amyloid roughly twice as fast as wakefulness.",
-      "source_id": "xie_2013"
+      "source_id": "xie_2013",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Cortical Interstitial Space",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Awake Brain",
+            "value": 14.0,
+            "unit": "%"
+          },
+          {
+            "label": "Slow-Wave Sleep",
+            "value": 23.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1126/science.1241224",
+        "source_citation": "Xie et al. (2013)"
+      }
     },
     {
       "fact": "Simultaneous human nighttime EEG-fMRI revealed coupled slow delta waves, cortical blood-volume drops, and large waves of cerebrospinal fluid pulsing into the fourth ventricle roughly every 20 seconds.",

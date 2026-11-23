@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "rosenthal_pygmalion_expectancy",
   "topic": "Robert Rosenthal & Lenore Jacobson (1966-1968): Oak School 'Pygmalion in the Classroom' Self-Fulfilling Prophecy",
   "pillar": "brain_basics",
@@ -52,11 +52,42 @@
     },
     {
       "fact": "The expectancy surge concentrated dramatically in the youngest grades: randomly labeled first-graders gained 27.4 IQ points (vs 12.0 in controls, a +15.4-point advantage), and second-graders gained 16.5 points (vs 7.0 in controls).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "First-Grade IQ Point Gain",
+        "unit": "IQ pts",
+        "bars": [
+          {
+            "label": "Labeled Bloomers",
+            "value": 27.4,
+            "unit": "IQ pts"
+          },
+          {
+            "label": "Control Classmates",
+            "value": 12.0,
+            "unit": "IQ pts"
+          }
+        ],
+        "doi": "10.2466/pr0.1966.19.1.115",
+        "source_citation": "Rosenthal & Jacobson (1966)"
+      }
     },
     {
       "fact": "Nearly half (47 percent) of first- and second-grade 'bloomers' gained 20 or more total IQ points, compared with only 19 percent of control children.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Bloomers Gaining 20+ IQ",
+        "percent": 47.0,
+        "unit": "%",
+        "doi": "10.2466/pr0.1966.19.1.115",
+        "source_citation": "Rosenthal & Jacobson (1966)"
+      }
     },
     {
       "fact": "Follow-up classroom observations identified four subtle behavioral channels ('Four-Factor Theory'): teachers unknowingly gave 'bloomers' a warmer socioemotional climate, richer material, more chances to speak, and clearer feedback.",
@@ -128,5 +159,37 @@
     "diorama_79_rosenthal_pygmalion_expectancy"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.2466/pr0.1966.19.1.115",
+  "three_layer_formula": {
+    "everyday_problem": "Giving a quiet new hire extra patience and stretch questions because a trusted colleague whispered 'watch them, they're sharp'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.2466/pr0.1966.19.1.115",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.2466/pr0.1966.19.1.115"
+      ],
+      "summary": "Robert Rosenthal, Lenore Jacobson (1966). Teachers' Expectancies: Determinants of Pupils' IQ Gains. Psychological Reports."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.3917/gdsh.0054.0018",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.3917/gdsh.0054.0018"
+      ],
+      "summary": "Jacques Lecomte (2019). Robert Rosenthal. L'effet Pygmalion. Les Grands Dossiers des Sciences Humaines."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Simply wishing someone is a genius magically raises anyone's adult IQ by 30 points.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern behavioral/fMRI topic staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Why Do Songs Get Stuck In Your Head?",
+      "url": "https://www.youtube.com/watch?v=glHeVn-826E",
+      "channel": "BrainCraft",
+      "source_id": "SRC_M1",
+      "duration_sec": 281,
+      "timecodes": [
+        {
+          "t": "00:07-00:24",
+          "what": "Opening sequence (kf_002.jpg–kf_006.jpg) establishing how a brief 10-to-15-second chorus hook hijacks idle attention and loops involuntarily."
+        },
+        {
+          "t": "00:28-00:48",
+          "what": "Mid-segment visual breakdown (kf_008.jpg–kf_012.jpg) connecting stuck-song playback to auditory-motor rehearsal loops and practical ways to interrupt them."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05–00:50) from BrainCraft's \"Why Do Songs Get Stuck In Your Head?\".",
+          "Used strictly as research reference for visual pacing and everyday behavioral framing; zero frames or audio reused."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.875,wps=0.0)"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Interesting Facts: How to Get Rid of Songs Stuck in Your Head",
+      "url": "https://www.youtube.com/watch?v=WRLYS3Bg6Eo",
+      "channel": "InterrobangChannel",
+      "source_id": "SRC_M2",
+      "duration_sec": 148,
+      "timecodes": [
+        {
+          "t": "00:12-00:44",
+          "what": "Overview of why trying to suppress a catchy chorus triggers ironic replay while targeted articulatory tasks disrupt the loop."
+        },
+        {
+          "t": "01:05-01:45",
+          "what": "Practical comparison of chewing gum versus passive waiting for clearing involuntary musical imagery."
+        }
+      ],
+      "license_note": "Complementary reference video logged for conceptual pacing only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_behavioral_fmri_topic_track_b"
+    }
+  ]
+}

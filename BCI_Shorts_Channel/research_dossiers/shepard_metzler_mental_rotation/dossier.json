@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "shepard_metzler_mental_rotation",
   "topic": "Roger Shepard & Jacqueline Metzler (1971): 3D Mental Rotation & the Linear 60-Degrees-Per-Second Mind's Eye",
   "pillar": "brain_basics",
@@ -44,11 +44,41 @@
     },
     {
       "fact": "Subjects pulled a right-hand lever for 'Same' or left-hand lever for 'Different/Mirror' while a millisecond timer measured reaction time with error rates remarkably low at just 3.2 percent.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Mental Rotation Error Rate",
+        "percent": 3.2,
+        "unit": "%",
+        "doi": "10.1126/science.171.3972.701",
+        "source_citation": "Shepard & Metzler (1971)"
+      }
     },
     {
       "fact": "The result stunned cognitive science: reaction time rose in a razor-straight LINEAR line from ~1.0 second at 0 degrees all the way to ~4.0-4.5 seconds at 180 degrees.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Rotation Reaction Time",
+        "unit": "s",
+        "series": [
+          {
+            "start_label": "0-Deg Rotation",
+            "label": "180-Deg Rotation",
+            "values": [
+              1.0,
+              4.5
+            ],
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1126/science.171.3972.701",
+        "source_citation": "Shepard & Metzler (1971)"
+      }
     },
     {
       "fact": "Every extra 60 degrees of physical angle cost almost exactly 1 additional second — meaning the human mind rotated the 3D object through intermediate angles at roughly 60 degrees per second.",
@@ -124,5 +154,37 @@
     "diorama_82_shepard_metzler_mental_rotation"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1126/science.171.3972.701",
+  "three_layer_formula": {
+    "everyday_problem": "Tilting your head sideways while checking whether a couch will pivot through a narrow apartment stairwell.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.171.3972.701",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1126/science.171.3972.701"
+      ],
+      "summary": "Roger N. Shepard, Jacqueline Metzler (1971). Mental Rotation of Three-Dimensional Objects. Science."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1186/s40101-022-00314-z",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1186/s40101-022-00314-z"
+      ],
+      "summary": "Tomoaki Kozaki (2022). Training effect on sex-based differences in components of the Shepard and Metzler mental rotation task. Journal of Physiological Anthropology."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "All human thought works strictly like text code or logical sentences ('propositional only'), never spatial simulation.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

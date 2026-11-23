@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "kanwisher_fusiform_face_area",
   "topic": "Nancy Kanwisher (1997): The Fusiform Face Area (FFA), Upside-Down 'Thatcher' Blindness & Domain Specificity",
   "pillar": "brain_mysteries",
@@ -32,7 +32,17 @@
   "core_facts": [
     {
       "fact": "In 1997 at the MGH NMR Center, Nancy Kanwisher, Josh McDermott, and Marvin Chun scanned 15 individual subjects in fMRI rather than blurring brains together by group-averaging — discovering a ~1-cubic-centimeter region on the lateral ventral fusiform gyrus (strongest in the right hemisphere) present in 12 of 15 individuals.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Right FFA Detected in Scans",
+        "highlighted_k": 12,
+        "total_n": 15,
+        "doi": "10.1523/jneurosci.17-11-04302.1997",
+        "source_citation": "Kanwisher et al. (1997)"
+      }
     },
     {
       "fact": "To prove this 'Fusiform Face Area' (FFA) wasn't just reacting to low-level contrast, curves, animate body parts, or general attention, Kanwisher threw FIVE ruthless control tests at it in a single paper.",
@@ -128,5 +138,37 @@
     "diorama_53_kanwisher_fusiform_face_area"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1523/jneurosci.17-11-04302.1997",
+  "three_layer_formula": {
+    "everyday_problem": "Flipping an upside-down 'Margaret Thatcher' photo right-side up at a party and gasping when the normal-looking upside-down face turns grotesque.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1523/jneurosci.17-11-04302.1997",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1523/jneurosci.17-11-04302.1997"
+      ],
+      "summary": "Nancy Kanwisher, Josh McDermott, Marvin M. Chun (1997). The Fusiform Face Area: A Module in Human Extrastriate Cortex Specialized for Face Perception. The Journal of Neuroscience."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2017",
+      "doi": "10.1093/cercor/bhv111",
+      "source_ids": [
+        "SRC_NEURO_2017"
+      ],
+      "dois": [
+        "10.1093/cercor/bhv111"
+      ],
+      "summary": "B. Deen, K. Koldewyn, N. Kanwisher, R. Saxe (2015). Functional organization of social perception and cognition in the superior temporal sulcus. Cerebral Cortex."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Every square inch of cerebral cortex is an identical blank general-purpose mush.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

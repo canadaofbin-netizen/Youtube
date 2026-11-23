@@ -1,123 +1,185 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "rubber_hand_body_plasticity",
-  "topic": "Botvinick & Cohen (1998): Two Paintbrushes, One Fake Rubber Hand & Rewriting Where 'You' End in 60 Seconds",
+  "topic": "How Two Paintbrushes Trick Your Brain Into Owning a Lifeless Rubber Hand in 60 Seconds",
   "pillar": "brain_basics",
+  "everyday_domain": "anxiety",
   "created_at": "2026-10-25T22:49:33+00:00",
   "status": "ready",
   "visual_mode": "NEURO_BIOLOGY",
-  "visual_mode_reason": "Matthew Botvinick and Jonathan Cohen's 1998 Nature Rubber Hand Illusion — synchronously stroking a visible rubber hand and a hidden real hand with two camel-hair paintbrushes until ownership jumps into dead rubber — reveals multisensory body-map plasticity in premotor and intraparietal/somatosensory cortex.",
+  "visual_mode_reason": "Demonstrating how sixty seconds of synchronous paintbrush strokes relocates your felt hand into dead rubber requires tracing somatosensory touch and visual hand position into premotor and parietal body-ownership hubs plus the insula threat alarm.",
+  "setup_18w": "Experimenters hid a volunteer's real hand behind a board while brushing a visible rubber hand in sync.",
+  "three_layer_formula": {
+    "everyday_problem": "Adults aged 35 to 65+ assume the physical boundary of their own arms and hands is permanently hardwired in bone and skin — until a sudden visual mismatch in a mirror, car parking camera, or rehab clinic makes their body jerk in surprise.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/35784",
+      "source_ids": [
+        "SRC1",
+        "SRC2",
+        "SRC_LUSH"
+      ],
+      "dois": [
+        "10.1038/35784",
+        "10.1037/0096-1523.31.1.80",
+        "10.1525/collabra.325"
+      ],
+      "summary": "Matthew Botvinick & Jonathan Cohen (1998, Nature) hid volunteers' real left hands behind a vertical partition while stroking a visible rubber hand in synchrony, shifting blindfolded pointing 23 mm toward the fake hand."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1016/j.psycom.2022.100058",
+      "year": 2022,
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1016/j.psycom.2022.100058"
+      ],
+      "summary": "Lénie J. Torregrossa & Sohee Park (2022, Psychiatry Research Communications) extended Botvinick & Cohen (1998) and Ehrsson et al. (2004, Science) premotor-intraparietal multisensory body-ownership mapping across adult self-boundary precision."
+    },
+    "psychology_studies": [
+      "SRC1",
+      "SRC2",
+      "SRC_LUSH"
+    ],
+    "neuroscience_studies": [
+      "SRC5"
+    ]
+  },
   "primary_case": {
-    "title": "Matthew Botvinick & Jonathan Cohen's 1998 Nature 'Rubber Hands Feel Touch That Eyes See' experiment",
+    "title": "Matthew Botvinick & Jonathan Cohen's 1998 Pittsburgh Nature Rubber Hand Illusion & Premotor Ownership Proof",
     "year": 1998,
-    "place": "Department of Psychiatry & Carnegie Mellon / University of Pittsburgh",
+    "place": "University of Pittsburgh & Carnegie Mellon University, Pittsburgh, Pennsylvania",
     "people": [
       {
         "name": "Matthew Botvinick & Jonathan D. Cohen",
-        "role": "Pittsburgh cognitive neuroscientists who published the crisp 1-page 1998 Nature experiment using a prosthetic rubber left hand, a standing screen, and two small paintbrushes",
+        "role": "Pittsburgh cognitive neuroscientists whose 1-page 1998 Nature experiment proved two camel-hair paintbrushes and a divider screen can rewrite adult limb ownership in under a minute",
         "source_id": "SRC1"
       },
       {
-        "name": "H. Henrik Ehrsson",
-        "role": "Karolinska Institutet neuroscientist who mapped premotor & intraparietal body-ownership neurons in fMRI (2004) and proved threatening the rubber hand spikes real palmar sweat & insula alarm (2007).",
+        "name": "H. Henrik Ehrsson, Manos Tsakiris & Patrick Haggard",
+        "role": "European neuroscientists who localized the ownership snap to ventral premotor and parietal cortex in fMRI (2004) and proved anatomical congruence and millisecond sync gate the illusion (2005)",
         "source_id": "SRC6"
       },
       {
-        "name": "Peter Lush & Seth",
-        "role": "Sussex cognitive scientists whose 2020 critiques challenged labs to separate genuine perceptual drift from imaginative suggestibility controls",
-        "source_id": "SRC_LUSH"
+        "name": "Peter Lush, Marieke Rohde & Lénie Torregrossa",
+        "role": "Modern researchers who tested suggestibility critiques (2020), separated drift from subjective ownership (2011), and tracked multisensory self-boundaries in adults (2022)",
+        "source_id": "SRC5"
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "Nothing feels more solid and unchangeable than knowing which flesh-and-bone limbs belong to your own body — until Matthew Botvinick and Jonathan Cohen sat 10 volunteers at a table in 1998 (Nature) with a vertical partition hiding their real left hand while a lifelike prosthetic rubber left hand sat right in plain view.",
+      "fact": "In 1998 in Nature, Matthew Botvinick and Jonathan Cohen seated 10 healthy adults at a table with a standing screen hiding their real left hand while a lifelike prosthetic rubber left hand rested right in front of them.",
       "source_id": "SRC1"
     },
     {
-      "fact": "For 10 minutes (and in later studies, as little as **45 to 60 seconds**!), the experimenter used two identical small paintbrushes to stroke the visible rubber fingers and the hidden real fingers in **exact millisecond synchrony**.",
+      "fact": "Using two identical camel-hair paintbrushes to stroke the visible rubber fingers and hidden real fingers in exact synchrony, 8 out of 10 volunteers spontaneously reported feeling paintbrush bristles directly inside the dead rubber hand.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Volunteers didn't merely 'feel touch at the same time' — they experienced an eerie perceptual snap where touch seemed to come **DIRECTLY OUT OF THE RUBBER FINGERS** that their eyes were watching, as if the rubber hand had fused onto their own arm.",
+      "fact": "When blindfolded volunteers reached under the table to locate their hidden left hand in Botvinick and Cohen's second experiment, synchronous brushing pulled their pointing 23 millimeters toward the rubber hand, whereas out-of-sync brushing shifted pointing 13 millimeters the opposite way.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Blindfolded Hand Pointing Shift",
+        "unit": "mm",
+        "bars": [
+          {
+            "label": "Synced Brushing",
+            "value": 23.0,
+            "unit": "mm"
+          },
+          {
+            "label": "Unsynced Control",
+            "value": 13.0,
+            "unit": "mm"
+          }
+        ],
+        "doi": "10.1038/35784",
+        "source_citation": "Botvinick & Cohen (1998)"
+      }
+    },
+    {
+      "fact": "Offsetting the two paintbrushes by just half a second (asynchronous control) broke the illusion immediately — proving millisecond temporal coincidence between sight and touch is the master switch for 'what is me'.",
       "source_id": "SRC1"
     },
     {
-      "fact": "To prove this wasn't just playful talk, Botvinick & Cohen asked blindfolded volunteers immediately afterward to slide their right index finger under the table to point straight up at their hidden left hand: **proprioceptive drift** pulled their pointing significantly **toward the fake rubber hand** — growing larger the stronger the illusion.",
-      "source_id": "SRC1"
+      "fact": "Manos Tsakiris and Patrick Haggard (2005) proved you cannot trick the brain into owning a plain wooden block or a rubber hand rotated 180 degrees backward: multisensory sync must also match the brain's internal human hand template.",
+      "source_id": "SRC2"
     },
     {
-      "fact": "Flip ONE variable — stroke the rubber hand and real hand **OUT OF SYNC** by half a second (Asynchronous Control, Experiment 1 & 2) — and both the ownership illusion AND proprioceptive drift collapse.",
-      "source_id": "SRC1"
-    },
-    {
-      "fact": "Try rotating the rubber hand 180° backward in an anatomically impossible wrist angle, OR swapping the rubber hand for a flat wooden block: ownership collapses too — proving your brain combines synchronous sight-plus-touch WITH an internal anatomical body template.",
-      "source_id": "SRC3"
-    },
-    {
-      "fact": "Henrik Ehrsson's team delivered jaw-dropping physiological proof (2004 Science; 2007 PNAS, SRC2): ventral premotor and intraparietal cortex fire at the exact moment ownership snaps ON, and bending back a rubber finger (or bringing a needle near the fake rubber skin) triggers an instant **real sweat skin-conductance spike** and **anterior insula threat surge** while the volunteer jerks their REAL hidden hand backward.",
+      "fact": "Scanning healthy adults in fMRI (2004, Science), Henrik Ehrsson, Charles Spence, and Richard Passingham caught bilateral ventral premotor cortex firing at the exact second ownership snapped onto the rubber hand.",
       "source_id": "SRC6"
     },
     {
-      "fact": "Recent methodological debates (Lush 2020, SRC_LUSH; Rohde et al. 2011, SRC3) sharpened rigor around questionnaire demand characteristics while confirming robust synchronous-over-asynchronous multisensory recalibration in premotor-parietal body maps.",
-      "source_id": "SRC_LUSH"
+      "fact": "Rohde, Di Luca, and Ernst (2011) and Peter Lush (2020) showed questionnaire suggestibility and proprioceptive drift operate as partially distinct processes, sharpening modern double-blind asynchronous controls.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern clinical work (Torregrossa & Park 2022) shows healthy adult brains maintain flexible yet bounded premotor-parietal body maps — the exact plasticity that lets stroke patients retrain limbs and skilled adults feel tools as extensions of their hands.",
+      "source_id": "SRC5"
     }
   ],
   "wow_facts": [
     {
-      "fact": "Two $2 paintbrushes stroked in sync for 60 seconds convince a healthy adult brain that a lifeless rubber glove on the table IS their own living hand — and when someone pretends to strike that rubber hand, your real sweat glands fire in sheer panic.",
-      "why_surprising": "Your 'body self' isn't welded at birth; your brain redraws its borders every second.",
+      "fact": "Two inexpensive paintbrushes tapped in unison for sixty seconds convince a healthy adult brain that a lifeless rubber glove on the desk is living flesh — pulling blindfolded pointing 23 millimeters off target toward the fake hand!",
+      "why_surprising": "Your lifelong sense of where your own body ends can be edited before your coffee cools.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "Close your eyes after synchronous brushing and point under the table to where your REAL left hand sits — your finger misses by centimeters, drifting magnetically toward the fake rubber hand.",
-      "why_surprising": "Vision + synchronous touch physically recalibrates hidden joint proprioception.",
-      "source_id": "SRC1",
+      "fact": "Delay one paintbrush by 500 milliseconds — or swap the rubber hand for a wooden block (Tsakiris & Haggard 2005) — and the spell vanishes instantly.",
+      "why_surprising": "Your premotor cortex runs a strict two-factor security check: exact timing PLUS human hand shape.",
+      "source_id": "SRC2",
       "rank": 2
     },
     {
-      "fact": "Offset the two paintbrushes by just 500 milliseconds (Asynchronous Control) and the magic dies instantly — dead rubber looks like dead rubber again.",
-      "why_surprising": "Millisecond coincidence is how your brain decides 'What is ME vs NOT-ME'.",
-      "source_id": "SRC1",
+      "fact": "Inside an fMRI scanner (Ehrsson et al. 2004), researchers can pinpoint the exact second a volunteer feels 'That's MY hand!' by watching ventral premotor cortex light up.",
+      "why_surprising": "Selfhood has a measurable cortical coordinate.",
+      "source_id": "SRC6",
       "rank": 3
-    },
-    {
-      "fact": "In Moseley et al. (2008), adopting the fake rubber hand even caused blood flow and skin temperature in the neglected REAL hidden hand to dip slightly (~0.25°C) as the brain 'disowned' the original limb.",
-      "why_surprising": "Top-down body ownership talks all the way down to autonomic physiology.",
-      "source_id": "SRC2",
-      "rank": 4
     }
   ],
   "misconceptions": [
     {
-      "myth": "Your sense of body ownership is hardwired permanently into peripheral nerves inside your skin.",
-      "truth": "Skin nerves only report raw taps; premotor, intraparietal, and somatosensory cortex continuously infer which limbs are 'mine' by matching what eyes see, skin feels, and joints report.",
-      "source_id": "SRC1"
+      "myth": "Knowing which limbs belong to your body is permanently hardwired into skin nerves from birth.",
+      "truth": "Skin nerves only report local taps; premotor and parietal cortex continuously compute body ownership by matching sight, touch, and joint angles on the fly.",
+      "source_id": "SRC6"
     },
     {
-      "myth": "You can trick the brain into owning literally any object — like a toaster or brick — just by tapping in sync.",
-      "truth": "In physical tabletop studies, non-corporeal wooden blocks or anatomically twisted hands fail ownership because premotor body maps enforce human-like hand geometry.",
-      "source_id": "SRC3"
+      "myth": "Synchronous tapping can make a healthy adult feel ownership over literally any household object like a brick.",
+      "truth": "Tsakiris & Haggard (2005) proved non-hand blocks or anatomically impossible wrist rotations fail because the brain checks an internal body model.",
+      "source_id": "SRC2"
     },
     {
-      "myth": "The Rubber Hand Illusion is 100% hypnotic role-playing.",
-      "truth": "While imaginative suggestibility adds variance on questionnaires (Lush 2020), asynchronous-control subtraction, blindfolded proprioceptive drift, premotor fMRI onset, and involuntary skin-conductance threat spikes prove genuine multisensory recalibration.",
+      "myth": "The Rubber Hand Illusion is 100% polite role-playing for the researcher.",
+      "truth": "While trait suggestibility influences questionnaire scores (Lush 2020), synchronous-vs-asynchronous subtraction, 23 mm blindfolded pointing drift, and premotor fMRI onset confirm real multisensory recalibration.",
       "source_id": "SRC_LUSH"
     }
   ],
   "everyday_hooks": [
-    "Gasping and flinching in your chair when your VR avatar's hand nearly touches a virtual ledge.",
-    "Understanding how modern bionic prosthetic engineers route touch sensors back to residual nerves so amputees feel a robotic hand is truly 'mine' instead of a heavy tool.",
-    "Feeling a tennis racket, car bumper, or surgical instrument extend seamlessly as part of your own arm after practice."
+    "Wincing and pulling your real fingers back when someone slams a drawer near a reflection of your hand in a mirror.",
+    "Feeling the edge of your car's front bumper, chef's knife, or tennis racket like an extension of your own fingertips after years of adult practice.",
+    "Understanding why mirror-box physical therapy after a midlife wrist fracture or stroke helps stiff hands move smoothly again."
   ],
   "linked_projects": [
     "psych_58_rubber_hand_body_plasticity"
   ],
   "shorts_projects": [
-    "diorama_80_rubber_hand_body_plasticity"
+    "diorama_80_rubber_hand_body_plasticity",
+    "v8_ep06_rubber_hand_illusion"
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "My bet: body ownership is a live guess — sixty seconds of synced brushstrokes made volunteers flinch for a rubber hand. Have VR headsets ever tricked your reflexes?"
+  "primary_doi": "10.1038/35784",
+  "offcenter_creator_bet": "My bet: body maps are live guesses — sixty seconds of synced brushing makes healthy adults flinch for a rubber glove. Do you trust your eyes or your joints more?",
+  "debate_ignition": {
+    "prebunk_myth": "Your sense of which hand belongs to your body is permanently hardwired into your skin nerves at birth.",
+    "open_verdict_question": "When your eyes and your hidden joints disagree, do you think your brain trusts what your eyes see or where your joints actually sit?",
+    "offcenter_creator_bet": "My bet: body maps are live guesses — sixty seconds of synced brushing makes healthy adults flinch for a rubber glove. Do you trust your eyes or your joints more?"
+  }
 }

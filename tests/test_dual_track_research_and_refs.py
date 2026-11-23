@@ -558,18 +558,24 @@ def test_track_b_contract_compiler_and_reference_qa_defaults(tmp_path: Path) -> 
         cv2.imwrite(str(out_png), frame)
         register_reference_image(proj_dir, sp["filename"], "flow_image_generation")
 
-    # Default on neuro_diorama: require_review defaults to False -> pre_generation_ready is True on CV pass!
+    # R85 Law: require_review defaults to True (even on neuro_diorama) -> CV passes, pre_generation_ready awaits @Research!
     rep_auto = inspect_reference_image_pack(proj_dir)
     assert rep_auto["cv_all_passed"] is True
-    assert rep_auto["pre_generation_ready"] is True
+    assert rep_auto["cv_pre_generation_ready"] is True
+    assert rep_auto["pre_generation_ready"] is False
 
-    # Explicit require_review=True without review file -> cv_pre_generation_ready True, pre_generation_ready False
-    rep_strict = inspect_reference_image_pack(proj_dir, require_review=True)
-    assert rep_strict["cv_pre_generation_ready"] is True
-    assert rep_strict["pre_generation_ready"] is False
+    # auto_populate_reference_semantic_review writes ONLY a pending template (machine sign-off forbidden!)
+    sem_p = auto_populate_reference_semantic_review(proj_dir)
+    rep_pending = inspect_reference_image_pack(proj_dir, require_review=True)
+    assert rep_pending["pre_generation_ready"] is False
 
-    # Auto-populating SHA-256-bound semantic review satisfies strict require_review=True
-    auto_populate_reference_semantic_review(proj_dir)
+    # Authentic @Research visual sign-off with distinct notes unlocks pre_generation_ready=True
+    sem_doc = json.loads(sem_p.read_text(encoding="utf-8"))
+    sem_doc["reviewer"] = "@Research"
+    for idx_i, (rid, r_ent) in enumerate(sem_doc["images"].items()):
+        r_ent["checks"] = {k: True for k in (r_ent.get("checks") or {})}
+        r_ent["note"] = f"Verified clean 9:16 anchor #{idx_i + 1} ({rid}) with distinct silhouette and zero skin leak."
+    sem_p.write_text(json.dumps(sem_doc, indent=2), encoding="utf-8")
     rep_reviewed = inspect_reference_image_pack(proj_dir, require_review=True)
     assert rep_reviewed["pre_generation_ready"] is True
 

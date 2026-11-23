@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern cognitive/fMRI memory study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Akira O'Connor on Déjà vu",
+      "url": "https://www.youtube.com/watch?v=SBxnuRY_IFA",
+      "channel": "Quiz a Whiz with the RSE",
+      "source_id": "SRC_M1",
+      "duration_sec": 238,
+      "timecodes": [
+        {
+          "t": "00:08-00:28",
+          "what": "Akira O'Connor (University of St Andrews) defines déjà vu as the conflict between subjective familiarity and objective knowledge that a moment is new."
+        },
+        {
+          "t": "00:30-00:50",
+          "what": "Akira O'Connor explains how missing-theme word lists triggered déjà vu inside the St Andrews fMRI scanner and illuminated frontal fact-checking regions."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-00:50 into media/M1/keyframes/.",
+          "Royal Society of Edinburgh recording with study senior author Akira O'Connor; used strictly for researcher context and terminology."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Akira O'Connor on Memory",
+      "url": "https://www.youtube.com/watch?v=iuWeA3IFbi4",
+      "channel": "Quiz a Whiz with the RSE",
+      "source_id": "SRC_M2",
+      "duration_sec": 319,
+      "timecodes": [
+        {
+          "t": "00:15-00:55",
+          "what": "Akira O'Connor contrasts automatic temporal familiarity signals against deliberate frontal memory monitoring."
+        },
+        {
+          "t": "01:20-02:05",
+          "what": "Discussion of why memory monitoring protects healthy adults from accepting false memories."
+        }
+      ],
+      "license_note": "Complementary Royal Society of Edinburgh reference recording with Akira O'Connor; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    }
+  ]
+}

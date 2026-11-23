@@ -505,13 +505,14 @@ class MediaIntegrityValidator:
             }
 
         import os
-        import tempfile
         import threading
+        from pipeline.media_cache import get_ram_scratch_root, is_ephemeral_scratch_path
+
         tmp_path: Path | None = None
         open_path = path
-        if os.name != "nt" and not str(path).startswith("/tmp"):
+        if os.name != "nt" and not is_ephemeral_scratch_path(path):
             try:
-                tmp_path = Path(tempfile.gettempdir()) / f"_tmp_dhash_{os.getpid()}_{threading.get_ident()}_{path.name}"
+                tmp_path = get_ram_scratch_root() / f"_tmp_dhash_{os.getpid()}_{threading.get_ident()}_{path.name}"
                 shutil.copy2(path, tmp_path)
                 open_path = tmp_path
             except Exception:
@@ -830,7 +831,12 @@ class MediaIntegrityValidator:
                     project_id=path.parent.parent.name,
                 )
                 if fmt_mi in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
-                    default_diorama_min, default_diorama_max = shorts_duration_range_for_profile(fmt_mi)
+                    default_diorama_min, default_diorama_max = shorts_duration_range_for_profile(
+                        fmt_mi,
+                        project_id=path.parent.parent.name,
+                        plan=vp_doc_mi,
+                        script_doc=s_doc_mi,
+                    )
 
         req_min_dur = min_duration_sec if min_duration_sec is not None else (
             (default_diorama_min if is_diorama else FINAL_SHORTS_DURATION_MIN_SEC) if is_final else FLOW_CLIP_DURATION_MIN_SEC

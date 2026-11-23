@@ -1,0 +1,109 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Harvard Memorial Hall & Red-Brick Yard Cutaway into Photography Darkroom",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2002 Harvard University Department of Psychology & Photography Darkroom",
+      "layout": {
+        "description": "Sunlit Ruskinian Gothic red-brick Harvard Memorial Hall tower slicing open into a warm photography darkroom with an optical enlarger, three white porcelain trays, hanging black-and-white silver prints, and oak worktables.",
+        "positions": [
+          {
+            "who": "Daniel T. Gilbert",
+            "where": "standing beside the darkroom oak counter holding two framed silver prints",
+            "facing": "toward the student photographer"
+          },
+          {
+            "who": "Harvard Photography Student",
+            "where": "weighing two framed black-and-white prints beneath warm safelight",
+            "facing": "toward the two prints on the oak table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Two framed black-and-white silver gelatin prints",
+          "period_detail": "Student-printed 8x10 photographs from the Harvard darkroom course",
+          "physical_behavior": "one print is packed home while the second stays behind on the lab counter"
+        },
+        {
+          "name": "Photographic darkroom optical enlarger and developing trays",
+          "period_detail": "Classic analog darkroom apparatus with brass lens bellows and tongs",
+          "physical_behavior": "projects crisp negative light onto photographic paper before chemical bath"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Harvard Photography Student",
+          "verb_sequence": "lifts both framed prints side by side -> hands one print back -> carries chosen frame into dorm"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Swap-Group Student",
+          "reaction": "squints anxiously at tiny corners of the framed print while glancing back toward the door"
+        }
+      ],
+      "wardrobe": "Corduroy academic blazer for researcher and collegiate knit sweater over collared shirt for student.",
+      "lighting": "Crisp Cambridge morning sunlight outside contrasting with warm amber-red safelight and tungsten desk lamps inside.",
+      "recognition_hook": "Harvard psychologists had photography students print two favorite photos and gave half a five-day window to swap their pick.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ],
+      "key_visual": {
+        "description": "Harvard Memorial Hall facade cutaway revealing photography darkroom enlarger and two framed prints.",
+        "must_show": [
+          "prints|frames",
+          "enlarger|trays"
+        ],
+        "source": "SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "3D Borosilicate Glass Brain — Anterior Cingulate Conflict & Prefrontal Value Synthesis",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2019-2020 Human fMRI Decision Neuroscience",
+      "layout": {
+        "description": "Deep obsidian museum void housing a translucent frosted borosilicate crystal brain with crimson-red anterior cingulate arch and warm amber-gold prefrontal ridges.",
+        "positions": [
+          {
+            "who": "3D Crystal Glass Brain",
+            "where": "centered in 9:16 frame for B0->B1 macro FPV dives",
+            "facing": "anterior three-quarter profile"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Translucent Borosilicate Crystal Brain Model",
+          "period_detail": "Zero-flesh optical glass cortical folds and internal subcortical chambers",
+          "physical_behavior": "crimson cingulate conflict pulses yield to warm amber-gold prefrontal glow once choice locks"
+        }
+      ],
+      "actions": [
+        {
+          "who": "FPV Macro Probe Camera",
+          "verb_sequence": "dives through frosted cortical glass into ACC arch -> pulls back to dorm -> dives into prefrontal cortex ridges"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Prefrontal Crystal Ridges",
+          "reaction": "illuminate in steady warm amber-gold light as commitment closes"
+        }
+      ],
+      "wardrobe": "None (isolated zero-flesh 3D optical glass brain).",
+      "lighting": "Rim-lit optical crystal caustics over clean dark obsidian studio backdrop.",
+      "recognition_hook": "Closing an escape hatch shifts brain activity from anterior cingulate conflict auditing to prefrontal value building.",
+      "sources": [
+        "SRC3",
+        "SRC4",
+        "SRC5"
+      ]
+    }
+  ]
+}

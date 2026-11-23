@@ -2,61 +2,60 @@
   "scenes": [
     {
       "id": "S1",
-      "title": "1998 Pittsburgh Tabletop: Vertical Screen Hiding the Real Left Hand While Twin Paintbrushes Stroke the Visible Rubber Hand in Sync",
+      "title": "1998 Pittsburgh Partition Table: Twin Paintbrushes Stroking Hidden Real Hand & Visible Rubber Hand in Sync",
       "iconic": true,
       "shorts_priority": 1,
       "era": "1998, University of Pittsburgh / Carnegie Mellon cognitive neuroscience lab",
       "layout": {
-        "description": "Sunlit high-key psychology laboratory table fitted with a clean vertical matte-white wooden partition screen: to the left of the partition sits the participant's real left hand (visible to our camera angle, hidden from the participant's eyes); in front of the participant's chest rests a realistic beige-matte prosthetic left hand draped from a cloth cuff, with an under-table centimeter ruler strip measuring blindfolded pointing drift.",
+        "description": "Sunlit psychology laboratory table divided by a crisp vertical matte-white wooden partition screen: behind the screen rests the 45-year-old participant's real left hand (visible to our camera, hidden from the participant); in plain view before their chest sits a realistic prosthetic left hand above an under-table millimeter drift ruler.",
         "positions": [
           {
-            "who": "Experimenter mannequin (in 1998 crisp collared shirt and lab coat)",
-            "where": "seated across the table holding two identical camel-hair paintbrushes — stroking the index knuckle of the visible prosthetic hand and the hidden real hand in exact unison",
-            "facing": "across testing table"
+            "who": "Pittsburgh experimenter (2.5D matte cream-white vinyl researcher in crisp white lab coat and collared shirt)",
+            "where": "seated across the table holding two identical camel-hair paintbrushes and stroking the visible rubber index knuckle and hidden real index knuckle in exact unison",
+            "facing": "seated across testing table"
           },
           {
-            "who": "Participant mannequin (in rolled-sleeve knit sweater)",
-            "where": "gazing intently at the visible prosthetic left hand while their real left hand rests calmly behind the vertical partition screen",
-            "facing": "seated at table"
+            "who": "45-year-old volunteer (2.5D matte cream-white vinyl adult in rolled-sleeve burgundy knit sweater)",
+            "where": "watching the visible prosthetic hand intently as brushstrokes land in sync, then sliding their right index finger under the table 23 mm toward the rubber hand",
+            "facing": "seated facing tabletop partition and rubber hand"
           }
         ]
       },
       "props": [
         {
-          "name": "vertical tabletop occlusion partition & realistic prosthetic left hand",
-          "period_detail": "hides the real left hand from the subject's sight while positioning the fake hand in anatomically natural alignment",
-          "physical_behavior": "exact 1998 Nature setup"
+          "name": "vertical tabletop occlusion partition and realistic prosthetic left hand",
+          "period_detail": "hides the volunteer's real left hand from sight while aligning the prosthetic hand naturally with the left shoulder",
+          "physical_behavior": "State-A lifeless detached rubber prop on desk -> State-B volunteer's hidden real hand jerking back protectively whenever a reflex hammer nears the rubber fingers"
         },
         {
-          "name": "matched pair of fine camel-hair paintbrushes",
-          "period_detail": "delivers identical synchronous strokes (vs 500-ms asynchronous control)",
-          "physical_behavior": "the two-dollar tool that rewrites body boundaries"
-        },
-        {
-          "name": "under-table centimeter Proprioceptive Drift ruler",
-          "period_detail": "measures blindfolded right-hand pointing shifting centimeters toward the prosthetic hand",
-          "physical_behavior": "objective physical readout of recalibrated body sense"
+          "name": "matched pair of camel-hair paintbrushes and under-table millimeter ruler",
+          "period_detail": "delivers synchronous vs 500 ms asynchronous brush strokes and records the 23 mm pointing shift",
+          "physical_behavior": "State-A twin brushes poised above knuckles -> State-B sweeping down simultaneously across rubber and real fingers in rhythmic unison"
         }
       ],
       "actions": [
         {
-          "who": "Experimenter mannequin",
-          "verb_sequence": "strokes both the hidden real hand and visible prosthetic hand in crisp synchrony for 60 seconds -> asks blindfolded Participant to slide right index finger under the table to point at their left hand -> finger lands centimeters shifted toward the prosthetic hand"
+          "who": "Pittsburgh experimenter",
+          "verb_sequence": "strokes hidden real hand and visible rubber hand in crisp unison for 60 seconds -> guides blindfolded volunteer to point underneath the tabletop ruler"
+        },
+        {
+          "who": "45-year-old volunteer",
+          "verb_sequence": "closes eyes and slides right index finger under the table -> lands 23 mm shifted toward the rubber hand -> opens eyes in stunned disbelief"
         }
       ],
       "reactions": [
         {
-          "who": "Participant mannequin",
-          "reaction": "opens eyes in astonishment at where their pointing finger landed on the centimeter ruler"
+          "who": "45-year-old volunteer",
+          "reaction": "wide-eyed astonishment staring from the millimeter ruler up to the lifeless rubber glove"
         },
         {
-          "who": "Experimenter mannequin",
-          "reaction": "contrasts synchronous drift against flat zero-drift on asynchronous strokes"
+          "who": "Pittsburgh experimenter",
+          "reaction": "calm nod contrasting 23 mm synced shift against 13 mm unsynced control"
         }
       ],
-      "wardrobe": "Late-1990s academic attire: crisp white lab coat over button-down shirt; crew-neck cotton sweater.",
-      "lighting": "Clean high-key studio daylight showing both sides of the partition clearly to the viewer.",
-      "recognition_hook": "Hide your real hand behind a board, stroke a fake rubber hand in sync for sixty seconds, and your brain relocates where your own fingers live.",
+      "wardrobe": "Late-1990s university attire: crisp white lab coat over light-blue button-down shirt; adult volunteer in burgundy crew-neck knit sweater.",
+      "lighting": "Clean high-key studio window daylight illuminating both sides of the tabletop partition.",
+      "recognition_hook": "Hide your real hand behind a board, brush a lifeless rubber hand in sync for sixty seconds, and your brain relocates where your own fingers live by 23 millimeters!",
       "sources": [
         "SRC1",
         "SRC2",
@@ -65,7 +64,7 @@
         "SRC_STILL"
       ],
       "key_visual": {
-        "description": "a psychology table divided by a vertical partition where an experimenter uses two matching paintbrushes to stroke a participant's hidden real hand and a visible prosthetic hand in unison above a centimeter drift ruler",
+        "description": "a psychology table divided by a vertical partition where an experimenter uses two matching paintbrushes to stroke an adult participant's hidden real hand and a visible prosthetic hand in unison above a millimeter drift ruler",
         "must_show": [
           "hand|prosthetic",
           "partition|screen|divider",
@@ -76,139 +75,103 @@
     },
     {
       "id": "S2",
-      "title": "Flinching From a Threat to Dead Rubber (Ehrsson 2007)",
+      "title": "2005 Control Test: Out-of-Sync Brushing & Wooden Block Breaking the Ownership Spell",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "2007, Karolinska Institutet physiological lab, Stockholm",
+      "era": "2005, London psychophysics tabletop lab (Tsakiris & Haggard)",
       "layout": {
-        "description": "Same partition table wired with clean finger skin-conductance sensors on the participant's right hand.",
+        "description": "Bright testing desk where the experimenter alternates brush strokes half a second out of sync and swaps the rubber hand for a plain rectangular wooden block.",
         "positions": [
           {
-            "who": "Experimenter & Participant mannequins",
-            "where": "after 60s synchronous brushing, Experimenter brings a blunt reflex hammer briskly toward the fake hand -> Participant gasps and pulls their REAL hidden hand back as the sweat trace spikes!",
-            "facing": "at partition table"
+            "who": "Adult volunteer & researcher",
+            "where": "watching alternating left-then-right brushstrokes and a plain rectangular wood block produce zero illusion",
+            "facing": "across bright tabletop"
           }
         ]
       },
       "props": [
         {
-          "name": "palmar skin-conductance trace monitor & reflex tester",
-          "period_detail": "proves visceral autonomic alarm treats the fake hand as living self",
-          "physical_behavior": "refutes 'just polite questionnaire compliance'"
+          "name": "rectangular wooden block control and alternating paintbrushes",
+          "period_detail": "proves both millisecond synchrony and human hand geometry are required (Tsakiris & Haggard 2005)",
+          "physical_behavior": "State-A synced rubber hand (illusion ON) -> State-B swapped for plain wood block with 500 ms delayed strokes (volunteer shakes head NO)"
         }
       ],
       "actions": [
         {
-          "who": "Experimenter",
-          "verb_sequence": "moves reflex hammer toward fake fingers -> skin-conductance line jumps sharply and hidden real hand retracts"
+          "who": "Researcher",
+          "verb_sequence": "delays second brush by 500 milliseconds and places wooden block -> volunteer points accurately straight to real hidden hand"
         }
       ],
       "reactions": [
         {
-          "who": "Participant",
-          "reaction": "laughs nervously realizing the fake hand couldn't possibly hurt"
+          "who": "Adult volunteer",
+          "reaction": "calm, unfooled head shake as body-map check rejects the block"
         }
       ],
-      "wardrobe": "2007 Scandinavian smart-casual shirts.",
-      "lighting": "Bright high-key lab light.",
-      "recognition_hook": "Swing a reflex tester toward a lifeless rubber glove after synchronous brushing, and your real sweat glands fire like you're in danger.",
+      "wardrobe": "Smart-casual collared shirt and lab coat.",
+      "lighting": "Clean high-key daylight.",
+      "recognition_hook": "Delay one paintbrush by half a second — or swap the rubber hand for a block of wood — and your premotor security check kills the illusion cold.",
       "sources": [
-        "SRC6",
+        "SRC1",
         "SRC2",
-        "SRC_M1",
-        "SRC_M2"
+        "SRC3"
       ]
     },
     {
       "id": "S3",
-      "title": "Breaking the Spell: Out-of-Sync Strokes & Twisted Posture",
-      "iconic": false,
-      "shorts_priority": 1,
-      "era": "2004, Control conditions table",
-      "layout": {
-        "description": "Clean tabletop showing 500-ms alternating brush strokes and a wooden block substitute.",
-        "positions": [
-          {
-            "who": "Participant mannequin",
-            "where": "shaking head calmly with zero ownership and zero pointing drift when strokes alternate out of sync",
-            "facing": "at table"
-          }
-        ]
-      },
-      "props": [
-        {
-          "name": "asynchronous timing metronome & wooden block control",
-          "period_detail": "proves both temporal synchrony AND human hand geometry are required",
-          "physical_behavior": "locks down causal specificity"
-        }
-      ],
-      "actions": [
-        {
-          "who": "Experimenter",
-          "verb_sequence": "strokes left-then-right 500 ms apart -> Participant points accurately straight to real hidden hand"
-        }
-      ],
-      "reactions": [
-        {
-          "who": "Experimenter",
-          "reaction": "marks zero drift on control chart"
-        }
-      ],
-      "wardrobe": "Clean lab attire.",
-      "lighting": "Bright daylight.",
-      "recognition_hook": "Delay one paintbrush by half a second — or swap the hand for a block of wood — and the illusion vanishes completely.",
-      "sources": [
-        "SRC1",
-        "SRC2"
-      ]
-    },
-    {
-      "id": "S4",
-      "title": "Bionic Prosthetics That Feel Like 'MY Hand' Again",
+      "title": "Sunlit Outdoor Tennis & Garden Courtyard: Everyday Adult Tool Embodiment in Action",
       "iconic": false,
       "shorts_priority": 2,
-      "era": "Modern neuroprosthetics rehabilitation clinic",
+      "era": "Modern sunlit outdoor neighborhood tennis court & garden walkway",
       "layout": {
-        "description": "Sunlit clinical studio where an upper-limb amputee wears a sleek white articulated bionic hand wired to sensory nerve feedback.",
+        "description": "Open-air sunlit neighborhood court and garden patio where a 50-year-old adult effortlessly bounces a tennis ball on the center strings of a racket without looking down, experiencing synchronized visual-plus-tactile handle feedback.",
         "positions": [
           {
-            "who": "Amputee mannequin",
-            "where": "touching a porcelain cup and feeling instantaneous synchronous touch + sight, smiling as the prosthetic feels like part of their own body rather than a heavy tool",
-            "facing": "at rehab table"
-          },
-          {
-            "who": "Neuroengineer mannequin",
-            "where": "monitoring millisecond sensor-to-nerve sync",
-            "facing": "beside table"
+            "who": "50-year-old adult player (in crisp white polo shirt and navy shorts)",
+            "where": "standing in open morning sunlight bouncing a yellow tennis ball rhythmically off the racket face as an extension of their own palm",
+            "facing": "on sunlit outdoor court walkway"
           }
         ]
       },
       "props": [
         {
-          "name": "touch-feedback bionic hand & porcelain cup",
-          "period_detail": "applies synchronous sight + touch to restore natural embodiment",
-          "physical_behavior": "medical triumph of RHI science"
+          "name": "strung tennis racket and bright yellow ball in open sunlight",
+          "period_detail": "illustrates everyday premotor-parietal body-schema extension through synced sight and handle vibration",
+          "physical_behavior": "State-A racket held loose at side -> State-B crisp rhythmic ball bounce on strings in effortless hand-eye-touch lock"
         }
       ],
       "actions": [
         {
-          "who": "Amputee",
-          "verb_sequence": "grasps cup smoothly with zero visual strain as tactile feedback fires in sync"
+          "who": "50-year-old adult player",
+          "verb_sequence": "raises racket into morning sunlight -> bounces ball cleanly off sweet spot three times while chatting effortlessly"
         }
       ],
       "reactions": [
         {
-          "who": "Both mannequins",
-          "reaction": "celebrate seamless embodiment"
+          "who": "50-year-old adult player",
+          "reaction": "confident, natural poise as the brain treats the tool tip like living fingertips"
         }
       ],
-      "wardrobe": "Modern clinic jacket and smart-casual tee.",
-      "lighting": "Warm sunlit clinical light.",
-      "recognition_hook": "The same 60-second rule that tricked volunteers into owning rubber now helps bionic hands feel genuinely alive to amputees.",
+      "wardrobe": "Crisp white athletic polo, navy shorts, court shoes.",
+      "lighting": "Bright golden outdoor morning sunlight across green court and trees.",
+      "recognition_hook": "The exact 60-second rule that tricked volunteers into owning rubber is how your brain turns a car bumper, chef's knife, or tennis racket into part of your own arm!",
       "sources": [
         "SRC1",
-        "SRC2"
+        "SRC5",
+        "SRC6"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Synchronized twin paintbrush strokes merging visible rubber glove into body map",
+    "landmark_or_object_b": "500-ms delayed out-of-sync strokes severing ownership across the divider board",
+    "arrow_3d_mode": "split_hemisphere_watch",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit university psychology building facade into tabletop divider cutaway",
+    "cut_b_topdown_3d_arrow": "90-degree top-down partitioned table with twin synchronized cyan/#FF2525 3D stroke arrows converging into one body pin",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

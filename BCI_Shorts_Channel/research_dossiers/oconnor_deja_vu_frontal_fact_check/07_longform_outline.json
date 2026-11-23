@@ -1,0 +1,120 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Adult traveler freezing mid-step in a sunlit stone courtyard with wide eyes of uncanny recognition",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing silent dark hippocampus vs blazing cyan prefrontal reality-checker and anterior cingulate alarm",
+    "badge_text": "FACT-CHECK ON"
+  },
+  "r75_clean_seed_tags": [
+    "deja vu explained",
+    "why do we get deja vu",
+    "prefrontal cortex",
+    "memory science",
+    "brain science",
+    "neuroscience",
+    "cognitive psychology",
+    "akira oconnor deja vu",
+    "brain mysteries",
+    "everyday psychology",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why stepping into a brand-new place triggers spine-tingling déjà vu—and why an MRI scanner proved it means your brain's fact-checker is sharp, not broken.",
+    "core_experiment": "Urquhart & Akira O'Connor (2021, St Andrews fMRI): missing-theme word lists triggered live déjà vu in 16 of 21 adults, lighting up frontal conflict-checkers while the hippocampus stayed quiet.",
+    "twist": "Without that frontal veto, you wouldn't feel eerie at all—you would blindly believe a false memory."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Unfamiliar Courtyard Chill: Glitch or Quality Control?",
+      "beats": [
+        "Standing in a brand-new city square sure you lived this exact second before",
+        "Why delayed-eyeball myths failed and scientists couldn't catch déjà vu on schedule"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "outdoor sunlit stone courtyard freeze"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "St Andrews fMRI Trap: Triggering Déjà Vu in 16 of 21 Adults",
+      "beats": [
+        "Missing-theme word lists ('bed, dream, blanket' minus 'sleep') + the no-S rule",
+        "Real-time button presses inside the St Andrews 3T scanner"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "fMRI bore button press and control-room monitors"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Scan Twist: Quiet Hippocampus, Blazing Frontal Fact-Checker",
+      "beats": [
+        "Why the hippocampus stayed dark during artificial déjà vu",
+        "Anterior cingulate conflict alarm + medial prefrontal reality-checker"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 temporal -> silent hippocampus -> active frontal check"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Twin Room Geometry (Cleary 2009) & When Fact-Checkers Break (Moulin 2017)",
+      "beats": [
+        "How forgotten floorplans spark rhinal familiarity in new buildings",
+        "Chronic déjà vécu when frontal dementia fails to veto false familiarity"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "matching courtyard geometry comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Why Healthy Déjà Vu Gentles With Age",
+      "beats": [
+        "Why occasional flashes at 40–65+ prove crisp executive auditing",
+        "Spotting the look-alike room twin next time it strikes"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "calm morning coffee pour after 2-second flash"
+      ]
+    }
+  ]
+}

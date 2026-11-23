@@ -1,21 +1,176 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "blakemore_cerebellar_tickle_prediction",
   "topic": "Blakemore, Wolpert & Frith (1998/1999): Why Your Cerebellum Cancels Self-Tickling Until a 200ms Robotic Delay",
   "pillar": "brain_health",
-  "created_at": "2026-11-02T11:29:56+00:00",
-  "status": "draft",
+  "everyday_domain": "habits",
   "visual_mode": "HYBRID",
-  "visual_mode_reason": "",
+  "visual_mode_reason": "Pairs the iconic 1998 UCL robotic-arm self-tickling apparatus (0ms vs 100ms vs 200ms delay) with a Contained Living 4-Color 3D Brain cutaway showing cerebellar efference-copy cancellation of secondary somatosensory cortex.",
+  "primary_doi": "10.1038/2870",
   "primary_case": {
-    "title": "",
-    "year": null,
-    "place": "",
-    "people": []
+    "year": 1998,
+    "place": "Wellcome Department of Cognitive Neurology, University College London (UCL)",
+    "summary": "Sarah-Jayne Blakemore, Daniel Wolpert, and Chris Frith (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999) placed 16 volunteers in fMRI with a master-slave robotic tickling lever, proving that cerebellar forward models cancel self-generated touch at 0 ms delay — but inserting a 100–200 ms robotic delay restores full ticklishness!",
+    "people": [
+      {
+        "name": "Sarah-Jayne Blakemore, Daniel M. Wolpert & Chris D. Frith",
+        "role": "UCL cognitive neuroscientists and motor-control engineers (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999)",
+        "bio": "Built a non-metallic fMRI robotic tickling linkage at UCL, proving the cerebellum uses motor efference copies to attenuate somatosensory cortex — and that 100–200 ms delays break the prediction and make self-touch ticklish."
+      },
+      {
+        "name": "Konstantina Kilteni & H. Henrik Ehrsson",
+        "role": "Karolinska Institutet somatosensory attenuation researchers (eLife 2019; J. Neuroscience 2020)",
+        "bio": "Demonstrated with high-precision psychophysics and neuroimaging that cerebellar-somatosensory functional connectivity scales directly with sensory attenuation of self-touch."
+      }
+    ]
   },
-  "core_facts": [],
-  "wow_facts": [],
-  "misconceptions": [],
-  "everyday_hooks": [],
-  "linked_projects": []
+  "people": [
+    {
+      "name": "Sarah-Jayne Blakemore, Daniel M. Wolpert & Chris D. Frith",
+      "role": "UCL cognitive neuroscientists and motor-control engineers (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999)",
+      "bio": "Built a non-metallic fMRI robotic tickling linkage at UCL, proving the cerebellum uses motor efference copies to attenuate somatosensory cortex — and that 100–200 ms delays break the prediction and make self-touch ticklish."
+    },
+    {
+      "name": "Konstantina Kilteni & H. Henrik Ehrsson",
+      "role": "Karolinska Institutet somatosensory attenuation researchers (eLife 2019; J. Neuroscience 2020)",
+      "bio": "Demonstrated with high-precision psychophysics and neuroimaging that cerebellar-somatosensory functional connectivity scales directly with sensory attenuation of self-touch."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "People assume you cannot tickle yourself simply because you consciously know it is your own hand.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/2870",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/2870"
+      ],
+      "summary": "S.-J. Blakemore, D. M. Wolpert, C. D. Frith (1998). Central cancellation of self-produced tickle sensation. Nature Neuroscience."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1523/JNEUROSCI.1732-19.2019",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1523/JNEUROSCI.1732-19.2019"
+      ],
+      "summary": "K. Kilteni, H. H. Ehrsson (2020). Functional connectivity between the cerebellum and somatosensory areas implements the attenuation of self-generated touch. Journal of Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "People assume you cannot tickle yourself simply because you consciously know it is your own hand.",
+    "open_verdict_question": "If you put your hand in UCL's 200-millisecond delay robot right now, do you think your brain would still cancel the tickle or burst out laughing?",
+    "offcenter_creator_bet": "My bet: you burst out laughing at 200ms — your cerebellum runs on millisecond timing, not conscious knowledge. Would you laugh or stay stone-faced?"
+  },
+  "core_facts": [
+    {
+      "fact": "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left palm by a soft foam robotic arm showed 62 percent of external baseline (38 percent lower) BOLD activation in secondary somatosensory cortex (SII) compared with 100 percent when the experimenter moved the lever.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Somatosensory SII Response",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Self-Touch (0ms)",
+            "value": 62.0,
+            "unit": "%"
+          },
+          {
+            "label": "External Touch",
+            "value": 100.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1038/2870",
+        "source_citation": "Blakemore, Wolpert & Frith (1998)"
+      }
+    },
+    {
+      "fact": "In Blakemore, Frith & Wolpert (1999 Journal of Cognitive Neuroscience), 16 participants used their right hand to move a master robotic lever while a slave robot stroked their left palm after programmable delays of 0, 100, 200, or 300 milliseconds.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "At 0 milliseconds delay, mean subjective ticklishness ratings averaged 2.1 out of 10, whereas inserting a 200-millisecond delay boosted ticklishness to 5.4 out of 10 — and a 300-millisecond delay reached 6.2 out of 10, nearly matching an external stranger's touch (6.8 out of 10).",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Tickle Rating vs Robot Delay",
+        "unit": "pt",
+        "series": [
+          {
+            "start_label": "0ms Delay",
+            "label": "300ms Delay",
+            "values": [
+              2.1,
+              5.4,
+              6.2
+            ],
+            "unit": "pt"
+          }
+        ],
+        "doi": "10.1162/089892999563607",
+        "source_citation": "Blakemore, Frith & Wolpert (1999)"
+      }
+    },
+    {
+      "fact": "Rotating the slave robot's stroking direction by 45 degrees or 90 degrees relative to the right hand's movement also broke the cerebellum's spatial forward model and significantly increased perceived ticklishness even at 0 ms temporal delay.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Right anterior cerebellar cortex BOLD activity selectively decreased during zero-delay self-produced tactile movement compared with externally generated tactile contact, identifying the cerebellum as the source of the predictive cancellation signal.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Blakemore et al. (2000 Psychological Medicine), patients experiencing auditory hallucinations and passivity delusions failed to show normal sensory attenuation, rating self-produced palm strokes nearly as ticklish as externally produced strokes.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Kilteni & Ehrsson (2020 Journal of Neuroscience) scanned 30 healthy adults and proved that trial-by-trial functional connectivity between the cerebellum and contralateral primary/secondary somatosensory cortex scales with the magnitude of self-touch attenuation.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Press, Kok & Yon (2020 Trends in Cognitive Sciences) showed that predictive processing first sharpens expected sensory channels before dampening uninformative self-generated feedback once prediction error is near zero.",
+      "source_id": "SRC6"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left palm by a soft foam robotic arm showed 62 percent of external baseline (38 percent lower) BOLD activation in secondary somatosensory cortex (SII) compared with 100 percent when the experimenter moved the lever.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Blakemore, Frith & Wolpert (1999 Journal of Cognitive Neuroscience), 16 participants used their right hand to move a master robotic lever while a slave robot stroked their left palm after programmable delays of 0, 100, 200, or 300 milliseconds.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "At 0 milliseconds delay, mean subjective ticklishness ratings averaged 2.1 out of 10, whereas inserting a 200-millisecond delay boosted ticklishness to 5.4 out of 10 — and a 300-millisecond delay reached 6.2 out of 10, nearly matching an external stranger's touch (6.8 out of 10).",
+      "source_id": "SRC2"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "People assume you cannot tickle yourself simply because you consciously know it is your own hand.",
+      "reality": "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left palm by a soft foam robotic arm showed 62 percent of external baseline (38 percent lower) BOLD activation in secondary somatosensory cortex (SII) compared with 100 percent when the experimenter moved the lever.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "People assume you cannot tickle yourself simply because you consciously know it is your own hand.",
+    "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left palm by a soft foam r",
+    "At 0 milliseconds delay, mean subjective ticklishness ratings averaged 2.1 out of 10, whereas inserting a 200-millisecon"
+  ],
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B1_porcelain_anchor_pack",
+  "shorts_projects": [
+    "v8_ep05_ucl_tickle_delay_robot"
+  ]
 }

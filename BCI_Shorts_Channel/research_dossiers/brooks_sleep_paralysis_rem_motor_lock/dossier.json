@@ -1,0 +1,220 @@
+{
+  "schema_version": 2,
+  "slug": "brooks_sleep_paralysis_rem_motor_lock",
+  "topic": "Why Your Mind Can Wake Up While Your Body's Dream Brake Stays Locked",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T03:49:52+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Pairs clean, sunlit morning clinical sleep-lab and peaceful bedroom scenes (zero horror imagery) with 3D brain cutaways showing brainstem dual-lock GABA/glycine motor inhibition outlasting cortical awakening.",
+  "setup_18w": "Neuroscientists mapped the exact two chemical switches that paralyze skeletal muscles every night during vivid dreams.",
+  "primary_doi": "10.1523/jneurosci.0482-12.2012",
+  "three_layer_formula": {
+    "everyday_problem": "Opening your eyes in a bright, quiet morning bedroom with your mind 100 percent awake while your arms and chest refuse to budge for ten seconds because your nightly dream brake has not clicked off yet.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1523/jneurosci.0482-12.2012",
+      "source_ids": [
+        "SRC1",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1523/jneurosci.0482-12.2012",
+        "10.3389/fpsyg.2016.00028"
+      ],
+      "summary": "Brooks & Peever (2012, Journal of Neuroscience) discovery of the dual GABA + glycine receptor lock driving REM sleep atonia, paired with Jalal (2016, Frontiers in Psychology) focused-relaxation clinical release protocol."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.5664/jcsm.9056",
+      "year": 2021,
+      "source_ids": [
+        "SRC6",
+        "SRC2",
+        "SRC5"
+      ],
+      "dois": [
+        "10.5664/jcsm.9056",
+        "10.3389/fnhum.2017.00092",
+        "10.1016/j.cub.2017.10.026"
+      ],
+      "summary": "Mainieri et al. (2021, Journal of Clinical Sleep Medicine) spectral EEG + polysomnography proof that sleep paralysis combines 93.8% chin muscle atonia with hybrid wake-REM cortical rhythms, alongside Jalal & Ramachandran (2017) parietal body-map mismatch."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1523/jneurosci.0482-12.2012",
+        "year": 2012,
+        "summary": "University of Toronto receptor blockade experiment proving both metabotropic GABAB and ionotropic GABAA/glycine switches must disengage to end REM paralysis."
+      },
+      {
+        "source_id": "SRC4",
+        "doi": "10.3389/fpsyg.2016.00028",
+        "year": 2016,
+        "summary": "Clinical focused-attention and muscle-relaxation protocol breaking panic loops during conscious REM motor lock."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1016/j.smrv.2017.05.005",
+        "year": 2018,
+        "summary": "Systematic review identifying fragmented sleep, shift work, jet lag, and supine sleeping position as primary triggers."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC6",
+        "doi": "10.5664/jcsm.9056",
+        "year": 2021,
+        "summary": "In-lab spectral EEG and EMG analysis capturing live sleep paralysis episodes (93.8% muscle atonia vs 33.3% normal wakefulness)."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.3389/fnhum.2017.00092",
+        "year": 2017,
+        "summary": "Parietal somatosensory body-map feedback mismatch model explaining why blocked motor commands feel eerie without any external cause."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1016/j.cub.2017.10.026",
+        "year": 2017,
+        "summary": "Modern circuit synthesis of brainstem sublaterodorsal nucleus REM atonia pathways and REM sleep behavior disorder."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "University of Toronto Dual-Switch REM Paralysis Discovery & In-Lab Spectral EEG Sleep Paralysis Capture",
+    "year": 2012,
+    "place": "Department of Cell and Systems Biology, University of Toronto, Canada & Pitié-Salpêtrière Sleep Unit, Paris",
+    "summary": "Patricia Brooks and John Peever (2012) overturned 40 years of textbook dogma by proving the brainstem locks skeletal muscles every night using TWO chemical brakes simultaneously — GABA and glycine across three receptor classes — and Mainieri et al. (2021) captured live human episodes on EEG/EMG showing 93.8% muscle lock persisting while conscious cortex wakes early.",
+    "people": [
+      {
+        "name": "Patricia L. Brooks & John H. Peever",
+        "role": "University of Toronto sleep neurobiologists who mapped the dual GABA + glycine REM motor lock (J. Neuroscience, 2012)",
+        "source_id": "SRC1",
+        "bio": "Tested selective pharmacological blockers on motor neurons during live REM sleep, discovering that blocking glycine alone fails to unlock REM paralysis."
+      },
+      {
+        "name": "Greta Mainieri & Isabelle Arnulf Sleep Team",
+        "role": "Clinical sleep neurologists who captured live human sleep paralysis on spectral EEG and chin EMG (JCSM, 2021)",
+        "source_id": "SRC6",
+        "bio": "Quantified 3-second polysomnography epochs proving hybrid wake-REM cortical alpha/theta waves coexist with 93.8% skeletal muscle atonia."
+      },
+      {
+        "name": "Baland Jalal & Vilayanur S. Ramachandran",
+        "role": "Cognitive neuroscientists mapping parietal body-map feedback loops and calm relaxation release (2016, 2017)",
+        "source_id": "SRC2",
+        "bio": "Explained how motor-cortex commands returning zero muscle feedback scramble the parietal body map — and why calm breathing ends episodes cleanly."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Every single night during vivid Rapid Eye Movement (REM) dreams, your motor cortex fires almost as briskly as when you sprint in daylight — yet your brainstem throws a protective safety brake called REM atonia so you do not leap out of bed.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "For decades, textbooks taught that a single neurotransmitter — glycine — paralyzed skeletal muscles during REM dreams, until Patricia Brooks and John Peever tested selective receptor blockers at the University of Toronto (2012 Journal of Neuroscience).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Brooks & Peever (2012) proved that blocking glycine receptors alone — or ionotropic GABAA receptors alone — failed to abolish REM sleep paralysis; skeletal motor neurons only unlocked when ALL THREE inhibitory receptor pathways (GABAA, GABAB, and glycine) were blocked simultaneously.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Sleep paralysis is simply a harmless 10-to-60-second timing handoff glitch at morning wake-up or sleep onset: your conscious cortex switches ON a few seconds before the brainstem clears that dual GABA-and-glycine safety brake.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Clinical spectral EEG and polysomnography recordings during laboratory-captured sleep paralysis episodes revealed that 93.8 percent of 3-second epochs showed complete chin skeletal muscle atonia — nearly triple the 33.3 percent seen during normal wakefulness — while conscious wake-like alpha and beta rhythms intruded simultaneously.",
+      "source_id": "SRC6",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Lab Muscle Lock Epochs",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Normal Awake",
+            "value": 33.3,
+            "unit": "%"
+          },
+          {
+            "label": "Sleep Paralysis",
+            "value": 93.8,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.5664/jcsm.9056",
+        "source_citation": "Mainieri et al. (2021)"
+      }
+    },
+    {
+      "fact": "Why does your chest feel heavy during those locked seconds even though your airway is completely open? Because REM atonia temporarily quiets voluntary rib-cage intercostal muscles while your automatic diaphragm keeps breathing steadily on autopilot.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Jalal & Ramachandran (2017) showed that when a waking person strains hard to lift a locked arm, the motor cortex sends 'MOVE!' signals to the parietal cortex and receives zero muscle feedback back — confusing the parietal body map and triggering amygdala alarm.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Across 42+ variables synthesized by Denis, French & Gregory (2018 Sleep Medicine Reviews) and clinical protocols by Jalal (2016), broken shift-work schedules, jet lag, and sleeping flat on your back (supine) trigger the timing glitch — while relaxing instead of straining lets the brainstem brake click off smoothly.",
+      "source_id": "SRC3"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Your brainstem uses a redundant TRIPLE-RECEPTOR chemical lock (GABAA, GABAB, and glycine) every single night so vivid dreams cannot move your arms or legs — and waking up 15 seconds before that lock clears is all sleep paralysis ever is.",
+      "why_surprising": "Turns centuries of folklore into a reassuring, protective nightly safety brake.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In-lab polysomnography proved 93.8 percent of sleep-paralysis epochs maintain full REM muscle lock (versus 33.3 percent in wakefulness) while wakeful cortical frequencies switch on side-by-side (Mainieri et al., 2021).",
+      "why_surprising": "Captures two normally separate brain states — awake mind and dreaming body brake — overlapping on the same screen.",
+      "source_id": "SRC6",
+      "rank": 2
+    },
+    {
+      "fact": "When that nightly GABA-glycine brake weakens later in life (REM Sleep Behavior Disorder, acting out dreams physically), neurologists treat it as one of the earliest clinical clues of Parkinson's pathways years ahead of tremor (Peever & Fuller, 2017).",
+      "why_surprising": "Shows for adults 45+ that a strong REM motor brake is actually a sign of healthy brainstem protection.",
+      "source_id": "SRC5",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Sleep paralysis means you are suffocating or having a stroke.",
+      "truth": "Your automatic diaphragm breathes steadily the entire time; chest heaviness comes only from voluntary rib-cage muscles staying in benign REM rest for a few extra seconds.",
+      "reality": "Your automatic diaphragm breathes steadily the entire time; chest heaviness comes only from voluntary rib-cage muscles staying in benign REM rest for a few extra seconds.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Fighting and straining with all your might is the fastest way to snap out of sleep paralysis.",
+      "truth": "Straining blasts unanswered motor signals into the parietal cortex and spikes amygdala panic; calm breathing or gently wiggling a single toe/finger releases the lock cleanly.",
+      "reality": "Straining blasts unanswered motor signals into the parietal cortex and spikes amygdala panic; calm breathing or gently wiggling a single toe/finger releases the lock cleanly.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Nightly muscle paralysis during dreams is a malfunction.",
+      "truth": "GABA-and-glycine REM atonia is an essential nightly safety lock; losing it causes REM Sleep Behavior Disorder, where sleepers injure themselves acting out dreams.",
+      "reality": "GABA-and-glycine REM atonia is an essential nightly safety lock; losing it causes REM Sleep Behavior Disorder, where sleepers injure themselves acting out dreams.",
+      "source_id": "SRC5"
+    }
+  ],
+  "everyday_hooks": [
+    "Waking up in a sunlit hotel room after cross-country travel with your eyes open and clear thoughts, yet waiting ten seconds for your fingers to move.",
+    "Sleeping flat on your back during an afternoon nap after a exhausting week and feeling your body's parking brake release half a beat after your mind wakes.",
+    "Understanding why doctors ask adults over 50 whether they stay peacefully still during vivid dreams or kick the sheets (REM Sleep Behavior Disorder)."
+  ],
+  "offcenter_creator_bet": "My bet: wiggling one toe beats fighting — relaxing unlocks the dream brake faster than straining. Have you ever woken up locked or slept right through?",
+  "debate_ignition": {
+    "prebunk_myth": "Folklore treated waking up unable to move for ten seconds as something supernatural or dangerous.",
+    "open_verdict_question": "If you wake up before your body's dream brake clicks off, do you instinctively try to force your arms up or relax and wiggle one toe?",
+    "offcenter_creator_bet": "My bet: wiggling one toe beats fighting — relaxing unlocks the dream brake faster than straining. Have you ever woken up locked or slept right through?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

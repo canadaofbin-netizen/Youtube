@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "ramachandran_phantom_limb_mirror",
   "topic": "V. S. Ramachandran (1995-1998): The $10 Cardboard Mirror Box, Cortical Remapping & Unclenching Phantom Limbs",
   "pillar": "brain_health",
@@ -32,7 +32,17 @@
   "core_facts": [
     {
       "fact": "Up to 90+ percent of amputees vividly feel a missing arm or leg ('phantom limb') — and in many patients, the phantom hand feels frozen in a painfully clenched spasm with phantom fingernails digging into the phantom palm.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Amputees With Phantom Limb",
+        "percent": 90.0,
+        "unit": "%",
+        "doi": "10.1093/brain/121.9.1603",
+        "source_citation": "Ramachandran (1998)"
+      }
     },
     {
       "fact": "Before Ramachandran, doctors often blamed phantom pain on inflamed stump nerve endings ('neuromas') — yet cutting stump nerves or even dorsal roots repeatedly failed to erase the phantom.",
@@ -56,7 +66,17 @@
     },
     {
       "fact": "When long-suffering patient Philip Martinez looked into the mirror and opened and closed his intact hand symmetrically, six of ten tested patients immediately FELT their frozen phantom hand animate and unclench for the first time in years.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Mirror Box Phantom Relief",
+        "highlighted_k": 6,
+        "total_n": 10,
+        "doi": "10.1038/377489a0",
+        "source_citation": "Ramachandran et al. (1995)"
+      }
     },
     {
       "fact": "Modern neuroimaging & clinical trials (Tamar Makin; Herta Flor) added vital precision: 1) adult S1 still preserves a surprisingly detailed 'latent hand map' alongside competitive remapping, and 2) mirror therapy isn't a one-minute magic wand for every neuropathic pain type — multi-week structured daily sessions work best specifically for motor-cramping phantoms and post-stroke hemiparesis.",
@@ -126,5 +146,38 @@
   ],
   "shorts_projects": [
     "diorama_02_ramachandran_phantom_mirror"
-  ]
+  ],
+  "everyday_domain": "sleep",
+  "primary_doi": "10.1093/brain/121.9.1603",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling your own hand 'jump' slightly when watching a close-up magic trick or VR avatar hand move at your exact wrist position.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/brain/121.9.1603",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1093/brain/121.9.1603"
+      ],
+      "summary": "V. Ramachandran (1998). The perception of phantom limbs. The D. O. Hebb lecture. Brain."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1038/ncomms10402",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1038/ncomms10402"
+      ],
+      "summary": "Sujaya Neupane, Daniel Guitton, Christopher C. Pack (2016). Two distinct types of remapping in primate cortical area V4. Nature Communications."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Phantom limb pain is imaginary 'wishful thinking' or purely irritated stump nerve endings.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

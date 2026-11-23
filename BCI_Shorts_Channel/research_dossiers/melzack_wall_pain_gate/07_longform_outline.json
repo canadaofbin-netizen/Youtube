@@ -1,18 +1,37 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
   "shorts_extract": {
-    "hook": "Patrick Wall buzzes thick touch nerves on his own arm at MIT to prove a spinal 'gate' can block pain before it reaches the brain.",
-    "core_experiment": "Melzack & Wall's 1965 Science model: fast A-beta touch fibers vs slow C pain fibers in the dorsal horn + top-down descending control.",
-    "twist": "How the 1965 paper invented TENS in 24 months, solved phantom-surgery failures, and overturned 300 years of Descartes."
+    "hook": "Every time you bang your shin and rub it, you trigger a 100-meter-per-second nerve race that slams a gate inside your spine before pain reaches your brain.",
+    "core_experiment": "Melzack & Wall (1965 Science) spinal dorsal-horn Gate Control + Wall & Sweet self-tested TENS + Duan et al. (2015 Cell) dynorphin interneuron proof.",
+    "twist": "Why cutting spinal nerves made phantom pain worse, why anxious staring opens the gate from above, and how to close your gate from both ends."
   },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "48-year-old adult wincing then relieved while rubbing a bumped shin firmly with both hands",
+    "right_cyan_brain": "3D translucent glass brain and brainstem with bright #27D8FF descending brainstem gate active and silenced thalamic pain relay",
+    "badge_text": "100 M/S PAIN GATE"
+  },
+  "r75_clean_seed_tags": [
+    "gate control theory",
+    "pain neuroscience",
+    "ronald melzack",
+    "patrick wall",
+    "spinal cord pain",
+    "chronic pain relief",
+    "somatosensory cortex",
+    "human brain facts",
+    "psychology",
+    "shorts"
+  ],
   "chapters": [
     {
       "n": 1,
-      "title": "Why Descartes's Pain Rope Was Wrong",
+      "title": "Why Descartes's 300-Year Bell-Rope Failed",
       "beats": [
-        "300 years of bell-rope dogma",
-        "Anzio beachhead soldiers & phantom limb mysteries",
-        "Why rubbing a shin actually works"
+        "1664 straight-wire pain myth vs adult phantom and back pain",
+        "Why rubbing a bumped shin shouldn't work under old textbooks"
       ],
       "scene_ids": [
         "S2"
@@ -22,79 +41,77 @@
         "symptom"
       ],
       "new_shots_needed": [
-        "bumped shin instinctive rub"
+        "outdoor cedar patio shin bump & brisk rub"
       ]
     },
     {
       "n": 2,
-      "title": "Inside the Spinal Dorsal Horn Race",
+      "title": "100 m/s vs 2 m/s: Inside the Spinal Dorsal Horn Race",
       "beats": [
-        "100 m/s thick A-beta touch vs 1 m/s thin C-fibers",
-        "Substantia gelatinosa bouncer gating T-cells"
+        "Thick A-beta touch fibers outrunning thin C-fibers by 50x",
+        "Duan et al. (2015 Cell) dynorphin inhibitory gatekeepers"
       ],
       "scene_ids": [
         "S1"
       ],
       "reuse_shorts_roles": [
-        "failure",
-        "crisis",
         "pivot"
       ],
       "new_shots_needed": [
-        "MIT Gate Control chalkboard schematic"
+        "MIT chalkboard diagram & nerve rod comparison"
       ]
     },
     {
       "n": 3,
-      "title": "The Brain's Top-Down Volume Knob",
+      "title": "Self-Testing Electrodes at MIT: Inventing TENS in 24 Months",
       "beats": [
-        "Descending brainstem modulation",
-        "Why game-winning focus silences a scrape until the buzzer",
-        "Why needle panic doubles the sting"
+        "Patrick Wall & William Sweet buzzing their own forearms",
+        "Why cutting thick nerves accidentally propped phantom pain open"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "brushed-metal tactile stimulator forearm test"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Your Brainstem's Top-Down Volume Cable",
+      "beats": [
+        "Anzio survival relief & absorbed gardening focus closing the gate",
+        "Why anxious needle-staring props the gate wide open"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "step1",
+        "crisis",
         "step2"
       ],
       "new_shots_needed": [
-        "basketball buzzer sideline reveal"
-      ]
-    },
-    {
-      "n": 4,
-      "title": "From Chalkboard to TENS in Two Years",
-      "beats": [
-        "Wall & Sweet testing electrodes on their own arms",
-        "Modern synaptic refinements confirming the gate"
-      ],
-      "scene_ids": [
-        "S1"
-      ],
-      "reuse_shorts_roles": [
-        "breakthrough"
-      ],
-      "new_shots_needed": [
-        "forearm tactile pad demonstration"
+        "3D brainstem-to-thalamus gating view"
       ]
     },
     {
       "n": 5,
-      "title": "Closing Your Gate From Both Directions",
+      "title": "Closing Your Spinal Gate From Both Ends Tonight",
       "beats": [
-        "Bottom-up touch/warmth + top-down slow breathing",
-        "Real pain modulation ≠ 'all in your head'"
+        "Bottom-up warmth, rubbing, and vibration",
+        "Top-down dropped shoulders and slow exhale"
       ],
       "scene_ids": [
-        "S4"
+        "S3"
       ],
       "reuse_shorts_roles": [
+        "breakthrough",
         "conclusion"
       ],
       "new_shots_needed": [
-        "clinic vibration-pack + calm breath"
+        "clinic cool buzz pad + calm exhale"
       ]
     }
   ]

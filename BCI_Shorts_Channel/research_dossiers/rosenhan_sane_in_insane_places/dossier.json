@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "rosenhan_sane_in_insane_places",
   "topic": "David Rosenhan (1973): 'On Being Sane in Insane Places', Diagnostic Stickiness & Susannah Cahalan's Archival Investigation",
   "pillar": "bci_ethics",
@@ -40,7 +40,27 @@
     },
     {
       "fact": "All admissions were accepted (11 diagnosed with schizophrenia, 1 with manic-depressive psychosis), and hospital stays lasted from 7 to 52 days (averaging 19 days) before discharge — almost always labeled 'schizophrenia IN REMISSION' rather than 'healthy'.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Psychiatric Ward Stay Range",
+        "unit": "days",
+        "series": [
+          {
+            "start_label": "Shortest Stay",
+            "label": "Longest Stay",
+            "values": [
+              7.0,
+              52.0
+            ],
+            "unit": "days"
+          }
+        ],
+        "doi": "10.1126/science.179.4070.250",
+        "source_citation": "Rosenhan (1973)"
+      }
     },
     {
       "fact": "Once the diagnostic label stuck, ordinary behavior got pathologized on charts: when pseudopatients calmly wrote observations in notebooks, nursing notes recorded 'Patient engages in writing behavior'; arriving early outside the cafeteria for lunch was charted as 'oral-acquisitive syndrome'.",
@@ -48,7 +68,28 @@
     },
     {
       "fact": "While doctors and nurses missed the ruse, 35 of 118 fellow patients on the wards voiced suspicion ('You're not crazy — you're a journalist or a professor checking up on the place!').",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Inpatients Spotting Ruse",
+        "unit": "patients",
+        "bars": [
+          {
+            "label": "Voiced Suspicion",
+            "value": 35.0,
+            "unit": "patients"
+          },
+          {
+            "label": "Total Inpatients",
+            "value": 118.0,
+            "unit": "patients"
+          }
+        ],
+        "doi": "10.1126/science.179.4070.250",
+        "source_citation": "Rosenhan (1973)"
+      }
     },
     {
       "fact": "In Study 2, an offended teaching hospital challenged Rosenhan to try sending pseudopatients over the next three months: staff confidently flagged 41 of 193 real incoming patients as likely 'impostors' — when Rosenhan had actually sent ZERO.",
@@ -129,5 +170,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hot take: labels blind smart experts — once admitted, ordinary note-taking got recorded on charts as clinical pathology. Have you ever felt judged through a label instead of listened to?"
+  "offcenter_creator_bet": "Hot take: labels blind smart experts — once admitted, ordinary note-taking got recorded on charts as clinical pathology. Have you ever felt judged through a label instead of listened to?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1126/science.179.4070.250",
+  "three_layer_formula": {
+    "everyday_problem": "Notice how once a coworker gets labeled 'defensive' or 'flaky,' even asking a sensible question gets read as 'there they go again'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.179.4070.250",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1126/science.179.4070.250"
+      ],
+      "summary": "D. L. Rosenhan (1973). On Being Sane in Insane Places. Science."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.36615/sotls.v8i1.366",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.36615/sotls.v8i1.366"
+      ],
+      "summary": "Curwyn Mapaling (2024). The Night Nurse: A reflection on On Being Sane in Insane Places by D. L. Rosenhan (1973). Scholarship of Teaching and Learning in the South."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Rosenhan proved mental illnesses don't exist at all.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hot take: labels blind smart experts — once admitted, ordinary note-taking got recorded on charts as clinical pathology. Have you ever felt judged through a label instead of listened to?"
+  }
 }

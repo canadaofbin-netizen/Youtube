@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "dunning_kruger_metacognitive_blindness",
   "topic": "David Dunning & Justin Kruger (1999): Metacognitive Blindness & the Real Shape of the 'Mount Stupid' Myth",
   "pillar": "brain_mysteries",
@@ -44,7 +44,28 @@
     },
     {
       "fact": "CRITICAL FACT THAT DEBUNKS 99% OF INTERNET MEMES: in Kruger and Dunning's real 1999 Figure 1, novices NEVER formed a towering 'Mount Stupid' peak higher than experts. Bottom-quartile subjects rated themselves ~60-62%, while top-quartile experts rated themselves HIGHER (~70-75%, vs 87th actual).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Self-Rated Ability Percentile",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Bottom Quartile",
+            "value": 62.0,
+            "unit": "%"
+          },
+          {
+            "label": "Top Quartile",
+            "value": 75.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/0022-3514.77.6.1121",
+        "source_citation": "Kruger & Dunning (1999)"
+      }
     },
     {
       "fact": "Why did top-quartile performers slightly UNDERESTIMATE their percentile (~72nd estimated vs 87th actual)? Not insecurity — 'False Consensus': because logic felt easy to THEM, they generously assumed everyone else aced it too. Once shown 5 peers' messy test sheets, top performers immediately raised their self-ranking accurately.",
@@ -124,5 +145,37 @@
     "diorama_44_dunning_kruger_metacognitive_blindness"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/0022-3514.77.6.1121",
+  "three_layer_formula": {
+    "everyday_problem": "Starting week 3 of learning Python, chess, or woodworking and suddenly realizing 'Whoa, there's way more I don't know than I thought on Day 1!' (Study 4's healthy drop).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/0022-3514.77.6.1121",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/0022-3514.77.6.1121"
+      ],
+      "summary": "Justin Kruger, David Dunning (1999). Unskilled and unaware of it: How difficulties in recognizing one's own incompetence lead to inflated self-assessments. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1136/bmj.o1701",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1136/bmj.o1701"
+      ],
+      "summary": "David Oliver (2022). David Oliver: Covid-19 and the Dunning-Kruger effect. BMJ."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Dunning and Kruger drew a giant 'Mount Stupid' spike where total beginners have 100% supreme arrogance towering above experts.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

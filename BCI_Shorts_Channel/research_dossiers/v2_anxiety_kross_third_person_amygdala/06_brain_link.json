@@ -1,22 +1,32 @@
 {
+  "visual_mode": "HYBRID",
   "links": [
     {
+      "role": "symptom",
       "region": "amygdala",
-      "plain": "panic alarm",
-      "function": "Drops threat reactivity when third-person language creates instant psychological distance.",
-      "narration_bridge": "Deep inside, the amygdala, the panic alarm, cools down fast."
+      "plain": "emotional center",
+      "function": "Drops acute threat reactivity rapidly once silent first-name language creates instant coaching distance.",
+      "scene_id": "S1",
+      "narration_bridge": "Deep inside, your emotional center — the amygdala — cools down within one second.",
+      "r78_circuit_state": "silenced"
     },
     {
+      "role": "pivot",
       "region": "prefrontal cortex",
-      "plain": "self-chatter hub",
-      "function": "Quiets midline 'me-centered' rumination loops within one second of switching from 'I' to your own name.",
-      "narration_bridge": "Up front at midline, the prefrontal cortex, the self-chatter loop, steps back."
+      "plain": "reality-checker",
+      "function": "Steps out of me-centered rumination loops the moment you drop the word 'I' for your own name.",
+      "scene_id": "S1",
+      "narration_bridge": "Behind your forehead, your reality-checker — the prefrontal cortex — steps out of the 'me' loop.",
+      "r78_circuit_state": "silenced"
     },
     {
+      "role": "breakthrough",
       "region": "dorsolateral prefrontal cortex",
-      "plain": "willpower gear",
-      "function": "Stays unstrained because using your name shifts perspective automatically without brute mental effort.",
-      "narration_bridge": "Along the top, the dorsolateral prefrontal cortex, the willpower gear, saves its fuel."
+      "plain": "working-memory desk",
+      "function": "Stays cool and unstrained because using your own name shifts perspective automatically without heavy mental effort.",
+      "scene_id": "S2",
+      "narration_bridge": "Upper front, your working-memory desk — the dorsolateral prefrontal cortex — saves all its fuel for your talk.",
+      "r78_circuit_state": "silenced"
     }
   ]
 }

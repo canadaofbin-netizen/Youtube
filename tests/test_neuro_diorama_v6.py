@@ -46,7 +46,20 @@ GOLDEN_V6_DIR = ROOT / "BCI_Shorts_Channel" / "research_dossiers" / "phineas_gag
 
 def test_diorama_v6_constants_and_rules_ssot_parity() -> None:
     constants_md = (ROOT / ".agents" / "rules" / "production_constants.md").read_text(encoding="utf-8")
-    rules_md = (ROOT / ".agents" / "rules" / "neuro_diorama_rules.md").read_text(encoding="utf-8")
+    rules_md = "\n".join(
+        (ROOT / ".agents" / "rules" / fn).read_text(encoding="utf-8")
+        for fn in (
+            "diorama_assembly_subtitles_rules.md",
+            "episode_qa_triage_rules.md",
+            "thumbnail_r65_rules.md",
+            "archival_reenactment_rules.md",
+            "data_stamp_charts_rules.md",
+            "real_world_drone_refs_rules.md",
+            "hook_pacing_beatcard_rules.md",
+            "arrows_callouts_motion_rules.md",
+            "_archive/retired_rules_2026-11-18.md",
+        )
+    )
     agents_md = (ROOT / ".agents" / "AGENTS.md").read_text(encoding="utf-8")
 
     required_names = (
@@ -71,11 +84,9 @@ def test_diorama_v6_constants_and_rules_ssot_parity() -> None:
         "DIORAMA_ENTRY_RAMP_START_SPEED",
         "DIORAMA_ENTRY_RAMP_MAIN_SPEED",
         "DIORAMA_TTS_ENGINE",
-        "DIORAMA_TTS_VOICE",
         "DIORAMA_TTS_RATE",
         "DIORAMA_TTS_PITCH",
         "DIORAMA_MIN_CONVERSATIONAL_QUESTIONS",
-        "DIORAMA_TTS_SPEED",
         "DIORAMA_ACT_BOUNDARY_PAUSE_SEC",
         "DIORAMA_CRYSTAL_SPECIMEN_MAX_RATIO",
         "DIORAMA_BACKDROP_STYLE",
@@ -92,8 +103,9 @@ def test_diorama_v6_constants_and_rules_ssot_parity() -> None:
         assert name in constants_md, f"Missing {name} in .agents/rules/production_constants.md"
 
     for rule_id in ("R56", "R57", "R58", "R59", "R60", "R61", "R62"):
-        assert rule_id in rules_md, f"Missing {rule_id} in neuro_diorama_rules.md"
-        assert rule_id in agents_md, f"Missing {rule_id} in AGENTS.md"
+        assert rule_id in rules_md, f"Missing {rule_id} in active diorama/QA rules"
+    for rule_range in ("R56–R61", "R62–R64"):
+        assert rule_range in agents_md, f"Missing {rule_range} in AGENTS.md"
 
     assert cfg.SHORTS_HARD_CEILING_SEC == 179.0
     assert cfg.SHORTS_HARD_CEILING_FRAMES == 5370

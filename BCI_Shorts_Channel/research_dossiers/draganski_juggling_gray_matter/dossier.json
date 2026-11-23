@@ -1,119 +1,183 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "draganski_juggling_gray_matter",
-  "topic": "Bogdan Draganski (2004): 3 Months of 3-Ball Juggling Grows Visual-Motion Gray Matter — AND Stopping Shrinks It Back!",
+  "topic": "How 90 Days of Learning a New Hand-Eye Skill Physically Thickens Adult Gray Matter — Even in Your 60s",
   "pillar": "brain_health",
+  "everyday_domain": "habits",
   "created_at": "2026-10-25T22:49:38+00:00",
   "status": "ready",
   "visual_mode": "NEURO_BIOLOGY",
-  "visual_mode_reason": "Bogdan Draganski, Christian Gaser, Arne May et al.'s landmark 2004 Nature experiment — scanning 24 non-jugglers BEFORE training, AFTER 3 months learning a 60-second 3-ball cascade (gray matter expanded in visual-motion area hMT+/V5!), and AFTER 3 months of zero practice (gray matter partially shrank back!) — is the textbook controlled longitudinal proof of 'Use It or Lose It' structural plasticity in everyday adults.",
+  "visual_mode_reason": "Bogdan Draganski and Arne May's 2004 Nature 3-scan juggling trial — paired with Janina Boyke's 2008 replication in 50-to-67-year-old adults and Wenger et al.'s 2017 expansion-renormalization model — visibly links 3 parabolic balls in mid-air to bilateral visual-motion and parietal gray-matter growth that expands with practice and recedes when left idle.",
+  "setup_18w": "Beginners got three brain scans: before juggling, after ninety days practicing, and after ninety idle days.",
+  "three_layer_formula": {
+    "everyday_problem": "Wondering in your 40s, 50s, or 60s whether picking up a 3D hand-eye skill like pickleball, dance, or 3-ball juggling still physically builds brain tissue — and why rusty skills fade over an idle winter.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/427311a",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/427311a"
+      ],
+      "summary": "Bogdan Draganski, Christian Gaser, Volker Busch, Gerhard Schuierer et al. (2004). Changes in grey matter induced by training. Nature."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2018",
+      "doi": "10.1016/j.tics.2017.09.008",
+      "year": 2017,
+      "source_ids": [
+        "SRC_NEURO_2018"
+      ],
+      "dois": [
+        "10.1016/j.tics.2017.09.008"
+      ],
+      "summary": "E. Wenger, C. Brozzoli, U. Lindenberger, M. Lövdén (2017). Expansion and renormalization of human brain structure during skill acquisition. Trends in Cognitive Sciences."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1038/427311a",
+        "year": 2004
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1523/jneurosci.0742-08.2008",
+        "year": 2008
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC_NEURO_2018",
+        "doi": "10.1016/j.tics.2017.09.008",
+        "year": 2017
+      }
+    ]
+  },
   "primary_case": {
-    "title": "Bogdan Draganski & Arne May's 2004 University of Regensburg 3-Scan Longitudinal Juggling Gray-Matter Trial (Nature 2004)",
+    "title": "Draganski & May's 2004 Nature 3-Scan Juggling Trial + Boyke's 2008 Ages 50–67 Adult Replication",
     "year": 2004,
-    "place": "Department of Neurology, University of Regensburg, Germany",
+    "place": "Department of Neurology, University of Regensburg & University of Hamburg, Germany",
     "people": [
       {
         "name": "Bogdan Draganski, Christian Gaser & Arne May",
-        "role": "Regensburg neurologists and neuroimaging scientists who ran the first randomized longitudinal before–after–washout structural MRI training experiment in healthy non-expert adults",
+        "role": "Regensburg neurologists who ran the first randomized before-after-washout structural MRI training trial proving a 90-day everyday hobby remodels adult human cortex",
         "source_id": "SRC1"
       },
       {
-        "name": "24 Healthy Non-Juggling Young Adults (12 Jugglers vs 12 Matched Controls)",
-        "role": "21 women and 3 men (~22 years old) with zero prior juggling skill: 12 practiced up to a 60-second 3-ball cascade over 3 months, then stopped cold for 3 months.",
-        "source_id": "SRC1"
-      },
-      {
-        "name": "Janina Boyke (60-Year-Old Senior Replication, 2008) & Jan Scholz (White-Matter DTI, 2009)",
-        "role": "Follow-up teams proving **seniors aged 50–67 ALSO grow hMT+/V5 gray matter** from juggling (Boyke, Draganski & May 2008) AND **parietal white-matter wiring thickens too** (Scholz et al. 2009 *Nature Neurosci.*)",
+        "name": "Janina Boyke & Older Adult Learners Aged 50 to 67 (2008 Replication)",
+        "role": "Follow-up cohort of adults in their 50s and 60s who learned the exact same 3-ball cascade and grew visual-motion gray matter plus hippocampal and reward-circuit volume",
         "source_id": "SRC5"
+      },
+      {
+        "name": "24 Randomized Non-Jugglers (12 Jugglers vs 12 Controls) & Elisabeth Wenger et al. (2017)",
+        "role": "Original 3-scan cohort tested at Baseline, 90-Day Mastery, and 90-Day Washout, paired with modern neuroimaging teams mapping dendritic expansion and renormalization",
+        "source_id": "SRC_NEURO_2018"
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "After Eleanor Maguire's 2000 London taxi paper, skeptics still asked: *'Okay, maybe 4 years of extreme taxi exams changes a brain — what about an **ordinary hobby** learned for **just 90 days** by **randomly assigned beginners**?'* In **January 2004 (*Nature*, SRC1)**, **Bogdan Draganski, Christian Gaser, and Arne May** at the University of Regensburg answered with **three balls and three MRI scans**.",
+      "fact": "To test whether an ordinary 90-day hobby — not just years of extreme taxi memorizing — physically reshapes adult brain anatomy, Bogdan Draganski, Christian Gaser, and Arne May scanned 24 non-jugglers at the University of Regensburg (Nature, 2004).",
       "source_id": "SRC1"
     },
     {
-      "fact": "They recruited **24 young adults who could NOT juggle**, scanned everyone at **Scan 1 (Baseline)**, and randomly assigned **12 to Controls** and **12 to Juggling**: jugglers were given **3 months** to master sustaining a classic **3-ball cascade for at least 60 continuous seconds**.",
+      "fact": "After Scan 1 at baseline, 12 volunteers stayed untrained controls while 12 practiced daily for 90 days until they could sustain a clean 3-ball cascade for at least 60 continuous seconds (Scan 2).",
       "source_id": "SRC1"
     },
     {
-      "fact": "The moment jugglers hit 60 seconds, everyone received **Scan 2 (Peak Skill)** — and then Draganski added a **stroke-of-genius third act**: jugglers were forbidden to touch a juggling ball for the next **3 months**, followed by **Scan 3 (90-Day Detraining Washout)**.",
+      "fact": "Then came the brilliant third act: right after Scan 2, every juggler put the balls away for 90 straight days of zero practice before returning for Scan 3.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Look at **Scan 2** (*Nature* 2004, SRC1): Controls showed **zero brain change**, whereas the 12 new jugglers grew a **statistically significant ~3–4% bilateral gray-matter expansion** in **visual motion-complex hMT+/V5** (middle temporal / occipitotemporal boundary) AND the **left posterior intraparietal sulcus**.",
+      "fact": "At Scan 2, untrained controls showed 0 percent cortical change, whereas newly trained 90-day jugglers grew a roughly 4 percent bilateral gray-matter expansion in visual-motion complex hMT+/V5 and the left posterior intraparietal sulcus.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Visual-Motion Gray Matter Gain",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Untrained Controls",
+            "value": 0.0,
+            "unit": "%"
+          },
+          {
+            "label": "90-Day Jugglers",
+            "value": 4.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1038/427311a",
+        "source_citation": "Draganski et al. (2004)"
+      }
+    },
+    {
+      "fact": "Why did visual-motion radar (hMT+/V5) expand instead of primary finger-muscle cortex? Every adult already knows how to close a hand — the real bottleneck is predicting three fast parabolic arcs in peripheral vision hundreds of milliseconds before each catch.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Wait — **WHY VISUAL-MOTION CORTEX (hMT+/V5) INSTEAD OF JUST FINGER MOTOR CORTEX?!** Because every adult already knows how to open and close their hands — the hard bottleneck of 3-ball juggling is **predicting fast parabolic ball trajectories in peripheral vision** so your hand is waiting at the exact millimeter in space BEFORE the ball drops.",
+      "fact": "At Scan 3 — after 90 idle days without touching a ball — that newly built gray-matter expansion shrank roughly halfway back toward baseline, filming 'use it or lose it' live on 3D MRI.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Then came **Scan 3 (after 90 days of zero juggling, SRC1)**: without continued practice, that newly grown gray matter in **hMT+/V5 and intraparietal sulcus PARTIALLY SHRANK BACK** toward baseline (just as several subjects could no longer hold a clean 60-second cascade!) — capturing **'Use It or Lose It'** live on 3D MRI.",
-      "source_id": "SRC1"
-    },
-    {
-      "fact": "Four years later (**Boyke, Driemeyer, Gaser, Büchel & May, 2008 *J. Neurosci.***), the exact same lab taught 3-ball juggling to **older adults aged 50 to 67** — and **60-year-old seniors STILL grew hMT+/V5 gray matter** (plus **hippocampal & nucleus accumbens** boosts!). And in **2009 (*Nature Neuroscience*, Scholz et al.)**, Oxford DTI scans proved **just 6 weeks of juggling** also strengthened **underlying parietal white-matter tracts**.",
+      "fact": "Four years later, Janina Boyke, Draganski, and May (2008) taught 3-ball juggling to older adults aged 50 to 67: seniors grew the exact same hMT+/V5 visual-motion gray matter, plus extra gains in the hippocampus and nucleus accumbens reward hub.",
       "source_id": "SRC5"
     },
     {
-      "fact": "Important cellular reality check (**May & Draganski, SRC2; Thomas & Baker 2013 critique**): that 3% cortical VBM expansion does **NOT** mean millions of brand-new cortical neurons hatched overnight — animal histology shows adult gray-matter VBM shifts reflect **sprouting dendritic spines, synaptogenesis, astrocyte/glial swelling, and tiny new capillary vessels** supporting active circuits.",
-      "source_id": "SRC2"
-    },
-    {
-      "fact": "Together, Draganski et al. (2004, mean age ~22 in young adults in their 20s) and Boyke et al. (2008, older adults aged 50–67 up to ~70) demonstrated that three-ball visuomotor training expands hMT+/V5 gray matter across adulthood.",
-      "source_id": "SRC5"
+      "fact": "Modern structural-plasticity synthesis by Elisabeth Wenger, Ulman Lindenberger, and Martin Lövdén (2017) showed that MRI gray-matter expansion reflects sprouting dendritic spines, glial support cells, and micro-vessels that expand during learning and selectively prune when idle.",
+      "source_id": "SRC_NEURO_2018"
     }
   ],
   "wow_facts": [
     {
-      "fact": "You don't need 4 years in a London cab or 50,000 hours in a monastery: **learning to juggle 3 balls for 60 seconds over 90 days** measurably expanded human cortical gray matter in *Nature* (SRC1).",
-      "why_surprising": "Three simple balls and 90 days rewrote every textbook claiming ordinary adult hobbies only tweak chemistry.",
+      "fact": "Learning to juggle 3 balls for 60 seconds over 90 days measurably thickened human cortical gray matter in Nature — zero childhood head start required.",
+      "why_surprising": "Three simple balls and 90 days overturned the myth of a structurally fixed adult cortex.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "Ask 100 people *'Which brain area grows when you learn to juggle?'* and 99 guess *'Motor cortex for the hands!'* — yet MRI caught the surge in **visual-motion area hMT+/V5 and posterior parietal space-tracking cortex**.",
-      "why_surprising": "Juggling isn't a hand problem; it's a high-speed 3D visual-trajectory prediction problem.",
+      "fact": "Brain growth surged in visual-motion radar (hMT+/V5) and parietal spatial-mapping cortex rather than finger muscles — because juggling is high-speed 3D trajectory prediction.",
+      "why_surprising": "Your eyes and spatial map do the heavy neural remodeling.",
       "source_id": "SRC1",
       "rank": 2
     },
     {
-      "fact": "Stop juggling for **90 days** (Scan 3, SRC1), and the newly built hMT+/V5 gray-matter expansion **visibly recedes** halfway back down.",
-      "why_surprising": "The clearest picture of 'Use It or Lose It' ever captured in living humans.",
+      "fact": "Stop practicing for 90 days (Scan 3), and the newly built gray matter visibly recedes halfway back toward baseline.",
+      "why_surprising": "Direct longitudinal proof that adult brain scaffolding stays only while you use it.",
       "source_id": "SRC1",
       "rank": 3
     },
     {
-      "fact": "Think you're 'too old' at 60? Boyke & May (2008) put **60-year-old grandparents** through the exact same juggling course — and their **hMT+/V5 motion cortex grew too**.",
-      "why_surprising": "Adult structural brain plasticity stays open decades past retirement.",
+      "fact": "Older adults aged 50 to 67 who learned to juggle in Boyke et al. (2008) grew hMT+/V5 gray matter PLUS hippocampal memory and nucleus accumbens reward volume.",
+      "why_surprising": "Adults in their 50s and 60s unlock memory and reward boosts from new hand-eye skills.",
       "source_id": "SRC5",
       "rank": 4
     }
   ],
   "misconceptions": [
     {
-      "myth": "Gray-matter growth on an MRI scan means your cerebral cortex just birthed millions of brand-new adult neurons.",
-      "truth": "Crucial precision (May & Draganski SRC2; Zatorre et al. 2012): outside specialized niches like the hippocampus, adult cortical gray-matter expansion reflects **richer dendritic branching, new synaptic spines, glial support cells, and micro-vascularization** — upgrading the neighborhood rather than building new houses from scratch.",
-      "source_id": "SRC2"
+      "myth": "Adult brains stop physically building gray-matter volume once you pass age 25.",
+      "truth": "Both 20-somethings (Draganski 2004) and 50-to-67-year-old adults (Boyke 2008) grew measurable hMT+/V5 gray matter in 90 days.",
+      "source_id": "SRC5"
     },
     {
-      "myth": "Once you learn a skill once in college, the extra brain structure stays locked at peak volume forever with zero maintenance.",
-      "truth": "Draganski's Scan 3 washout (SRC1) proved structural gains **partially recede within 90 idle days** — maintenance reps keep the scaffolding standing.",
-      "source_id": "SRC1"
+      "myth": "Desk crosswords and apps are better for aging brains than physical hand-eye coordination hobbies.",
+      "truth": "3D visuomotor skills like juggling, pickleball, tennis, and dance couple visual prediction, spatial mapping, memory, and reward circuits simultaneously.",
+      "source_id": "SRC5"
     },
     {
-      "myth": "Only intellectual desk puzzles (like Sudoku) build adult brain structure.",
-      "truth": "Visuomotor coordination skills — **juggling, dance, racquet sports, musical instruments** — couple sensory prediction, parietal spatial mapping, and timing into some of the fastest structural plasticity ever measured.",
-      "source_id": "SRC1"
+      "myth": "Cortical MRI growth means millions of brand-new neurons hatched in the outer cortex overnight.",
+      "truth": "Wenger et al. (2017) explain that cortical VBM growth reflects richer dendritic branches, synaptic spines, astrocytes, and capillaries — which recede without maintenance.",
+      "source_id": "SRC_NEURO_2018"
     }
   ],
   "everyday_hooks": [
-    "Picking up three rolled-up pairs of socks in your living room tonight knowing **just 6 weeks to 3 months** of learning a 3-ball cascade physically thickens visual-motion cortex and parietal white matter.",
-    "Realizing why rusty tennis serves, piano pieces, or languages fade over a quiet winter — **Scan 3 'Use It or Lose It'** pruning unused dendritic scaffolding.",
-    "Sharing Boyke & May's **60-year-old juggler discovery** with parents or grandparents who think their brains stopped building new connections."
+    "Picking up a pickleball paddle, dance step, or three rolled-up socks in your 50s knowing 90 days physically thickens visual-motion and memory hubs.",
+    "Feeling your tennis serve or piano timing go rusty after a 3-month winter break — watching Draganski's Scan-3 pruning in real life.",
+    "Trading 15 minutes of passive phone scrolling for a 3D hand-eye coordination habit that lights up visual, spatial, and reward circuits together."
   ],
   "linked_projects": [
     "psych_98_draganski_juggling_gray_matter"
@@ -123,5 +187,11 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Honest take: adult brains aren't fixed — three months of clumsy juggling thickened visual cortex, then shrank when practice stopped. What new physical skill are you rusty at?"
+  "primary_doi": "10.1038/427311a",
+  "offcenter_creator_bet": "My bet: movement beats crosswords — past 40, do you train your brain with desk puzzles or hand-eye skills?",
+  "debate_ignition": {
+    "prebunk_myth": "Adult brains stop physically building gray-matter volume once you pass age 25.",
+    "open_verdict_question": "Past age 40, do you think desk puzzles or 3D hand-eye skills like pickleball and juggling build more brain resilience?",
+    "offcenter_creator_bet": "My bet: movement beats crosswords — past 40, do you train your brain with desk puzzles or hand-eye skills?"
+  }
 }

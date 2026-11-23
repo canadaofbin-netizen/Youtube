@@ -87,7 +87,15 @@ def _write_test_mp4(mp4_path: Path, frames_bgr: list[np.ndarray], fps: int = 24)
 
 def test_porcelain_v7_ssot_constants_and_profile_resolution() -> None:
     constants_md = (ROOT / ".agents" / "rules" / "production_constants.md").read_text(encoding="utf-8")
-    rules_md = (ROOT / ".agents" / "rules" / "neuro_diorama_rules.md").read_text(encoding="utf-8")
+    rules_md = "\n".join(
+        (ROOT / ".agents" / "rules" / fn).read_text(encoding="utf-8")
+        for fn in (
+            "archival_reenactment_rules.md",
+            "diorama_assembly_subtitles_rules.md",
+            "episode_qa_triage_rules.md",
+            "_archive/retired_rules_2026-11-18.md",
+        )
+    )
     agents_md = (ROOT / ".agents" / "AGENTS.md").read_text(encoding="utf-8")
 
     required_names = (

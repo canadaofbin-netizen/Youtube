@@ -136,3 +136,29 @@ def test_verify_final_mp4_against_contract_save_report_false_is_zero_write() -> 
     assert rep["passed"] is True
     assert snap_pre == snap_post
 
+
+def test_is_r85_mid_cut_electric_arc_flash_distinguishes_push_in_zoom_from_arc_burst() -> None:
+    from pipeline.dynamic_episode_qa import is_r85_mid_cut_electric_arc_flash
+
+    # (a) Monotonic camera push-in onto already-lit solid #27D8FF lobe -> NOT an arc flash
+    push_in_curve = [0.0153, 0.0263, 0.0462, 0.0658, 0.0776, 0.0973, 0.1247, 0.1395, 0.1353]
+    flagged_push, n_max, n_surge = is_r85_mid_cut_electric_arc_flash(push_in_curve, camera_move="gentle_push_in")
+    assert flagged_push is False
+    assert n_max == pytest.approx(0.1395)
+    assert n_surge >= 4.0
+
+    # (b) Transient mid-cut electric arc flash burst (spikes then drops back down) -> FLAGGED
+    arc_burst = [0.011, 0.014, 0.095, 0.088, 0.020, 0.015, 0.014, 0.013, 0.012]
+    flagged_burst, _, _ = is_r85_mid_cut_electric_arc_flash(arc_burst, camera_move="gentle_push_in")
+    assert flagged_burst is True
+
+    # (c) Unlit-to-lit sudden ignition mid-cut (starts near 0, then ignites) -> FLAGGED
+    ignition = [0.002, 0.003, 0.012, 0.035, 0.055, 0.072, 0.085, 0.090, 0.092]
+    flagged_ign, _, _ = is_r85_mid_cut_electric_arc_flash(ignition, camera_move="gentle_push_in")
+    assert flagged_ign is True
+
+    # (d) 4.6x surge on non-push-in camera hold/orbit -> FLAGGED
+    flagged_orbit, _, _ = is_r85_mid_cut_electric_arc_flash(push_in_curve, camera_move="neural_macro_orbit_hold")
+    assert flagged_orbit is True
+
+

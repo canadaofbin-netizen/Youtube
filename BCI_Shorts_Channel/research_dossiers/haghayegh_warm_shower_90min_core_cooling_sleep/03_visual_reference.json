@@ -1,0 +1,134 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "UT Austin & Nara Sleep Timing Comparison: 9:00 PM Warm Shower Radiator Runway vs 10:50 PM Trapped-Heat Toss",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "Modern residential bathroom-to-bedroom evening suite",
+      "layout": {
+        "description": "Clean architectural cutaway connecting a softly steamed tiled bathroom to an airy, cool-lit bedroom: at 9:00 PM a 54-year-old adult steps out of a 10-minute warm shower in a breathable cotton robe, letting warm palms and feet radiate heat into the cool room before drifting effortlessly to sleep at 10:30 PM.",
+        "positions": [
+          {
+            "who": "54-year-old adult (in breathable waffle-weave cotton robe stepping onto bathmat)",
+            "where": "turning off the brushed-nickel warm shower valve with ninety minutes to spare before bedtime",
+            "facing": "stepping from steamed shower into cool airy hallway"
+          },
+          {
+            "who": "Sleep biomedical researcher (in crisp Oxford shirt holding non-contact thermal camera viewer)",
+            "where": "observing the glowing warm-hand/foot radiator shift as core chest warmth drops steadily toward pillow time",
+            "facing": "angled toward the bathroom-to-bedroom transition"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "brushed-nickel thermostatic shower dial and misty glass door",
+          "period_detail": "10-minute 40–42.5 °C passive body heating window 90 minutes pre-bed",
+          "physical_behavior": "State-A dial turned to warm steam for 10 minutes at 9:00 PM -> State-B clicked off as glass door slides open into cool evening air"
+        },
+        {
+          "name": "analog bedside clock and crisp breathable linen duvet",
+          "period_detail": "tracks the 90-minute post-bath heat-dissipation runway to lights-out",
+          "physical_behavior": "State-A hands pass 90 cooling minutes -> State-B adult slips smoothly under cool linen and falls asleep rapidly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "54-year-old adult",
+          "verb_sequence": "clicks off the warm shower valve, steps into the cool bedroom hallway in a light robe -> settles onto the pillow 90 minutes later with calm, slow breathing"
+        },
+        {
+          "who": "Sleep researcher",
+          "verb_sequence": "traces palm-and-foot heat release driving the downward core-temperature sleep trigger"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "54-year-old adult",
+          "reaction": "exhales with effortless heaviness as cooled core temperature unlocks fast sleep onset"
+        },
+        {
+          "who": "Sleep researcher",
+          "reaction": "nods confirming the 60-to-120-minute distal radiator window"
+        }
+      ],
+      "wardrobe": "Oatmeal waffle-cotton robe and soft sleep shirt; navy chinos and rolled Oxford sleeves on researcher.",
+      "lighting": "Warm amber bathroom steam transitioning into crisp, cool dusk bedroom lighting.",
+      "recognition_hook": "Ten minutes of warm water ninety minutes before bed opens hand-and-foot radiators that cool your core right on schedule.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC4",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "an adult stepping out of a warm steamed shower into a cool airy bedroom hallway ninety minutes before bed while hands and feet radiate warmth",
+        "must_show": [
+          "shower|glass",
+          "robe|towel",
+          "bed|clock"
+        ],
+        "source": "M1@00:12-00:48; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Evening Porch Cool-Down: Fresh Night Air Accelerating the Post-Bath Thermal Drop",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern quiet suburban evening wooden back porch",
+      "layout": {
+        "description": "Quiet twilight cedar back porch overlooking garden trees where a 58-year-old adult in a light cardigan sips herbal chamomile tea after an early-evening warm bath.",
+        "positions": [
+          {
+            "who": "58-year-old adult",
+            "where": "standing calmly by the wooden porch railing in crisp evening air letting warm palms cool gently",
+            "facing": "looking out across the peaceful dusk garden"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "ceramic mug of caffeine-free chamomile tea and cedar porch thermometer",
+          "period_detail": "cool evening air pairing with dilated peripheral skin vessels",
+          "physical_behavior": "State-A sets warm mug down on cedar rail -> State-B relaxed shoulders drop as crisp night breeze completes the 90-minute core cool-down"
+        }
+      ],
+      "actions": [
+        {
+          "who": "58-year-old adult",
+          "verb_sequence": "sets the ceramic mug on the porch railing, breathes in cool dusk air, and turns smoothly indoors toward the dark bedroom"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "58-year-old adult",
+          "reaction": "serene, unhurried drowsiness arriving naturally before 10:30 PM"
+        }
+      ],
+      "wardrobe": "Soft knit cardigan over cotton loungewear.",
+      "lighting": "Deep twilight blue sky with subtle warm porch sconce.",
+      "recognition_hook": "Warm skin meeting cool evening air creates the exact downward core-temperature slope your brain reads as bedtime.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "10:50 PM last-minute hot shower trapping core heat under blankets and delaying sleep",
+    "landmark_or_object_b": "9:00 PM warm shower plus 90-minute cool-hallway runway radiating core heat out through hands and feet",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep over a twilight suburban neighborhood diving through an illuminated upstairs window into a two-lane bathroom-to-bedroom cutaway",
+    "cut_b_topdown_3d_arrow": "Top-down side-by-side home floorplan where a stalled short path overheats in bed while a sweeping #FF2525 3D arrow glides across the 90-minute cooling runway straight into deep sleep",
+    "ricks_tempo_sec_range": [
+      2.3,
+      3.1
+    ]
+  }
+}

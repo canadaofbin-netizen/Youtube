@@ -1,0 +1,195 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "opening_mode": "action",
+  "core_reveal_sentence_index": 15,
+  "sentence_beats": [
+    "action_open",
+    "setup",
+    "setup",
+    "promise",
+    "myth",
+    "conflict",
+    "evidence",
+    "conflict",
+    "rehook",
+    "evidence",
+    "evidence",
+    "evidence",
+    "evidence",
+    "evidence",
+    "core",
+    "mechanism",
+    "payoff",
+    "payoff",
+    "payoff",
+    "climax_cut"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "brisk",
+    "rush",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp",
+    "stamp",
+    "brisk",
+    "brisk",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp"
+  ],
+  "project_id": "v8_pilot_03_marshmallow_trust_previs",
+  "pillar": "brain_basics",
+  "everyday_domain": "habits",
+  "dossier": "v2_habits_marshmallow_prefrontal_trust",
+  "language": "en-US",
+  "title": "Why Broken Promises Crash Your Self-Control",
+  "doi": "10.1016/j.cognition.2012.08.004",
+  "secondary_doi": "10.7554/elife.65661",
+  "omit_experiment_nicknames": [],
+  "debate_question": "When your habits slip at night, is the real culprit weak willpower — or broken self-trust?",
+  "offcenter_creator_bet": "My bet: willpower is mostly self-trust.",
+  "acts": [
+    {
+      "act": 1,
+      "name": "Playroom Broken Crayon Promise & Marshmallow Setup",
+      "sentences": [
+        "Imagine you are four years old in a university playroom, and a friendly helper promises giant new crayons — but walks back in empty-handed!",
+        "She admits she broke her promise, and leaves only two snapped, worn-out crayon stubs on the table.",
+        "Right after breaking that promise, she starts the famous Marshmallow Test and sets one sweet marshmallow right in front of you.",
+        "If you wait fifteen minutes without eating it, I promise I will bring you a second marshmallow."
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Willpower Textbook Myth vs Fast 3-Minute Grab",
+      "sentences": [
+        "For years, books claimed this test measures pure willpower, blaming kids who eat early for weak self-control.",
+        "Sure enough, in the room where the adult had just lied about the crayons, the kids snatched the marshmallow fast!",
+        "On average, those kids lasted barely three minutes before eating it right on the spot.",
+        "Watchers behind the glass shook their heads, assuming these kids just had terrible self-control."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Trust Pivot & Rochester 4x Wait Jump",
+      "sentences": [
+        "Hold on! What if the kids weren't bad at waiting — what if they just knew that adult couldn't be trusted?",
+        "To test that idea, a team at the University of Rochester ran a second group where the helper delivered the fresh markers she promised.",
+        "As the kids happily drew with the new markers, they learned one big truth: adults in this room keep their word.",
+        "Then, she brought out the exact same single marshmallow plate and made the exact same fifteen-minute promise.",
+        "In the real Rochester study, kids who trusted the adult waited four times longer — jumping from three minutes to twelve full minutes!"
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Survival Math & Crystal X-Ray Prefrontal Brake Circuit",
+      "sentences": [
+        "Eating early was never weak willpower — it was smart survival math inside an unreliable room.",
+        "Deep inside your brain, your reward center, called the nucleus accumbens, fires red signals urging you to grab the sure thing now.",
+        "Meanwhile, your prefrontal cortex right behind your forehead only hits the brakes when it believes the future reward is real."
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Midnight Fridge Habit Mirror After Broken Plans",
+      "sentences": [
+        "That is why, after a hard day full of broken plans, your tired brain stops trusting tomorrow and opens the fridge at midnight.",
+        "When your hand reaches for that late-night snack, your brain isn't broken — it just wants one reward that won't let it down."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Daily Tiny Self-Promise Reset",
+      "sentences": [
+        "So if you want stronger self-control, stop shaming your willpower and start keeping tiny promises to yourself each morning.",
+        "Once your brain learns it can trust your word, patience comes naturally on its own."
+      ]
+    }
+  ],
+  "sentences": [
+    "Imagine you are four years old in a university playroom, and a friendly helper promises giant new crayons — but walks back in empty-handed!",
+    "She admits she broke her promise, and leaves only two snapped, worn-out crayon stubs on the table.",
+    "Right after breaking that promise, she starts the famous Marshmallow Test and sets one sweet marshmallow right in front of you.",
+    "If you wait fifteen minutes without eating it, I promise I will bring you a second marshmallow.",
+    "For years, books claimed this test measures pure willpower, blaming kids who eat early for weak self-control.",
+    "Sure enough, in the room where the adult had just lied about the crayons, the kids snatched the marshmallow fast!",
+    "On average, those kids lasted barely three minutes before eating it right on the spot.",
+    "Watchers behind the glass shook their heads, assuming these kids just had terrible self-control.",
+    "Hold on! What if the kids weren't bad at waiting — what if they just knew that adult couldn't be trusted?",
+    "To test that idea, a team at the University of Rochester ran a second group where the helper delivered the fresh markers she promised.",
+    "As the kids happily drew with the new markers, they learned one big truth: adults in this room keep their word.",
+    "Then, she brought out the exact same single marshmallow plate and made the exact same fifteen-minute promise.",
+    "In the real Rochester study, kids who trusted the adult waited four times longer — jumping from three minutes to twelve full minutes!",
+    "Eating early was never weak willpower — it was smart survival math inside an unreliable room.",
+    "Deep inside your brain, your reward center, called the nucleus accumbens, fires red signals urging you to grab the sure thing now.",
+    "Meanwhile, your prefrontal cortex right behind your forehead only hits the brakes when it believes the future reward is real.",
+    "That is why, after a hard day full of broken plans, your tired brain stops trusting tomorrow and opens the fridge at midnight.",
+    "When your hand reaches for that late-night snack, your brain isn't broken — it just wants one reward that won't let it down.",
+    "So if you want stronger self-control, stop shaming your willpower and start keeping tiny promises to yourself each morning.",
+    "Once your brain learns it can trust your word, patience comes naturally on its own."
+  ],
+  "us_anti_clone_v7": true,
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 13,
+      "chart": "bar_compare",
+      "title": "ROCHESTER MARSHMALLOW WAIT TIME",
+      "bars": [
+        {
+          "label": "Broken Promise",
+          "value": 3,
+          "unit": "min"
+        },
+        {
+          "label": "Kept Promise",
+          "value": 12,
+          "unit": "min"
+        }
+      ],
+      "multiplier_badge": "×4 LONGER",
+      "source_citation": "Kidd, Palmeri & Aslin (2013), Cognition · n=28",
+      "doi": "10.1016/j.cognition.2012.08.004"
+    }
+  ]
+}

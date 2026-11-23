@@ -1,0 +1,182 @@
+{
+  "schema_version": 2,
+  "slug": "holle_contagious_itch_mirror_insula",
+  "topic": "Why Just Watching Someone Scratch Makes Your Own Skin Physically Itch",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "habits",
+  "created_at": "2026-11-16T03:49:47+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Showing why a silent 5-second video of a stranger scratching triggers an unmistakable prickle on unbitten, untouched skin requires mapping visual simulation in premotor cortex into the insula body-feeling center, somatosensory touch strip, and basal ganglia scratch-habit loop.",
+  "setup_18w": "Healthy volunteers lay inside a brain scanner watching silent five-second clips of strangers scratching their arms.",
+  "three_layer_formula": {
+    "everyday_problem": "Sitting in a quiet meeting, airplane row, or patio conversation when someone across from you scratches their forearm — and within five seconds your own completely unbitten skin starts tingling until your hand reaches up automatically.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1073/pnas.1216160109",
+      "source_ids": [
+        "SRC1",
+        "SRC3"
+      ],
+      "dois": [
+        "10.1073/pnas.1216160109",
+        "10.1111/j.1365-2133.2011.10318.x"
+      ],
+      "summary": "Henning Holle, Kimberley Warne, Anil K. Seth, Hugo D. Critchley & Jamie Ward (2012, PNAS) tested 51 adults behaviorally and 18 in fMRI watching silent scratching vs tapping control clips, building on Papoiu & Yosipovitch's (2011, Br. J. Dermatol.) visual itch transmission trial."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1016/j.alit.2016.08.013",
+      "year": 2017,
+      "source_ids": [
+        "SRC4",
+        "SRC2",
+        "SRC5"
+      ],
+      "dois": [
+        "10.1016/j.alit.2016.08.013",
+        "10.1126/science.aak9748",
+        "10.3389/fnhum.2015.00057"
+      ],
+      "summary": "Hideki Mochizuki, Christina Schut, Leigh A. Nattkemper & Gil Yosipovitch (2017, Allergology International) and Schut et al. (2015, Frontiers in Human Neuroscience) mapped central insula-premotor-somatosensory-striatal itch-scratch amplification alongside Yu et al.'s (2017, Science) hardwired subcortical contagious-itch circuit."
+    },
+    "psychology_studies": [
+      "SRC1",
+      "SRC3"
+    ],
+    "neuroscience_studies": [
+      "SRC4",
+      "SRC2",
+      "SRC5"
+    ]
+  },
+  "primary_case": {
+    "title": "Henning Holle & Jamie Ward's 2012 University of Sussex PNAS fMRI Discovery of the Contagious Itch Matrix",
+    "year": 2012,
+    "place": "Sackler Centre for Consciousness Science, University of Sussex, Brighton, UK",
+    "people": [
+      {
+        "name": "Henning Holle, Anil K. Seth, Hugo D. Critchley & Jamie Ward",
+        "role": "University of Sussex cognitive neuroscientists who isolated pure brain-generated itch in PNAS (2012) by contrasting silent scratching videos against matched skin-tapping control videos",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Gil Yosipovitch, Alexandru Papoiu, Christina Schut & Hideki Mochizuki",
+        "role": "Clinical dermatology and brain-imaging researchers who proved visual scratch cues trigger body-wide scratching in healthy adults and 3.8-fold amplified spreading in chronic eczema patients",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Zhou-Feng Chen & Yao-Qing Yu",
+        "role": "Washington University neuroscientists whose 2017 Science study proved even mice catch visual contagious itch via an ancient hardwired hypothalamic-brainstem neuropeptide switch",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Normally we assume an itch begins on the skin when a mosquito bite, dry winter sweater, or histamine release fires peripheral nerve endings — yet merely seeing or hearing someone scratch routinely sparks a real physical itch on untouched skin.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 2012 at the University of Sussex (PNAS), Henning Holle, Anil Seth, Hugo Critchley, and Jamie Ward showed 51 healthy adults silent short video clips of people either scratching their arm and chest or simply tapping the exact same spot with their fingertips.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Watching scratching clips drove self-reported itchiness sharply higher than matched finger-tapping clips on a 0-to-7 rating scale (F = 56.45, large effect size d = 0.85), proving motion alone was not the trigger.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Henning Holle and Sussex colleagues allowed 51 healthy adults to move freely while watching short scratching clips, 64% of viewers physically scratched their own skin at least once — outpacing classic social contagion rates reported for contagious laughter at 47%.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Visual Scratching Contagion Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Watching Scratch",
+            "value": 64.0,
+            "unit": "%"
+          },
+          {
+            "label": "Laughter Benchmark",
+            "value": 47.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1073/pnas.1216160109",
+        "source_citation": "Holle et al. (2012)"
+      }
+    },
+    {
+      "fact": "Inside the fMRI scanner (18 healthy adults instructed to lie completely still without scratching), watching silent scratching lit up the brain's core physical 'Itch Matrix': the anterior insula, primary somatosensory cortex, premotor cortex (BA6), and left inferior frontal cortex (BA44).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Biggest personality twist in Holle et al. (2012): unlike contagious yawning, how intensely you catch someone else's itch showed ZERO correlation with trait empathy — instead, it correlated directly with trait neuroticism (baseline stress reactivity and negative-emotion vigilance).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Wake Forest clinical testing by Alexandru Papoiu and Gil Yosipovitch (2011), watching scratching videos made chronic atopic dermatitis (eczema) patients scratch 3.8 times more across widespread, completely rash-free skin zones even when forearms only received harmless saline drops.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern neuroimaging syntheses (Schut et al. 2015; Mochizuki et al. 2017) show chronic scratching hijacks basal ganglia striatal habit loops alongside the insula and somatosensory cortex, while Yu & Chen (2017, Science) proved even mice catch visual itch automatically without conscious imagination.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Play silent clips of a stranger scratching an arm versus tapping that exact same arm: 64% of healthy adults start scratching their own untouched skin, while fMRI catches their anterior insula and somatosensory touch map firing as if a real bug landed on them.",
+      "why_surprising": "Your brain manufactures a physical skin sensation out of pure light hitting your retinas.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Everyone guessed warm, empathetic people would catch contagious itch the most — yet Holle's 2012 PNAS personality battery found ZERO link to empathy and a strong positive link to neuroticism (threat and bodily vigilance)!",
+      "why_surprising": "Contagious itch isn't tender sympathy; it's an over-vigilant parasite-defense alarm.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "In 2017 (Science), Zhou-Feng Chen's team put one mouse beside a clear screen watching another mouse scratch: within seconds the observer mouse began scratching too — proving contagious itch is an ancient survival circuit predating human language.",
+      "why_surprising": "Rules out cultural suggestion or human overthinking completely.",
+      "source_id": "SRC2",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Catching an itch when someone else scratches means you are highly empathetic, just like catching a yawn.",
+      "truth": "Holle et al. (2012, PNAS) measured standard empathy scales alongside personality traits and proved contagious itch tracks neuroticism and stress reactivity — NOT empathy.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Contagious itch is purely a mental thought — your skin sensory cortex stays quiet unless histamine fires in the skin.",
+      "truth": "fMRI proves visual scratch cues activate primary somatosensory cortex, premotor cortex, and anterior insula in direct proportion to how intensely your skin prickles.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Scratching a stress-triggered or contagious itch quickly clears the sensation and calms the circuit.",
+      "truth": "Mochizuki et al. (2017) show scratching lights up striatal basal-ganglia reward/habit loops that amplify insula itch sensitivity into a self-feeding itch-scratch cycle.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling an unmistakable phantom tickle on your own forearm or neck five seconds into reading or watching someone scratch.",
+    "Sitting on a summer park bench when one friend swats at a mosquito and suddenly four adults around the picnic table are scratching perfectly unbitten ankles.",
+    "Breaking a late-night dry-skin or stress-scratching habit by pressing a cool palm or damp cloth firmly onto the spot instead of raking fingernails across the skin."
+  ],
+  "offcenter_creator_bet": "My bet: anxiety drives scratch contagion — watching someone scratch fires your body-feeling hub within seconds. Did your skin stay calm or start itching just now?",
+  "debate_ignition": {
+    "prebunk_myth": "Catching someone else's itch means you have high empathy, just like catching a yawn.",
+    "open_verdict_question": "Be honest right now — while hearing about people scratching their arms, did your skin stay completely calm or did you feel an urge to scratch?",
+    "offcenter_creator_bet": "My bet: anxiety drives scratch contagion — watching someone scratch fires your body-feeling hub within seconds. Did your skin stay calm or start itching just now?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "primary_doi": "10.1073/pnas.1216160109",
+  "linked_projects": []
+}

@@ -48,7 +48,8 @@
         "words_per_sec": 2.651,
         "has_strong_archival_cue": true
       },
-      "recommended_section": "03:30-04:18"
+      "recommended_section": "03:30-04:18",
+      "reenactment_section": "03:30-04:18"
     },
     {
       "id": "M2",
@@ -75,10 +76,12 @@
         "archival_cue": true,
         "unanalyzed": true
       },
-      "recommended_section": "01:04-02:17"
+      "recommended_section": "01:04-02:17",
+      "reenactment_section": "01:04-02:17"
     }
   ],
   "reenactment_track": "track_a",
   "track_subtier": "A2_section_window",
-  "suitability_schema_version": 2
+  "suitability_schema_version": 2,
+  "primary_reenactment_media_id": "M1"
 }

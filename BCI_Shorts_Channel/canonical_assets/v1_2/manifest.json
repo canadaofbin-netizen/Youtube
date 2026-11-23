@@ -1,0 +1,1303 @@
+{
+  "schema": "aab_canonical_asset_library_v1_2",
+  "version": "v1.2",
+  "status": "locked",
+  "sha256_locked": true,
+  "generated_at_utc": "2026-11-20T03:17:08.140824+00:00",
+  "spec_ssot": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/research/r87_hook_and_conditional_arrow_spec.md",
+  "parent_locked_libraries": {
+    "v1": {
+      "manifest_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1/manifest.json",
+      "manifest_sha256": "693a352799370e3f41fd6daf45cc4eee58dd3b4245b028ff4c854fd5e6c98528",
+      "pre_r88_manifest_sha256": "c9d2e271b8134363605890c289512ebd304ba09529260265f45bcbbc844a3892"
+    },
+    "v1_1": {
+      "manifest_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1_1/manifest.json",
+      "manifest_sha256": "ee9a179a0cad8c23246aac3b8b1459d1a2c2182a83991a5c78c14b75bcc883c2"
+    }
+  },
+  "root_dir": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1_2",
+  "total_slots": 15,
+  "total_candidate_files": 45,
+  "slots": [
+    {
+      "slot_id": "J01_hook_mode1_daily_action_xray_alert",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "일상 행동 + Mode 1 두상 내부 뇌 활성 0.0초 훅",
+      "when_to_use": "mode1_daily_xray_shock default Cut #1 (70% episodes: snack, pill, coffee, phone trigger)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A01_mode1_translucent_head_lateral",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A01_mode1_translucent_head_lateral/cand_02.png",
+          "approved_sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "B01_base_adult_male_turnaround",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "B_characters/B01_base_adult_male_turnaround/cand_01.png",
+          "approved_sha256": "308d295dcb1e04da26e61c33175caf06f5ebe361fb3b9f79a53363b7642a0607"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "E10_kitchen_staged",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "E_environments/E10_kitchen_staged/cand_01.png",
+          "approved_sha256": "12a8078b25ee2be941f57974d01b072da667500ed257dbb1a0cc3858579bf29c"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/J01_hook_mode1_daily_action_xray_alert/cand_01.png",
+          "sha256": "5243c21867159bd1ca529152013bcbd1fef574901307580dc501c6a799449c1a",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 142.82,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/J01_hook_mode1_daily_action_xray_alert/cand_02.png",
+          "sha256": "9c114b742f89423b63c40b1ffcf9125a47530cae03d236bb6c115b96ac92cc8f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 95.44,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/J01_hook_mode1_daily_action_xray_alert/cand_03.png",
+          "sha256": "0ebee2ae3e14ffd05cc5b9a5408cce449665c4f69f1fa69d1dba4f705161d906",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 92.3,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] Ep #31 Lock ③ 위반: 전두엽 아래 두개강 바닥에서 따뜻한 주황색 발광(glow)이 백색 피질 밑면으로 반사·번짐."
+        }
+      ],
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "excluded_reasons": {
+        "cand_03.png": "[EXCL] Ep #31 Lock ③ 위반: 전두엽 아래 두개강 바닥에서 따뜻한 주황색 발광(glow)이 백색 피질 밑면으로 반사·번짐."
+      },
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "candidates/J01_hook_mode1_daily_action_xray_alert/cand_01.png",
+      "approved_sha256": "5243c21867159bd1ca529152013bcbd1fef574901307580dc501c6a799449c1a"
+    },
+    {
+      "slot_id": "J02_hook_mode1_bedside_sleep_anomaly",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "침대 각성/수면 이상 + Mode 1 뇌간·피질 0.0초 훅",
+      "when_to_use": "mode1_daily_xray_shock Cut #1 for sleep, circadian, sleep-paralysis, insomnia, melatonin episodes",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A01_mode1_translucent_head_lateral",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A01_mode1_translucent_head_lateral/cand_02.png",
+          "approved_sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "E14_night_bedroom_staged",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "E_environments_expansion/E14_night_bedroom_staged/cand_02.png",
+          "approved_sha256": "40cf3e458b226ec173049350991dc6d81e361b3795a9f28b9ffc593273a8a746"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A07_thalamus_brainstem_midsagittal",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A07_thalamus_brainstem_midsagittal/cand_02.png",
+          "approved_sha256": "3ca5ca87ee850f65f711380375d16e9c2318804bd3043b8cd21bcf1328932f69"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/J02_hook_mode1_bedside_sleep_anomaly/cand_01.png",
+          "sha256": "c023a5b342524bddcc00271691609462d76fa4070336261a6ac2ecaa6ad7eda8",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 40.05,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/J02_hook_mode1_bedside_sleep_anomaly/cand_02.png",
+          "sha256": "8dd2c3b19ec9a32c691ee4cfc7b977ca5624d00eed16708727f1beed7fbf8c42",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 34.9,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/J02_hook_mode1_bedside_sleep_anomaly/cand_03.png",
+          "sha256": "1c8d7c7b4f4c6e974409b85f59da9ef2799c2bad66be87b02f184aa7883bf298",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 30.24,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_03.png",
+      "approved_rel_path": "candidates/J02_hook_mode1_bedside_sleep_anomaly/cand_03.png",
+      "approved_sha256": "1c8d7c7b4f4c6e974409b85f59da9ef2799c2bad66be87b02f184aa7883bf298"
+    },
+    {
+      "slot_id": "J03_hook_bizarre_experiment_prop_closeup",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "기묘한 물리 실험 개입 + B05 경악 0.0초 훅",
+      "when_to_use": "bizarre_prop_interrupt Cut #1 for behavioral/clinical/experiment hooks (Ep #6 76% style)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "B05_expr_surprised",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "B_characters/B05_expr_surprised/cand_01.png",
+          "approved_sha256": "097d3b30e4facdf4d33707a140b8e09fba4be389835aa892e3d2f3eefd676e31"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "B11_wardrobe_white_lab_coat",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "B_characters/B11_wardrobe_white_lab_coat/cand_01.png",
+          "approved_sha256": "88b96940d7d4663ba89e927ee2029379ce2942438bb7ee09e2d72d1100d329af"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "G02_eeg_electrode_cap_vinyl_head",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "G_experimental_props/G02_eeg_electrode_cap_vinyl_head/cand_01.png",
+          "approved_sha256": "f8b9f6f12152d668df6f1519482ddf09dc88065c2f871776b5a751913894e752"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/J03_hook_bizarre_experiment_prop_closeup/cand_01.png",
+          "sha256": "a3019dfea3776ec64a778687cd01507bc95453633d64f1c0b96904c07ace3d3d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 117.57,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] Tier-1 텍스트/숫자 차단: 우하단 빈티지 듀얼 VU 미터 눈금 호와 노브 주변에 왜곡된 미세 숫자·외계어 각인 발견."
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/J03_hook_bizarre_experiment_prop_closeup/cand_02.png",
+          "sha256": "c051784f8bcaa000b6afec1c259bfc4df756df32a536545b37eff2d81712db6e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 81.6,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/J03_hook_bizarre_experiment_prop_closeup/cand_03.png",
+          "sha256": "1f395a27777a862f0eee33d17d9fbfa7269e0087428cc7a653cce9a643caeb57",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 72.99,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [
+        "cand_01.png"
+      ],
+      "excluded_reasons": {
+        "cand_01.png": "[EXCL] Tier-1 텍스트/숫자 차단: 우하단 빈티지 듀얼 VU 미터 눈금 호와 노브 주변에 왜곡된 미세 숫자·외계어 각인 발견."
+      },
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "candidates/J03_hook_bizarre_experiment_prop_closeup/cand_02.png",
+      "approved_sha256": "c051784f8bcaa000b6afec1c259bfc4df756df32a536545b37eff2d81712db6e"
+    },
+    {
+      "slot_id": "J04_hook_paradox_prop_split_tabletop",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "초근접 4지 손 역설 소품 액션 0.0초 훅",
+      "when_to_use": "bizarre_prop_interrupt hands-only Cut #1 (capsule split, placebo reveal, physical paradox prop)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "G03_unlabeled_amber_pill_bottle_and_capsules",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "G_experimental_props/G03_unlabeled_amber_pill_bottle_and_capsules/cand_01.png",
+          "approved_sha256": "35f629d9fd0f532c31b47cff7a57f7ee47019538d4fdfe72c2ebc11c319ea2c9"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "I01_data_stamp_backdrop_warm_tabletop_low30",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "I_layout_composition_frames/I01_data_stamp_backdrop_warm_tabletop_low30/cand_01.png",
+          "approved_sha256": "e488a516cd588320adbf56e18cd72c4ae84a00f978779839aeb650ebd8505f83"
+        }
+      ],
+      "status": "deferred_flow_unusual_activity",
+      "sha256_locked": false,
+      "candidate_count": 0,
+      "candidates": [],
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "excluded_reasons": {
+        "cand_01.png": "[EXCL] Tier-1 거대 캡슐 스케일 왜곡(직경 ~185px, 길이 ~460px = 아래 약병 전체 높이와 동일, 유리 소주잔처럼 보임) + 우상단 밝은 창문 띠.",
+        "cand_02.png": "[EXCL] Tier-1 거대 캡슐 스케일 왜곡(약병보다 큰 4~5배 캡슐) + 약병 흰 뚜껑이 닫힌 채 위에 캡슐을 여는 물리 모순.",
+        "cand_03.png": "[EXCL] Tier-1 극단적 거대 캡슐 스케일 왜곡(직경 ~230px > 약병 입구보다 넓음) + 오른손 3지 벙어리장갑 손가락 결함."
+      },
+      "research_screening_verdict": "REGEN_REQUIRED",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": false,
+        "thumbnail_to_0s_promise_kept": false
+      },
+      "deferred_reason": "Google Flow Image unusual activity anti-bot gate on 2026-11-20T03:17Z; deferred cleanly pending user NoVNC confirmation and cooldown (unused by Ep #13).",
+      "approved_filename": null,
+      "approved_rel_path": null,
+      "approved_sha256": null
+    },
+    {
+      "slot_id": "J05_hook_mode2_instant_brain_shock_open",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "0.0초 직행 Mode 2 절개 뇌 + 상단 24% HookTitle 여백",
+      "when_to_use": "mode2_instant_brain_shock Cut #1 when a deep brain cutaway IS the 0.0s thumbnail-matched hook",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A02_mode2_whole_brain_lateral",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+          "approved_sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A06_hippocampus_cutaway",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A06_hippocampus_cutaway/cand_02.png",
+          "approved_sha256": "db19b9237ac57d028737877cb1caacee0a2ac91675a01312299baa5bfa8dbd48"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "I03_callout_safezone_brain_headroom_frame",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "I_layout_composition_frames/I03_callout_safezone_brain_headroom_frame/cand_02.png",
+          "approved_sha256": "820c3bb73aa77da8a9154697fccd6dc1a155e9a2345b777c3c698d1747d77efc"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/J05_hook_mode2_instant_brain_shock_open/cand_01.png",
+          "sha256": "606c048e78efb141345d48967bd46e6ccacb8d78250f5e4332293ba5aa8a1e65",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 92.61,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/J05_hook_mode2_instant_brain_shock_open/cand_02.png",
+          "sha256": "fb01b9c25eb5519ee4fb6cd438ee81cee9db4e4dd247d0cd0cb05d3c4473a981",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 89.15,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/J05_hook_mode2_instant_brain_shock_open/cand_03.png",
+          "sha256": "3c37d60242b05da8002f6a7bb8b97a2f295e4b3e56033acd6683a1c9cc6144d2",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 87.41,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_03.png",
+      "approved_rel_path": "candidates/J05_hook_mode2_instant_brain_shock_open/cand_03.png",
+      "approved_sha256": "3c37d60242b05da8002f6a7bb8b97a2f295e4b3e56033acd6683a1c9cc6144d2"
+    },
+    {
+      "slot_id": "J06_hook_extreme_2d_ink_shock_reaction",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "초근접 2D 잉크 경악 표정 + 소품 + 상단 22% 여백 훅",
+      "when_to_use": "bizarre_prop_interrupt reaction Cut #1 pairing bold 2D ink facial shock + trigger object + clean HookTitle band",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "B05_expr_surprised",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "B_characters/B05_expr_surprised/cand_01.png",
+          "approved_sha256": "097d3b30e4facdf4d33707a140b8e09fba4be389835aa892e3d2f3eefd676e31"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "B13_wardrobe_casual_everyday",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "B_characters/B13_wardrobe_casual_everyday/cand_01.png",
+          "approved_sha256": "42ff22f71bd79ee1fbaa88f40841b563a1d09f96ce666da0bdecae6a9d53af45"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "B09_expr_confusion",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "B_characters/B09_expr_confusion/cand_01.png",
+          "approved_sha256": "da4c7a6472ecc6865dd74f09004ae85f5ee69d2311188714c9e592a78df27778"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/J06_hook_extreme_2d_ink_shock_reaction/cand_01.png",
+          "sha256": "9b7b02714ebe566076ed5818170daa9bffdd0378165db7297a9bfe0d8a01613d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 71.83,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/J06_hook_extreme_2d_ink_shock_reaction/cand_02.png",
+          "sha256": "7a660ebfd7fbea9c42edb1c7c3c55f1fc1c969db5815c76e9626568e8b065c17",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 57.55,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/J06_hook_extreme_2d_ink_shock_reaction/cand_03.png",
+          "sha256": "3f2e6f5bb2f1c719edd852e094868b6c464a03ebdcd82407141e8fe7e1d86919",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 51.3,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] R87-H3 Tier-1 헤드룸 충돌: 정수리 Y=398px (20.7%)로 118pt HookTitle 하단(Y=420px)과 -22px 직접 겹침."
+        }
+      ],
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "excluded_reasons": {
+        "cand_03.png": "[EXCL] R87-H3 Tier-1 헤드룸 충돌: 정수리 Y=398px (20.7%)로 118pt HookTitle 하단(Y=420px)과 -22px 직접 겹침."
+      },
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "candidates/J06_hook_extreme_2d_ink_shock_reaction/cand_02.png",
+      "approved_sha256": "7a660ebfd7fbea9c42edb1c7c3c55f1fc1c969db5815c76e9626568e8b065c17"
+    },
+    {
+      "slot_id": "K01_contrast_active_vs_blocked_fluid_tubes",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "비공간 유체/약물 대비: 좌측 활발 시안 흐름 vs 우측 협착 정체 관",
+      "when_to_use": "Non-spatial A-vs-B contrast for sleep pills, glymphatic wash, blood flow, hormone release/blockade",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "E01_laboratory_empty",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "E_environments/E01_laboratory_empty/cand_01.png",
+          "approved_sha256": "a55af79fb54f287bff4e391ceae098102897715b43d71488be65bafc00d08c59"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "G03_unlabeled_amber_pill_bottle_and_capsules",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "G_experimental_props/G03_unlabeled_amber_pill_bottle_and_capsules/cand_01.png",
+          "approved_sha256": "35f629d9fd0f532c31b47cff7a57f7ee47019538d4fdfe72c2ebc11c319ea2c9"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/K01_contrast_active_vs_blocked_fluid_tubes/cand_01.png",
+          "sha256": "b139a2bd13493940cb14e6b148f248c1fb9c8045d13cca27bbc08016a6cab685",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": false,
+          "laplacian_sharpness": 43.11,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/K01_contrast_active_vs_blocked_fluid_tubes/cand_02.png",
+          "sha256": "ef4c442639201de263c10745ae0c1d962617dc17a9111a2a7048bff60f09eb45",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": false,
+          "laplacian_sharpness": 38.21,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/K01_contrast_active_vs_blocked_fluid_tubes/cand_03.png",
+          "sha256": "0ace783665338d48285493375e152982b00d37e7270d468dd998f9edbc480df6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": false,
+          "laplacian_sharpness": 37.74,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "candidates/K01_contrast_active_vs_blocked_fluid_tubes/cand_02.png",
+      "approved_sha256": "ef4c442639201de263c10745ae0c1d962617dc17a9111a2a7048bff60f09eb45"
+    },
+    {
+      "slot_id": "K02_contrast_squeezed_vs_stalled_sponge_basins",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "비공간 세척/펌프 대비: 좌측 압착 맑은 수조 vs 우측 정체 혼탁 수조",
+      "when_to_use": "Non-spatial A-vs-B contrast for glymphatic rinse, metabolic recovery, pump/absorption analogies",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "E01_laboratory_empty",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "E_environments/E01_laboratory_empty/cand_01.png",
+          "approved_sha256": "a55af79fb54f287bff4e391ceae098102897715b43d71488be65bafc00d08c59"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "I01_data_stamp_backdrop_warm_tabletop_low30",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "I_layout_composition_frames/I01_data_stamp_backdrop_warm_tabletop_low30/cand_01.png",
+          "approved_sha256": "e488a516cd588320adbf56e18cd72c4ae84a00f978779839aeb650ebd8505f83"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/K02_contrast_squeezed_vs_stalled_sponge_basins/cand_01.png",
+          "sha256": "8c47b1a2490c2522d99af21db50a488c84225b98102bf4bfdd0728989214c26b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 77.65,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/K02_contrast_squeezed_vs_stalled_sponge_basins/cand_02.png",
+          "sha256": "88bef4f6cc507b461242a8705f9e5c1a2a9608b1b9750eddfa65f2e8a04515ba",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 59.47,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/K02_contrast_squeezed_vs_stalled_sponge_basins/cand_03.png",
+          "sha256": "cb72c4f78d0ad2a9a884adff96a06cf6507b8812b57972cffd224da0315ba19b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 43.03,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "candidates/K02_contrast_squeezed_vs_stalled_sponge_basins/cand_02.png",
+      "approved_sha256": "88bef4f6cc507b461242a8705f9e5c1a2a9608b1b9750eddfa65f2e8a04515ba"
+    },
+    {
+      "slot_id": "K03_contrast_twin_tabletop_stimulus_ab",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "비공간 실험군 vs 대조군 좌우 대칭 테이블 트레이 (식습관·위약·선택)",
+      "when_to_use": "Non-spatial A-vs-B contrast for Ep #13 snack rewiring (pudding vs yogurt), placebo, habit, choice studies",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "E06_laboratory_staged",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "E_environments/E06_laboratory_staged/cand_01.png",
+          "approved_sha256": "70959a2a9e2843e23fce54393d75886c497f0e31675a9168a7d6bbd181af71a0"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "G07_white_occlusion_box_and_plain_blocks",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "G_experimental_props/G07_white_occlusion_box_and_plain_blocks/cand_01.png",
+          "approved_sha256": "8aff47860f3a764fe99111a3c1190b1d00f9f8e22182e07f03f4abf87c25f325"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/K03_contrast_twin_tabletop_stimulus_ab/cand_01.png",
+          "sha256": "17aab0400e0240b0deef258b79a79768e78eae14548da024c93b3de5a4cf1d77",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 48.21,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/K03_contrast_twin_tabletop_stimulus_ab/cand_02.png",
+          "sha256": "a873f210d4b497d76ae22a4b69d7b9d79e256312da2ae7cc2e99cc088bca14b6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 36.7,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/K03_contrast_twin_tabletop_stimulus_ab/cand_03.png",
+          "sha256": "dcbd6d2664ef85d5ff20137d2dea5e465d8866dcb6b59fdb3f60bc8544f09674",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": false,
+          "laplacian_sharpness": 46.52,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "candidates/K03_contrast_twin_tabletop_stimulus_ab/cand_01.png",
+      "approved_sha256": "17aab0400e0240b0deef258b79a79768e78eae14548da024c93b3de5a4cf1d77"
+    },
+    {
+      "slot_id": "K04_contrast_dual_receptor_chemical_lock_panel",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "비공간 신경 억제/잠금 대비: 좌측 단일 개방 레버 vs 우측 이중 잠금 락",
+      "when_to_use": "Non-spatial A-vs-B contrast for GABA+Glycine sleep paralysis lock, pain gate, vagal brake, cognitive suppression",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "H01_padlocked_acrylic_plaster_brain_case",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "H_misconception_flip_props/H01_padlocked_acrylic_plaster_brain_case/cand_02.png",
+          "approved_sha256": "a82c5d90fff98cff2115ebe5feb5f0b7fc1e29fad13a126ca1d148fba145d1e4"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "H02_dormant_off_toggle_switch_panel",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "H_misconception_flip_props/H02_dormant_off_toggle_switch_panel/cand_01.png",
+          "approved_sha256": "22adc122acd678b57acc4410d7e823b69f52be1d2298ef32e2cee0c4b72f8162"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/K04_contrast_dual_receptor_chemical_lock_panel/cand_01.png",
+          "sha256": "4a2bf725a79e7caf9903d738098d03ab90ab802dcc5a55f4098a64093e42eeb9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 62.58,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/K04_contrast_dual_receptor_chemical_lock_panel/cand_02.png",
+          "sha256": "f69cb0d7a8f2704892599c39bd05584da206eeda3c7cf5b285806bc8ce853fab",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 54.31,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/K04_contrast_dual_receptor_chemical_lock_panel/cand_03.png",
+          "sha256": "7ba6f0e9cbef5ce9623c2d4804a97dc72cb97d2a0cb7d2c43f8b6be234da0140",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 40.94,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_03.png",
+      "approved_rel_path": "candidates/K04_contrast_dual_receptor_chemical_lock_panel/cand_03.png",
+      "approved_sha256": "7ba6f0e9cbef5ce9623c2d4804a97dc72cb97d2a0cb7d2c43f8b6be234da0140"
+    },
+    {
+      "slot_id": "K05_contrast_scale_flat_vs_internal_surge_split",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "비공간 역설 대비: 겉 0 변화 저울 vs 내부 뇌 보상회로 급변 돔",
+      "when_to_use": "Non-spatial paradox contrast (Ep #13: 0 lb weight gain on outside vs brain reward system already rewired inside!)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "G06_numeral_free_brass_stopwatch",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "G_experimental_props/G06_numeral_free_brass_stopwatch/cand_01.png",
+          "approved_sha256": "cbab9b283d33859eaf43c61bf91ddae98998d8f38f44bd38c418a77aec048b25"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A02_mode2_whole_brain_lateral",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+          "approved_sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c"
+        },
+        {
+          "type": "canonical_v1_1_approved_anchor",
+          "library_version": "v1_1",
+          "slot_id": "H01_padlocked_acrylic_plaster_brain_case",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "H_misconception_flip_props/H01_padlocked_acrylic_plaster_brain_case/cand_02.png",
+          "approved_sha256": "a82c5d90fff98cff2115ebe5feb5f0b7fc1e29fad13a126ca1d148fba145d1e4"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/K05_contrast_scale_flat_vs_internal_surge_split/cand_01.png",
+          "sha256": "aa53e6571a3fd2bafdcb813e3ccdcdf4ed360092b81666165d08db6f54ed3971",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 106.92,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/K05_contrast_scale_flat_vs_internal_surge_split/cand_02.png",
+          "sha256": "5ae93590de5cf722d41f513d94f72710f1c9ec68964373b0e9d8df23e802363b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 67.7,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/K05_contrast_scale_flat_vs_internal_surge_split/cand_03.png",
+          "sha256": "4948c6647060a4f119a478e3a185a07d8d913acf3c670552da89a054c53a8c22",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 58.68,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "candidates/K05_contrast_scale_flat_vs_internal_surge_split/cand_01.png",
+      "approved_sha256": "aa53e6571a3fd2bafdcb813e3ccdcdf4ed360092b81666165d08db6f54ed3971"
+    },
+    {
+      "slot_id": "K06_contrast_a12_dual_brain_state_transition_pair",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "A12 상/하 2중 뇌 Start+End 상태 전이 전용 쌍 (Omni 1.1 Flash 락)",
+      "when_to_use": "Primary non-spatial Mode 2 brain A-vs-B contrast clip (Start neutral twin brains -> End top active gold / bottom dimmed slate)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "A12_dual_brain_top_bottom_compare",
+          "approved_filename": "cand_02.png",
+          "approved_rel_path": "A_brain/A12_dual_brain_top_bottom_compare/cand_02.png",
+          "approved_sha256": "7d936ebbd227c33489bb24c7031e187ac5ab49212670a7521db624efdec18bf3"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "preview_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_01.png",
+          "start_filename": "cand_01_start.png",
+          "start_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_01_start.png",
+          "start_sha256": "da3f42004917c844fe9773be56452ed73ad1934ed192dceeabd014338abb84c8",
+          "end_filename": "cand_01_end.png",
+          "end_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_01_end.png",
+          "end_sha256": "0e8ed1a11b9e357ff6b1715a91dbc96dabedeab787e2fde44b20eba6fb99dc65",
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 2,
+          "status": "approved",
+          "sha256_locked": true,
+          "preview_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_02.png",
+          "start_filename": "cand_02_start.png",
+          "start_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_02_start.png",
+          "start_sha256": "6d2ad8f0a5d5baf7e2c46fee3caf80139a47cc038fcea32a819256c1531d7c5c",
+          "end_filename": "cand_02_end.png",
+          "end_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_02_end.png",
+          "end_sha256": "5d93173de0ffa3bad236122daabff05ccf80aa32e942a699bb65bdadc163ba1a",
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 3,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "preview_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_03.png",
+          "start_filename": "cand_03_start.png",
+          "start_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_03_start.png",
+          "start_sha256": "f40af0da48e0b90308d7850b0750033109cccfa7764da0351ee81dcfa6720b00",
+          "end_filename": "cand_03_end.png",
+          "end_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_03_end.png",
+          "end_sha256": "28151bda332a6ee8cad027bad844032e8b415992def2edc579373cd4f1f836b8",
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [],
+      "excluded_reasons": {},
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_start_filename": "cand_02_start.png",
+      "approved_start_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_02_start.png",
+      "approved_start_sha256": "6d2ad8f0a5d5baf7e2c46fee3caf80139a47cc038fcea32a819256c1531d7c5c",
+      "approved_end_filename": "cand_02_end.png",
+      "approved_end_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_02_end.png",
+      "approved_end_sha256": "5d93173de0ffa3bad236122daabff05ccf80aa32e942a699bb65bdadc163ba1a",
+      "approved_filename": "cand_02_end.png",
+      "approved_rel_path": "candidates/K06_contrast_a12_dual_brain_state_transition_pair/cand_02_end.png",
+      "approved_sha256": "5d93173de0ffa3bad236122daabff05ccf80aa32e942a699bb65bdadc163ba1a"
+    },
+    {
+      "slot_id": "C01b_spatial_corridor_with_anchor_prop",
+      "category": "C_v2_spatial_arrows",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "[공간 주제 전용] 주체 소품 동반 직선 고정 경로 화살표",
+      "when_to_use": "ONLY when spatial_arrow_eligible=True (fixed-route navigation/control walk with study-specific prop on shaft)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "C01_arrow_straight_corridor",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_01.png",
+          "approved_sha256": "e0eadd91b4e62b13e4ff06786b677da0f5dd0ae97d3624ea104bda5ab039fa73"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "D01_drone_university_campus_120ft",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "D_drone_120ft/D01_drone_university_campus_120ft/cand_01.png",
+          "approved_sha256": "1f84b4b1ed6160f57f04087efde86a28dab6596a02314d9529eba44d61d90615"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/C01b_spatial_corridor_with_anchor_prop/cand_01.png",
+          "sha256": "9dc6bb3c654a63f74244e4b90ada5e00b9dc4c64d26bcd1899950aadc5dc1962",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 632.18,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/C01b_spatial_corridor_with_anchor_prop/cand_02.png",
+          "sha256": "6b1b24c880f52baa4c5b2d993029a4bdf2789ff37fa50c95c1e91d9b2390f167",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 545.3,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] Tier-1 물리·시각 논리 오류 + 각도 위반: 빨간 2층 버스 전면 유리창·헤드라이트가 아래쪽(역주행)을 향해 상향 #FF2525 화살표와 정면 모순 + 65° 사선 투시(90° 수직 탑다운 위반)."
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/C01b_spatial_corridor_with_anchor_prop/cand_03.png",
+          "sha256": "56db07e4a6d60cb2670e495767ca96a58963dbb8e5a23bb22ddbb763df0ac0e6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 482.92,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        }
+      ],
+      "excluded_candidates": [
+        "cand_02.png"
+      ],
+      "excluded_reasons": {
+        "cand_02.png": "[EXCL] Tier-1 물리·시각 논리 오류 + 각도 위반: 빨간 2층 버스 전면 유리창·헤드라이트가 아래쪽(역주행)을 향해 상향 #FF2525 화살표와 정면 모순 + 65° 사선 투시(90° 수직 탑다운 위반)."
+      },
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "candidates/C01b_spatial_corridor_with_anchor_prop/cand_01.png",
+      "approved_sha256": "9dc6bb3c654a63f74244e4b90ada5e00b9dc4c64d26bcd1899950aadc5dc1962"
+    },
+    {
+      "slot_id": "C02b_spatial_dual_route_prop_legend",
+      "category": "C_v2_spatial_arrows",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "[공간 주제 전용] 좌/우 주체 소품 동반 이중 경로 A-vs-B 비교 화살표",
+      "when_to_use": "ONLY when spatial_arrow_eligible=True AND narration compares two routes ('side by side' / 'versus')",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "C02_arrow_adaptive_zigzag",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "C_arrows_r80/C02_arrow_adaptive_zigzag/cand_01.png",
+          "approved_sha256": "f061e40b6b57acbadb614471189d2631b55aecbec97a80ebd46b78894b71dc94"
+        },
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "C01_arrow_straight_corridor",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_01.png",
+          "approved_sha256": "e0eadd91b4e62b13e4ff06786b677da0f5dd0ae97d3624ea104bda5ab039fa73"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/C02b_spatial_dual_route_prop_legend/cand_01.png",
+          "sha256": "f93a3bf28f14d63537faa3b942f795e106f0e990c5d8eab182b416f04ef3d425",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 787.77,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] Tier-1 공간 위상 붕괴: 좌측 시안 3D 경로가 36%·55~65% Y 구간의 벽돌 주택 옥상과 밀폐 정원을 그대로 관통 돌파."
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/C02b_spatial_dual_route_prop_legend/cand_02.png",
+          "sha256": "6886293bb2001eac1910ff5331cb7a2ebf7621ca40234c11208f076e30f998b2",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 547.24,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/C02b_spatial_dual_route_prop_legend/cand_03.png",
+          "sha256": "a43a4ce6228ceede4e19cb48bda744c7295a82a92f43fde165841544d60b1dd4",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 358.18,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] Tier-1 옥상 관통 및 소품 융합: 좌측 시안 경로가 건물 지붕 위로 올라가 막다른 정원에 박히고, 우측 빨간 버스가 #FF2525 화살촉 목 부분에 융합."
+        }
+      ],
+      "excluded_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "excluded_reasons": {
+        "cand_01.png": "[EXCL] Tier-1 공간 위상 붕괴: 좌측 시안 3D 경로가 36%·55~65% Y 구간의 벽돌 주택 옥상과 밀폐 정원을 그대로 관통 돌파.",
+        "cand_03.png": "[EXCL] Tier-1 옥상 관통 및 소품 융합: 좌측 시안 경로가 건물 지붕 위로 올라가 막다른 정원에 박히고, 우측 빨간 버스가 #FF2525 화살촉 목 부분에 융합."
+      },
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "candidates/C02b_spatial_dual_route_prop_legend/cand_02.png",
+      "approved_sha256": "6886293bb2001eac1910ff5331cb7a2ebf7621ca40234c11208f076e30f998b2"
+    },
+    {
+      "slot_id": "C03b_spatial_doorway_sever_with_prop",
+      "category": "C_v2_spatial_arrows",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "[공간 주제 전용] 문지방 경계 직각 정지 + 출발 소품 동반 화살표",
+      "when_to_use": "ONLY when spatial_arrow_eligible=True for doorway/room-boundary severing studies (Ep #12 C15 gold standard)",
+      "generation_model": "Nano Banana 2.1",
+      "reference_origins": [
+        {
+          "type": "canonical_v1_approved_anchor",
+          "library_version": "v1",
+          "slot_id": "C03_arrow_doorway_sever_gap",
+          "approved_filename": "cand_01.png",
+          "approved_rel_path": "C_arrows_r80/C03_arrow_doorway_sever_gap/cand_01.png",
+          "approved_sha256": "578089d24e763e984515f54a9fa30d0ec62f49d3fe0e53b9a02c0a14d6ce8349"
+        }
+      ],
+      "status": "approved",
+      "sha256_locked": true,
+      "candidate_count": 3,
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "candidates/C03b_spatial_doorway_sever_with_prop/cand_01.png",
+          "sha256": "b8e6c8d7761c26c6d31c080fe52e72dfc3ce9816cf9b0c185944539ecad5747f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 128.33,
+          "status": "approved",
+          "sha256_locked": true,
+          "screening_tag": "rank_1_user_approved"
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "candidates/C03b_spatial_doorway_sever_with_prop/cand_02.png",
+          "sha256": "c9b86a71b97a50cd81e9d1719623655628e49954d96a414e8d4d5183980fb247",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 83.36,
+          "status": "backup_unapproved",
+          "sha256_locked": false,
+          "screening_tag": "valid_backup"
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "candidates/C03b_spatial_doorway_sever_with_prop/cand_03.png",
+          "sha256": "3d89cd81da48f5a0436814306326ff6a55ba3928a8f78b3c88cbf14158996e04",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 74.79,
+          "status": "excluded",
+          "sha256_locked": false,
+          "screening_tag": "excluded_outlier",
+          "excluded_reason": "[EXCL] Tier-1 열린 문지방 누락: 중앙 흰 벽이 화면 좌우 끝까지 완전히 막혀 있어 두 방을 잇는 열린 문지방 통로가 보이지 않으며 하단 빨간 바가 빈 상자·큐브와 어긋나 부유."
+        }
+      ],
+      "excluded_candidates": [
+        "cand_03.png"
+      ],
+      "excluded_reasons": {
+        "cand_03.png": "[EXCL] Tier-1 열린 문지방 누락: 중앙 흰 벽이 화면 좌우 끝까지 완전히 막혀 있어 두 방을 잇는 열린 문지방 통로가 보이지 않으며 하단 빨간 바가 빈 상자·큐브와 어긋나 부유."
+      },
+      "research_screening_verdict": "PASS",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "user_approved_at_utc": "2026-11-20T03:25:11Z",
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "candidates/C03b_spatial_doorway_sever_with_prop/cand_01.png",
+      "approved_sha256": "b8e6c8d7761c26c6d31c080fe52e72dfc3ce9816cf9b0c185944539ecad5747f"
+    }
+  ],
+  "locked_at_utc": "2026-11-20T03:26:30.006406+00:00",
+  "user_approved_at_utc": "2026-11-20T03:25:11Z",
+  "screening_receipt": "research_screening_v1_2.json",
+  "approved_slot_count": 14,
+  "deferred_slot_count": 1,
+  "deferred_slots": [
+    "J04_hook_paradox_prop_split_tabletop"
+  ],
+  "locked_file_count": 15,
+  "excluded_candidate_count": 10
+}

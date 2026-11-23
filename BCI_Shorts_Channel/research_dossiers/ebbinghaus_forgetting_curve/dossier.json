@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "ebbinghaus_forgetting_curve",
   "topic": "Hermann Ebbinghaus (1885): 2,300 Nonsense Syllables ('WID, ZOF, KAF') & the Brutal Mathematics of Forgetting",
   "pillar": "brain_basics",
@@ -39,7 +39,29 @@
     },
     {
       "fact": "Across 163 seven-list experiments spanning 7 retention intervals, Ebbinghaus's Savings plummeted steepest in the VERY FIRST HOUR: 58.2% saved after 20 minutes to 44.2% after 1 hour to 35.8% after 9 hours to 33.7% after 1 day to 27.8% after 2 days to 25.4% after 6 days to 21.1% after 31 days.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Ebbinghaus Retention Savings",
+        "unit": "%",
+        "series": [
+          {
+            "label": "31-Day Savings",
+            "start_label": "20-Min Savings",
+            "values": [
+              58.2,
+              44.2,
+              33.7,
+              21.1
+            ],
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/10011-000",
+        "source_citation": "Ebbinghaus (1885)"
+      }
     },
     {
       "fact": "Look closely at 9 hours (35.8%, tested tired in the evening) vs 24 hours (33.7%, almost completely flat after a night's sleep!): Ebbinghaus noticed that overnight sleep suspiciously halted the steep drop — anticipating modern sleep-consolidation neuroscience by a century.",
@@ -51,7 +73,28 @@
     },
     {
       "fact": "Ebbinghaus also discovered the 'Spacing Effect' in the exact same 1885 book: 38 repetitions spread across 3 days beat 68 massed cramming repetitions in a single sitting.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Spaced vs Massed Repetitions",
+        "unit": "reps",
+        "bars": [
+          {
+            "label": "Spaced (3 Days)",
+            "value": 38.0,
+            "unit": "reps"
+          },
+          {
+            "label": "Massed Cramming",
+            "value": 68.0,
+            "unit": "reps"
+          }
+        ],
+        "doi": "10.1037/10011-000",
+        "source_citation": "Ebbinghaus (1885)"
+      }
     },
     {
       "fact": "And when Ebbinghaus memorized meaningful verses of Lord Byron's Don Juan instead of nonsense syllables, he needed only ONE-TENTH as many repetitions — proving meaning acts like Velcro against the forgetting cliff.",
@@ -118,5 +161,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My bet: late-night cramming is theatre — half of raw memorization vanishes in one hour without spaced recall. Did school ever teach you how to space reviews?"
+  "offcenter_creator_bet": "My bet: late-night cramming is theatre — half of raw memorization vanishes in one hour without spaced recall. Did school ever teach you how to space reviews?",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1037/10011-000",
+  "three_layer_formula": {
+    "everyday_problem": "Walking out of a 1-hour conference talk feeling inspired, then realizing at dinner you can barely name two bullet points.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/10011-000",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/10011-000"
+      ],
+      "summary": "Hermann Ebbinghaus (1913). Memory: A contribution to experimental psychology. [English scholarly edition of Hermann Ebbinghaus's 1885 Über das Gedächtnis self-experimentation monograph]"
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2017",
+      "doi": "10.1016/j.neuron.2017.05.039",
+      "source_ids": [
+        "SRC_NEURO_2017"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2017.05.039"
+      ],
+      "summary": "R. L. Davis, Y. Zhong (2017). The biology of forgetting—a perspective. Neuron."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "You lose 80% of a meaningful lecture or book story within 24 hours just like WID-ZOF-KAF.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: late-night cramming is theatre — half of raw memorization vanishes in one hour without spaced recall. Did school ever teach you how to space reviews?"
+  }
 }

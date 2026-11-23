@@ -10,8 +10,8 @@ Facts this module relies on (checked in the Milgram Flow tab):
   * Old chips survive between generations (two errored video chips were still sitting in the prompt box), so
     the box is cleared before every clip.
   * Settings pane: Video -> Frames | Ingredients, 9:16, model, 4s / 6s / 8s, x1..x4 and the cost line.
-    Omni 1.1 Flash = 4s/6s/8s/10s, 12 credits; with an ingredient attached "Length based on ingredient · 8s", 20 credits.
-    Veo 3.1 - Lite [Lower Priority] = 4s/6s/8s, 0 credits. Production uses Omni only; Veo is refused.
+    Omni 1.2 Flash = Ingredients (3s-15s) & Frames to Video Start+End (3s-10s), 24 credits.
+    Veo 3.1 - Lite [Lower Priority] = 4s/6s/8s, 0 credits (Start+End supported). Production uses Omni 1.2 Flash primary with 0-credit Veo Lite fallback.
 """
 
 from __future__ import annotations
@@ -20,13 +20,18 @@ import asyncio
 import base64
 import json
 import mimetypes
+import re
 from pathlib import Path
 from typing import Any
 
 from pipeline.config import (
     FLOW_ACTIVE_VIDEO_MODEL,
     FLOW_BANNED_VIDEO_MODEL_MARKERS,
+    FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83,
+    FLOW_OMNI_MAX_INGREDIENTS_V83,
+    FLOW_PRIMARY_OMNI_MODEL_KEY,
     FLOW_PRIMARY_VIDEO_MODEL,
+    FLOW_RETIRED_VIDEO_MODELS,
     FLOW_VIDEO_MODEL_PROFILES,
     FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
     FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID,
@@ -35,8 +40,9 @@ from pipeline.config import (
     FLOW_ZERO_CREDIT_TEXT,
     REENACT_MIN_DHASH_DISTANCE,
 )
+from pipeline.flow_browser import FLOW_DETECT_ANTIBOT_HALT_JS
 
-ADD_INGREDIENTS_SEL = 'button[aria-label="Add ingredients to the prompt box"]'
+ADD_INGREDIENTS_SEL = 'button[aria-label="Add ingredients to the prompt box"], button[aria-label="Add media menu"]'
 FRAME_CHIP_SEL = 'flow-prompt-box button[aria-label="Image ingredient"]'
 CHIP_SEL = f'flow-prompt-box button[aria-label="Ingredient"], {FRAME_CHIP_SEL}'
 
@@ -114,6 +120,12 @@ async def count_chips(client: Any) -> int:
 async def clear_prompt_ingredients(client: Any, max_rounds: int = 8) -> int:
     """Removes every ingredient chip (active or errored). Returns the remaining count (0 = clean)."""
     await dismiss_flow_overlays(client)
+    await client.eval("""(() => {
+        const btns = Array.from(document.querySelectorAll('.cdk-overlay-pane button, [role="dialog"] button'));
+        const gs = btns.find(b => /^(get started|got it|continue|close|dismiss)$/i.test((b.innerText || '').trim()));
+        if (gs) gs.click();
+    })()""")
+    await asyncio.sleep(0.35)
     await press_escape(client)
     for _ in range(max_rounds):
         pt = await client.eval(
@@ -173,7 +185,11 @@ async def upload_file_to_flow(client: Any, file_path: Path, timeout_sec: float =
         else:
             await client.eval(f"document.querySelector({json.dumps(ADD_INGREDIENTS_SEL)})?.click()")
         await asyncio.sleep(1.0)
-        if not await trusted_click(client, await find_point(client, "flow-add-menu-popover-content button", "Upload media")):
+        up_pt = (
+            await find_point(client, "flow-add-menu-popover-content button, .cdk-overlay-pane button, [role=menuitem]", "Upload media")
+            or await find_point(client, "flow-add-menu-popover-content button, .cdk-overlay-pane button, [role=menuitem]", "Upload")
+        )
+        if not await trusted_click(client, up_pt):
             return False
 
         loop = asyncio.get_running_loop()
@@ -314,15 +330,28 @@ async def read_active_flow_model_family(client: Any) -> str:
 
 
 def _family_matches_model(model: str, family_id: str) -> bool:
+    """Strictly verifies that an observed Flow `videoModelFamilyId` matches `model` (rejecting retired model families)."""
+    mdl = str(model or "").strip()
     fam = str(family_id or "").strip().lower()
-    if model == FLOW_ZERO_CREDIT_MODEL:
+    if not mdl or not fam:
+        return False
+    if mdl in FLOW_RETIRED_VIDEO_MODELS:
+        return False
+    if mdl == FLOW_ZERO_CREDIT_MODEL:
         return fam == "veo_3_1_lite_low_priority"
-    if model in (FLOW_PRIMARY_VIDEO_MODEL, FLOW_ACTIVE_VIDEO_MODEL):
-        return fam in ("omni", "omni_1_1_flash") or fam.startswith("omni")
-    expected = str((FLOW_VIDEO_MODEL_PROFILES.get(model) or {}).get("model_family_id") or "").strip().lower()
+    if mdl in (FLOW_PRIMARY_VIDEO_MODEL, FLOW_ACTIVE_VIDEO_MODEL, "Omni 1.2 Flash"):
+        return fam in (
+            FLOW_PRIMARY_OMNI_MODEL_KEY,
+            "omni_1_2_flash",
+            "omni_1_2",
+            "gemini_omni_1_2_flash",
+            "gemini-omni-1.2-flash",
+            "omni",
+        )
+    expected = str((FLOW_VIDEO_MODEL_PROFILES.get(mdl) or {}).get("model_family_id") or "").strip().lower()
     if expected:
-        return fam == expected or (expected.startswith("omni") and fam.startswith("omni"))
-    return bool(fam)
+        return fam == expected
+    return False
 
 
 async def read_settings_pane(client: Any) -> str:
@@ -350,57 +379,75 @@ async def select_flow_video_model(client: Any, model: str = FLOW_PRIMARY_VIDEO_M
     Opens settings -> model dropdown -> exact option (trusted clicks; synthetic clicks do not open the list),
     verifying selection via BOTH overlay text AND `localStorage["flow-prompt-box-settings"].videoModelFamilyId`.
     """
-    await press_escape(client)
-    if not await client.eval("document.querySelectorAll('.cdk-overlay-pane').length"):
-        trig = await find_point(client, "flow-prompt-box button.settings-trigger-button", "x")
-        if not trig:
-            trig = await client.eval(
+    cur_fam = await read_active_flow_model_family(client)
+    if cur_fam and _family_matches_model(model, cur_fam):
+        await press_escape(client)
+        await asyncio.sleep(0.2)
+        return True
+
+    for _attempt in range(3):
+        has_open_pane = await client.eval(
+            "Array.from(document.querySelectorAll('.cdk-overlay-pane')).some(e => (e.innerText || '').includes('Generating will use') && e.getBoundingClientRect().height > 40)"
+        )
+        if not has_open_pane:
+            await press_escape(client)
+            await asyncio.sleep(0.45)
+            trig = await find_point(client, "flow-prompt-box button.settings-trigger-button", "x")
+            if not trig:
+                trig = await client.eval(
+                    """(() => {
+                        const b = document.querySelector('flow-prompt-box button.settings-trigger-button, button.settings-trigger-button');
+                        if (!b || !b.getClientRects().length) return null;
+                        const r = b.getBoundingClientRect();
+                        return {x: r.x + r.width / 2, y: r.y + r.height / 2};
+                    })()"""
+                )
+            if trig:
+                await trusted_click(client, trig)
+                await asyncio.sleep(0.9)
+
+        dd_sel = ".cdk-overlay-pane button, .cdk-overlay-pane [aria-haspopup], .cdk-overlay-pane [role=combobox], flow-prompt-box-settings button, flow-prompt-box-settings [aria-haspopup]"
+        dd = (
+            await find_point(client, dd_sel, "Omni")
+            or await find_point(client, dd_sel, "Veo")
+            or await find_point(client, dd_sel, "Lite")
+        )
+        if not dd:
+            dd = await client.eval(
                 """(() => {
-                    const b = document.querySelector('flow-prompt-box button.settings-trigger-button, button.settings-trigger-button');
-                    if (!b || !b.getClientRects().length) return null;
-                    const r = b.getBoundingClientRect();
+                    const cands = [...document.querySelectorAll('.cdk-overlay-pane [aria-haspopup], .cdk-overlay-pane [role="combobox"], flow-prompt-box-settings [aria-haspopup]')].filter(e => e.getClientRects().length);
+                    const hit = cands[0];
+                    if (!hit) return null;
+                    const r = hit.getBoundingClientRect();
                     return {x: r.x + r.width / 2, y: r.y + r.height / 2};
                 })()"""
             )
-        await trusted_click(client, trig)
-        await asyncio.sleep(0.9)
+        if dd:
+            await trusted_click(client, dd)
+            await asyncio.sleep(0.9)
 
-    dd_sel = ".cdk-overlay-pane button, .cdk-overlay-pane [aria-haspopup], .cdk-overlay-pane [role=combobox], flow-prompt-box-settings button, flow-prompt-box-settings [aria-haspopup]"
-    dd = (
-        await find_point(client, dd_sel, "Omni")
-        or await find_point(client, dd_sel, "Veo")
-        or await find_point(client, dd_sel, "Lite")
-    )
-    if not dd:
-        dd = await client.eval(
-            """(() => {
-                const cands = [...document.querySelectorAll('.cdk-overlay-pane [aria-haspopup], .cdk-overlay-pane [role="combobox"], flow-prompt-box-settings [aria-haspopup]')].filter(e => e.getClientRects().length);
-                const hit = cands[0];
-                if (!hit) return null;
-                const r = hit.getBoundingClientRect();
-                return {x: r.x + r.width / 2, y: r.y + r.height / 2};
-            })()"""
+        menu_item_sel = ".cdk-overlay-pane [role=option], .cdk-overlay-pane [role=menuitem], .cdk-overlay-pane mat-option, .cdk-overlay-pane li"
+        opt = (
+            await find_point(client, menu_item_sel, model, exact=True)
+            or await find_point(client, menu_item_sel, model, exact=False)
+            or await find_point(client, ".cdk-overlay-pane button", model, exact=True)
+            or await find_point(client, ".cdk-overlay-pane button", model, exact=False)
         )
-    await trusted_click(client, dd)
-    await asyncio.sleep(0.9)
-
-    opt_sel = ".cdk-overlay-pane [role=option], .cdk-overlay-pane [role=menuitem], .cdk-overlay-pane button, .cdk-overlay-pane li"
-    opt = await find_point(client, opt_sel, model, exact=True) or await find_point(client, opt_sel, model, exact=False)
-    await trusted_click(client, opt)
-    await asyncio.sleep(1.2)
-    text = await client.eval(
-        "[...document.querySelectorAll('.cdk-overlay-pane, flow-prompt-box-settings')].map(e => e.innerText || '').join('\\n')"
-    ) or ""
-    family_id = await read_active_flow_model_family(client)
-    await press_escape(client)
-    await asyncio.sleep(0.25)
-    return (model in str(text)) and _family_matches_model(model, family_id)
+        if opt:
+            await trusted_click(client, opt)
+            await asyncio.sleep(1.1)
+        family_id = await read_active_flow_model_family(client)
+        await press_escape(client)
+        await asyncio.sleep(0.25)
+        if family_id and _family_matches_model(model, family_id):
+            return True
+    return False
 
 
 async def assert_model_settings(client: Any, allow_zero_credit_fallback: bool = True) -> dict[str, Any]:
     """
     Verifies active Flow video model in settings pane + `localStorage['flow-prompt-box-settings']`.
-    Recognizes `FLOW_PRIMARY_VIDEO_MODEL` (`Omni 1.1 Flash`) and, when `allow_zero_credit_fallback=True`,
+    Recognizes `FLOW_PRIMARY_VIDEO_MODEL` (`Omni 1.2 Flash`) and, when `allow_zero_credit_fallback=True`,
     `FLOW_ZERO_CREDIT_MODEL` (`Veo 3.1 - Lite [Lower Priority]`).
     """
     text = await read_settings_pane(client)
@@ -848,7 +895,12 @@ async def upload_start_end_frames_to_flow(
             uploaded_cache=cache,
         )
         end_ok = False
-        if start_ok and end_frame and Path(end_frame).exists() and Path(end_frame).resolve() != Path(start_frame).resolve():
+        if (
+            start_ok
+            and end_frame
+            and Path(end_frame).exists()
+            and Path(end_frame).resolve() != Path(start_frame).resolve()
+        ):
             end_ok = await attach_frame_slot_by_name(
                 client,
                 slot_label="End",
@@ -938,12 +990,15 @@ async def configure_flow_zero_credit_image_mode(
     client: Any,
     aspect: str = "9:16",
     batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    image_model: str | None = None,
 ) -> dict[str, Any]:
     """
-    Configures Google Flow into `Image` mode (`Nano Banana 2.1` / `beluga_display`), `aspect` (`9:16` PORTRAIT or
-    `16:9` LANDSCAPE), and the highest `0-credit` batch count (`x4` -> `x2` -> `x1`), strictly verifying
-    `mode == 'IMAGE'`, `aspectRatio`, and `Generating will use 0 credits`, while forbidding paid credit dialogs.
+    Configures Google Flow into `Image` mode (`Nano Banana 2.1` / `Nano Banana Pro` / `Nano Banana 2 Lite`),
+    `aspect` (`9:16` PORTRAIT or `16:9` LANDSCAPE), and the requested `0-credit` batch count (`x1` first-pass / `x2` retry;
+    never exceeding `batch_count`), strictly verifying `mode == 'IMAGE'`, `aspectRatio`, `outputCount <= target_batch`,
+    and `Generating will use 0 credits`, while forbidding paid credit dialogs.
     """
+    target_model = str(image_model or FLOW_ZERO_CREDIT_IMAGE_MODEL).strip() or FLOW_ZERO_CREDIT_IMAGE_MODEL
     target_batch = max(1, min(4, int(batch_count or FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT)))
     target_aspect = "16:9" if str(aspect).strip() == "16:9" else "9:16"
     expected_ls_aspect = "LANDSCAPE" if target_aspect == "16:9" else "PORTRAIT"
@@ -957,6 +1012,12 @@ async def configure_flow_zero_credit_image_mode(
     await asyncio.sleep(0.35)
 
     await dismiss_flow_overlays(client)
+    await client.eval("""(() => {
+        const btns = Array.from(document.querySelectorAll('.cdk-overlay-pane button, [role="dialog"] button'));
+        const gs = btns.find(b => /^(get started|got it|continue|close|dismiss)$/i.test((b.innerText || '').trim()));
+        if (gs) gs.click();
+    })()""")
+    await asyncio.sleep(0.35)
     await press_escape(client)
     st_pt = await find_point(client, "button.settings-trigger-button", "")
     if st_pt:
@@ -979,27 +1040,36 @@ async def configure_flow_zero_credit_image_mode(
         })()""")
     await asyncio.sleep(0.45)
 
-    # Ensure 0-credit Nano Banana 2.1 (beluga_display) image model is selected if another paid image model was active
-    ls_info = await client.eval("""(() => {
-        try { return JSON.parse(localStorage.getItem('flow-prompt-box-settings') || '{}'); } catch (e) { return {}; }
-    })()""") or {}
-    if str(ls_info.get("imageModelFamilyId") or "") != FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID:
+    # Ensure the requested 0-credit Flow image model is selected in the dropdown
+    cur_pane_txt = str(
+        await client.eval("""(() => Array.from(document.querySelectorAll('flow-prompt-box-settings, .cdk-overlay-pane')).map(e => e.innerText || '').join('\\n'))()""")
+        or ""
+    )
+    if target_model not in cur_pane_txt:
         dd_sel = ".cdk-overlay-pane [aria-haspopup], flow-prompt-box-settings [aria-haspopup]"
         dd = await find_point(client, dd_sel, "")
         if dd:
             await trusted_click(client, dd)
-            await asyncio.sleep(0.6)
+            await asyncio.sleep(0.55)
             opt = await find_point(
                 client,
                 ".cdk-overlay-pane [role=option], .cdk-overlay-pane [role=menuitem], .cdk-overlay-pane button",
-                FLOW_ZERO_CREDIT_IMAGE_MODEL,
+                target_model,
                 exact=False,
             )
             if opt:
                 await trusted_click(client, opt)
-                await asyncio.sleep(0.6)
+                await asyncio.sleep(0.55)
+            else:
+                await client.eval(f"""(() => {{
+                    const opts = Array.from(document.querySelectorAll('.cdk-overlay-pane [role=option], .cdk-overlay-pane [role=menuitem], .cdk-overlay-pane button'));
+                    const hit = opts.find(el => (el.innerText || '').includes({json.dumps(target_model)}));
+                    if (hit) hit.click();
+                }})()""")
+                await asyncio.sleep(0.55)
 
     chosen_batch = target_batch
+    last_ls_count: int | None = None
     zero_credit_ok = False
     pane_text = ""
     asp_labels = ("Landscape", "16:9", "crop_16_9") if target_aspect == "16:9" else ("Portrait", "9:16", "crop_9_16")
@@ -1043,11 +1113,21 @@ async def configure_flow_zero_credit_image_mode(
         pane_lower = pane_text.lower()
         explicit_paid = ("generating will use" in pane_lower) and (FLOW_ZERO_CREDIT_TEXT.lower() not in pane_lower)
         zero_text_ok = FLOW_ZERO_CREDIT_TEXT in pane_text
-        family_ok = str(ls_now.get("imageModelFamilyId") or "") == FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID
+        family_ok = (target_model == FLOW_ZERO_CREDIT_IMAGE_MODEL) and (str(ls_now.get("imageModelFamilyId") or "") == FLOW_ZERO_CREDIT_IMAGE_FAMILY_ID)
         ls_aspect_now = str(ls_now.get("aspectRatio") or "").upper()
         aspect_ok = (ls_aspect_now == expected_ls_aspect) or (not ls_aspect_now)
-        if (zero_text_ok or family_ok) and not explicit_paid and not warn_now and str(ls_now.get("mode") or "") == "IMAGE" and aspect_ok:
-            chosen_batch = int(ls_now.get("outputCount") or cand_n)
+        ls_count = int(ls_now.get("outputCount") or cand_n)
+        last_ls_count = ls_count
+        count_ok = 1 <= ls_count <= target_batch
+        if (
+            (zero_text_ok or family_ok)
+            and not explicit_paid
+            and not warn_now
+            and str(ls_now.get("mode") or "") == "IMAGE"
+            and aspect_ok
+            and count_ok
+        ):
+            chosen_batch = ls_count
             zero_credit_ok = True
             break
 
@@ -1059,14 +1139,14 @@ async def configure_flow_zero_credit_image_mode(
 
     if not zero_credit_ok:
         raise RuntimeError(
-            f"Failed to verify 0-credit Google Flow Image mode ({target_aspect} / {expected_ls_aspect}, pane={pane_text[:240]!r})"
+            f"Failed to verify 0-credit Google Flow Image mode ({target_model} / {target_aspect} / {expected_ls_aspect} / target_batch=x{target_batch}, outputCount={last_ls_count}, pane={pane_text[:240]!r})"
         )
 
     summary = await client.eval("""(() => (document.querySelector('button.settings-trigger-button')?.innerText || '').trim())()""") or ""
     return {
         "mode": "IMAGE",
         "aspect": target_aspect,
-        "image_model": FLOW_ZERO_CREDIT_IMAGE_MODEL,
+        "image_model": target_model,
         "output_count": chosen_batch,
         "zero_credit_verified": True,
         "settings_summary": summary,
@@ -1086,9 +1166,11 @@ async def generate_flow_image_batch(
     source_dhashes: list[int] | None = None,
     project_dir: Path | None = None,
     timeout_sec: float = 95.0,
+    save_all_candidates_dir: Path | None = None,
+    image_model: str | None = None,
 ) -> dict[str, Any]:
     """
-    Generates up to `x4` (`FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT`) `0-credit` candidate images in a single
+    Generates `x1` first-pass / `x2` retry (`FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT`) `0-credit` candidate images in a single
     Google Flow `Image` submission (`Nano Banana 2.1`), evaluates every candidate against `Q1..Q7`
     (`inspect_single_reference_image`) and `RQ2 dHash >= REENACT_MIN_DHASH_DISTANCE`, saves the #1
     highest-scoring candidate to `out_path` (`1080x1920` or `1920x1080`), and registers
@@ -1137,17 +1219,49 @@ async def generate_flow_image_batch(
         if ok_att:
             attached_refs.append(cp.name)
 
-    # Configure & verify Image mode + 9:16 + x4 + 0-credit lock AFTER attaching any ingredients
-    post_chip_cfg = await configure_flow_zero_credit_image_mode(client, aspect=aspect, batch_count=batch_count)
+    # Configure & verify Image mode + 9:16 + xN + 0-credit lock AFTER attaching any ingredients
+    post_chip_cfg = await configure_flow_zero_credit_image_mode(
+        client,
+        aspect=aspect,
+        batch_count=batch_count,
+        image_model=image_model,
+    )
+    active_image_model = str(post_chip_cfg.get("image_model") or image_model or FLOW_ZERO_CREDIT_IMAGE_MODEL)
     eff_batch = int(post_chip_cfg.get("output_count") or batch_count)
 
-    existing_urls = await client.eval("""(() => {
-        const scrollers = Array.from(document.querySelectorAll('*')).filter(el => el.scrollHeight > el.clientHeight + 80);
-        for (const s of scrollers) { try { s.scrollTop = 0; } catch (e) {} }
-        return Array.from(document.querySelectorAll('img'))
-            .filter(im => im.naturalWidth >= 300 && (im.currentSrc || im.src || '').includes('flow-content.google/image/'))
-            .map(im => im.currentSrc || im.src);
-    })()""") or []
+    # Drain any in-flight `flow-pending-tile` from a prior prompt/retry so late images never shift into this slot
+    for _ in range(30):
+        rem_pending = int(await client.eval("document.querySelectorAll('flow-pending-tile').length") or 0)
+        if rem_pending == 0:
+            break
+        await asyncio.sleep(1.5)
+    await asyncio.sleep(0.8)
+
+    # CRITICAL: await_promise=True so raw_existing actually resolves the Promise (never leaving seen_srcs empty!),
+    # and snapshot initial error-tile count AFTER conditioning uploads so newly failed tiles fail fast.
+    pre_snap = await client.eval(
+        """(async () => {
+            const scrollers = Array.from(document.querySelectorAll('*')).filter(el => el.scrollHeight > el.clientHeight + 80);
+            if (scrollers.length) {
+                for (const s of scrollers) { try { s.scrollTop = 0; } catch (e) {} }
+                await new Promise(r => setTimeout(r, 850));
+            }
+            const urls = Array.from(document.querySelectorAll('img'))
+                .filter(im => {
+                    if (im.closest('.cdk-overlay-pane, flow-add-menu-popover-content, flow-prompt-box')) return false;
+                    const u = im.currentSrc || im.src || '';
+                    return u.includes('flow-content.google/image/') || (u.includes('flow.google.com/asb/') && Boolean(im.closest('flow-image-tile')));
+                })
+                .map(im => im.currentSrc || im.src);
+            const errCount = document.querySelectorAll('flow-error-tile').length;
+            const failedTileCount = Array.from(document.querySelectorAll('flow-image-tile')).filter(t => (t.innerText || '').includes('Failed')).length;
+            return { urls, errCount, failedTileCount };
+        })()""",
+        await_promise=True,
+    ) or {}
+    existing_urls = pre_snap.get("urls") if isinstance(pre_snap, dict) and isinstance(pre_snap.get("urls"), list) else []
+    initial_err_tiles = int(pre_snap.get("errCount") or 0) if isinstance(pre_snap, dict) else 0
+    initial_failed_tiles = int(pre_snap.get("failedTileCount") or 0) if isinstance(pre_snap, dict) else 0
     for u in existing_urls:
         seen_srcs.add(str(u))
 
@@ -1204,13 +1318,18 @@ async def generate_flow_image_batch(
         await asyncio.sleep(0.08)
         await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": ix, "y": iy, "button": "left", "clickCount": 1})
 
-    # Confirm ProseMirror cleared; if still populated after 1.5s, dispatch direct mouse click fallback
-    await asyncio.sleep(1.2)
-    ed_after = await client.eval("""(() => {
+    # Confirm ProseMirror cleared AND zero pending tiles started before ever clicking a fallback second time
+    await asyncio.sleep(2.0)
+    post_submit_state = await client.eval("""(() => {
         const ed = document.querySelector('.ProseMirror[contenteditable="true"]');
-        return ed ? (ed.innerText || '').trim().length : 0;
-    })()""")
-    if int(ed_after or 0) > 0 and sub_res.get("x", 0) > 0:
+        const pending = document.querySelectorAll('flow-pending-tile').length;
+        return { edLen: ed ? (ed.innerText || '').trim().length : 0, pending };
+    })()""") or {}
+    if (
+        int(post_submit_state.get("edLen") or 0) > 0
+        and int(post_submit_state.get("pending") or 0) == 0
+        and sub_res.get("x", 0) > 0
+    ):
         ix, iy = int(sub_res["x"]), int(sub_res["y"])
         await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": ix, "y": iy})
         await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": ix, "y": iy, "button": "left", "clickCount": 1})
@@ -1219,37 +1338,139 @@ async def generate_flow_image_batch(
 
     t0 = time.monotonic()
     new_urls: list[str] = []
+    saw_pending = False
+    usage_limit_hit = False
+    unusual_activity_hit = False
+    newest_err_text = ""
+    _unusual_activity_markers = (
+        "unusual activity",
+        "wait a few moments",
+        "browser extensions that modify",
+        "captcha",
+        "verify you are human",
+        "recaptcha",
+        "turnstile",
+        "are you a robot",
+        "human verification",
+    )
+    _usage_limit_markers = ("usage limit", "try again later", "rate limit", "quota")
+    seen_base_list = [re.sub(r"=s\d+[^/?#]*$", "", str(u).split("?")[0]) for u in seen_srcs if str(u)]
     while time.monotonic() - t0 < timeout_sec:
         await asyncio.sleep(2.5)
         poll = await client.eval(f"""(() => {{
             const scrollers = Array.from(document.querySelectorAll('*')).filter(el => el.scrollHeight > el.clientHeight + 80);
             for (const s of scrollers) {{ try {{ s.scrollTop = 0; }} catch (e) {{}} }}
             const seen = new Set({json.dumps(list(seen_srcs))});
+            const seenBase = new Set({json.dumps(seen_base_list)});
             const pending = document.querySelectorAll('flow-pending-tile').length;
-            const errTiles = document.querySelectorAll('flow-error-tile').length;
-            const urls = [];
+            const errNodeList = Array.from(document.querySelectorAll('flow-error-tile'));
+            const errTiles = errNodeList.length;
+            const failedTiles = Array.from(document.querySelectorAll('flow-image-tile')).filter(t => (t.innerText || '').includes('Failed'));
+            const topErrText = (errNodeList[0]?.innerText || failedTiles[0]?.innerText || '').trim().slice(0, 260);
+            const detectHalt = {FLOW_DETECT_ANTIBOT_HALT_JS};
+            const haltInfo = detectHalt([topErrText]);
+            const haltWarn = Boolean(haltInfo && haltInfo.haltWarn);
+            const haltText = String((haltInfo && haltInfo.haltText) || '');
+            const items = [];
             for (const im of document.querySelectorAll('img')) {{
+                if (im.closest('.cdk-overlay-pane, flow-add-menu-popover-content, flow-prompt-box')) continue;
                 const u = im.currentSrc || im.src || '';
-                if (im.naturalWidth >= 400 && u.includes('flow-content.google/image/') && !seen.has(u) && !urls.includes(u)) {{
-                    urls.push(u);
+                const b = u.split('?')[0].replace(/=s\\d+[^/?#]*$/, '');
+                const isLegacy = im.naturalWidth >= 400 && u.includes('flow-content.google/image/');
+                const isAsbTile = im.naturalWidth >= 200 && u.includes('flow.google.com/asb/') && Boolean(im.closest('flow-image-tile'));
+                if ((isLegacy || isAsbTile) && !seen.has(u) && !seenBase.has(b)) {{
+                    const r = im.getBoundingClientRect();
+                    items.push({{ u, top: r.top, left: r.left }});
                 }}
             }}
-            return {{ urls, pending, errTiles }};
+            items.sort((a, b) => (Math.abs(a.top - b.top) > 12 ? a.top - b.top : a.left - b.left));
+            const urls = [];
+            for (const it of items) {{
+                if (!urls.includes(it.u)) urls.push(it.u);
+            }}
+            return {{ urls, pending, errTiles, failedTileCount: failedTiles.length, topErrText, haltWarn, haltText }};
         }})()""") or {}
         new_urls = [str(u) for u in (poll.get("urls") or []) if str(u)]
         pending_cnt = int(poll.get("pending") or 0)
-        if len(new_urls) >= eff_batch:
+        err_now = int(poll.get("errTiles") or 0)
+        failed_now = int(poll.get("failedTileCount") or 0)
+        top_err_txt = str(poll.get("topErrText") or "")
+        if bool(poll.get("haltWarn")) and not new_urls:
+            newest_err_text = str(poll.get("haltText") or top_err_txt or "flow_antibot_halt")
+            unusual_activity_hit = True
             break
-        if len(new_urls) >= 1 and pending_cnt == 0 and (time.monotonic() - t0) >= 8.0:
+        if pending_cnt > 0:
+            saw_pending = True
+        elapsed_poll = time.monotonic() - t0
+        new_failure_detected = (err_now > initial_err_tiles) or (failed_now > initial_failed_tiles)
+        low_err = top_err_txt.lower()
+        if new_failure_detected and not new_urls and any(m in low_err for m in _unusual_activity_markers):
+            newest_err_text = top_err_txt
+            unusual_activity_hit = True
             break
-        if int(poll.get("errTiles") or 0) > 0 and pending_cnt == 0 and not new_urls and (time.monotonic() - t0) >= 12.0:
+        if new_failure_detected and pending_cnt == 0 and not new_urls:
+            newest_err_text = top_err_txt
+            if any(m in low_err for m in _unusual_activity_markers):
+                unusual_activity_hit = True
+            elif any(m in low_err for m in _usage_limit_markers):
+                usage_limit_hit = True
             break
+        if len(new_urls) >= eff_batch and pending_cnt == 0 and (saw_pending or elapsed_poll >= 8.5):
+            break
+        if len(new_urls) >= eff_batch and elapsed_poll >= 45.0:
+            break
+        if len(new_urls) >= 1 and pending_cnt == 0 and elapsed_poll >= 11.0:
+            break
+        if (err_now > 0 or failed_now > 0) and pending_cnt == 0 and not new_urls and elapsed_poll >= 12.0:
+            newest_err_text = top_err_txt
+            if any(m in low_err for m in _unusual_activity_markers):
+                unusual_activity_hit = True
+            elif any(m in low_err for m in _usage_limit_markers):
+                usage_limit_hit = True
+            break
+
+    if unusual_activity_hit and not new_urls:
+        warn_shot_str = ""
+        if project_dir is not None and hasattr(client, "send"):
+            try:
+                ss_dir = Path(project_dir) / "03_visuals" / "flow_screenshots"
+                ss_dir.mkdir(parents=True, exist_ok=True)
+                warn_png = ss_dir / "flow_warning_capture_image.png"
+                ss_res = await client.send("Page.captureScreenshot", {"format": "png"})
+                if isinstance(ss_res, dict) and ss_res.get("data"):
+                    warn_png.write_bytes(base64.b64decode(ss_res["data"]))
+                    warn_shot_str = str(warn_png)
+            except Exception:
+                pass
+        return {
+            "ok": False,
+            "reason": "flow_unusual_activity_blocked",
+            "image_model": active_image_model,
+            "error_text": newest_err_text,
+            "warning_screenshot": warn_shot_str,
+        }
+
+    if usage_limit_hit and not new_urls:
+        return {
+            "ok": False,
+            "reason": "flow_usage_limit_reached",
+            "image_model": active_image_model,
+            "error_text": newest_err_text,
+        }
 
     for u in new_urls:
         seen_srcs.add(u)
+    new_urls = new_urls[:eff_batch]
 
     if not new_urls:
-        return {"ok": False, "reason": "no_flow_images_rendered"}
+        if newest_err_text:
+            return {
+                "ok": False,
+                "reason": "flow_generation_error",
+                "image_model": active_image_model,
+                "error_text": newest_err_text,
+            }
+        return {"ok": False, "reason": "no_flow_images_rendered", "image_model": active_image_model}
 
     target_wh = (1920, 1080) if str(aspect).strip() == "16:9" else (1080, 1920)
     out_p = Path(out_path)
@@ -1268,29 +1489,53 @@ async def generate_flow_image_batch(
 
     import urllib.request
 
+    sibling_or_cond_dhashes: list[int] = []
+    seen_guard_paths: set[Path] = set()
+    extra_ref_guards: list[Path] = []
+    if project_dir is not None:
+        proj_ref_dir = Path(project_dir) / "03_visuals" / "reference_images"
+        if proj_ref_dir.is_dir() and proj_ref_dir.resolve() != out_p.parent.resolve():
+            extra_ref_guards = sorted(proj_ref_dir.glob("*.png"))
+    for gp in (
+        list(conditioning_paths or [])
+        + (sorted(out_p.parent.glob("*.png")) if out_p.parent.is_dir() else [])
+        + extra_ref_guards
+    ):
+        gp_p = Path(gp)
+        if not gp_p.is_file() or gp_p.name == out_p.name or gp_p in seen_guard_paths:
+            continue
+        seen_guard_paths.add(gp_p)
+        g_bgr = cv2.imread(str(gp_p), cv2.IMREAD_COLOR)
+        if g_bgr is not None and g_bgr.size > 0:
+            sibling_or_cond_dhashes.append(_dhash_64(g_bgr))
+
     frame_tree = None
     candidates: list[dict[str, Any]] = []
     for idx, img_url in enumerate(new_urls):
         raw_bytes: bytes | None = None
+        is_asb_url = "flow.google.com/asb/" in str(img_url)
+        fetch_url = re.sub(r"=s\d+[^/?#]*$", "=s0", str(img_url)) if is_asb_url else str(img_url)
         # Tier 1: Direct Python fetch of pre-signed flow-content.google CDN URL (zero CORS restriction)
-        try:
-            def _dl_signed(u: str = img_url) -> bytes:
-                req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
-                with urllib.request.urlopen(req, timeout=20) as resp:
-                    return resp.read()
+        if not is_asb_url:
+            try:
+                def _dl_signed(u: str = fetch_url) -> bytes:
+                    req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0"})
+                    with urllib.request.urlopen(req, timeout=20) as resp:
+                        return resp.read()
 
-            cand_b = await asyncio.to_thread(_dl_signed)
-            if cand_b and len(cand_b) > 8_000:
-                raw_bytes = cand_b
-        except Exception:
-            raw_bytes = None
+                cand_b = await asyncio.to_thread(_dl_signed)
+                if cand_b and len(cand_b) > 8_000:
+                    raw_bytes = cand_b
+            except Exception:
+                raw_bytes = None
 
-        # Tier 2: In-page fetch without credentials (compatible with Access-Control-Allow-Origin: *)
+        # Tier 2: In-page fetch (credentials: include for same-origin /asb/=s0; no credentials for CORS CDN)
         if not raw_bytes:
+            fetch_opts = "{ credentials: 'include' }" if is_asb_url else "{}"
             b64_str = await client.eval(
                 f"""(async () => {{
                     try {{
-                        const r = await fetch({json.dumps(img_url)});
+                        const r = await fetch({json.dumps(fetch_url)}, {fetch_opts});
                         if (!r.ok) return '';
                         const buf = await r.arrayBuffer();
                         const bytes = new Uint8Array(buf);
@@ -1306,7 +1551,7 @@ async def generate_flow_image_batch(
                 }})()""",
                 await_promise=True,
             ) or ""
-            if isinstance(b64_str, str) and len(b64_str) > 10_000:
+            if isinstance(b64_str, str) and len(b64_str) > 4_000:
                 raw_bytes = base64.b64decode(b64_str)
 
         # Tier 3: Chromium CDP Page.getResourceContent directly from browser cache
@@ -1350,7 +1595,11 @@ async def generate_flow_image_batch(
                     bgr = bgr[y0 : y0 + crop_h, :]
             bgr = cv2.resize(bgr, target_wh, interpolation=cv2.INTER_LANCZOS4)
 
-        tmp_png = Path(tempfile.gettempdir()) / f"flow_cand_{out_p.stem}_{idx}.png"
+        cand_dh = _dhash_64(bgr)
+        if sibling_or_cond_dhashes and min((cand_dh ^ sdh).bit_count() for sdh in sibling_or_cond_dhashes) <= 2:
+            continue
+
+        tmp_png = Path(tempfile.gettempdir()) / f"flow_cand_{time.monotonic_ns()}_{out_p.stem}_{idx}.png"
         cv2.imwrite(str(tmp_png), bgr)
 
         qa_passed = True
@@ -1410,6 +1659,15 @@ async def generate_flow_image_batch(
     winner_ok = bool(winner["qa_passed"] and winner["dhash_ok"])
     import shutil
 
+    saved_candidate_paths: list[str] = []
+    if save_all_candidates_dir is not None:
+        cand_dir = Path(save_all_candidates_dir)
+        cand_dir.mkdir(parents=True, exist_ok=True)
+        for rank_i, c in enumerate(candidates[:4], start=1):
+            dst_cand = cand_dir / f"keyart_{rank_i:02d}.png"
+            shutil.copy2(c["tmp_png"], dst_cand)
+            saved_candidate_paths.append(str(dst_cand))
+
     if winner_ok:
         if out_p.suffix.lower() in (".jpg", ".jpeg"):
             win_bgr = cv2.imread(str(winner["tmp_png"]), cv2.IMREAD_COLOR)
@@ -1433,6 +1691,7 @@ async def generate_flow_image_batch(
         "ok": winner_ok,
         "saved": winner_ok,
         "out_path": str(out_p) if winner_ok else "",
+        "saved_candidate_paths": saved_candidate_paths,
         "candidate_count": len(candidates),
         "selected_index": int(winner["idx"]),
         "qa_passed": bool(winner["qa_passed"]),
@@ -1440,8 +1699,70 @@ async def generate_flow_image_batch(
         "min_dhash": int(winner["min_dhash"]),
         "quality_score": float(winner["quality_score"]),
         "attached_refs": attached_refs,
-        "image_model": FLOW_ZERO_CREDIT_IMAGE_MODEL,
+        "image_model": active_image_model,
         "reason": winner["qa_reason"] or ("" if winner_ok else "qa_or_dhash_gate_failed"),
+    }
+
+
+async def upload_multi_ingredients_v83(
+    client: Any,
+    reference_paths: list[Path | str],
+    *,
+    motion_guide_mp4: Path | str | None = None,
+    max_ingredients: int | None = None,
+) -> dict[str, Any]:
+    """
+    Schema v8.3 Multi-Ingredient & Previs Motion Guide uploader (`Omni 1.2 Flash` Ingredients mode).
+    Attaches up to `FLOW_OMNI_MAX_INGREDIENTS_V83` (`8` when `FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83` is True,
+    or `2` when flag is False) reference PNGs plus an optional `3.0s` Blender Previs motion guide MP4.
+    """
+    cap = (
+        int(max_ingredients)
+        if max_ingredients is not None
+        else (int(FLOW_OMNI_MAX_INGREDIENTS_V83) if FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83 else 2)
+    )
+    cap = max(1, min(int(FLOW_OMNI_MAX_INGREDIENTS_V83), cap))
+
+    await clear_prompt_ingredients(client)
+    await set_flow_video_input_mode(client, use_frames=False)
+
+    ordered_files: list[Path] = []
+    seen_names: set[str] = set()
+    for raw_p in reference_paths or []:
+        p = Path(raw_p)
+        if p.exists() and p.is_file() and p.name not in seen_names:
+            seen_names.add(p.name)
+            ordered_files.append(p)
+        if len(ordered_files) >= cap:
+            break
+
+    if motion_guide_mp4 is not None and FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83 and len(ordered_files) < cap:
+        mp4_p = Path(motion_guide_mp4)
+        if mp4_p.exists() and mp4_p.is_file() and mp4_p.name not in seen_names:
+            seen_names.add(mp4_p.name)
+            ordered_files.append(mp4_p)
+
+    uploaded: list[str] = []
+    attached: list[str] = []
+    for f_path in ordered_files:
+        ok_up = await upload_file_to_flow(client, f_path)
+        if ok_up:
+            uploaded.append(f_path.name)
+        ok_att = await attach_uploaded_by_name(client, f_path.name)
+        if ok_att:
+            attached.append(f_path.name)
+
+    chip_cnt = await count_chips(client)
+    return {
+        "ready": len(attached) > 0 and chip_cnt >= len(attached),
+        "input_mode": "VIDEO_REFERENCES",
+        "max_ingredients_cap": cap,
+        "uploaded": uploaded,
+        "attached": attached,
+        "chip_count": chip_cnt,
+        "motion_guide_attached": bool(
+            motion_guide_mp4 and Path(motion_guide_mp4).name in attached
+        ),
     }
 
 
@@ -1460,6 +1781,7 @@ __all__ = [
     "clear_prompt_ingredients",
     "prepare_reference_frames",
     "upload_file_to_flow",
+    "upload_multi_ingredients_v83",
     "upload_start_end_frames_to_flow",
 ]
 

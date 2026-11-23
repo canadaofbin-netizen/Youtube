@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Harvard doctors handed hurting adults a bottle boldly labeled 'Placebo Pills' and told them zero medicine was inside — yet 59% still got real symptom relief.",
+    "core_experiment": "Kaptchuk et al. (2010 PLoS ONE, N=80 IBS) + Carvalho et al. (2016 Pain, N=97 chronic low back pain) + Guevarra & Wager (2020 Nature Communications) EEG proof.",
+    "twist": "Why you don't need to be fooled: lifelong conditioned pill rituals fire prefrontal-to-brainstem opioid pathways that quiet your anterior cingulate pain alarm."
+  },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "47-year-old adult holding an amber bottle boldly labeled PLACEBO with two inert capsules in palm and surprised raised eyebrows",
+    "right_cyan_brain": "3D translucent glass brain with bright #27D8FF prefrontal-to-brainstem pathway active and silenced anterior cingulate alarm",
+    "badge_text": "HONEST FAKE PILL"
+  },
+  "r75_clean_seed_tags": [
+    "placebo effect",
+    "open label placebo",
+    "pain neuroscience",
+    "chronic back pain",
+    "ted kaptchuk",
+    "brain pain switch",
+    "psychology facts",
+    "neuroscience",
+    "mind body health",
+    "shorts"
+  ],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Boston Bottle Printed 'Placebo Pills'",
+      "beats": [
+        "200 years of 'deception required' medical dogma",
+        "Ted Kaptchuk's bold 2010 Harvard informed-consent gamble"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "close-up amber Placebo bottle & 4-point script card"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "59% vs 35%: When Skeptics Feel Better Anyway",
+      "beats": [
+        "80 IBS adults (mean age 47) matched on identical warm doctor visits",
+        "Day-11 and Day-21 relief surge despite knowing capsules are cellulose"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "59% vs 35% comparison chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Replicating on Stubborn Adult Back Pain (2016)",
+      "beats": [
+        "97 chronic low-back pain sufferers over 3 weeks",
+        "~30% pain & disability drop + crossover confirmation"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "sunlit outdoor sidewalk stride & tote lift"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "EEG & Spinal Proof: Not Just Polite Surveys",
+      "beats": [
+        "Guevarra & Wager (2020) saline spray shrinking the Late Positive Potential",
+        "Prefrontal appraisal -> brainstem opioid release -> silenced ACC alarm"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "EEG cap waveform drop & 3D brainstem pathway"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Boundaries & Everyday Rituals After 35",
+      "beats": [
+        "What placebos NEVER cure (tumors, fractures, infections)",
+        "How honest daily care rituals amplify real medicine and recovery"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "calm morning water glass & porch stretch"
+      ]
+    }
+  ]
+}

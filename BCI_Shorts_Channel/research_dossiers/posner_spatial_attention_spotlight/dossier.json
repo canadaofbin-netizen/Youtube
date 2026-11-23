@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "posner_spatial_attention_spotlight",
   "topic": "Michael Posner (1980): Covert Spatial Attention 'Spotlight' Without Moving Your Eyes",
   "pillar": "brain_basics",
@@ -40,7 +40,17 @@
     },
     {
       "fact": "Before a target flash appeared inside the left or right box, a cue predicted its side: either a central arrow ('endogenous' voluntary cue, accurate 80% of the time) or a brief peripheral border flash ('exogenous' automatic cue).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Valid Spatial Cue Rate",
+        "percent": 80.0,
+        "unit": "%",
+        "doi": "10.1080/00335558008248231",
+        "source_citation": "Posner (1980)"
+      }
     },
     {
       "fact": "Subjects pressed a single detection key the instant the target appeared — requiring zero eye movement and zero left-vs-right hand choice.",
@@ -64,7 +74,28 @@
     },
     {
       "fact": "Across Posner's (1980) covert-orienting cueing blocks with eyes held strictly on central fixation, simple target detection averaged roughly 235 ms after valid spatial cues versus roughly 295 ms after invalid cues.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Target Detection Latency",
+        "unit": "ms",
+        "bars": [
+          {
+            "label": "Valid Spatial Cue",
+            "value": 235.0,
+            "unit": "ms"
+          },
+          {
+            "label": "Invalid Spatial Cue",
+            "value": 295.0,
+            "unit": "ms"
+          }
+        ],
+        "doi": "10.1080/00335558008248231",
+        "source_citation": "Posner (1980)"
+      }
     }
   ],
   "wow_facts": [
@@ -128,5 +159,37 @@
     "diorama_77_posner_spatial_attention_spotlight"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1080/00335558008248231",
+  "three_layer_formula": {
+    "everyday_problem": "A basketball point guard staring dead-straight at a defender's chest while covertly aiming Posner's spotlight at a cutting teammate on the wing for a no-look pass.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1080/00335558008248231",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1080/00335558008248231"
+      ],
+      "summary": "Michael I. Posner (1980). Orienting of Attention. Quarterly Journal of Experimental Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1167/jov.20.11.327",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1167/jov.20.11.327"
+      ],
+      "summary": "Leah Bakst, Ilona Bloem, Joseph McGuire, Sam Ling (2020). Dynamic spotlight model recovers the position but not the width of covert spatial attention. Journal of Vision."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Whatever your eyeballs point directly at is automatically what you are paying attention to.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

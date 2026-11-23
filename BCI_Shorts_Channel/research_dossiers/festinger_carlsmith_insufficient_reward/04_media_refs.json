@@ -49,7 +49,8 @@
         "words_per_sec": 3.0,
         "has_strong_archival_cue": false
       },
-      "recommended_section": "01:04-01:43"
+      "recommended_section": "01:04-01:43",
+      "reenactment_section": "01:04-01:43"
     },
     {
       "id": "M2",
@@ -100,7 +101,8 @@
         "words_per_sec": 2.909,
         "has_strong_archival_cue": true,
         "gate_failed": 3
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     },
     {
       "id": "M3",
@@ -128,10 +130,12 @@
       "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(museum_artefact)",
       "reenactment_suitability_metrics": {
         "gate_failed": 1
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     }
   ],
   "reenactment_track": "track_a",
   "track_subtier": "A2_section_window",
-  "suitability_schema_version": 2
+  "suitability_schema_version": 2,
+  "primary_reenactment_media_id": "M1"
 }

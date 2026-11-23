@@ -1,0 +1,1042 @@
+{
+  "schema_version": 2,
+  "plan_date": "2026-11-21",
+  "generated_at": {
+    "utc": "2026-11-21 10:17 UTC",
+    "et": "2026-11-21 05:17 EST",
+    "kst": "2026-11-21 19:17 KST",
+    "iso_utc": "2026-11-21T10:17:49.135656+00:00"
+  },
+  "overall_decision": "PARTIAL_GO",
+  "daily_report_summary": {
+    "metrics_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/reports/daily/2026-11-21_studio_metrics.json",
+    "report_date": "2026-11-21",
+    "report_age_hours": 0.24,
+    "data_source_mode": "LIVE_CDP_DOM",
+    "partial_dom_scrape_anomaly": false,
+    "subscribers_total": 62,
+    "instagram_followers": 0,
+    "views_24h": 9740,
+    "realtime_48h_views": 800,
+    "realtime_60m_views": null,
+    "watch_hours_24h": 100.7,
+    "viewed_pct": 67.3,
+    "apv_pct": 66.9,
+    "us_share_pct": 64.4,
+    "tier1_share_pct": 66.3,
+    "shorts_feed_pct": 88.9,
+    "related_ring_complete": true
+  },
+  "platforms": {
+    "youtube": {
+      "platform": "youtube",
+      "handle": "@AllAboutBrainOfficial",
+      "verdict": "HOLD",
+      "regime": "under_10k_seed_protection",
+      "optimal_cadence": "1 Short / Day @ Slot 4 (19:30 ET) | Longform 16:9: HOLD",
+      "longform_verdict": "HOLD (<10K subs & 3s Hook <70%)",
+      "scheduled_runway_days": 2,
+      "scheduled_videos": [
+        {
+          "project_id": "v8_ep11_open_label_placebo_pain",
+          "video_id": "lIvz80VKYPA",
+          "scheduled_time_et": "2026-11-20 19:30 ET",
+          "scheduled_at_utc": "2026-11-21T00:30:00+00:00",
+          "quiz_scheduled_or_done": true,
+          "quiz_receipt": {
+            "status": "scheduled",
+            "verified_on_studio_posts": true,
+            "project_id": "v8_ep11_open_label_placebo_pain",
+            "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+            "schedule_et": "2026-11-20T16:00:00-05:00",
+            "schedule_utc": "2026-11-20T21:00:00+00:00",
+            "picker_applied": {
+              "menu_open_result": {
+                "ok": true,
+                "countInDlg": 1,
+                "x": 868,
+                "y": 773
+              },
+              "schedule_menu_click": {
+                "ok": true,
+                "tag": "YTD-MENU-SERVICE-ITEM-RENDERER",
+                "text": "Schedule post"
+              },
+              "tz_picker_label": "(GMT+0000) Local Time",
+              "picker_spec": {
+                "offset_minutes": 0,
+                "year": 2026,
+                "month": 11,
+                "day": 20,
+                "date_label_en": "Nov 20, 2026",
+                "date_slash": "11/20/2026",
+                "date_iso": "2026-11-20",
+                "time_12h": "9:00 PM",
+                "time_24h": "21:00"
+              },
+              "date_label_after": "Nov 20, 2026",
+              "time_label_after": "9:00 PM",
+              "date_form_result": {
+                "ok": true,
+                "focusedInput": true,
+                "labelAfterForm": "Nov 20, 2026"
+              }
+            },
+            "submit_result": {
+              "ok": true,
+              "clickedLabel": "Schedule"
+            },
+            "studio_posts_verification": {
+              "found": true,
+              "matchingRows": [
+                "Post Knowing a sugar pill is fake doesn't stop your brain from cutting real pain. Which hidden brain mechanism drives this? Quiz Scheduled None 20 Nov 2026 Scheduled 0 0 0",
+                "Post Knowing a sugar pill is fake doesn't stop your brain from cutting real pain. Which hidden brain mechanism drives this? Quiz Scheduled None 20 Nov 2026 Scheduled 0 0 0"
+              ],
+              "bodyPreview": "Channel content Skip navigation Ask Studio Create Your channel ALL ABOUT BRAIN Dashboard Content Insights Community Languages Content detection Earn Customisation Audio library Settings Send feedback Channel content Videos Shorts Live Posts Playlists Podcasts Courses Promotions Collaborations Ideas Post Type Visibility Restrictions Date Comments Likes Responses Post Knowing a sugar pill is fake doesn't stop your brain from cutting real pain. Which hidden brain mechanism drives this? Quiz Scheduled None 20 Nov 2026 Scheduled 0 0 0 Post Why do eight hours on a sleep pill still leave your head he"
+            },
+            "screenshot_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/06_publish/community_quiz_scheduled_proof.png",
+            "created_at_utc": "2026-11-19T17:08:25.210068+00:00",
+            "payload": {
+              "project_id": "v8_ep11_open_label_placebo_pain",
+              "question": "Knowing a sugar pill is fake doesn't stop your brain from cutting real pain. Which hidden brain mechanism drives this?",
+              "options": [
+                {
+                  "text": "Complete shutdown of primary visual cortex",
+                  "is_correct": false
+                },
+                {
+                  "text": "Brainstem signaling shifts before conscious awareness",
+                  "is_correct": true
+                },
+                {
+                  "text": "Total loss of long-term spinal reflexes",
+                  "is_correct": false
+                },
+                {
+                  "text": "Purely random inner-ear balance drift",
+                  "is_correct": false
+                }
+              ],
+              "explanation": "Turns out, an open fake spray calmed your body-feeling center, the insula, right away. Verified study DOI: 10.1371/journal.pone.0015591. Tonight's new Short breaks down the exact brain circuit -> @AllAboutBrainOfficial",
+              "doi": "10.1371/journal.pone.0015591",
+              "recommended_offset_minutes": -210
+            }
+          }
+        },
+        {
+          "project_id": "v8_ep12_doorway_effect_memory",
+          "video_id": "fGxHHP9IuSE",
+          "scheduled_time_et": "2026-11-21 19:30 ET",
+          "scheduled_at_utc": "2026-11-22T00:30:00+00:00",
+          "quiz_scheduled_or_done": true,
+          "quiz_receipt": {
+            "status": "scheduled",
+            "verified_on_studio_posts": true,
+            "project_id": "v8_ep12_doorway_effect_memory",
+            "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+            "schedule_et": "2026-11-21T16:00:00-05:00",
+            "schedule_utc": "2026-11-21T21:00:00+00:00",
+            "picker_applied": {
+              "menu_open_result": {
+                "ok": true,
+                "countInDlg": 1,
+                "x": 868,
+                "y": 773
+              },
+              "schedule_menu_click": {
+                "ok": true,
+                "tag": "YTD-MENU-SERVICE-ITEM-RENDERER",
+                "text": "Schedule post"
+              },
+              "tz_picker_label": "(GMT+0000) Local Time",
+              "picker_spec": {
+                "offset_minutes": 0,
+                "year": 2026,
+                "month": 11,
+                "day": 21,
+                "date_label_en": "Nov 21, 2026",
+                "date_slash": "11/21/2026",
+                "date_iso": "2026-11-21",
+                "time_12h": "9:00 PM",
+                "time_24h": "21:00"
+              },
+              "date_label_after": "Nov 21, 2026",
+              "time_label_after": "9:00 PM",
+              "date_form_result": {
+                "ok": true,
+                "focusedInput": true,
+                "labelAfterForm": "Nov 21, 2026"
+              }
+            },
+            "submit_result": {
+              "ok": true,
+              "clickedLabel": "Schedule"
+            },
+            "studio_posts_verification": {
+              "found": true,
+              "matchingRows": [
+                "Post Stand up to grab kitchen scissors right now, and watch the doorway wipe your mind. Which hidden brain mechanism drives this? Quiz Scheduled None 21 Nov 2026 Scheduled 0 0 0",
+                "Post Stand up to grab kitchen scissors right now, and watch the doorway wipe your mind. Which hidden brain mechanism drives this? Quiz Scheduled None 21 Nov 2026 Scheduled 0 0 0"
+              ],
+              "bodyPreview": "Channel content Skip navigation Ask Studio Create Your channel ALL ABOUT BRAIN Dashboard Content Insights Community Languages Content detection Earn Customisation Audio library Settings Send feedback Channel content Videos Shorts Live Posts Playlists Podcasts Courses Promotions Collaborations Ideas Post Type Visibility Restrictions Date Comments Likes Responses Post Stand up to grab kitchen scissors right now, and watch the doorway wipe your mind. Which hidden brain mechanism drives this? Quiz Scheduled None 21 Nov 2026 Scheduled 0 0 0 Post Knowing a sugar pill is fake doesn't stop your brain "
+            },
+            "screenshot_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/06_publish/community_quiz_scheduled_proof.png",
+            "created_at_utc": "2026-11-19T17:45:36.579799+00:00",
+            "payload": {
+              "project_id": "v8_ep12_doorway_effect_memory",
+              "question": "Stand up to grab kitchen scissors right now, and watch the doorway wipe your mind. Which hidden brain mechanism drives this?",
+              "options": [
+                {
+                  "text": "Complete shutdown of primary visual cortex",
+                  "is_correct": false
+                },
+                {
+                  "text": "Prefrontal Cortex signaling shifts before conscious awareness",
+                  "is_correct": true
+                },
+                {
+                  "text": "Total loss of long-term spinal reflexes",
+                  "is_correct": false
+                },
+                {
+                  "text": "Purely random inner-ear balance drift",
+                  "is_correct": false
+                }
+              ],
+              "explanation": "That's because boundary cells treat each doorway like a clean cut between scenes. Verified study DOI: 10.1080/17470218.2011.571267. Tonight's new Short breaks down the exact brain circuit -> @AllAboutBrainOfficial",
+              "doi": "10.1080/17470218.2011.571267",
+              "recommended_offset_minutes": -210
+            }
+          }
+        }
+      ],
+      "next_optimal_slot": {
+        "utc": "2026-11-23 00:30 UTC",
+        "et": "2026-11-22 19:30 EST",
+        "kst": "2026-11-23 09:30 KST",
+        "iso_utc": "2026-11-23T00:30:00+00:00"
+      },
+      "watchdog_tasks": {
+        "due_for_public_transition": [],
+        "missing_r35_pins_eligible": [],
+        "missing_r35b_links_unlocked": [],
+        "active_freeze_protected": []
+      },
+      "ready_candidates": [],
+      "blocked_candidates": [
+        {
+          "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+          "reasons": [
+            "r85_rebuild_hold (internal_ab_or_render_test)",
+            "awaiting_r85_ceo_verification"
+          ],
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/06_publish/thumbnail_report.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        }
+      ],
+      "penalty_audit": [
+        {
+          "id": "YT-REPORT-FRESH",
+          "status": "PASS",
+          "detail": "Daily Report 2026-11-21 (0.2h old)"
+        },
+        {
+          "id": "YT-DOM-MODE",
+          "status": "PASS",
+          "detail": "LIVE_CDP_DOM clean"
+        },
+        {
+          "id": "YT-NO-SIMULTANEOUS",
+          "status": "PASS",
+          "detail": "0 simultaneous releases"
+        },
+        {
+          "id": "YT-ZERO-QUARANTINE",
+          "status": "PASS",
+          "detail": "0 quarantined episodes"
+        },
+        {
+          "id": "YT-R75-PLAYLIST-BAN",
+          "status": "PASS",
+          "detail": "0 playlists verified (R75)"
+        },
+        {
+          "id": "YT-R75-TAG-HYGIENE",
+          "status": "PASS",
+          "detail": "0 banned off-topic tech tags across active episodes"
+        },
+        {
+          "id": "YT-US-AUDIENCE",
+          "status": "PASS",
+          "detail": "US 64.4% (>= 45%), Tier-1 66.3%"
+        },
+        {
+          "id": "YT-SHORTS-FEED",
+          "status": "PASS",
+          "detail": "Shorts Feed 88.9% (>= 70%)"
+        },
+        {
+          "id": "YT-3S-HOOK",
+          "status": "WARN",
+          "detail": "3s Hook 67.3% < 70% gate (require <=12w R68-H hook, keep 1/day cap)"
+        },
+        {
+          "id": "YT-APV",
+          "status": "PASS",
+          "detail": "APV 66.9% (gate >= 60%)"
+        },
+        {
+          "id": "YT-R35B-SCHEDULED-LINK",
+          "status": "PASS",
+          "detail": "All unlocked Scheduled Shorts linked to clean Public Anchor"
+        }
+      ],
+      "block_reasons": [],
+      "warn_reasons": [
+        "YT-3S-HOOK: 3s Hook 67.3% < 70% gate (require <=12w R68-H hook, keep 1/day cap)",
+        "0 QA-ready unpublished candidates and buffer is only 2d (< 3d target) -> produce new v8 episode first"
+      ]
+    },
+    "instagram": {
+      "platform": "instagram",
+      "handle": "@allaboutbrain.official",
+      "verdict": "GO",
+      "regime": "warmup",
+      "followers_total": 0,
+      "trial_reels_eligible": false,
+      "reel_distribution_mode": "Standard Reel (Warmup 0/1000 followers)",
+      "total_uploaded_reels": 4,
+      "carousels_last_7d": 0,
+      "hours_since_last_upload": 35.88,
+      "optimal_cadence": "1 Reel / Day (warmup 4/10) @ 13:30 ET or 18:15 ET; Carousels 2-3/wk (>=18h Reel gap)",
+      "next_optimal_slot": {
+        "utc": "2026-11-21 18:30 UTC",
+        "et": "2026-11-21 13:30 EST",
+        "kst": "2026-11-22 03:30 KST",
+        "iso_utc": "2026-11-21T18:30:00+00:00"
+      },
+      "next_carousel_slot": {
+        "utc": "2026-11-23 18:30 UTC",
+        "et": "2026-11-23 13:30 EST",
+        "kst": "2026-11-24 03:30 KST",
+        "iso_utc": "2026-11-23T18:30:00+00:00"
+      },
+      "ready_reel_candidates": [
+        {
+          "project_id": "reenact_01_ainsworth_strange_situation",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-05T00:30:00+00:00",
+          "duration_sec": 147.25,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-15T00:30:00+00:00",
+          "duration_sec": 78.47,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion_r77",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-16T00:30:00+00:00",
+          "duration_sec": 76.87,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep09_maguire_london_taxi_hippocampus",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-17T00:30:00+00:00",
+          "duration_sec": 83.1,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep10_sleep_pill_brain_wash",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-20T00:30:00+00:00",
+          "duration_sec": 81.37,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/06_publish/upload_receipt.json",
+            "ceo_verify": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/ceo_verify_receipt.json"
+          },
+          "ceo_verify_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/ceo_verify_receipt.json",
+          "ceo_verified": true
+        },
+        {
+          "project_id": "v8_ep11_open_label_placebo_pain",
+          "youtube_visibility": "scheduled",
+          "youtube_scheduled_at_utc": "2026-11-21T00:30:00+00:00",
+          "duration_sec": 79.97,
+          "priority": 1,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/06_publish/upload_receipt.json",
+            "ceo_verify": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/ceo_verify_receipt.json"
+          },
+          "ceo_verify_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/ceo_verify_receipt.json",
+          "ceo_verified": true
+        },
+        {
+          "project_id": "v8_ep12_doorway_effect_memory",
+          "youtube_visibility": "scheduled",
+          "youtube_scheduled_at_utc": "2026-11-22T00:30:00+00:00",
+          "duration_sec": 77.13,
+          "priority": 1,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/06_publish/upload_receipt.json",
+            "ceo_verify": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/ceo_verify_receipt.json"
+          },
+          "ceo_verify_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/ceo_verify_receipt.json",
+          "ceo_verified": true
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "youtube_visibility": "private",
+          "youtube_scheduled_at_utc": "2026-11-16T00:30:00+00:00",
+          "duration_sec": 75.87,
+          "priority": 2,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        }
+      ],
+      "ready_card_carousels": [],
+      "ready_project_carousels": [
+        "reenact_01_ainsworth_strange_situation",
+        "v8_ep08_capgras_imposter_delusion_r77",
+        "v8_ep09_maguire_london_taxi_hippocampus",
+        "v8_ep10_sleep_pill_brain_wash",
+        "v8_ep11_open_label_placebo_pain",
+        "v8_ep12_doorway_effect_memory"
+      ],
+      "needs_bundle_export": [],
+      "penalty_audit": [
+        {
+          "id": "IG-COOLDOWN",
+          "status": "PASS",
+          "detail": "35.9h since last Reel (>= 18h)"
+        },
+        {
+          "id": "IG-INVENTORY",
+          "status": "PASS",
+          "detail": "8 Reel(s) + 6 4:5 Carousel(s) ready"
+        },
+        {
+          "id": "IG-CAROUSEL-CAP",
+          "status": "PASS",
+          "detail": "0/3 Carousels in 7d; locked 4:5 (1080x1350), >=18h Reel gap"
+        },
+        {
+          "id": "IG-ANTI-SPAM-SPEC",
+          "status": "PASS",
+          "detail": "Clean 1080x1920 bundle (0 watermark), <=90ch Line-1 hook, AI label ON, Standard Reel (Warmup 0/1000 followers)"
+        }
+      ],
+      "block_reasons": [],
+      "warn_reasons": []
+    },
+    "tiktok": {
+      "platform": "tiktok",
+      "handle": "@allaboutbrain_official",
+      "verdict": "HOLD",
+      "regime": "warmup",
+      "total_uploaded_videos": 5,
+      "hours_since_last_upload": 0.0,
+      "optimal_cadence": "1 Video / Day (warmup 5/14) @ 15:30 ET or 20:45 ET",
+      "next_optimal_slot": {
+        "utc": "2026-11-22 20:30 UTC",
+        "et": "2026-11-22 15:30 EST",
+        "kst": "2026-11-23 05:30 KST",
+        "iso_utc": "2026-11-22T20:30:00+00:00"
+      },
+      "ready_candidates": [
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "youtube_visibility": "public",
+          "duration_sec": 78.47,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion_r77",
+          "youtube_visibility": "public",
+          "duration_sec": 76.87,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep09_maguire_london_taxi_hippocampus",
+          "youtube_visibility": "public",
+          "duration_sec": 83.1,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        },
+        {
+          "project_id": "v8_ep10_sleep_pill_brain_wash",
+          "youtube_visibility": "public",
+          "duration_sec": 81.37,
+          "priority": 0,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/06_publish/upload_receipt.json",
+            "ceo_verify": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/ceo_verify_receipt.json"
+          },
+          "ceo_verify_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep10_sleep_pill_brain_wash/05_assembly/ceo_verify_receipt.json",
+          "ceo_verified": true
+        },
+        {
+          "project_id": "v8_ep11_open_label_placebo_pain",
+          "youtube_visibility": "scheduled",
+          "duration_sec": 79.97,
+          "priority": 1,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/06_publish/upload_receipt.json",
+            "ceo_verify": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/ceo_verify_receipt.json"
+          },
+          "ceo_verify_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep11_open_label_placebo_pain/05_assembly/ceo_verify_receipt.json",
+          "ceo_verified": true
+        },
+        {
+          "project_id": "v8_ep12_doorway_effect_memory",
+          "youtube_visibility": "scheduled",
+          "duration_sec": 77.13,
+          "priority": 1,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/06_publish/upload_receipt.json",
+            "ceo_verify": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/ceo_verify_receipt.json"
+          },
+          "ceo_verify_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep12_doorway_effect_memory/05_assembly/ceo_verify_receipt.json",
+          "ceo_verified": true
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "youtube_visibility": "private",
+          "duration_sec": 75.87,
+          "priority": 2,
+          "qa_evidence_paths": {
+            "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/00_project_manifest.json",
+            "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/video_autopsy_report.json",
+            "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/dynamic_episode_qa_report.json",
+            "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/posthoc_semantic_qa_report.json",
+            "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/posthoc_semantic_review.json",
+            "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/05_assembly/prosody_qa_report.json",
+            "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/03_visuals/reference_image_qa_report.json",
+            "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/06_publish/thumbnail_report.json",
+            "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion/06_publish/upload_receipt.json"
+          },
+          "ceo_verify_receipt": null,
+          "ceo_verified": false
+        }
+      ],
+      "rejected_under_60s": [],
+      "needs_bundle_export": [],
+      "penalty_audit": [
+        {
+          "id": "TT-RATE-LIMIT",
+          "status": "BLOCK",
+          "detail": "1 upload(s) in last 24h (cap 1)"
+        },
+        {
+          "id": "TT-CREATOR-REWARDS-60S",
+          "status": "PASS",
+          "detail": "7 candidate(s) >= 61.5s with clean bundle"
+        },
+        {
+          "id": "TT-SECURITY-AIGC",
+          "status": "PASS",
+          "detail": "NO VPN, AIGC disclosure ON, 4-5 niche tags (0 #fyp/#viral), halt cleanly on CAPTCHA"
+        }
+      ],
+      "block_reasons": [
+        "TikTok 24h cap reached (1/1)"
+      ],
+      "warn_reasons": []
+    }
+  },
+  "ecosystem_slots": {
+    "active": true,
+    "anchor_episode": {
+      "project_id": "v8_ep12_doorway_effect_memory",
+      "video_id": "fGxHHP9IuSE",
+      "source": "scheduled_today",
+      "youtube_slot": {
+        "utc": "2026-11-22 00:30 UTC",
+        "et": "2026-11-21 19:30 EST",
+        "kst": "2026-11-22 09:30 KST",
+        "iso_utc": "2026-11-22T00:30:00+00:00"
+      }
+    },
+    "assets": {
+      "yt_community_quiz": {
+        "asset": "YouTube Community Quiz Post",
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "video_id": "fGxHHP9IuSE",
+        "offset_from_youtube": "-3.5h (D-Day pre-heat)",
+        "window": {
+          "utc": "2026-11-21 21:00 UTC",
+          "et": "2026-11-21 16:00 EST",
+          "kst": "2026-11-22 06:00 KST",
+          "iso_utc": "2026-11-21T21:00:00+00:00"
+        },
+        "status": "SCHEDULED/DONE",
+        "detail": "community_quiz_receipt.json verified (D-Day -3.5h pre-heat)",
+        "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-quiz --project v8_ep12_doorway_effect_memory"
+      },
+      "youtube_short": {
+        "asset": "YouTube Short",
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "video_id": "fGxHHP9IuSE",
+        "window": {
+          "utc": "2026-11-22 00:30 UTC",
+          "et": "2026-11-21 19:30 EST",
+          "kst": "2026-11-22 09:30 KST",
+          "iso_utc": "2026-11-22T00:30:00+00:00"
+        },
+        "status": "SCHEDULED",
+        "warmup_hours": 14.2,
+        "playlists_count": 0,
+        "detail": "Scheduled fGxHHP9IuSE @ Slot 4 (2026-11-21 19:30 EST), R75 0 playlists"
+      },
+      "tiktok_video": {
+        "asset": "TikTok >61.5s Original-Audio Video",
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "active_queue_target": "v8_ep07_harvard_reversible_choice_paradox",
+        "duration_sec": 77.13,
+        "original_audio_only": true,
+        "aigc_disclosure_on": true,
+        "bundle_ready": true,
+        "window": {
+          "utc": "2026-11-22 20:30 UTC",
+          "et": "2026-11-22 15:30 EST",
+          "kst": "2026-11-23 05:30 KST",
+          "iso_utc": "2026-11-22T20:30:00+00:00"
+        },
+        "next_safe_queue_window": {
+          "utc": "2026-11-22 20:30 UTC",
+          "et": "2026-11-22 15:30 EST",
+          "kst": "2026-11-23 05:30 KST",
+          "iso_utc": "2026-11-22T20:30:00+00:00"
+        },
+        "status": "HOLD",
+        "detail": "Anchor v8_ep12_doorway_effect_memory (77.1s >= 61.5s, Original Audio, AIGC ON); Queue ready: v8_ep07_harvard_reversible_choice_paradox",
+        "command": "# Run upload_tiktok_video_cdp for v8_ep07_harvard_reversible_choice_paradox at 2026-11-22 15:30 EST"
+      },
+      "instagram_reel": {
+        "asset": "Instagram Clean Reel",
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "active_queue_target": "reenact_01_ainsworth_strange_situation",
+        "offset_from_youtube": ">= +18h",
+        "window": {
+          "utc": "2026-11-22 18:30 UTC",
+          "et": "2026-11-22 13:30 EST",
+          "kst": "2026-11-23 03:30 KST",
+          "iso_utc": "2026-11-22T18:30:00+00:00"
+        },
+        "active_queue_window": {
+          "utc": "2026-11-21 18:30 UTC",
+          "et": "2026-11-21 13:30 EST",
+          "kst": "2026-11-22 03:30 KST",
+          "iso_utc": "2026-11-21T18:30:00+00:00"
+        },
+        "trial_reels_eligible": false,
+        "distribution_mode": "Standard Reel (Warmup 0/1000 followers)",
+        "bundle_ready": true,
+        "status": "GO",
+        "detail": "Standard Reel (Warmup 0/1000 followers); D+1 stagger >= +18h post-YT (2026-11-22 13:30 EST); Queue ready now/next slot: reenact_01_ainsworth_strange_situation"
+      },
+      "instagram_carousel": {
+        "asset": "Instagram 4:5 (1080x1350) 6-Slide Carousel",
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "aspect_ratio_locked": "4:5 (1080x1350)",
+        "slide_count": 6,
+        "min_gap_from_reel_hours": 18.0,
+        "weekly_usage": "0/3",
+        "window": {
+          "utc": "2026-11-23 18:30 UTC",
+          "et": "2026-11-23 13:30 EST",
+          "kst": "2026-11-24 03:30 KST",
+          "iso_utc": "2026-11-23T18:30:00+00:00"
+        },
+        "status": "GO",
+        "receipt_tracked": "instagram_carousel_receipt.json",
+        "detail": "Locked 4:5 (1080x1350) (6 slides, center 3:4 safe zone), non-Reel day >= +24h post-Reel (0/3 in 7d)"
+      },
+      "daily_studio_inbox_check": {
+        "asset": "Daily Zero-Bounce Studio Inbox Check",
+        "window": {
+          "utc": "2026-11-21 14:00 UTC",
+          "et": "2026-11-21 09:00 EST",
+          "kst": "2026-11-21 23:00 KST",
+          "iso_utc": "2026-11-21T14:00:00+00:00"
+        },
+        "status": "ACTION_REQUIRED",
+        "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-inbox --scan-only",
+        "detail": "Studio comments/inbox zero-playback heart & reply routine (0 self-bounce)"
+      }
+    }
+  },
+  "guardrails": {
+    "youtube_srt_cc_upload_banned": true,
+    "youtube_auto_dubbing_burned_ass_off": true,
+    "tiktok_commercial_sound_over_60s_banned": true,
+    "instagram_carousel_aspect_ratio_locked": "4:5 (1080x1350)",
+    "instagram_notes_deprecated_excluded": true,
+    "on_hold_excluded_features": [
+      "instagram_manychat_comment_dm",
+      "instagram_story_highlights"
+    ],
+    "status": "PASS",
+    "passed": true,
+    "block_violations": [],
+    "warnings": [],
+    "checks": [
+      {
+        "rule": "youtube_srt_cc_upload_banned",
+        "status": "PASS",
+        "platform": "youtube",
+        "detail": "0 external SRT/VTT CC uploads (102pt burned-in ASS protected from double captions)"
+      },
+      {
+        "rule": "youtube_auto_dubbing_burned_ass_off",
+        "status": "PASS",
+        "platform": "youtube",
+        "detail": "Auto-Dubbing OFF lock verified for burned-in English ASS Shorts"
+      },
+      {
+        "rule": "tiktok_commercial_sound_over_60s_banned",
+        "status": "PASS",
+        "platform": "tiktok",
+        "detail": "Original Audio only for >60s Creator Rewards videos (0 commercial music risk)"
+      },
+      {
+        "rule": "instagram_carousel_aspect_ratio_locked",
+        "status": "PASS",
+        "platform": "instagram",
+        "detail": "Locked to 4:5 (1080x1350) with center 3:4 safe zone"
+      },
+      {
+        "rule": "instagram_notes_deprecated_excluded",
+        "status": "PASS",
+        "platform": "instagram",
+        "detail": "Instagram Notes excluded (deprecated Apr 2025, 0 non-follower reach)"
+      },
+      {
+        "rule": "on_hold_excluded_features",
+        "status": "PASS",
+        "platform": "instagram",
+        "detail": "On-hold features excluded: instagram_manychat_comment_dm, instagram_story_highlights"
+      }
+    ]
+  },
+  "evidence_bundle": {
+    "input_metrics_path": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/reports/daily/2026-11-21_studio_metrics.json",
+    "input_metrics_kpis": {
+      "report_date": "2026-11-21",
+      "report_age_hours": 0.24,
+      "subscribers_total": 62,
+      "realtime_48h_views": 800,
+      "viewed_pct": 67.3,
+      "apv_pct": 66.9,
+      "us_share_pct": 64.4,
+      "tier1_share_pct": 66.3,
+      "shorts_feed_pct": 88.9
+    },
+    "excluded_unparsed_metrics": [
+      "realtime_60m_views",
+      "unique_viewers",
+      "views_24h_7d_28d_cloned",
+      "watch_hours_24h_7d_28d_cloned"
+    ],
+    "r85_rebuild_hold_prefixes": [
+      "v8_ep09_maguire_london_taxi_hippocampus_r82",
+      "v8_ep10_",
+      "v8_ep11_",
+      "v8_ep12_"
+    ],
+    "projects": {
+      "reenact_01_ainsworth_strange_situation": {
+        "qa_evidence_paths": {
+          "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/00_project_manifest.json",
+          "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/video_autopsy_report.json",
+          "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/dynamic_episode_qa_report.json",
+          "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/posthoc_semantic_qa_report.json",
+          "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/posthoc_semantic_review.json",
+          "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/05_assembly/prosody_qa_report.json",
+          "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/03_visuals/reference_image_qa_report.json",
+          "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/06_publish/thumbnail_report.json",
+          "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/06_publish/upload_receipt.json"
+        },
+        "ceo_verify_receipt": null,
+        "ceo_verified": false,
+        "blocked_reasons": []
+      },
+      "v8_ep07_harvard_reversible_choice_paradox": {
+        "qa_evidence_paths": {
+          "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/00_project_manifest.json",
+          "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/video_autopsy_report.json",
+          "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/dynamic_episode_qa_report.json",
+          "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/posthoc_semantic_qa_report.json",
+          "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/posthoc_semantic_review.json",
+          "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/05_assembly/prosody_qa_report.json",
+          "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/03_visuals/reference_image_qa_report.json",
+          "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/06_publish/thumbnail_report.json",
+          "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep07_harvard_reversible_choice_paradox/06_publish/upload_receipt.json"
+        },
+        "ceo_verify_receipt": null,
+        "ceo_verified": false,
+        "blocked_reasons": []
+      },
+      "v8_ep08_capgras_imposter_delusion_r77": {
+        "qa_evidence_paths": {
+          "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/00_project_manifest.json",
+          "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/video_autopsy_report.json",
+          "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/dynamic_episode_qa_report.json",
+          "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/posthoc_semantic_qa_report.json",
+          "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/posthoc_semantic_review.json",
+          "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/05_assembly/prosody_qa_report.json",
+          "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/03_visuals/reference_image_qa_report.json",
+          "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/thumbnail_report.json",
+          "upload_receipt": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/upload_receipt.json"
+        },
+        "ceo_verify_receipt": null,
+        "ceo_verified": false,
+        "blocked_reasons": []
+      },
+      "v8_ep09_maguire_london_taxi_hippocampus_r82": {
+        "qa_evidence_paths": {
+          "manifest": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/00_project_manifest.json",
+          "video_autopsy": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/video_autopsy_report.json",
+          "dynamic_episode_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/dynamic_episode_qa_report.json",
+          "posthoc_semantic_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/posthoc_semantic_qa_report.json",
+          "posthoc_semantic_review": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/posthoc_semantic_review.json",
+          "prosody_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/05_assembly/prosody_qa_report.json",
+          "reference_image_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/03_visuals/reference_image_qa_report.json",
+          "thumbnail_qa": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/projects/v8_ep09_maguire_london_taxi_hippocampus_r82/06_publish/thumbnail_report.json"
+        },
+        "ceo_verify_receipt": null,
+        "ceo_verified": false,
+        "blocked_reasons": [
+          "r85_rebuild_hold (internal_ab_or_render_test)",
+          "awaiting_r85_ceo_verification"
+        ]
+      }
+    }
+  },
+  "execution_plan": [
+    {
+      "order_ts": "2026-11-21T10:32:49.135656+00:00",
+      "window": {
+        "utc": "2026-11-21 10:32 UTC",
+        "et": "2026-11-21 05:32 EST",
+        "kst": "2026-11-21 19:32 KST",
+        "iso_utc": "2026-11-21T10:32:49.135656+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "HOLD_AND_PRODUCE",
+      "verdict": "HOLD",
+      "target": "next_v8_episode",
+      "reason": "YouTube scheduled runway is 2d (< 3d target) and 0 QA-passed unpublished episodes remain; produce & pass QA for next v8 Short (<=88s, R68-H <=12w hook)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py diorama-episode --help"
+    },
+    {
+      "order_ts": "2026-11-21T14:00:00+00:00",
+      "window": {
+        "utc": "2026-11-21 14:00 UTC",
+        "et": "2026-11-21 09:00 EST",
+        "kst": "2026-11-21 23:00 KST",
+        "iso_utc": "2026-11-21T14:00:00+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "STUDIO_INBOX_CHECK",
+      "verdict": "GO",
+      "target": "studio_comments_inbox",
+      "reason": "Studio comments/inbox zero-playback heart & reply routine (0 self-bounce)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-inbox --scan-only"
+    },
+    {
+      "order_ts": "2026-11-21T18:30:00+00:00",
+      "window": {
+        "utc": "2026-11-21 18:30 UTC",
+        "et": "2026-11-21 13:30 EST",
+        "kst": "2026-11-22 03:30 KST",
+        "iso_utc": "2026-11-21T18:30:00+00:00"
+      },
+      "platform": "instagram",
+      "action_type": "UPLOAD_IG_REEL",
+      "verdict": "GO",
+      "target": "reenact_01_ainsworth_strange_situation",
+      "reason": "Staggered US prime Reel (Standard Reel (Warmup 0/1000 followers)); YT state=public",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 -c \"import asyncio; from pathlib import Path; from pipeline.studio.instagram_uploader import upload_instagram_reel_cdp; p=Path('BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/06_publish/multi_platform_bundle'); print(asyncio.run(upload_instagram_reel_cdp(video_path=p/'video_clean.mp4', cover_path=p/'cover_9x16.png', caption=(p/'reels_caption.txt').read_text(encoding='utf-8'), handle='allaboutbrain.official', receipt_path=p.parent/'instagram_upload_receipt.json')))\""
+    },
+    {
+      "order_ts": "2026-11-23T18:30:00+00:00",
+      "window": {
+        "utc": "2026-11-23 18:30 UTC",
+        "et": "2026-11-23 13:30 EST",
+        "kst": "2026-11-24 03:30 KST",
+        "iso_utc": "2026-11-23T18:30:00+00:00"
+      },
+      "platform": "instagram",
+      "action_type": "PUBLISH_IG_CARDS",
+      "verdict": "CONDITIONAL_GO",
+      "target": "reenact_01_ainsworth_strange_situation",
+      "reason": "4:5 (1080x1350) 6-Slide Carousel ready (non-Reel day >=+24h post-Reel, >=18h gap; 0/3 in 7d)",
+      "command": "# Publish 4:5 (1080x1350) 6-slide carousel in BCI_Shorts_Channel/projects/reenact_01_ainsworth_strange_situation/06_publish/ig_carousel/"
+    }
+  ]
+}

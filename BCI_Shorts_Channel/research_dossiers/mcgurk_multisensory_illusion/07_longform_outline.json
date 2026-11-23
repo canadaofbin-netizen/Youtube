@@ -1,18 +1,37 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
   "shorts_extract": {
-    "hook": "How an accidental 1976 video dub ('BA' sound + 'GA' lips = 'DA'!) proved 98% of human brains hear with their eyes.",
-    "core_experiment": "McGurk & MacDonald (1976 Nature, N=103) + Beauchamp et al. (2010) causal TMS disruption of posterior Superior Temporal Sulcus.",
-    "twist": "Why knowing the trick gives zero immunity, why lips lead sound by 120 ms, and why individual/cultural reliance rises in noise."
+    "hook": "Why do adults swear they can HEAR better at a loud dinner table the second they put their glasses on? A 1976 dubbing accident caught your eyes rewriting your ears.",
+    "core_experiment": "McGurk & MacDonald (1976 Nature, N=103: 59% kids -> 98% adults hear 'DA') + Nath & Beauchamp (2012) temporal lobe STS + Meijer & Noppeney (2023).",
+    "twist": "Knowing the trick gives zero immunity — covering the screen flips 'DA' right back into 'BA' because lips lead sound by 100 milliseconds."
   },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "50-year-old adult sliding a white card over half their glasses with shocked expression between BA and DA",
+    "right_cyan_brain": "3D translucent glass brain with glowing #27D8FF visual cortex and cochlea converging into temporal lobe and auditory cortex",
+    "badge_text": "98% HEAR PHANTOM DA"
+  },
+  "r75_clean_seed_tags": [
+    "mcgurk effect",
+    "auditory illusion",
+    "multisensory integration",
+    "speech perception",
+    "temporal lobe",
+    "hearing science",
+    "sensory illusions",
+    "brain facts",
+    "psychology",
+    "shorts"
+  ],
   "chapters": [
     {
       "n": 1,
-      "title": "The 1976 Dubbing Room Accident at Surrey",
+      "title": "Guildford 1976: Scolding the Technician Over a Perfect Tape",
       "beats": [
-        "Asking for 'ba' sound over 'ga' lips",
-        "Why both scientists blamed the technician until they shut their eyes",
-        "98% of adults hear phantom 'DA'"
+        "Dubbing 'ba-ba' sound onto 'ga-ga' lips",
+        "Why shutting their eyes stunned McGurk and MacDonald"
       ],
       "scene_ids": [
         "S1"
@@ -22,79 +41,77 @@
         "symptom"
       ],
       "new_shots_needed": [
-        "monitor + speaker + occlusion paddle"
+        "wood-trimmed TV, loudspeaker & sliding white paddle"
       ]
     },
     {
       "n": 2,
-      "title": "Bayesian Best-Guess & The Reverse 'BAGBA' Flip",
+      "title": "59% of Kids vs 98% of Adults: Growing Into Visual Listeners",
       "beats": [
-        "Why sealed lips rule out pure 'ga'",
-        "Preschoolers (59%) to adults (98%): learning to read faces"
+        "103-person Nature age curve rising to 98% in adulthood",
+        "The reverse 'BAGBA' proof when sealed lips meet 'ga' audio"
       ],
       "scene_ids": [
-        "S1",
-        "S2"
+        "S1"
       ],
       "reuse_shorts_roles": [
-        "pivot",
-        "step1"
+        "pivot"
       ],
       "new_shots_needed": [
-        "age-curve placard"
+        "59% -> 81% -> 98% comparison chart"
       ]
     },
     {
       "n": 3,
-      "title": "2010 Causal Proof: Unplugging pSTS for 100 Milliseconds",
+      "title": "Inside the Temporal-Lobe Mixing Board (2012–2026)",
       "beats": [
-        "120-ms visual lip sneak preview",
-        "Beauchamp's TMS pulse turns 'DA' right back into 'BA'"
+        "100-ms visual lip sneak preview ahead of vocal cords",
+        "Nath & Beauchamp STS fMRI + Meijer & Noppeney (2023) confidence"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "crisis",
-        "step2",
-        "breakthrough"
+        "step1",
+        "step2"
       ],
       "new_shots_needed": [
-        "figure-eight TMS coil over pSTS"
+        "3D visual + cochlear convergence in temporal lobe"
       ]
     },
     {
       "n": 4,
-      "title": "Individual Differences & Video-Sync Lag",
+      "title": "Why Willpower Fails Yet Attention Load Matters",
       "beats": [
-        "Why some brains fuse 95% and others 20%",
-        "Why out-of-sync movie dubbing scrambles comprehension"
+        "Zero immunity even after 1,000 replays",
+        "Alsius et al. (2005): when multitasking breaks audiovisual binding"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "failure"
+        "crisis"
       ],
       "new_shots_needed": [
-        "temporal binding window graph"
+        "eyes-open vs eyes-closed instant flip"
       ]
     },
     {
       "n": 5,
-      "title": "Your Built-In 15-dB Lip-Reading Superpower",
+      "title": "Your Everyday Restaurant Superpower: Glasses + Light",
       "beats": [
-        "Why putting on glasses helps you hear at a loud party",
-        "Well-lit face-to-face communication"
+        "Why putting on glasses at an outdoor cafe boosts speech clarity",
+        "Never calling out key numbers with your back turned"
       ],
       "scene_ids": [
-        "S4"
+        "S2"
       ],
       "reuse_shorts_roles": [
+        "breakthrough",
         "conclusion"
       ],
       "new_shots_needed": [
-        "sunlit cafe conversation"
+        "sunlit sidewalk cafe glasses-on conversation"
       ]
     }
   ]

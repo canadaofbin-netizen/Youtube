@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "cosmides_tooby_cheater_detection",
   "topic": "Cosmides & Tooby (1989): Why Humans Flunk Abstract Logic (20%) Yet Catch Free-Riders Instantly (75%)!",
   "pillar": "brain_basics",
@@ -52,11 +52,42 @@
     },
     {
       "fact": "Then Cosmides ran the **ULTIMATE killer experiment against formal logic (Switched Social Contract, Experiments 3 & 4, SRC1)**: *'If a man **pays the cost** (has a facial tattoo), then the tribe **must give him cassava root**'* — mathematically, formal logic *modus tollens* says flip **P & not-Q**. Instead, **~71% of humans flipped NOT-P ('No Tattoo') and Q ('Eats Cassava Root')** — VIOLATING formal propositional logic to catch the **Benefit-Without-Cost Cheater**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Cheater-Rule Card Flips",
+        "percent": 71.0,
+        "unit": "%",
+        "doi": "10.1016/0010-0277(89)90023-1",
+        "source_citation": "Cosmides (1989, Cognition)"
+      }
     },
     {
       "fact": "Thirteen years later (**Stone, Cosmides, Tooby, Kroll & Knight, 2002 *PNAS***), bilateral **ventromedial/orbitofrontal + amygdala** injury patient **R.M.** provided stunning neurological double-dissociation: R.M. scored **70% normal** on identically structured **Safety/Precaution 4-card rules** (*'If you work with toxic TB patients, you must wear a surgical mask'*), yet plunged to **39% impaired** specifically on **Social-Contract Cheater rules**.",
-      "source_id": "SRC5"
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Patient R.M. Logic Dissociation",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Safety Precaution",
+            "value": 70.0,
+            "unit": "%"
+          },
+          {
+            "label": "Social Contract",
+            "value": 39.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1073/pnas.122352699",
+        "source_citation": "Stone, Cosmides, Tooby et al. (2002, PNAS)"
+      }
     },
     {
       "fact": "Balanced scientific debate (**Cheng & Holyoak 'Pragmatic Permission Schemas'; Sperber & Girotti relevance critique; Corning SRC3**): critics argue general **deontic permission/obligation rules** and conversational relevance contribute alongside evolutionary social-exchange pressures — yet everyone agrees **human reasoning rockets from ~20% to ~75% the moment an abstract rule becomes 'Who took the benefit without paying the cost?'**.",
@@ -116,5 +147,37 @@
     "diorama_51_cosmides_tooby_cheater_detection"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/0010-0277(89)90023-1",
+  "three_layer_formula": {
+    "everyday_problem": "Glazing over completely while reading an abstract software license or tax form — yet spotting within **0.4 seconds** when one coworker takes shared project credit after skipping every weekend shift.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/0010-0277(89)90023-1",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/0010-0277(89)90023-1"
+      ],
+      "summary": "Leda Cosmides (1989). The logic of social exchange: Has natural selection shaped how humans reason? Studies with the Wason selection task. Cognition."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.48160/18532330me8.178",
+      "source_ids": [
+        "SRC4"
+      ],
+      "dois": [
+        "10.48160/18532330me8.178"
+      ],
+      "summary": "Julio Muñoz Rubio (2018). John Tooby y Leda Cosmides: psicología evolutiva y falsa interdisciplina. Metatheoria – Revista de Filosofía e Historia de la Ciencia."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "People only solve the Drinking-Age 4-card puzzle because they've visited bars and seen ID checks in real life.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

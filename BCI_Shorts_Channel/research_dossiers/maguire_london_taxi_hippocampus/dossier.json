@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "maguire_london_taxi_hippocampus",
   "topic": "Eleanor Maguire (2000): London Black-Cab Drivers & 'The Knowledge' — Memorizing 25,000 Streets Physically Grows the Hippocampus!",
   "pillar": "brain_health",
@@ -51,12 +51,44 @@
       "source_id": "SRC1"
     },
     {
-      "fact": "Maguire crushed **BOTH** critiques in two legendary follow-ups. First (**Maguire, Woollett & Spiers, 2006 *Hippocampus***), she scanned **London Red Bus Drivers** — exact same London traffic, hours, and road stress, EXCEPT buses follow **repetitive fixed routes**. Result: **taxi drivers STILL had significantly larger posterior hippocampi than bus drivers**.",
-      "source_id": "SRC5"
+      "fact": "Maguire crushed **BOTH** critiques in two legendary follow-ups. First (**Maguire, Woollett & Spiers, 2006 *Hippocampus***), she scanned **18 licensed London taxi drivers** against **17 London red bus drivers** — exact same London traffic, hours, and road stress, EXCEPT buses follow **repetitive fixed routes**. Result: **taxi drivers STILL had significantly larger posterior hippocampi and smaller anterior hippocampi than bus drivers**, while **bus drivers scored 21.3 points (42nd percentile) vs taxi drivers' 17.3 points (14th percentile) on delayed recall of the Rey-Osterrieth Complex Figure** (`F(1,33) = 6.08, p = 0.02`).",
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "New Shape Recall Score",
+        "unit": "pts",
+        "bars": [
+          {
+            "label": "Bus Drivers",
+            "value": 21.3,
+            "unit": "pts"
+          },
+          {
+            "label": "Taxi Cabbies",
+            "value": 17.3,
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1002/hipo.20233",
+        "source_citation": "Maguire, Woollett & Spiers (2006)"
+      }
     },
     {
-      "fact": "Second (**Woollett & Maguire, 2011 *Current Biology***), she scanned **79 aspiring trainees BEFORE starting 'The Knowledge'** and **4 years later**: at Day 1, future qualifiers, non-qualifiers, and controls had **IDENTICAL hippocampi** — 4 years later, **ONLY the trainees who studied and PASSED 'The Knowledge' physically grew their posterior hippocampi**.",
-      "source_id": "SRC1"
+      "fact": "Second (**Woollett & Maguire, 2011 *Current Biology***), she scanned **79 aspiring trainees BEFORE starting 'The Knowledge'** and **4 years later**: at Day 1, future qualifiers, non-qualifiers, and controls had **IDENTICAL hippocampi** — 4 years later, **ONLY the 39 trainees who studied and PASSED 'The Knowledge' physically grew their posterior hippocampi**.",
+      "source_id": "SRC7",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "dot_array",
+        "title": "Trainees Who Grew Map",
+        "highlighted_k": 39,
+        "total_n": 79,
+        "unit": "trainees",
+        "doi": "10.1016/j.cub.2011.11.018",
+        "source_citation": "Woollett & Maguire (2011)"
+      }
     },
     {
       "fact": "Look at the **hidden biological trade-off** inside both Maguire (2000, SRC1) and (2006): while taxi drivers' **POSTERIOR** hippocampi expanded, their **ANTERIOR** hippocampi were **slightly smaller** than controls (and bus drivers beat cabbies on learning brand-new complex visual figures!) — showing adult brain plasticity has real **real-estate trade-offs**, AND raising urgent questions today as turn-by-turn **smartphone GPS** idles our biological mental maps (Dahmani & Bohbot 2020).",
@@ -123,5 +155,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My bet: turn-by-turn GPS makes us lost — London cabbies grew memory hubs by navigating streets raw. Do you drive by memory or follow blue lines everywhere?"
+  "offcenter_creator_bet": "My bet: turn-by-turn GPS makes us lost — London cabbies grew memory hubs by navigating streets raw. Do you drive by memory or follow blue lines everywhere?",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1073/pnas.070039597",
+  "three_layer_formula": {
+    "everyday_problem": "Realizing you need **turn-by-turn GPS** to drive to a grocery store you've visited 30 times — while London cabbies carry **25,000 streets** inside an enlarged posterior hippocampus.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1073/pnas.070039597",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1073/pnas.070039597"
+      ],
+      "summary": "Eleanor A. Maguire, David G. Gadian, Ingrid S. Johnsrude, Catriona D. Good et al. (2000). Navigation-related structural change in the hippocampi of taxi drivers. Proceedings of the National Academy of Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1101/431155",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1101/431155"
+      ],
+      "summary": "Steven M. Weisberg, Nora S. Newcombe, Anjan Chatterjee (2018). Everyday taxi drivers: Do better navigators have larger hippocampi?"
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Your brain stops growing or structurally remodeling once you turn 25.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: turn-by-turn GPS makes us lost — London cabbies grew memory hubs by navigating streets raw. Do you drive by memory or follow blue lines everywhere?"
+  }
 }

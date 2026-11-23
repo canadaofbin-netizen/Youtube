@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "ledoux_dual_fear_pathways",
   "topic": "Joseph LeDoux (1994-2000): The 12-Millisecond 'Low Road' vs 'High Road' to the Amygdala — & Why Fear != Freeze",
   "pillar": "brain_basics",
@@ -48,7 +48,19 @@
     },
     {
       "fact": "Road 2 — The 'High Road' (thalamo-cortico-amygdala route): the exact same thalamic signal simultaneously travels up to primary and association sensory cortex for high-resolution object recognition, arriving at the amygdala roughly TWICE as late (~24-40+ ms in rodents; ~150-300 ms in human visual identification) to either confirm 'SNAKE!' or send a prefrontal/cortical 'Relax, it's just a curved stick!' brake.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "exp_decay",
+        "title": "Cortical High-Road Threat Brake",
+        "concept": "Thalamo-Cortical Amygdala Gating",
+        "x_label": "Cortical Arrival",
+        "y_label": "Amygdala Alarm",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Evolution favored false alarms cleanly: jumping at 100 harmless sticks costs two calories; waiting 200 extra milliseconds to admire one real viper's scales costs your life.",
@@ -124,5 +136,37 @@
     "diorama_71_ledoux_dual_fear_pathways"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "anxiety",
+  "primary_doi": "10.1146/annurev.ps.46.020195.001233",
+  "three_layer_formula": {
+    "everyday_problem": "Flinching violently at a dark coat hanging on your bedroom door at midnight — then laughing 300 milliseconds later when your visual cortex finishes loading 'bathrobe'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1146/annurev.ps.46.020195.001233",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1146/annurev.ps.46.020195.001233"
+      ],
+      "summary": "Joseph E. LeDoux (1995). Emotion: Clues from the Brain. Annual Review of Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.1093/cercor/bhae394",
+      "source_ids": [
+        "SRC6"
+      ],
+      "dois": [
+        "10.1093/cercor/bhae394"
+      ],
+      "summary": "Kevin S LaBar (2025). Fear, learning, and the amygdala: a personal reflection in honor of Joseph LeDoux. Cerebral Cortex."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "You jump backward BECAUSE you first consciously saw a scary shape and felt afraid.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

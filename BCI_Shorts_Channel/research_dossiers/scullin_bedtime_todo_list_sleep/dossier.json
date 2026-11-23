@@ -1,0 +1,188 @@
+{
+  "schema_version": 2,
+  "slug": "scullin_bedtime_todo_list_sleep",
+  "topic": "Scullin et al. (2018) & Ansfield et al. (1996): Why Trying Harder to Fall Asleep Backfires — and How a 5-Minute Bedtime To-Do List Cuts Sleep Onset by 9 Minutes",
+  "pillar": "brain_basics",
+  "everyday_domain": "sleep",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Combines the 1996 Virginia marching-music sleep-urgency setup and the 2018 Baylor overnight polysomnography 5-minute paper writing test with a 3D translucent glass brain cutaway of hippocampal prospective-memory loops and prefrontal cognitive offloading.",
+  "primary_doi": "10.1037/xge0000374",
+  "primary_case": {
+    "title": "Baylor Polysomnography Bedtime To-Do List Offloading & Virginia Ironic Sleep-Urgency Experiments",
+    "year": 2018,
+    "place": "Sleep Neuroscience and Cognition Laboratory, Baylor University (Waco, Texas) & University of Virginia",
+    "summary": "Ansfield, Wegner & Bowser (1996) proved that trying to fall asleep as fast as possible under mental load ironically delays sleep onset, while Scullin et al. (2018) wired 57 young adults to overnight polysomnography and showed a 5-minute specific bedtime to-do list cut sleep onset from 25.1 minutes (completed list) down to 15.8 minutes.",
+    "people": [
+      {
+        "name": "Michael K. Scullin & Donald L. Bliwise",
+        "role": "Baylor University & Emory sleep neuroscientists (J. Exp. Psychol.: General, 2018)",
+        "source_id": "SRC1",
+        "bio": "Monitored 57 healthy young adults with gold-standard overnight polysomnography to test whether 5 minutes of bedtime to-do writing accelerates or delays objective sleep onset."
+      },
+      {
+        "name": "Matthew E. Ansfield & Daniel M. Wegner",
+        "role": "University of Virginia psychologists (Behaviour Research and Therapy, 1996)",
+        "source_id": "SRC2",
+        "bio": "Demonstrated ironic sleep urgency by instructing sleepers to fall asleep as quickly as possible while John Philip Sousa brass marches played."
+      },
+      {
+        "name": "Annika Boldt & Sam J. Gilbert",
+        "role": "UCL Institute of Cognitive Neuroscience fMRI researchers (J. Neuroscience, 2022)",
+        "source_id": "SRC5",
+        "bio": "Mapped prefrontal and parietal representations of metacognitive monitoring and external reminder offloading for delayed prospective intentions."
+      }
+    ]
+  },
+  "people": [
+    {
+      "name": "Michael K. Scullin & Donald L. Bliwise",
+      "role": "Baylor University & Emory sleep neuroscientists (J. Exp. Psychol.: General, 2018)",
+      "bio": "Monitored 57 healthy young adults with overnight polysomnography comparing 5-minute bedtime to-do lists vs completed-activity lists."
+    },
+    {
+      "name": "Matthew E. Ansfield & Daniel M. Wegner",
+      "role": "University of Virginia psychologists (Behaviour Research and Therapy, 1996)",
+      "bio": "Proved that urgent conscious effort to fall asleep under mental load triggers ironic alertness monitoring."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "Nodding off effortlessly on the living-room couch yet staring wide-awake at the bedroom ceiling the moment you try hard to fall asleep.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/xge0000374",
+      "source_ids": [
+        "SRC1",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1037/xge0000374",
+        "10.1016/0005-7967(96)00031-9"
+      ],
+      "summary": "Scullin et al. (2018, JEP: General) 5-minute bedtime to-do vs completed list polysomnography experiment paired with Ansfield, Wegner & Bowser (1996) ironic sleep-urgency marching-music experiment."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1523/JNEUROSCI.1326-21.2022",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1523/JNEUROSCI.1326-21.2022"
+      ],
+      "summary": "Boldt & Gilbert (2022, Journal of Neuroscience) human fMRI decoding of prefrontal metacognitive monitoring and external cognitive offloading of prospective memory intentions."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Most people assume forcing your eyes shut and trying harder at midnight helps you fall asleep faster.",
+    "open_verdict_question": "Before lights out tonight, would writing tomorrow's chores quiet your mind or wind you up even more?",
+    "offcenter_creator_bet": "My bet: 5-minute paper lists win by 9m — does writing chores calm your mind or stress you out?"
+  },
+  "offcenter_creator_bet": "My bet: 5-minute paper lists win by 9m — does writing chores calm your mind or stress you out?",
+  "core_facts": [
+    {
+      "fact": "In Ansfield, Wegner & Bowser (1996 Behaviour Research and Therapy), sleepers instructed to fall asleep as quickly as possible while listening to high-load John Philip Sousa brass marching music took significantly longer to fall asleep than participants told to fall asleep whenever they desired.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "exp_growth",
+        "title": "Sleep Urgency Backfire",
+        "concept": "Ironic Mental Control Under Load",
+        "x_label": "Effort to Force Sleep",
+        "y_label": "Minutes Lying Awake",
+        "doi": "",
+        "source_citation": ""
+      }
+    },
+    {
+      "fact": "Under Wegner's (1994 Psychological Review) ironic process model, deliberately trying to force sleep under mental stress launches an automatic monitoring loop that continuously checks for wakefulness, jolting attention back online.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Espie et al. (2006 Sleep Medicine Reviews) showed along the attention-intention-effort pathway that bedroom clock-checking turns effortless sleep into performance anxiety that blocks automatic sleep onset.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In Scullin, Krueger, Ballard, Pruett & Bliwise (2018 Journal of Experimental Psychology: General), 57 healthy young adults ages 18 to 30 spent a weeknight in Baylor University's controlled sleep lab monitored by overnight polysomnography.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Five minutes before lights out, Baylor participants were randomly assigned to write either a detailed to-do list of upcoming tasks for the next few days or a list of completed activities from the previous few days.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Polysomnography recordings revealed that completed-activity writers took 25.1 minutes (25.09 minutes, roughly 25 minutes) to fall asleep, whereas bedtime to-do list writers fell asleep in 15.8 minutes (15.82 minutes, between 15 and 16 minutes) — over 9 minutes faster.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Polysomnography Sleep Onset",
+        "unit": "m",
+        "bars": [
+          {
+            "label": "Done List (5m)",
+            "value": 25.1,
+            "unit": "m"
+          },
+          {
+            "label": "To-Do List (5m)",
+            "value": 15.8,
+            "unit": "m"
+          }
+        ],
+        "doi": "10.1037/xge0000374",
+        "source_citation": "Scullin et al. (2018)"
+      }
+    },
+    {
+      "fact": "Across Baylor's to-do list group, writing more specific and concrete future tasks predicted even faster objective sleep onset, whereas writing more items about past completed activities did not shorten sleep latency.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Boldt & Gilbert (2022 Journal of Neuroscience) and Risko & Gilbert (2016 Trends in Cognitive Sciences) demonstrated that unfulfilled prospective intentions sustain prefrontal and hippocampal monitoring until offloaded onto a trusted external checklist.",
+      "source_id": "SRC5"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Writing tomorrow's stressful chores on paper for 5 minutes right before lights out cut objective polysomnography sleep onset from 25.1 minutes down to 15.8 minutes.",
+      "why_surprising": "People fear thinking about tomorrow's work before bed will keep them up, yet offloading onto paper silences the brain's reminder loop.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Trying as hard as possible to fall asleep fast while brass marching music plays makes healthy sleepers stay awake significantly longer than not trying at all.",
+      "why_surprising": "Sleep is an automatic release, so conscious effort triggers ironic wakefulness monitoring.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "The more specific and detailed items Baylor volunteers wrote on their bedtime to-do list, the faster their EEG brain waves crossed into sleep.",
+      "why_surprising": "Specificity gives your hippocampus and prefrontal cortex permission to stop rehearsing open loops.",
+      "source_id": "SRC1",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Forcing your eyes shut and trying harder at midnight helps you fall asleep faster.",
+      "truth": "Urgent sleep effort under stress activates an ironic wakefulness monitor that checks whether you are still awake and blocks de-arousal.",
+      "source_id": "SRC2"
+    },
+    {
+      "myth": "Writing down tomorrow's unfinished chores before bed will stress you out and ruin sleep.",
+      "truth": "In overnight polysomnography, 5 minutes of concrete to-do offloading cut sleep latency by more than 9 minutes compared with journaling completed tasks.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Falling asleep effortlessly on the living-room sofa during a movie, then staring wide-awake at the ceiling the instant you climb into bed.",
+    "Waking at 2 a.m. mentally repeating three unscheduled errands so you do not forget them in the morning."
+  ],
+  "shorts_projects": [
+    "v8_ep06_bedtime_todo_list_sleep"
+  ]
+}

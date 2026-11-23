@@ -162,18 +162,19 @@ def build_100_video_2_per_day_schedule(
 def upload_and_schedule_ready_batch(
     visibility: str = "scheduled",
     dry_run: bool = False,
-    pin_comments: bool = True,
+    pin_comments: bool = False,
     cdp_port: int = DEFAULT_CDP_PORT,
     allow_legacy_v4: bool = False,
     auto_link: bool = True,
-    assign_playlists: bool = True,
+    assign_playlists: bool = False,
     *,
     force_legacy_psych: bool = False,
 ) -> dict[str, Any]:
     """
     Uploads all v5-ready projects in staging_queue.json to YouTube Studio as Private/Scheduled
-    (releasing Public at 2 videos/day: 12:00 PM ET and 08:00 PM ET), links Related Video + Playlist,
-    and pins their DOI comments. Strictly skips already-live videos (R34) and legacy v4 videos (R18-V5).
+    (releasing Public at 2 videos/day: 12:00 PM ET and 08:00 PM ET), links Related Video,
+    and stages prepared DOI comments locally (never opening watch?v= on Scheduled videos per R75).
+    Strictly skips already-live videos (R34) and legacy v4 videos (R18-V5).
     """
     if not force_legacy_psych:
         raise RuntimeError(
@@ -234,7 +235,7 @@ def upload_and_schedule_ready_batch(
                 dry_run=(dry_run or quota_exhausted),
                 burn_first_frame=False,
                 auto_link=auto_link,
-                assign_playlist=assign_playlists,
+                assign_playlist=False,
             )
             if receipt.get("quota_limit_reached"):
                 quota_exhausted = True
@@ -251,15 +252,13 @@ def upload_and_schedule_ready_batch(
             item["shorts_url"] = receipt.get("shorts_url")
             results.append(receipt)
 
+            # R75: NEVER call post_and_pin_comment on Scheduled uploads (causes AVD=0.0s self-bounce);
+            # only stage prepared_comment.json locally so studio-watchdog can pin post-seed.
             if pin_comments:
                 try:
-                    pinner.post_and_pin_comment(
-                        project_id=pid,
-                        video_id=receipt.get("video_id"),
-                        dry_run=(dry_run or quota_exhausted),
-                    )
+                    pinner.stage_prepared_comment(pid)
                 except Exception as pe:
-                    print(f"[Batch100Scheduler] Warning: DOI comment pin deferred for {pid}: {pe}")
+                    print(f"[Batch100Scheduler] Warning: DOI comment staging deferred for {pid}: {pe}")
 
         except Exception as e:
             print(f"[Batch100Scheduler] Error uploading {pid}: {e}")
@@ -306,7 +305,8 @@ def main() -> int:
     summary = upload_and_schedule_ready_batch(
         visibility=args.visibility,
         dry_run=args.dry_run,
-        pin_comments=True,
+        pin_comments=False,
+        assign_playlists=False,
         allow_legacy_v4=args.allow_legacy_v4,
         force_legacy_psych=args.force_legacy_psych,
     )

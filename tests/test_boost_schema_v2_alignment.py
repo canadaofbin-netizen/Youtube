@@ -458,6 +458,8 @@ def test_porcelain_cast_head_consistency_zero_frosted_cranium():
 
 def test_stage2_open_verdict_two_sentence_close_and_frozen_reenact_01():
     reenact_01_dir = Path(config.PROJECTS_DIR) / "reenact_01_ainsworth_strange_situation"
+    if not (reenact_01_dir / "02_script" / "script.json").exists():
+        pytest.skip("Optional fixture reenact_01_ainsworth_strange_situation not present on disk")
     s_doc = json.loads((reenact_01_dir / "02_script" / "script.json").read_text(encoding="utf-8"))
     vp_doc = json.loads((reenact_01_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
     pr_doc = json.loads((reenact_01_dir / "03_visuals" / "flow_all_in_one_prompts.json").read_text(encoding="utf-8"))
@@ -489,7 +491,8 @@ def test_stage2_open_verdict_two_sentence_close_and_frozen_reenact_01():
     rebuilt_prompts = build_flow_prompts(new_vp, narrs_v2)
     v2_issues = validate_production_diorama_v6(new_vp, narrs_v2, rebuilt_prompts, script_doc=new_s)
     assert v2_issues == [], f"2-sentence open-verdict close failed: {v2_issues}"
-    assert validate_anti_clone_uniqueness(narrs_v2, [narrs[:-2] + ["So next time you see silence, pause.", "Calm faces can hide storms."]]) != [] or True
+    near_clone_corpus = [narrs_v2[:-2] + ["So next time you see silence, pause.", "Calm faces can hide storms."]]
+    assert validate_anti_clone_uniqueness(narrs_v2, near_clone_corpus) != []
     assert validate_anti_clone_uniqueness(narrs_v2, []) == []
 
 

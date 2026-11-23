@@ -1,22 +1,32 @@
 {
+  "visual_mode": "HYBRID",
   "links": [
     {
+      "role": "symptom",
       "region": "insula",
-      "plain": "bodily pain gauge",
-      "function": "Drops visceral threat and heat-pain intensity sharply when a trusted spouse's hand is held.",
-      "narration_bridge": "Deep inside, the insula, the body pain gauge, turns down the burn."
+      "plain": "body-feeling center",
+      "function": "Drops visceral threat and heat-pain intensity sharply when a trusted spouse's hand is clasped.",
+      "scene_id": "S1",
+      "narration_bridge": "Deep on each side, your body-feeling center — the insula — turns down the raw sting.",
+      "r78_circuit_state": "silenced"
     },
     {
+      "role": "pivot",
       "region": "anterior cingulate cortex",
-      "plain": "distress alarm",
-      "function": "Quiets emotional pain suffering as inter-brain alpha-mu waves lock into sync.",
-      "narration_bridge": "Along the midline, the anterior cingulate cortex, the distress alarm, softens."
+      "plain": "conflict detector",
+      "function": "Quiets emotional pain distress as 8–12 Hz alpha-mu waves lock into sync across both skulls.",
+      "scene_id": "S1",
+      "narration_bridge": "Along the midline, your conflict detector — the anterior cingulate cortex — softens its alarm.",
+      "r78_circuit_state": "silenced"
     },
     {
+      "role": "breakthrough",
       "region": "prefrontal cortex",
-      "plain": "solo effort brake",
-      "function": "Spares expensive solo threat-regulation fuel when social baseline safety is restored by touch.",
-      "narration_bridge": "Up front, the prefrontal cortex, the solo brake, stops burning emergency fuel."
+      "plain": "reality-checker",
+      "function": "Stops burning expensive solo emergency fuel once partner touch restores social baseline safety.",
+      "scene_id": "S2",
+      "narration_bridge": "Behind your forehead, your reality-checker — the prefrontal cortex — spares solo threat fuel.",
+      "r78_circuit_state": "silenced"
     }
   ]
 }

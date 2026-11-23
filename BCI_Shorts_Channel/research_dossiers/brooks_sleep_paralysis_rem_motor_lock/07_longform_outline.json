@@ -1,0 +1,139 @@
+{
+  "target_minutes": 10,
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "45-year-old adult lying peacefully on crisp sunlit white morning pillow with wide-awake calm eyes looking down toward still hand on sheet",
+    "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan waking motor cortex and glowing amber-crimson brainstem safety brake switch",
+    "badge_text": "DREAM BRAKE ON"
+  },
+  "r75_clean_seed_tags": [
+    "sleep paralysis science",
+    "rem sleep muscle lock",
+    "why cant i move waking up",
+    "brainstem sleep switch",
+    "sleep neuroscience",
+    "john peever rem sleep",
+    "healthy sleep habits",
+    "adult sleep health",
+    "brain mysteries explained"
+  ],
+  "shorts_extract": {
+    "hook": "Why your mind can wake up in bright morning light while your body's dream brake stays locked for ten seconds.",
+    "core_experiment": "Brooks & Peever's (2012) Toronto dual GABA + glycine lock discovery + Mainieri's (2021) 93.8% atonia EEG capture.",
+    "twist": "Fighting the lock scrambles your body map — relaxing and wiggling one toe clicks the safety brake cleanly off."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "chapter": 1,
+      "title": "Awake in Morning Sunlight: The 10-Second Handoff Glitch",
+      "beats": [
+        "Eyes open, room bright, body parked in neutral",
+        "Why every healthy brain paralyzes itself nightly"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook"
+      ],
+      "new_shots_needed": [
+        "Sunlit linen bedroom peaceful wake-up"
+      ]
+    },
+    {
+      "n": 2,
+      "chapter": 2,
+      "title": "Toronto 2012: Solving the 40-Year Glycine Mystery",
+      "beats": [
+        "Why blocking glycine alone failed",
+        "Discovering the GABAA + GABAB + glycine triple lock"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "Three-latch safety clutch demonstration"
+      ]
+    },
+    {
+      "n": 3,
+      "chapter": 3,
+      "title": "Paris 2021 Spectral EEG: 93.8% Muscle Lock Meets Awake Cortex",
+      "beats": [
+        "Mainieri et al. 3-second mini-epochs",
+        "Why diaphragm breathing stays 100% safe"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Dual-trace bedside sleep wave close-up"
+      ]
+    },
+    {
+      "n": 4,
+      "chapter": 4,
+      "title": "Why Straining Backfires: Motor-Parietal Feedback Mismatch",
+      "beats": [
+        "Jalal & Ramachandran 2017 body-map loop",
+        "How straining triggers needless amygdala alarm"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D motor cortex -> brainstem -> parietal cutaway"
+      ]
+    },
+    {
+      "n": 5,
+      "chapter": 5,
+      "title": "The Midlife Flip Side: Why a Strong Dream Brake Protects Brain Health",
+      "beats": [
+        "REM Sleep Behavior Disorder after 50",
+        "Why doctors value intact REM atonia"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Clinician reviewing clean sleep trace"
+      ]
+    },
+    {
+      "n": 6,
+      "chapter": 6,
+      "title": "The Calm Toe-Wiggle Exit & Side-Sleeping Habits",
+      "beats": [
+        "Relaxing jaw + slow belly breath + single toe wiggle",
+        "Side-sleeping after travel or shift work"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Sunlit morning park walk"
+      ]
+    }
+  ]
+}

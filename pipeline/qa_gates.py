@@ -200,14 +200,13 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             DEFAULT_FLOW_ENGINE_MODE,
             DEFAULT_PRODUCTION_PROFILE,
             DEFAULT_REENACTMENT_VOICE_PRESET,
-            DIORAMA_TTS_VOICE,
+            DIORAMA_TTS_ENGINE,
             DIORAMA_V7_PROSODY_GEAR_RATES,
             DIORAMA_V7_PROSODY_GEARS,
             DIORAMA_V7_PROSODY_MODE,
             DIORAMA_V7_STYLE_PROFILES,
             DIORAMA_V7_TTS_PITCH,
             DIORAMA_V7_TTS_RATE,
-            DIORAMA_V7_TTS_SPEED,
             DIORAMA_V7_TTS_VOLUME,
             DIORAMA_V7_US_PROSODY_GEAR_RATES,
             DIORAMA_V7_US_PROSODY_GEARS,
@@ -224,15 +223,26 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
         )
 
         presets_ok = (
-            DEFAULT_DIORAMA_VOICE_PRESET == "emma_v7"
+            DEFAULT_DIORAMA_VOICE_PRESET == "elevenlabs_v4"
+            and DIORAMA_TTS_ENGINE == "eleven_v4"
             and DIORAMA_V7_PROSODY_MODE == "dynamic_us_v7"
             and DEFAULT_REENACTMENT_VOICE_PRESET in DIORAMA_VOICE_PRESETS
-            and {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7", "foil_v8"}.issubset(
-                DIORAMA_VOICE_PRESETS.keys()
-            )
-            and DIORAMA_VOICE_PRESETS["andrew_v7"]["voice"] == DIORAMA_TTS_VOICE
+            and set(DIORAMA_VOICE_PRESETS.keys())
+            == {
+                "elevenlabs_v4",
+                "el_siren_v4",
+                "el_researcher_v4",
+                "el_minicortex_v4",
+                "elevenlabs_v4_female",
+                "elevenlabs_v4_male",
+            }
             and all(
-                bool(cfg.get("voice")) and bool(cfg.get("pitch")) and bool(cfg.get("eq_profile")) and bool(cfg.get("kokoro_voice"))
+                bool(cfg.get("voice"))
+                and bool(cfg.get("elevenlabs_voice_id"))
+                and cfg.get("tts_backend") == "elevenlabs_v4"
+                and bool(cfg.get("eq_profile"))
+                and "kokoro_voice" not in cfg
+                and "fallback_preset" not in cfg
                 for cfg in DIORAMA_VOICE_PRESETS.values()
             )
         )
@@ -254,14 +264,12 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             and DEFAULT_DIORAMA_STYLE_PROFILE in (PORCELAIN_V7_STYLE_PROFILE, EXPRESSIVE_25D_V8_STYLE_PROFILE)
             and DEFAULT_DIORAMA_STYLE_PROFILE in ALL_DIORAMA_STYLE_PROFILES
             and EXPRESSIVE_25D_V8_STYLE_PROFILE in ALL_DIORAMA_STYLE_PROFILES
-            and DIORAMA_TTS_VOICE == "en-US-AndrewMultilingualNeural"
             and DIORAMA_V7_TTS_RATE == "+8%"
             and DIORAMA_V7_TTS_PITCH == "+14Hz"
             and DIORAMA_V7_TTS_VOLUME == "-10%"
-            and DIORAMA_V7_TTS_SPEED == 1.08
             and DIORAMA_V7_VIDEO_FPS == 24
             and FONT_CONDENSED_BLACK_PATH.exists()
-            and FLOW_PRIMARY_VIDEO_MODEL == "Omni 1.1 Flash"
+            and FLOW_PRIMARY_VIDEO_MODEL == "Omni 1.2 Flash"
             and FLOW_ZERO_CREDIT_MODEL == "Veo 3.1 - Lite [Lower Priority]"
             and DEFAULT_FLOW_ENGINE_MODE == "auto"
             and presets_ok
@@ -271,7 +279,8 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             "passed": v7_ssot_ok,
             "default_profile": DEFAULT_PRODUCTION_PROFILE,
             "style_profile": DEFAULT_DIORAMA_STYLE_PROFILE,
-            "tts_voice": DIORAMA_TTS_VOICE,
+            "tts_engine": DIORAMA_TTS_ENGINE,
+            "tts_voice": DIORAMA_VOICE_PRESETS[DEFAULT_DIORAMA_VOICE_PRESET]["voice"],
             "voice_presets": sorted(DIORAMA_VOICE_PRESETS.keys()),
             "default_voice_preset": DEFAULT_DIORAMA_VOICE_PRESET,
             "reenactment_voice_preset": DEFAULT_REENACTMENT_VOICE_PRESET,
@@ -279,7 +288,6 @@ def run_preflight_qa(cdp_port: int = 9222, require_live_cdp: bool = False) -> di
             "tts_rate": DIORAMA_V7_TTS_RATE,
             "tts_pitch": DIORAMA_V7_TTS_PITCH,
             "tts_volume": DIORAMA_V7_TTS_VOLUME,
-            "tts_speed": DIORAMA_V7_TTS_SPEED,
             "video_fps": DIORAMA_V7_VIDEO_FPS,
             "condensed_font_exists": FONT_CONDENSED_BLACK_PATH.exists(),
             "flow_primary_model": FLOW_PRIMARY_VIDEO_MODEL,
@@ -415,7 +423,62 @@ def run_browser_generation_qa(project_id: str | None = None) -> dict[str, Any]:
 
     for p_dir in target_projects:
         pid = p_dir.name
+        vp_obj_g: dict[str, Any] = {}
+        script_obj_g: dict[str, Any] = {}
+        vp_f_g = p_dir / "03_visuals" / "visual_plan.json"
+        sp_f_g = p_dir / "02_script" / "script.json"
+        if vp_f_g.exists():
+            try:
+                vp_obj_g = json.loads(vp_f_g.read_text(encoding="utf-8"))
+            except Exception:
+                vp_obj_g = {}
+        if sp_f_g.exists():
+            try:
+                script_obj_g = json.loads(sp_f_g.read_text(encoding="utf-8"))
+            except Exception:
+                script_obj_g = {}
+
+        from pipeline.config import (
+            BRAIN_SIM_ONLY_CLIP_COUNT_RANGE,
+            PRE_R76_FROZEN_V8_PROJECTS,
+            PRE_R77_FROZEN_V8_PROJECTS,
+            is_brain_sim_only_plan,
+        )
+
         prov_res = FlowProjectSubagentWorker.validate_provenance_receipt(p_dir)
+        is_brain_only_g = is_brain_sim_only_plan(vp_obj_g, script_obj_g) and not (
+            (p_dir / "03_visuals" / "flow_native_clips").exists()
+            and any((p_dir / "03_visuals" / "flow_native_clips").glob("clip_*.mp4"))
+        )
+        if is_brain_only_g:
+            sim_dir_g = p_dir / "03_visuals" / "brain_simulator_clips"
+            sim_clips_g = (
+                sorted(
+                    (f for f in sim_dir_g.glob("clip_*.mp4") if f.is_file() and f.stat().st_size >= MIN_CLIP_SIZE_BYTES),
+                    key=numeric_clip_sort_key,
+                )
+                if sim_dir_g.exists()
+                else []
+            )
+            p_errors = list(prov_res.get("errors", []))
+            p_passed = (
+                len(p_errors) == 0
+                and bool(prov_res.get("valid"))
+                and len(sim_clips_g) >= int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0])
+            )
+            if not p_passed:
+                all_projects_provenance_ok = False
+            project_provenance_results[pid] = {
+                "passed": p_passed,
+                "flow_project_url": "",
+                "tab_target_id": "",
+                "valid_clips_count": len(sim_clips_g),
+                "invalid_clips_count": 0,
+                "brain_simulator_3d_only": True,
+                "errors": p_errors,
+            }
+            continue
+
         vqa_file = p_dir / "03_visuals" / "flow_screenshots" / "visual_qa_report.json"
         use_fast_v5 = False
         if vqa_file.exists():
@@ -441,17 +504,20 @@ def run_browser_generation_qa(project_id: str | None = None) -> dict[str, Any]:
                         break
         f_url = prov_res.get("flow_project_url", "")
         t_id = prov_res.get("tab_target_id", "")
+        rebuilt_from_g = str((prov_res.get("receipt") or {}).get("rebuilt_from_frozen_project") or "").strip()
+        frozen_set_g = set(PRE_R76_FROZEN_V8_PROJECTS) | set(PRE_R77_FROZEN_V8_PROJECTS)
+        lineage_root = rebuilt_from_g if rebuilt_from_g in frozen_set_g else pid
 
         if f_url:
-            if f_url in seen_urls and seen_urls[f_url] != pid:
+            if f_url in seen_urls and seen_urls[f_url] != lineage_root:
                 p_errors.append(f"duplicate_flow_project_url_with_{seen_urls[f_url]}")
             else:
-                seen_urls[f_url] = pid
+                seen_urls[f_url] = lineage_root
         if t_id:
-            if t_id in seen_tabs and seen_tabs[t_id] != pid:
+            if t_id in seen_tabs and seen_tabs[t_id] != lineage_root:
                 p_errors.append(f"duplicate_tab_target_id_with_{seen_tabs[t_id]}")
             else:
-                seen_tabs[t_id] = pid
+                seen_tabs[t_id] = lineage_root
 
         p_passed = (
             len(p_errors) == 0
@@ -610,8 +676,21 @@ def run_media_integrity_qa(project_id: str | None = None) -> dict[str, Any]:
                         except Exception:
                             pass
                 autopsy = VideoAutopsyEngine.inspect_project(p_dir, save_report=True)
-            valid_clips = [c.name for c in clip_files if c.stat().st_size >= MIN_CLIP_SIZE_BYTES]
-            has_multi_clips = len(valid_clips) >= CLIP_COUNT_MIN
+            from pipeline.config import BRAIN_SIM_ONLY_CLIP_COUNT_RANGE, is_brain_sim_only_plan
+
+            is_brain_only_mi = is_brain_sim_only_plan(locals().get("vp_obj")) and not clip_files
+            if is_brain_only_mi:
+                sim_dir_mi = p_dir / "03_visuals" / "brain_simulator_clips"
+                sim_files = (
+                    sorted(sim_dir_mi.glob("clip_*.mp4"), key=numeric_clip_sort_key)
+                    if sim_dir_mi.exists()
+                    else []
+                )
+                valid_clips = [c.name for c in sim_files if c.stat().st_size >= MIN_CLIP_SIZE_BYTES]
+                has_multi_clips = len(valid_clips) >= int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0])
+            else:
+                valid_clips = [c.name for c in clip_files if c.stat().st_size >= MIN_CLIP_SIZE_BYTES]
+                has_multi_clips = len(valid_clips) >= CLIP_COUNT_MIN
             dedup_info = autopsy.get("thumbnails_and_dedup", {})
             provenance_ok = bool(dedup_info.get("provenance_receipt_valid"))
             zero_derivatives = len(dedup_info.get("derivative_clips_across_projects", [])) == 0
@@ -804,7 +883,7 @@ class ExecutableQASuite:
                     clip_qa_ok = False
                     issues.append("stale_posthoc_semantic_qa_report_mp4_sha_mismatch")
 
-        # 3. Audio True-Peak Gate on assembled MP4 (`peak_dbfs <= -1.0`)
+        # 3. Audio True-Peak Gate on assembled MP4 (`peak_dbfs <= -1.0`) & R75 Fast-Seed Duration Ceiling (`<= 88.0s` on non-grandfathered v8)
         audio_peak_ok = True
         peak_dbfs = None
         if final_mp4.exists():
@@ -813,6 +892,43 @@ class ExecutableQASuite:
             if peak_dbfs > AUDIO_TRUE_PEAK_MAX_DBFS or bool(aud.get("true_peak_clipping")):
                 audio_peak_ok = False
                 issues.append(f"audio_true_peak_clipping: peak_dbfs={peak_dbfs:.2f}>{AUDIO_TRUE_PEAK_MAX_DBFS:.1f}")
+            from pipeline.config import (
+                PRE_R75_DURATION_GRANDFATHER_PROJECTS,
+                SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC,
+                SHORTS_EXPRESSIVE_V8_R75_MAX_SEC,
+                is_expressive_v8_plan,
+            )
+
+            s_doc_r75: dict[str, Any] = {}
+            sp_r75 = p_dir / "02_script" / "script.json"
+            if sp_r75.exists():
+                try:
+                    s_doc_r75 = json.loads(sp_r75.read_text(encoding="utf-8"))
+                except Exception:
+                    s_doc_r75 = {}
+            vp_doc_r75: dict[str, Any] = {}
+            if vp_file.exists():
+                try:
+                    vp_doc_r75 = json.loads(vp_file.read_text(encoding="utf-8"))
+                except Exception:
+                    vp_doc_r75 = {}
+            if is_expressive_v8_plan(vp_doc_r75, s_doc_r75):
+                dur_sec_r75 = float(aud.get("duration_sec") or aud.get("duration_seconds") or 0.0)
+                if dur_sec_r75 <= 0.0:
+                    try:
+                        dur_sec_r75 = float(MediaIntegrityValidator.probe_streams(final_mp4).get("duration_seconds") or 0.0)
+                    except Exception:
+                        dur_sec_r75 = 0.0
+                r75_ceil = (
+                    SHORTS_EXPRESSIVE_V8_DURATION_MAX_SEC
+                    if p_dir.name in PRE_R75_DURATION_GRANDFATHER_PROJECTS
+                    else SHORTS_EXPRESSIVE_V8_R75_MAX_SEC
+                )
+                if dur_sec_r75 > r75_ceil:
+                    clip_qa_ok = False
+                    issues.append(
+                        f"r75_duration_ceiling_exceeded: duration={dur_sec_r75:.2f}s > {r75_ceil:.1f}s (Rule R75)"
+                    )
 
         # 4. Flow Provenance SHA-256 Receipt Gate (when native clips exist)
         prov_ok = True
@@ -940,8 +1056,8 @@ def run_intent_content_qa(project_id: str | None = None) -> dict[str, Any]:
                 w_min, w_max = word_count_range_for_profile("neuro_diorama")
                 c_min, c_max = clip_count_range_for_profile("neuro_diorama")
             else:
-                w_min, w_max = word_count_range_for_profile(fmt_prof)
-                c_min, c_max = clip_count_range_for_profile(fmt_prof)
+                w_min, w_max = word_count_range_for_profile(fmt_prof, plan=vp_doc, script_doc=script_doc)
+                c_min, c_max = clip_count_range_for_profile(fmt_prof, plan=vp_doc, script_doc=script_doc)
             up_rcpt_file = pub_dir / "upload_receipt.json"
             is_live_public_frozen = False
             if up_rcpt_file.exists():

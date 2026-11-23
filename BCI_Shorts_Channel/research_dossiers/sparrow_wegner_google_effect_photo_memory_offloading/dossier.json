@@ -1,0 +1,199 @@
+{
+  "schema_version": 2,
+  "slug": "sparrow_wegner_google_effect_photo_memory_offloading",
+  "topic": "Why Saving Facts or Snapping Photos Tells Your Brain It Has Permission to Forget",
+  "pillar": "brain_basics",
+  "everyday_domain": "memory",
+  "created_at": "2026-11-16T09:43:00+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Combines Columbia/Harvard computer-saving trivia trials and sunlit museum photo-taking tours (R72/R79-M physical camera-lens zoom & typed card filing action) with 3D cyan MNI152 lateral prefrontal offloading down-shift and hippocampal encoding bypass (R78).",
+  "setup_18w": "Volunteers typed forty trivia facts into a computer that promised either to save or erase them.",
+  "primary_doi": "10.1126/science.1207745",
+  "primary_case": {
+    "title": "Betsy Sparrow, Jenny Liu & Daniel M. Wegner's 2011 Columbia-Harvard 'Google Effects on Memory' & Linda Henkel's Museum Photo Studies",
+    "year": 2011,
+    "place": "Columbia University & Harvard University Department of Psychology, USA",
+    "summary": "Across four experiments in Science (2011), Betsy Sparrow, Jenny Liu, and Daniel Wegner asked volunteers to type 40 memorable trivia statements into a computer—telling half the computer would save their entries and half they would be erased—proving the expectation of external access shifts the brain from remembering what information says to remembering where it is stored.",
+    "people": [
+      {
+        "name": "Betsy Sparrow, Jenny Liu & Daniel M. Wegner",
+        "role": "Columbia and Harvard cognitive psychologists (Science, 2011) who discovered transactive computer offloading and the folder-over-fact memory switch",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Linda A. Henkel",
+        "role": "Fairfield University memory researcher (Psychological Science, 2014) who led museum tours proving whole-object photo snapping impairs visual detail recall unless you zoom in",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Julia Landsiedel, Evan F. Risko & Sam J. Gilbert",
+        "role": "UCL cognitive neuroscientists (NeuroImage, 2015; Trends in Cognitive Sciences, 2016) who used fMRI to watch lateral rostral prefrontal cortex power down when external reminders take over",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Knowing every childhood landline number from 1988 by heart—yet snapping twenty vacation photos or saving a recipe bookmark today and blanking on the details by dinner.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.1207745",
+      "source_ids": [
+        "SRC1",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1126/science.1207745",
+        "10.1177/0956797613504438"
+      ],
+      "summary": "Sparrow, Liu & Wegner (2011, Science) had volunteers type 40 trivia statements under 'saved' vs 'erased' computer prompts, finding erased-group recall hit 29% vs 19% when saved (while folder-location recall outscored content recall); Henkel (2014, Psychological Science) showed museum visitors remembered fewer objects after photographing them whole than after simply looking."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1016/j.neuroimage.2014.10.021",
+      "year": 2015,
+      "source_ids": [
+        "SRC4",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1016/j.neuroimage.2014.10.021",
+        "10.1016/j.tics.2016.07.002"
+      ],
+      "summary": "Landsiedel & Gilbert (2015, NeuroImage) scanned humans with fMRI while setting external memory reminders and caught lateral rostral prefrontal and task-positive encoding networks deliberately deactivating to conserve cognitive effort, bypassing deep hippocampal consolidation while keeping spatial pointer tags online."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1126/science.1207745",
+        "year": 2011,
+        "summary": "Sparrow, Liu & Wegner (2011, Science) 4-experiment discovery of saved-vs-erased memory offloading and folder-over-fact recall."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.1177/0956797613504438",
+        "year": 2014,
+        "summary": "Henkel (2014, Psychological Science) Bellarmine Museum tour proving whole-object photo-taking impairs recall whereas zooming in rescues detail."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC4",
+        "doi": "10.1016/j.neuroimage.2014.10.021",
+        "year": 2015,
+        "summary": "Landsiedel & Gilbert (2015, NeuroImage) human fMRI proof that external reminders down-regulate lateral rostral prefrontal intention maintenance."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1016/j.learninstruc.2025.102175",
+        "year": 2025,
+        "summary": "Ozcelik (2025, Learning and Instruction) human fMRI study mapping frontoparietal cognitive-load shifts during visual comprehension."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 2011 (Science), Betsy Sparrow at Columbia University and Jenny Liu and Daniel Wegner at Harvard University tested how expecting instant external lookup reshapes adult human memory across four laboratory experiments.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 2 of Sparrow, Liu, and Wegner (2011), volunteers typed 40 memorable trivia statements (such as 'An ostrich's eye is bigger than its brain') into a desktop computer: half were told the computer would save their typed entries, and half were told the entries would be erased.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 2 of Sparrow, Liu, and Wegner (2011), volunteers who believed the computer erased their typed trivia recalled 29% of the facts on a surprise test, whereas volunteers who believed the computer saved the file recalled only 19%—even when explicitly warned beforehand to memorize them.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Trivia Fact Recall Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Computer Saved",
+            "value": 19.0,
+            "unit": "%"
+          },
+          {
+            "label": "Computer Erased",
+            "value": 29.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1126/science.1207745",
+        "source_citation": "Sparrow et al. (2011)"
+      }
+    },
+    {
+      "fact": "In Experiments 3 and 4 of Sparrow, Liu, and Wegner (2011), each saved trivia statement was assigned to one of six named computer folders (such as FACTS, DATA, or ITEMS): participants forgot the trivia statement itself yet accurately recalled the exact folder name where it lived.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Linda Henkel (2014, Psychological Science) walked museum visitors through Fairfield University's Bellarmine Museum of Art, directing them to observe certain sculptures and photograph others: visitors remembered significantly fewer objects and fewer visual details for items they photographed whole than for items they simply looked at.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In Study 2 of Henkel (2014), asking museum visitors to zoom their camera lens onto one specific carved detail reversed the photo-taking memory drop—keeping visual attention engaged protected recall even for the unzoomed parts of the sculpture!",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Using human fMRI in NeuroImage, Julia Landsiedel and Sam Gilbert (2015) showed that the moment volunteers offload an upcoming memory intention onto an external reminder, lateral rostral prefrontal cortex and task-positive encoding regions deliberately dial down activation.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Benjamin Storm and Sean Stone (2015, Psychological Science) uncovered the upside of cognitive offloading: saving File A onto a reliable drive cleared mental clutter and significantly boosted memory for brand-new File B—provided the drive was trusted!",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Scientific nuance matters: while Camerer et al. (2018, Nature Human Behaviour) found Experiment 1's subtle color-naming Stroop reaction-time prime did not replicate cleanly, the explicit behavioral cognitive-offloading effect (Risko & Gilbert, 2016; Henkel, 2014; Storm & Stone, 2015) proved robust across labs.",
+      "source_id": "SRC7"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Believing a computer clicked 'Save' dropped human fact recall from 29% down to 19%—yet left people remarkably sharp at remembering which folder held the missing fact.",
+      "why_surprising": "Your brain is not getting lazier or older—it is switching from storing heavy files to storing lightweight street addresses.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In Linda Henkel's (2014) real-world art museum tour, snapping a quick whole-object photo made visitors forget what they stood right in front of—unless they zoomed in on one specific detail.",
+      "why_surprising": "Shows the shutter click acts as a 'dismiss from memory' button unless you force your eyes to linger first.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Storm and Stone (2015) proved cognitive offloading has a hidden superpower: reliably saving old list A frees up hippocampal bandwidth so you learn new list B significantly better.",
+      "why_surprising": "Reframes notebooks and bookmarks from memory crutches into strategic RAM-clearing tools.",
+      "source_id": "SRC5",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Not knowing your spouse's or children's phone numbers by heart anymore means smartphones are shrinking adult memory capacity.",
+      "truth": "Risko and Gilbert (2016) and Landsiedel and Gilbert (2015) showed external storage triggers strategic prefrontal offloading—the exact same transactive division of labor long-married partners use with each other.",
+      "source_id": "SRC6"
+    },
+    {
+      "myth": "Taking more vacation photos guarantees richer personal memories of the trip.",
+      "truth": "Henkel (2014) proved rapid point-and-shoot snapping cuts encoding short; looking with naked eyes for ten seconds or zooming onto one meaningful detail preserves the memory.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Still knowing your best friend's 7-digit landline from 1989 instantly—while blanking on your own partner's cell number if your phone battery dies.",
+    "Snapping fifteen quick photos at a family graduation or museum gallery and realizing a week later you barely remember being in the room.",
+    "Looking steadily with your own eyes for five seconds—or zooming onto one detail—before tapping the camera shutter."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "People blame midlife aging when they can't recall phone numbers or trip details—when clicking Save or snapping a photo literally told your brain to drop the file.",
+    "open_verdict_question": "At a big family moment or scenic view, do you remember more when you put the camera away or when you snap a quick photo?",
+    "offcenter_creator_bet": "My bet: quick photos erase real memories — at big moments, do you film or just watch?"
+  },
+  "offcenter_creator_bet": "My bet: quick photos erase real memories — at big moments, do you film or just watch?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

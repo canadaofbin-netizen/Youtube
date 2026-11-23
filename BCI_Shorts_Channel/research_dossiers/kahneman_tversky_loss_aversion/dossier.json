@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "kahneman_tversky_loss_aversion",
   "topic": "Daniel Kahneman & Amos Tversky (1979): Prospect Theory, Reference Points & Why Losses Sting Twice as Hard as Gains",
   "pillar": "brain_basics",
@@ -40,7 +40,17 @@
     },
     {
       "fact": "In Problem 3 (Gain Frame): choose between A) an 80 percent chance of winning 4,000 units (expected value 3,200) OR B) a 100 percent SURE gain of 3,000 units — a whopping 80 percent of people played it safe and took the smaller sure 3,000.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Chose Sure Gain Option (%)",
+        "percent": 80.0,
+        "unit": "%",
+        "doi": "10.2307/1914185",
+        "source_citation": "Kahneman & Tversky (1979)"
+      }
     },
     {
       "fact": "In Problem 4 (Loss Frame): flip the exact same numbers negative — C) an 80 percent chance of LOSING 4,000 (-3,200 expected) OR D) a 100 percent SURE loss of 3,000 — suddenly 92 percent REJECTED safety and gambled on the worse -3,200 risk just to avoid locking in a sure loss.",
@@ -56,7 +66,28 @@
     },
     {
       "fact": "Richard Thaler tested this with university coffee mugs: students randomly handed a mug demanded roughly twice as much (~$7) to give it up as non-owners offered (~$3.50) to acquire the identical mug ('Endowment Effect').",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Coffee Mug Valuation ($)",
+        "unit": "$",
+        "bars": [
+          {
+            "label": "Non-Owner Offer",
+            "value": 3.5,
+            "unit": "$"
+          },
+          {
+            "label": "Mug Owner Demand",
+            "value": 7.0,
+            "unit": "$"
+          }
+        ],
+        "doi": "10.1037/a0040831",
+        "source_citation": "Kahneman et al. (1990)"
+      }
     },
     {
       "fact": "Modern meta-analyses (Brown et al. 2024; Yechiam) confirm ~1.8-2.0x average loss aversion while adding an important boundary: tiny pocket-change gambles show near-neutral symmetry, whereas meaningful endowments, sunk-cost traps, and major losses trigger full asymmetric sting.",
@@ -128,5 +159,37 @@
     "diorama_68_kahneman_tversky_loss_aversion"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.2307/1914185",
+  "three_layer_formula": {
+    "everyday_problem": "Selling winning investments way too early to 'lock in the win' while holding losing investments for years hoping to 'get back to break-even'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.2307/1914185",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.2307/1914185"
+      ],
+      "summary": "Daniel Kahneman, Amos Tversky (1979). Prospect Theory: An Analysis of Decision under Risk. Econometrica."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1037/a0040831",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1037/a0040831"
+      ],
+      "summary": "Alan E. Kazdin (2017). Blending Remarkable Minds, Friendship, and Science: The Story of Daniel Kahneman and Amos Tversky. PsycCRITIQUES."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Humans are consistently 'risk-averse' across all financial and life decisions.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

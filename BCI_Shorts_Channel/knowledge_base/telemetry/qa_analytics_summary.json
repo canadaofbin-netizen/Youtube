@@ -1,22 +1,32 @@
 {
-  "updated_at_utc": "2026-11-08T11:51:43.756498+00:00",
-  "episodes_indexed": 33,
-  "total_cuts_evaluated": 1042,
-  "overall_mean_clarity": 97.0,
-  "overall_min_clarity": 93.6,
-  "golden_prompts_banked": 216,
+  "updated_at_utc": "2026-11-23T05:27:45.106539+00:00",
+  "episodes_indexed": 48,
+  "total_cuts_evaluated": 1352,
+  "overall_mean_clarity": 96.9,
+  "overall_min_clarity": 92.6,
+  "golden_prompts_banked": 393,
   "analogies_indexed": 16,
-  "brain_models_indexed": 127,
-  "locations_indexed": 97,
+  "brain_models_indexed": 187,
+  "locations_indexed": 236,
   "episodes_by_voice_preset": {
     "andrew_v7": {
       "episodes": 4,
       "mean_wpm": 183.4,
       "mean_clarity": 97.0
     },
+    "el_siren_v4": {
+      "episodes": 9,
+      "mean_wpm": 170.5,
+      "mean_clarity": 96.8
+    },
+    "elevenlabs_v4": {
+      "episodes": 6,
+      "mean_wpm": 162.9,
+      "mean_clarity": 96.3
+    },
     "emma_v7": {
       "episodes": 11,
-      "mean_wpm": 176.0,
+      "mean_wpm": 174.8,
       "mean_clarity": 97.0
     },
     "unspecified": {
@@ -26,26 +36,82 @@
     }
   },
   "clarity_by_grammar": {
-    "expressive_cameo_world": {
-      "cuts": 1,
+    "architectural_cutaway_portal": {
+      "cuts": 5,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.2,
-      "min_clarity": 97.2
+      "mean_clarity": 95.4,
+      "min_clarity": 93.9
+    },
+    "brain_simulator_3d": {
+      "cuts": 29,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.5,
+      "min_clarity": 94.9
+    },
+    "expressive_cameo_world": {
+      "cuts": 7,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.6,
+      "min_clarity": 94.2
+    },
+    "expressive_exterior_establishing": {
+      "cuts": 39,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.6,
+      "min_clarity": 95.0
+    },
+    "expressive_hands_closeup": {
+      "cuts": 33,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.8,
+      "min_clarity": 94.7
+    },
+    "expressive_literal_analogy": {
+      "cuts": 9,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.7,
+      "min_clarity": 94.9
+    },
+    "expressive_pov_hands": {
+      "cuts": 3,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.7,
+      "min_clarity": 95.5
+    },
+    "expressive_reaction_closeup": {
+      "cuts": 22,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.1,
+      "min_clarity": 94.3
+    },
+    "expressive_split_contrast": {
+      "cuts": 4,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.1,
+      "min_clarity": 96.8
     },
     "expressive_vinyl_world": {
-      "cuts": 15,
+      "cuts": 95,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.4,
-      "min_clarity": 94.4
+      "mean_clarity": 96.7,
+      "min_clarity": 92.6
     },
     "expressive_xray_brain": {
-      "cuts": 2,
+      "cuts": 62,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 95.8,
-      "min_clarity": 95.8
+      "mean_clarity": 96.0,
+      "min_clarity": 93.2
     },
     "lowpoly_cutaway_section": {
       "cuts": 65,
@@ -130,97 +196,258 @@
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.4,
       "min_clarity": 97.1
+    },
+    "spatial_3d_arrow_diorama": {
+      "cuts": 20,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.9,
+      "min_clarity": 95.2
     }
   },
   "clarity_by_camera_move": {
-    "clean_pullback_reveal": {
-      "cuts": 45,
+    "1p_nerve_canyon_drone": {
+      "cuts": 3,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
+      "mean_clarity": 96.4,
       "min_clarity": 95.8
     },
-    "gentle_push_in": {
-      "cuts": 133,
+    "3p_region_shutdown_pullout": {
+      "cuts": 6,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.4,
+      "min_clarity": 95.5
+    },
+    "circuit_cooperation_drone": {
+      "cuts": 10,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.8,
+      "min_clarity": 94.9
+    },
+    "clean_pullback_reveal": {
+      "cuts": 50,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
-      "min_clarity": 95.1
+      "min_clarity": 95.2
+    },
+    "crane_swoop_dive": {
+      "cuts": 7,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.0,
+      "min_clarity": 94.9
+    },
+    "dolly_zoom_vertigo": {
+      "cuts": 10,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.6,
+      "min_clarity": 95.4
+    },
+    "drone_aerial_approach": {
+      "cuts": 9,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.6,
+      "min_clarity": 95.3
+    },
+    "drone_high_orbit_drop": {
+      "cuts": 3,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.8,
+      "min_clarity": 96.5
+    },
+    "drone_landmark_ascend": {
+      "cuts": 10,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.5,
+      "min_clarity": 95.2
+    },
+    "drone_skyline_pullback": {
+      "cuts": 3,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.0,
+      "min_clarity": 96.3
+    },
+    "fpv_3d_flight": {
+      "cuts": 4,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 95.9,
+      "min_clarity": 94.7
+    },
+    "fpv_window_portal_breach": {
+      "cuts": 5,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 95.4,
+      "min_clarity": 93.9
+    },
+    "gentle_push_in": {
+      "cuts": 241,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.9,
+      "min_clarity": 92.6
+    },
+    "global_system_orbit_drone": {
+      "cuts": 3,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.1,
+      "min_clarity": 96.0
     },
     "locked_tripod": {
-      "cuts": 636,
+      "cuts": 662,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.1,
-      "min_clarity": 94.4
+      "min_clarity": 94.3
+    },
+    "neural_fpv_dive_in": {
+      "cuts": 5,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 95.3,
+      "min_clarity": 94.5
+    },
+    "neural_fpv_pullback_out": {
+      "cuts": 7,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 94.8,
+      "min_clarity": 93.5
+    },
+    "neural_macro_orbit_hold": {
+      "cuts": 7,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.1,
+      "min_clarity": 95.3
+    },
+    "neural_tract_relay_flight": {
+      "cuts": 5,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.0,
+      "min_clarity": 94.3
+    },
+    "orbital_3d_arc_sweep": {
+      "cuts": 33,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.4,
+      "min_clarity": 94.2
     },
     "pan_left": {
-      "cuts": 80,
+      "cuts": 85,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 93.6
     },
     "pan_right": {
-      "cuts": 102,
+      "cuts": 115,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.4
     },
+    "portal_dive_flight": {
+      "cuts": 2,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 95.2,
+      "min_clarity": 93.2
+    },
+    "sensory_to_brain_drone": {
+      "cuts": 7,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.4,
+      "min_clarity": 95.6
+    },
     "tilt_down": {
-      "cuts": 18,
+      "cuts": 19,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.6,
       "min_clarity": 94.7
     },
     "tilt_up": {
-      "cuts": 28,
+      "cuts": 29,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 95.5,
+      "mean_clarity": 95.6,
       "min_clarity": 94.0
+    },
+    "topdown_3d_route_glide": {
+      "cuts": 9,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.3,
+      "min_clarity": 96.4
+    },
+    "vertical_90_topdown_dive": {
+      "cuts": 2,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.0,
+      "min_clarity": 96.6
+    },
+    "whip_pan_occlusion": {
+      "cuts": 1,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 95.9,
+      "min_clarity": 95.9
     }
   },
   "clarity_by_act": {
     "act_1": {
-      "cuts": 200,
+      "cuts": 267,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.0,
+      "min_clarity": 93.9
+    },
+    "act_2": {
+      "cuts": 231,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.7
     },
-    "act_2": {
-      "cuts": 176,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.1,
-      "min_clarity": 95.7
-    },
     "act_3": {
-      "cuts": 172,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
-      "min_clarity": 95.2
-    },
-    "act_4": {
-      "cuts": 144,
+      "cuts": 230,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
-      "min_clarity": 94.4
+      "min_clarity": 92.6
     },
-    "act_5": {
-      "cuts": 182,
+    "act_4": {
+      "cuts": 202,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.1,
-      "min_clarity": 94.4
+      "mean_clarity": 96.7,
+      "min_clarity": 93.2
+    },
+    "act_5": {
+      "cuts": 217,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.0,
+      "min_clarity": 93.5
     },
     "act_6": {
-      "cuts": 168,
+      "cuts": 205,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.8,

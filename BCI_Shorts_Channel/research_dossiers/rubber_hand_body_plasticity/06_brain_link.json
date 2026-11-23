@@ -4,26 +4,38 @@
     {
       "role": "symptom",
       "region": "somatosensory cortex",
-      "plain": "hidden real-hand brush taps",
-      "function": "receiving rhythmic paintbrush strokes from the hidden real left hand behind the divider while vision sees only the rubber hand in front",
+      "plain": "body-touch map",
+      "function": "receiving rhythmic paintbrush taps from the hidden real hand while eyes report the brush landing on the visible rubber hand",
       "scene_id": "S1",
-      "narration_bridge": "Creates the spatial conflict between felt position and seen position."
+      "narration_bridge": "Sets up the spatial tug-of-war between felt hand position and seen hand position (Botvinick & Cohen 1998).",
+      "r78_circuit_state": "active"
     },
     {
       "role": "pivot",
       "region": "premotor cortex",
-      "plain": "multisensory limb-ownership snap",
-      "function": "fusing synchronous visual brush strokes and felt tactile strokes with parietal body maps so the rubber hand is claimed as 'mine'",
+      "plain": "action and limb-ownership hub",
+      "function": "fusing millisecond-matched visual and touch strokes to snap ownership onto the prosthetic hand",
       "scene_id": "S1",
-      "narration_bridge": "Matches Ehrsson et al. (2004 Science) fMRI onset of rubber-hand ownership."
+      "narration_bridge": "Matches Ehrsson, Spence & Passingham (2004 Science) fMRI onset of 'That's MY hand!'",
+      "r78_circuit_state": "active"
     },
     {
       "role": "step1",
+      "region": "parietal cortex",
+      "plain": "spatial body map",
+      "function": "updating internal joint-position coordinates 23 millimeters toward the visible rubber hand",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why blindfolded under-table pointing drifts toward the prosthetic glove.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step2",
       "region": "insula",
-      "plain": "visceral bodily threat alarm",
-      "function": "firing alongside palmar sweat glands the instant a sudden threat approaches the newly owned rubber fingers",
-      "scene_id": "S2",
-      "narration_bridge": "Captures Ehrsson et al. (2007) autonomic threat proof."
+      "plain": "body-feeling alarm",
+      "function": "firing an instant protective flinch whenever a sudden threat nears the newly adopted rubber fingers",
+      "scene_id": "S1",
+      "narration_bridge": "Links cortical limb adoption to visceral self-protection.",
+      "r78_circuit_state": "active"
     }
   ]
 }

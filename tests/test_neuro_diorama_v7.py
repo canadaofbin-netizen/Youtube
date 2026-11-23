@@ -62,7 +62,20 @@ GOLDEN_V7_DIR = ROOT / "BCI_Shorts_Channel" / "research_dossiers" / "phineas_gag
 
 def test_diorama_v7_ssot_constants_and_bundled_font() -> None:
     constants_md = (ROOT / ".agents" / "rules" / "production_constants.md").read_text(encoding="utf-8")
-    rules_md = (ROOT / ".agents" / "rules" / "neuro_diorama_rules.md").read_text(encoding="utf-8")
+    rules_md = "\n".join(
+        (ROOT / ".agents" / "rules" / fn).read_text(encoding="utf-8")
+        for fn in (
+            "diorama_assembly_subtitles_rules.md",
+            "episode_qa_triage_rules.md",
+            "thumbnail_r65_rules.md",
+            "archival_reenactment_rules.md",
+            "data_stamp_charts_rules.md",
+            "real_world_drone_refs_rules.md",
+            "hook_pacing_beatcard_rules.md",
+            "arrows_callouts_motion_rules.md",
+            "_archive/retired_rules_2026-11-18.md",
+        )
+    )
     agents_md = (ROOT / ".agents" / "AGENTS.md").read_text(encoding="utf-8")
 
     required_v7_names = (
@@ -94,7 +107,6 @@ def test_diorama_v7_ssot_constants_and_bundled_font() -> None:
         "DIORAMA_V7_TTS_RATE",
         "DIORAMA_V7_TTS_PITCH",
         "DIORAMA_V7_TTS_VOLUME",
-        "DIORAMA_V7_TTS_SPEED",
         "DIORAMA_V7_SENTENCE_WORDS_MAX",
         "DIORAMA_BANNED_WEAK_HOOK_PREFIXES",
         "DIORAMA_V7_WPM_MIN",
@@ -142,7 +154,7 @@ def test_diorama_v7_ssot_constants_and_bundled_font() -> None:
         assert name in constants_md, f"Missing {name} in .agents/rules/production_constants.md"
 
     assert "R63" in rules_md
-    assert "R63" in agents_md
+    assert "R62–R64" in agents_md
     assert "R64" in rules_md
     assert "R64" in agents_md
     assert "R66" in rules_md
@@ -153,7 +165,6 @@ def test_diorama_v7_ssot_constants_and_bundled_font() -> None:
     assert cfg.DIORAMA_V7_TTS_RATE == "+8%"
     assert cfg.DIORAMA_V7_TTS_PITCH == "+14Hz"
     assert cfg.DIORAMA_V7_TTS_VOLUME == "-10%"
-    assert cfg.DIORAMA_V7_TTS_SPEED == 1.08
     assert cfg.DIORAMA_V7_SENTENCE_WORDS_MAX == 18
     assert cfg.DIORAMA_V7_MID_ACT_MAX_CUT_SEC == 4.60
     assert cfg.DIORAMA_V7_VISUAL_PLAYBACK_SPEED == 1.00
@@ -1460,15 +1471,15 @@ def test_v7_andrew_multilingual_silk_clean_voice_ssot_and_retention_rules(tmp_pa
     from pipeline.plain_language import analyze_script, find_duplicate_analogy_idioms, to_expressive_tts_text
     from pipeline.voice_fallback import (
         STORYTELLER_VOCAL_FILTER,
-        _decode_mp3_storyteller_pcm,
+        _master_storyteller_vocal,
+        _trim_waveform_silences_and_breaths,
         synthesize_continuous_diorama_track,
     )
 
-    assert cfg.DIORAMA_TTS_VOICE == "en-US-AndrewMultilingualNeural"
+    assert cfg.DIORAMA_TTS_ENGINE == "eleven_v4"
     assert cfg.DIORAMA_V7_TTS_RATE == "+8%"
     assert cfg.DIORAMA_V7_TTS_PITCH == "+14Hz"
     assert cfg.DIORAMA_V7_TTS_VOLUME == "-10%"
-    assert cfg.DIORAMA_V7_TTS_SPEED == 1.08
     assert cfg.DIORAMA_V7_VIDEO_FPS == 24
     assert cfg.DIORAMA_V7_ACTIVE_VOICED_RMS_RATIO_MIN == 0.80
     assert 0.24 <= cfg.DIORAMA_V7_INTERNAL_SILENCE_TRIM_THRESHOLD_SEC <= 0.34
@@ -1478,14 +1489,12 @@ def test_v7_andrew_multilingual_silk_clean_voice_ssot_and_retention_rules(tmp_pa
 
     ssot_docs = (
         ROOT / "pipeline" / "config.py",
-        ROOT / "pipeline" / "diorama_assembler.py",
-        ROOT / "pipeline" / "diorama_batch_orchestrator.py",
         ROOT / "pipeline" / "voice_fallback.py",
         ROOT / ".agents" / "rules" / "production_constants.md",
-        ROOT / ".agents" / "rules" / "neuro_diorama_rules.md",
+        ROOT / ".agents" / "rules" / "diorama_assembly_subtitles_rules.md",
+        ROOT / ".agents" / "rules" / "real_world_drone_refs_rules.md",
         ROOT / ".agents" / "rules" / "audio_assembly_rules.md",
         ROOT / ".agents" / "AGENTS.md",
-        ROOT / ".agents" / "profiles" / "yt-editor" / "SOUL.md",
         ROOT / ".agents" / "skills" / "youtube-produce" / "SKILL.md",
         ROOT / ".agents" / "skills" / "youtube-script" / "SKILL.md",
     )
@@ -1493,18 +1502,13 @@ def test_v7_andrew_multilingual_silk_clean_voice_ssot_and_retention_rules(tmp_pa
         txt = doc_path.read_text(encoding="utf-8")
         assert "en-US-RogerNeural" not in txt, f"Stale RogerNeural reference in {doc_path}"
         assert "en-US-BrianMultilingualNeural" not in txt, f"Stale BrianMultilingualNeural reference in {doc_path}"
-        assert "en-US-AndrewMultilingualNeural" in txt, f"Missing AndrewMultilingualNeural in {doc_path}"
-
-    # 1. Silk Clean vocal filter upsamples via 48kHz soxr, cuts 6.2kHz breath/sibilance linearly, and avoids nonlinear deesser
-    import inspect
+        assert "elevenlabs_v4" in txt, f"Missing elevenlabs_v4 in {doc_path}"
 
     assert "3400" not in STORYTELLER_VOCAL_FILTER
     assert "deesser" not in STORYTELLER_VOCAL_FILTER
-    # Q-2 (2026-10-31): light -1.5 dB 6.2kHz cut, no 10kHz lowpass (HF was attenuated three times -> muffled voice)
     assert "equalizer=f=6200:t=q:w=0.9:g=-1.5" in STORYTELLER_VOCAL_FILTER
     assert "lowpass" not in STORYTELLER_VOCAL_FILTER
     assert "ratio=1.25" in STORYTELLER_VOCAL_FILTER
-    assert "resampler=soxr" in inspect.getsource(_decode_mp3_storyteller_pcm)
 
     # 1b. R57-C proper-noun phonetics & glossed neuroscience jargon
     expr = to_expressive_tts_text("Patient H.M. — Henry Molaison — met Doctor Scoville and Broca's patient Leborgne.")
@@ -1523,29 +1527,14 @@ def test_v7_andrew_multilingual_silk_clean_voice_ssot_and_retention_rules(tmp_pa
     assert glossed_rep["unglossed_jargon_terms"] == []
     assert find_duplicate_analogy_idioms(["Faster than a blink, it fired.", "Faster than a blink, he jumped."]) != []
 
-    # 2. Peak-safe MP3 decoding preserves high crest-factor transients without hard clipping
+    # 2. Peak-safe vocal mastering preserves high crest-factor transients without hard clipping
     sr = 48000
     t = np.arange(sr, dtype=np.float32) / float(sr)
     synth_speech = (0.08 * np.sin(2.0 * np.pi * 145.0 * t)).astype(np.float32)
     synth_speech[sr // 3 : sr // 3 + 240] = 0.72 * np.sin(2.0 * np.pi * 290.0 * t[:240])
-    wav_in = tmp_path / "transient.wav"
-    mp3_in = tmp_path / "transient.mp3"
-    with wave.open(str(wav_in), "wb") as wf:
-        wf.setnchannels(1)
-        wf.setsampwidth(2)
-        wf.setframerate(sr)
-        wf.writeframes((np.clip(synth_speech, -0.99, 0.99) * 32767.0).astype(np.int16).tobytes())
-    ff = imageio_ffmpeg.get_ffmpeg_exe()
-    subprocess.run(
-        [ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-i", str(wav_in), "-b:a", "128k", str(mp3_in)],
-        check=True,
-        capture_output=True,
-        timeout=30,
-        stdin=subprocess.DEVNULL,
-    )
-    decoded = _decode_mp3_storyteller_pcm(mp3_in.read_bytes(), sr)
-    assert 0.20 < float(np.max(np.abs(decoded))) <= 0.935
-    assert int(np.sum(np.abs(decoded) >= 0.945)) == 0
+    decoded = _master_storyteller_vocal(synth_speech, sr, sr)
+    assert 0.20 < float(np.max(np.abs(decoded))) <= 0.95
+    assert int(np.sum(np.abs(decoded) >= 0.955)) == 0
 
     # 3. Natural conversational breath (< 0.28s) stays untouched; long pause (>= 0.28s) keeps ~0.140s with zero room-tone dip
     t_b = np.arange(int(0.50 * sr), dtype=np.float32) / float(sr)

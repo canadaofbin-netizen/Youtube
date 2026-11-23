@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "kandel_aplysia_synaptic_plasticity",
   "topic": "Eric Kandel (1970–2000): How a Giant Sea Slug's 20,000 Neurons Proved Memories Physically Grow New Synapses",
   "pillar": "brain_basics",
@@ -52,7 +52,33 @@
     },
     {
       "fact": "Collaborator **Craig Bailey** looked under the electron microscope and photographed history's smoking gun: a naive sensory neuron had **~1,300 synaptic terminals**; after habituation it pruned down to **~850**; after long-term sensitization it sprouted **~2,600 physical synaptic terminals — literally DOUBLING its wiring**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Synaptic Terminals per Cell",
+        "unit": "terminals",
+        "bars": [
+          {
+            "label": "Habituated Neuron",
+            "value": 850.0,
+            "unit": "terminals"
+          },
+          {
+            "label": "Naive Baseline",
+            "value": 1300.0,
+            "unit": "terminals"
+          },
+          {
+            "label": "Sensitized Neuron",
+            "value": 2600.0,
+            "unit": "terminals"
+          }
+        ],
+        "doi": "10.1126/science.167.3926.1745",
+        "source_citation": "Bailey & Kandel (1983)"
+      }
     },
     {
       "fact": "Block new protein synthesis right during training, and **Long-Term Memory vanishes completely while Short-Term Memory works 100% normally** — proving short-term memory is a temporary chemical adjustment whereas long-term memory is **new anatomical architecture**.",
@@ -118,5 +144,37 @@
     "diorama_69_kandel_aplysia_synaptic_plasticity"
   ],
   "reenactment_track": "track_a",
-  "reenactment_track_subtier": "A2_section_window"
+  "reenactment_track_subtier": "A2_section_window",
+  "everyday_domain": "sleep",
+  "primary_doi": "10.1126/science.167.3926.1745",
+  "three_layer_formula": {
+    "everyday_problem": "Realizing why cramming for 4 hours on Thursday night (short-term cAMP chemistry) fades by Monday, while four 30-minute spaced sessions flip CREB on to build permanent synapses.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.167.3926.1745",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1126/science.167.3926.1745"
+      ],
+      "summary": "Vincent Castellucci, Harold Pinsker, Irving Kupfermann, Eric R. Kandel (1970). Neuronal Mechanisms of Habituation and Dishabituation of the Gill-Withdrawal Reflex in Aplysia. Science."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2015",
+      "doi": "10.1016/j.neuron.2015.08.002",
+      "source_ids": [
+        "SRC_NEURO_2015"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2015.08.002"
+      ],
+      "summary": "S. Tonegawa, X. Liu, S. Ramirez, R. Redondo (2015). Memory engram cells have come of age. Neuron."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Long-term memories are just stronger electrical loops spinning indefinitely without changing brain structure.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

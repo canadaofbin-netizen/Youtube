@@ -1,0 +1,228 @@
+{
+  "schema_version": 2,
+  "slug": "radvansky_doorway_effect_memory_boundary",
+  "topic": "Why Walking Through a Doorway Erases What You Came For (The Doorway Effect)",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "memory",
+  "created_at": "2026-11-16T03:30:00+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs University of Notre Dame real-room doorway object-carrying experiments and outdoor porch-to-hallway threshold crossings (R72/R79-M physical shoebox-lid & doorway action) with 3D cyan MNI152 hippocampal boundary-cell bursts and prefrontal working-memory flushing (R78).",
+  "setup_18w": "Volunteers carried objects either across a single large room or through a doorway into a second room.",
+  "primary_doi": "10.1080/17470218.2011.571267",
+  "primary_case": {
+    "title": "Gabriel A. Radvansky, Sabine A. Krawietz & Andrea K. Tamplin's 2011 University of Notre Dame Real-Room Doorway Forgetting Experiments",
+    "year": 2011,
+    "place": "Department of Psychology, University of Notre Dame, Indiana, USA",
+    "summary": "Across three virtual and physical-room experiments, Gabriel Radvansky's Notre Dame team asked volunteers to carry concealed objects across a single large room or walk the exact same distance through a doorway into a second room—proving doorways trigger an Event Horizon memory boundary that spikes forgetting even if you walk straight back into the first room.",
+    "people": [
+      {
+        "name": "Gabriel A. Radvansky, Sabine A. Krawietz & Andrea K. Tamplin",
+        "role": "University of Notre Dame cognitive psychologists who proved physical doorways cause immediate working-memory forgetting and tested returning to the original room",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jie Zheng, Ueli Rutishauser & Gabriel Kreiman Consortium",
+        "role": "Intracranial human neuroscientists (Nature Neuroscience, 2022) who recorded single hippocampal boundary cells firing precisely at cognitive event transitions",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Christopher Baldassano, Janice Chen, Uri Hasson & Kenneth A. Norman",
+        "role": "Princeton fMRI neuroscientists (Neuron, 2017) who caught the human hippocampus firing archival bursts whenever continuous experience crosses an event boundary",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Walking briskly from your living room into the kitchen or garage with a clear purpose—and freezing dead in the doorway with zero memory of why you walked in.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1080/17470218.2011.571267",
+      "source_ids": [
+        "SRC1",
+        "SRC7"
+      ],
+      "dois": [
+        "10.1080/17470218.2011.571267",
+        "10.1016/j.cognition.2015.12.013"
+      ],
+      "summary": "Radvansky, Krawietz, and Tamplin (2011, QJEP) marched 60 volunteers across equal distances within one room or through a doorway into a second room while carrying hidden objects inside shoeboxes, finding doorway crossings jumped memory errors from 23% to 28% and returning to the first room failed to erase the drop."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1038/s41593-022-01020-w",
+      "year": 2022,
+      "source_ids": [
+        "SRC3",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1038/s41593-022-01020-w",
+        "10.1016/j.neuron.2017.06.041"
+      ],
+      "summary": "Zheng et al. (2022, Nature Neuroscience) recorded single human medial-temporal boundary and event cells firing at scene transitions, while Baldassano et al. (2017, Neuron) showed fMRI hippocampal bursts archiving the old room chapter and clearing prefrontal working memory."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1080/17470218.2011.571267",
+        "year": 2011,
+        "summary": "Radvansky, Krawietz & Tamplin (2011, QJEP) real-room doorway forgetting and Experiment 3 return-to-room test."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1186/s40359-021-00536-3",
+        "year": 2021,
+        "summary": "McFadyen, Nolan, Pinocy, Buteri & Baumann (2021, BMC Psychology) replication showing doorway interference strikes hardest when working memory is overloaded."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC3",
+        "doi": "10.1038/s41593-022-01020-w",
+        "year": 2022,
+        "summary": "Zheng et al. (2022, Nature Neuroscience) human single-neuron discovery of boundary cells and event cells structuring episodic memory."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.1016/j.neuron.2017.06.041",
+        "year": 2017,
+        "summary": "Baldassano et al. (2017, Neuron) fMRI proof that cortical event boundaries trigger hippocampal memory-filing bursts."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "At the University of Notre Dame, Gabriel Radvansky, Sabine Krawietz, and Andrea Tamplin (2011, Quarterly Journal of Experimental Psychology) tested whether doorway forgetting was merely a computer-screen quirk or a real physical-world law.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 2 of Radvansky, Krawietz, and Tamplin (2011), 60 real-world volunteers carried objects hidden inside shoeboxes from table to table—either walking across one large divided room or walking the exact same distance through an open doorway into a second room.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 2 of Radvansky, Krawietz, and Tamplin (2011), 60 real-world volunteers walking through a physical doorway into an adjacent room made a 28% memory error rate on carried-object probes, compared with a 23% error rate after walking the exact same distance across a single room.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Object Memory Error Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Same Room Walk",
+            "value": 23.0,
+            "unit": "%"
+          },
+          {
+            "label": "Through Doorway",
+            "value": 28.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1080/17470218.2011.571267",
+        "source_citation": "Radvansky et al. (2011)"
+      }
+    },
+    {
+      "fact": "In Experiment 1 of the same 2011 study (55 participants), shrinking a virtual display down to a tiny monitor failed to stop doorway forgetting—crossing virtual doorways still degraded object recognition regardless of screen immersion.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Experiment 3 of Radvansky et al. (2011, Table 3), volunteers walked from Room A through a doorway into Room B and then through a second doorway right back into Room A—yet returning to the original room failed to erase the doorway forgetting penalty, with positive-probe error rates rising from 11% (Stay Room / No-Shift) to 14% (1 Doorway / Single Shift) and 16% (Return Room), and 20% for a double shift into a third room.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "group_means",
+        "title": "Exp. 3 Memory Error Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Stay Room",
+            "value": 11.0,
+            "unit": "%"
+          },
+          {
+            "label": "1 Doorway",
+            "value": 14.0,
+            "unit": "%"
+          },
+          {
+            "label": "Return Room",
+            "value": 16.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1080/17470218.2011.571267",
+        "source_citation": "Radvansky et al. (2011)"
+      }
+    },
+    {
+      "fact": "In 2017 (Neuron), Christopher Baldassano, Janice Chen, Uri Hasson, and Kenneth Norman used human fMRI to show that whenever perception crosses an event boundary, higher sensory and parietal areas snap to a new scene pattern and the hippocampus fires a sharp archival burst.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In 2022 (Nature Neuroscience), Jie Zheng and colleagues recorded directly from single human hippocampal and medial-temporal neurons, identifying dedicated boundary cells that fire within milliseconds of soft scene shifts and hard event boundaries.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "In a 4-experiment multimodal replication, McFadyen and Baumann (2021, BMC Psychology) found simple unburdened doorway walks caused zero memory loss—doorways triggered false alarms only when working memory was simultaneously juggling extra mental load.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Pettijohn, Thompson, Tamplin, Krawietz, and Radvansky (2016, Cognition) revealed the hidden upside of doorway boundaries: while doorways flush short-term clutter in the moment, chunking study lists across two rooms or windows actually improves long-term episodic organization.",
+      "source_id": "SRC7"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Walk ten feet across one big room carrying a box and your memory stays sharp; walk the exact same ten feet through a doorframe and memory errors jump right on the threshold.",
+      "why_surprising": "Physical footsteps do not cause the blank—the architectural boundary frame tells your brain the old chapter is over.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In Notre Dame's Experiment 3, walking through a second doorway right back into the original room did not undo doorway forgetting because crossing back counted as yet another chapter boundary.",
+      "why_surprising": "Flips the popular myth that simply stepping back through a doorframe automatically restores a flushed working-memory buffer.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "McFadyen et al. (2021) proved doorways barely faze a calm mind—the blank strikes specifically when midlife multitasking overloads your prefrontal scratchpad while you walk.",
+      "why_surprising": "Reassures 35–65+ adults that kitchen-doorway blanks reflect busy multitasking plus healthy chapter-filing, not early dementia.",
+      "source_id": "SRC5",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Forgetting why you walked into the kitchen at age 45 or 60 is an early warning sign of Alzheimer's disease.",
+      "truth": "Neuroscientists call it an Event Horizon boundary update: hippocampal boundary cells (Zheng et al. 2022) intentionally file away the living-room mental model at the doorframe so your brain can map the kitchen.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Doorways always wipe memory automatically every single time you cross a threshold.",
+      "truth": "McFadyen and Baumann's 2021 4-experiment study showed doorways only trip up recall when your working-memory desk is already crowded with competing errands—carrying the physical cue or saying 'glasses' aloud locks the goal across the threshold.",
+      "source_id": "SRC5"
+    }
+  ],
+  "everyday_hooks": [
+    "Standing frozen in front of an open refrigerator or pantry door at 6 PM wondering what on earth you walked in from the den to grab.",
+    "Alt-tabbing from an email into a browser window or spreadsheet tab—a digital doorway—and instantly blanking on the exact number or phrase you came to look up.",
+    "Carrying one physical cue in your hand or whispering a two-word errand out loud before stepping through a doorway when your mind is juggling three things at once."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "Almost everyone panics that kitchen-doorway blanks mean slipping midlife memory, when your hippocampus is actually running a clean room-change file update.",
+    "open_verdict_question": "When you freeze in a doorway forgetting why you came in, does walking back to the last room bring it back or leave you just as blank?",
+    "offcenter_creator_bet": "My bet: doorways reset working memory — when you blank in the kitchen, do you retrace steps or stand still?"
+  },
+  "offcenter_creator_bet": "My bet: doorways reset working memory — when you blank in the kitchen, do you retrace steps or stand still?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": [],
+  "shorts_projects": [
+    "v8_ep12_doorway_effect_memory"
+  ]
+}

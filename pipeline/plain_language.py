@@ -89,6 +89,36 @@ def fk_grade(text: str) -> float:
     return round(0.39 * (len(words) / sents) + 11.8 * (syl / len(words)) - 15.59, 2)
 
 
+_CONV_ANATOMY_WORDS: frozenset[str] = frozenset(
+    tok
+    for canon, entry in ANATOMY_FUNCTION_MAP.items()
+    for name in (canon, *entry.get("aliases", ()))
+    for tok in re.findall(r"[a-z]{4,}", str(name).lower())
+)
+
+
+def fk_grade_conversational(text: str) -> float:
+    """
+    Rule R77-N conversational readability grade: splits plain hyphenated compounds
+    (e.g. `reality-checker`, `two-way`) into everyday component words and avoids
+    penalizing glottal proper names or canonical anatomy words already allowed once glossed,
+    while still scoring stiff academic vocabulary high.
+    """
+    raw_words = re.findall(r"[A-Za-z]+(?:'[A-Za-z]+)?|\d+", str(text or ""))
+    if not raw_words:
+        return 0.0
+    sents = max(1, len(_sentences(text)))
+    syl = 0
+    for idx, w in enumerate(raw_words):
+        w_low = w.lower()
+        s = count_syllables(w)
+        # Disallow excessive syllable inflation for capitalized proper names (not S-start) or known anatomy tokens
+        if w_low in _CONV_ANATOMY_WORDS or (idx > 0 and w[:1].isupper() and w[1:].islower()):
+            s = min(s, 2)
+        syl += s
+    return round(0.39 * (len(raw_words) / sents) + 11.8 * (syl / len(raw_words)) - 15.59, 2)
+
+
 def find_jargon(text: str) -> list[str]:
     """Non-anatomical technical terms: lexicon hits, alphanumeric codes, unexplained acronyms."""
     t = str(text or "")
@@ -299,6 +329,32 @@ def to_display_text(text: str) -> str:
         r"|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen"
         r"|one|two|three|four|five|six|seven|eight|nine|\d{1,2})"
     )
+    _dec_digit_map = {w: str(i) for i, w in enumerate(_ONES[:10])}
+    _dec_digit_re = r"(?:zero|one|two|three|four|five|six|seven|eight|nine)"
+    _whole_dec_re = rf"(?:zero|{_two_re})"
+
+    def _spelled_decimal(m: re.Match[str]) -> str:
+        sign = "-" if m.group(1) else ""
+        whole_raw = (m.group(2) or "").strip().lower()
+        frac_words = (m.group(3) or "").strip().lower().split()
+        if not frac_words or any(w not in _dec_digit_map for w in frac_words):
+            return m.group(0)
+        frac_str = "".join(_dec_digit_map[w] for w in frac_words)
+        if not whole_raw:
+            return f"{sign}0.{frac_str}"
+        whole_val = 0 if whole_raw == "zero" else _two(whole_raw)
+        if whole_val is None:
+            return m.group(0)
+        return f"{sign}{whole_val}.{frac_str}"
+
+    # 0. Spelled-out decimals (e.g. 'minus eleven point five one' -> '-11.51', 'point zero eight' -> '0.08')
+    #    Must run before integer steps 4/5/7 so whole and fractional words are not split apart.
+    t = re.sub(
+        rf"(?<![-\w])(minus\s+|negative\s+)?(?:({_whole_dec_re})\s+)?point\s+({_dec_digit_re}(?:\s+{_dec_digit_re}){{0,3}})(?![-\w])",
+        _spelled_decimal,
+        str(text or ""),
+        flags=re.IGNORECASE,
+    )
 
     # 1. 'two thousand [and] <1..99>' -> '2009', '2024', etc. (not when followed by 'hundred')
     def _two_thousand(m: re.Match[str]) -> str:
@@ -311,7 +367,7 @@ def to_display_text(text: str) -> str:
     t = re.sub(
         rf"\btwo\s+thousand(?:\s+(?:and\s+)?({_two_re}))?(?![-\w]|\s+hundred\b)",
         _two_thousand,
-        str(text or ""),
+        t,
         flags=re.IGNORECASE,
     )
 
@@ -329,6 +385,12 @@ def to_display_text(text: str) -> str:
 
     t = re.sub(
         rf"\b(a|one|two|three|four|five|six|seven|eight|nine|\d)\s+hundred(?:\s+(?:and\s+)?({_two_re})(?![-\w]))?\b",
+        _hundreds,
+        t,
+        flags=re.IGNORECASE,
+    )
+    t = re.sub(
+        rf"\b(one|two|three|four|five|six|seven|eight|nine|\d)-hundred(?:-({_two_re})(?=\b|-))?\b",
         _hundreds,
         t,
         flags=re.IGNORECASE,
@@ -425,6 +487,12 @@ def to_display_text(text: str) -> str:
         t,
         flags=re.IGNORECASE,
     )
+    t = re.sub(
+        r"\b(one|two|three|four|five|six|seven|eight|nine|\d{1,3})-thousand\b",
+        _thousands_compact,
+        t,
+        flags=re.IGNORECASE,
+    )
 
     # 7. Convert standalone single-digit words ('one'..'nine') when followed by quantitative measurement units
     _single_digit_units_re = (
@@ -440,7 +508,7 @@ def to_display_text(text: str) -> str:
         t,
         flags=re.IGNORECASE,
     )
-    t = re.sub(r"\b(\d+)\s+percent\b", r"\1%", t, flags=re.IGNORECASE)
+    t = re.sub(r"(?<!\w)(-?\d[\d,]*(?:\.\d+)?)\s+percent\b", r"\1%", t, flags=re.IGNORECASE)
     t = re.sub(r"\s*[—–]\s*", ", ", t)
     t = t.replace("…", "...")
     t = re.sub(r"\s{2,}", " ", t).strip()
@@ -686,6 +754,7 @@ __all__ = [
     "find_duplicate_analogy_idioms",
     "find_jargon",
     "fk_grade",
+    "fk_grade_conversational",
     "number_to_words",
     "region_named_in",
     "to_display_text",

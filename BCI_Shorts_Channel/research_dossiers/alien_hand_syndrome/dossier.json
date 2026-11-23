@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "alien_hand_syndrome",
   "topic": "Goldberg (1981) & Feinberg (1992): Alien Hand Syndrome — When Your Own Left Hand Unbuttons the Shirt Your Right Hand Just Buttoned",
   "pillar": "brain_mysteries",
@@ -48,7 +48,25 @@
     },
     {
       "fact": "1. **Frontal Variant (Supplementary Motor Area [SMA] + Anterior Cingulate lesion): normally your premotor cortex preps automatic 'affordance' grabs whenever your eyes spot a cup or doorknob, and SMA acts as the internal veto brake** — lose SMA, and the dominant hand compulsively grasps and uses every nearby object.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "SMA Veto vs Reflex Grasp",
+        "concept": "Premotor Grasp Release Threshold",
+        "fn": "sigmoid",
+        "x_label": "Object Affordance Salience",
+        "y_label": "Uninhibited Grasp Drive",
+        "markers": [
+          {
+            "x": 5.0,
+            "y": 50.0,
+            "label": "SMA Veto Lost"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "2. **Callosal Variant** (Anterior Corpus Callosum lesion): normally the corpus callosum coordinates one shared plan between hemispheres — sever its anterior motor fibers, and **intermanual conflict** erupts: the right hand buttons a dress shirt up while the non-dominant left hand follows right behind unbuttoning every single button, or pulls a grocery item BACK out of the cart.",
@@ -116,5 +134,38 @@
   ],
   "shorts_projects": [
     "diorama_03_alien_hand_syndrome"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1001/archneur.1981.00510110043004",
+  "three_layer_formula": {
+    "everyday_problem": "Catching your hand automatically tapping your phone icon or grabbing a chip from a bowl on the table before you consciously decided to eat one ('micro-affordance' leak!).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1001/archneur.1981.00510110043004",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1001/archneur.1981.00510110043004"
+      ],
+      "summary": "G. Goldberg, N. H. Mayer, J. U. Toglia (1981). Medial Frontal Cortex Infarction and the Alien Hand Sign. Archives of Neurology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.7759/cureus.5828",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.7759/cureus.5828"
+      ],
+      "summary": "Gaurav Gheewala, Rajan Gadhia, Salim Surani, Iqbal Ratnani (2019). Posterior Alien Hand Syndrome from Acute Ischemic Left Parietal Lobe Infarction. Cureus."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Alien Hand Syndrome is a psychiatric split-personality disorder or Hollywood possession.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

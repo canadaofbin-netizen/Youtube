@@ -1,7 +1,7 @@
 {
   "version": "3.0-31day-1perday-1930et",
   "channel_handle": "@AllAboutBrainOfficial",
-  "updated_at": "2026-11-04T10:28:00+00:00",
+  "updated_at": "2026-11-18T00:06:47.095120+00:00",
   "slots_per_day": 1,
   "daily_slots_et": [
     "19:30"
@@ -12,22 +12,105 @@
   "end_date": "2026-12-04",
   "scheduled_items": [
     {
-      "schedule_id": "2026-11-04_slot4",
-      "date": "2026-11-04",
+      "schedule_id": "2026-11-16_slot4",
+      "date": "2026-11-16",
       "slot_id": 4,
       "slot_name": "Evening Prime",
       "time_et": "19:30",
       "time_pt": "16:30",
       "time_kst": "09:30",
-      "target_time_et": "2026-11-04 19:30 ET",
-      "scheduled_time_et": "2026-11-04 19:30 ET",
-      "project_id": "reenact_01_ainsworth_strange_situation",
-      "title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
+      "target_time_et": "2026-11-16 19:30 ET",
+      "project_id": "v8_ep09_maguire_london_taxi_hippocampus",
+      "video_id": "tWjrK5enOoM",
+      "shorts_url": "https://www.youtube.com/shorts/tWjrK5enOoM",
+      "title": "Why London Taxi Drivers Grew Bigger Brains",
       "pillar": "brain_health",
-      "status": "scheduled",
-      "video_id": "jySZ6EL3aYM",
-      "shorts_url": "https://www.youtube.com/shorts/jySZ6EL3aYM",
-      "visibility": "scheduled"
+      "status": "published_public",
+      "visibility": "public"
+    },
+    {
+      "schedule_id": "2026-11-17_slot4",
+      "date": "2026-11-17",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-17 19:30 ET",
+      "project_id": null,
+      "title": null,
+      "pillar": null,
+      "status": "vacant"
+    },
+    {
+      "schedule_id": "2026-11-18_slot4",
+      "date": "2026-11-18",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-18 19:30 ET",
+      "project_id": null,
+      "title": null,
+      "pillar": null,
+      "status": "vacant"
+    },
+    {
+      "schedule_id": "2026-11-19_slot4",
+      "date": "2026-11-19",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-19 19:30 ET",
+      "project_id": null,
+      "title": null,
+      "pillar": null,
+      "status": "vacant"
+    },
+    {
+      "schedule_id": "2026-11-20_slot4",
+      "date": "2026-11-20",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-20 19:30 ET",
+      "project_id": null,
+      "title": null,
+      "pillar": null,
+      "status": "vacant"
+    },
+    {
+      "schedule_id": "2026-11-21_slot4",
+      "date": "2026-11-21",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-21 19:30 ET",
+      "project_id": null,
+      "title": null,
+      "pillar": null,
+      "status": "vacant"
+    },
+    {
+      "schedule_id": "2026-11-22_slot4",
+      "date": "2026-11-22",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-22 19:30 ET",
+      "project_id": null,
+      "title": null,
+      "pillar": null,
+      "status": "vacant"
     }
   ],
   "history": [
@@ -149,7 +232,8 @@
       "status": "published_public",
       "video_id": "wUAD5xIpaww",
       "shorts_url": "https://youtube.com/shorts/wUAD5xIpaww",
-      "visibility": "public"
+      "visibility": "public",
+      "scheduled_time_et": "2026-11-02 12:00 ET"
     },
     {
       "schedule_id": "2026-11-02_slot4",
@@ -166,7 +250,8 @@
       "status": "published_public",
       "video_id": "JJkBqo-hTS8",
       "shorts_url": "https://youtube.com/shorts/JJkBqo-hTS8",
-      "visibility": "public"
+      "visibility": "public",
+      "scheduled_time_et": "2026-11-02 20:00 ET"
     },
     {
       "schedule_id": "2026-11-03_slot2",
@@ -183,7 +268,8 @@
       "status": "published_public",
       "video_id": "ZbjKX8CBt8A",
       "shorts_url": "https://youtube.com/shorts/ZbjKX8CBt8A",
-      "visibility": "public"
+      "visibility": "public",
+      "scheduled_time_et": "2026-11-03 12:00 ET"
     },
     {
       "schedule_id": "2026-11-03_slot4",
@@ -200,7 +286,116 @@
       "status": "published_public",
       "video_id": "t8Z_Q8oB9MY",
       "shorts_url": "https://youtube.com/shorts/t8Z_Q8oB9MY",
+      "visibility": "public",
+      "scheduled_time_et": "2026-11-03 20:00 ET"
+    },
+    {
+      "schedule_id": "2026-11-04_slot4",
+      "date": "2026-11-04",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-04 19:30 ET",
+      "scheduled_time_et": "2026-11-04 19:30 ET",
+      "project_id": "reenact_01_ainsworth_strange_situation",
+      "title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts",
+      "pillar": "brain_health",
+      "status": "published_public",
+      "video_id": "jySZ6EL3aYM",
+      "shorts_url": "https://www.youtube.com/shorts/jySZ6EL3aYM",
       "visibility": "public"
+    },
+    {
+      "schedule_id": "2026-11-11_slot4",
+      "date": "2026-11-11",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-11 19:30 ET",
+      "scheduled_time_et": "2026-11-11 19:30 ET",
+      "project_id": "v8_ep04_patient_sm_fearless_amygdala",
+      "title": "Why One Breath Terrified a Fearless Woman",
+      "pillar": "brain_mysteries",
+      "status": "published_public",
+      "video_id": "7W8zIOMKPrQ",
+      "shorts_url": "https://www.youtube.com/shorts/7W8zIOMKPrQ",
+      "visibility": "public"
+    },
+    {
+      "schedule_id": "2026-11-12_slot4",
+      "date": "2026-11-12",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-12 19:30 ET",
+      "scheduled_time_et": "2026-11-12 19:30 ET",
+      "project_id": "v8_ep05_ucl_tickle_delay_robot",
+      "title": "Why a Delayed Robot Can Tickle You",
+      "pillar": "brain_health",
+      "status": "published_public",
+      "video_id": "ut1wde0d19o",
+      "shorts_url": "https://www.youtube.com/shorts/ut1wde0d19o",
+      "visibility": "public"
+    },
+    {
+      "schedule_id": "2026-11-15_slot4",
+      "date": "2026-11-15",
+      "slot_id": 4,
+      "slot_name": "Evening Prime",
+      "time_et": "19:30",
+      "time_pt": "16:30",
+      "time_kst": "09:30",
+      "target_time_et": "2026-11-15 19:30 ET",
+      "scheduled_time_et": "2026-11-15 19:30 ET",
+      "project_id": "v8_ep08_capgras_imposter_delusion_r77",
+      "title": "Why His Mom Felt Fake Until She Called",
+      "pillar": "brain_history",
+      "status": "published_public",
+      "video_id": "Atd0Pi9HPg4",
+      "shorts_url": "https://www.youtube.com/shorts/Atd0Pi9HPg4",
+      "visibility": "public"
+    },
+    {
+      "project_id": "v8_ep06_bedtime_todo_list_sleep",
+      "video_id": "sjMteEvcjD0",
+      "shorts_url": "https://www.youtube.com/shorts/sjMteEvcjD0",
+      "title": "How Trying to Fall Asleep Backfires",
+      "status": "published_public",
+      "visibility": "public",
+      "slot_id": 4,
+      "scheduled_time_et": "2026-11-13 19:30 ET",
+      "date": "2026-11-13",
+      "time_et": "19:30",
+      "schedule_id": "2026-11-13_slot4"
+    },
+    {
+      "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+      "video_id": "K_9IJVShp90",
+      "shorts_url": "https://www.youtube.com/shorts/K_9IJVShp90",
+      "title": "Why Swap Options Ruin Your Own Choice",
+      "status": "published_public",
+      "visibility": "public",
+      "slot_id": 4,
+      "scheduled_time_et": "2026-11-14 19:30 ET",
+      "date": "2026-11-14",
+      "time_et": "19:30",
+      "schedule_id": "2026-11-14_slot4"
+    },
+    {
+      "project_id": "v8_pilot_03_marshmallow_trust_previs",
+      "video_id": "soUNqH7UyKw",
+      "shorts_url": "https://www.youtube.com/shorts/soUNqH7UyKw",
+      "title": "Why Broken Promises Crash Your Self-Control",
+      "status": "published_public",
+      "visibility": "public",
+      "slot_id": 3,
+      "scheduled_time_et": null
     }
   ]
 }

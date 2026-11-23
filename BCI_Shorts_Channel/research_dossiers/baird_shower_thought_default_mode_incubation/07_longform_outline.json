@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "shorts_extract": {
+    "hook": "Why can you stare at a work problem for two hours with zero ideas — then solve it in thirty seconds in the shower?",
+    "core_experiment": "Benjamin Baird & Jonathan Schooler's 2012 UC Santa Barbara incubation study (+41% creative jump after an easy break vs 0% hard break/rest).",
+    "twist": "You MUST load the problem first, blank rest fizzles, and scrolling your phone kills the Default Mode daydream duet!"
+  },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "48-year-old adult pausing on a sunlit walk with a sudden lightbulb 'AHA!' grin vs stressed desk stare",
+    "right_cyan_brain": "Translucent #27D8FF cyan 3D brain linking glowing midline Default Mode daydream network with forehead planner",
+    "badge_text": "+41% IDEA BOOST"
+  },
+  "r75_clean_seed_tags": [
+    "shower thoughts science",
+    "default mode network",
+    "creative incubation",
+    "mind wandering",
+    "benjamin baird",
+    "jonathan schooler",
+    "how to getunstuck",
+    "brain focus habits",
+    "neuroscience of creativity",
+    "phone free walk"
+  ],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Desk Gridlock vs The 30-Second Shower Breakthrough",
+      "beats": [
+        "Why staring harder narrows prefrontal search onto dead-end answers",
+        "Baird et al. (2012): testing 4 break types on the Unusual Uses Task"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "red clay brick & stalled notepad"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "+41% vs 0%: Why Light Hands-Busy Tasks Beat Hard Work AND Empty Rest",
+      "beats": [
+        "12-minute undemanding break jumps repeated-problem creativity by 41%",
+        "Irving et al. (2024): why moderate engagement ('The Shower Effect') beats sitting in an empty chair"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "+41% vs 0% comparison & shower dial scene"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Creative Brain: When Rivals Hold Hands",
+      "beats": [
+        "Beaty et al. (2016 TiCS, 2018 PNAS): Default Mode + Salience + Dorsolateral Prefrontal coupling",
+        "Why you must load the problem BEFORE taking the break"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3D brain Default-to-Prefrontal bridge"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "How Smartphones Quietly Killed Adult 'Shower Thoughts'",
+      "beats": [
+        "Christoff et al. (2016) & Leszczynski et al. (2017): why scrolling feeds mimic Baird's 0% demanding task",
+        "Reclaiming 12 minutes of low-input mental drift"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "leaving phone on entry table before walk"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 2-Step Load-and-Drift Habit for Everyday Decisions",
+      "beats": [
+        "Step 1: 20 minutes of focused desk loading",
+        "Step 2: 12 minutes of phone-free walking, showering, or dish-washing"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "pocket index card breakthrough on sunlit walk"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "ramachandran_synesthesia_cross_wiring",
   "topic": "Ramachandran & Hubbard (2001): Synesthesia 'Pop-Out' — Proving Seeing '5' in Ruby Red Is Real Cortical Cross-Wiring, Not Metaphor",
   "pillar": "brain_basics",
@@ -44,11 +44,31 @@
     },
     {
       "fact": "To non-synesthetes (N=40 controls), black mirrored 2s and 5s share identical horizontal and vertical strokes, forcing agonizing item-by-item scanning — controls scored near **59% accuracy** under brief 1-second flashes.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Control Pop-Out Accuracy",
+        "percent": 59.0,
+        "unit": "%",
+        "doi": "10.1098/rspb.2000.1576",
+        "source_citation": "Ramachandran & Hubbard (2001)"
+      }
     },
     {
       "fact": "To grapheme-color synesthetes (for whom '5' automatically triggered green and '2' triggered bright red!), the hidden red triangle **leaped off the black-and-white page at 81% accuracy** — almost exactly like a real color test.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Synesthete Pop-Out Accuracy",
+        "percent": 81.0,
+        "unit": "%",
+        "doi": "10.1098/rspb.2000.1576",
+        "source_citation": "Ramachandran & Hubbard (2001)"
+      }
     },
     {
       "fact": "They also tested **perceptual crowding**: flash a peripheral letter flanked tightly by neighbor letters so a person CANNOT consciously read it, and in synesthetes that 'unreadable' peripheral letter STILL triggered a hint of its synesthetic color, rescuing identification above controls.",
@@ -122,5 +142,37 @@
     "diorama_78_ramachandran_synesthesia_cross_wiring"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1098/rspb.2000.1576",
+  "three_layer_formula": {
+    "everyday_problem": "Realizing wait — doesn't EVERYONE feel like '7' is sharp yellow or 'Wednesday' has a specific color, then discovering your friend has zero idea what you're talking about.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1098/rspb.2000.1576",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1098/rspb.2000.1576"
+      ],
+      "summary": "V. S. Ramachandran, E. M. Hubbard (2001). Psychophysical investigations into the neural basis of synaesthesia. Proceedings of the Royal Society of London. Series B: Biological Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1177/0301006615610210",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1177/0301006615610210"
+      ],
+      "summary": "Karen M. Whittingham (2016). Simner, J. & Hubbard, E. M. (Eds.) (2013). The Oxford Handbook of synesthesia. Perception."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Synesthetes are just speaking in poetic metaphors or making things up for attention.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

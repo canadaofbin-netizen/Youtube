@@ -1,0 +1,177 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2023 Max Planck 8-Week Pudding Trial: Flat Bathroom Scale vs Rewired fMRI Reward Surge",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2023, Max Planck Institute for Metabolism Research, Cologne, Germany",
+      "layout": {
+        "description": "Crisp sunlit clinical nutrition & fMRI suite pairing two matched pudding cups (High-Fat/High-Sugar vs Calorie-Matched Low-Fat), an unchanged digital floor scale, and an illuminated 8-Week Striatal fMRI Reward Lightbox.",
+        "positions": [
+          {
+            "who": "45-year-old normal-weight adult volunteer in smart casual sweater and slacks",
+            "where": "seated at the tasting table pushing aside a plain low-fat bowl and reaching eagerly for the rich sweet-fatty pudding cup beside a flat weight scale",
+            "facing": "facing the two tasting bowls and fMRI display"
+          },
+          {
+            "who": "Sharmili Edwin Thanarajah in crisp white clinical coat holding Week-8 fMRI scan chart",
+            "where": "standing beside the fMRI lightbox pointing to the surging nucleus accumbens and striatal dopamine response despite zero weight gain",
+            "facing": "observing the tasting table and lightbox"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paired Week-8 pudding cup and untouched low-fat whole-food bowl",
+          "period_detail": "stages Thanarajah et al.'s 2023 8-week daily pudding intervention and post-trial preference shift",
+          "physical_behavior": "State-A hand hovers between low-fat berry yogurt bowl and glossy sweet-fatty pudding cup -> State-B pushes healthy bowl away and scoops the sweet-fatty cup"
+        },
+        {
+          "name": "unchanged floor weight scale beside glowing Striatal fMRI Reward Lightbox",
+          "period_detail": "captures the study's central shock: zero weight change vs steep brain-reward rewiring",
+          "physical_behavior": "State-A digital scale needle stays locked flat at baseline -> State-B fMRI reward meter lights bright across ventral striatum"
+        }
+      ],
+      "actions": [
+        {
+          "who": "45-year-old volunteer",
+          "verb_sequence": "steps off the unchanged floor scale smiling -> sits at the Week-8 tasting tray -> pushes the plain low-fat option aside and reaches straight for the sweet-fatty snack"
+        },
+        {
+          "who": "Sharmili Edwin Thanarajah",
+          "verb_sequence": "illuminates the Week-8 fMRI scan revealing amplified dopaminergic reward firing"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "45-year-old volunteer",
+          "reaction": "blinks in disbelief seeing their brain rewired while body weight stayed identical"
+        },
+        {
+          "who": "Sharmili Edwin Thanarajah",
+          "reaction": "points out that brain plasticity precedes weight gain"
+        }
+      ],
+      "wardrobe": "Navy knit crewneck over collared shirt and tailored trousers; researcher in white clinical coat.",
+      "lighting": "Clean high-key clinical daylight.",
+      "recognition_hook": "Eight weeks of one small daily sugary-fatty snack changed zero pounds on the scale — yet quietly rewired the brain's reward center to reject simpler, healthier food!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a sunlit Max Planck nutrition lab where a normal-weight adult pushes a healthy bowl aside for a sweet-fatty pudding cup beside an unchanged floor scale and a glowing striatal fMRI lightbox",
+        "must_show": [
+          "pudding|cup|bowl",
+          "scale",
+          "fmri|lightbox"
+        ],
+        "source": "M1@00:08-00:25; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "9 P.M. Kitchen Pantry Habit Cue: Why Fat + Sugar Fools Ancient Brain Wiring",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern warm evening home kitchen",
+      "layout": {
+        "description": "Warm evening kitchen island contrasting natural single-fuel foods (almonds = fat; crisp apple = carb) against an ultra-processed frosted snack bar combining both.",
+        "positions": [
+          {
+            "who": "48-year-old homeowner at evening kitchen counter",
+            "where": "opening pantry door at 9 p.m. and comparing a foil-wrapped pastry bar against whole almonds and an apple",
+            "facing": "facing kitchen island"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "wooden bowl of whole almonds and red apples beside foil-wrapped ultra-processed snack bar",
+          "period_detail": "illustrates DiFeliceantonio et al. (2018) fat-only / carb-only vs fat+carb combo",
+          "physical_behavior": "State-A sets foil snack bar back into cupboard -> State-B picks up crisp red apple and handful of roasted almonds"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner",
+          "verb_sequence": "pauses at pantry door -> closes wrapper drawer -> plates sliced apple and roasted almonds"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner",
+          "reaction": "nods understanding why artificial fat+sugar combos hijack reward math"
+        }
+      ],
+      "wardrobe": "Comfortable burgundy cardigan over tee.",
+      "lighting": "Warm evening kitchen pendant glow.",
+      "recognition_hook": "Nature rarely mixes high fat and high sugar in one bite — which is why ultra-processed combos double-hit your reward circuit.",
+      "sources": [
+        "SRC2",
+        "SRC4",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Outdoor Weekend Farmers' Market Stroll: Re-Sensitizing the Adult Palate",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit Saturday morning outdoor farmers' market (Outdoor)",
+      "layout": {
+        "description": "Vibrant open-air morning farmers' market under canvas canopies where a 50-year-old couple tastes fresh ripe berries and roasted walnuts in crisp sunshine.",
+        "positions": [
+          {
+            "who": "50-year-old adult shopper in linen overshirt",
+            "where": "standing at an outdoor wooden produce stall tasting a fresh strawberry and placing whole produce into a canvas tote",
+            "facing": "facing sunlit outdoor market stall"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "pint of ripe strawberries, walnuts, and woven canvas market bag",
+          "period_detail": "outdoor weekend whole-food reset scene",
+          "physical_behavior": "State-A lifts ripe berry from wooden crate -> State-B places fresh berries into canvas tote"
+        }
+      ],
+      "actions": [
+        {
+          "who": "50-year-old shopper",
+          "verb_sequence": "samples fresh seasonal fruit -> packs whole foods for the week's afternoon snack slot"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "50-year-old shopper",
+          "reaction": "savors bright natural sweetness once daily ultra-processed snacks step out of the way"
+        }
+      ],
+      "wardrobe": "Sand linen overshirt, white tee, dark jeans.",
+      "lighting": "Crisp golden morning outdoor sunlight.",
+      "recognition_hook": "Step away from daily fat-plus-sugar snacks for a few weeks and whole foods taste vivid again.",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC4"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Daily sugary high-fat snack shelf detour over 8 weeks",
+    "landmark_or_object_b": "Calorie-matched low-fat whole-food aisle corridor",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past Max Planck / Yale stone laboratory courtyard rising into a miniature market grid",
+    "cut_b_topdown_3d_arrow": "90-degree top-down grocery aisle maze where #FF2525 3D craving arrows veer repeatedly toward the sweet-snack island",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

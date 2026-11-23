@@ -1,115 +1,178 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "mcgurk_multisensory_illusion",
-  "topic": "McGurk & MacDonald (1976): Hearing Voices Your Ears Never Received — How Vision Rewrites Speech ('BA' + 'GA' = 'DA')",
+  "topic": "Why Putting On Your Glasses Helps You Hear — How Vision Rewrites Speech ('BA' + 'GA' = 'DA')",
   "pillar": "brain_basics",
+  "everyday_domain": "habits",
   "created_at": "2026-10-25T22:49:33+00:00",
   "status": "ready",
   "visual_mode": "NEURO_BIOLOGY",
-  "visual_mode_reason": "Harry McGurk and John MacDonald's accidental 1976 dubbing discovery ('ba-ba' audio + 'ga-ga' lips = unmistakable 'da-da' heard by 98% of adults!) is a foundational multisensory brain fusion phenomenon driven by superior temporal sulcus / auditory-visual integration.",
+  "visual_mode_reason": "Showing how 'ba' sound waves paired with 'ga' lip motion force 98% of adults to consciously hear 'da' requires mapping pure acoustic input from the cochlea and lip geometry from visual cortex into the temporal lobe fusion hub and auditory cortex.",
+  "setup_18w": "Researchers dubbed audio of ba-ba onto silent video of lips mouthing ga-ga before healthy listeners.",
+  "three_layer_formula": {
+    "everyday_problem": "Adults aged 35 to 65+ sitting in a bustling restaurant or dim patio dinner wonder why they suddenly struggle to catch words when someone turns away — or swear they 'hear better' the instant they put their reading glasses on.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/264746a0",
+      "source_ids": [
+        "SRC1",
+        "SRC3",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1038/264746a0",
+        "10.1016/j.cub.2005.03.046",
+        "10.3389/fpsyg.2014.00725"
+      ],
+      "summary": "Harry McGurk & John MacDonald (1976, Nature) accidentally dubbed 'ba' audio onto 'ga' lip video across 103 listeners, discovering 98% of adults hear a fused phantom third syllable 'da' that flips back to 'ba' the millisecond eyes close."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.1098/rstb.2022.0348",
+      "year": 2023,
+      "source_ids": [
+        "SRC6",
+        "SRC5"
+      ],
+      "dois": [
+        "10.1098/rstb.2022.0348",
+        "10.1121/10.0043923"
+      ],
+      "summary": "David Meijer & Uta Noppeney (2023, Phil. Trans. R. Soc. B) and Moisio et al. (2026, JASA) extended Nath & Beauchamp's (2012, NeuroImage) posterior superior temporal sulcus (temporal lobe) causal audiovisual binding model to adult perceptual confidence."
+    },
+    "psychology_studies": [
+      "SRC1",
+      "SRC3",
+      "SRC4"
+    ],
+    "neuroscience_studies": [
+      "SRC6",
+      "SRC5"
+    ]
+  },
   "primary_case": {
-    "title": "Harry McGurk & John MacDonald's 1976 Nature 'Hearing Lips and Seeing Voices' dubbing experiment",
+    "title": "Harry McGurk & John MacDonald's Accidental 1976 University of Surrey Dubbing Discovery ('Hearing Lips and Seeing Voices')",
     "year": 1976,
     "place": "Department of Psychology, University of Surrey, Guildford, UK",
     "people": [
       {
         "name": "Harry McGurk & John MacDonald",
-        "role": "Developmental psychologists studying infant perception at Surrey who asked a technician to dub mismatched syllables onto video — and couldn't believe their own ears.",
+        "role": "British psychologists at Surrey who scolded an audiovisual technician for 'recording the wrong syllable' until shutting their own eyes flipped 'da-da' right back into 'ba-ba'",
         "source_id": "SRC1"
       },
       {
-        "name": "Technician in the Surrey AV suite",
-        "role": "Created the split audio-video dub ('ba-ba' sound onto 'ga-ga' lip movements) that fooled both researchers into thinking the audio track had been recorded wrong",
-        "source_id": "SRC1"
-      },
-      {
-        "name": "Michael S. Beauchamp & Nath",
-        "role": "Neuroscientists who localized human McGurk audiovisual fusion to the posterior Superior Temporal Sulcus (pSTS) and proved TMS disruption of pSTS turns 'da' right back into 'ba'.",
+        "name": "Audrey R. Nath & Michael S. Beauchamp",
+        "role": "Human neuroimaging pioneers who proved posterior temporal lobe (STS) activity governs person-to-person McGurk fusion and reverts 'da' to 'ba' when briefly disrupted",
         "source_id": "SRC2"
+      },
+      {
+        "name": "David Meijer, Uta Noppeney & Kaisa Tiippana",
+        "role": "Modern multisensory researchers who mapped why adults feel high perceptual confidence in fused phantom syllables (2023) and how attention load and acoustic cues bound fusion (2014, 2026)",
+        "source_id": "SRC6"
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "In 1976 at the University of Surrey, Harry McGurk and John MacDonald were testing how infants respond when a mother's voice comes from a different spot than her face, and asked a video technician to dub the sound **'ba-ba'** onto a close-up film of a woman's lips pronouncing **'ga-ga'**.",
+      "fact": "In 1976 at the University of Surrey, psychologists Harry McGurk and John MacDonald asked an audiovisual technician to dub a woman's voice saying 'ba-ba' onto video of her lips pronouncing open-mouthed 'ga-ga'.",
       "source_id": "SRC1"
     },
     {
-      "fact": "When McGurk and MacDonald played the dubbed video back, neither heard 'ba' OR 'ga' — both swore the loudspeaker was clearly saying **'DA-DA'**. They scolded the technician for mixing up the audio until they closed their eyes — and the exact same speaker instantly said **'BA-BA'**.",
+      "fact": "When McGurk and MacDonald played the tape back, both insisted the loudspeaker was clearly saying 'da-da' — until they closed their eyes or covered the TV screen, and the untouched speaker cone instantly said 'ba-ba'.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Testing 103 participants across three age brackets (3-to-4-year-olds, 7-to-8-year-olds, and 18-to-40-year-old adults, Nature 1976), **98% of adults** (and 59-81% of young children) reported hearing the fused phantom third syllable **'da'** when watching 'ga' lips over 'ba' sound.",
+      "fact": "Across 103 participants in McGurk and MacDonald's 1976 Nature study, watching 'ga' lip movements dubbed over 'ba' audio made 98% of adults hear the fused phantom sound 'da', compared with 81% of 7-to-8-year-olds and 59% of preschoolers.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Phantom DA Fusion Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Preschoolers",
+            "value": 59.0,
+            "unit": "%"
+          },
+          {
+            "label": "School Kids",
+            "value": 81.0,
+            "unit": "%"
+          },
+          {
+            "label": "Adult Listeners",
+            "value": 98.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1038/264746a0",
+        "source_citation": "McGurk & MacDonald (1976)"
+      }
+    },
+    {
+      "fact": "Flipping the dub the opposite way — playing 'ga-ga' audio over visibly sealed 'ba-ba' lips — refused to merge into 'da': majorities heard 'bagba' or 'gaba' because sealed lips physically rule out a pure open-throat 'ga'.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Even more bizarre was the reverse pairing: dubbing **'ga-ga' audio** onto **'ba-ba' lip closure** didn't fuse into a middle consonant — majorities heard the double-consonant combination **'bagba'** or **'gaba'** because visibly sealed lips ('b') cannot logically produce a back-throat 'g' alone.",
-      "source_id": "SRC1"
+      "fact": "Conscious knowledge grants zero immunity: even after studying the tape frame by frame for decades, opening your eyes flips 'ba' to 'da' and shutting them flips 'da' back to 'ba' in a fraction of a second.",
+      "source_id": "SRC4"
     },
     {
-      "fact": "Knowing the trick gives ZERO immunity: Harry McGurk himself knew every frame of the dub, yet opening his eyes flipped his conscious hearing from 'ba' to 'da' every single time for the rest of his life.",
-      "source_id": "SRC1"
-    },
-    {
-      "fact": "Remarkably, visual speech starts entering the brain ~100-150 milliseconds BEFORE sound hits the cochlea (because lip shaping precedes vocal-cord vibration), letting visual cortex prime auditory cortex and posterior temporal lobe in advance.",
+      "fact": "Functional MRI by Audrey Nath and Michael Beauchamp (2012, NeuroImage) localized the audiovisual speech weld point to the left superior temporal sulcus in the temporal lobe, where response strength predicts whether an adult fuses nearly every trial or rarely fuses.",
       "source_id": "SRC2"
     },
     {
-      "fact": "In 2010, Michael Beauchamp, Audrey Nath, and colleagues delivered single-pulse Transcranial Magnetic Stimulation (TMS) strictly over left posterior Superior Temporal Sulcus (pSTS) right during the syllable: temporarily silencing pSTS abolished the McGurk illusion so subjects heard the true acoustic 'ba' again — without hurting normal single-sense hearing or vision.",
-      "source_id": "SRC2"
-    },
-    {
-      "fact": "Modern replications (Tiippana, Alsius, Van Engen, SRC3) revealed fascinating individual differences: some healthy adults fuse 95% of trials while others fuse <20% depending on pSTS connectivity, native language phonology (e.g., quieter face-gaze cultures like Japanese show weaker baseline McGurk unless background noise rises), and noisy-room reliance.",
+      "fact": "Alsius, Navarra, Campbell, and Soto-Faraco (2005, Current Biology) proved audiovisual speech binding is not effortless magic: taxing an adult's visual or auditory attention with a demanding side task sharply reduces McGurk fusion.",
       "source_id": "SRC3"
+    },
+    {
+      "fact": "Modern computational and acoustic work by Meijer and Noppeney (2023) and Moisio et al. (2026) shows adults experience genuine high perceptual confidence in the fused syllable because lip motion arrives roughly 100 milliseconds ahead of vocal sound to prime auditory cortex.",
+      "source_id": "SRC6"
     }
   ],
   "wow_facts": [
     {
-      "fact": "Close your eyes and the loudspeaker says **'BA — BA — BA'** with 100% clarity; open your eyes to watch lips mouthing **'GA — GA — GA'**, and your own ears swear the speaker switched to **'DA — DA — DA'** — 98% of adults in McGurk's 1976 paper got fooled.",
-      "why_surprising": "You don't hear with your ears alone; you hear with your eyes.",
+      "fact": "Don't touch the speaker volume knob — just slide a piece of white cardboard in front of the TV screen, and 98% of adults hear the exact same audio track flip instantly from 'DA-DA' to 'BA-BA'!",
+      "why_surprising": "Your eyes reach into your temporal lobe and rewrite consonants before conscious hearing even forms.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "Even the two scientists who DISCOVERED the illusion thought their studio technician had botched the audio dub until they covered the TV screen with their hands.",
-      "why_surprising": "Conscious knowledge cannot override automatic pSTS sensory fusion.",
+      "fact": "Adults actually get FOOLED MORE than four-year-olds (98% vs 59% in Nature 1976) — because decades of watching talking faces trains mature brains to lean heavily on lip-reading in noisy rooms.",
+      "why_surprising": "A rare illusion where decades of adult life experience makes the trick stronger, not weaker.",
       "source_id": "SRC1",
       "rank": 2
     },
     {
-      "fact": "Pause the posterior Superior Temporal Sulcus for 100 milliseconds with harmless magnetic stimulation (Beauchamp 2010), and the phantom 'DA' vanishes instantly — restoring raw 'BA' while leaving eyesight and hearing 100% sharp.",
-      "why_surprising": "Causal proof of the exact cortical weld point between sight and sound.",
+      "fact": "Because human lips visibly shape a consonant roughly 100 to 150 milliseconds BEFORE vocal cords vibrate, facing someone in good light gives your brain a free head start equivalent to turning up their voice in a loud restaurant.",
+      "why_surprising": "Explains why putting on reading glasses genuinely helps adults hear at dinner parties.",
       "source_id": "SRC2",
       "rank": 3
-    },
-    {
-      "fact": "Because lips visibly move ~120 milliseconds BEFORE vocal cords buzz, watching a speaker's face in a noisy restaurant acts like a free 15-decibel hearing-aid boost.",
-      "why_surprising": "Everyday speech comprehension is secretly audiovisual.",
-      "source_id": "SRC2",
-      "rank": 4
     }
   ],
   "misconceptions": [
     {
-      "myth": "Hearing happens strictly along a sealed pipe from ear cochlea to auditory cortex.",
-      "truth": "Visual lip geometry reaches posterior temporal and even early auditory cortex milliseconds before sound finishes arriving, co-authoring what you consciously 'hear'.",
-      "source_id": "SRC1"
+      "myth": "Speech hearing travels along a sealed, private wire from your inner ear straight to conscious words.",
+      "truth": "Visual cortex sends lip-shape predictions into the temporal lobe before acoustic waves finish arriving, co-authoring what you consciously hear.",
+      "source_id": "SRC2"
     },
     {
-      "myth": "Once someone explains an illusion, your brain stops falling for it.",
-      "truth": "Just like Muller-Lyer lines in vision, McGurk fusion runs below conscious belief — open your eyes, 'da'; close your eyes, 'ba'.",
-      "source_id": "SRC1"
+      "myth": "Once someone tells you the audio only says 'BA', willpower stops the illusion.",
+      "truth": "Temporal-lobe multisensory fusion runs automatically below conscious belief (Meijer & Noppeney 2023) — open eyes hear 'da', closed eyes hear 'ba'.",
+      "source_id": "SRC6"
     },
     {
-      "myth": "Every human being experiences 100% McGurk fusion on every clip regardless of speaker or culture.",
-      "truth": "Modern massive replications show wide healthy person-to-person variation in pSTS audiovisual weighting and stronger visual pull whenever acoustic noise rises.",
-      "source_id": "SRC3"
+      "myth": "Only people with hearing loss lip-read during everyday conversation.",
+      "truth": "98% of normal-hearing adults in McGurk & MacDonald (1976) fused lip cues automatically, relying on visual speech even more whenever restaurant noise rises.",
+      "source_id": "SRC1"
     }
   ],
   "everyday_hooks": [
-    "Turning on subtitles or putting on your glasses at a loud party and swearing 'Wait — suddenly I can HEAR people better!'",
-    "Feeling strangely exhausted trying to catch words on an audio-only conference call with choppy microphones vs clear video.",
-    "Opening and closing your eyes during a 5-second 'BA/GA — DA' clip and gasping as the consonant flips mid-sentence."
+    "Putting on your glasses at a noisy Saturday night restaurant table and swearing you can suddenly HEAR your spouse's voice twice as clearly.",
+    "Feeling drained after an hour-long audio-only work call with muffled microphones compared with a well-lit face-to-face chat.",
+    "Missing a crucial name or number when a family member talks to you from the kitchen with their back turned while the faucet runs."
   ],
   "linked_projects": [
     "psych_57_mcgurk_multisensory_illusion"
@@ -118,5 +181,12 @@
     "diorama_72_mcgurk_multisensory_illusion"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "primary_doi": "10.1038/264746a0",
+  "offcenter_creator_bet": "My bet: your eyes edit your ears — even knowing the dub trick cannot stop open eyes from flipping BA into DA. Do you hear better with glasses on or eyes shut?",
+  "debate_ignition": {
+    "prebunk_myth": "Only people with hearing loss lip-read — normal-hearing adults hear strictly with their ears.",
+    "open_verdict_question": "In a noisy restaurant, do you catch words better by leaning an ear closer or by looking straight at the speaker's face in good light?",
+    "offcenter_creator_bet": "My bet: your eyes edit your ears — even knowing the dub trick cannot stop open eyes from flipping BA into DA. Do you hear better with glasses on or eyes shut?"
+  }
 }

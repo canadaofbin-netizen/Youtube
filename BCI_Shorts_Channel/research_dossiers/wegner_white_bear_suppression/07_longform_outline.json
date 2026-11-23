@@ -1,21 +1,37 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
   "shorts_extract": {
-    "hook": "Ordered NOT to think of a white bear, students ring a confession bell >6 times in 5 minutes — then rebound 40% higher afterward.",
-    "core_experiment": "Wegner et al.'s 1987 Trinity booth study + 1994 Dual-Process Ironic Control Theory (tired prefrontal search vs tireless ironic monitor).",
-    "twist": "The overlooked Experiment 2 cure: why ONE focused replacement ('red Volkswagen') eliminates rebound completely."
+    "hook": "Ordered NOT to picture a white bear for five minutes, adults slam a desk bell every 45 seconds — then rebound to 16 rings.",
+    "core_experiment": "Daniel Wegner's 1987 Trinity University tap-bell suppression & red-Volkswagen replacement study + 1994 Ironic Process Theory.",
+    "twist": "Why tired brains backfire hardest at 3 a.m., and how ONE concrete replacement focus wipes out the rebound."
   },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Wide-eyed 45-year-old adult slamming palm onto a gleaming silver desk bell beside a bold WHITE BEAR card",
+    "right_cyan_brain": "Translucent #27D8FF cyan 3D brain highlighting an overactive anterior cingulate conflict detector vs fatigued forehead working-memory desk",
+    "badge_text": "DON'T THINK IT"
+  },
+  "r75_clean_seed_tags": [
+    "white bear effect",
+    "daniel wegner",
+    "thought suppression",
+    "intrusive thoughts",
+    "overthinking at night",
+    "ironic process theory",
+    "psychology experiments",
+    "brain science",
+    "habit psychology",
+    "cognitive control"
+  ],
   "chapters": [
     {
       "n": 1,
-      "title": "Tolstoy's Corner Meets a Texas Lab Bell",
+      "title": "Tolstoy's Dare & Wegner's 1987 Texas Bell Booth",
       "beats": [
-        "1863 boyhood dare",
-        "5-minute stream of consciousness + silver tap-bell",
-        "Ringing more than once per minute"
+        "Leo Tolstoy's 1863 corner challenge becomes a controlled 1987 lab test",
+        "34 volunteers, a microphone, and >6 bell rings in 5 minutes"
       ],
       "scene_ids": [
-        "S2",
         "S1"
       ],
       "reuse_shorts_roles": [
@@ -23,69 +39,68 @@
         "symptom"
       ],
       "new_shots_needed": [
-        "tapping silver bell beside 'DO NOT THINK' card"
+        "volunteer striking silver desk bell"
       ]
     },
     {
       "n": 2,
-      "title": "The Beach-Ball Rebound Explosion",
+      "title": "16 Rings vs 12: The Post-Suppression Beach-Ball Rebound",
       "beats": [
-        "Period 2 'Express freely' surges past 16 rings",
-        "Why 20 random room distractions become 20 bear triggers"
+        "Why lifting the ban causes white-bear thoughts to surge higher",
+        "How scanning 20 room objects turns the whole room into reminders"
       ],
       "scene_ids": [
         "S1"
       ],
       "reuse_shorts_roles": [
-        "failure",
-        "crisis"
+        "failure"
       ],
       "new_shots_needed": [
-        "Period-1 vs Period-2 rebound graph"
+        "16 vs 12 rebound bar chart"
       ]
     },
     {
       "n": 3,
-      "title": "Inside Ironic Process Theory",
+      "title": "Tired Forehead vs Tireless Radar at 3 A.M.",
       "beats": [
-        "Effortful prefrontal search vs effortless ACC ironic monitor",
-        "Why stress makes golfers hit the pond and diners blurt secrets"
+        "Dorsolateral prefrontal search tires out while anterior cingulate monitor stays active",
+        "2010 ERP semantic priming & 2020 WBSI clinical evidence"
       ],
       "scene_ids": [
-        "S1"
+        "S2"
       ],
       "reuse_shorts_roles": [
-        "pivot",
-        "step1"
+        "crisis",
+        "pivot"
       ],
       "new_shots_needed": [
-        "two-process fatigue diagram"
+        "3 a.m. bedroom clock & dual-circuit brain view"
       ]
     },
     {
       "n": 4,
-      "title": "Experiment 2's Hidden Cure: The Red Volkswagen",
+      "title": "Experiment 2's Hidden Antidote: One Red Volkswagen",
       "beats": [
-        "Replacing 'Don't X' with ONE absorbing destination",
-        "Rebound drops to zero."
+        "Why one vivid positive replacement target silences the rebound",
+        "Changing the radio station instead of arguing with static"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "step2",
+        "step1",
         "breakthrough"
       ],
       "new_shots_needed": [
-        "silent bell beside Red Volkswagen card"
+        "red die-cast Volkswagen beside silent bell"
       ]
     },
     {
       "n": 5,
-      "title": "Rewriting 'Don't' Into Positive Targets",
+      "title": "Everyday Adult Playbook: Aim at the Pin, Never the Pond",
       "beats": [
-        "Insomnia, cravings, and high-pressure moments",
-        "Feed your brain the pin, never the pond"
+        "3 a.m. sleep resets, evening snack swaps, and high-pressure speaking or golf",
+        "Rewriting 'Don't' commands into concrete single-target cues"
       ],
       "scene_ids": [
         "S4"
@@ -94,7 +109,7 @@
         "conclusion"
       ],
       "new_shots_needed": [
-        "golfer aiming cleanly at center pin"
+        "sunlit outdoor putting green target shot"
       ]
     }
   ]

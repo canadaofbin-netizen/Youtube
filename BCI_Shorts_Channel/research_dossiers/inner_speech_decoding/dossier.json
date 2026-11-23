@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "inner_speech_decoding",
   "topic": "Francis Willett, Jaimie Henderson & Shenoy Lab (2023): Intracortical Speech Neuroprosthesis Decoding 62 Words Per Minute",
   "pillar": "bci_tech",
@@ -66,11 +66,42 @@
     },
     {
       "fact": "Combined with an n-gram language model, Pat Bennett's attempted speech streamed onto a monitor at an average of 62 words per minute — 3.4 times faster than the prior 18-WPM handwriting BCI record.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "BCI Decoding Speed (WPM)",
+        "unit": "WPM",
+        "bars": [
+          {
+            "label": "Prior BCI Record",
+            "value": 18.0,
+            "unit": "WPM"
+          },
+          {
+            "label": "Speech NeuroBCI",
+            "value": 62.0,
+            "unit": "WPM"
+          }
+        ],
+        "doi": "10.1038/s41586-023-06377-x",
+        "source_citation": "Willett et al. (2023)"
+      }
     },
     {
       "fact": "On a 50-word clinical phrase set, word error rate fell to 9.1 percent; on an open 125,000-word English vocabulary, word error rate was 23.8 percent.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "50-Word Phrase Error Rate",
+        "percent": 9.1,
+        "unit": "%",
+        "doi": "10.1038/s41586-023-06377-x",
+        "source_citation": "Willett et al. (2023)"
+      }
     },
     {
       "fact": "In the companion August 2023 Nature paper, Sean Metzger and Edward Chang at UCSF used a 253-channel surface ECoG grid over speech cortex to reach 78 words per minute with a talking digital avatar.",
@@ -141,5 +172,38 @@
   ],
   "linked_projects": [
     "psych_02_inner_speech_decoding"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1038/s41586-023-06443-4",
+  "three_layer_formula": {
+    "everyday_problem": "Trying to type a long heartfelt message with one finger on a tiny TV remote at 12 words per minute when you have a full sentence ready in your mind.",
+    "psychology_experiment": {
+      "source_id": "SRC2",
+      "doi": "10.1038/s41586-023-06443-4",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1038/s41586-023-06443-4"
+      ],
+      "summary": "Sean L. Metzger, Kaylo T. Littlejohn, Alexander B. Silva, David A. Moses et al. (2023). A high-performance neuroprosthesis for speech decoding and avatar control. Nature."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1038/s41586-023-06377-x",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/s41586-023-06377-x"
+      ],
+      "summary": "Francis R. Willett, Erin M. Kunz, Chaofei Fan, Donald T. Avansino et al. (2023). A high-performance speech neuroprosthesis. Nature."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Speech implants read private inner thoughts against a person's will.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

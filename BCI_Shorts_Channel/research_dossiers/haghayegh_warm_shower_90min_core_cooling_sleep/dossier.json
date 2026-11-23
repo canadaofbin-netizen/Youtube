@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "slug": "haghayegh_warm_shower_90min_core_cooling_sleep",
+  "topic": "Why a Warm Shower 90 Minutes Before Bed Cools Your Core to Trigger Deep Sleep",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T09:41:00+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Combines University of Texas / Nara Medical University bedtime warm-bath timing trials and steaming bathroom-to-cool-bedroom routines (R72/R79-M physical shower dial & bedside clock action) with 3D cyan MNI152 hypothalamic preoptic thermostat cooling and thalamic slow-wave lock-in (R78).",
+  "setup_18w": "Researchers compared ten-minute warm showers timed ninety minutes before bed against showering immediately before lights-out.",
+  "primary_doi": "10.1016/j.smrv.2019.04.008",
+  "primary_case": {
+    "title": "Shahab Haghayegh & Kenneth Diller's UT Austin Thermal Sleep Synthesis & Yoshiaki Tai's 1,094-Adult Timing Cohort",
+    "year": 2019,
+    "place": "Department of Biomedical Engineering, University of Texas at Austin & Nara Medical University",
+    "summary": "Synthesizing 5,322 candidate papers into 13 quantitative sleep trials, UT Austin biomedical engineers Shahab Haghayegh and Kenneth Diller (2019, Sleep Medicine Reviews)—confirmed in 1,094 older adults by Tai et al. (2021)—proved a 10-minute warm shower or bath (40–42.5 °C) timed 60–120 minutes before bed works not by heating you up, but by opening palm-and-sole blood vessels to dump core body heat.",
+    "people": [
+      {
+        "name": "Shahab Haghayegh, Michael H. Smolensky & Kenneth R. Diller",
+        "role": "University of Texas at Austin biomedical sleep investigators (Sleep Medicine Reviews, 2019) who pinpointed the 1-to-2-hour (90-minute) warm-water core-cooling window",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Yoshiaki Tai, Kenji Obayashi & Nara Cohort Team",
+        "role": "Journal of Clinical Sleep Medicine (2021) investigators who tracked 1,094 older adults (mean age 72) with actigraphy and skin thermometry across bathing windows",
+        "source_id": "SRC4"
+      },
+      {
+        "name": "Kurt Kräuchi, Roy Raymann & Eus Van Someren",
+        "role": "Thermoregulatory sleep pioneers (Nature, 1999; Brain, 2008) who proved warm hands and feet act as biological radiators that trigger rapid sleep onset",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Climbing straight from a steaming-hot 10:45 PM shower under thick duvet covers—and tossing hot and wide awake at midnight wondering why warm water failed to relax you.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/j.smrv.2019.04.008",
+      "source_ids": [
+        "SRC1",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1016/j.smrv.2019.04.008",
+        "10.5664/jcsm.9180"
+      ],
+      "summary": "Haghayegh et al. (2019, Sleep Medicine Reviews) analyzed 17 controlled water-heating studies and found 10 minutes at 40–42.5 °C scheduled 1–2 hours before bed significantly cut sleep-onset latency; Tai et al. (2021, JCSM) confirmed in 1,094 older adults (mean age 72.0) that bathing 61–180 minutes before bed shortened actigraphic sleep latency whereas bathing under 60 minutes right before bed missed the cooling window."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.3389/fnins.2019.00336",
+      "year": 2019,
+      "source_ids": [
+        "SRC3",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1016/j.cub.2018.05.054",
+        "10.3389/fnins.2019.00336"
+      ],
+      "summary": "Harding, Franks & Wisden (2018, Current Biology; 2019, Frontiers in Neuroscience) mapped warm-sensitive cutaneous signals projecting to preoptic hypothalamus neurons that simultaneously command peripheral vasodilation (core cooling) and initiate NREM slow-wave sleep."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1016/j.smrv.2019.04.008",
+        "year": 2019,
+        "summary": "Haghayegh et al. (2019, Sleep Medicine Reviews) systematic review and meta-analysis establishing the 1–2 hour 40–42.5 °C warm shower/bath protocol."
+      },
+      {
+        "source_id": "SRC4",
+        "doi": "10.5664/jcsm.9180",
+        "year": 2021,
+        "summary": "Tai et al. (2021, JCSM) longitudinal actigraphy study of 1,094 older adults comparing 1–60 vs 61–120 and 121–180 minute pre-bedtime bathing."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC3",
+        "doi": "10.1016/j.cub.2018.05.054",
+        "year": 2018,
+        "summary": "Harding et al. (2018, Current Biology) discovery of the hypothalamic preoptic hub binding external skin warming, core body cooling, and NREM sleep initiation."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.3389/fnins.2019.00336",
+        "year": 2019,
+        "summary": "Harding, Franks & Wisden (2019, Frontiers in Neuroscience) synthesis of hypothalamic thermoregulation and slow-wave sleep depth."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "At the University of Texas at Austin, biomedical engineers Shahab Haghayegh, Sepideh Khoshnevis, Michael Smolensky, Kenneth Diller, and Richard Castriotta (2019, Sleep Medicine Reviews) screened 5,322 candidate papers and synthesized 17 controlled trials (13 in quantitative meta-analysis) of before-bedtime warm showers and baths.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Haghayegh et al. (2019) found that warm water between 40 and 42.5 degrees Celsius for as little as 10 minutes significantly shortened sleep-onset latency and boosted sleep efficiency—specifically when scheduled 1 to 2 hours (roughly 90 minutes) before bedtime.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The physiological secret is a thermal U-turn: warm water draws blood into dense arteriovenous radiator networks in your palms and soles, flushing core heat out of your trunk and brain once you step into cool room air (Haghayegh et al., 2019).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Kurt Kräuchi, Christian Cajochen, Esther Werth, and Anna Wirz-Justice (1999, Nature) proved that the distal-to-proximal skin temperature gradient (warm hands and feet shedding core heat) was the single strongest physiological predictor of how fast humans fall asleep—outpredicting melatonin levels and subjective sleepiness.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In a longitudinal actigraphy study of 1,094 older adults (mean age 72.0 years), Yoshiaki Tai and Kenji Obayashi (2021, Journal of Clinical Sleep Medicine) tested bathing 1–60, 61–120, and 121–180 minutes before bedtime: bathing 61–120 minutes (0.23 log-minutes shorter latency) and 121–180 minutes (0.32 log-minutes shorter latency) significantly sped up sleep onset, whereas bathing less than 60 minutes before bed did not.",
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Sleep-Speed Gain (Log-Min)",
+        "unit": "",
+        "bars": [
+          {
+            "label": "61-120m Window",
+            "value": 0.23,
+            "unit": ""
+          },
+          {
+            "label": "121-180m Window",
+            "value": 0.32,
+            "unit": ""
+          }
+        ],
+        "doi": "10.5664/jcsm.9180",
+        "source_citation": "Tai et al. (2021)"
+      }
+    },
+    {
+      "fact": "Roy Raymann, Dick Swaab, and Eus Van Someren (2008, Brain) demonstrated in older adults with and without insomnia that gently warming skin by just 0.4 degrees Celsius—without overheating the core—doubled nocturnal slow-wave sleep stability and slashed early-morning awakenings.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Cynthia Dorsey and colleagues (1996, Journal of Geriatric Psychiatry and Neurology) ran a crossover trial in older female insomniacs (ages 60 to 72) comparing hot (40 to 40.5 degrees Celsius) versus lukewarm baths 90 minutes before bedtime and recorded significant increases in early-night slow-wave deep sleep.",
+      "source_id": "SRC7"
+    },
+    {
+      "fact": "Edward Harding, Nicholas Franks, and William Wisden (2018, Current Biology; 2019, Frontiers in Neuroscience) identified the exact preoptic hypothalamus neural hub that senses warm skin input and simultaneously drives both core body cooling and NREM sleep onset.",
+      "source_id": "SRC3"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "A warm shower 90 minutes before bed puts you to sleep faster not because warmth makes you cozy—but because dilating blood vessels in your hands and feet dumps internal core heat like a car radiator.",
+      "why_surprising": "Flips everyday intuition upside down: you use external warm water to engineer an internal core temperature drop.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "In Tai et al.'s (2021) study of 1,094 adults averaging 72 years old, taking a hot bath less than 60 minutes right before bed missed the sleep-speed benefit—you need the 60-to-120-minute air-cooling runway afterward.",
+      "why_surprising": "Explains why showering five minutes before jumping under thick covers leaves so many adults sweating and wide awake.",
+      "source_id": "SRC4",
+      "rank": 2
+    },
+    {
+      "fact": "Kräuchi et al. (1999, Nature) found warm feet shedding heat predicted fast sleep onset better than circulating melatonin levels.",
+      "why_surprising": "Turns cold feet in bed from a minor annoyance into a direct vascular brake on hypothalamic sleep switching.",
+      "source_id": "SRC2",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Taking an ice-cold shower right before bed is the fastest way to cool your core temperature for sleep.",
+      "truth": "Cold water slams skin blood vessels shut (vasoconstriction) and triggers sympathetic norepinephrine, trapping heat inside your core instead of letting palms and soles radiate it away (Haghayegh et al., 2019).",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Stepping straight from a hot bath under heavy blankets locks in soothing sleepiness.",
+      "truth": "Tai et al. (2021) showed bathing within 60 minutes of bed traps core heat high; your preoptic hypothalamus needs 60 to 120 minutes of post-bath heat dissipation to trigger rapid sleep.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Taking a hot shower at 10:50 PM, climbing straight into bed at 11:00 PM, and kicking one leg out from under the blanket because your core is still overheated.",
+    "Lying awake with icy feet at age 55 because constricted foot vessels are trapping core heat inside your chest and brain.",
+    "Timing a 10-minute warm shower 90 minutes before lights-out so your core temperature hits its steepest downward slope right on the pillow."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "People think hot showers make you sleepy by warming you up—or try cold showers at night—when both backfire if you miss the radiator effect.",
+    "open_verdict_question": "To fall asleep faster tonight, would you time a 10-minute warm shower 90 minutes before bed or stick to morning showers only?",
+    "offcenter_creator_bet": "My bet: 9 PM warm showers beat sleep aids — do you shower at night or in the morning?"
+  },
+  "offcenter_creator_bet": "My bet: 9 PM warm showers beat sleep aids — do you shower at night or in the morning?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

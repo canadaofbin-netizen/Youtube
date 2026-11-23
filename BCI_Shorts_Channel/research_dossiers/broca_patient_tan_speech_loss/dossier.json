@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "broca_patient_tan_speech_loss",
   "topic": "Paul Broca (1861) & Nina Dronkers (2007): Patient 'Tan', the Preserved Paris Brain & the Birth of Cortical Localization",
   "pillar": "brain_history",
@@ -60,11 +60,50 @@
     },
     {
       "fact": "That 2007 MRI solved a 20th-century clinical puzzle (Mohr 1978, SRC4): tiny strokes confined strictly to surface Broca's cortex cause weeks of apraxia that mostly recover, whereas permanent 'Tan'-level nonfluent aphasia requires severing the deep frontal-white-matter speech production network.",
-      "source_id": "SRC_DRONKERS"
+      "source_id": "SRC_DRONKERS",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "White-Matter Lesion Severity",
+        "concept": "Arcuate Tract Disconnection",
+        "fn": "sigmoid",
+        "x_label": "Deep Tract Lesion Depth",
+        "y_label": "Permanent Speech Loss",
+        "markers": [
+          {
+            "x": 5.0,
+            "y": 50.0,
+            "label": "Arcuate Severed"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "By 1865, Broca's series of 8 consecutive left-hemisphere aphasia cases versus 0 right-hemisphere cases overturned cerebral symmetry dogma and set the stage for Carl Wernicke's 1874 sensory-aphasia discovery.",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Broca (1865) Aphasia Series",
+        "unit": "cases",
+        "bars": [
+          {
+            "label": "Left Hemisphere",
+            "value": 8.0,
+            "unit": "cases"
+          },
+          {
+            "label": "Right Hemisphere",
+            "value": 0.0,
+            "unit": "cases"
+          }
+        ],
+        "doi": "10.1212/wnl.33.5.667",
+        "source_citation": "Broca (1865); Schiller (1983, Neurology)"
+      }
     }
   ],
   "wow_facts": [
@@ -123,5 +162,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My bet: speech loss hides sharp minds — Leborgne understood every question for twenty years behind one syllable. Have you ever known an answer your mouth couldn't form?"
+  "offcenter_creator_bet": "My bet: speech loss hides sharp minds — Leborgne understood every question for twenty years behind one syllable. Have you ever known an answer your mouth couldn't form?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1007/s11065-011-9174-x",
+  "three_layer_formula": {
+    "everyday_problem": "Having a word sit 100% clear in your thoughts ('tip-of-the-tongue') while your mouth temporarily refuses to assemble the syllables.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1007/s11065-011-9174-x",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1007/s11065-011-9174-x"
+      ],
+      "summary": "Paul Broca (2011). Remarks on the Seat of Spoken Language, Followed by a Case of Aphasia (1861). Neuropsychology Review. [English translation of Paul Broca's April 18, 1861 Bulletins de la Société Anatomique de Paris report on Louis Victor Leborgne ('Tan')]"
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1016/j.tics.2020.01.001",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1016/j.tics.2020.01.001"
+      ],
+      "summary": "Evelina Fedorenko, Idan A. Blank (2020). Broca’s Area Is Not a Natural Kind. Trends in Cognitive Sciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Grammar and speech live inside one isolated postage-stamp box ('Broca's Area') that works all by itself.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: speech loss hides sharp minds — Leborgne understood every question for twenty years behind one syllable. Have you ever known an answer your mouth couldn't form?"
+  }
 }

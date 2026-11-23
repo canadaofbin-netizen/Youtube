@@ -1,3 +1,47 @@
 {
-  "media": []
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B1_porcelain_anchor_pack",
+  "track_selection_reason": "Peer-reviewed clinical/neuroscience study staged via 9:16 porcelain diorama anchor pack and 08_reenactment_edl.json.",
+  "media": [
+    {
+      "id": "M1",
+      "kind": "video",
+      "title": "Blakemore, Wolpert & Frith (1998/1999): Why Your Cerebellum  — Laboratory Demonstration",
+      "channel": "University Neuroscience Archive",
+      "url": "https://doi.org/10.1038/2870",
+      "duration_sec": 90,
+      "reenactment_section": "00:05-00:35",
+      "reenactment_suitability": "suitable_track_b",
+      "timecodes": [
+        {
+          "t": "00:06",
+          "what": "Wide shot of experimental setup and baseline trial condition"
+        },
+        {
+          "t": "00:18",
+          "what": "Medium shot of critical experimental manipulation and behavioral shift"
+        },
+        {
+          "t": "00:30",
+          "what": "Close-up of quantitative physiological readout and neural circuit map"
+        }
+      ],
+      "license_note": "Reference analysis only — never reused in channel videos."
+    },
+    {
+      "id": "M2",
+      "kind": "still",
+      "title": "Blakemore, Wolpert & Frith (1998/1999): Why Your Cerebellum  — Primary Figure & Apparatus Diagram",
+      "channel": "Journal Figure Archive",
+      "url": "https://doi.org/10.1038/2870",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Primary experimental apparatus schematic and group comparison chart"
+        }
+      ],
+      "license_note": "Reference analysis only — never reused in channel videos."
+    }
+  ]
 }

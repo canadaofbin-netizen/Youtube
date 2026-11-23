@@ -1,0 +1,1119 @@
+{
+  "source": "tts_fallback",
+  "profile": "neuro_diorama",
+  "schema_version": 8,
+  "fps": 30,
+  "engine": "edge_tts",
+  "voice": "en-US-AndrewMultilingualNeural",
+  "voice_preset": "andrew_v8",
+  "foil_voice": "en-US-SteffanNeural",
+  "foil_voice_preset": "foil_v8",
+  "foil_sentence_indices": [
+    4,
+    8,
+    12
+  ],
+  "eq_profile": "male_expressive_v8",
+  "rate": "+16%",
+  "pitch": "+16Hz",
+  "volume": "-8%",
+  "speed": 1.16,
+  "atempo_applied": 1.0,
+  "pause_sec": 0.15,
+  "outro_tail_sec": 0.2,
+  "sentence_count": 18,
+  "speech_end_sec": 69.53,
+  "total_duration_sec": 69.733,
+  "active_speech_ratio": 0.9361,
+  "true_rms_voiced_ratio": 0.867,
+  "sentence_spans": [
+    {
+      "sentence_index": 1,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 0.0,
+      "end_sec": 3.6,
+      "duration_sec": 3.6,
+      "text": "Three hours into your first hotel night, your eyes fly wide open in the dark!",
+      "display_text": "3 hours into your first hotel night, your eyes fly wide open in the dark!"
+    },
+    {
+      "sentence_index": 2,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 3.84,
+      "end_sec": 6.84,
+      "duration_sec": 3.0,
+      "text": "But back in your own warm bed, loud sirens outside never wake you up.",
+      "display_text": "But back in your own warm bed, loud sirens outside never wake you up."
+    },
+    {
+      "sentence_index": 3,
+      "speaker": "narrator",
+      "act_boundary_after": true,
+      "start_sec": 7.08,
+      "end_sec": 10.4,
+      "duration_sec": 3.32,
+      "text": "Quit blaming scratchy hotel sheets — your skull just flipped on a night patrol!",
+      "display_text": "Quit blaming scratchy hotel sheets, your skull just flipped on a night patrol!"
+    },
+    {
+      "sentence_index": 4,
+      "speaker": "foil",
+      "act_boundary_after": false,
+      "start_sec": 10.66,
+      "end_sec": 14.27,
+      "duration_sec": 3.61,
+      "text": "The front clerk grins and blames late coffee or jet lag for your bad night.",
+      "display_text": "The front clerk grins and blames late coffee or jet lag for your bad night."
+    },
+    {
+      "sentence_index": 5,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 14.53,
+      "end_sec": 19.8,
+      "duration_sec": 5.27,
+      "text": "Yuka Sasaki scanned thirty-five sleepers over two straight nights, like a side-by-side bed test.",
+      "display_text": "Yuka Sasaki scanned 35 sleepers over two straight nights, like a side-by-side bed test."
+    },
+    {
+      "sentence_index": 6,
+      "speaker": "narrator",
+      "act_boundary_after": true,
+      "start_sec": 20.06,
+      "end_sec": 23.3,
+      "duration_sec": 3.24,
+      "text": "On night one, brain waves on the right side showed deep, quiet rest.",
+      "display_text": "On night one, brain waves on the right side showed deep, quiet rest."
+    },
+    {
+      "sentence_index": 7,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 23.62,
+      "end_sec": 26.01,
+      "duration_sec": 2.39,
+      "text": "Wait, what happened inside the left half of the head?",
+      "display_text": "Wait, what happened inside the left half of the head?"
+    },
+    {
+      "sentence_index": 8,
+      "speaker": "foil",
+      "act_boundary_after": false,
+      "start_sec": 26.27,
+      "end_sec": 29.36,
+      "duration_sec": 3.09,
+      "text": "A lab helper bets both sides of your brain shut off once you snore.",
+      "display_text": "A lab helper bets both sides of your brain shut off once you snore."
+    },
+    {
+      "sentence_index": 9,
+      "speaker": "narrator",
+      "act_boundary_after": true,
+      "start_sec": 29.6,
+      "end_sec": 33.42,
+      "duration_sec": 3.82,
+      "text": "Wrong — left waves stayed light, waking people three times faster, like a tripwire!",
+      "display_text": "Wrong, left waves stayed light, waking people 3 times faster, like a tripwire!"
+    },
+    {
+      "sentence_index": 10,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 33.68,
+      "end_sec": 37.22,
+      "duration_sec": 3.54,
+      "text": "Sea whales and wild birds sleep with one half awake so sharks cannot sneak up.",
+      "display_text": "Sea whales and wild birds sleep with one half awake so sharks cannot sneak up."
+    },
+    {
+      "sentence_index": 11,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 37.48,
+      "end_sec": 42.27,
+      "duration_sec": 4.79,
+      "text": "Sleep labs even trash night-one charts since new rooms twist every wave trace.",
+      "display_text": "Sleep labs even trash night-one charts since new rooms twist every wave trace."
+    },
+    {
+      "sentence_index": 12,
+      "speaker": "foil",
+      "act_boundary_after": false,
+      "start_sec": 42.59,
+      "end_sec": 46.65,
+      "duration_sec": 4.06,
+      "text": "Wait, your travel friend asks, cannot foam plugs and dark curtains trick that alarm?",
+      "display_text": "Wait, your travel friend asks, cannot foam plugs and dark curtains trick that alarm?"
+    },
+    {
+      "sentence_index": 13,
+      "speaker": "narrator",
+      "act_boundary_after": true,
+      "start_sec": 46.89,
+      "end_sec": 50.66,
+      "duration_sec": 3.77,
+      "text": "Except one soft step outside your door still jolts that guard wide awake!",
+      "display_text": "Except one soft step outside your door still jolts that guard wide awake!"
+    },
+    {
+      "sentence_index": 14,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 50.92,
+      "end_sec": 54.29,
+      "duration_sec": 3.37,
+      "text": "You see, your default mode network, your daydream network, stays clocked in.",
+      "display_text": "You see, your default mode network, your daydream network, stays clocked in."
+    },
+    {
+      "sentence_index": 15,
+      "speaker": "narrator",
+      "act_boundary_after": true,
+      "start_sec": 54.55,
+      "end_sec": 59.66,
+      "duration_sec": 5.11,
+      "text": "Bright red sparks hold the left side ready while your auditory cortex, your sound center, scans.",
+      "display_text": "Bright red sparks hold the left side ready while your auditory cortex, your sound center, scans."
+    },
+    {
+      "sentence_index": 16,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 59.92,
+      "end_sec": 63.58,
+      "duration_sec": 3.66,
+      "text": "Once night two hits in that same room, the guard stands down and both halves rest.",
+      "display_text": "Once night two hits in that same room, the guard stands down and both halves rest."
+    },
+    {
+      "sentence_index": 17,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 63.84,
+      "end_sec": 66.47,
+      "duration_sec": 2.63,
+      "text": "Do you pack a home pillowcase to calm that guard, or let it watch?",
+      "display_text": "Do you pack a home pillowcase to calm that guard, or let it watch?"
+    },
+    {
+      "sentence_index": 18,
+      "speaker": "narrator",
+      "act_boundary_after": false,
+      "start_sec": 66.71,
+      "end_sec": 69.53,
+      "duration_sec": 2.82,
+      "text": "Sleep in a new bed tonight — half your head dreams while half keeps watch!",
+      "display_text": "Sleep in a new bed tonight, half your head dreams while half keeps watch!"
+    }
+  ],
+  "gap_windows": [
+    [
+      3.6,
+      3.84
+    ],
+    [
+      6.84,
+      7.08
+    ],
+    [
+      10.4,
+      10.66
+    ],
+    [
+      14.27,
+      14.53
+    ],
+    [
+      19.8,
+      20.06
+    ],
+    [
+      23.3,
+      23.62
+    ],
+    [
+      26.01,
+      26.27
+    ],
+    [
+      29.36,
+      29.6
+    ],
+    [
+      33.42,
+      33.68
+    ],
+    [
+      37.22,
+      37.48
+    ],
+    [
+      42.27,
+      42.59
+    ],
+    [
+      46.65,
+      46.89
+    ],
+    [
+      50.66,
+      50.92
+    ],
+    [
+      54.29,
+      54.55
+    ],
+    [
+      59.66,
+      59.92
+    ],
+    [
+      63.58,
+      63.84
+    ],
+    [
+      66.47,
+      66.71
+    ]
+  ],
+  "events": [
+    [
+      0.0,
+      0.42,
+      [
+        "3",
+        "hours"
+      ]
+    ],
+    [
+      0.42,
+      1.0,
+      [
+        "into",
+        "your",
+        "first"
+      ]
+    ],
+    [
+      1.0,
+      1.613,
+      [
+        "hotel",
+        "night,"
+      ]
+    ],
+    [
+      1.613,
+      2.13,
+      [
+        "your",
+        "eyes",
+        "fly"
+      ]
+    ],
+    [
+      2.13,
+      3.01,
+      [
+        "wide",
+        "open"
+      ]
+    ],
+    [
+      3.01,
+      3.6,
+      [
+        "in",
+        "the",
+        "dark!"
+      ]
+    ],
+    [
+      3.841,
+      4.121,
+      [
+        "But",
+        "back"
+      ]
+    ],
+    [
+      4.121,
+      4.461,
+      [
+        "in",
+        "your",
+        "own"
+      ]
+    ],
+    [
+      4.461,
+      5.015,
+      [
+        "warm",
+        "bed,"
+      ]
+    ],
+    [
+      5.015,
+      5.761,
+      [
+        "loud",
+        "sirens",
+        "outside"
+      ]
+    ],
+    [
+      5.761,
+      6.491,
+      [
+        "never",
+        "wake"
+      ]
+    ],
+    [
+      6.491,
+      6.84,
+      [
+        "you",
+        "up."
+      ]
+    ],
+    [
+      7.08,
+      8.12,
+      [
+        "Quit",
+        "blaming",
+        "scratchy"
+      ]
+    ],
+    [
+      8.12,
+      8.66,
+      [
+        "hotel",
+        "sheets,"
+      ]
+    ],
+    [
+      8.66,
+      9.38,
+      [
+        "your",
+        "skull",
+        "just"
+      ]
+    ],
+    [
+      9.38,
+      9.67,
+      [
+        "flipped",
+        "on"
+      ]
+    ],
+    [
+      9.67,
+      10.4,
+      [
+        "a",
+        "night",
+        "patrol!"
+      ]
+    ],
+    [
+      10.678,
+      11.098,
+      [
+        "The",
+        "front",
+        "clerk"
+      ]
+    ],
+    [
+      11.098,
+      11.858,
+      [
+        "grins",
+        "and",
+        "blames"
+      ]
+    ],
+    [
+      11.858,
+      12.518,
+      [
+        "late",
+        "coffee"
+      ]
+    ],
+    [
+      12.518,
+      13.278,
+      [
+        "or",
+        "jet",
+        "lag"
+      ]
+    ],
+    [
+      13.278,
+      13.638,
+      [
+        "for",
+        "your"
+      ]
+    ],
+    [
+      13.638,
+      14.27,
+      [
+        "bad",
+        "night."
+      ]
+    ],
+    [
+      14.587,
+      15.607,
+      [
+        "Yuka",
+        "Sasaki",
+        "scanned"
+      ]
+    ],
+    [
+      15.607,
+      17.147,
+      [
+        "35",
+        "sleepers",
+        "over"
+      ]
+    ],
+    [
+      17.147,
+      18.281,
+      [
+        "two",
+        "straight",
+        "nights,"
+      ]
+    ],
+    [
+      18.281,
+      19.147,
+      [
+        "like",
+        "a",
+        "side-by-side"
+      ]
+    ],
+    [
+      19.147,
+      19.8,
+      [
+        "bed",
+        "test."
+      ]
+    ],
+    [
+      20.06,
+      20.691,
+      [
+        "On",
+        "night",
+        "one,"
+      ]
+    ],
+    [
+      20.691,
+      21.0,
+      [
+        "brain",
+        "waves"
+      ]
+    ],
+    [
+      21.0,
+      21.42,
+      [
+        "on",
+        "the",
+        "right"
+      ]
+    ],
+    [
+      21.42,
+      22.48,
+      [
+        "side",
+        "showed",
+        "deep,"
+      ]
+    ],
+    [
+      22.48,
+      23.3,
+      [
+        "quiet",
+        "rest."
+      ]
+    ],
+    [
+      23.62,
+      23.872,
+      [
+        "Wait,"
+      ]
+    ],
+    [
+      23.872,
+      24.592,
+      [
+        "what",
+        "happened",
+        "inside"
+      ]
+    ],
+    [
+      24.592,
+      25.452,
+      [
+        "the",
+        "left",
+        "half"
+      ]
+    ],
+    [
+      25.452,
+      26.01,
+      [
+        "of",
+        "the",
+        "head?"
+      ]
+    ],
+    [
+      26.27,
+      26.78,
+      [
+        "A",
+        "lab",
+        "helper"
+      ]
+    ],
+    [
+      26.78,
+      27.58,
+      [
+        "bets",
+        "both",
+        "sides"
+      ]
+    ],
+    [
+      27.58,
+      28.1,
+      [
+        "of",
+        "your",
+        "brain"
+      ]
+    ],
+    [
+      28.1,
+      28.74,
+      [
+        "shut",
+        "off",
+        "once"
+      ]
+    ],
+    [
+      28.74,
+      29.36,
+      [
+        "you",
+        "snore."
+      ]
+    ],
+    [
+      29.6,
+      30.378,
+      [
+        "Wrong,",
+        "left",
+        "waves"
+      ]
+    ],
+    [
+      30.378,
+      31.015,
+      [
+        "stayed",
+        "light,"
+      ]
+    ],
+    [
+      31.015,
+      31.518,
+      [
+        "waking",
+        "people"
+      ]
+    ],
+    [
+      31.518,
+      32.682,
+      [
+        "3",
+        "times",
+        "faster,"
+      ]
+    ],
+    [
+      32.682,
+      33.42,
+      [
+        "like",
+        "a",
+        "tripwire!"
+      ]
+    ],
+    [
+      33.68,
+      33.991,
+      [
+        "Sea",
+        "whales"
+      ]
+    ],
+    [
+      33.991,
+      34.671,
+      [
+        "and",
+        "wild",
+        "birds"
+      ]
+    ],
+    [
+      34.671,
+      35.391,
+      [
+        "sleep",
+        "with",
+        "one"
+      ]
+    ],
+    [
+      35.391,
+      36.131,
+      [
+        "half",
+        "awake",
+        "so"
+      ]
+    ],
+    [
+      36.131,
+      36.611,
+      [
+        "sharks",
+        "cannot"
+      ]
+    ],
+    [
+      36.611,
+      37.22,
+      [
+        "sneak",
+        "up."
+      ]
+    ],
+    [
+      37.48,
+      38.34,
+      [
+        "Sleep",
+        "labs",
+        "even"
+      ]
+    ],
+    [
+      38.34,
+      39.56,
+      [
+        "trash",
+        "night-one",
+        "charts"
+      ]
+    ],
+    [
+      39.56,
+      40.62,
+      [
+        "since",
+        "new",
+        "rooms"
+      ]
+    ],
+    [
+      40.62,
+      41.38,
+      [
+        "twist",
+        "every"
+      ]
+    ],
+    [
+      41.38,
+      42.27,
+      [
+        "wave",
+        "trace."
+      ]
+    ],
+    [
+      42.59,
+      43.41,
+      [
+        "Wait,",
+        "your",
+        "travel"
+      ]
+    ],
+    [
+      43.41,
+      44.154,
+      [
+        "friend",
+        "asks,"
+      ]
+    ],
+    [
+      44.154,
+      44.88,
+      [
+        "cannot",
+        "foam",
+        "plugs"
+      ]
+    ],
+    [
+      44.88,
+      45.68,
+      [
+        "and",
+        "dark",
+        "curtains"
+      ]
+    ],
+    [
+      45.68,
+      46.65,
+      [
+        "trick",
+        "that",
+        "alarm?"
+      ]
+    ],
+    [
+      46.89,
+      47.649,
+      [
+        "Except",
+        "one",
+        "soft"
+      ]
+    ],
+    [
+      47.649,
+      48.229,
+      [
+        "step",
+        "outside"
+      ]
+    ],
+    [
+      48.229,
+      49.169,
+      [
+        "your",
+        "door",
+        "still"
+      ]
+    ],
+    [
+      49.169,
+      49.929,
+      [
+        "jolts",
+        "that",
+        "guard"
+      ]
+    ],
+    [
+      49.929,
+      50.66,
+      [
+        "wide",
+        "awake!"
+      ]
+    ],
+    [
+      50.93,
+      51.47,
+      [
+        "You",
+        "see,"
+      ]
+    ],
+    [
+      51.47,
+      53.967,
+      [
+        "your",
+        "default"
+      ]
+    ],
+    [
+      53.967,
+      54.087,
+      [
+        "mode",
+        "network,"
+      ]
+    ],
+    [
+      54.087,
+      54.267,
+      [
+        "your",
+        "daydream",
+        "network,"
+      ]
+    ],
+    [
+      54.267,
+      54.347,
+      [
+        "stays",
+        "clocked",
+        "in."
+      ]
+    ],
+    [
+      54.55,
+      55.19,
+      [
+        "Bright",
+        "red",
+        "sparks"
+      ]
+    ],
+    [
+      55.19,
+      56.01,
+      [
+        "hold",
+        "the",
+        "left"
+      ]
+    ],
+    [
+      56.01,
+      56.88,
+      [
+        "side",
+        "ready",
+        "while"
+      ]
+    ],
+    [
+      56.88,
+      58.239,
+      [
+        "your",
+        "auditory",
+        "cortex,"
+      ]
+    ],
+    [
+      58.239,
+      58.991,
+      [
+        "your",
+        "sound",
+        "center,"
+      ]
+    ],
+    [
+      58.991,
+      59.66,
+      [
+        "scans."
+      ]
+    ],
+    [
+      59.936,
+      60.476,
+      [
+        "Once",
+        "night",
+        "two"
+      ]
+    ],
+    [
+      60.476,
+      60.936,
+      [
+        "hits",
+        "in",
+        "that"
+      ]
+    ],
+    [
+      60.936,
+      61.616,
+      [
+        "same",
+        "room,"
+      ]
+    ],
+    [
+      61.616,
+      62.016,
+      [
+        "the",
+        "guard",
+        "stands"
+      ]
+    ],
+    [
+      62.016,
+      62.856,
+      [
+        "down",
+        "and",
+        "both"
+      ]
+    ],
+    [
+      62.856,
+      63.58,
+      [
+        "halves",
+        "rest."
+      ]
+    ],
+    [
+      63.84,
+      64.13,
+      [
+        "Do",
+        "you",
+        "pack"
+      ]
+    ],
+    [
+      64.13,
+      64.91,
+      [
+        "a",
+        "home",
+        "pillowcase"
+      ]
+    ],
+    [
+      64.91,
+      65.23,
+      [
+        "to",
+        "calm"
+      ]
+    ],
+    [
+      65.23,
+      65.63,
+      [
+        "that",
+        "guard,"
+      ]
+    ],
+    [
+      65.63,
+      65.94,
+      [
+        "or",
+        "let"
+      ]
+    ],
+    [
+      65.94,
+      66.47,
+      [
+        "it",
+        "watch?"
+      ]
+    ],
+    [
+      66.747,
+      67.007,
+      [
+        "Sleep",
+        "in"
+      ]
+    ],
+    [
+      67.007,
+      67.167,
+      [
+        "a",
+        "new"
+      ]
+    ],
+    [
+      67.167,
+      67.847,
+      [
+        "bed",
+        "tonight,"
+      ]
+    ],
+    [
+      67.847,
+      68.087,
+      [
+        "half",
+        "your",
+        "head"
+      ]
+    ],
+    [
+      68.087,
+      68.767,
+      [
+        "dreams",
+        "while",
+        "half"
+      ]
+    ],
+    [
+      68.767,
+      69.53,
+      [
+        "keeps",
+        "watch!"
+      ]
+    ]
+  ],
+  "native_f0": {
+    "passed": true,
+    "reason": "diorama_continuous_tts_master",
+    "regenerate_clips": []
+  },
+  "prosody_mode": "expressive_us_v8"
+}

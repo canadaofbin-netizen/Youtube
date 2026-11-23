@@ -1,0 +1,67 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern neuroimaging/clinical study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Social Rejection, Ostracism",
+      "url": "https://www.youtube.com/watch?v=A3UTXsJzAj4",
+      "channel": "Golden Rule Films",
+      "source_id": "SRC_M1",
+      "duration_sec": 100,
+      "section": "00:05-00:50",
+      "timecodes": [
+        {
+          "t": "00:06-00:14",
+          "what": "Co-author Kipling D. Williams recounts sitting alone on a park blanket before a stray frisbee lands nearby."
+        },
+        {
+          "t": "00:18-00:31",
+          "what": "Outdoor green park recreation: three adults toss a white disc inclusively across sunlit grass (`kf_005..kf_008`)."
+        },
+        {
+          "t": "00:34-00:49",
+          "what": "Two players pass exclusively back and forth across the lawn while the third stands excluded in the foreground (`kf_011..kf_012`)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 keyframes across 00:05-00:50 showing Kipling Williams and the outdoor 3-person disc-ostracism geometry.",
+          "Used strictly to anchor outdoor triangle blocking and body posture; zero pixels or audio reused."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_fMRI_study_routed_to_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Cyberball (men&women control condition)",
+      "url": "https://www.youtube.com/watch?v=FcyUwCqbctg",
+      "channel": "Prejudice Lab",
+      "source_id": "SRC_M2",
+      "duration_sec": 88,
+      "timecodes": [
+        {
+          "t": "00:08-00:24",
+          "what": "Three-player virtual ball-tossing screen layout with two upper players and the participant's hand icon centered at bottom."
+        },
+        {
+          "t": "00:28-00:55",
+          "what": "Repeated horizontal ball passes between the two computer-controlled players demonstrating the Cyberball spatial layout."
+        }
+      ],
+      "license_note": "Reference demonstration inspected for three-avatar Cyberball geometry only; never reused.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "flat_screen_ui_capture_track_b_only"
+    }
+  ]
+}

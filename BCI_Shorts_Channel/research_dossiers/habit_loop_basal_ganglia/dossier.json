@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "habit_loop_basal_ganglia",
   "topic": "Ann Graybiel & Squire Lab (1999-2008): Dorsal Striatum Task-Bracketing & Amnesic Habit Loops (Patient E.P.)",
   "pillar": "brain_health",
@@ -49,7 +49,27 @@
     },
     {
       "fact": "On an eight-pair object-discrimination habit task, Eugene rose from roughly 50 percent chance to over 85 percent accuracy across 36 sessions without knowing how he chose.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Amnesic Patient Habit Learning",
+        "unit": "%",
+        "series": [
+          {
+            "label": "Session 36",
+            "start_label": "Initial Chance",
+            "values": [
+              50.0,
+              85.0
+            ],
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1038/nature03857",
+        "source_citation": "Bayley, Frascino & Squire (2005)"
+      }
     },
     {
       "fact": "Ann Graybiel's tetrode recordings in the dorsolateral striatum revealed 'task-bracketing' activity: sharp neural bursts at the start cue and final reward, with quiet firing in the middle.",
@@ -132,5 +152,38 @@
   ],
   "linked_projects": [
     "psych_01_habit_loop_basal_ganglia"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1038/nature03857",
+  "three_layer_formula": {
+    "everyday_problem": "Unlocking your phone and opening the same social app before you consciously remember picking the phone up.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/nature03857",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/nature03857"
+      ],
+      "summary": "Peter J. Bayley, Jennifer C. Frascino, Larry R. Squire (2005). Robust habit learning in the absence of awareness and independent of the medial temporal lobe. Nature."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1101/cshperspect.a021691",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1101/cshperspect.a021691"
+      ],
+      "summary": "A. M. Graybiel, S. T. Grafton (2015). The striatum: where skills and habits meet. Cold Spring Harbor Perspectives in Biology."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Habits take exactly 21 days to form and willpower erases the neural trace.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

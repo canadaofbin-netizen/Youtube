@@ -1,0 +1,118 @@
+{
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "title": "Pupil size reveals arousal level fluctuations in human sleep",
+      "authors": "Manuel Carro-Domínguez, Stephanie Huwiler, Stella Oberlin, Timona Leandra Oesch, Gabriela Badii, Anita Lüthi, Nicole Wenderoth, Sarah Nadine Meissner, Caroline Lustenberger",
+      "year": 2025,
+      "journal": "Nature Communications",
+      "volume_issue": "16:2070",
+      "doi": "10.1038/s41467-025-57289-5",
+      "url": "https://www.nature.com/articles/s41467-025-57289-5",
+      "license": "CC BY 4.0",
+      "verified": true,
+      "sample": "18 recruited healthy adults (1 excluded for OSDI dry-eye score > 12), 17 included (10 female, 7 male; mean age 29.83 +/- 8.69 years; BMI 17-30; CHF 70 compensation); n = 15 met >=44.61% valid eye-tracker frame threshold (mean 75.69 +/- 5.66% over 4h).",
+      "key_findings": "First continuous overnight infrared pupillometry paired with human polysomnography. Pupil-to-iris ratio dropped from wake through N1/N2 to equally low minima in N3 and REM (F(4, 57.43)=168.90, p<0.001) and tracked Fpz 30-45 Hz EEG spectral slope (R(4264)=0.34, p<0.001). In N2, pupil diameter oscillated infraslowly out of phase (~108 deg, 30% cycle) with 12-16 Hz sigma spindle power (R=-0.26, p<0.001). Pupil size constricted -11.51 +/- 1.46% before spindle trains, dilated +13.49 +/- 2.21% after K-complexes, and dilated +35.37 +/- 9.88% after arousals. During 45 dB pink-noise tones, verum dilated pupils early (+13.77 +/- 4.81%, p=0.046) and late (+34.87 +/- 12.90%, p=0.046) vs sham; auditory spindle boosting (+5.53 +/- 2.04 uV^2 sigma, p=0.044; +928.67 +/- 381.79 uV^2 delta, p=0.031) occurred only when baseline pupils were small, vanishing when pupils were large (+0.08 +/- 2.17 uV^2 sigma, p=0.97).",
+      "limitations": "Small lab cohort (17 included, 15 in continuous pupil sleep-architecture stats, 8 pupil / 10 EEG in V1 auditory stimulation); right eyelid was taped open under a protective shield with vitamin A ointment for the first 4h in total darkness (2/17 recalled brief waking); human locus coeruleus activity is inferred indirectly via non-luminance pupil dynamics rather than invasive unit recordings."
+    },
+    {
+      "id": "SRC2",
+      "type": "follow_up",
+      "title": "An electrophysiological marker of arousal level in humans",
+      "authors": "Janna D. Lendner, Randolph F. Helfrich, Bryce A. Mander, Luis Romundstad, Jack J. Lin, Matthew P. Walker, Pal G. Larsson, Robert T. Knight",
+      "year": 2020,
+      "journal": "eLife",
+      "doi": "10.7554/elife.55092",
+      "url": "https://doi.org/10.7554/elife.55092",
+      "verified": true,
+      "key_findings": "Established the 30-45 Hz aperiodic EEG spectral slope (1/f exponent) as a reliable electrophysiological index separating wake, NREM, and REM arousal levels in humans, directly linked to Carro-Domínguez et al. pupil dynamics (R=0.34)."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "title": "Pupil diameter covaries with BOLD activity in human locus coeruleus",
+      "authors": "Peter R. Murphy, Redmond G. O'Connell, Michael O'Sullivan, Ian H. Robertson, Joshua H. Balsters",
+      "year": 2014,
+      "journal": "Human Brain Mapping",
+      "doi": "10.1002/hbm.22466",
+      "url": "https://doi.org/10.1002/hbm.22466",
+      "verified": true,
+      "key_findings": "Concurrent 3T fMRI and pupillometry in healthy humans demonstrated that spontaneous and task-evoked pupil size variations selectively covary with BOLD signal in the dorsal pontine locus coeruleus."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "title": "Relationships between Pupil Diameter and Neuronal Activity in the Locus Coeruleus, Colliculi, and Cingulate Cortex",
+      "authors": "Siddhartha Joshi, Yin Li, Rishi M. Kalwani, Joshua I. Gold",
+      "year": 2016,
+      "journal": "Neuron",
+      "doi": "10.1016/j.neuron.2015.11.028",
+      "url": "https://doi.org/10.1016/j.neuron.2015.11.028",
+      "verified": true,
+      "key_findings": "Single-unit neurophysiology proved that spikes in brainstem locus coeruleus neurons tightly precede and drive pupil dilation transients across spontaneous and evoked arousal states."
+    },
+    {
+      "id": "SRC5",
+      "type": "replication",
+      "title": "Spontaneous brain rhythms predict sleep stability in the face of noise",
+      "authors": "Thien Thanh Dang-Vu, Scott M. McKinney, Orfeu M. Buxton, Jo M. Solet, Jeffrey M. Ellenbogen",
+      "year": 2010,
+      "journal": "Current Biology",
+      "doi": "10.1016/j.cub.2010.06.032",
+      "url": "https://doi.org/10.1016/j.cub.2010.06.032",
+      "verified": true,
+      "key_findings": "Behavioral polysomnography experiment showing people who generate higher spontaneous 12-16 Hz sleep spindle rates sleep stably through overnight environmental sounds, explaining why spindle-rich thalamus gating protects sleep."
+    },
+    {
+      "id": "SRC6",
+      "type": "follow_up",
+      "title": "Effects of auditory sleep modulation approaches on slow waves and autonomic recovery functions",
+      "authors": "Stephanie Huwiler, Manuel Carro-Domínguez, Walter Karlen, Christian R. Baumann, Nicole Wenderoth, Caroline Lustenberger",
+      "year": 2022,
+      "journal": "Sleep Medicine",
+      "doi": "10.1016/j.sleep.2022.05.055",
+      "url": "https://doi.org/10.1016/j.sleep.2022.05.055",
+      "verified": true,
+      "key_findings": "Tested phase-locked 45 dB pink-noise auditory stimulation during NREM sleep in humans and showed sound stimulation boosts slow waves and parasympathetic autonomic balance depending on brain state."
+    },
+    {
+      "id": "SRC7",
+      "type": "review",
+      "title": "The locus coeruleus in aging",
+      "authors": "Mara Mather",
+      "year": 2023,
+      "journal": "International Journal of Psychophysiology",
+      "doi": "10.1016/j.ijpsycho.2023.05.007",
+      "url": "https://doi.org/10.1016/j.ijpsycho.2023.05.007",
+      "verified": true,
+      "key_findings": "Review synthesis linking tonic and phasic locus coeruleus norepinephrine bursts in the brainstem to sleep stability, cortical excitability, cognitive reserve, and autonomic regulation across the adult lifespan."
+    },
+    {
+      "id": "SRC8",
+      "type": "follow_up",
+      "title": "Dynamic modulation of decision biases by brainstem arousal systems",
+      "authors": "Jan Willem de Gee, Olympia Colizoli, Niels A. Kloosterman, Tomas Knapen, Sander Nieuwenhuis, Tobias H. Donner",
+      "year": 2017,
+      "journal": "eLife",
+      "doi": "10.7554/elife.23232",
+      "url": "https://doi.org/10.7554/elife.23232",
+      "verified": true,
+      "key_findings": "Demonstrated in humans that rapid pupil dilations reflect phasic brainstem arousal recruitment across noradrenergic and cholinergic nuclei that dynamically shift cortical responsiveness."
+    }
+  ],
+  "followups_replications_critiques": [
+    {
+      "source_id": "SRC2",
+      "doi": "10.7554/elife.55092",
+      "title": "An electrophysiological marker of arousal level in humans",
+      "note": "Independent EEG spectral-slope validation across human wake, NREM, and REM states."
+    },
+    {
+      "source_id": "SRC5",
+      "doi": "10.1016/j.cub.2010.06.032",
+      "title": "Spontaneous brain rhythms predict sleep stability in the face of noise",
+      "note": "Behavioral replication showing sleep spindle rhythm shields human sleepers against ambient sound."
+    }
+  ]
+}

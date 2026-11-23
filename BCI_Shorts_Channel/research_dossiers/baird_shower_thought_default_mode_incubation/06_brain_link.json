@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "crisis",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "working-memory desk",
+      "function": "clamping narrow top-down tunnel vision onto obvious, wrong answers when you stare too long at a desk or scroll a demanding phone feed",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why nonstop grinding and phone breaks yield 0% incubation gain (SRC1, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "default mode network",
+      "plain": "daydream network",
+      "function": "waking up during a 12-minute shower or phone-free walk to link distant memories and spark a 41% surge in creative solutions",
+      "scene_id": "S2",
+      "narration_bridge": "Stages Baird et al. (2012) + Irving et al. (2024) mind-wandering incubation (SRC1, SRC3).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step1",
+      "region": "hippocampus",
+      "plain": "memory hub",
+      "function": "recombining stored life experiences into novel combinations during spontaneous off-task thought",
+      "scene_id": "S2",
+      "narration_bridge": "Supplies remote episodic building blocks to the daydream network (SRC2, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "anterior cingulate cortex",
+      "plain": "conflict detector",
+      "function": "flagging the winning 'aha!' match from the daydream stream and handing it back to the forehead planner in Beaty et al.'s 2018 PNAS creative connectome",
+      "scene_id": "S3",
+      "narration_bridge": "Completes Beaty et al.'s Default–Salience–Executive creative triad (SRC4).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

@@ -1,0 +1,863 @@
+{
+  "schema_version": 1,
+  "compiled_at": "2026-10-26T04:09:52.267558+00:00",
+  "project_id": "shorts_v5",
+  "dossier": "phineas_gage_iron_rod",
+  "visual_mode": "NEURO_BIOLOGY",
+  "aspect": "9:16",
+  "clip_count": 10,
+  "has_brain_clips": true,
+  "shared_brain_master_anchor": "ref_brain_master",
+  "cross_brain_continuity_contract": {
+    "enabled": true,
+    "brain_clip_numbers": [
+      4,
+      6,
+      7,
+      8
+    ],
+    "master_anchor_id": "ref_brain_master",
+    "min_pairwise_silhouette_iou": 0.45,
+    "min_pairwise_spatial_corr": 0.52,
+    "max_bg_luma_spread": 45.0,
+    "require_consistent_facing": true
+  },
+  "r53_particle_ban": {
+    "enabled": true,
+    "max_brain_neon_green_cyan_ratio": 0.0025,
+    "max_floating_particle_dots": 2
+  },
+  "audio_contract": {
+    "max_true_peak_dbfs": -1.0,
+    "limiter_ceiling_dbfs": -1.5
+  },
+  "source_hashes": {
+    "visual_plan_sha256": "5bf146fec75976209624ad9881205b563a26cd63fe9683def0ac8118a8adda05",
+    "script_sha256": "e53444977fe1ef137e09346c3c2aa732522d7ff4368f63910f2bdc05e6b1c9ff"
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "role": "setup",
+      "scene_id": "S1",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": true,
+      "narration": "In eighteen forty-eight in Vermont, Phineas Gage tamped black powder into a rock with an iron rod. A spark hit the stone and set off the blast.",
+      "required_entities": [
+        "iron|rod|bar",
+        "cheek",
+        "cranium|skull|head",
+        "iconic_scene: A 1840s railroad foreman tamping black powder into a granite hole with a 3-foot-7-inch iron rod turns his",
+        "cast (foreman 1848): matte-white porcelain mannequin wearing rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, br",
+        "action: A matte-white porcelain railroad foreman mannequin in white shirtsleeves and a dark vest kneels over",
+        "prop_progression: A spark flashes and the iron shoots up through his left cheek and out the top of his frosted-glass c"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "indoor_red_curtains_or_giant_golden_disc"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "In eighteen forty-eight in Vermont, Phineas Gage tamped black powder into a rock with an iron rod.",
+          "A spark hit the stone and set off the blast."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "In eighteen forty-eight in Vermont, Phineas Gage tamped black powder into a rock with an iron rod."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "A spark hit the stone and set off the blast."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_01",
+        "must_match_ref_ids": [
+          "ref_clip_01",
+          "ref_clip_01_key"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 2,
+      "role": "symptom",
+      "scene_id": "S2",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "It flew in under his left cheekbone and out the top of his skull. Yet minutes later Gage was talking, riding into town in an ox cart.",
+      "required_entities": [
+        "iconic_scene: Minutes after the iron bar pierced his skull, Phineas Gage sits upright in an ox cart, climbs the hotel s",
+        "cast (foreman 1848): matte-white porcelain mannequin wearing rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, br",
+        "cast (physician): matte-white porcelain mannequin wearing 1840s dark wool frock coat, high collar, black leather medical bag",
+        "action: The porcelain foreman mannequin in a singed shirt and head bandage grips the wooden cart rail, steps",
+        "prop_progression: The spoked wooden cart wheel creaks to a stop and the physician snaps open the brass clasp of his bl"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "indoor_red_curtains_or_giant_golden_disc"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "It flew in under his left cheekbone and out the top of his skull.",
+          "Yet minutes later Gage was talking, riding into town in an ox cart."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "It flew in under his left cheekbone and out the top of his skull."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "Yet minutes later Gage was talking, riding into town in an ox cart."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_02",
+        "must_match_ref_ids": [
+          "ref_clip_02"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 3,
+      "role": "failure",
+      "scene_id": "S3",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Within months his body healed, and he asked for his old foreman job back. His bosses said no. His friends said he was no longer Gage.",
+      "required_entities": [
+        "iconic_scene: Friends and bosses say he is 'no longer Gage' as the once-calm foreman slams a tavern table in a sudden b",
+        "cast (foreman 1848): matte-white porcelain mannequin wearing rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, br",
+        "action: The porcelain foreman mannequin in a wool vest with a closed left eyelid slams his fist onto the oak",
+        "prop_progression: A pewter mug topples and clatters across the oak tabletop, spilling amber liquid as the leather rost"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Within months his body healed, and he asked for his old foreman job back.",
+          "His bosses said no.",
+          "His friends said he was no longer Gage."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Within months his body healed, and he asked for his old foreman job back."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "His bosses said no. His friends said he was no longer Gage."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_03",
+        "must_match_ref_ids": [
+          "ref_clip_03"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 4,
+      "role": "crisis",
+      "scene_id": "S3",
+      "setting": "drill_down",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "The rod tore through the judgment center behind his left eye, the spot that links feelings to choices. For his brain, this was a total nightmare.",
+      "required_entities": [
+        "porcelain_brain_anatomy: ventromedial prefrontal cortex",
+        "neural_state: linking emotion to decisions and applying the social brake before impulsive actions",
+        "story_link: Connects Gage's tavern outbursts and lost foreman job to the rod tearing through the judgm",
+        "landmark: left eye socket & left prefrontal cross-section directly behind left eye",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "The rod tore through the judgment center behind his left eye, the spot that links feelings to choices.",
+          "For his brain, this was a total nightmare."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "The rod tore through the judgment center behind his left eye, the spot that links feelings to choices."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "For his brain, this was a total nightmare."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_04",
+        "must_match_ref_ids": [
+          "ref_clip_04"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "ventromedial prefrontal cortex",
+        "region_group": "anterior_prefrontal_behind_eye",
+        "hemisphere": "left",
+        "view_plane": "three_quarter_left_parasagittal",
+        "expected_facing": "left",
+        "forbid_symmetric_coronal": true,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.04,
+          0.04,
+          0.66,
+          0.62
+        ],
+        "forbidden_roi_norm": [
+          0.7,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 5,
+      "role": "pivot",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Instead of staying wild forever, as many textbooks claim, Gage later drove a stagecoach in Chile. He steered six horses down steep roads for years.",
+      "required_entities": [
+        "iconic_scene: Far from the textbook myth of a ruined drifter, a well-dressed Phineas Gage drives a six-horse stagecoach",
+        "cast (foreman 1850 chile): matte-white porcelain mannequin wearing tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-",
+        "action: The porcelain foreman mannequin in a tailored dark vest, cravat, and wide-brimmed hat climbs onto th",
+        "prop_progression: The leather reins snap taut, the wooden coach wheels roll forward kicking up golden dust, and the br"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "indoor_red_curtains_or_giant_golden_disc"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Instead of staying wild forever, as many textbooks claim, Gage later drove a stagecoach in Chile.",
+          "He steered six horses down steep roads for years."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Instead of staying wild forever, as many textbooks claim, Gage later drove a stagecoach in Chile."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "He steered six horses down steep roads for years."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_05",
+        "must_match_ref_ids": [
+          "ref_clip_05"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 6,
+      "role": "step1",
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "First, picture the judgment center behind your eyes. It tags every choice with a gut feeling, like a quick warning before you say something rude.",
+      "required_entities": [
+        "porcelain_brain_anatomy: ventromedial prefrontal cortex",
+        "neural_state: tagging everyday choices with a rapid gut warning before you say or do something reckless",
+        "story_link: Shows how the intact judgment center behind your eyes normally lights up to weigh choices ",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "First, picture the judgment center behind your eyes.",
+          "It tags every choice with a gut feeling, like a quick warning before you say something rude."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "First, picture the judgment center behind your eyes."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "It tags every choice with a gut feeling, like a quick warning before you say something rude."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_06",
+        "must_match_ref_ids": [
+          "ref_clip_06"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "ventromedial prefrontal cortex",
+        "region_group": "anterior_prefrontal_behind_eye",
+        "hemisphere": "left",
+        "view_plane": "three_quarter_left_parasagittal",
+        "expected_facing": "left",
+        "forbid_symmetric_coronal": true,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": true,
+        "expected_signal_roi_norm": [
+          0.04,
+          0.04,
+          0.66,
+          0.62
+        ],
+        "forbidden_roi_norm": [
+          0.7,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 7,
+      "role": "step2",
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "Next, those warnings travel on wiring from the emotional alarm deep in the brain. The rod cut many of those cables on his left side.",
+      "required_entities": [
+        "porcelain_brain_anatomy: amygdala",
+        "neural_state: firing fast emotional signals along white-matter wiring to the front judgment center",
+        "story_link: Shows the emotional alarm deep in the brain sending warning signals along white-matter wir",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Next, those warnings travel on wiring from the emotional alarm deep in the brain.",
+          "The rod cut many of those cables on his left side."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Next, those warnings travel on wiring from the emotional alarm deep in the brain."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "The rod cut many of those cables on his left side."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_07",
+        "must_match_ref_ids": [
+          "ref_clip_07"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.52,
+        "max_late_morph_drop": 0.28
+      },
+      "anatomical_contract": {
+        "canonical_region": "amygdala",
+        "region_group": "anterior_prefrontal_behind_eye",
+        "hemisphere": "left",
+        "view_plane": "three_quarter_left_parasagittal",
+        "expected_facing": "left",
+        "forbid_symmetric_coronal": true,
+        "require_crimson_lesion": true,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.04,
+          0.04,
+          0.66,
+          0.62
+        ],
+        "forbidden_roi_norm": [
+          0.7,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 8,
+      "role": "step3",
+      "scene_id": "S4",
+      "setting": "brain_void",
+      "is_brain_clip": true,
+      "is_key_visual_clip": false,
+      "narration": "Finally, strict daily routines in Chile helped healthy pathways in the front of the brain take over. That let him plan routes and steer six horses.",
+      "required_entities": [
+        "porcelain_brain_anatomy: prefrontal cortex",
+        "neural_state: planning, holding structured routines, and compensating through intact right-side frontal ",
+        "story_link: Links the spared pathways in the front of the brain to the strict daily stagecoach routine",
+        "r53_signal: restrained internal warm-amber/ivory tract conduction (zero green/blue flying particles)"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "flying_sparks_or_scattered_bokeh",
+        "mismatched_brain_bust_angle_or_mid_clip_morph"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Finally, strict daily routines in Chile helped healthy pathways in the front of the brain take over.",
+          "That let him plan routes and steer six horses."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Finally, strict daily routines in Chile helped healthy pathways in the front of the brain take over."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "That let him plan routes and steer six horses."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": false
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_08",
+        "must_match_ref_ids": [
+          "ref_clip_08"
+        ],
+        "shared_master_anchor": "ref_brain_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": {
+        "canonical_region": "prefrontal cortex",
+        "region_group": "anterior_prefrontal_behind_eye",
+        "hemisphere": "left",
+        "view_plane": "three_quarter_left_parasagittal",
+        "expected_facing": "left",
+        "forbid_symmetric_coronal": true,
+        "require_crimson_lesion": false,
+        "forbid_crimson_lesion": false,
+        "expected_signal_roi_norm": [
+          0.04,
+          0.04,
+          0.66,
+          0.62
+        ],
+        "forbidden_roi_norm": [
+          0.7,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.4,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 9,
+      "role": "breakthrough",
+      "scene_id": "S5",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "At Harvard, skull scans showed the rod cut about one tenth of the left frontal wiring. The researchers were left completely stunned.",
+      "required_entities": [
+        "iconic_scene: At Harvard's Warren Museum, Gage's actual skull and 3-foot-7-inch tamping iron sit side by side, allowing",
+        "cast (foreman 1848): matte-white porcelain mannequin wearing rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, br",
+        "action: A porcelain neuroscientist mannequin in a white lab coat lifts the long tapered steel rod from a bra",
+        "prop_progression: The brass turntable rotates smoothly and a glass display case door swings open beside the 1850 plast"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "At Harvard, skull scans showed the rod cut about one tenth of the left frontal wiring.",
+          "The researchers were left completely stunned."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "At Harvard, skull scans showed the rod cut about one tenth of the left frontal wiring."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "The researchers were left completely stunned."
+          }
+        ],
+        "requires_scale_pullback": false,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_09",
+        "must_match_ref_ids": [
+          "ref_clip_09"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "strict_min_5pt",
+        "min_continuity_score": 0.46,
+        "max_late_morph_drop": 0.34
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.025,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    },
+    {
+      "clip_number": 10,
+      "role": "conclusion",
+      "scene_id": "S4",
+      "setting": "real_env",
+      "is_brain_clip": false,
+      "is_key_visual_clip": false,
+      "narration": "Which is why the judgment center behind your eyes shapes who you are. And why even a badly hurt brain can learn to steer again.",
+      "required_entities": [
+        "iconic_scene: Far from the textbook myth of a ruined drifter, a well-dressed Phineas Gage drives a six-horse stagecoach",
+        "cast (foreman 1850 chile): matte-white porcelain mannequin wearing tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-",
+        "action: The well-dressed porcelain foreman mannequin in a tailored waistcoat and cravat grips his long taper",
+        "prop_progression: A brass studio plate holder slides into place with a crisp click while sunlight glints along the pol"
+      ],
+      "forbidden_elements": [
+        "real_human_face_or_skin",
+        "on_screen_text_logo_or_watermark",
+        "r53_neon_green_or_cyan_particles",
+        "indoor_red_curtains_or_giant_golden_disc"
+      ],
+      "narration_grounding": {
+        "clauses": [
+          "Which is why the judgment center behind your eyes shapes who you are.",
+          "And why even a badly hurt brain can learn to steer again."
+        ],
+        "beats": [
+          {
+            "window_pct": [
+              0.0,
+              0.45
+            ],
+            "narration_clause": "Which is why the judgment center behind your eyes shapes who you are."
+          },
+          {
+            "window_pct": [
+              0.45,
+              1.0
+            ],
+            "narration_clause": "And why even a badly hurt brain can learn to steer again."
+          }
+        ],
+        "requires_scale_pullback": true,
+        "requires_two_beat_progression": true
+      },
+      "conditioning_contract": {
+        "primary_ref_id": "ref_clip_10",
+        "must_match_ref_ids": [
+          "ref_clip_10"
+        ],
+        "shared_master_anchor": "ref_env_master",
+        "sample_windows_pct": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          0.95
+        ],
+        "aggregation_mode": "pullback_windowed",
+        "min_continuity_score": 0.45,
+        "max_late_morph_drop": 0.42
+      },
+      "anatomical_contract": null,
+      "motion_contract": {
+        "min_raw_flow_mean": 0.14,
+        "min_residual_subject_flow_p90": 0.75,
+        "min_active_window_ratio": 0.5,
+        "min_beat1_vs_beat2_shift": 0.08,
+        "speedup_bounds": [
+          0.85,
+          1.25
+        ]
+      }
+    }
+  ]
+}

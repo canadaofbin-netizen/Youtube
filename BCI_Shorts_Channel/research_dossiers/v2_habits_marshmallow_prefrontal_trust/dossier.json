@@ -52,27 +52,23 @@
       "source_id": "kidd_2013",
       "doi": "10.1016/j.cognition.2012.08.004",
       "source_ids": [
-        "kidd_2013",
-        "mischel_1972"
+        "kidd_2013"
       ],
       "dois": [
-        "10.1016/j.cognition.2012.08.004",
-        "10.1037/h0032198"
+        "10.1016/j.cognition.2012.08.004"
       ],
-      "summary": "Kidd, Palmeri & Aslin (2013) flipped Mischel's (1972) Marshmallow Test by breaking vs keeping an art-supply promise first: children in the broken-promise room ate the marshmallow in 3 minutes, while children in the reliable room waited over 12 minutes."
+      "summary": "Rational snacking: Young children’s decision-making on the marshmallow task is moderated by beliefs about environmental reliability"
     },
     "neuroscience_mechanism": {
-      "source_id": "hutcherson_2022",
-      "doi": "10.7554/elife.65661",
+      "source_id": "watts_2018",
+      "doi": "10.1177/0956797618761661",
       "source_ids": [
-        "hutcherson_2022",
         "watts_2018"
       ],
       "dois": [
-        "10.7554/elife.65661",
         "10.1177/0956797618761661"
       ],
-      "summary": "Watts et al. (2018) overturned willpower determinism across >900 kids, and Hutcherson & Tusche (2022) human fMRI proved dorsolateral and ventromedial prefrontal hubs compute expected future reliability rather than brute self-denial."
+      "summary": "Revisiting the Marshmallow Test: A Conceptual Replication Investigating Links Between Early Delay of Gratification and Later Outcomes"
     }
   },
   "debate_ignition": {
@@ -95,7 +91,17 @@
     },
     {
       "fact": "Children exposed to a reliable kept promise waited an average of 12 minutes and 2 seconds — four times longer — and 9 of 14 waited the entire 15 minutes.",
-      "source_id": "kidd_2013"
+      "source_id": "kidd_2013",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Kept-Promise Full 15m Wait",
+        "highlighted_k": 9,
+        "total_n": 14,
+        "doi": "10.1016/j.cognition.2012.08.004",
+        "source_citation": "Kidd et al. (2013)"
+      }
     },
     {
       "fact": "A 2018 replication tracking more than 900 diverse children found early wait time lost most of its predictive power once household stability and environment were controlled.",
@@ -107,7 +113,18 @@
     },
     {
       "fact": "When future rewards look uncertain, discounted striatal-prefrontal valuation makes taking the immediate guaranteed reward mathematically optimal.",
-      "source_id": "hutcherson_2022"
+      "source_id": "hutcherson_2022",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Trust-Based Wait Valuation",
+        "concept": "Temporal Trust Discounting",
+        "fn": "exp_decay",
+        "x_label": "Wait Delay",
+        "y_label": "Expected Reward Value",
+        "doi": ""
+      }
     },
     {
       "fact": "Forty-year follow-up fMRI scans of original Stanford Marshmallow participants showed temptation cues pit ventral striatal reward against prefrontal control circuits.",
@@ -152,6 +169,7 @@
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
   "shorts_projects": [
-    "boost_02_habits_marshmallow_trust"
+    "boost_02_habits_marshmallow_trust",
+    "v8_pilot_03_marshmallow_trust_previs"
   ]
 }

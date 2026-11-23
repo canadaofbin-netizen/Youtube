@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "dunbar_number_neocortex_limit",
   "topic": "Robin Dunbar (1992-1995): Primate Neocortex Ratio & the ~150 Social-Group Limit",
   "pillar": "brain_basics",
@@ -32,7 +32,28 @@
   "core_facts": [
     {
       "fact": "Why do primates carry such metabolically expensive, oversized brains (~20% of resting human energy for 2% of body mass)? In 1992, UCL anthropologist Robin Dunbar tested ecological foraging theories (fruit-map range size) head-to-head against the 'Social Brain Hypothesis' across 38 primate genera.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Human Brain Energy vs Mass",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Resting Energy",
+            "value": 20.0,
+            "unit": "%"
+          },
+          {
+            "label": "Body Mass Share",
+            "value": 2.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1016/0047-2484(92)90081-j",
+        "source_citation": "Dunbar (1992)"
+      }
     },
     {
       "fact": "Territory size and diet failed to explain neocortex expansion cleanly — instead, mean SOCIAL GROUP SIZE correlated remarkably strongly (r^2 ~ 0.60-0.76) with the neocortex ratio (neocortex volume divided by the rest of the brain).",
@@ -64,7 +85,17 @@
     },
     {
       "fact": "Across Dunbar's 1992 and 1995 comparative primate regressions, group of 150 members entails N*(N-1)/2 = 11,175 pairwise ties, while human social time concentrates roughly 40% of contact inside the innermost 5-person support clique.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Social Time in 5-Core Clique",
+        "percent": 40.0,
+        "unit": "%",
+        "doi": "10.1016/0047-2484(92)90081-j",
+        "source_citation": "Dunbar (1992)"
+      }
     }
   ],
   "wow_facts": [
@@ -128,5 +159,37 @@
     "diorama_57_dunbar_number_neocortex_limit"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1016/0047-2484(92)90081-j",
+  "three_layer_formula": {
+    "everyday_problem": "Scrolling past 1,200 online connections when moving apartments and realizing there are roughly FIVE people you could actually call to carry a sofa.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/0047-2484(92)90081-j",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/0047-2484(92)90081-j"
+      ],
+      "summary": "R.I.M. Dunbar (1992). Neocortex size as a constraint on group size in primates. Journal of Human Evolution."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1098/rsbl.2021.0158",
+      "source_ids": [
+        "SRC4"
+      ],
+      "dois": [
+        "10.1098/rsbl.2021.0158"
+      ],
+      "summary": "Patrik Lindenfors, Andreas Wartel, Johan Lind (2021). ‘Dunbar's number’ deconstructed. Biology Letters."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Your brain explodes if you memorize a 151st person's name.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "2025 sleep-EEG clinical crossover study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "How does caffeine keep us awake? - Hanan Qasim",
+      "url": "https://www.youtube.com/watch?v=foLf5Bi9qXs",
+      "channel": "TED-Ed",
+      "source_id": "SRC_M1",
+      "duration_sec": 315,
+      "timecodes": [
+        {
+          "t": "00:10-00:35",
+          "what": "Visual framing of daily coffee consumption and the subjective illusion of unimpaired alertness and sleep."
+        },
+        {
+          "t": "00:36-01:05",
+          "what": "Molecular breakdown of adenosine buildup across waking hours and competitive receptor blockade by caffeine."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-01:05 into media/M1/keyframes/.",
+          "Used strictly for pacing and adenosine-mechanism clarity; staged from scratch via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "animated_explainer_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Coffee Shock: What Caffeine REALLY Does to Your Brain While You Sleep",
+      "url": "https://www.youtube.com/watch?v=nqtFPnwA3EE",
+      "channel": "Body Science Explained",
+      "source_id": "SRC_M2",
+      "duration_sec": 340,
+      "timecodes": [
+        {
+          "t": "00:15-00:45",
+          "what": "Comparison of falling asleep quickly versus achieving deep restorative NREM slow-wave sleep."
+        },
+        {
+          "t": "01:10-01:45",
+          "what": "Overview of caffeine clearance half-life and late-day timing cutoffs."
+        }
+      ],
+      "license_note": "Complementary reference video for sleep-architecture framing; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_sleep_eeg_study_track_b_scene_bible"
+    }
+  ]
+}

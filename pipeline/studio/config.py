@@ -31,10 +31,56 @@ VIDEO_LANGUAGE_LABEL_KO = "\\uc601\\uc5b4(\\ubbf8\\uad6d)"
 TITLE_DESCRIPTION_LANGUAGE_CODE = "en-US"
 TITLE_DESCRIPTION_LANGUAGE_LABEL = "English (United States)"
 TITLE_DESCRIPTION_LANGUAGE_LABEL_KO = "\\uc601\\uc5b4(\\ubbf8\\uad6d)"
-DEFAULT_VIDEO_CATEGORY = "Science & Technology"
-DEFAULT_VIDEO_CATEGORY_STUDIO = "Science and technology"
-DEFAULT_VIDEO_CATEGORY_KO = "\\uacfc\\ud559 \\uae30\\uc220"
+DEFAULT_VIDEO_CATEGORY = "Education"
+DEFAULT_VIDEO_CATEGORY_STUDIO = "Education"
+DEFAULT_VIDEO_CATEGORY_KO = "교육"
+DEFAULT_EDUCATION_ACADEMIC_SYSTEM = "United States"
+DEFAULT_EDUCATION_ACADEMIC_SYSTEM_KO = "미국"
+DEFAULT_FALLBACK_PILLAR = "brain_mysteries"
 TARGET_AUDIENCE_REGION = "US"
+
+# Rule R75: Permanent Playlist Ban, Clean Psychology/Neuroscience Channel Routing & Seed Hygiene Locks
+STUDIO_PLAYLISTS_ENABLED: bool = False
+
+CHANNEL_CLEAN_KEYWORDS: tuple[str, ...] = (
+    "psychology",
+    "neuroscience",
+    "human behavior",
+    "brain science",
+    "everyday psychology",
+    "cognitive psychology",
+    "brain facts",
+    "habits",
+    "self control",
+    "memory",
+    "sleep science",
+    "emotions",
+    "decision making",
+    "social psychology",
+    "All About Brain",
+)
+
+BANNED_OFF_TOPIC_TECH_TAGS: frozenset[str] = frozenset({
+    "bci",
+    "neural interface",
+    "ai",
+    "neurotech",
+    "neurotechnology",
+    "neuralink",
+    "brain chip",
+    "brain computer interface",
+    "eeg",
+    "neural engineering",
+    "neuroprosthetics",
+    "mind reading ai",
+})
+
+MIN_SCHEDULE_WARMUP_MINUTES: int = 180
+PRE_RELEASE_FREEZE_HOURS: float = 3.0
+POST_RELEASE_FREEZE_HOURS: float = 24.0
+MIN_ORGANIC_VIEWS_BEFORE_PIN: int = 100
+MIN_HOURS_AFTER_PUBLIC_BEFORE_PIN: float = 12.0
+ALLOW_WATCH_PAGE_FALLBACK: bool = False
 
 CHANNEL_LOCALIZATION_SPEC: dict[str, Any] = {
     "channel_residence_country_code": CHANNEL_RESIDENCE_COUNTRY,
@@ -48,22 +94,30 @@ CHANNEL_LOCALIZATION_SPEC: dict[str, Any] = {
     "title_description_language_label": TITLE_DESCRIPTION_LANGUAGE_LABEL,
     "title_description_language_label_ko": TITLE_DESCRIPTION_LANGUAGE_LABEL_KO,
     "default_category": DEFAULT_VIDEO_CATEGORY,
+    "default_education_academic_system": DEFAULT_EDUCATION_ACADEMIC_SYSTEM,
+    "default_education_academic_system_ko": DEFAULT_EDUCATION_ACADEMIC_SYSTEM_KO,
     "target_audience_region": TARGET_AUDIENCE_REGION,
 }
 
 # Browser & DevTools Protocol
+import os as _os
 _WIN_WHALE = Path(r"C:\Program Files\Naver\Naver Whale\Application\whale.exe")
 WHALE_EXECUTABLE = _WIN_WHALE if _WIN_WHALE.exists() or Path(r"C:\Program Files").exists() else Path("/usr/bin/docker")
 DEFAULT_CDP_HOST = "127.0.0.1"
 DEFAULT_CDP_PORT = 9222
+HOST_BROWSER_BRIDGE_DIR = Path(
+    _os.environ.get("AAB_HOST_FLOW_BRIDGE_DIR") or (Path.home() / "chrome-profile" / "flow_bridge")
+)
+_CONTAINER_BROWSER_USER = _os.environ.get("AAB_CONTAINER_BROWSER_USER", "sel" + "user")
+CONTAINER_BROWSER_BRIDGE_DIR = (
+    _os.environ.get("AAB_CONTAINER_FLOW_BRIDGE_DIR") or f"/home/{_CONTAINER_BROWSER_USER}/chrome-profile/flow_bridge"
+)
 
 # Staging Buffer Path
-import os as _os
-_WIN_STAGING = Path(r"g:\My Drive\Kyubin_Yun_Workspace\07_Youtube\BCI_Shorts_Channel\staging_queue.json")
-STAGING_QUEUE_FILE = (
-    _WIN_STAGING
-    if _os.name == "nt" and _WIN_STAGING.parent.exists()
-    else Path(__file__).resolve().parents[2] / "BCI_Shorts_Channel" / "staging_queue.json"
+_WORKSPACE_ROOT = Path(_os.environ.get("AAB_WORKSPACE_ROOT") or Path(__file__).resolve().parents[2])
+STAGING_QUEUE_FILE = Path(
+    _os.environ.get("AAB_STAGING_QUEUE_FILE")
+    or (_WORKSPACE_ROOT / "BCI_Shorts_Channel" / "staging_queue.json")
 )
 
 def slot_time_kst_parts(hour_et: int, minute_et: int = 0, ref_date: date | None = None) -> tuple[str, int]:
@@ -369,6 +423,11 @@ STUDIO_SELECTORS: dict[str, list[str]] = {
     "language_option_en_us": [
         "tp-yt-paper-item:has-text('English (United States)')",
         "tp-yt-paper-item:has-text('\\uc601\\uc5b4(\\ubbf8\\uad6d)')"
+    ],
+    "education_academic_system_trigger": [
+        "ytcp-education-video-metadata #system-select #trigger",
+        "#system-select #trigger",
+        "ytcp-education-video-metadata #system-select"
     ]
 }
 
@@ -417,6 +476,11 @@ STUDIO_SETTINGS_SELECTORS: dict[str, list[str]] = {
     "category_trigger": [
         "ytcp-form-select#category-select #trigger",
         "#category-select #trigger"
+    ],
+    "education_academic_system_trigger": [
+        "ytcp-settings-dialog ytcp-education-video-metadata #system-select #trigger",
+        "ytcp-settings-dialog #system-select #trigger",
+        "ytcp-education-video-metadata #system-select #trigger"
     ],
     "settings_save_button": [
         "ytcp-settings-dialog ytcp-button#submit-button",
@@ -497,13 +561,11 @@ THUMBNAIL_SWAP_SELECTORS: dict[str, list[str]] = {
 }
 
 # Short-to-Short Related Video & Seed-Rescue Graph Configuration (R35-B)
-_WIN_LINK_GRAPH = Path(r"g:\My Drive\Kyubin_Yun_Workspace\07_Youtube\BCI_Shorts_Channel\short_link_graph.json")
-SHORT_LINK_GRAPH_FILE = (
-    _WIN_LINK_GRAPH
-    if _os.name == "nt" and _WIN_LINK_GRAPH.parent.exists()
-    else Path(__file__).resolve().parents[2] / "BCI_Shorts_Channel" / "short_link_graph.json"
+SHORT_LINK_GRAPH_FILE = Path(
+    _os.environ.get("AAB_SHORT_LINK_GRAPH_FILE")
+    or (_WORKSPACE_ROOT / "BCI_Shorts_Channel" / "short_link_graph.json")
 )
-SEED_PROTECTION_LOCK_HOURS: float = 24.0
+SEED_PROTECTION_LOCK_HOURS: float = POST_RELEASE_FREEZE_HOURS
 ANCHOR_MIN_VIEWS: int = 250
 SEED_STARVED_MAX_IMPRESSIONS: int = 100
 STUDIO_TAB_RECYCLE_INTERVAL: int = 3
@@ -620,11 +682,9 @@ AI_CONTENT_DECLARATION = {
 }
 
 # Daily Analytics & Growth Reporting Paths
-_WIN_REPORTS = Path(r"g:\My Drive\Kyubin_Yun_Workspace\07_Youtube\BCI_Shorts_Channel\reports")
-REPORTS_ROOT_DIR = (
-    _WIN_REPORTS
-    if _os.name == "nt" and _WIN_REPORTS.parent.exists()
-    else Path(__file__).resolve().parents[2] / "BCI_Shorts_Channel" / "reports"
+REPORTS_ROOT_DIR = Path(
+    _os.environ.get("AAB_REPORTS_ROOT_DIR")
+    or (_WORKSPACE_ROOT / "BCI_Shorts_Channel" / "reports")
 )
 DAILY_REPORTS_DIR = REPORTS_ROOT_DIR / "daily"
 LATEST_REPORT_FILE = REPORTS_ROOT_DIR / "LATEST_DAILY_REPORT.md"
@@ -634,8 +694,12 @@ STUDIO_ANALYTICS_URLS: dict[str, str] = {
     "dashboard": f"https://studio.youtube.com/channel/{CHANNEL_ID}",
     "content_shorts": f"https://studio.youtube.com/channel/{CHANNEL_ID}/videos/short",
     "analytics_overview": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-overview/period-default",
+    "analytics_overview_28d": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-overview/period-default",
+    "analytics_overview_7d": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-overview/period-week",
     "analytics_content": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-reach_viewers/period-default",
+    "analytics_content_7d": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-reach_viewers/period-week",
     "analytics_audience": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-build_audience/period-default",
+    "analytics_audience_7d": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-build_audience/period-week",
     "analytics_research": f"https://studio.youtube.com/channel/{CHANNEL_ID}/analytics/tab-research/period-default",
 }
 
@@ -704,5 +768,50 @@ def get_pillar_default_slot(pillar_id: str) -> int:
     elif "myster" in raw:
         return 3
     return 2
+
+
+_CANONICAL_VISIBILITY_ALIASES: dict[str, str] = {
+    "public": "public",
+    "published": "public",
+    "published_public": "public",
+    "schedule": "scheduled",
+    "scheduled": "scheduled",
+    "queued_scheduled": "scheduled",
+    "scheduled_public": "scheduled",
+    "unlisted": "unlisted",
+    "uploaded_unlisted": "unlisted",
+    "staged_unlisted": "unlisted",
+    "private": "private",
+    "draft": "draft",
+}
+
+
+def canonical_studio_visibility(raw_visibility: str | None) -> str:
+    """Normalizes Studio visibility / receipt status strings to canonical lowercase tokens."""
+    key = str(raw_visibility or "").strip().lower()
+    return _CANONICAL_VISIBILITY_ALIASES.get(key, key or "unknown")
+
+
+def validate_visibility_transition(
+    current_visibility: str | None,
+    target_visibility: str | None,
+    *,
+    allow_emergency_demote: bool = False,
+) -> bool:
+    """
+    Rule R75 Visibility Monotonicity Lock:
+      Allows one-way progression (`private` / `unlisted` -> `scheduled` -> `public`) and
+      forbids demoting an already-`public` video to `unlisted`, `private`, or `draft`
+      unless `allow_emergency_demote=True` is explicitly passed.
+    """
+    curr = canonical_studio_visibility(current_visibility)
+    tgt = canonical_studio_visibility(target_visibility)
+    if curr == "public" and tgt in {"unlisted", "private", "draft"} and not allow_emergency_demote:
+        raise ValueError(
+            f"[R75 Visibility Monotonicity Lock] Illegal demotion '{curr} -> {tgt}'. "
+            "Public videos must never be demoted to Unlisted/Private by automation "
+            "(pass allow_emergency_demote=True only for human-approved legal/safety emergencies)."
+        )
+    return True
 
 

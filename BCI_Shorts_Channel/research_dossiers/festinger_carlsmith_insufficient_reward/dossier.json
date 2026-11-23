@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "festinger_carlsmith_insufficient_reward",
   "topic": "Festinger & Carlsmith (1959): Turning Wooden Pegs for $1 vs $20 — Why Getting Paid LESS Changed People's Minds!",
   "pillar": "brain_basics",
@@ -48,7 +48,28 @@
     },
     {
       "fact": "Behaviorism got flipped upside down! **Control subjects** rated the task honestly boring (**-0.45**). **$20 subjects** ALSO rated it boring (**-0.05** — they still hated the pegs!). **ONLY the $1 subjects flipped positive (+1.35)** — rating the mind-numbing pegs genuinely interesting and volunteering to do it again (+1.20 vs -0.25).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Peg-Task Enjoyment Rating",
+        "unit": "pt",
+        "bars": [
+          {
+            "label": "0 High Pay",
+            "value": -0.05,
+            "unit": "pt"
+          },
+          {
+            "label": " Low Pay",
+            "value": 1.35,
+            "unit": "pt"
+          }
+        ],
+        "doi": "10.1037/h0041593",
+        "source_citation": "Festinger & Carlsmith (1959)"
+      }
     },
     {
       "fact": "Why did **$1 beat $20**? **Cognitive Dissonance!** The $20 student had a rock-solid external excuse (*'I'm an honest person, I just told a harmless white lie for a huge $20 payday!'* = **zero dissonance**). The $1 student collided head-on with an unbearable itch: *'I am an honest person to I just looked a fellow student in the eye and praised those pegs to $1 is NOT enough to make me a liar... so hey, maybe turning pegs WAS kind of meditative and cool!'*",
@@ -122,5 +143,37 @@
     "diorama_63_festinger_carlsmith_insufficient_reward"
   ],
   "reenactment_track": "track_a",
-  "reenactment_track_subtier": "A2_section_window"
+  "reenactment_track_subtier": "A2_section_window",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0041593",
+  "three_layer_formula": {
+    "everyday_problem": "Enduring an overpriced, exhausting 3-hour wait at a hyped restaurant and catching your own mouth telling friends Monday morning: *'Honestly the atmosphere made it totally worth it!'* (**Effort Justification**!).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0041593",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0041593"
+      ],
+      "summary": "Leon Festinger, James M. Carlsmith (1959). Cognitive consequences of forced compliance. The Journal of Abnormal and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1523/jneurosci.4591-14.2015",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1523/jneurosci.4591-14.2015"
+      ],
+      "summary": "K. Izuma, A. Matsumoto, C. F. Camerer, R. Adolphs (2015). Insensitivity to cognitive dissonance in humans with focal bilateral amygdala lesions. Journal of Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "If you want employees, kids, or citizens to internalize a value, offer the biggest external cash bonus or threat possible.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

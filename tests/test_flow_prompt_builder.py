@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
-from pipeline.config import CLIP_ROLE_SEQUENCES, clip_roles, pivot_clip_index
+from pipeline.config import CLIP_ROLE_SEQUENCES, WORKSPACE_ROOT, clip_roles, pivot_clip_index
 from pipeline.flow_prompt_builder import (
     build_flow_prompts,
     compute_clip_target_duration,
@@ -22,7 +23,8 @@ from pipeline.qa_gates import run_preflight_qa
 from pipeline.topics_catalog import ALL_PSYCHOLOGY_100_TOPICS, PSYCHOLOGY_TOPICS
 
 GOLDEN_MD_PATH = Path(
-    r"C:\Users\yunky\.gemini\antigravity\brain\a935bacf-5ae3-4e1a-b5e2-7ed23172c727\capgras_delusion_10clip_prompts.md"
+    os.environ.get("AAB_GOLDEN_CAPGRAS_MD")
+    or (WORKSPACE_ROOT / "BCI_Shorts_Channel" / "reports" / "capgras_delusion_10clip_prompts.md")
 )
 
 

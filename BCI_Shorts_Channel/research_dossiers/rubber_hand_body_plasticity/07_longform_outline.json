@@ -1,100 +1,118 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
   "shorts_extract": {
-    "hook": "Two paintbrushes, a divider board, and 60 seconds: how Botvinick & Cohen (1998) proved your brain redraws the boundary of 'your body' in real time.",
-    "core_experiment": "Botvinick & Cohen (1998 Nature) synchronous brushing + proprioceptive drift, plus Ehrsson's premotor fMRI & sweat-spike threat proof.",
-    "twist": "Why a 500-ms brush delay or wooden block kills the spell, Lush's suggestibility critique vs physiological controls, and bionic limb embodiment."
+    "hook": "Give neuroscientists two cheap paintbrushes and a piece of cardboard, and in 60 seconds they can make your brain swear a dead rubber glove is your own hand.",
+    "core_experiment": "Botvinick & Cohen (1998 Nature, 23 mm vs 13 mm drift) + Ehrsson et al. (2004 Science) premotor fMRI + Tsakiris & Haggard (2005) + Torregrossa & Park (2022).",
+    "twist": "Why a 500-ms brush delay or wooden block breaks the spell instantly, Lush's 2020 suggestibility critique, and how adult brains embody everyday tools and rehab mirrors."
   },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "45-year-old adult gasping in disbelief as twin paintbrushes stroke a rubber hand in front of a white divider screen",
+    "right_cyan_brain": "3D translucent glass brain with glowing #27D8FF premotor cortex, parietal spatial map, and somatosensory touch strip active",
+    "badge_text": "OWNED IN 60 SEC"
+  },
+  "r75_clean_seed_tags": [
+    "rubber hand illusion",
+    "body ownership",
+    "botvinick and cohen",
+    "premotor cortex",
+    "sensory illusions",
+    "proprioception",
+    "neuroplasticity",
+    "brain experiments",
+    "psychology facts",
+    "shorts"
+  ],
   "chapters": [
     {
       "n": 1,
-      "title": "60 Seconds to Claim a Lifeless Hand",
+      "title": "Pittsburgh 1998: Two Paintbrushes & One Standing Screen",
       "beats": [
-        "The 1998 Pittsburgh partition-and-paintbrush setup",
-        "Feeling touch come straight out of dead rubber",
-        "Blindfolded under-table pointing drifts centimeters"
+        "Hiding the real left hand while aligning a rubber prop in plain sight",
+        "8 of 10 adults feel bristles inside dead rubber + 23 mm blindfolded pointing shift"
       ],
       "scene_ids": [
         "S1"
       ],
       "reuse_shorts_roles": [
         "setup",
-        "symptom",
-        "pivot"
+        "symptom"
       ],
       "new_shots_needed": [
-        "partition, prosthetic hand & twin paintbrushes"
+        "partition table, twin brushes & millimeter ruler"
       ]
     },
     {
       "n": 2,
-      "title": "Panic Sweat Over a Fake Finger (Ehrsson 2007)",
+      "title": "Inside the Scanner: Watching Premotor Cortex Claim a Limb (2004)",
       "beats": [
-        "Ventral premotor + intraparietal ownership snap",
-        "Palmar skin-conductance spikes when the fake hand is threatened",
-        "Subtle cooling of the 'replaced' real hand"
+        "Ehrsson et al. (2004 Science) ventral premotor + parietal fusion",
+        "Insula protective flinch when the rubber hand is threatened"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "3D premotor-parietal-insula relay"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Breaking the Spell: The 500-ms & Wooden-Block Security Checks",
+      "beats": [
+        "Asynchronous brushing shifts pointing 13 mm away instead of toward",
+        "Tsakiris & Haggard (2005): why bricks and twisted wrists fail"
       ],
       "scene_ids": [
         "S2"
       ],
       "reuse_shorts_roles": [
-        "step1",
-        "crisis"
+        "failure"
       ],
       "new_shots_needed": [
-        "skin-conductance spike monitor"
+        "wooden block & alternating brush control"
       ]
     },
     {
-      "n": 3,
-      "title": "The Two Guardrails: Millisecond Timing & Anatomy",
+      "n": 4,
+      "title": "Healthy Skepticism: Drift vs Suggestibility (2011–2022)",
       "beats": [
-        "500-ms asynchronous strokes kill the illusion",
-        "Why wooden blocks and twisted wrists fail + suggestibility debates"
+        "Rohde et al. (2011) & Lush (2020) demand-characteristic critique",
+        "Torregrossa & Park (2022) self-boundary precision in adults"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis",
+        "step2"
+      ],
+      "new_shots_needed": [
+        "blindfolded under-table reach comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your Flexible Body Map on the Court, Road & Rehab Clinic",
+      "beats": [
+        "How car bumpers, knives, and rackets fuse onto your hand map",
+        "Mirror therapy after midlife injury or stroke"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "failure",
-        "step2"
-      ],
-      "new_shots_needed": [
-        "asynchronous control & wooden block"
-      ]
-    },
-    {
-      "n": 4,
-      "title": "From Somatoparaphrenia to Bionic Touch",
-      "beats": [
-        "Stroke patients disowning real arms vs healthy brains owning prosthetics",
-        "Wiring fingertip sensors back to human nerves"
-      ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [
-        "breakthrough"
-      ],
-      "new_shots_needed": [
-        "touch-feedback bionic hand"
-      ]
-    },
-    {
-      "n": 5,
-      "title": "Your Malleable Body Map in Everyday Skill",
-      "beats": [
-        "Why VR avatars, cars, and rackets feel like extensions of skin",
-        "Harnessing multisensory plasticity"
-      ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [
+        "breakthrough",
         "conclusion"
       ],
       "new_shots_needed": [
-        "seamless cup grasp"
+        "sunlit outdoor tennis court ball bounce"
       ]
     }
   ]

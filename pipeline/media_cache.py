@@ -19,12 +19,14 @@ multi-pass H.264 decoding / Whisper ASR / OpenCV clip inspection on 2-vCPU serve
 from __future__ import annotations
 
 import contextlib
+import errno
 import hashlib
 import json
 import os
 import shutil
 import tempfile
 import threading
+import time
 import zlib
 from collections.abc import Callable, Iterator
 from pathlib import Path
@@ -33,15 +35,143 @@ from typing import Any
 import cv2
 import numpy as np
 
+from pipeline.config import (
+    AAB_SHM_MAX_TOTAL_BYTES,
+    AAB_SHM_MIN_FREE_BYTES,
+    AAB_SHM_MOUNT_ROOT,
+    AAB_SHM_SCRATCH_DEFAULT_DIR,
+    AAB_SPEED_CACHE_POSTHOC_CV_MAX_BYTES,
+    AAB_SPEED_CACHE_SEGMENTS_MAX_BYTES,
+    AAB_SPEED_CACHE_STAGED_MAX_BYTES,
+    AAB_SPEED_CACHE_TTS_NPZ_MAX_BYTES,
+)
+
 _CACHE_LOCK = threading.RLock()
 _MEM_JSON_CACHE: dict[str, Any] = {}
 _MEM_SHA_CACHE: dict[str, str] = {}
 _ACTIVE_FRAME_SESSION: dict[str, Any] | None = None
 _SESSION_TLS = threading.local()
 
-_MAX_STAGED_BYTES = 2_600_000_000  # ~2.6 GB LRU cap in /tmp
-MAX_TTS_NPZ_BYTES = 1_500_000_000  # ~1.5 GB LRU cap for /tmp/aab_speed_cache/tts_npz
-MAX_POSTHOC_CV_BYTES = 1_000_000_000  # ~1.0 GB LRU cap for /tmp/aab_speed_cache/posthoc_cv
+_MAX_STAGED_BYTES = AAB_SPEED_CACHE_STAGED_MAX_BYTES      # ~8.0 GB LRU cap in /dev/shm/aab_scratch
+MAX_SEGMENTS_BYTES = AAB_SPEED_CACHE_SEGMENTS_MAX_BYTES   # ~6.0 GB LRU cap for segment caches
+MAX_TTS_NPZ_BYTES = AAB_SPEED_CACHE_TTS_NPZ_MAX_BYTES     # ~2.5 GB LRU cap for tts_npz
+MAX_POSTHOC_CV_BYTES = AAB_SPEED_CACHE_POSTHOC_CV_MAX_BYTES  # ~2.0 GB LRU cap for posthoc_cv
+
+
+def get_ram_scratch_root() -> Path:
+    """
+    Returns `/dev/shm/aab_scratch` (`20,000+ MB/s` tmpfs) whenever `/dev/shm` is writable
+    with >= `AAB_SHM_MIN_FREE_BYTES` free, falling back cleanly to `<tempdir>/aab_scratch`.
+    Honors `AAB_SCRATCH_DIR` override for deterministic testing.
+    """
+    override = os.environ.get("AAB_SCRATCH_DIR", "").strip()
+    if override:
+        root = Path(override)
+        root.mkdir(parents=True, exist_ok=True)
+        return root
+    if os.name != "nt" and AAB_SHM_MOUNT_ROOT.is_dir() and os.access(AAB_SHM_MOUNT_ROOT, os.W_OK | os.X_OK):
+        try:
+            if shutil.disk_usage(AAB_SHM_MOUNT_ROOT).free >= int(AAB_SHM_MIN_FREE_BYTES):
+                AAB_SHM_SCRATCH_DEFAULT_DIR.mkdir(parents=True, exist_ok=True)
+                return AAB_SHM_SCRATCH_DEFAULT_DIR
+        except OSError:
+            pass
+    fallback = Path(tempfile.gettempdir()) / "aab_scratch"
+    fallback.mkdir(parents=True, exist_ok=True)
+    return fallback
+
+
+def ram_tempdir(prefix: str = "aab_") -> tempfile.TemporaryDirectory[str]:
+    """Creates an auto-cleaned `TemporaryDirectory` inside `get_ram_scratch_root()` (`/dev/shm/aab_scratch`)."""
+    root = get_ram_scratch_root()
+    return tempfile.TemporaryDirectory(prefix=prefix, dir=str(root))
+
+
+def is_ephemeral_scratch_path(path: Path | str) -> bool:
+    """
+    Guard 2: Recognizes BOTH `/tmp` and `/dev/shm` (plus `tempfile.gettempdir()`, `AAB_SCRATCH_DIR`,
+    and `AAB_SPEED_CACHE_DIR`) as ephemeral local scratch so `/dev/shm` files:
+      1. Take the fast boundary-CRC32 path in `_file_stat_fingerprint`,
+      2. Never trigger FUSE `persistent_sha256_cache.json` `fcntl.flock` writes or dead-path pollution,
+      3. Are never redundantly re-copied by `stage_local_file` or `media_integrity` dHash checks.
+    """
+    try:
+        resolved_s = str(Path(path).resolve())
+    except OSError:
+        resolved_s = os.path.abspath(str(path))
+    prefixes: list[str] = ["/tmp", "/dev/shm"]
+    with contextlib.suppress(OSError):
+        prefixes.append(str(Path(tempfile.gettempdir()).resolve()))
+    for env_k in ("AAB_SCRATCH_DIR", "AAB_SPEED_CACHE_DIR"):
+        ev = os.environ.get(env_k, "").strip()
+        if ev:
+            with contextlib.suppress(OSError):
+                prefixes.append(str(Path(ev).resolve()))
+    for pref in prefixes:
+        norm = pref.rstrip("/")
+        if not norm:
+            continue
+        if resolved_s == norm or resolved_s.startswith(norm + "/"):
+            return True
+    return False
+
+
+def atomic_commit_from_scratch(
+    src: Path | str,
+    dst: Path | str,
+    *,
+    suffix: str | None = None,
+    keep_src: bool = False,
+) -> Path:
+    """
+    Guard 1 (`EXDEV`-safe atomic commit):
+      - Never calls `os.replace(shm_src, fuse_or_ext4_dst)` directly across filesystems (`Errno 18 EXDEV`).
+      - If `src` and `dst.parent` share the same `st_dev` AND `keep_src=False`, performs an instant `os.replace`.
+      - Otherwise copies `src` into a hidden sibling `.tmp` file inside `dst.parent` (same mount as `dst`),
+        atomically swaps `os.replace(tmp_dst, dst)` with retry backoff for `fuse.rclone`, and cleans up `src`
+        unless `keep_src=True`.
+    """
+    src_p = Path(src)
+    dst_p = Path(dst)
+    if not src_p.exists():
+        raise FileNotFoundError(f"atomic_commit_from_scratch source missing: {src_p}")
+    dst_p.parent.mkdir(parents=True, exist_ok=True)
+    if src_p.resolve() == dst_p.resolve():
+        return dst_p
+
+    if not keep_src:
+        try:
+            if src_p.stat().st_dev == dst_p.parent.stat().st_dev:
+                os.replace(src_p, dst_p)
+                return dst_p
+        except OSError as same_dev_exc:
+            if same_dev_exc.errno != errno.EXDEV:
+                pass
+
+    tmp_dst = (
+        dst_p.with_suffix(suffix)
+        if suffix
+        else dst_p.with_name(f".{dst_p.name}.tmp.{os.getpid()}.{threading.get_ident()}")
+    )
+    try:
+        shutil.copy2(src_p, tmp_dst)
+        for attempt in range(5):
+            try:
+                os.replace(tmp_dst, dst_p)
+                break
+            except OSError:
+                if attempt == 4:
+                    raise
+                time.sleep(0.15 * (attempt + 1))
+    except BaseException:
+        with contextlib.suppress(OSError):
+            tmp_dst.unlink(missing_ok=True)
+        raise
+
+    if not keep_src:
+        with contextlib.suppress(OSError):
+            src_p.unlink(missing_ok=True)
+    return dst_p
 
 
 def prune_speed_cache_subdir(subdir: str, max_bytes: int) -> int:
@@ -79,26 +209,97 @@ def prune_speed_cache_subdir(subdir: str, max_bytes: int) -> int:
 
 def get_speed_cache_dir() -> Path:
     override = os.environ.get("AAB_SPEED_CACHE_DIR", "").strip()
-    root = Path(override) if override else (Path(tempfile.gettempdir()) / "aab_speed_cache")
+    root = Path(override) if override else (get_ram_scratch_root() / "speed_cache")
     root.mkdir(parents=True, exist_ok=True)
     return root
 
 
-def _file_stat_fingerprint(path: Path, sample_boundary_crc: bool = False) -> str:
+def enforce_ram_scratch_budget(max_total_bytes: int = AAB_SHM_MAX_TOTAL_BYTES) -> dict[str, int]:
+    """Prunes `speed_cache` subtrees under `/dev/shm/aab_scratch` so RAM-disk usage stays <= `max_total_bytes` (22 GiB)."""
+    removed_staged = prune_speed_cache_subdir("staged", int(_MAX_STAGED_BYTES))
+    removed_tts = prune_speed_cache_subdir("tts_npz", int(MAX_TTS_NPZ_BYTES))
+    removed_cv = prune_speed_cache_subdir("posthoc_cv", int(MAX_POSTHOC_CV_BYTES))
+
+    # Recursively prune `segments/` across project hashes if over MAX_SEGMENTS_BYTES
+    seg_root = get_speed_cache_dir() / "segments"
+    removed_segs = 0
+    if seg_root.exists():
+        with _CACHE_LOCK:
+            entries: list[tuple[float, int, Path]] = []
+            for p in seg_root.rglob("*"):
+                if p.is_file():
+                    with contextlib.suppress(OSError):
+                        st = p.stat()
+                        entries.append((st.st_mtime, st.st_size, p))
+            total_seg = sum(sz for _, sz, _ in entries)
+            if total_seg > int(MAX_SEGMENTS_BYTES):
+                entries.sort(key=lambda item: item[0])
+                floor = int(MAX_SEGMENTS_BYTES * 0.75)
+                for _, sz, victim in entries:
+                    if total_seg <= floor:
+                        break
+                    with contextlib.suppress(OSError):
+                        victim.unlink(missing_ok=True)
+                        total_seg -= sz
+                        removed_segs += 1
+
+    # Global hard ceiling across entire scratch root (excludes active dirs modified within last 600s)
+    scratch_root = get_ram_scratch_root()
+    removed_global = 0
+    if scratch_root.exists():
+        with _CACHE_LOCK:
+            now_ts = time.time()
+            all_files: list[tuple[float, int, Path]] = []
+            total_all = 0
+            for p in scratch_root.rglob("*"):
+                if p.is_file():
+                    with contextlib.suppress(OSError):
+                        st = p.stat()
+                        total_all += st.st_size
+                        if now_ts - st.st_mtime >= 600.0:
+                            all_files.append((st.st_mtime, st.st_size, p))
+            if total_all > int(max_total_bytes):
+                all_files.sort(key=lambda item: item[0])
+                floor_all = int(max_total_bytes * 0.80)
+                for _, sz, victim in all_files:
+                    if total_all <= floor_all:
+                        break
+                    with contextlib.suppress(OSError):
+                        victim.unlink(missing_ok=True)
+                        total_all -= sz
+                        removed_global += 1
+
+    return {
+        "removed_staged": removed_staged,
+        "removed_segments": removed_segs,
+        "removed_tts_npz": removed_tts,
+        "removed_posthoc_cv": removed_cv,
+        "removed_global": removed_global,
+    }
+
+
+def _file_stat_fingerprint(
+    path: Path,
+    sample_boundary_crc: bool = False,
+    *,
+    byte_source: Path | None = None,
+) -> str:
     """
     Builds a fast deterministic cache key from `(resolved_path, st_size, st_mtime_ns)`
-    plus an optional boundary CRC32 (always cheap on `/tmp` or small files) so in-place
-    same-nanosecond mutations in tests immediately invalidate cached entries.
+    plus an optional boundary CRC32 (always cheap on `/tmp` or `/dev/shm` or small files, or from `byte_source`
+    to avoid FUSE read-back) so in-place same-nanosecond mutations in tests immediately invalidate cached entries.
     """
     resolved = path.resolve()
     st = resolved.stat()
+    crc_src = Path(byte_source) if byte_source is not None else resolved
     crc_tag = ""
-    if sample_boundary_crc or st.st_size <= 131_072 or str(resolved).startswith("/tmp"):
+    if sample_boundary_crc or st.st_size <= 131_072 or is_ephemeral_scratch_path(resolved):
         try:
-            with resolved.open("rb") as fh:
+            src_size = crc_src.stat().st_size if byte_source is not None else st.st_size
+            with crc_src.open("rb") as fh:
                 head = fh.read(4096)
-                if st.st_size > 8192:
-                    fh.seek(max(0, st.st_size - 4096))
+                if src_size > 8192:
+                    fh.seek(max(0, src_size - 4096))
                     tail = fh.read(4096)
                 else:
                     tail = b""
@@ -149,11 +350,12 @@ def get_persistent_sha_cache_path() -> Path:
 
 
 def _should_persist_sha_for_path(path: Path) -> bool:
+    resolved_s = str(path.resolve())
+    if resolved_s == "/dev/shm" or resolved_s.startswith("/dev/shm/"):
+        return False
     if os.environ.get("AAB_PERSISTENT_SHA_CACHE_PATH", "").strip():
         return True
-    resolved_s = str(path.resolve())
-    tmp_root = str(Path(tempfile.gettempdir()).resolve())
-    return not resolved_s.startswith(tmp_root)
+    return not is_ephemeral_scratch_path(path)
 
 
 def _load_persistent_sha_entry(fp: str) -> str | None:
@@ -184,17 +386,14 @@ def _store_persistent_sha_entry(fp: str, sha_val: str) -> None:
     except ImportError:  # pragma: no cover
         _fcntl = None  # type: ignore[assignment]
 
+    from pipeline.cdp_tab_lease import acquire_shared_flock
+
     cache_path = get_persistent_sha_cache_path()
     lock_path = get_aab_locks_dir() / "persistent_sha.lock"
     with _CACHE_LOCK:
         fh = None
-        locked = False
         try:
-            if _fcntl is not None:
-                with contextlib.suppress(OSError):
-                    fh = open(lock_path, "a+", encoding="utf-8")
-                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_EX)
-                    locked = True
+            fh = acquire_shared_flock(lock_path)
             entries: dict[str, list[Any]] = {}
             if cache_path.exists():
                 with contextlib.suppress(Exception):
@@ -215,12 +414,18 @@ def _store_persistent_sha_entry(fp: str, sha_val: str) -> None:
             cache_path.parent.mkdir(parents=True, exist_ok=True)
             tmp_p = cache_path.parent / f".tmp_{os.getpid()}_{threading.get_ident()}_{cache_path.name}"
             payload = json.dumps({"version": 1, "entries": entries}, separators=(",", ":"))
-            tmp_p.write_text(payload, encoding="utf-8")
-            os.replace(tmp_p, cache_path)
-        except OSError:
-            pass
+            try:
+                tmp_p.write_text(payload, encoding="utf-8")
+                os.replace(tmp_p, cache_path)
+            except OSError:
+                tmp_p.unlink(missing_ok=True)
+                raise
+        except OSError as exc:
+            import logging
+
+            logging.getLogger("media_cache").warning("Persistent SHA cache update failed for %s: %s", cache_path, exc)
         finally:
-            if locked and fh is not None and _fcntl is not None:
+            if fh is not None and _fcntl is not None:
                 with contextlib.suppress(OSError):
                     _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
             if fh is not None:
@@ -267,13 +472,13 @@ def fast_file_sha256(path: Path) -> str:
 
 def stage_local_file(src_path: Path) -> tuple[Path, str]:
     """
-    Ensures `src_path` is staged on local `/tmp` SSD and returns `(local_path, sha256)`.
-    If `src_path` is already under `/tmp`, hashes once without duplicating the file.
+    Ensures `src_path` is staged on local `/dev/shm` RAM-disk (or `/tmp` fallback) and returns `(local_path, sha256)`.
+    If `src_path` is already under ephemeral scratch (`/tmp` or `/dev/shm`), hashes once without duplicating the file.
     """
     src = Path(src_path)
     resolved = src.resolve()
     st_size = resolved.stat().st_size
-    if str(resolved).startswith(str(Path(tempfile.gettempdir()).resolve())):
+    if is_ephemeral_scratch_path(resolved):
         return resolved, fast_file_sha256(resolved)
 
     fp = _file_stat_fingerprint(resolved, sample_boundary_crc=False)
@@ -327,8 +532,8 @@ def register_staged_copy(local_src: Path, dest_path: Path) -> str:
     dest = Path(dest_path).resolve()
     sha_val = compute_stream_sha256(local_src)
     try:
-        fp = _file_stat_fingerprint(dest, sample_boundary_crc=False)
-        fp_crc = _file_stat_fingerprint(dest, sample_boundary_crc=True)
+        fp = _file_stat_fingerprint(dest, sample_boundary_crc=False, byte_source=local_src)
+        fp_crc = _file_stat_fingerprint(dest, sample_boundary_crc=True, byte_source=local_src)
         staged_dir = get_speed_cache_dir() / "staged"
         staged_dir.mkdir(parents=True, exist_ok=True)
         ext = dest.suffix.lower() or ".bin"
@@ -341,8 +546,10 @@ def register_staged_copy(local_src: Path, dest_path: Path) -> str:
             _prune_staged_dir_unlocked(staged_dir)
         if _should_persist_sha_for_path(dest):
             _store_persistent_sha_entry(fp_crc, sha_val)
-    except OSError:
-        pass
+    except OSError as exc:
+        import logging
+
+        logging.getLogger("media_cache").warning("register_staged_copy failed for %s: %s", dest, exc)
     return sha_val
 
 
@@ -408,11 +615,12 @@ def cached_by_clip_stat(
     return res
 
 
-def cached_asr_word_timeline(mp4_path: Path) -> list[tuple[float, float, str]]:
+def cached_asr_word_timeline(mp4_path: Path, *, cpu_threads: int | None = None) -> list[tuple[float, float, str]]:
     """
     Runs `faster-whisper` word-timestamp alignment at most once per unique `mp4_sha256`,
     sharing the exact word timeline across `DQ1-DQ12` and `R64` post-hoc QA.
     """
+    import inspect
     import re
     import subprocess
 
@@ -423,7 +631,7 @@ def cached_asr_word_timeline(mp4_path: Path) -> list[tuple[float, float, str]]:
     if isinstance(hit, list):
         return [(float(x[0]), float(x[1]), str(x[2])) for x in hit]
 
-    with tempfile.TemporaryDirectory(prefix="aab_shared_asr_") as td:
+    with ram_tempdir(prefix="aab_shared_asr_") as td:
         raw_f32 = Path(td) / "aud16k.f32"
         res = subprocess.run(
             [
@@ -439,7 +647,9 @@ def cached_asr_word_timeline(mp4_path: Path) -> list[tuple[float, float, str]]:
             return []
         pcm16 = np.frombuffer(raw_f32.read_bytes(), dtype=np.float32).copy()
 
-    segs, _ = _whisper_model().transcribe(
+    wm_sig = inspect.signature(_whisper_model)
+    wm = _whisper_model(cpu_threads) if ("cpu_threads" in wm_sig.parameters and cpu_threads) else _whisper_model()
+    segs, _ = wm.transcribe(
         pcm16,
         word_timestamps=True,
         language="en",

@@ -1,121 +1,194 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "wegner_white_bear_suppression",
-  "topic": "Daniel Wegner (1987): 'Don't Think of a White Bear' & Ironic Rebound Process Theory",
+  "topic": "Why Commanding Yourself 'Stop Thinking About It' Makes Nighttime Worries Rebound Stronger",
   "pillar": "brain_mysteries",
+  "everyday_domain": "habits",
   "created_at": "2026-10-25T22:49:31+00:00",
   "status": "ready",
   "visual_mode": "HYBRID",
-  "visual_mode_reason": "Participants ringing a metal desk bell more than once per minute inside a booth while trying NOT to think of a white bear is wonderfully visual, linked to anterior cingulate 'ironic monitoring' outlasting tired dorsolateral prefrontal suppression.",
+  "visual_mode_reason": "Volunteers sitting alone with a chrome desk tap-bell trying NOT to picture a white bear — ringing more than once per minute before rebounding to 16 rings in 5 minutes — pairs immediate physical prop comedy with the battle between a tired dorsolateral prefrontal scratchpad and a tireless anterior cingulate conflict detector.",
+  "setup_18w": "Volunteers sat alone with a desk bell and tried not to picture a white bear.",
+  "three_layer_formula": {
+    "everyday_problem": "Lying awake at 3 a.m. before a major workday commanding yourself 'Stop thinking about tomorrow's meeting!' — only to feel your mind lock onto that exact worry twice as hard.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/0022-3514.53.1.5",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/0022-3514.53.1.5"
+      ],
+      "summary": "Daniel M. Wegner, David J. Schneider, Samuel R. Carter, Teri L. White (1987). Paradoxical effects of thought suppression. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.12740/pp/93493",
+      "year": 2020,
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.12740/pp/93493"
+      ],
+      "summary": "Ewelina Cichoń, Remigiusz Szczepanowski, Tomasz Niemiec (2020). Polish version of the White Bear Suppression Inventory (WBSI) by Wegner and Zanakos: factor analysis and reliability. Psychiatria Polska."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1037/0022-3514.53.1.5",
+        "year": 1987
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.1037/0033-295x.101.1.34",
+        "year": 1994
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1111/j.1467-9280.1997.tb00399.x",
+        "year": 1997
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC5",
+        "doi": "10.12740/pp/93493",
+        "year": 2020
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1016/j.brainres.2009.12.041",
+        "year": 2010
+      }
+    ]
+  },
   "primary_case": {
-    "title": "Daniel M. Wegner's 'White Bear' stream-of-consciousness bell-ringing thought suppression experiment",
+    "title": "Daniel M. Wegner's 1987 'White Bear' Tap-Bell Suppression & Red-Volkswagen Replacement Trial",
     "year": 1987,
     "place": "Trinity University Department of Psychology, San Antonio, Texas",
     "people": [
       {
-        "name": "Daniel Merton Wegner",
-        "role": "Social-cognitive psychologist inspired by Leo Tolstoy's childhood 'white bear in the corner' dare to test thought suppression experimentally",
+        "name": "Daniel Merton Wegner (with David J. Schneider, Samuel R. Carter & Teri L. White)",
+        "role": "Psychologist who turned Leo Tolstoy's 1863 white-bear corner dare into a controlled 5-minute tap-bell test explaining why adult willpower backfires under stress and fatigue",
         "source_id": "SRC1"
       },
       {
-        "name": "David J. Schneider, Samuel R. Carter & Teri L. White",
-        "role": "Co-authors on the 1987 five-minute stream-of-consciousness suppression vs expression rebound experiments",
+        "name": "34 Recording-Booth Volunteers & Everyday Stressed Adults (Ages 35–65+)",
+        "role": "Participants recorded across two 5-minute stream-of-consciousness blocks whose bell rings mirror every adult trying to suppress 3 a.m. worries, food cravings, or golf yips",
         "source_id": "SRC1"
       },
       {
-        "name": "Leo Tolstoy",
-        "role": "Russian novelist who recounted in 1863 standing in a corner unable to stop thinking of a white bear after his brother forbade it",
-        "source_id": "SRC1"
+        "name": "Ryan J. Giuliano, Nicole Y. Y. Wicha (2010) & WBSI Clinical Follow-Up Teams (2020)",
+        "role": "Electrophysiology and clinical assessment researchers proving suppressed words stay semantically primed in brain-wave recordings and predict chronic intrusive thought load across adulthood",
+        "source_id": "SRC5"
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "Inspired by Leo Tolstoy's 1863 boyhood memory of standing in a corner failing to 'not think of a white bear,' Daniel Wegner and colleagues brought the dare into a laboratory booth at Trinity University in 1987.",
+      "fact": "Inspired by Leo Tolstoy's 1863 childhood story of standing helplessly in a corner after being told not to think of a white bear, Daniel Wegner brought a tape recorder and a chrome desk tap-bell into a San Antonio lab booth in 1987.",
       "source_id": "SRC1"
     },
     {
-      "fact": "34 undergraduates sat alone for two 5-minute periods speaking their stream of consciousness aloud while ringing a desk tap-bell every single time the image or words 'white bear' crossed their mind.",
+      "fact": "Across two 5-minute blocks, 34 volunteers spoke every passing thought aloud into a microphone and pressed the silver tap-bell every single time the words or image of a white bear crossed their mind.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Group 1 ('Initial Suppression') was instructed first: 'Try NOT to think of a white bear for five minutes, but ring the bell every time you do' — and they still rang the bell more than ONCE PER MINUTE (averaging >6 intrusions in 5 minutes).",
+      "fact": "Ordered first to NOT think of a white bear for 5 minutes, healthy volunteers still failed more than once per minute — averaging over 6 bell rings inside a quiet, empty room.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Next came the famous 'Rebound Effect': in Period 2, both groups were told 'Now go ahead and DO try to think of a white bear for five minutes' — and the group that had just suppressed white bears for 5 minutes rang the bell SIGNIFICANTLY MORE OFTEN (~16+ times vs ~11-12 times in Group 2 who expressed first).",
-      "source_id": "SRC1"
+      "fact": "Then came the post-suppression rebound: when told they could finally think of a white bear for the next 5 minutes, prior suppressors hit 16 bell rings compared with 12 bell rings in volunteers allowed to think freely from the start.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "5-Minute White Bear Bell Rings",
+        "unit": "rings",
+        "bars": [
+          {
+            "label": "Suppressed First",
+            "value": 16.0,
+            "unit": "rings"
+          },
+          {
+            "label": "Expressed First",
+            "value": 12.0,
+            "unit": "rings"
+          }
+        ],
+        "doi": "10.1037/0022-3514.53.1.5",
+        "source_citation": "Wegner et al. (1987)"
+      }
     },
     {
-      "fact": "Suppressing a thought didn't shrink it — it acted like a coiled spring that bounced back ~30-50 percent stronger than people told to think of bears from Minute 1.",
-      "source_id": "SRC1"
-    },
-    {
-      "fact": "Wegner's Ironic Process Theory (1994) explained why: trying 'not to think of X' launches TWO mental processes at once — 1) a conscious, effortful Prefrontal 'Operating Process' hunting for anything ELSE in the room (lamps, shoes, walls), AND 2) an effortless, unconscious 'Ironic Monitoring Process' constantly scanning the mind asking 'Did I think of a WHITE BEAR yet?' — priming 'white bear' every few seconds.",
+      "fact": "Wegner's 1994 Ironic Process Theory explained the trap: saying 'Don't think of X' splits your brain into two competing jobs — an effortful prefrontal operating search for distractions, and an effortless automatic monitor scanning every few seconds asking 'Did X appear yet?'",
       "source_id": "SRC2"
     },
     {
-      "fact": "Worse, because each random room object ('the brown carpet... the ceiling tile') gets paired with failed suppression, the whole room turns into accidental reminders — UNTIL Wegner tested a cure in Experiment 2 of the exact same 1987 paper.",
-      "source_id": "SRC1"
+      "fact": "When adults are tired at 3 a.m., rushed before a presentation, or carrying cognitive load, the effortful prefrontal search slows down while the tireless ironic monitor keeps flashing the exact forbidden worry or mistake.",
+      "source_id": "SRC6"
     },
     {
-      "fact": "In Experiment 2, giving suppressors ONE SINGLE absorbing replacement image ('Whenever a white bear pops up, picture a red Volkswagen instead') completely ELIMINATED the post-suppression rebound effect.",
+      "fact": "Electrophysiological brain-wave recordings by Giuliano and Wicha (2010) confirmed that actively suppressing 'white bear' keeps its semantic network electrically primed underneath conscious awareness, matching chronic thought-suppression patterns measured in 2020 WBSI studies.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Experiment 2 of Wegner's original 1987 paper revealed the practical antidote: giving volunteers ONE vivid replacement focus — 'If a white bear pops up, picture a red Volkswagen instead' — wiped out the post-suppression rebound surge completely.",
       "source_id": "SRC1"
     }
   ],
   "wow_facts": [
     {
-      "fact": "Ordered NOT to think of a white bear for just five minutes in an empty booth, healthy college students still rang the confession bell more than once every sixty seconds.",
-      "why_surprising": "Blunt willpower loses to a single forbidden phrase.",
+      "fact": "Ordered NOT to picture a white bear for 5 short minutes, volunteers still slammed the confession bell more than once every 60 seconds.",
+      "why_surprising": "Direct willpower loses almost immediately to a negative command.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "Five minutes later when told 'Okay, now you CAN think of a white bear,' people who had just suppressed it rang the bell ~40% MORE than people told to think of bears right from the start.",
-      "why_surprising": "Pushing a thought underwater launches it higher when your arms tire.",
+      "fact": "Trying to push the thought away acted like holding an inflated beach ball underwater — rebounding to 16 bell rings versus 12 in people who never fought the thought.",
+      "why_surprising": "Mental suppression amplifies the exact thought you wanted gone.",
       "source_id": "SRC1",
       "rank": 2
     },
     {
-      "fact": "Why do you blurt out the exact secret you swore not to mention at dinner, or putt a golf ball straight into the pond after whispering 'Don't hit the water'? Under stress or fatigue, your prefrontal 'Operating' search slows down while the effortless 'Ironic Monitor' keeps flashing 'WATER. SECRET!'",
-      "why_surprising": "Ironic monitoring never gets tired — prefrontal effort does.",
-      "source_id": "SRC2",
+      "fact": "Under stress or late-night fatigue, your prefrontal distractor search tires out first while your automatic error radar keeps whispering the forbidden word.",
+      "why_surprising": "Explains why whispering 'Don't spill the coffee' or 'Don't hit the pond' triggers the slip.",
+      "source_id": "SRC6",
       "rank": 3
     },
     {
-      "fact": "Hidden inside Experiment 2 of Wegner's original 1987 paper was the antidote all along: swapping 'Don't think of a white bear' for ONE specific replacement ('Think of a red Volkswagen') wiped out the rebound completely.",
-      "why_surprising": "Give the mind one concrete destination instead of a 'Do Not Enter' sign.",
+      "fact": "Swapping 'Don't think of a white bear' for ONE concrete replacement image ('a red Volkswagen') erased the rebound effect in Experiment 2.",
+      "why_surprising": "Your brain steers cleanly toward a positive destination, never a 'Do Not Enter' sign.",
       "source_id": "SRC1",
       "rank": 4
     }
   ],
   "misconceptions": [
     {
-      "myth": "Strong-minded people can erase an unwanted thought simply by repeating 'Stop thinking about X!' harder.",
-      "truth": "Saying 'Stop thinking of X' literally contains X, feeding the automatic ironic monitor.",
+      "myth": "Strong-willed adults can delete an unwanted worry by repeating 'Stop thinking about it!' harder.",
+      "truth": "Every 'Stop thinking about X' command literally contains X, re-triggering the brain's automatic conflict monitor.",
       "source_id": "SRC2"
     },
     {
-      "myth": "Wandering randomly around 20 distractions in the room helps suppression stick.",
-      "truth": "Using scattered room objects turns all 20 objects into conditioned 'white bear' reminders; picking ONE absorbing replacement focus (Exp. 2) works far better.",
+      "myth": "Scanning 20 random objects around the bedroom helps push a 3 a.m. worry away.",
+      "truth": "Jumping across random room objects pairs lamps, curtains, and clocks with the failed suppression, turning the whole room into reminders.",
       "source_id": "SRC1"
     },
     {
-      "myth": "Wegner proved you must ruminate endlessly on every intrusive thought.",
-      "truth": "Not at all: acceptance/mindful observation ('letting the bear stroll past without fighting') OR focused single-target substitution avoids rebound without rumination.",
-      "source_id": "SRC2"
-    },
-    {
-      "myth": "Negative 'Don't drop the tray!' coaching helps under high pressure.",
-      "truth": "Under cognitive load (counting backward or time pressure), ironic motor errors spike; positive target cues ('Keep the tray level!') align both systems.",
-      "source_id": "SRC2"
+      "myth": "Coaching yourself with 'Don't miss this putt' or 'Don't forget this point' sharpens focus under pressure.",
+      "truth": "Under time pressure, negative motor commands overload working memory and prime the exact error; positive target cues align both brain systems.",
+      "source_id": "SRC6"
     }
   ],
   "everyday_hooks": [
-    "Lying awake at 2 a.m. commanding yourself 'Fall asleep right now, stop thinking about tomorrow's alarm!' — and feeling twice as wired.",
-    "Whispering 'Don't spill the coffee, don't spill the coffee' while carrying a full mug across a white rug.",
-    "Swapping 'Don't eat cake' for a positive single-focus anchor ('I'm making crisp peppermint tea at 3 p.m.').",
-    "Coaching an athlete or child with 'Aim center-left!' instead of 'Don't kick it wide right!'"
+    "Staring at the ceiling at 3 a.m. ordering yourself 'Stop thinking about tomorrow's meeting and fall asleep!' — and feeling twice as wide awake.",
+    "Carrying a full mug of dark roast across a cream living-room rug while whispering 'Don't spill, don't spill.'",
+    "Swapping 'Don't snack after dinner' for one specific replacement ritual like brewing hot peppermint tea at 8 p.m.",
+    "Standing over a weekend golf putt beside water and aiming at one crisp dimple on the flagstick center instead of whispering 'Don't hit the pond.'"
   ],
   "linked_projects": [
     "psych_36_wegner_white_bear_suppression"
@@ -124,5 +197,12 @@
     "diorama_59_wegner_white_bear_suppression"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "primary_doi": "10.1037/0022-3514.53.1.5",
+  "offcenter_creator_bet": "My bet: fighting thoughts feeds them — at 3 a.m., do you push worries away or switch to one calm task?",
+  "debate_ignition": {
+    "prebunk_myth": "Strong-willed adults can delete an unwanted worry by repeating 'Stop thinking about it!' harder.",
+    "open_verdict_question": "At 3 a.m., does telling yourself 'stop worrying' quiet your mind or make the thought rebound louder?",
+    "offcenter_creator_bet": "My bet: fighting thoughts feeds them — at 3 a.m., do you push worries away or switch to one calm task?"
+  }
 }

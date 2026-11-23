@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "raichle_default_mode_network",
   "topic": "Marcus Raichle (2001): The Default Mode Network & 'Brain Dark Energy' Burning 20% of Your Body's Fuel at Rest",
   "pillar": "brain_health",
@@ -44,7 +44,28 @@
     },
     {
       "fact": "Raichle calculated a jaw-dropping energy fact ('Brain Dark Energy'): the adult human brain is just 2 percent of body weight yet burns 20 percent of the body's entire resting energy — and switching to a hard chess or math problem increases local brain energy consumption by LESS THAN 5 PERCENT above resting intrinsic activity.",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Brain Mass vs Energy Share",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Share of Body Mass",
+            "value": 2.0,
+            "unit": "%"
+          },
+          {
+            "label": "Resting Energy Burn",
+            "value": 20.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1073/pnas.98.2.676",
+        "source_citation": "Raichle et al. (2001)"
+      }
     },
     {
       "fact": "Core hubs of the Default Mode Network (DMN) span posterior cingulate cortex / precuneus, medial prefrontal cortex, and bilateral inferior parietal lobule (angular gyrus), linked closely with the hippocampal memory system.",
@@ -52,7 +73,17 @@
     },
     {
       "fact": "What is this 95%-of-budget engine doing when you stare out a train window? Replaying autobiographical episodes, simulating future scenarios ('prospection'), modeling other people's minds, and weaving personal meaning.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Intrinsic Resting Budget",
+        "percent": 95.0,
+        "unit": "%",
+        "doi": "10.1146/annurev-neuro-071013-014030",
+        "source_citation": "Raichle (2015)"
+      }
     },
     {
       "fact": "Clinically, Randy Buckner showed the high-metabolism hubs of the DMN overlap strikingly with the earliest sites of amyloid plaque accumulation in Alzheimer's disease, while hyper-locked subgenual-cingulate/DMN coupling tracks depressive rumination.",
@@ -129,5 +160,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "My honest bet: doing nothing burns energy — your resting brain runs a loud replay loop until hands-on focus quiets it. Does rest calm your mind or start mental chatter?"
+  "offcenter_creator_bet": "My honest bet: doing nothing burns energy — your resting brain runs a loud replay loop until hands-on focus quiets it. Does rest calm your mind or start mental chatter?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1073/pnas.98.2.676",
+  "three_layer_formula": {
+    "everyday_problem": "Having your best solution to a Tuesday engineering bug pop into your head in the shower or on a quiet walk when you finally let the DMN run.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1073/pnas.98.2.676",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1073/pnas.98.2.676"
+      ],
+      "summary": "Marcus E. Raichle, Ann Mary MacLeod, Abraham Z. Snyder, William J. Powers et al. (2001). A default mode of brain function. Proceedings of the National Academy of Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1146/annurev-neuro-071013-014030",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1146/annurev-neuro-071013-014030"
+      ],
+      "summary": "Marcus E. Raichle (2015). The Brain's Default Mode Network. Annual Review of Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "When you close your eyes and rest, your brain powers down into idle sleep/standby mode like a dark calculator.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My honest bet: doing nothing burns energy — your resting brain runs a loud replay loop until hands-on focus quiets it. Does rest calm your mind or start mental chatter?"
+  }
 }

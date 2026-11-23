@@ -1,0 +1,176 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2007 Dallas 150-Foot Outdoor SCAD Tower Drop & Flashing LED Wrist Chronometer (Outdoor Iconic)",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2007, Outdoor 150-Foot SCAD Free-Fall Tower, Dallas, Texas",
+      "layout": {
+        "description": "Sunlit open-air 150-foot steel lattice SCAD drop tower rising above a wide blue-and-white suspended safety net in bright Texas daylight: an adult volunteer in a cobalt windbreaker and safety helmet hangs horizontally from an overhead release latch with left forearm raised in front of their eyes showing a glowing amber-red flickering LED wrist band, while David Eagleman stands on the steel platform holding the release lever.",
+        "positions": [
+          {
+            "who": "Free-fall volunteer (clothed 2.5D matte cream-white vinyl adult with smooth earless noseless hairless oval head and wide 2D charcoal-black ink eyes in cobalt windbreaker, harness, and helmet)",
+            "where": "suspended horizontally beneath the overhead steel drop arm 150 feet above the taut square catch net",
+            "facing": "facing skyward while staring intensely at the raised left-wrist LED chronometer"
+          },
+          {
+            "who": "Neuroscientist operator (clothed 2.5D matte cream-white vinyl adult in khaki field shirt and safety vest)",
+            "where": "standing on the railed upper steel tower deck beside the mechanical release latch",
+            "facing": "angled toward the suspended volunteer and the drop zone below"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "custom matte-black wrist perceptual chronometer with rapid-alternating LED square",
+          "period_detail": "Stetson, Fiesta & Eagleman's (2007) bespoke wrist LED display calibrated just above ground flicker fusion with zero readable text",
+          "physical_behavior": "State-A: volunteer raises strapped wrist inches from wide ink eyes as the LED square shimmers in a solid amber blur -> State-B: overhead steel latch snaps open and the volunteer drops briskly downward while the wrist display remains an unreadable blur"
+        },
+        {
+          "name": "overhead steel SCAD quick-release latch and giant taut square catch net far below",
+          "period_detail": "authentic unattached backward free-fall tower rig documented in AP Archive SCAD footage",
+          "physical_behavior": "State-A: steel hook holds back harness taut -> State-B: operator pulls lever, latch springs open, and volunteer plummets cleanly toward the cushioned net"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuroscientist operator & Free-fall volunteer",
+          "verb_sequence": "volunteer holds flickering LED wrist strap steady before wide ink eyes -> operator pulls the steel release handle -> latch pops open and volunteer drops backward into open sky"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Free-fall volunteer",
+          "reaction": "2D charcoal-black ink eyes snap wide with raised arched brows while trying in vain to resolve the blurred wrist glow"
+        },
+        {
+          "who": "Neuroscientist operator",
+          "reaction": "leans over the safety rail tracking the 2.5-second plunge with a handheld timer"
+        }
+      ],
+      "wardrobe": "Cobalt-blue athletic windbreaker, dark trousers, black safety harness, and white helmet; researcher in khaki button-down shirt.",
+      "lighting": "Crisp bright outdoor midday Texas sunlight against open blue sky.",
+      "recognition_hook": "Falling 150 feet backward at 70 miles per hour while staring at a flashing wristband — and discovering your eyes never sped up by even one percent!",
+      "sources": [
+        "SRC1",
+        "SRC6",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "an adult volunteer in a cobalt windbreaker dropping backward from an outdoor steel tower crane above a wide catch net while staring at a glowing wrist chronometer",
+        "must_show": [
+          "tower|net|harness",
+          "wrist|watch|chronometer",
+          "sky|outdoor"
+        ],
+        "source": "M1@00:14-00:46; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Ground-Deck Stopwatch Comparison: 2.5s Real Clock vs 36% Longer Memory Replay",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2007, Sunlit Ground Deck Beside the Dallas SCAD Safety Net",
+      "layout": {
+        "description": "Bright outdoor ground deck beside the cushioned SCAD net where the landed volunteer clicks a silver handheld stopwatch long after the researcher's reference timer has already stopped.",
+        "positions": [
+          {
+            "who": "Landed volunteer in cobalt windbreaker (helmet tucked under left arm)",
+            "where": "standing on the sunlit wooden deck clicking a brushed-silver stopwatch",
+            "facing": "facing the neuroscientist across a portable field table"
+          },
+          {
+            "who": "David Eagleman figure in khaki shirt",
+            "where": "standing opposite at the field table holding the wrist chronometer cradle",
+            "facing": "facing the volunteer"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "paired brushed-silver handheld stopwatches on portable field table",
+          "period_detail": "measures watched-fall baseline (100%) vs own-fall retrospective duration (136%) with zero printed text",
+          "physical_behavior": "State-A: both thumbs start timers together -> State-B: researcher clicks stop at 2.5 seconds while the jumper holds thumb down 36% longer before clicking"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Landed volunteer",
+          "verb_sequence": "holds silver stopwatch thumb button down past the researcher's click -> presses stop late in surprise"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Landed volunteer",
+          "reaction": "blinks in disbelief realizing zero wrist numbers were readable despite the stretched memory"
+        }
+      ],
+      "wardrobe": "Cobalt windbreaker with helmet held at hip; khaki field shirt.",
+      "lighting": "Bright afternoon outdoor sunlight.",
+      "recognition_hook": "Your own fall feels 36 percent longer on the stopwatch afterward — even though your eyes missed every single flashing digit on the way down.",
+      "sources": [
+        "SRC1",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Everyday Kitchen Counter & Sunlit Tree-Lined Walk: Breaking Adult Autopilot",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit neighborhood sidewalk & home kitchen",
+      "layout": {
+        "description": "Warm morning kitchen counter transitioning outdoors onto an unfamiliar sunlit autumn neighborhood street where a 50-year-old adult folds a paper map / closes phone and looks up at fresh architectural landmarks.",
+        "positions": [
+          {
+            "who": "50-year-old adult walker (2.5D matte cream-white vinyl character in camel wool coat)",
+            "where": "striding briskly along a sunlit brick neighborhood walkway",
+            "facing": "turning head attentively toward fresh street trees and storefronts"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "pocketed dark smartphone and sunlit brick corner archway",
+          "period_detail": "everyday adult application of Clewett, DuBrow & Davachi (2019) hippocampal event-boundary density",
+          "physical_behavior": "State-A: walker slips silent phone into coat pocket -> State-B: steps onto a brand-new sunlit side street scanning fresh landmarks"
+        }
+      ],
+      "actions": [
+        {
+          "who": "50-year-old adult walker",
+          "verb_sequence": "slips phone cleanly into coat pocket -> turns onto a sunlit tree-lined avenue taking in fresh surroundings"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "50-year-old adult walker",
+          "reaction": "relaxed bright ink expression as rich new hippocampal snapshots slow subjective decades down"
+        }
+      ],
+      "wardrobe": "Camel wool jacket, dark knit scarf, tailored trousers.",
+      "lighting": "Warm crisp golden-hour outdoor sunlight.",
+      "recognition_hook": "Novelty writes dense hippocampal snapshots just like adrenaline — stretching your years without needing a crisis.",
+      "sources": [
+        "SRC2",
+        "SRC4",
+        "SRC5"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "150-foot vertical free-fall tower drop at constant real-time camera speed",
+    "landmark_or_object_b": "Expanded post-hoc memory tape stretched 36% longer by amygdala recording",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep climbing alongside the tall outdoor steel free-fall tower before banking into vertical top-down view",
+    "cut_b_topdown_3d_arrow": "90-degree top-down dual track comparing short cyan live-eye ruler vs 36%-longer #FF2525 amygdala memory arrow",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

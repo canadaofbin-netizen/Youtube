@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern sensory/placebo clinical study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Why is Itching Contagious? with Dr Emily Grossman",
+      "url": "https://www.youtube.com/watch?v=5cymMThs4Dk",
+      "channel": "The Royal Institution",
+      "source_id": "SRC_M1",
+      "duration_sec": 149,
+      "timecodes": [
+        {
+          "t": "00:08-00:26",
+          "what": "Royal Institution presentation introducing why watching someone scratch triggers immediate contagious itch in healthy observers."
+        },
+        {
+          "t": "00:28-00:50",
+          "what": "Breakdown of neuroimaging findings linking visual scratch observation to somatosensory, premotor, and insular itch circuitry."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes across 00:05-00:50 in media/M1/keyframes/ for research context only.",
+          "Zero source video frames or audio reused; staged fresh in 9:16 2.5D diorama via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_science_talk_staged_via_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Why Watching Someone Scratch Makes You Itch",
+      "url": "https://www.youtube.com/watch?v=CVwy9igQGqE",
+      "channel": "Brain On A Leash",
+      "source_id": "SRC_M2",
+      "duration_sec": 289,
+      "timecodes": [
+        {
+          "t": "00:10-00:35",
+          "what": "Visual framing of everyday social scratch contagion and the tapping-versus-scratching experimental contrast."
+        },
+        {
+          "t": "01:05-01:40",
+          "what": "Summary of why stress vigilance rather than empathy predicts contagious itch intensity."
+        }
+      ],
+      "license_note": "Complementary science reference inspected for narrative pacing only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_explainer_track_b_only"
+    }
+  ]
+}

@@ -1,34 +1,139 @@
 {
   "target_minutes": 10,
-  "chapters": [
-    {
-      "chapter": 1,
-      "title": "Why Pain Hurts Twice as Hard in an Empty Room"
-    },
-    {
-      "chapter": 2,
-      "title": "Coan's 2006 Ankle-Shock Scanner Test: Alone vs Stranger vs Spouse"
-    },
-    {
-      "chapter": 3,
-      "title": "Why Relationship Quality Showed Up on the Brain Scan"
-    },
-    {
-      "chapter": 4,
-      "title": "Goldstein's 2018 Dual-EEG: 22 Couples Under Heat Pain"
-    },
-    {
-      "chapter": 5,
-      "title": "8-12 Hz Alpha-Mu Brain-to-Brain Coupling"
-    },
-    {
-      "chapter": 6,
-      "title": "Social Baseline Theory: Why Solitude Costs Extra Brain Fuel"
-    }
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "48-year-old adult in clinic chair visibly relaxing shoulders as a partner's warm hand clasps theirs in bright natural light",
+    "right_cyan_brain": "In-skull 3D translucent glass brain cutaway cooling from crimson pain flare into synchronized #27D8FF cyan waves across insula and cingulate",
+    "badge_text": "PAIN CUT IN HALF"
+  },
+  "r75_clean_seed_tags": [
+    "handholding pain relief",
+    "brain wave synchronization",
+    "social baseline theory",
+    "james coan neuroscience",
+    "relationships and brain health",
+    "pain neuroscience",
+    "psychology of touch",
+    "couples brain science",
+    "adult health science"
   ],
   "shorts_extract": {
-    "hook": "Why physical pain and bad news hurt twice as sharp alone as when holding a trusted hand.",
-    "core_experiment": "Coan (2006) ankle-shock fMRI + Goldstein (2018, PNAS) 22-couple dual-EEG handholding analgesia.",
-    "twist": "Holding hands synchronizes 8-12 Hz brain waves across two skulls and dials down insula-cingulate pain."
-  }
+    "hook": "Why facing pain or scary medical news alone hurts twice as sharp as clasping a trusted hand.",
+    "core_experiment": "Coan (2006) 16-couple ankle-cue fMRI + Goldstein (2018, PNAS) 22-couple dual-EEG handholding analgesia (52 -> 38 -> 25).",
+    "twist": "Sitting together without touching leaves brains out of sync; clasping hands locks 8–12 Hz waves and cuts pain in half."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "chapter": 1,
+      "title": "Why Pain Hurts Twice as Sharp in an Empty Clinic Chair",
+      "beats": [
+        "The stoic adult myth of 'going solo'",
+        "Why solitude acts like a tax on your nervous system"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "hook"
+      ],
+      "new_shots_needed": [
+        "Vacant companion chair beside clinical seat"
+      ]
+    },
+    {
+      "n": 2,
+      "chapter": 2,
+      "title": "UVA 2006: Alone vs Stranger's Hand vs Husband's Hand",
+      "beats": [
+        "16 married women facing a 20% ankle-shock cue",
+        "Why marital trust showed up right on the insula scan"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Stranger vs trusted spouse comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "chapter": 3,
+      "title": "2018 Dual-EEG Hyperscanning: Wiring 44 Brains Under Heat Pain",
+      "beats": [
+        "From maternity-ward insight to 22-couple lab test",
+        "Pain scores dropping 52 -> 38 -> 25"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "Hand clasp across oak armrest"
+      ]
+    },
+    {
+      "n": 4,
+      "chapter": 4,
+      "title": "8–12 Hz Alpha-Mu Coupling: Why Sitting Nearby Without Touch Fails",
+      "beats": [
+        "Why pain breaks non-touch resonance",
+        "Skin contact locking somatosensory waves across two skulls"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "step1",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "Dual-trace glass waveform lock"
+      ]
+    },
+    {
+      "n": 5,
+      "chapter": 5,
+      "title": "Social Baseline Theory: How Trusted Allies Save Prefrontal Fuel",
+      "beats": [
+        "Insula + anterior cingulate calming",
+        "2026 carryover order effects"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "3D insula-cingulate-prefrontal cutaway"
+      ]
+    },
+    {
+      "n": 6,
+      "chapter": 6,
+      "title": "Silent Touch Over Speeches: Load-Sharing in Real Life",
+      "beats": [
+        "Why 10 seconds of silent hand contact beats 10 minutes of advice",
+        "Bringing a trusted ally to hard appointments"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Sunlit clinic garden hand-in-hand walk"
+      ]
+    }
+  ]
 }

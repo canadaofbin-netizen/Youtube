@@ -224,7 +224,20 @@ def _templates(
             "## 6. Twist, controversy, misconceptions\n\n## 7. What happened after (follow-ups, modern science)\n\n"
             "## 8. What it means for you\n\n## Sources\n"
         ),
-        "03_visual_reference.json": {"scenes": []},
+        "03_visual_reference.json": {
+            "scenes": [],
+            "spatial_arrow_eligible": False,
+            "contrast_visual_mode": "non_spatial_prop_and_brain",
+            "spatial_contrast_spec": {
+                "landmark_or_object_a": "",
+                "landmark_or_object_b": "",
+                "arrow_3d_mode": "adaptive_landmark_zigzag",
+                "target_act": 4,
+                "cut_a_landmark_drone": "",
+                "cut_b_topdown_3d_arrow": "",
+                "ricks_tempo_sec_range": [2.4, 3.2],
+            },
+        },
         "04_media_refs.json": {
             "suitability_schema_version": 2,
             "reenactment_track": "",
@@ -758,6 +771,27 @@ def research_depth_report(
     orphan = [f.get("fact", "")[:50] for f in facts if str(f.get("source_id")) not in src_ids]
     if orphan:
         issues.append(f"{len(orphan)} core_facts cite a source_id missing from 01_sources.json, e.g. '{orphan[0]}'")
+    from pipeline.config import DATA_STAMP_MAX_PER_EPISODE
+    from pipeline.data_stamp_overlay import validate_r70_m9_stat_integrity
+
+    stats_entries: list[tuple[int, dict[str, Any]]] = []
+    for idx_f, f_obj in enumerate(facts, start=1):
+        if "stats" in f_obj and f_obj["stats"] is not None:
+            st_b = f_obj["stats"]
+            if not isinstance(st_b, dict) or not (st_b.get("format") or st_b.get("preset") or st_b.get("chart")):
+                issues.append(f"core_facts[{idx_f}].stats must be a dict with 'format' or 'preset' (R70-M9)")
+            else:
+                stats_entries.append((idx_f, f_obj))
+                m9_errs = validate_r70_m9_stat_integrity(
+                    st_b,
+                    str(f_obj.get("fact") or ""),
+                    p_tag=f"core_facts[{idx_f}].stats",
+                )
+                issues.extend(m9_errs)
+    if len(stats_entries) > DATA_STAMP_MAX_PER_EPISODE:
+        issues.append(
+            f"dossier has {len(stats_entries)} core_facts[].stats > max {DATA_STAMP_MAX_PER_EPISODE} (R70-M9)"
+        )
     if len(story) < DOSSIER_MIN_STORY_CHARS:
         issues.append(f"master story {len(story)} chars < {DOSSIER_MIN_STORY_CHARS}")
     mlist = [m for m in media if isinstance(m, dict)]
@@ -815,6 +849,20 @@ def research_depth_report(
         for f in ("wardrobe", "lighting", "sources"):
             if not _nonempty(ic.get(f)):
                 issues.append(f"iconic scene: {f} is empty")
+    vis_doc_chk = ds.get("03_visual_reference.json") if isinstance(ds.get("03_visual_reference.json"), dict) else {}
+    sp_spec = vis_doc_chk.get("spatial_contrast_spec")
+    if isinstance(sp_spec, dict) and any(_nonempty(v) for k, v in sp_spec.items() if k not in ("target_act", "ricks_tempo_sec_range")):
+        from pipeline.config import R80_SPATIAL_ARROW_MODES
+
+        ar_mode = str(sp_spec.get("arrow_3d_mode") or "").strip().lower()
+        if ar_mode not in R80_SPATIAL_ARROW_MODES:
+            issues.append(
+                f"03_visual_reference.spatial_contrast_spec.arrow_3d_mode={ar_mode!r} must be in {list(R80_SPATIAL_ARROW_MODES)} (R80)"
+            )
+        if not (_nonempty(sp_spec.get("landmark_or_object_a")) and _nonempty(sp_spec.get("landmark_or_object_b"))):
+            issues.append(
+                "03_visual_reference.spatial_contrast_spec must define both landmark_or_object_a and landmark_or_object_b (R80)"
+            )
     return {"passed": not issues, "issues": issues}
 
 
@@ -877,6 +925,47 @@ def normalize_scene_prop(raw_prop: Any) -> dict[str, Any] | None:
 # ------------------------------------------------------------------------------
 # Dossier -> v5 / v7 visual_plan seed
 # ------------------------------------------------------------------------------
+def infer_spatial_arrow_eligibility(ds_or_text: dict[str, Any] | str) -> bool:
+    """
+    R87-A deterministic spatial arrow eligibility classifier:
+      - Honors explicit boolean `03_visual_reference.json["spatial_arrow_eligible"]` when present.
+      - Otherwise returns True ONLY for physical space / navigation / doorway / maze / route studies,
+        and strictly False for pharmacology, sleep, diet/snacks, pain/placebo, breathing, emotion,
+        and non-spatial cognitive bias dossiers.
+    """
+    from pipeline.config import R87_NON_SPATIAL_BANNED_ARROW_KEYWORDS, R87_SPATIAL_ELIGIBLE_KEYWORDS
+
+    if isinstance(ds_or_text, dict):
+        vis = ds_or_text.get("03_visual_reference.json")
+        if isinstance(vis, dict) and isinstance(vis.get("spatial_arrow_eligible"), bool):
+            return bool(vis["spatial_arrow_eligible"])
+        if isinstance(ds_or_text.get("spatial_arrow_eligible"), bool):
+            return bool(ds_or_text["spatial_arrow_eligible"])
+        meta = ds_or_text.get("dossier.json") if isinstance(ds_or_text.get("dossier.json"), dict) else {}
+        plain = ds_or_text.get("05_plain_language.json") if isinstance(ds_or_text.get("05_plain_language.json"), dict) else {}
+        chunks = [
+            str(meta.get("slug") or ""),
+            str(meta.get("topic") or ""),
+            str(meta.get("title") or ""),
+            str(meta.get("domain") or ""),
+            str(plain.get("one_sentence_story") or ""),
+            str(ds_or_text.get("slug") or ""),
+            str(ds_or_text.get("topic") or ""),
+        ]
+        if isinstance(vis, dict):
+            for sc in vis.get("scenes") or []:
+                if isinstance(sc, dict):
+                    chunks.append(str(sc.get("title") or ""))
+                    chunks.append(str(sc.get("recognition_hook") or ""))
+        haystack = " ".join(chunks).lower()
+    else:
+        haystack = str(ds_or_text or "").lower()
+
+    if any(kw in haystack for kw in R87_NON_SPATIAL_BANNED_ARROW_KEYWORDS):
+        return False
+    return any(kw in haystack for kw in R87_SPATIAL_ELIGIBLE_KEYWORDS)
+
+
 def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) -> dict[str, Any]:
     """Draft v5 visual_plan fields (mode, must_have_scenes, cast hints, brain_link) for youtube-script to finish."""
     raw_str = str(slug_or_dir)
@@ -885,7 +974,9 @@ def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) ->
         raise FileNotFoundError(f"Research dossier directory not found: {target_dir}")
     ds = load_dossier(target_dir, root)
     meta = ds.get("dossier.json") or {}
-    scenes = (ds.get("03_visual_reference.json") or {}).get("scenes") or []
+    vis_ref_doc = ds.get("03_visual_reference.json") if isinstance(ds.get("03_visual_reference.json"), dict) else {}
+    scenes = vis_ref_doc.get("scenes") or []
+    spatial_spec = vis_ref_doc.get("spatial_contrast_spec") if isinstance(vis_ref_doc.get("spatial_contrast_spec"), dict) else None
     links = (ds.get("06_brain_link.json") or {}).get("links") or []
     must = []
     for s in sorted(scenes, key=lambda s: (not s.get("iconic"), s.get("shorts_priority", 99))):
@@ -915,15 +1006,21 @@ def plan_seed_from_dossier(slug_or_dir: str | Path, root: Path | None = None) ->
             brain_link_map[role_key].append(l)
         else:
             brain_link_map[role_key] = [brain_link_map[role_key], l]
-    return {
+    sp_elig = infer_spatial_arrow_eligibility(ds)
+    out_seed: dict[str, Any] = {
         "schema": 5,
         "visual_mode": str(meta.get("visual_mode") or "HYBRID").upper(),
         "dossier": slugify(meta.get("slug") or Path(ds["_dir"]).name),
         "must_have_scenes": must,
         "brain_link": brain_link_map,
+        "spatial_arrow_eligible": sp_elig,
+        "contrast_visual_mode": "spatial_r80_arrow" if sp_elig else "non_spatial_prop_and_brain",
         "shots": {},
         "scenes": {},
     }
+    if sp_elig and isinstance(spatial_spec, dict) and _nonempty(spatial_spec.get("landmark_or_object_a")):
+        out_seed["spatial_contrast_spec"] = dict(spatial_spec)
+    return out_seed
 
 
 def diorama_seed_from_dossier(
@@ -942,6 +1039,8 @@ def diorama_seed_from_dossier(
         DIORAMA_CLIP_COUNT_DEFAULT,
         DIORAMA_V7_US_PROSODY_MODE,
         EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        EXPRESSIVE_V8_DEFAULT_ENDING_MODE,
+        EXPRESSIVE_V8_DEFAULT_OPENING_MODE,
         EXPRESSIVE_V8_FOIL_VOICE_PRESET,
         EXPRESSIVE_V8_PROSODY_MODE,
         EXPRESSIVE_V8_VOICE_PRESET,
@@ -992,6 +1091,8 @@ def diorama_seed_from_dossier(
             "voice_preset": EXPRESSIVE_V8_VOICE_PRESET,
             "foil_voice_preset": EXPRESSIVE_V8_FOIL_VOICE_PRESET,
             "foil_sentence_indices": [],
+            "opening_mode": EXPRESSIVE_V8_DEFAULT_OPENING_MODE,
+            "ending_mode": EXPRESSIVE_V8_DEFAULT_ENDING_MODE,
             "camera_profile": "expressive_dynamic_v8",
             "draft_subdir": "diorama_v8_expressive",
             "zero_clip_reuse": True,
@@ -1010,6 +1111,27 @@ def diorama_seed_from_dossier(
             "target_clip_count": SHORTS_EXPRESSIVE_V8_CLIP_COUNT_DEFAULT,
             "clips": [],
         }
+        sp_elig = bool(base.get("spatial_arrow_eligible", infer_spatial_arrow_eligibility(ds)))
+        from pipeline.canonical_assets import select_canonical_hook_slot, select_canonical_nonspatial_contrast_slot
+        from pipeline.config import R87_NON_SPATIAL_CONTRAST_GRAMMARS
+
+        topic_hint = f"{d_meta.get('slug', '')} {d_meta.get('topic', '')} {d_meta.get('domain', '')}"
+        seeded_v8["r87_mode"] = True
+        seeded_v8["hook_visual_mode"] = "mode1_daily_xray_shock"
+        seeded_v8["recommended_hook_slot"] = select_canonical_hook_slot("mode1_daily_xray_shock", topic_hint)
+        seeded_v8["spatial_arrow_eligible"] = sp_elig
+        seeded_v8["contrast_visual_mode"] = "spatial_r80_arrow" if sp_elig else "non_spatial_prop_and_brain"
+        if sp_elig and isinstance(base.get("spatial_contrast_spec"), dict):
+            seeded_v8["r80_mode"] = True
+            seeded_v8["spatial_contrast_spec"] = dict(base["spatial_contrast_spec"])
+        else:
+            seeded_v8["r80_mode"] = False
+            seeded_v8["non_spatial_contrast_spec"] = {
+                "recommended_prop_slot": select_canonical_nonspatial_contrast_slot(topic_hint),
+                "recommended_brain_slot": "K06_contrast_a12_dual_brain_state_transition_pair",
+                "fallback_brain_slot": "A12_dual_brain_top_bottom_compare",
+                "allowed_grammars": list(R87_NON_SPATIAL_CONTRAST_GRAMMARS),
+            }
         populate_expressive_v8_reference_contract(seeded_v8, dossier_dir=target_dir)
         if not seeded_v8.get("reference_anchors"):
             def_loc = str(seeded_v8.get("default_location_id") or "primary_diorama_stage")
@@ -1081,7 +1203,15 @@ def diorama_seed_from_dossier(
                 vp_path.write_text(json.dumps(seeded_v8, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             sc_path = draft_dir / "script.json"
             if overwrite or not sc_path.exists():
+                from pipeline.data_stamp_overlay import seed_data_stamps_from_dossier
+
                 deb_ign = d_meta.get("debate_ignition") if isinstance(d_meta.get("debate_ignition"), dict) else {}
+                fact_lines = [
+                    str(f.get("fact") or "").strip()
+                    for f in (d_meta.get("core_facts") or [])
+                    if isinstance(f, dict) and str(f.get("fact") or "").strip()
+                ]
+                seeded_stamps = seed_data_stamps_from_dossier(d_meta, fact_lines)
                 seeded_script_v8: dict[str, Any] = {
                     "schema": PROMPT_SCHEMA_VERSION_V8,
                     "schema_version": PROMPT_SCHEMA_VERSION_V8,
@@ -1093,8 +1223,11 @@ def diorama_seed_from_dossier(
                     "voice_preset": EXPRESSIVE_V8_VOICE_PRESET,
                     "foil_voice_preset": EXPRESSIVE_V8_FOIL_VOICE_PRESET,
                     "foil_sentence_indices": [],
-                    "opening_mode": "question",
-                    "core_reveal_sentence_index": 4,
+                    "sentence_speakers": [],
+                    "data_stamps": seeded_stamps,
+                    "opening_mode": EXPRESSIVE_V8_DEFAULT_OPENING_MODE,
+                    "ending_mode": EXPRESSIVE_V8_DEFAULT_ENDING_MODE,
+                    "core_reveal_sentence_index": 13,
                     "sentence_beats": [],
                     "dossier": base["dossier"],
                     "pillar": str(d_meta.get("pillar") or ""),

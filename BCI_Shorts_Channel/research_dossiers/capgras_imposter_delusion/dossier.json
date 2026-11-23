@@ -1,8 +1,8 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "capgras_imposter_delusion",
   "topic": "William Hirstein & V.S. Ramachandran (1997): Capgras Impostor Delusion & Fusiform-to-Amygdala Autonomic Disconnection",
-  "pillar": "brain_mysteries",
+  "pillar": "brain_history",
   "created_at": "2026-10-25T22:49:28+00:00",
   "status": "ready",
   "visual_mode": "NEURO_BIOLOGY",
@@ -58,7 +58,25 @@
     },
     {
       "fact": "In D.S., skin-conductance responses to photographs of his own mother and father stayed completely flat — indistinguishable from photographs of total strangers.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Severed Autonomic Face Glow",
+        "concept": "Fusiform-Amygdala Disconnect",
+        "fn": "exp_decay",
+        "x_label": "Limbic Pathway Disconnection",
+        "y_label": "Familiarity Sweat Response",
+        "markers": [
+          {
+            "x": 1.0,
+            "y": 65.5,
+            "label": "Impostor Trigger"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Crucially, whenever D.S.'s mother or father telephoned him from another room, he recognized them immediately as his real parents with warm emotion, saying 'Mom, how are you?'",
@@ -78,7 +96,24 @@
     },
     {
       "fact": "Max Coltheart's two-factor model showed that because ventromedial frontal patients also have flat skin conductance without delusions, full Capgras requires a second right-dorsolateral prefrontal deficit in belief evaluation.",
-      "source_id": "SRC3"
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Darby et al. (2017) mapped 17 focal brain lesions causing impostor delusions and found 16 of 17 connected directly to right frontal belief-evaluation cortex while all 17 connected to familiarity hubs.",
+      "source_id": "SRC8",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "chart": "dot_array",
+        "style": "ink_pen",
+        "format": "count_ratio",
+        "title": "Belief-Checker Damage",
+        "highlighted_k": 16,
+        "total_n": 17,
+        "unit": "cases",
+        "doi": "10.1093/brain/aww288",
+        "source_citation": "Darby et al. (2017)"
+      }
     }
   ],
   "wow_facts": [
@@ -136,6 +171,44 @@
     "Looking in the mirror when exhausted at 3 a.m. and feeling a brief uncanny flash of detachment."
   ],
   "linked_projects": [
-    "psych_05_capgras_imposter_delusion"
-  ]
+    "psych_05_capgras_imposter_delusion",
+    "v8_ep08_capgras_imposter_delusion"
+  ],
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1098/rspb.1997.0062",
+  "three_layer_formula": {
+    "everyday_problem": "Hearing a loved one's voice on the phone in the dark and feeling an instant rush of warmth before they even say their name.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1098/rspb.1997.0062",
+      "source_ids": [
+        "SRC1",
+        "SRC9"
+      ],
+      "dois": [
+        "10.1098/rspb.1997.0062",
+        "10.1098/rspb.1997.0150"
+      ],
+      "summary": "William Hirstein, V. S. Ramachandran (1997). Capgras syndrome: a novel probe for understanding the neural representation of the identity and familiarity of persons. Proceedings of the Royal Society of London. Series B: Biological Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC8",
+      "doi": "10.1093/brain/aww288",
+      "source_ids": [
+        "SRC8",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1093/brain/aww288",
+        "10.1080/13546805.2021.2011185"
+      ],
+      "summary": "R. Ryan Darby et al. (2017). Finding the imposter: brain connectivity of lesions causing delusional misidentifications. Brain."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Capgras patients have blurry eyesight or cannot remember what their parents look like.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

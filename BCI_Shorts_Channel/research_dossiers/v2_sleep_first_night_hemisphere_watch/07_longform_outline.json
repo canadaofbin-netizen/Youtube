@@ -1,34 +1,118 @@
 {
   "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Checking into a quiet hotel exhausted at 11 PM—yet snapping wide awake at every faint hallway sound on Night 1.",
+    "core_experiment": "Tamaki & Sasaki (2016) scanning 35 sleepers across Night 1 vs Night 2 with oddball earphone chimes and bedside switches.",
+    "twist": "Your sleep isn't broken: your left default-mode network stays on dolphin-like sentinel watch on Night 1 and stands down on Night 2."
+  },
   "chapters": [
     {
-      "chapter": 1,
-      "title": "The Hotel Night-One Paradox"
+      "n": 1,
+      "title": "The Midnight Hotel Paradox Every Adult Traveler Knows",
+      "beats": [
+        "Quiet hotel bed yet hair-trigger awakenings",
+        "Why 1966 sleep labs threw away Night 1"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook",
+        "setup"
+      ],
+      "new_shots_needed": [
+        "hotel corridor latch & bedside clock"
+      ]
     },
     {
-      "chapter": 2,
-      "title": "Why Sleep Labs Threw Out Night One (1966)"
+      "n": 2,
+      "title": "35 Sleepers Inside Brown University's Scanner (2016)",
+      "beats": [
+        "Simultaneous MEG, MRI, and polysomnography",
+        "Measuring left vs right hemisphere delta depth"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "core_experiment"
+      ],
+      "new_shots_needed": [
+        "scanner sleep suite overview"
+      ]
     },
     {
-      "chapter": 3,
-      "title": "35 Brains Inside Brown University's Scanner (2016)"
+      "n": 3,
+      "title": "The Right-Ear Oddball Beep Test: Waking 3x Faster",
+      "beats": [
+        "Pitch-oddball chimes into right vs left ear",
+        "3x faster bedside switch taps on Night 1"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "symptom",
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "close-up mechanical switch slam"
+      ]
     },
     {
-      "chapter": 4,
-      "title": "The Left-Hemisphere Dolphin Night Watch"
+      "n": 4,
+      "title": "Dolphins, Ducks, and the 50-Second Brainstem Sentinel Pulse",
+      "beats": [
+        "Evolutionary unihemispheric sleep",
+        "2025 Nature Neuroscience 50-second locus coeruleus gate"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3D #27D8FF left-vs-right brain split"
+      ]
     },
     {
-      "chapter": 5,
-      "title": "The Right-Ear Oddball Beep Wake Test"
-    },
-    {
-      "chapter": 6,
-      "title": "How to Disarm the Sentinel on Night One"
+      "n": 5,
+      "title": "Night 2 Safety Clearance & The Home Pillowcase Protocol",
+      "beats": [
+        "Why Night 2 rebounds automatically",
+        "Packing your own pillowcase before big mornings"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit hotel patio & linen pillowcase reset"
+      ]
     }
   ],
-  "shorts_extract": {
-    "hook": "Why you wake at every tiny sound on Night 1 in a hotel bed even when exhausted.",
-    "core_experiment": "Tamaki & Sasaki (2016) scanning 35 brains across Night 1 vs Night 2 with oddball earphone beeps.",
-    "twist": "Your sleep isn't broken — your left hemisphere stays in shallow dolphin-like night-watch mode until Night 2."
-  }
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Wide-awake exhausted adult traveler on crisp white hotel pillow glancing sharply sideways in dim moonlight",
+    "right_cyan_brain": "Glowing #27D8FF 3D brain split with calm deep-blue right hemisphere and bright crimson-amber sentinel left hemisphere",
+    "badge_text": "HALF AWAKE"
+  },
+  "r75_clean_seed_tags": [
+    "sleep science",
+    "first night effect",
+    "hotel sleep",
+    "brain health",
+    "circadian rhythm",
+    "deep sleep",
+    "neuroscience",
+    "sleep psychology",
+    "why cant i sleep"
+  ]
 }

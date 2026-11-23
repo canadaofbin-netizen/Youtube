@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "sperry_split_chiasm_interhemispheric",
   "topic": "Roger Sperry (1961): Split Optic Chiasm + Corpus Callosum — Teaching Two Independent Brains Inside One Skull",
   "pillar": "brain_basics",
@@ -44,11 +44,42 @@
     },
     {
       "fact": "Control Check 1 (Optic Chiasm split, **Corpus Callosum INTACT**): cover the Left Eye with a soft eye-patch and train the animal through the Right Eye to push **Circle (+) over Cross (-)** for food. Now switch the eye-patch to the Right Eye so ONLY the untrained Left Eye sees the pedals — **instant 100% mastery on Trial 1** because the intact corpus callosum copied the memory across the midline.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Intact Callosum Transfer",
+        "percent": 100.0,
+        "unit": "%",
+        "doi": "10.1126/science.133.3466.1749",
+        "source_citation": "Sperry (1961)"
+      }
     },
     {
       "fact": "Experimental Shock 2 (BOTH Optic Chiasm AND **Corpus Callosum DIVIDED**, Sperry 1961 *Science*): train the animal to 100% perfection on Circle-vs-Cross through the Right Eye; then simply **move the soft eye-patch to the other eye**. Instantly the animal acts **100% naive — starting from zero chance guesses as if it had NEVER seen the Circle or Cross in its entire life**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Split-Brain Eye Transfer",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Trained Right Eye",
+            "value": 100.0,
+            "unit": "%"
+          },
+          {
+            "label": "Untrained Left Eye",
+            "value": 0.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1126/science.133.3466.1749",
+        "source_citation": "Sperry (1961)"
+      }
     },
     {
       "fact": "Even wilder, Sperry trained **conflicting opposite rules simultaneously** into the same skull using polarizing eye filters: at the exact same moment, the Left Hemisphere learned **Circle = Good / Cross = Wrong** while the Right Hemisphere learned **Cross = Good / Circle = Wrong** — two completely contradictory minds living peacefully side by side inside one cranium without noticing any conflict.",
@@ -113,5 +144,38 @@
   ],
   "linked_projects": [
     "psych_71_sperry_split_chiasm_interhemispheric"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1126/science.133.3466.1749",
+  "three_layer_formula": {
+    "everyday_problem": "Covering one eye with your hand and marveling that in your intact brain, the other hemisphere still instantly receives everything you read via 200 million callosal fibers.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.133.3466.1749",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1126/science.133.3466.1749"
+      ],
+      "summary": "R. W. Sperry (1961). Cerebral Organization and Behavior. Science."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1016/j.neurol.2018.07.007",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1016/j.neurol.2018.07.007"
+      ],
+      "summary": "J.M.S. Pearce (2019). The “split brain” and Roger Wolcott Sperry (1913–1994). Revue Neurologique."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "The corpus callosum has no real cognitive job because people walk and talk normally at dinner after callosotomy.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

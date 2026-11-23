@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "darley_latane_bystander_effect",
   "topic": "John Darley & Bibb Latané (1968): NYU Intercom Emergency & Diffusion of Responsibility",
   "pillar": "bci_ethics",
@@ -44,7 +44,17 @@
     },
     {
       "fact": "When participants believed they were the ONLY listener who knew about the seizure (2-person group), 85 percent bolted out of their booth to fetch the experimenter before the recording even finished (averaging 52 seconds).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Solo Bystander Help Rate",
+        "percent": 85.0,
+        "unit": "%",
+        "doi": "10.1037/h0025589",
+        "source_citation": "Darley & Latané (1968)"
+      }
     },
     {
       "fact": "When participants believed ONE other student was also listening (3-person group), help dropped to 62 percent (averaging 93 seconds).",
@@ -60,7 +70,28 @@
     },
     {
       "fact": "In their companion 1968 Columbia smoke-room study, 75 percent of solo students reported thick white titanium-dioxide smoke pouring through a wall vent within 4 minutes, versus just 10 percent seated with two calm confederates ('pluralistic ignorance').",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Smoke Room Reporting Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Solo Student",
+            "value": 75.0,
+            "unit": "%"
+          },
+          {
+            "label": "With Confederates",
+            "value": 10.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/h0025589",
+        "source_citation": "Darley & Latané (1968)"
+      }
     },
     {
       "fact": "Archival historians (Manning, Levine & Collins, 2007) later proved the 1964 New York Times headline of '38 passive witnesses watching Kitty Genovese' was journalistically exaggerated (several neighbors actually called police or shouted), and 2020 real-world CCTV studies show at least one bystander helps in ~90% of clear violent emergencies — yet individual likelihood still drops via diffusion of responsibility.",
@@ -137,5 +168,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "My honest bet: crowds aren't cruel — packed rooms freeze because everyone waits for someone else to move first. Have you ever spoken up first when strangers froze?"
+  "offcenter_creator_bet": "My honest bet: crowds aren't cruel — packed rooms freeze because everyone waits for someone else to move first. Have you ever spoken up first when strangers froze?",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1037/h0025589",
+  "three_layer_formula": {
+    "everyday_problem": "Receiving a mass email addressed to twelve CC'd coworkers asking 'Can someone check this?' and watching nobody reply all day.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0025589",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0025589"
+      ],
+      "summary": "John M. Darley, Bibb Latane (1968). Bystander intervention in emergencies: Diffusion of responsibility. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1037/amp0000509",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1037/amp0000509"
+      ],
+      "summary": "Deborah A. Prentice (2019). John M. Darley (1938–2018). American Psychologist."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "City crowds fail to help because modern urban people are cold, selfish, and apathetic.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My honest bet: crowds aren't cruel — packed rooms freeze because everyone waits for someone else to move first. Have you ever spoken up first when strangers froze?"
+  }
 }

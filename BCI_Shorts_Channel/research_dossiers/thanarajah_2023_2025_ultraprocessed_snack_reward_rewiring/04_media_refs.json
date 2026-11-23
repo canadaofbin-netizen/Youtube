@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern behavioral/fMRI topic staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Sugar Withdrawal is Like Opioid Withdrawal",
+      "url": "https://www.youtube.com/watch?v=UyoysEgln78",
+      "channel": "Dr. Tracey Marks",
+      "source_id": "SRC_M1",
+      "duration_sec": 477,
+      "timecodes": [
+        {
+          "t": "00:08-00:25",
+          "what": "Opening visual segment (kf_002.jpg–kf_006.jpg) examining how daily sweet, hyper-palatable snacks sensitize brain dopamine reward circuits."
+        },
+        {
+          "t": "00:28-00:48",
+          "what": "Mid-segment visual frames (kf_007.jpg–kf_012.jpg) explaining why cutting back feels difficult once habitual snacking recalibrates reward expectations."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05–00:50) from Dr. Tracey Marks's \"Sugar Withdrawal is Like Opioid Withdrawal\".",
+          "Used strictly as research reference for visual pacing and everyday behavioral framing; zero frames or audio reused."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate3_flat_slide_or_2d_cartoon(median_flat=0.6542>0.62)"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "5 Ways Fast Food Hacks Your Dopamine—and How to Take Back Control",
+      "url": "https://www.youtube.com/watch?v=0hZeh2sX5iE",
+      "channel": "Dr. Rege",
+      "source_id": "SRC_M2",
+      "duration_sec": 272,
+      "timecodes": [
+        {
+          "t": "00:15-00:55",
+          "what": "Breakdown of how combined fat-and-sugar ultra-processed snacks trigger supra-additive reward signaling in the striatum."
+        },
+        {
+          "t": "01:25-02:10",
+          "what": "Strategies for resetting palate sensitivity and breaking cue-triggered evening snacking habits."
+        }
+      ],
+      "license_note": "Complementary reference video logged for conceptual pacing only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_behavioral_fmri_topic_track_b"
+    }
+  ]
+}

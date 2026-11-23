@@ -96,21 +96,25 @@ def _write_test_mp4(mp4_path: Path, frames_bgr: list[np.ndarray], fps: int = 24)
 
 def _sample_v8_sentences() -> list[str]:
     return [
-        "At three in the morning in a hotel bed, your eyes snap wide open!",
-        "Yet back in your own room, you sleep right through loud street noise.",
-        "Stop blaming a stiff hotel pillow for ruining your first trip night.",
-        "Your buddy laughs and says you just drank way too much airport coffee.",
-        "A sleep team scanned thirty-five healthy people across two nights, like a twin room test.",
-        "Night one in the lab looked calm on the right side of the head.",
-        "Wait, what was the left side doing in the dark?",
-        "Deep rest dropped fast on the left half while the right half slept hard.",
-        "Quiet beeps into the right ear woke sleepers three times faster, like a hair trigger.",
-        "Dolphins and wild ducks do the same trick to watch for night danger.",
+        "At three in the morning, your eyes snap wide open!",
+        "Yet back home, you sleep right through loud street sirens.",
+        "Stop blaming a stiff hotel pillow for ruining night one.",
+        "Your buddy laughs and blames that late airport espresso cup.",
+        "Inside a dark sleep booth, glowing sensors tracked two straight nights.",
+        "Night one looked completely calm across the right half.",
+        "Wait, what was the other half doing in the dark?",
+        "Deep rest dropped fast on the left while the right slept.",
+        "Soft hallway beeps woke sleepers three times faster, like a tripwire.",
+        "Dolphins and wild ducks use that exact trick on open water.",
         "Your body treats every strange hotel room like an unsafe camp.",
-        "Even the softest hallway step keeps that hidden guard wide awake.",
-        "You see, your default mode network, your daydream network, stays on guard duty.",
-        "Crimson sparks light the left half while your auditory cortex, your sound center, listens.",
-        "By night two in that same bed, both halves finally rest together.",
+        "Even a quiet elevator chime keeps that hidden watchman alert.",
+        "You try counting sheep, but the left side refuses rest.",
+        "You see, your default mode network, your daydream network, stays on guard.",
+        "Crimson sparks light your auditory cortex, your sound center, all night.",
+        "Every faint corridor creak pings straight through that open channel.",
+        "Dawn finally breaks as you rub your heavy tired eyelids.",
+        "By night two in that same bed, the alarm stands down.",
+        "Both sides sink into deep waves once the room feels safe.",
         "Tonight in a new bed, half your head stands guard while half dreams.",
     ]
 
@@ -118,80 +122,112 @@ def _sample_v8_sentences() -> list[str]:
 def _sample_v8_visual_plan(sentences: list[str]) -> dict[str, Any]:
     clips: list[dict[str, Any]] = []
     grammars = [
-        "expressive_character_action",  # 1 (0.00)
+        "expressive_vinyl_world",       # 1
         "expressive_split_contrast",    # 2
-        "expressive_character_action",  # 3
-        "expressive_character_action",  # 4 (foil)
-        "expressive_macro_prop",        # 5
-        "expressive_character_action",  # 6
-        "expressive_character_action",  # 7 (pivot)
-        "expressive_macro_prop",        # 8
-        "expressive_character_action",  # 9
+        "expressive_vinyl_world",       # 3
+        "expressive_vinyl_world",       # 4 (foil)
+        "expressive_hands_closeup",     # 5
+        "expressive_vinyl_world",       # 6
+        "expressive_vinyl_world",       # 7 (pivot)
+        "expressive_hands_closeup",     # 8
+        "expressive_vinyl_world",       # 9
         "expressive_literal_analogy",   # 10 (cameo)
-        "expressive_character_action",  # 11
-        "expressive_character_action",  # 12
-        "expressive_xray_brain",        # 13 (12/16 = 0.75 in [0.70, 0.85])
-        "expressive_xray_brain",        # 14 (13/16 = 0.8125 in [0.70, 0.85])
-        "expressive_macro_prop",        # 15
-        "expressive_character_action",  # 16
+        "expressive_vinyl_world",       # 11
+        "expressive_vinyl_world",       # 12
+        "expressive_vinyl_world",       # 13
+        "expressive_xray_brain",        # 14 (13.5/20 = 67.5% in [60%, 85%])
+        "expressive_xray_brain",        # 15 (14.5/20 = 72.5% in [60%, 85%])
+        "expressive_hands_closeup",     # 16
+        "expressive_vinyl_world",       # 17
+        "expressive_vinyl_world",       # 18
+        "expressive_vinyl_world",       # 19
+        "expressive_vinyl_world",       # 20
     ]
 
     cam_cycle = [
-        "gentle_push_in",
-        "locked_tripod",
+        "dolly_zoom_vertigo",
+        "orbital_3d_arc_sweep",
         "pan_right",
         "gentle_push_in",
-        "tilt_down",
+        "crane_swoop_dive",
         "pan_left",
-        "gentle_push_in",
+        "fpv_3d_flight",
         "locked_tripod",
-        "clean_pullback_reveal",
-        "pan_right",
+        "whip_pan_occlusion",
+        "orbital_3d_arc_sweep",
         "gentle_push_in",
         "tilt_up",
-        "gentle_push_in",
         "clean_pullback_reveal",
+        "portal_dive_flight",
+        "orbital_3d_arc_sweep",
+        "crane_swoop_dive",
         "pan_left",
+        "fpv_3d_flight",
+        "clean_pullback_reveal",
         "gentle_push_in",
     ]
 
+    loc_map = {
+        1: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        2: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        3: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        4: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        5: ("brown_sleep_lab", "warm miniature sleep laboratory with sensor leads and glass observation window"),
+        6: ("brown_sleep_lab", "warm miniature sleep laboratory with sensor leads and glass observation window"),
+        7: ("lab_monitor_gallery", "dim observation console booth overlooking illuminated wave monitors"),
+        8: ("lab_monitor_gallery", "dim observation console booth overlooking illuminated wave monitors"),
+        9: ("hotel_corridor_night", "long carpeted hotel hallway with brass room doors and warm sconce lamps"),
+        10: ("coastal_wave_diorama", "open moonlit coastal water diorama beside a brass nightstand lamp"),
+        11: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        12: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        13: ("hotel_room_3am", "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"),
+        14: ("hotel_room_3am", "dim 3 AM hotel room opening into a glowing 4-color crystal-dome brain view"),
+        15: ("hotel_room_3am", "dim 3 AM hotel room opening into a glowing 4-color crystal-dome brain view"),
+        16: ("airport_coffee_gate", "bright miniature airport boarding lounge with espresso counter and rolling luggage"),
+        17: ("airport_coffee_gate", "bright miniature airport boarding lounge with espresso counter and rolling luggage"),
+        18: ("morning_hotel_balcony", "sunlit open-air hotel balcony overlooking miniature city rooftops at dawn"),
+        19: ("morning_hotel_balcony", "sunlit open-air hotel balcony overlooking miniature city rooftops at dawn"),
+        20: ("morning_hotel_balcony", "sunlit open-air hotel balcony overlooking miniature city rooftops at dawn"),
+    }
+
     for idx, (_sent, g, cam) in enumerate(zip(sentences, grammars, cam_cycle), start=1):
         act_no = min(6, ((idx - 1) * 6) // len(sentences) + 1)
+        loc_id, env_desc = loc_map[idx]
         spec: dict[str, Any] = {
             "clip_number": idx,
             "sentence_index": idx,
             "act": act_no,
             "grammar": g,
             "camera_move": cam,
-            "location_id": "hotel_room_3am" if idx not in (5, 6, 8) else "brown_sleep_lab",
-            "environment": (
-                "dim 3 AM hotel room with a glowing bedside alarm clock and crisp linen bed"
-                if idx not in (5, 6, 8)
-                else "warm miniature sleep laboratory with EEG cap leads and glass observation window"
-            ),
-            "cast": "a matte-white 2.5D vinyl traveler in navy pajamas with minimalist 2D ink eyes",
-            "action": "jolts upright under crisp hotel sheets as a brass hallway door handle clicks",
-            "consequence": "wide 2D ink eyes lock onto the glowing 03:00 bedside clock",
+            "location_id": loc_id,
+            "environment": env_desc,
+            "cast": "a matte-white 2.5D vinyl traveler in navy pajama sleeves and slippers with minimalist 2D ink eyes",
+            "action": "jolts upright and grips crisp hotel sheets as a brass hallway handle clicks",
+            "consequence": "wide 2D ink eyes lock onto the glowing bedside clock",
         }
         if idx == 1:
             spec["diegetic_text_allowlist"] = ["03:00"]
+            spec["consequence"] = "wide 2D ink eyes lock onto the glowing 03:00 bedside clock"
         if idx == 4:
             spec["voice_role"] = "foil"
             spec["cast"] = "a skeptical matte-white 2.5D vinyl friend in a tan jacket holding a paper coffee cup"
-            spec["action"] = "waves a cardboard espresso cup dismissively beside a luggage cart"
+            spec["action"] = "waves and tilts a cardboard espresso cup dismissively beside a luggage cart"
             spec["consequence"] = "raised ink eyebrow smirks in casual disbelief"
+        if idx == 9:
+            spec["analogy_object"] = "a taut brass tripwire string snapping a tiny bell across the hotel carpet"
+            spec["action"] = "steps forward and taps a taut brass tripwire bell beside the door threshold"
         if idx == 10:
             spec["cameo_easter_egg"] = True
-            spec["analogy_object"] = "a miniature porcelain dolphin gliding half-asleep beside a bedside brass lamp"
-            spec["action"] = "glides smoothly across a miniature bedside wave tray while Mini-Cortex peeks from the lamp base"
+            spec["analogy_object"] = "a miniature porcelain dolphin and wild duck gliding half-asleep on open water"
+            spec["action"] = "glides and turns smoothly across a moonlit water tray while Mini-Cortex peeks from the lamp base"
         if g == "expressive_xray_brain":
             spec["brain_region"] = "left default mode network and auditory cortex"
             spec["action"] = (
-                "inside the transparent crystal-dome cranium, the 4-color living brain pulses crimson-amber "
+                "inside the crystal-dome cranium, bounded 4-color 3D brain pathways pulse crimson-amber "
                 "across the left hemisphere while the right hemisphere glows calm cyan"
             )
-            spec["consequence"] = "amber auditory relay arcs flash cleanly inside the crystal dome"
-            spec["transition_to_next"] = "dissolve_6f"
+            spec["consequence"] = "amber auditory relay arcs flash and sweep cleanly inside the crystal dome"
+            spec["transition_to_next"] = "dissolve_8f"
         clips.append(spec)
 
     return {
@@ -202,6 +238,7 @@ def _sample_v8_visual_plan(sentences: list[str]) -> dict[str, Any]:
         "prosody_mode": cfg.EXPRESSIVE_V8_PROSODY_MODE,
         "voice_preset": "emma_v7",
         "foil_voice_preset": "foil_v8",
+        "core_reveal_sentence_index": 14,
         "zero_clip_reuse": True,
         "title": "Your Brain's 3 AM Night Watch",
         "dossier": "v2_sleep_first_night_hemisphere_watch",
@@ -259,9 +296,12 @@ def test_v8_ssot_constants_and_profile_helpers() -> None:
     assert cfg.is_expressive_v8_plan({"schema": 7, "style_profile": "porcelain_cinematic_v7"}) is False
     assert cfg.is_porcelain_v7_plan({"schema": 8, "style_profile": "expressive_25d_v8"}) is False
 
-    assert cfg.shorts_duration_range_for_profile("shorts_expressive_v8") == (55.0, 89.5)
-    assert cfg.word_count_range_for_profile("shorts_expressive_v8") == (160, 240)
-    assert cfg.clip_count_range_for_profile("shorts_expressive_v8") == (14, 26)
+    assert cfg.shorts_duration_range_for_profile("shorts_expressive_v8") == (61.5, 88.0)
+    assert cfg.shorts_duration_range_for_profile(
+        "shorts_expressive_v8", project_id="v8_ep04_patient_sm_fearless_amygdala"
+    ) == (61.5, 120.0)
+    assert cfg.word_count_range_for_profile("shorts_expressive_v8") == (145, 420)
+    assert cfg.clip_count_range_for_profile("shorts_expressive_v8") == (15, 36)
 
 
 def test_v8_six_master_reference_pack_and_q1_q10(tmp_path: Path) -> None:
@@ -278,8 +318,17 @@ def test_v8_six_master_reference_pack_and_q1_q10(tmp_path: Path) -> None:
     assert str(clip_10.get("secondary_reference_image") or "").endswith("cameo_opt3_sheet.png")
 
     pack_res = ensure_expressive_v8_reference_pack(proj_dir)
-    assert pack_res["pre_generation_ready"] is True, f"Reference pack not ready: {pack_res}"
+    assert pack_res["cv_pre_generation_ready"] is True, f"Reference pack CV not ready: {pack_res}"
+    assert pack_res["status"] == "REVIEW_PENDING"
     assert pack_res["total_images"] == 6
+    # Sign Gate 1 review as @Research per Rule R85
+    sem_p = proj_dir / "03_visuals" / "reference_images" / "reference_semantic_review.json"
+    sem_doc = json.loads(sem_p.read_text(encoding="utf-8"))
+    sem_doc["reviewer"] = "@Research"
+    for idx_r, (rid, r_ent) in enumerate(sem_doc["images"].items()):
+        r_ent["checks"] = {k: True for k in (r_ent.get("checks") or {})}
+        r_ent["note"] = f"Verified master v8 anchor #{idx_r + 1} ({rid}) with clean bald 2.5D vinyl / 4-color brain fidelity."
+    sem_p.write_text(json.dumps(sem_doc, indent=2), encoding="utf-8")
     qa_rep = inspect_reference_image_pack(proj_dir, save_report=True)
     assert qa_rep["all_passed"] is True, f"Reference pack QA failed: {qa_rep}"
     assert qa_rep["total_existing"] == 6
@@ -306,7 +355,7 @@ def test_v8_prompt_builder_contract_and_negative_guards(tmp_path: Path) -> None:
     sents = _sample_v8_sentences()
     vp = populate_expressive_v8_reference_contract(_sample_v8_visual_plan(sents))
     prompts = build_diorama_v7_prompts(vp, sents)
-    assert len(prompts) == 16
+    assert len(prompts) == 20
 
     v_issues = validate_diorama_v7_prompts(prompts, vp)
     assert v_issues == [], f"Unexpected v8 prompt validation issues: {v_issues}"
@@ -318,7 +367,8 @@ def test_v8_prompt_builder_contract_and_negative_guards(tmp_path: Path) -> None:
         "schema": 8,
         "style_profile": "expressive_25d_v8",
         "format_profile": "shorts_expressive_v8",
-        "opening_mode": "situation",
+        "opening_mode": "action",
+        "core_reveal_sentence_index": 14,
         "title": vp["title"],
         "doi": vp["doi"],
         "foil_sentence_indices": [4],
@@ -336,12 +386,12 @@ def test_v8_prompt_builder_contract_and_negative_guards(tmp_path: Path) -> None:
     pre_issues = verify_pre_flow_contract(vp, sents, prompts, script_doc=script_doc)
     assert pre_issues == [], f"verify_pre_flow_contract failed: {pre_issues}"
 
-    # Negative 1: Brain grammar before 70% timeline mark (clip 4 of 16 = 18.75%) must fail!
+    # Negative 1: Brain grammar before 55% timeline mark (clip 4 of 20 = 17.5%) must fail!
     bad_vp_early_brain = copy.deepcopy(vp)
     bad_vp_early_brain["clips"][3]["grammar"] = "expressive_xray_brain"
     bad_prompts_1 = build_diorama_v7_prompts(bad_vp_early_brain, sents)
     issues_1 = validate_diorama_v7_prompts(bad_prompts_1, bad_vp_early_brain)
-    assert any("70%" in x or "expressive_xray_brain" in x for x in issues_1), f"Expected early brain rejection, got: {issues_1}"
+    assert any("55%" in x or "premature 3D brain reveal" in x or "expressive_xray_brain" in x for x in issues_1), f"Expected early brain rejection, got: {issues_1}"
 
     # Negative 2: Zero cameo_easter_egg cuts must fail!
     bad_vp_no_cameo = copy.deepcopy(vp)
@@ -387,7 +437,14 @@ def test_r68_packaging_metadata_and_negative_cases() -> None:
         debate_question="Pack your own pillowcase or let your left brain guard? #Shorts",
     )
     assert "#" not in pinned
-    assert "https://doi.org/10.1016/j.cub.2016.02.063" in pinned
+    assert "doi.org" not in pinned
+    assert "10.1016/" not in pinned
+    pinned_frozen = build_expressive_v8_pinned_comment(
+        doi="10.1016/j.cub.2016.02.063",
+        debate_question="Pack your own pillowcase or let your left brain guard? #Shorts",
+        include_doi=True,
+    )
+    assert "https://doi.org/10.1016/j.cub.2016.02.063" in pinned_frozen
 
     # Negative checks: hashtag leak, too short/long title, Hangul characters
     assert validate_expressive_v8_title("Brain Watch #Shorts") != []
@@ -414,6 +471,8 @@ def test_v8_prosody_audio_ass_xfade_assembly_and_autopsy_e2e(tmp_path: Path) -> 
         "style_profile": "expressive_25d_v8",
         "format_profile": "shorts_expressive_v8",
         "prosody_mode": "expressive_us_v8",
+        "opening_mode": "action",
+        "core_reveal_sentence_index": 14,
         "title": vp["title"],
         "doi": vp["doi"],
         "foil_sentence_indices": [4],
@@ -425,9 +484,12 @@ def test_v8_prosody_audio_ass_xfade_assembly_and_autopsy_e2e(tmp_path: Path) -> 
     prompts = build_diorama_v7_prompts(vp, sents)
     write_flow_prompts_json(p_dir, prompts)
 
-    # Synthesize deterministic 48kHz per-sentence PCM lines with 3-gear rhythm (~61s total, CV ~0.27 >= 0.18)
+    # Synthesize deterministic 48kHz per-sentence PCM lines with 3-gear rhythm (~64s total >= 61.5s, Cut 1 <= 1.50s, CV >= 0.18)
     sr = 48000
-    dur_cycle = [2.15, 3.85, 2.55, 4.45, 3.25, 4.95, 2.05, 3.95, 4.65, 3.10, 2.45, 4.30, 3.65, 4.85, 2.75, 3.95]
+    dur_cycle = [
+        1.10, 2.25, 2.05, 2.35, 2.30, 2.20, 2.15, 4.05, 2.85, 3.65,
+        2.55, 3.90, 2.75, 4.15, 3.80, 2.60, 3.75, 2.80, 3.95, 3.15,
+    ]
     line_pcms: list[np.ndarray] = []
     for idx, _sent in enumerate(sents, start=1):
         dur_s = dur_cycle[idx - 1]
@@ -438,24 +500,24 @@ def test_v8_prosody_audio_ass_xfade_assembly_and_autopsy_e2e(tmp_path: Path) -> 
         sig = (env * (0.65 * np.sin(2.0 * math.pi * f0 * t_arr) + 0.25 * np.sin(2.0 * math.pi * 2.0 * f0 * t_arr))).astype(np.float32)
         line_pcms.append(sig)
 
-    # Generate 16 textured moving 540x960 test clips (scaled to 1080x1920 during assembly) + provenance receipt
+    # Generate 20 textured moving 540x960 test clips (scaled to 1080x1920 during assembly) + provenance receipt
     import hashlib
 
     rng = np.random.default_rng(808)
-    grain_pool = rng.integers(-8, 9, size=(16, 480, 270, 3), dtype=np.int16)
+    grain_pool = rng.integers(-8, 9, size=(20, 480, 270, 3), dtype=np.int16)
     prov_clips: list[dict[str, Any]] = []
-    for idx in range(1, 17):
+    for idx in range(1, 21):
         frames: list[np.ndarray] = []
-        base_col = np.array([58 + (idx * 5) % 75, 72 + (idx * 7) % 68, 88 + (idx * 9) % 72], dtype=np.int16)
+        base_col = np.array([62 + (idx * 7) % 85, 92 + (idx * 9) % 78, 128 + (idx * 11) % 82], dtype=np.int16)
         for f_i in range(24 * 6):  # 6.0s @ 24fps
-            canvas = np.clip(base_col + grain_pool[(f_i + idx) % 16], 18, 235).astype(np.uint8)
-            cx = 70 + int((f_i * 2 + idx * 9) % 130)
-            cy = 150 + int((f_i + idx * 11) % 120)
+            canvas = np.clip(base_col + grain_pool[(f_i + idx) % 20], 24, 240).astype(np.uint8)
+            cx = 70 + int((f_i * 3 + idx * 9) % 130)
+            cy = 150 + int((f_i * 2 + idx * 11) % 120)
             # Matte-white 2.5D character silhouette with dark 2D ink outline
             cv2.circle(canvas, (cx, cy), 38, (238, 240, 242), -1)
             cv2.circle(canvas, (cx, cy), 38, (22, 22, 24), 3)
             cv2.rectangle(canvas, (cx - 32, cy + 38), (cx + 32, cy + 125), (65, 85, 140), -1)
-            if idx in (13, 14):
+            if idx in (14, 15):
                 # 4-color crystal-dome brain motif (crimson + amber + cyan, zero neon green)
                 cv2.ellipse(canvas, (135, 190), (58, 44), 0, 0, 180, (55, 45, 220), -1)
                 cv2.ellipse(canvas, (135, 190), (58, 44), 0, 180, 360, (225, 190, 40), -1)
@@ -485,7 +547,7 @@ def test_v8_prosody_audio_ass_xfade_assembly_and_autopsy_e2e(tmp_path: Path) -> 
 
     # Verify inspect_diorama_clip_cv passes on expressive_xray_brain test clip
     cv_brain = inspect_diorama_clip_cv(
-        p_dir / "03_visuals" / "flow_native_clips" / "clip_13.mp4",
+        p_dir / "03_visuals" / "flow_native_clips" / "clip_14.mp4",
         "expressive_xray_brain",
         style_profile="expressive_25d_v8",
     )
@@ -505,14 +567,15 @@ def test_v8_prosody_audio_ass_xfade_assembly_and_autopsy_e2e(tmp_path: Path) -> 
 
     edl = json.loads((p_dir / "05_assembly" / "edit_decision_list.json").read_text(encoding="utf-8"))
     assert edl["style_profile"] == "expressive_25d_v8"
-    assert edl["cut_count"] == 16
-    assert any(c.get("transition_to_next") == "dissolve_6f" for c in edl["cuts"])
+    assert edl["cut_count"] == 20
+    assert any(str(c.get("transition_to_next") or "").startswith("dissolve_") for c in edl["cuts"])
 
     ass_path = p_dir / "04_audio" / "subtitles.ass"
     ass_txt = ass_path.read_text(encoding="utf-8")
     assert f"Style: Default,{cfg.DIORAMA_V7_SUBTITLE_FONT_NAME},{cfg.EXPRESSIVE_V8_SUBTITLE_FONT_SIZE}" in ass_txt
     assert f",{cfg.EXPRESSIVE_V8_SUBTITLE_MARGIN_V},1" in ass_txt
-    assert "00E6FF" in ass_txt.upper()
+    assert "00E6FF" not in ass_txt.upper()
+    assert "&H00FFFFFF" in ass_txt.upper()
     assert "\nDialogue: 3," not in ass_txt  # zero ChapterHeadline dialogue events in v8!
 
     audio_master = p_dir / "04_audio" / "audio_master.wav"
@@ -639,7 +702,10 @@ def test_regression_r68_preserves_verbatim_citations_and_blocks_spoken_nicknames
         },
     )
     desc = meta["description"]
-    assert "#" not in desc
+    assert desc.endswith("\n\n#shorts")
+    assert "#" not in desc.removesuffix("#shorts")
+    assert meta["hashtags"] == ["#shorts"]
+    assert "tags" in meta and "shorts" in meta["tags"]
     prose_part, _, bib_part = desc.partition("Primary Peer-Reviewed Sources:")
     assert bib_part, "Expected Primary Peer-Reviewed Sources bibliography block"
     assert "first-night effect" not in prose_part.lower()
@@ -664,6 +730,7 @@ def test_regression_r68_preserves_verbatim_citations_and_blocks_spoken_nicknames
     spine_issues = validate_script_spine_v8(
         bad_sents,
         script_doc={
+            "opening_mode": "action",
             "foil_sentence_indices": [4],
             "omit_experiment_nicknames": ["first-night effect", "first night effect"],
         },
@@ -720,11 +787,16 @@ def test_regression_cli_check_auto_dubbing_and_publish_pinned_comment_file(tmp_p
     pin_file = storage.get_stage_dir("06_publish") / "pinned_comment.txt"
     assert pin_file.exists(), "PublishStage.run must write 06_publish/pinned_comment.txt"
     pin_txt = pin_file.read_text(encoding="utf-8").strip()
-    assert "https://doi.org/10.1016/j.cub.2016.02.063" in pin_txt
+    assert "doi.org" not in pin_txt
+    assert pin_txt == "Do you pack your own pillowcase or let half your brain stand watch?"
     assert "#" not in pin_txt
     saved_meta = storage.load_json("06_publish", "metadata.json")
-    assert saved_meta["hashtags"] == []
-    assert "#" not in saved_meta["description"]
+    assert saved_meta["hashtags"] == ["#shorts"]
+    assert saved_meta["description"].endswith("\n\n#shorts")
+    assert "#" not in saved_meta["description"].removesuffix("#shorts")
+    assert "tags" in saved_meta and "shorts" in saved_meta["tags"]
+    assert saved_meta["ai_content_declaration"] is True
+    assert "doi.org" not in saved_meta["description"]
 
 
 def test_regression_v8_scene_anchor_synthesis_track_a_and_cross_location_gate() -> None:
@@ -762,7 +834,7 @@ def test_regression_v8_edl_6_transitions_room_tone_rms_foley_and_recut(tmp_path:
     import inspect
     from pipeline.diorama_assembler import recut_diorama_cuts
 
-    # 1. All 6 canonical EXPRESSIVE_V8_TRANSITION_TYPES are preserved in build_v7_dynamic_edl
+    # 1. Default strips ghosting alpha dissolves to hard cuts; explicit allow_alpha_dissolves=True preserves all 6
     sents = _sample_v8_sentences()
     vp = _sample_v8_visual_plan(sents)
     canonical_6 = list(cfg.EXPRESSIVE_V8_TRANSITION_TYPES)
@@ -773,9 +845,13 @@ def test_regression_v8_edl_6_transitions_room_tone_rms_foley_and_recut(tmp_path:
         for i, s in enumerate(sents)
     ]
     clip_files = [tmp_path / f"clip_{i}.mp4" for i in range(1, len(sents) + 1)]
-    edl = build_v7_dynamic_edl(vp, timings, clip_files, speech_end_sec=64.0, total_duration_sec=64.2)
+    edl_crisp = build_v7_dynamic_edl(vp, timings, clip_files, speech_end_sec=64.0, total_duration_sec=64.2)
+    assert not any("dissolve" in str(c["transition_out"]) for c in edl_crisp["cuts"])
+    vp_opt_in = copy.deepcopy(vp)
+    vp_opt_in["allow_alpha_dissolves"] = True
+    edl = build_v7_dynamic_edl(vp_opt_in, timings, clip_files, speech_end_sec=64.0, total_duration_sec=64.2)
     observed_tr = {c["transition_out"] for c in edl["cuts"]}
-    assert set(canonical_6).issubset(observed_tr), f"Missing canonical transitions in EDL: {observed_tr}"
+    assert set(canonical_6).issubset(observed_tr), f"Missing canonical transitions in opt-in EDL: {observed_tr}"
 
     # 2. Room-tone RMS (~-30 dBFS) & outgoing-cut transition foley lookup
     sr = 48000
@@ -799,17 +875,19 @@ def test_regression_v8_edl_6_transitions_room_tone_rms_foley_and_recut(tmp_path:
         raw_m = np.frombuffer(rf.readframes(rf.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0
         st_m = raw_m.reshape(-1, rf.getnchannels())
 
-    # Tail window [7.62..7.82s] has zero speech & zero foley -> measures stereo room-tone RMS & peak
+    # Tail window [7.62..7.82s] has zero speech & monotonic -18 dBFS climax BGM + -30 dBFS room tone
     room_win = st_m[int(7.62 * sr) : int(7.82 * sr)]
     room_rms_db = 20.0 * math.log10(max(1e-7, float(np.sqrt(np.mean(room_win * room_win)))))
     room_peak_db = 20.0 * math.log10(max(1e-7, float(np.max(np.abs(room_win)))))
-    assert -38.0 <= room_rms_db <= -22.0, f"Expected room-tone RMS near -30 dBFS (not -48 dBFS peak), got {room_rms_db:.2f} dBFS"
+    assert -28.0 <= room_rms_db <= -14.0, f"Expected monotonic climax BGM+room RMS near -18 dBFS, got {room_rms_db:.2f} dBFS"
 
     # Outgoing-cut gap window [3.84..3.96s] must synthesize 'thud' from outgoing cut #1 ('action_impact_cut', NOT cut #2 'daisy_chain_bridge')
     assert test_edl.get("placed_foley") and test_edl["placed_foley"][0]["cue"] == "thud"
     gap_win = st_m[int(3.84 * sr) : int(3.96 * sr)]
     gap_peak_db = 20.0 * math.log10(max(1e-7, float(np.max(np.abs(gap_win)))))
-    assert gap_peak_db > room_peak_db + 5.0, f"Expected outgoing-cut thud transient peak ({gap_peak_db:.2f} dB vs room {room_peak_db:.2f} dB)"
+    early_bg_win = st_m[int(0.02 * sr) : int(0.16 * sr)]
+    early_bg_peak_db = 20.0 * math.log10(max(1e-7, float(np.max(np.abs(early_bg_win)))))
+    assert gap_peak_db > early_bg_peak_db + 3.0, f"Expected outgoing-cut thud transient peak ({gap_peak_db:.2f} dB vs early bg {early_bg_peak_db:.2f} dB)"
 
     # 3. recut_diorama_cuts source explicitly guards expressive_25d_v8 from lowpoly_pastel_v7 washout & delegates dissolve_6f
     recut_src = inspect.getsource(recut_diorama_cuts)
@@ -904,8 +982,8 @@ def test_dossier_seed_expressive_25d_v8_cli_and_overwrite_guard(tmp_path: Path) 
     assert mem_only["style_profile"] == "expressive_25d_v8"
     assert mem_only["shorts_format_profile"] == "shorts_expressive_v8"
     assert mem_only["prosody_mode"] == "expressive_us_v8"
-    assert mem_only["voice_preset"] == "emma_v7"
-    assert mem_only["foil_voice_preset"] == "foil_v8"
+    assert mem_only["voice_preset"] == "elevenlabs_v4"
+    assert mem_only["foil_voice_preset"] == "elevenlabs_v4_male"
     assert mem_only["foil_sentence_indices"] == []
     assert not (dossiers_root / slug / "diorama_v8_expressive").exists()
 
@@ -935,8 +1013,8 @@ def test_dossier_seed_expressive_25d_v8_cli_and_overwrite_guard(tmp_path: Path) 
     assert cli_seed["style_profile"] == "expressive_25d_v8"
     assert cli_seed["shorts_format_profile"] == "shorts_expressive_v8"
     assert cli_seed["prosody_mode"] == "expressive_us_v8"
-    assert cli_seed["voice_preset"] == "emma_v7"
-    assert cli_seed["foil_voice_preset"] == "foil_v8"
+    assert cli_seed["voice_preset"] == "elevenlabs_v4"
+    assert cli_seed["foil_voice_preset"] == "elevenlabs_v4_male"
     assert cli_seed["foil_sentence_indices"] == []
     assert cli_seed["doi"] == "10.1016/j.cub.2016.02.063"
     assert len(cli_seed.get("reference_anchors") or []) >= 2
@@ -949,8 +1027,8 @@ def test_dossier_seed_expressive_25d_v8_cli_and_overwrite_guard(tmp_path: Path) 
     sc_disk = json.loads(sc_file.read_text(encoding="utf-8"))
     assert sc_disk["shorts_format_profile"] == "shorts_expressive_v8"
     assert sc_disk["prosody_mode"] == "expressive_us_v8"
-    assert sc_disk["voice_preset"] == "emma_v7"
-    assert sc_disk["foil_voice_preset"] == "foil_v8"
+    assert sc_disk["voice_preset"] == "elevenlabs_v4"
+    assert sc_disk["foil_voice_preset"] == "elevenlabs_v4_male"
     assert sc_disk["foil_sentence_indices"] == []
     assert sc_disk["pillar"] == "brain_health"
     assert sc_disk["everyday_domain"] == "sleep"
@@ -1009,7 +1087,7 @@ def test_dossier_seed_expressive_25d_v8_cli_and_overwrite_guard(tmp_path: Path) 
     cameo_anc = next(a for a in rebound["reference_anchors"] if a["role"] == "cameo_anchor")
     xray_anc = next(a for a in rebound["reference_anchors"] if a["category"] == "brain_anchor")
     assert cameo_anc["clip_number"] == 10
-    assert xray_anc["clip_number"] == 13
+    assert xray_anc["clip_number"] == 14
 
 
 def test_empty_v8_seed_stub_does_not_hijack_authored_v7_draft(tmp_path: Path, monkeypatch) -> None:
@@ -1309,36 +1387,48 @@ def test_r68_agents_and_skill_docs_sync_and_compactness() -> None:
     import re as _re
 
     agents_md = ROOT / ".agents" / "AGENTS.md"
-    rules_md = ROOT / ".agents" / "rules" / "neuro_diorama_rules.md"
+    rules_dir = ROOT / ".agents" / "rules"
     script_skill = ROOT / ".agents" / "skills" / "youtube-script" / "SKILL.md"
     produce_skill = ROOT / ".agents" / "skills" / "youtube-produce" / "SKILL.md"
     studio_skill = ROOT / ".agents" / "skills" / "youtube-studio" / "SKILL.md"
 
     agents_txt = agents_md.read_text(encoding="utf-8")
-    assert len(agents_txt.splitlines()) <= 78
-    assert len(agents_md.read_bytes()) < 10_240
-    assert "| R68 |" in agents_txt
+    assert len(agents_txt.splitlines()) <= 60
+    assert 3_000 <= len(agents_md.read_bytes()) <= 6_500
+    assert "R68" in agents_txt
     assert "expressive_25d_v8" in agents_txt
-    assert 'DEFAULT_DIORAMA_STYLE_PROFILE="porcelain_cinematic_v7"' in agents_txt
-    assert "en-US-AndrewMultilingualNeural" in agents_txt
+    assert "elevenlabs_v4" in agents_txt
 
-    rules_txt = rules_md.read_text(encoding="utf-8")
-    r68_section = rules_txt.split("## R68", 1)[1]
+    rules_txt = "\n".join(
+        (rules_dir / fn).read_text(encoding="utf-8")
+        for fn in (
+            "diorama_assembly_subtitles_rules.md",
+            "episode_qa_triage_rules.md",
+            "thumbnail_r65_rules.md",
+            "archival_reenactment_rules.md",
+            "data_stamp_charts_rules.md",
+            "real_world_drone_refs_rules.md",
+            "hook_pacing_beatcard_rules.md",
+            "arrows_callouts_motion_rules.md",
+            "youtube_studio_operations.md",
+        )
+    )
+    assert 'DEFAULT_DIORAMA_STYLE_PROFILE="porcelain_cinematic_v7"' in rules_txt
+    r68_section = rules_txt
     for token in (
         "expressive_25d_v8",
         "shorts_expressive_v8",
-        "58–88s",
-        "89.5s",
-        "14–26",
-        "Mini-Cortex",
+        "61.5–88.0s",
+        "18–28",
+        "EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE = 0",
         "expressive_us_v8",
-        "foil_v8",
-        cfg.DIORAMA_VOICE_PRESETS["foil_v8"]["voice"],
-        "MarginV=521",
-        "0.20s",
+        "elevenlabs_v4",
+        "MarginV = EXPRESSIVE_V8_SUBTITLE_MARGIN_V = 510",
+        "82pt",
+        "EXPRESSIVE_V8_OUTRO_TAIL_SEC = 0.20",
         "studio-settings --check-auto-dubbing",
     ):
-        assert token in r68_section, f"Missing {token!r} in neuro_diorama_rules.md R68 section"
+        assert token in r68_section, f"Missing {token!r} in active R68 split rules"
     assert "AvaMultilingualNeural" not in r68_section
 
     # Every UPPER_SNAKE constant named in R68 must actually exist in pipeline/config.py (blocks hallucinated constant names)
@@ -1351,8 +1441,8 @@ def test_r68_agents_and_skill_docs_sync_and_compactness() -> None:
     assert "R68" in script_txt
     assert "R68" in produce_txt
     assert "--check-auto-dubbing" in studio_txt
-    assert cfg.DIORAMA_VOICE_PRESETS["foil_v8"]["voice"] in script_txt
-    assert cfg.DIORAMA_VOICE_PRESETS["foil_v8"]["voice"] in produce_txt
+    assert "elevenlabs_v4" in script_txt
+    assert "elevenlabs_v4" in produce_txt
     assert "AvaMultilingualNeural" not in produce_txt
     for tr_name in cfg.EXPRESSIVE_V8_TRANSITION_TYPES:
         assert tr_name in r68_section, f"Missing transition {tr_name!r} in neuro_diorama_rules.md"
@@ -1365,18 +1455,16 @@ def test_v8_boost_andrew_clauses_rising_bgm_daisy_keyframes_and_camera_bridges(t
     from pipeline.prosody import crossfade_clause_pcms, plan_expressive_v8_clauses
     from pipeline.voice_fallback import _trim_waveform_silences_and_breaths, resolve_diorama_voice_preset
 
-    # 1. Voice preset resolution: untagged v8 & v7 -> emma_v7 single-narrator default; explicit andrew_v8 preserved
+    # 1. Voice preset resolution: untagged v8 & v7 -> elevenlabs_v4 default; explicit el_researcher_v4 preserved
     v8_id, v8_preset = resolve_diorama_voice_preset(None, {"style_profile": "expressive_25d_v8"})
     v7_id, v7_preset = resolve_diorama_voice_preset(None, {"style_profile": "porcelain_cinematic_v7"})
-    explicit_a8_id, explicit_a8_preset = resolve_diorama_voice_preset("andrew_v8", {"style_profile": "expressive_25d_v8"})
-    assert v8_id == "emma_v7"
-    assert v8_preset["voice"] == "en-US-EmmaMultilingualNeural"
+    explicit_r_id, explicit_r_preset = resolve_diorama_voice_preset("el_researcher_v4", {"style_profile": "expressive_25d_v8"})
+    assert v8_id == "elevenlabs_v4"
+    assert v8_preset["elevenlabs_voice_id"] == "CwhRBWXzGAHq8TQ4Fs17"
     assert v8_preset["pitch"] == "+0Hz"
-    assert v7_id == "emma_v7"
-    assert explicit_a8_id == "andrew_v8"
-    assert explicit_a8_preset["voice"] == "en-US-AndrewMultilingualNeural"
-    assert cfg.DIORAMA_VOICE_PRESETS["foil_v8"]["voice"] == "en-US-SteffanNeural"
-    assert cfg.DIORAMA_VOICE_PRESETS["guy_foil_v8"]["voice"] == "en-US-GuyNeural"
+    assert v7_id == "elevenlabs_v4"
+    assert explicit_r_id == "el_researcher_v4"
+    assert explicit_r_preset["elevenlabs_voice_id"] == "tnSpp4vdxKPjI9w0GnoV"
 
     # 2. Multi-turn single-<prosody> clause planner & 20ms click-free raised-cosine crossfade + edge cases
     assert plan_expressive_v8_clauses("", "+16%", "+16Hz") == []
@@ -1414,7 +1502,7 @@ def test_v8_boost_andrew_clauses_rising_bgm_daisy_keyframes_and_camera_bridges(t
     first_voiced_idx = int(np.argmax(np.abs(trimmed_v8) > 0.02))
     assert first_voiced_idx / float(sr) <= 0.015, f"Expected immediate 0.000s onset, got {first_voiced_idx / float(sr):.4f}s"
 
-    # 4. Rising dark-suspense BGM (-25 -> -18 dBFS under speech) & narrow/center-focused stereo
+    # 4. Documentary ducked BGM (-21.5 dBFS under speech, lifts in breath gaps) & narrow/center-focused stereo
     dur_bgm_s = 16.0
     t_b = np.arange(int(dur_bgm_s * sr), dtype=np.float32) / float(sr)
     pcm_b = np.zeros_like(t_b)
@@ -1425,9 +1513,10 @@ def test_v8_boost_andrew_clauses_rising_bgm_daisy_keyframes_and_camera_bridges(t
     generate_diorama_audio_master(wav_b, pcm_b, sr, 15.80, edl_b)
     with wave.open(str(wav_b), "rb") as wf:
         st_b = (np.frombuffer(wf.readframes(wf.getnframes()), dtype=np.int16).astype(np.float32) / 32768.0).reshape(-1, 2)
-    early_rms = 20.0 * math.log10(max(1e-7, float(np.sqrt(np.mean(np.square(st_b[int(0.10 * sr) : int(1.05 * sr)]))))))
-    climax_rms = 20.0 * math.log10(max(1e-7, float(np.sqrt(np.mean(np.square(st_b[int(12.20 * sr) : int(13.80 * sr)]))))))
-    assert climax_rms >= early_rms + 4.5, f"Expected rising dark-suspense BGM (+4.5..7 dB), got early={early_rms:.2f} -> climax={climax_rms:.2f}"
+    early_gap_rms = 20.0 * math.log10(max(1e-7, float(np.sqrt(np.mean(np.square(st_b[int(0.10 * sr) : int(1.05 * sr)]))))))
+    tail_gap_rms = 20.0 * math.log10(max(1e-7, float(np.sqrt(np.mean(np.square(st_b[int(12.20 * sr) : int(13.80 * sr)]))))))
+    assert -28.0 <= early_gap_rms <= -14.0 and -28.0 <= tail_gap_rms <= -14.0
+    assert abs(tail_gap_rms - early_gap_rms) <= 3.0, f"Expected steady non-siren documentary BGM, got {early_gap_rms:.2f} vs {tail_gap_rms:.2f}"
     lr_corr = float(np.corrcoef(st_b[:, 0], st_b[:, 1])[0, 1])
     assert 0.85 <= lr_corr < 0.9999, f"Expected center-focused yet decorrelated stereo BGM, got corr={lr_corr:.5f}"
 
@@ -1448,7 +1537,7 @@ def test_v8_boost_andrew_clauses_rising_bgm_daisy_keyframes_and_camera_bridges(t
         daisy_vp,
         sents,
         daisy_prompts,
-        script_doc={"opening_mode": "situation", "foil_sentence_indices": [4]},
+        script_doc={"opening_mode": "action", "core_reveal_sentence_index": 14, "foil_sentence_indices": [4]},
     ) == []
 
 
@@ -1473,6 +1562,8 @@ def test_slow_v8_30fps_camera_bridges_spike_suppression(tmp_path: Path) -> None:
         "style_profile": "expressive_25d_v8",
         "format_profile": "shorts_expressive_v8",
         "prosody_mode": "expressive_us_v8",
+        "opening_mode": "action",
+        "core_reveal_sentence_index": 14,
         "title": vp30["title"],
         "doi": vp30["doi"],
         "foil_sentence_indices": [4, 7, 12],
@@ -1484,12 +1575,12 @@ def test_slow_v8_30fps_camera_bridges_spike_suppression(tmp_path: Path) -> None:
     write_flow_prompts_json(p30, build_diorama_v7_prompts(vp30, sents))
 
     rng30 = np.random.default_rng(3030)
-    grain30 = rng30.integers(-7, 8, size=(16, 480, 270, 3), dtype=np.int16)
-    for idx in range(1, 17):
+    grain30 = rng30.integers(-7, 8, size=(20, 480, 270, 3), dtype=np.int16)
+    for idx in range(1, 21):
         frames30: list[np.ndarray] = []
-        base_c = np.array([40 + (idx * 29) % 130, 55 + (idx * 37) % 120, 70 + (idx * 41) % 125], dtype=np.int16)
+        base_c = np.array([58 + (idx * 29) % 130, 82 + (idx * 37) % 120, 115 + (idx * 41) % 125], dtype=np.int16)
         for f_i in range(24 * 6):
-            cv_im = np.clip(base_c + grain30[(f_i + idx) % 16], 15, 240).astype(np.uint8)
+            cv_im = np.clip(base_c + grain30[(f_i + idx) % 20], 20, 240).astype(np.uint8)
             cx = int(round(135.0 + 52.0 * math.sin(2.0 * math.pi * f_i / 96.0 + idx * 0.75)))
             cy = int(round(205.0 + 48.0 * math.cos(2.0 * math.pi * f_i / 120.0 + idx * 0.55)))
             cv2.circle(cv_im, (cx, cy), 38, (240, 240, 244), -1)
@@ -1497,7 +1588,10 @@ def test_slow_v8_30fps_camera_bridges_spike_suppression(tmp_path: Path) -> None:
             frames30.append(cv_im)
         _write_test_mp4(p30 / "03_visuals" / "flow_native_clips" / f"clip_{idx}.mp4", frames30, fps=24)
 
-    dur_cycle30 = [2.25, 3.80, 2.60, 4.40, 3.30, 4.90, 2.15, 3.90, 4.60, 3.15, 2.50, 4.25, 3.60, 4.80, 2.80, 3.90]
+    dur_cycle30 = [
+        1.15, 2.25, 2.10, 2.35, 2.30, 2.20, 2.15, 4.00, 2.90, 3.60,
+        2.60, 3.85, 2.75, 4.10, 3.75, 2.65, 3.70, 2.85, 3.90, 3.15,
+    ]
     line_pcms30: list[np.ndarray] = []
     for idx_l, d_s in enumerate(dur_cycle30, start=1):
         t_l = np.arange(int(round(d_s * sr)), dtype=np.float32) / float(sr)
@@ -1819,7 +1913,7 @@ def test_regression_reviewer_daisy_chain_exact_keyframe_handoff_vs_dissolve_fall
     for sub in ("02_script", "03_visuals/flow_native_clips", "04_audio", "05_assembly"):
         (p_dir / sub).mkdir(parents=True, exist_ok=True)
 
-    n_clips = 14
+    n_clips = 20
     sents = [f"Night watch line {i}!" if i == 1 else f"Night watch sentence {i}." for i in range(1, n_clips + 1)]
     clips_spec: list[dict[str, Any]] = []
     for i in range(1, n_clips + 1):
@@ -1827,7 +1921,7 @@ def test_regression_reviewer_daisy_chain_exact_keyframe_handoff_vs_dissolve_fall
             {
                 "clip_index": i,
                 "sentence_index": i,
-                "act": min(6, ((i - 1) // 3) + 1),
+                "act": min(6, ((i - 1) // 4) + 1),
                 "grammar": "expressive_vinyl_world",
                 "location_id": "hotel_room",
                 "transition_to_next": "daisy_chain_bridge" if i in (1, 2) else "dissolve_8f",
@@ -1872,7 +1966,7 @@ def test_regression_reviewer_daisy_chain_exact_keyframe_handoff_vs_dissolve_fall
         _write_test_mp4(p_dir / "03_visuals" / "flow_native_clips" / f"clip_{rest_i}.mp4", f_c3, fps=30)
 
     sr = 48000
-    t_sp = np.arange(int(4.15 * sr), dtype=np.float32) / float(sr)
+    t_sp = np.arange(int(2.90 * sr), dtype=np.float32) / float(sr)
     env_sp = 0.32 * (0.66 + 0.34 * np.sin(2.0 * math.pi * 3.5 * t_sp))
     sig_sp = (env_sp * (0.65 * np.sin(2.0 * math.pi * 178.0 * t_sp) + 0.25 * np.sin(2.0 * math.pi * 356.0 * t_sp))).astype(np.float32)
     line_pcms = [sig_sp.copy() for _ in range(n_clips)]
@@ -1940,22 +2034,21 @@ def test_regression_reviewer_yunet_capped_human_face_and_kokoro_v8_native_gears(
         dets_cap = detect_non_porcelain_human_faces_yunet(capped, allow_expressive_2d_ink=True)
         assert len(dets_cap) >= 1, f"Expected YuNet to flag {skin_name}, got {dets_cap}"
 
-    # 2. Kokoro fallback on expressive_25d_v8 preserves '!' and synthesizes per-gear speeds natively (wsola_factor == 1.0)
-    kokoro_calls: list[tuple[str, float]] = []
+    # 2. Offline test stub on expressive_25d_v8 synthesizes per-gear speeds natively (wsola_factor == 1.0)
+    stub_calls: list[tuple[str, float]] = []
 
-    def _fake_synth_line(
+    def _fake_stub_pcm(
         text: str,
         sr: int = 48000,
-        speed: float = 1.0,
-        preserve_exclamation: bool = False,
-        **_kwargs: Any,
+        target_tempo: float = 1.0,
+        seed_idx: int = 1,
     ) -> np.ndarray:
-        norm = vf_mod.to_expressive_tts_text(text) if preserve_exclamation else vf_mod.to_tts_text(text)
-        kokoro_calls.append((norm, float(speed)))
+        norm = vf_mod.to_expressive_tts_text(text)
+        stub_calls.append((norm, float(target_tempo)))
         t = np.arange(int(3.8 * sr), dtype=np.float32) / float(sr)
         return (0.30 * np.sin(2.0 * math.pi * 175.0 * t)).astype(np.float32)
 
-    monkeypatch.setattr(vf_mod, "synthesize_line", _fake_synth_line)
+    monkeypatch.setattr(vf_mod, "_synthesize_test_stub_pcm", _fake_stub_pcm)
 
     kokoro_proj = tmp_path / "kokoro_v8_proj"
     for sub in ("03_visuals", "04_audio"):
@@ -1973,15 +2066,14 @@ def test_regression_reviewer_yunet_capped_human_face_and_kokoro_v8_native_gears(
         sents_k,
         align_whisper=False,
         script_doc={"style_profile": "expressive_25d_v8", "format_profile": "shorts_expressive_v8"},
-        engine="kokoro-onnx",
         prosody_mode="expressive_us_v8",
-        allow_kokoro_fallback=True,
+        allow_test_stub=True,
     )
-    assert res_k["report"]["engine"] == "kokoro-onnx"
+    assert res_k["report"]["engine"] == "test_stub"
     pros_rep_k = json.loads((kokoro_proj / "04_audio" / "prosody_report.json").read_text(encoding="utf-8"))
     assert pros_rep_k["native_gear_synthesis"] is True
-    assert kokoro_calls[0][0].endswith("!"), f"Expected '!' preserved in Kokoro v8 text, got {kokoro_calls[0][0]!r}"
-    assert len({spd for _, spd in kokoro_calls}) >= 2, f"Expected distinct per-gear Kokoro speeds, got {kokoro_calls[:4]}"
+    assert stub_calls[0][0].endswith("!"), f"Expected '!' preserved in v8 text, got {stub_calls[0][0]!r}"
+    assert len({spd for _, spd in stub_calls}) >= 2, f"Expected distinct per-gear tempos, got {stub_calls[:4]}"
     assert all(abs(float(t["wsola_factor"]) - 1.0) < 1e-6 for t in pros_rep_k["sentences"])
 
 
@@ -2169,6 +2261,17 @@ def test_fast_v8_raw_cut_cache_reuse_and_recut(tmp_path: Path, monkeypatch: pyte
     )
     assert out1["raw_segment_cache_misses"] == 4
     assert out1["raw_segment_cache_hits"] == 0
+    final_mp4_1 = p_dir / "05_assembly" / "final_shorts_1080x1920.mp4"
+    cap1 = cv2.VideoCapture(str(final_mp4_1))
+    try:
+        fps1 = float(cap1.get(cv2.CAP_PROP_FPS) or 30.0)
+        vframes1 = int(cap1.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+    finally:
+        cap1.release()
+    vid_dur_1 = vframes1 / max(1.0, fps1)
+    assert abs(vid_dur_1 - float(out1["duration_sec"])) <= 0.15, (
+        f"C1 regression: video duration {vid_dur_1:.3f}s != container/audio duration {out1['duration_sec']:.3f}s"
+    )
 
     # Replace ONLY clip_2.mp4 -> Cuts 1, 3, 4 must hit raw_v8 cache (3 hits, 1 miss)!
     frames_new = []
@@ -2182,6 +2285,16 @@ def test_fast_v8_raw_cut_cache_reuse_and_recut(tmp_path: Path, monkeypatch: pyte
     assert out2["recut_cuts"] == [2]
     assert out2["raw_segment_cache_hits"] == 3
     assert out2["raw_segment_cache_misses"] == 1
+    cap2 = cv2.VideoCapture(str(final_mp4_1))
+    try:
+        fps2 = float(cap2.get(cv2.CAP_PROP_FPS) or 30.0)
+        vframes2 = int(cap2.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+    finally:
+        cap2.release()
+    vid_dur_2 = vframes2 / max(1.0, fps2)
+    assert abs(vid_dur_2 - float(out2["duration_sec"])) <= 0.15, (
+        f"C1 regression after recut: video duration {vid_dur_2:.3f}s != container/audio duration {out2['duration_sec']:.3f}s"
+    )
 
 
 def test_fast_pre_assembly_audio_prosody_gate_catches_word_drop(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -2242,11 +2355,11 @@ def test_fast_pre_assembly_audio_prosody_gate_catches_word_drop(tmp_path: Path, 
     sig = (0.28 * np.sin(2.0 * math.pi * 185.0 * t)).astype(np.float32)
     retried_clip_nos: list[int] = []
 
-    def _fake_synth_line(text: str, clip_no: int = 0, **_kw: Any) -> np.ndarray:
-        retried_clip_nos.append(int(clip_no))
+    def _fake_stub_retry(text: str, seed_idx: int = 0, **_kw: Any) -> np.ndarray:
+        retried_clip_nos.append(int(seed_idx))
         return sig.copy()
 
-    monkeypatch.setattr(vf_mod, "synthesize_line", _fake_synth_line)
+    monkeypatch.setattr(vf_mod, "_synthesize_test_stub_pcm", _fake_stub_retry)
     gate_calls = {"n": 0}
 
     def _fake_eval_prosody(_p_dir: Path, **_kw: Any) -> dict[str, Any]:
@@ -2410,30 +2523,30 @@ def test_v8_single_narrator_emma_default_dq13_hygiene_and_posthoc_spoken_provena
     sents = _sample_v8_sentences()
 
     # 1. Foil-free single-narrator v8 script passes validate_script_spine_v8 when EXPRESSIVE_V8_REQUIRE_FOIL is False
-    assert cfg.EXPRESSIVE_V8_VOICE_PRESET == "emma_v7"
+    assert cfg.EXPRESSIVE_V8_VOICE_PRESET == "elevenlabs_v4"
     assert cfg.EXPRESSIVE_V8_FOIL_SENTENCE_RANGE == (0, 0)
     assert cfg.EXPRESSIVE_V8_REQUIRE_FOIL is False
-    assert cfg.EXPRESSIVE_V8_BGM_START_DBFS == -30.0
-    assert cfg.EXPRESSIVE_V8_BGM_PEAK_DBFS == -23.0
-    assert cfg.EXPRESSIVE_V8_BGM_TAIL_DBFS == -29.5
-    assert validate_script_spine_v8(sents, script_doc={"opening_mode": "situation", "foil_sentence_indices": []}) == []
+    assert cfg.EXPRESSIVE_V8_BGM_START_DBFS == -25.0
+    assert cfg.EXPRESSIVE_V8_BGM_PEAK_DBFS == -18.0
+    assert cfg.EXPRESSIVE_V8_BGM_TAIL_DBFS == -18.0
+    assert validate_script_spine_v8(sents, script_doc={"opening_mode": "action", "core_reveal_sentence_index": 14, "foil_sentence_indices": []}) == []
 
     # Invalid speaker role / length mismatch still rejected even when foil is optional
     bad_role_issues = validate_script_spine_v8(
         sents,
-        script_doc={"sentence_speakers": ["narrator"] * (len(sents) - 1) + ["alien"]},
+        script_doc={"opening_mode": "action", "sentence_speakers": ["narrator"] * (len(sents) - 1) + ["alien"]},
     )
     assert any("invalid speaker role" in x for x in bad_role_issues)
     bad_len_issues = validate_script_spine_v8(
         sents,
-        script_doc={"sentence_speakers": ["narrator", "narrator"]},
+        script_doc={"opening_mode": "action", "sentence_speakers": ["narrator", "narrator"]},
     )
     assert any("length" in x for x in bad_len_issues)
 
-    # Enabling EXPRESSIVE_V8_REQUIRE_FOIL enforces >=1 foil sentence
+    # Enabling EXPRESSIVE_V8_REQUIRE_FOIL enforces >=1 character/foil sentence
     monkeypatch.setattr(cfg, "EXPRESSIVE_V8_REQUIRE_FOIL", True)
-    req_issues = validate_script_spine_v8(sents, script_doc={"foil_sentence_indices": []})
-    assert any("multi-role dialogue requires >= 1 'foil'" in x for x in req_issues)
+    req_issues = validate_script_spine_v8(sents, script_doc={"opening_mode": "action", "foil_sentence_indices": []})
+    assert any("multi-role dialogue requires >= 1" in x for x in req_issues)
     monkeypatch.setattr(cfg, "EXPRESSIVE_V8_REQUIRE_FOIL", False)
 
     # 2. Daisy-chain transition auto-population respects EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS <= 4
@@ -2579,7 +2692,25 @@ def test_v8_single_narrator_emma_default_dq13_hygiene_and_posthoc_spoken_provena
         sig_v = (0.28 * np.sin(2.0 * math.pi * 190.0 * t_v)).astype(np.float32)
         return [sig_v.copy() for _ in clean_sents]
 
-    monkeypatch.setattr(vf_mod, "_synthesize_edge_tts_acts", _fake_edge_acts)
+    import pipeline.elevenlabs_tts as el_mod
+
+    def _fake_el_episode(clean_sents_in: list[str], *, voice_id: str, sr: int = 48000, **_kwargs: Any) -> dict[str, Any]:
+        called_voices.append((voice_id, "+0Hz"))
+        t_v = np.arange(int(3.6 * sr), dtype=np.float32) / float(sr)
+        sig_v = (0.28 * np.sin(2.0 * math.pi * 190.0 * t_v)).astype(np.float32)
+        return {
+            "pcms": [sig_v.copy() for _ in clean_sents_in],
+            "voice_id": voice_id,
+            "word_timestamps_by_idx": {},
+            "characters_used": 0,
+            "script_characters": sum(len(s) for s in clean_sents_in),
+            "model_id": "eleven_v4",
+            "output_format": "mp3_44100_192",
+            "request_ids": [],
+            "used_voices_by_idx": {idx + 1: voice_id for idx in range(len(clean_sents_in))},
+        }
+
+    monkeypatch.setattr(el_mod, "synthesize_elevenlabs_v4_episode", _fake_el_episode)
     single_tts_proj = tmp_path / "v8_emma_single_tts_proj"
     for sub in ("03_visuals", "04_audio"):
         (single_tts_proj / sub).mkdir(parents=True, exist_ok=True)
@@ -2591,20 +2722,23 @@ def test_v8_single_narrator_emma_default_dq13_hygiene_and_posthoc_spoken_provena
         single_tts_proj,
         sents,
         align_whisper=False,
-        script_doc={"style_profile": "expressive_25d_v8", "format_profile": "shorts_expressive_v8", "foil_sentence_indices": []},
-        engine="edge-tts",
+        script_doc={
+            "style_profile": "expressive_25d_v8",
+            "format_profile": "shorts_expressive_v8",
+            "voice_preset": "el_researcher_v4",
+            "foil_sentence_indices": [],
+        },
         prosody_mode="expressive_us_v8",
     )
     vr_single = tts_res["report"]
-    assert vr_single["voice"] == "en-US-EmmaMultilingualNeural"
-    assert vr_single["voice_preset"] == "emma_v7"
+    assert vr_single["voice"] == "tnSpp4vdxKPjI9w0GnoV"
+    assert vr_single["voice_preset"] == "el_researcher_v4"
     assert vr_single["pitch"] == "+0Hz"
     assert vr_single["foil_voice"] is None
     assert vr_single["foil_voice_preset"] is None
     assert vr_single["foil_sentence_indices"] == []
     assert all(sp["speaker"] == "narrator" for sp in vr_single["sentence_spans"])
-    assert all(v == "en-US-EmmaMultilingualNeural" for v, _ in called_voices)
-    assert "en-US-SteffanNeural" not in {v for v, _ in called_voices}
+    assert all(v == "tnSpp4vdxKPjI9w0GnoV" for v, _ in called_voices)
 
     # 5. Direct DQ13_transition_hygiene checks: >4 styled transitions, >6f alpha dissolve, and MP4 ghost blend fail!
     dq_proj = tmp_path / "v8_dq13_unit_proj"
@@ -2674,22 +2808,22 @@ def test_v8_single_narrator_emma_default_dq13_hygiene_and_posthoc_spoken_provena
     rep_clean = verify_final_mp4_against_contract(dq_proj, contract=dq_contract, save_report=False)
     assert rep_clean["gates"]["DQ13_transition_hygiene"]["passed"] is True
 
-    # Negative A: >= 5 styled transitions (cuts 1..4 + cut 6 = 5) must fail DQ13
+    # Negative A: >50% alpha dissolves on an 8-cut EDL (5 > 4) must fail DQ13
     edl_over = copy.deepcopy(edl_clean)
-    for k_ov in range(4):
-        edl_over["cuts"][k_ov]["transition_out"] = "whip_pan_blur_8f"
+    for k_ov in range(5):
+        edl_over["cuts"][k_ov]["transition_out"] = "dissolve_8f"
     (dq_proj / "05_assembly" / "edit_decision_list.json").write_text(json.dumps(edl_over, indent=2), encoding="utf-8")
     rep_over = verify_final_mp4_against_contract(dq_proj, contract=dq_contract, save_report=False)
     assert rep_over["gates"]["DQ13_transition_hygiene"]["passed"] is False
-    assert rep_over["gates"]["DQ13_transition_hygiene"]["styled_transition_count"] == 5
+    assert len(rep_over["gates"]["DQ13_transition_hygiene"]["alpha_fade_cuts"]) == 5
 
-    # Negative B: 8f alpha dissolve (> EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES=6) must fail DQ13
-    edl_alpha8 = copy.deepcopy(edl_clean)
-    edl_alpha8["cuts"][0]["transition_out"] = "dissolve_8f"
-    (dq_proj / "05_assembly" / "edit_decision_list.json").write_text(json.dumps(edl_alpha8, indent=2), encoding="utf-8")
-    rep_alpha8 = verify_final_mp4_against_contract(dq_proj, contract=dq_contract, save_report=False)
-    assert rep_alpha8["gates"]["DQ13_transition_hygiene"]["passed"] is False
-    assert rep_alpha8["gates"]["DQ13_transition_hygiene"]["max_alpha_fade_frames"] == 8
+    # Negative B: 20f alpha dissolve (> EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES=15) must fail DQ13
+    edl_alpha20 = copy.deepcopy(edl_clean)
+    edl_alpha20["cuts"][0]["transition_out"] = "dissolve_20f"
+    (dq_proj / "05_assembly" / "edit_decision_list.json").write_text(json.dumps(edl_alpha20, indent=2), encoding="utf-8")
+    rep_alpha20 = verify_final_mp4_against_contract(dq_proj, contract=dq_contract, save_report=False)
+    assert rep_alpha20["gates"]["DQ13_transition_hygiene"]["passed"] is False
+    assert rep_alpha20["gates"]["DQ13_transition_hygiene"]["max_alpha_fade_frames"] == 20
 
     # Negative C: Sustained full-frame alpha ghost blend in decoded MP4 around Cut 1->2 (t=2.00s, frames 53..60) must fail DQ13!
     ghost_frames = [im.copy() for im in clean_frames]
@@ -2721,8 +2855,9 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     all_cams = list(cfg.EXPRESSIVE_V8_CAMERA_MOVES)
     all_trans = list(cfg.EXPRESSIVE_V8_TRANSITION_TYPES)
     for idx0, c_spec in enumerate(vp_all["clips"]):
-        c_spec["camera_move"] = all_cams[idx0 % len(all_cams)]
-        c_spec["transition_to_next"] = "hard" if idx0 in (0, 1, 15) else all_trans[idx0 % len(all_trans)]
+        cam_pick = all_cams[(idx0 + 5) % len(all_cams)]
+        c_spec["camera_move"] = "dolly_zoom_vertigo" if idx0 == 0 and cam_pick == "locked_tripod" else cam_pick
+        c_spec["transition_to_next"] = "hard" if idx0 in (0, 1, 19) else all_trans[idx0 % len(all_trans)]
     vp_all = populate_expressive_v8_reference_contract(vp_all)
     prompts_all = build_diorama_v7_prompts(vp_all, sents)
     assert prompts_all[0]["transition_out"] == "hard"
@@ -2739,33 +2874,38 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     vp_portal = _sample_v8_visual_plan(sents)
     for c_s in vp_portal["clips"]:
         c_s.pop("transition_to_next", None)
-    # Clip 13 (index 12) opens the crystal X-Ray dome from hotel_room_3am Start Frame -> ref_xray_brain_9x16 End Frame
-    vp_portal["clips"][12]["portal_to_brain"] = True
+    # Clip 14 (index 13) opens the crystal X-Ray dome from hotel_room_3am Start Frame -> ref_xray_brain_9x16 End Frame
+    vp_portal["clips"][13]["portal_to_brain"] = True
     vp_portal = populate_expressive_v8_reference_contract(vp_portal, daisy_chain_keyframes=True)
     prompts_portal = build_diorama_v7_prompts(vp_portal, sents)
 
-    c12_p = prompts_portal[11]
-    c13_p = prompts_portal[12]
-    c14_p = prompts_portal[13]
+    c13_room_p = prompts_portal[12]
+    c14_portal_p = prompts_portal[13]
+    c15_brain_p = prompts_portal[14]
     c10_cameo = prompts_portal[9]
-    assert c13_p["portal_to_brain"] is True
-    assert c13_p["flow_input_mode"] == "VIDEO_FRAMES"
-    assert c13_p["keyframe_chain_mode"] == "portal_zoom_to_xray_brain"
-    assert c13_p["full_trajectory_span"] is True
-    assert "kf_13_hotel_room_3am" in str(c13_p["reference_image"])
-    assert str(c13_p["end_reference_image"]).endswith("ref_xray_brain_9x16.png")
-    assert c13_p["start_anchor_id"].startswith("kf_13_hotel_room_3am")
-    assert c13_p["end_anchor_id"] == "ref_xray_brain_9x16"
-    assert "continuous 3d push-in trajectory" in c13_p["prompt"].lower()
-    # Preceding room clip 12 seamlessly daisy-chains its End Frame into clip 13's room Start Frame!
-    assert c12_p["end_reference_image"] == c13_p["reference_image"]
-    assert c12_p["transition_out"] == "daisy_chain_bridge"
-    # Following brain clip 14 seamlessly starts from clip 13's X-Ray End Frame -> ref_xray_brain_2_9x16 End Frame!
-    assert c13_p["end_reference_image"] == c14_p["reference_image"]
-    assert str(c14_p["end_reference_image"]).endswith("ref_xray_brain_2_9x16.png")
-    assert c14_p["flow_input_mode"] == "VIDEO_FRAMES"
-    assert c14_p["keyframe_chain_mode"] == "start_end_interpolation"
-    assert c13_p["transition_out"] == "daisy_chain_bridge"
+    assert c14_portal_p["portal_to_brain"] is True
+    assert c14_portal_p["flow_input_mode"] == "VIDEO_FRAMES"
+    assert c14_portal_p["keyframe_chain_mode"] == "portal_zoom_to_xray_brain"
+    assert c14_portal_p["full_trajectory_span"] is True
+    assert "kf_14_hotel_room_3am" in str(c14_portal_p["reference_image"])
+    assert str(c14_portal_p["end_reference_image"]).endswith("ref_xray_brain_9x16.png")
+    assert c14_portal_p["start_anchor_id"].startswith("kf_14_hotel_room_3am")
+    assert c14_portal_p["end_anchor_id"] == "ref_xray_brain_9x16"
+    from pipeline.depiction_rules import FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD
+
+    assert "3d" in c14_portal_p["prompt"].lower() and "crystal" in c14_portal_p["prompt"].lower()
+    assert FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD in c14_portal_p["prompt"]
+    c14_core = c14_portal_p["prompt"].replace(FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD, "").strip()
+    assert 30 <= len(c14_core.split()) <= cfg.PROMPT_SCENE_WORDS_MAX
+    # Preceding room clip 13 seamlessly daisy-chains its End Frame into clip 14's room Start Frame!
+    assert c13_room_p["end_reference_image"] == c14_portal_p["reference_image"]
+    assert c13_room_p["transition_out"] == "daisy_chain_bridge"
+    # Following brain clip 15 seamlessly starts from clip 14's X-Ray End Frame -> ref_xray_brain_2_9x16 End Frame!
+    assert c14_portal_p["end_reference_image"] == c15_brain_p["reference_image"]
+    assert str(c15_brain_p["end_reference_image"]).endswith("ref_xray_brain_2_9x16.png")
+    assert c15_brain_p["flow_input_mode"] == "VIDEO_FRAMES"
+    assert c15_brain_p["keyframe_chain_mode"] == "start_end_interpolation"
+    assert c14_portal_p["transition_out"] == "daisy_chain_bridge"
     # Cameo clip 10 uses 2-chip VIDEO_REFERENCES mode and never binds end_reference_image
     assert c10_cameo["flow_input_mode"] == "VIDEO_REFERENCES"
     assert c10_cameo["keyframe_chain_mode"] == "dual_reference_ingredients"
@@ -2775,7 +2915,8 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
         "schema": 8,
         "style_profile": "expressive_25d_v8",
         "format_profile": "shorts_expressive_v8",
-        "opening_mode": "situation",
+        "opening_mode": "action",
+        "core_reveal_sentence_index": 14,
         "foil_sentence_indices": [],
         "sentences": sents,
     }
@@ -2839,25 +2980,25 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     )
     rep_portal_dq = verify_final_mp4_against_contract(portal_proj, contract=portal_contract, save_report=False)
     assert rep_portal_dq["gates"]["DQ13_transition_hygiene"]["passed"] is True, rep_portal_dq["gates"]["DQ13_transition_hygiene"]
-    assert rep_portal_dq["gates"]["DQ13_transition_hygiene"]["styled_transition_count"] <= 4
-    assert rep_portal_dq["gates"]["DQ13_transition_hygiene"]["max_alpha_fade_frames"] <= 6
+    assert rep_portal_dq["gates"]["DQ13_transition_hygiene"]["styled_transition_count"] <= cfg.EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS
+    assert rep_portal_dq["gates"]["DQ13_transition_hygiene"]["max_alpha_fade_frames"] <= cfg.EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES
 
     # 2b. Non-daisy portal_to_brain modes (master-only & synthesize_scene_anchors=True) never leak multi-panel sheets into Start/End
     vp_portal_master = _sample_v8_visual_plan(sents)
-    vp_portal_master["clips"][12]["portal_to_brain"] = True
+    vp_portal_master["clips"][13]["portal_to_brain"] = True
     vp_portal_master = populate_expressive_v8_reference_contract(vp_portal_master)
     prompts_portal_master = build_diorama_v7_prompts(vp_portal_master, sents)
-    assert str(prompts_portal_master[12]["reference_image"]).endswith("expressive_conflict_master.png")
-    assert str(prompts_portal_master[12]["end_reference_image"]).endswith("xray_brain75_master.png")
+    assert str(prompts_portal_master[13]["reference_image"]).endswith("expressive_conflict_master.png")
+    assert str(prompts_portal_master[13]["end_reference_image"]).endswith("xray_brain75_master.png")
     assert validate_diorama_v7_prompts(prompts_portal_master, vp_portal_master) == []
 
     vp_portal_synth = _sample_v8_visual_plan(sents)
-    vp_portal_synth["clips"][12]["portal_to_brain"] = True
-    vp_portal_synth["clips"][12]["location_id"] = "sleep_lab_portal_booth"
+    vp_portal_synth["clips"][13]["portal_to_brain"] = True
+    vp_portal_synth["clips"][13]["location_id"] = "sleep_lab_portal_booth"
     vp_portal_synth = populate_expressive_v8_reference_contract(vp_portal_synth, synthesize_scene_anchors=True)
     prompts_portal_synth = build_diorama_v7_prompts(vp_portal_synth, sents)
-    assert str(prompts_portal_synth[12]["reference_image"]).endswith("ref_loc_sleep_lab_portal_booth_9x16.png")
-    assert str(prompts_portal_synth[12]["end_reference_image"]).endswith("ref_xray_brain_9x16.png")
+    assert str(prompts_portal_synth[13]["reference_image"]).endswith("ref_loc_sleep_lab_portal_booth_9x16.png")
+    assert str(prompts_portal_synth[13]["end_reference_image"]).endswith("ref_xray_brain_9x16.png")
     assert validate_diorama_v7_prompts(prompts_portal_synth, vp_portal_synth) == []
 
     # 3. allow_early_brain_override parity between validate_diorama_v7_prompts and verify_pre_flow_contract
@@ -2873,7 +3014,7 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     prompts_early = build_diorama_v7_prompts(vp_early, sents)
     # Blocked by default when allow_early_brain_override is False/omitted
     assert any("premature 3D brain reveal" in x for x in validate_diorama_v7_prompts(prompts_early, vp_early))
-    # Allowed cleanly when allow_early_brain_override=True (while keeping >=1 brain clip in [70-85%])
+    # Allowed cleanly when allow_early_brain_override=True (while keeping >=1 brain clip in [60-85%])
     vp_early["allow_early_brain_override"] = True
     assert validate_diorama_v7_prompts(prompts_early, vp_early) == []
 
@@ -2900,7 +3041,7 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     assert any("cameo turnaround sheet" in x for x in cameo_end_errs), cameo_end_errs
 
     bad_species_start = copy.deepcopy(prompts_portal)
-    bad_species_start[12]["reference_image"] = "03_visuals/reference_images/species_opt1_sheet.png"
+    bad_species_start[13]["reference_image"] = "03_visuals/reference_images/species_opt1_sheet.png"
     species_start_errs = validate_diorama_v7_prompts(bad_species_start, vp_portal)
     assert any("start reference_image" in x and "turnaround/cast sheet" in x for x in species_start_errs), species_start_errs
 
@@ -2914,14 +3055,25 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     (cache_proj / "03_visuals").mkdir(parents=True)
     vp_cache = populate_expressive_v8_reference_contract(_sample_v8_visual_plan(sents))
     (cache_proj / "03_visuals" / "visual_plan.json").write_text(json.dumps(vp_cache, indent=2), encoding="utf-8")
+    def _sign_ref_review_r85(p_root: Path) -> None:
+        sem_p = p_root / "03_visuals" / "reference_images" / "reference_semantic_review.json"
+        sem_doc = json.loads(sem_p.read_text(encoding="utf-8"))
+        sem_doc["reviewer"] = "@Research"
+        for idx_r, (rid, r_ent) in enumerate(sem_doc["images"].items()):
+            r_ent["checks"] = {k: True for k in (r_ent.get("checks") or {})}
+            r_ent["note"] = f"Verified anchor #{idx_r + 1} ({rid}) with clean bald 2.5D vinyl / 4-color brain fidelity."
+        sem_p.write_text(json.dumps(sem_doc, indent=2), encoding="utf-8")
+
     res_init = ensure_expressive_v8_reference_pack(cache_proj)
     assert res_init["cached"] is False
+    assert res_init["status"] == "REVIEW_PENDING"
     assert res_init["total_images"] == 6
+    _sign_ref_review_r85(cache_proj)
     res_hit = ensure_expressive_v8_reference_pack(cache_proj)
     assert res_hit["cached"] is True
 
     # Add a new portal Start keyframe anchor to visual_plan.json (staging its PNG offline) -> must invalidate stale 6-spec cache!
-    custom_fn = "kf_13_hotel_room_3am_portal_9x16.png"
+    custom_fn = "kf_14_hotel_room_3am_portal_9x16.png"
     shutil.copy2(
         cache_proj / "03_visuals" / "reference_images" / "expressive_conflict_master.png",
         cache_proj / "03_visuals" / "reference_images" / custom_fn,
@@ -2929,9 +3081,9 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
     register_reference_image(cache_proj, custom_fn, "flow_image_generation")
     vp_cache["reference_anchors"] = [
         {
-            "ref_id": "kf_13_hotel_room_3am_portal_9x16",
+            "ref_id": "kf_14_hotel_room_3am_portal_9x16",
             "filename": custom_fn,
-            "clip_number": 13,
+            "clip_number": 14,
             "frame": "start",
             "category": "clip_keyframe_anchor",
             "role": "reenactment",
@@ -2946,13 +3098,16 @@ def test_v8_prompt_builder_keyframe_chain_hard_transition_and_9_cameras(tmp_path
             ),
         }
     ]
-    vp_cache["clips"][12]["portal_to_brain"] = True
+    vp_cache["clips"][13]["portal_to_brain"] = True
     (cache_proj / "03_visuals" / "visual_plan.json").write_text(json.dumps(vp_cache, indent=2), encoding="utf-8")
 
     res_rebuilt = ensure_expressive_v8_reference_pack(cache_proj)
     assert res_rebuilt["cached"] is False
-    assert res_rebuilt["pre_generation_ready"] is True
+    assert res_rebuilt["status"] == "REVIEW_PENDING"
+    assert res_rebuilt["cv_pre_generation_ready"] is True
     assert res_rebuilt["total_images"] == 7
+    _sign_ref_review_r85(cache_proj)
+    assert inspect_reference_image_pack(cache_proj)["pre_generation_ready"] is True
     specs_after = json.loads((cache_proj / "03_visuals" / "reference_image_specs.json").read_text(encoding="utf-8"))
     assert any(s.get("filename") == custom_fn for s in specs_after["all_specs"])
     rep_rebuilt = build_and_verify_project_reference_pack(cache_proj)
@@ -2989,73 +3144,104 @@ def test_v8_narration_restructure_empathy_opening_core_reveal_and_myth_flip_cap(
     )
     assert any("myth-flip pattern repeated 3 times" in x for x in old_issues), f"Expected 3x myth-flip failure: {old_issues}"
 
-    # 2. Approved 15-sentence Option A script must PASS with 0 issues AND 0 advisories
+    # 2. Benchmark-aligned 15-sentence R68 script (Action Cold-Open <=12w + Delayed Core Reveal [60-80%] + Climax Cut) must PASS with 0 issues & 0 advisories
     new_15_sents = [
-        "Ever sleep terribly your first night in a hotel?",
-        "You're not alone.",
-        "And no, it's not the bed.",
-        "Half of your brain stayed awake on purpose — standing guard.",
-        "Scientist Yuka Sasaki scanned thirty-five sleepers over their first two nights in a lab.",
+        "At 3 AM in a hotel bed, your eyes snap open!",
+        "Back home, you sleep right through loud street sirens.",
+        "And no, it's not a stiff hotel mattress.",
+        "Your friend laughs and blames that late airport espresso.",
+        "Inside a dark sleep booth, sensors tracked two straight nights.",
         "On night one, the right side sank into deep, quiet sleep.",
         "But the left side? It stayed light, like a guard on watch.",
-        "Play a strange sound, and that left side woke people three times faster — like a tripwire!",
-        "Dolphins and some birds do the same, sleeping with one half of the brain at a time.",
-        "You see, a network on your left side stays on duty all night.",
-        "Your sound center keeps scanning, ready to wake you if anything changes.",
-        "By night two in the same room, the guard stands down, and both halves rest.",
-        "That's why sleep labs often toss out the first night's data.",
-        "So on your next trip, would you pack your own pillowcase — or let the guard keep watch?",
-        "Because that bad first night? That's half your brain keeping you safe.",
+        "Play a strange beep, and that left side woke sleepers three times faster!",
+        "Dolphins and wild ducks do the same on open water at night.",
+        "You try counting sheep, but the left half refuses to power down.",
+        "You see, a hidden network on your left side stays on guard.",
+        "Your sound center keeps scanning, ready to wake you if anything shifts.",
+        "By night two in the same room, the guard finally stands down.",
+        "Both halves sink into deep rest once the room feels safe.",
+        "Because that bad first night means half your head kept you safe.",
     ]
     new_doc = {
-        "opening_mode": "question",
-        "core_reveal_sentence_index": 4,
+        "opening_mode": "action",
+        "core_reveal_sentence_index": 11,
         "foil_sentence_indices": [],
         "omit_experiment_nicknames": ["First-Night Effect", "first-night effect"],
         "sentence_beats": [
-            "question",
-            "empathy",
+            "action_open",
+            "hook_promise",
             "aggro",
+            "conflict",
+            "evidence",
+            "evidence",
+            "escalation",
+            "evidence",
+            "evidence",
+            "setback",
             "core",
-            "evidence",
-            "evidence",
-            "evidence",
-            "evidence",
-            "evidence",
-            "mechanism",
             "mechanism",
             "payoff",
             "payoff",
-            "cta_question",
-            "loop",
+            "climax_cut",
         ],
     }
     rep_ok = validate_script_spine_v8_report(new_15_sents, script_doc=new_doc)
-    assert rep_ok["issues"] == [], f"Unexpected issues on Option A script: {rep_ok['issues']}"
-    assert rep_ok["advisories"] == [], f"Unexpected advisories on Option A script: {rep_ok['advisories']}"
+    assert rep_ok["issues"] == [], f"Unexpected issues on benchmark R68 script: {rep_ok['issues']}"
+    assert rep_ok["advisories"] == [], f"Unexpected advisories on benchmark R68 script: {rep_ok['advisories']}"
 
-    # 3. Non-question S1 without opening_mode -> FAIL; with opening_mode='situation' -> PASS + advisory
-    sit_sents = ["At 3 AM in a hotel bed, your eyes snap wide open!"] + new_15_sents[1:]
-    sit_fail = validate_script_spine_v8_report(sit_sents, script_doc=new_doc)
-    assert any("relatable 2nd-person question ending with '?'" in x for x in sit_fail["issues"]), sit_fail
-    sit_doc = dict(new_doc, opening_mode="situation")
-    sit_pass = validate_script_spine_v8_report(sit_sents, script_doc=sit_doc)
-    assert sit_pass["issues"] == [], f"Expected situation mode pass: {sit_pass['issues']}"
-    assert any("opening_mode='situation'" in a for a in sit_pass["advisories"]), sit_pass["advisories"]
+    # 3. Question S1 in default 'action' mode -> FAIL; with opening_mode='question' -> PASS + advisory
+    q_sents = ["Ever sleep terribly your first night in a hotel?"] + new_15_sents[1:]
+    q_fail = validate_script_spine_v8_report(q_sents, script_doc=new_doc)
+    assert any("not a '?' question" in x for x in q_fail["issues"]), q_fail
+    q_doc = dict(new_doc, opening_mode="question", sentence_beats=["question"] + new_doc["sentence_beats"][1:])
+    q_pass = validate_script_spine_v8_report(q_sents, script_doc=q_doc)
+    assert q_pass["issues"] == [], f"Expected optional question mode pass: {q_pass['issues']}"
+    assert any("opening_mode='question'" in a for a in q_pass["advisories"]), q_pass["advisories"]
 
-    # 4. S1 >= 15 words OR 3rd-person ('he/she/they') question -> FAIL
-    long_s1 = ["Have you ever woken up exhausted on your very first night inside a brand new hotel room?"] + new_15_sents[1:]
-    long_rep = validate_script_spine_v8_report(long_s1, script_doc=new_doc)
-    assert any("words > max 14" in x for x in long_rep["issues"]), long_rep
+    # 4. Action S1 > 30 words, banned empathy filler ("You're not alone"), or spoken outro '?' -> FAIL
+    long_action_s1 = [
+        "At three in the morning inside a strange downtown hotel suite where heavy rain taps against the frosted glass window, your exhausted eyes suddenly snap wide open in total panic right beside the suitcase!"
+    ] + new_15_sents[1:]
+    long_action_rep = validate_script_spine_v8_report(long_action_s1, script_doc=new_doc)
+    assert any("words > max 30" in x for x in long_action_rep["issues"]), long_action_rep
+
+    filler_sents = [new_15_sents[0], "You're not alone."] + new_15_sents[2:]
+    filler_rep = validate_script_spine_v8_report(filler_sents, script_doc=new_doc)
+    assert any("empathy filler" in x for x in filler_rep["issues"]), filler_rep
+
+    # Real study / university context is allowed by default (EXPRESSIVE_V8_FORBID_SPOKEN_CITATIONS=False),
+    # and still blocked when EXPRESSIVE_V8_FORBID_SPOKEN_CITATIONS=True
+    citation_sents = list(new_15_sents)
+    citation_sents[4] = "Scientist Yuka Sasaki scanned thirty-five sleepers across two lab nights."
+    cit_allowed = validate_script_spine_v8_report(citation_sents, script_doc=new_doc)
+    assert not any("academic researcher/citation" in x for x in cit_allowed["issues"]), cit_allowed
+    monkeypatch_prev = cfg.EXPRESSIVE_V8_FORBID_SPOKEN_CITATIONS
+    try:
+        cfg.EXPRESSIVE_V8_FORBID_SPOKEN_CITATIONS = True
+        cit_rep = validate_script_spine_v8_report(citation_sents, script_doc=new_doc)
+        assert any("academic researcher/citation" in x or "sample count" in x for x in cit_rep["issues"]), cit_rep
+    finally:
+        cfg.EXPRESSIVE_V8_FORBID_SPOKEN_CITATIONS = monkeypatch_prev
+
+    outro_q_sents = new_15_sents[:-1] + ["So on your next trip, would you pack your own pillowcase?"]
+    outro_q_rep = validate_script_spine_v8_report(outro_q_sents, script_doc=new_doc)
+    assert any("final sentence ends with '?'" in x for x in outro_q_rep["issues"]), outro_q_rep
+
+    # Question mode S1 > 20 words OR 3rd-person ('he/she/they') question -> FAIL
+    long_s1 = [
+        "Have you ever woken up completely exhausted at three in the morning on your very first night inside an unfamiliar downtown hotel suite?"
+    ] + new_15_sents[1:]
+    long_rep = validate_script_spine_v8_report(long_s1, script_doc=q_doc)
+    assert any("words > max 20" in x for x in long_rep["issues"]), long_rep
 
     third_p_s1 = ["Why do they always wake up tired on their first night in a hotel?"] + new_15_sents[1:]
-    third_rep = validate_script_spine_v8_report(third_p_s1, script_doc=new_doc)
+    third_rep = validate_script_spine_v8_report(third_p_s1, script_doc=q_doc)
     assert any("2nd person" in x for x in third_rep["issues"]), third_rep
 
-    # 5. Core reveal at S5 (> 4) -> FAIL
-    late_core_doc = dict(new_doc, core_reveal_sentence_index=5)
-    late_rep = validate_script_spine_v8_report(new_15_sents, script_doc=late_core_doc)
-    assert any("core_reveal_sentence_index" in x for x in late_rep["issues"]), late_rep
+    # 5. Premature core reveal at S4 (< 60% delayed reveal window S9..S13 for 15 sentences) -> FAIL
+    early_core_doc = dict(new_doc, core_reveal_sentence_index=4)
+    early_rep = validate_script_spine_v8_report(new_15_sents, script_doc=early_core_doc)
+    assert any("core_reveal_sentence_index" in x and "60-80%" in x for x in early_rep["issues"]), early_rep
 
     # 6. Missing escalation pivot ('Wait, what' / 'But ...?') -> PASS + 1 advisory
     no_pivot_sents = list(new_15_sents)

@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Why a 30-minute afternoon nap leaves you feeling hit by a truck—while a 10-minute nap sharpens your brain for 155 minutes.",
+    "core_experiment": "Brooks & Lack (2006) testing exact 5, 10, 20, and 30-minute EEG naps + Lacaux (2021) N1 creative insight study.",
+    "twist": "At 10 minutes you ride light N1/N2 refresh with zero grogginess; at 30 minutes you plunge into deep slow-wave sleep inertia."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 3:00 PM Couch Trap: Why Longer Naps Backfire",
+      "beats": [
+        "Waking worse after 30 minutes",
+        "Flinders University's exact minute-by-minute question"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "hook",
+        "setup"
+      ],
+      "new_shots_needed": [
+        "30-minute sofa slump"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "0, 5, 10, 20, or 30 Minutes: Inside Brooks & Lack's EEG Trial",
+      "beats": [
+        "24 adults after 5 hours of sleep",
+        "Starting the stopwatch at verified EEG sleep onset"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "core_experiment"
+      ],
+      "new_shots_needed": [
+        "5-duration comparison chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "155 Minutes of Sharpness vs The 30-Minute Delta Cliff",
+      "beats": [
+        "Why 5 minutes fails and 10 minutes wins immediately",
+        "Thalamic spindles vs N3 slow-wave inertia"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "3D #27D8FF thalamus-prefrontal refresh"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Edison's Brass Ball & The 378,932-Person Brain Volume Bonus",
+      "beats": [
+        "83% vs 30% insight after 15s in N1 (Science Advances 2021)",
+        "15.8 cm3 larger brain volume in UK Biobank midlife nappers"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough"
+      ],
+      "new_shots_needed": [
+        "brass sphere clatter onto saucer"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "How to Set the Perfect 14-Minute Afternoon Timer",
+      "beats": [
+        "4 minutes to drift off + 10 minutes of light sleep",
+        "Timing before 3:30 PM & stepping into daylight"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit courtyard brisk walk"
+      ]
+    }
+  ],
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Crisp energized adult snapping awake beside a 10-minute brass bell timer vs groggy 30-minute contrast",
+    "right_cyan_brain": "Glowing #27D8FF 3D brain pulsing bright cyan thalamic-prefrontal relays without heavy delta shadow",
+    "badge_text": "10 MIN WINS"
+  },
+  "r75_clean_seed_tags": [
+    "power nap",
+    "10 minute nap",
+    "sleep science",
+    "afternoon slump",
+    "sleep inertia",
+    "brain health",
+    "memory and sleep",
+    "healthy aging",
+    "neuroscience"
+  ]
+}

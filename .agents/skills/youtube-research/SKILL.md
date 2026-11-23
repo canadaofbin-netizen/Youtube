@@ -5,7 +5,7 @@ description: Gear 1 case discovery (Crossref/ClinicalTrials DOIs) and Schema v2 
 
 # youtube-research (AI-Only Spec)
 
-SSOT: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | [research_dossier_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/research_dossier_rules.md) | Code: [`pipeline/research_dossier.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/research_dossier.py), [`pipeline/researcher.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/researcher.py)
+SSOT: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | [research_dossier_v2_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/research_dossier_v2_rules.md) | [knowledge_hub_asset_manifest_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/knowledge_hub_asset_manifest_rules.md) | Code: [`pipeline/research_dossier.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/research_dossier.py), [`pipeline/researcher.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/researcher.py)
 Interpreter: `/home/canadaofbin/hermes-venv/bin/python -X utf8`
 
 ## 1. Discovery & Duplicate Lock (R1, P1, R34)
@@ -23,8 +23,9 @@ Interpreter: `/home/canadaofbin/hermes-venv/bin/python -X utf8`
    - `main.py dossier yt-search --query "<experiment> archival footage"`
    - `main.py dossier yt-analyze --slug <slug> --url <url> --media-id <id> [--section "*mm:ss-mm:ss"]`
    - `main.py dossier audit-media --slug <slug> --write` (4-Gate CV/YuNet/transcript classifier -> `track_a` vs `track_b`).
+   - If `R89` real experiment / supplementary movie fits (`CC BY 4.0` from `PLOS`/`eLife`/`PMC OA`/`Nature Comm` or `17 U.S.C. § 105` intramural federal work), audit strictly via `audit_archival_video_eligibility` (`0` Fair Use, `0` `CC BY-NC/ND/SA`, `0` third-party caption carve-outs, `5fps` `YuNet < 0.42`, `min_frame_diff >= 0.30`; restrict human/minor/classic restricted footage to `track_a` `R67`).
    - If `track_a` (R67): set `reenactment_section` (`MM:SS-MM:SS`) and run `main.py reenact-extract --source <url> --slug <slug> --section <MM:SS-MM:SS>` -> generates `08_reenactment_edl.json` (`shot_count >= 3`, `sanitization_verified: true`, zero source pixels reused; purge `/tmp/aab_reenact` after refs).
-4. **Scene Bible (`03_visual_reference.json`)**: Era, layout/facing, props (`name`, `period_detail`, `physical_behavior`), action verb chain, reactions, `recognition_hook`, `key_visual`, one `iconic` scene.
+4. **Scene Bible & `R80` Spatial Contrast Spec (`03_visual_reference.json`)**: Era, layout/facing, props (`name`, `period_detail`, `physical_behavior`), action verb chain, reactions, `recognition_hook`, `key_visual`, one `iconic` scene, plus `spatial_contrast_spec` (`landmark_or_object_a` vs `landmark_or_object_b` + `arrow_3d_mode` across `adaptive_landmark_zigzag | fixed_linear_corridor | doorway_boundary_sever | dual_speed_race_lanes | split_hemisphere_watch` for `@RicksClips3000` 2-cut landmark-drone -> `90°` `#FF2525` 3D arrow relays).
 5. **Story, Plain Language & Brain Links**:
    - `02_master_story.md` (`>= 6,000` chars, 8 sections) + `dossier.json.debate_ignition` (`prebunk_myth`, binary `open_verdict_question` `... or ...?`, 1st-person `offcenter_creator_bet` `<= 45` chars).
    - `05_plain_language.json` (jargon -> plain gloss -> everyday analogy).

@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "slug": "oconnor_deja_vu_frontal_fact_check",
+  "topic": "Why Déjà Vu Means Your Brain's Fact-Checker Is Working, Not Failing",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "memory",
+  "created_at": "2026-11-16T03:30:00+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Centers on Urquhart and Akira O'Connor's St Andrews fMRI discovery triggering real-time déjà vu inside a brain scanner—contrasting silenced hippocampal true-recall against active anterior cingulate and prefrontal conflict-checking hubs (R78), paired with outdoor unfamiliar-town geometric layout triggers (R72/R79-M).",
+  "setup_18w": "Scientists triggered artificial déjà vu inside a brain scanner using word lists linked to one missing theme.",
+  "primary_doi": "10.1080/09658211.2018.1524496",
+  "primary_case": {
+    "title": "Josephine A. Urquhart & Akira R. O'Connor's University of St Andrews fMRI Déjà Vu Memory-Conflict Study",
+    "year": 2021,
+    "place": "School of Psychology and Neuroscience, University of St Andrews, Scotland, UK",
+    "summary": "To catch fleeting déjà vu live inside an fMRI scanner, Akira O'Connor and Josephine Urquhart presented word lists linked to one unspoken theme word (like pillow, dream, night—without 'sleep'), triggering artificial déjà vu in 16 of 21 healthy adults and revealing that frontal fact-checking regions—not the hippocampus—lit up.",
+    "people": [
+      {
+        "name": "Josephine A. Urquhart, Magali H. Sivakumaran, Jennifer A. Macfarlane & Akira R. O'Connor",
+        "role": "University of St Andrews neuroscientists who engineered the first fMRI laboratory analogue capturing memory-conflict activation during healthy déjà vu",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Anne M. Cleary, Anthony J. Ryals & Jason S. Nomi",
+        "role": "Colorado State University cognitive psychologists who proved spatial layout similarity to a forgotten room triggers eerie familiarity without recall",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Chris Moulin & Fabrice Bartolomei",
+        "role": "Clinical neuropsychologist (2017) and clinical neurophysiologist (2012) who contrasted healthy frontal fact-checked déjà vu against unfact-checked temporal-lobe false recollection",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Stepping into a brand-new restaurant, hotel lobby, or street corner you know for a fact you have never visited—and getting hit by a chill of certainty that you have stood in this exact moment before.",
+    "psychology_experiment": {
+      "source_id": "SRC2",
+      "doi": "10.3758/pbr.16.6.1082",
+      "source_ids": [
+        "SRC2",
+        "SRC1"
+      ],
+      "dois": [
+        "10.3758/pbr.16.6.1082",
+        "10.1080/09658211.2018.1524496"
+      ],
+      "summary": "Cleary, Ryals, and Nomi (2009, Psychonomic Bulletin & Review) showed scenes sharing hidden geometric furniture/alley layouts with forgotten prior scenes trigger strong déjà vu, and Urquhart & O'Connor (2021, Memory) coupled DRM false familiarity with novelty proof in 21 adults."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1080/09658211.2018.1524496",
+      "year": 2021,
+      "source_ids": [
+        "SRC1",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1080/09658211.2018.1524496",
+        "10.4324/9780429296116-9-12"
+      ],
+      "summary": "Urquhart, Sivakumaran, Macfarlane, and O'Connor (2021, Memory; online 2018) imaged 21 adults in fMRI, proving déjà vu activates the anterior cingulate cortex, medial prefrontal cortex, and parietal cortex—the brain's frontal fact-checker overriding a false temporal familiarity spark."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.3758/pbr.16.6.1082",
+        "year": 2009,
+        "summary": "Cleary, Ryals & Nomi (2009, Psychonomic Bulletin & Review) configural-similarity experiment triggering déjà vu via matching scene geometry."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1080/09658211.2018.1524496",
+        "year": 2021,
+        "summary": "Urquhart & O'Connor (2021, Memory) fMRI discovery of anterior cingulate and prefrontal conflict monitoring during experimentally induced déjà vu."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.4324/9780429296116-9-12",
+        "year": 2021,
+        "summary": "Cleary & Brown (2021) synthesis of rhinal familiarity signals versus frontal reality-monitoring during déjà vu."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "For decades, neuroscientists could barely study déjà vu because it strikes unpredictably for a few seconds—until Akira O'Connor and Josephine Urquhart at the University of St Andrews adapted the Deese-Roediger-McDermott missing-theme word test for fMRI.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Volunteers heard clusters of related words like bed, rest, awake, tired, and dream while the central linking word 'sleep' was deliberately left out, then saw explicit proof (such as 'no words started with S') before 'sleep' flashed inside the scanner.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Urquhart, Sivakumaran, Macfarlane, and O'Connor (2021), scientists scanned 21 healthy adults during a modified missing-theme word task, successfully triggering artificial déjà vu inside the fMRI scanner in 16 volunteers while lighting up frontal conflict-checking circuits rather than the hippocampus.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Scanner Deja Vu Cohort",
+        "unit": "adults",
+        "bars": [
+          {
+            "label": "Scanned Volunteers",
+            "value": 21.0,
+            "unit": "adults"
+          },
+          {
+            "label": "Triggered Deja Vu",
+            "value": 16.0,
+            "unit": "adults"
+          }
+        ],
+        "doi": "10.1080/09658211.2018.1524496",
+        "source_citation": "Urquhart & O'Connor (2021)"
+      }
+    },
+    {
+      "fact": "Expecting the hippocampus to light up like a real memory, O'Connor's team instead found fMRI activation concentrated in the anterior cingulate cortex, medial prefrontal cortex, and parietal cortex—the brain's executive conflict-detection network.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Anne Cleary, Anthony Ryals, and Jason Nomi (2009, Psychonomic Bulletin & Review; Bennion et al. 2010) proved what sparks the initial false familiarity in daily life: when a brand-new room shares the exact spatial geometry of a forgotten scene, familiarity fires without recall.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Direct intracranial recordings by Fabrice Bartolomei and colleagues (2012, Clinical Neurophysiology) demonstrated that peripheral rhinal-cortex familiarity signals can misfire out of sync with hippocampal recollection.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Cognitive neuropsychologist Chris Moulin (2017) documented what happens when the frontal fact-checker fails in dementia or frontal injury: patients experience 'déjà vécu,' genuinely believing today's news broadcast or doctor visit already happened yesterday.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Because healthy déjà vu requires a crisp frontal reality-check to catch and veto a false familiarity spark, déjà vu actually becomes less frequent—not more frequent—as normal adults age from their twenties into their fifties and sixties (Cleary & Brown 2021).",
+      "source_id": "SRC6"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "When St Andrews scientists triggered real-time déjà vu inside an fMRI scanner in 16 of 21 volunteers, the hippocampus stayed quiet while frontal fact-checking regions lit up.",
+      "why_surprising": "Déjà vu is not a memory glitch replaying the past—it is your frontal reality-checker catching a false familiarity alarm red-handed.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "If your frontal fact-checker *didn't* fire during that false familiarity spark, you wouldn't feel eerie déjà vu at all—you would calmly believe a false memory (Moulin 2017).",
+      "why_surprising": "That uncanny 3-second chill is the sensation of your brain successfully protecting you from a false memory.",
+      "source_id": "SRC4",
+      "rank": 2
+    },
+    {
+      "fact": "Cleary et al. (2009) triggered déjà vu on demand simply by matching the exact furniture and pathway spacing of an aquarium or courtyard to a completely different forgotten scene.",
+      "why_surprising": "Your temporal lobe recognizes raw 3D room geometry even when you have zero memory of the old place.",
+      "source_id": "SRC2",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Getting déjà vu means your memory circuits are glitching or deteriorating with age.",
+      "truth": "Urquhart & O'Connor (2021) proved déjà vu is a sign of sharp frontal quality control—catching and vetoing a false familiarity signal before you mistake it for a real memory.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Déjà vu happens because one eyeball sends visual signals to the brain milliseconds slower than the other eye.",
+      "truth": "Déjà vu occurs even in people blind from birth via touch, smell, and sound, and fMRI pins the phenomenon to rhinal familiarity versus prefrontal-cingulate conflict resolution (Moulin 2017; Urquhart & O'Connor 2021).",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Walking onto a sunlit vacation plaza or unfamiliar restaurant patio in a city you have never visited and freezing with the uncanny certainty you have stood in that exact angle before.",
+    "Hearing a colleague say half a sentence in a meeting and feeling 100% sure you already lived this exact conversation—while knowing logically it is brand new.",
+    "Feeling reassured in your 40s, 50s, or 60s that an occasional flash of déjà vu means your forehead's reality-checker just audited and rejected a false memory."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "Pop culture calls déjà vu a brain glitch, when fMRI proves it is actually your forehead's fact-checker catching a false familiarity spark in real time.",
+    "open_verdict_question": "When déjà vu hits you in a brand-new place, does it feel like a past memory surfacing or like your brain catching a mismatch?",
+    "offcenter_creator_bet": "My bet: déjà vu means sharp frontal checks — when a room feels eerie, do you trust it or question it?"
+  },
+  "offcenter_creator_bet": "My bet: déjà vu means sharp frontal checks — when a room feels eerie, do you trust it or question it?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

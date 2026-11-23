@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "schultz_dopamine_prediction_error",
   "topic": "Wolfram Schultz, Dayan & Montague (1997): Dopamine Is NOT 'Pleasure' — It's Exact 'Actual Minus Expected' Surprise Math!",
   "pillar": "brain_basics",
@@ -48,7 +48,19 @@
     },
     {
       "fact": "Then comes **Row 3 — Omitted Expected Reward (Cue Flashes to Juice Withheld!)**: the cue light flashes (*'Juice coming in 1.5 seconds!'*), dopamine bursts at the light, and then **NO JUICE DROPS** — at the **exact millisecond** the juice was expected to arrive, VTA dopamine firing **PLUNGES SILENT BELOW BASELINE (Negative Prediction Error, `δ < 0`)**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "sigmoid",
+        "title": "Dopamine Prediction Error",
+        "concept": "VTA Firing vs Reward Surprise",
+        "x_label": "Reward Prediction Error",
+        "y_label": "VTA Dopamine Firing",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Computational neuroscientists **Peter Dayan and Read Montague** stared at Schultz's three rows and gasped: VTA/SNc dopamine neurons were physically computing **Temporal-Difference (TD) Reward Prediction Error (`δ = Actual Outcome − Expected Outcome`)** — the exact mathematical teaching equation invented by **Richard Sutton and Andrew Barto** for **AI Reinforcement Learning** (later powering DeepMind's AlphaGo and Atari agents).",
@@ -64,7 +76,28 @@
     },
     {
       "fact": "Under Schultz, Dayan, and Montague's (1997) reward-prediction-error equation (R - E), receiving a 9-unit outcome when expecting 10 yields a negative prediction error (-1) that suppresses midbrain dopamine firing below baseline.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Reward vs Expectation Gap",
+        "unit": "units",
+        "bars": [
+          {
+            "label": "Expected Reward",
+            "value": 10.0,
+            "unit": "units"
+          },
+          {
+            "label": "Actual Outcome",
+            "value": 9.0,
+            "unit": "units"
+          }
+        ],
+        "doi": "10.1126/science.275.5306.1593",
+        "source_citation": "Schultz, Dayan & Montague (1997)"
+      }
     }
   ],
   "wow_facts": [
@@ -116,5 +149,37 @@
     "diorama_81_schultz_dopamine_prediction_error"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1126/science.275.5306.1593",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling a bigger rush **tracking a package on the delivery map** than looking at the object sitting on your desk three days later (`Cue = +Burst`, `Expected Object = 0`).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.275.5306.1593",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1126/science.275.5306.1593"
+      ],
+      "summary": "Wolfram Schultz, Peter Dayan, P. Read Montague (1997). A Neural Substrate of Prediction and Reward. Science."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.2139/ssrn.4816666",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.2139/ssrn.4816666"
+      ],
+      "summary": "Wolfram Schultz (2024). The Dopamine Reward Prediction Error Signal."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Dopamine is the 'pleasure chemical' that makes food, music, or achievements feel delicious in the moment.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

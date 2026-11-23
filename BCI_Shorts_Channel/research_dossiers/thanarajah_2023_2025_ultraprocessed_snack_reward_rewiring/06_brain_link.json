@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "nucleus accumbens",
+      "plain": "reward center",
+      "function": "firing a supra-additive dopamine surge to combined fat-and-sugar snacks across 8 weeks while downgrading low-fat whole foods",
+      "scene_id": "S1",
+      "narration_bridge": "Primary fMRI reward plasticity hub in Thanarajah et al. 2023 & DiFeliceantonio 2018 (SRC1, SRC2).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "basal ganglia",
+      "plain": "habit engine",
+      "function": "converting a 3 p.m. or 9 p.m. daily pudding/cookie into an automatic cue-triggered dorsal-striatal habit",
+      "scene_id": "S2",
+      "narration_bridge": "Tracks Volkow et al. (2017) & Thanarajah (2023) associative habit learning (SRC1, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "failure",
+      "region": "hypothalamus",
+      "plain": "body thermostat",
+      "function": "suffering blunted brain-insulin fullness signaling that lingers even after returning to normal meals",
+      "scene_id": "S2",
+      "narration_bridge": "Stages Kullmann et al.'s 2025 Nature Metabolism human brain-insulin finding (SRC3).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "reality-checker",
+      "function": "regaining top-down satiety and palate balance when whole single-fuel foods replace daily ultra-processed combos",
+      "scene_id": "S3",
+      "narration_bridge": "Connects Hall et al.'s NIH whole-food trial to everyday habit recovery (SRC4, SRC6).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

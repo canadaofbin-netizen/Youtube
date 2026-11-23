@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "harlow_cloth_mother_attachment",
   "topic": "Harry Harlow (1958): Wire Milk Surrogate vs Soft Terrycloth Contact Comfort",
   "pillar": "brain_health",
@@ -48,7 +48,29 @@
     },
     {
       "fact": "Even when the bare wire frame was the sole source of food, infants spent 15 to 18 hours per day clinging to the milkless cloth mother and less than 1 to 2 hours per day on the wire feeder.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Daily Surrogate Contact Time",
+        "unit": "hr",
+        "bars": [
+          {
+            "label": "Wire Milk Feeder",
+            "value": 2.0,
+            "unit": "hr"
+          },
+          {
+            "label": "Soft Cloth Mother",
+            "value": 18.0,
+            "unit": "hr"
+          }
+        ],
+        "multiplier_badge": "9×",
+        "doi": "10.1037/h0047884",
+        "source_citation": "Harlow (1958)"
+      }
     },
     {
       "fact": "Infant monkeys developed an acrobatic bridge posture: anchoring their hind feet firmly to the soft terrycloth body while stretching their torso across the gap to nurse from the wire bottle.",
@@ -137,5 +159,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "Hard take: comfort beats transactions — infant monkeys clung to soft cloth twenty-two hours a day over cold wire milk. When stressed, do you crave solutions or warm presence?"
+  "offcenter_creator_bet": "Hard take: comfort beats transactions — infant monkeys clung to soft cloth twenty-two hours a day over cold wire milk. When stressed, do you crave solutions or warm presence?",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1037/h0047884",
+  "three_layer_formula": {
+    "everyday_problem": "Why a frightened toddler runs past a full snack table straight into a parent's arms.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0047884",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0047884"
+      ],
+      "summary": "Harry F. Harlow (1958). The nature of love. American Psychologist."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2018",
+      "doi": "10.1007/s40750-016-0052-x",
+      "source_ids": [
+        "SRC_NEURO_2018"
+      ],
+      "dois": [
+        "10.1007/s40750-016-0052-x"
+      ],
+      "summary": "I. Morrison (2016). Keep calm and cuddle on: social touch as a stress buffer. Adaptive Human Behavior and Physiology."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Infants bond with caregivers merely because caregivers dispense milk ('cupboard love' drive-reduction theory).",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hard take: comfort beats transactions — infant monkeys clung to soft cloth twenty-two hours a day over cold wire milk. When stressed, do you crave solutions or warm presence?"
+  }
 }

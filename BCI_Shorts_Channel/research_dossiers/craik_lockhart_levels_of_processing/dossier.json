@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "craik_lockhart_levels_of_processing",
   "topic": "Craik & Lockhart (1972) / Craik & Tulving (1975): Why Deep Meaning Triples Memory Without Even Trying to Memorize",
   "pillar": "brain_basics",
@@ -64,11 +64,57 @@
     },
     {
       "fact": "In Craik and Tulving (1975), answering a deep semantic sentence-fit question took roughly 0.5 to 0.8 seconds (about half a second to 800 milliseconds) yet boosted later word recognition from 17% (case check) to 82%.",
-      "source_id": "SRC4"
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Shallow vs Semantic Recall",
+        "unit": "%",
+        "series": [
+          {
+            "start_label": "Shallow Case",
+            "label": "Deep Semantic",
+            "values": [
+              17.0,
+              82.0
+            ],
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/0096-3445.104.3.268",
+        "source_citation": "Craik & Tulving (1975, JEP: General)"
+      }
     },
     {
       "fact": "In Craik and Tulving's (1975) incidental encoding experiments, unexpected recognition climbed from ~17% after shallow letter-case judgments to ~48% after rhyme judgments and ~82% after 20-second semantic sentence-fit judgments.",
-      "source_id": "SRC4"
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Word Recognition by Depth",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Case Check",
+            "value": 17.0,
+            "unit": "%"
+          },
+          {
+            "label": "Rhyme Check",
+            "value": 48.0,
+            "unit": "%"
+          },
+          {
+            "label": "Meaning Fit",
+            "value": 82.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/0096-3445.104.3.268",
+        "source_citation": "Craik & Tulving (1975, JEP: General)"
+      }
     }
   ],
   "wow_facts": [
@@ -126,5 +172,37 @@
     "diorama_54_craik_lockhart_levels_of_processing"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1016/s0022-5371(72)80001-x",
+  "three_layer_formula": {
+    "everyday_problem": "Reading an entire page of a textbook twice at 11 p.m. while thinking about snacks — shallow font-scanning with 0% semantic encoding.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/s0022-5371(72)80001-x",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/s0022-5371(72)80001-x"
+      ],
+      "summary": "Fergus I.M. Craik, Robert S. Lockhart (1972). Levels of processing: A framework for memory research. Journal of Verbal Learning and Verbal Behavior."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2019",
+      "doi": "10.1016/bs.pbr.2015.04.001",
+      "source_ids": [
+        "SRC_NEURO_2019"
+      ],
+      "dois": [
+        "10.1016/bs.pbr.2015.04.001"
+      ],
+      "summary": "M. Ritchey, L. A. Libby, C. Ranganath (2015). Cortico-hippocampal systems involved in memory and cognition. Progress in Brain Research."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Highlighting textbook sentences in yellow and re-reading notes five times puts knowledge into long-term memory.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

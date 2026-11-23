@@ -1,0 +1,2973 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "v8_3_mode": true,
+  "single_start_frame_default": true,
+  "auto_previs": true,
+  "auto_scene_anchors": true,
+  "daisy_chain_keyframes": false,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "camera_profile": "expressive_dynamic_v8",
+  "core_reveal_sentence_index": 15,
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "project_id": "v8_ep04_patient_sm_fearless_amygdala",
+  "dossier": "feinstein_patient_sm_fearless_amygdala",
+  "dossier_slug": "feinstein_patient_sm_fearless_amygdala",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "anxiety",
+  "title": "Why One Breath Terrified a Fearless Woman",
+  "doi": "10.1016/j.cub.2010.11.042",
+  "secondary_doi": "10.1038/nn.3323",
+  "mechanism_doi": "10.1038/nrn3945",
+  "omit_experiment_nicknames": [],
+  "default_location_id": "iowa_reptile_room",
+  "real_environment": "warm sunlit exotic reptile testing room with glass terrariums, oak counter, and brushed brass lamps",
+  "thumbnail": {
+    "hook_text": "ZERO SNAKE FEAR",
+    "top_left_hook": "ZERO SNAKE FEAR",
+    "bottom_right_hook": "1 BREATH PANIC",
+    "pointer_label": "35% CO2",
+    "pointer_style": "red_arrow",
+    "cover_sentence_index": 1,
+    "cutaway_keyart_prompt": "3D isometric cutaway cross-section of a matte cream-white vinyl patient in teal cardigan inhaling from a clear medical mask tube, translucent glass skull revealing grey inactive amygdala beside a bright glowing coral-red brainstem alarm pathway, dark dramatic studio contrast, zero text",
+    "cover_brief": "3D isometric cutaway of Patient S.M. inhaling 35% CO2 with glowing coral-red brainstem alarm inside translucent glass skull"
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "end_sentence_index": 1,
+      "act": 1,
+      "scene_id": "S01",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "dolly_zoom_vertigo",
+      "location_id": "iowa_reptile_room",
+      "environment": "warm sunlit exotic reptile testing room with glass terrariums, oak counter, and brushed brass lamps",
+      "cast": "a clothed 2.5D matte cream-white vinyl neurologist in a crisp white lab coat and Patient S.M. in a warm teal cardigan",
+      "action": "lifts a smooth emerald-green sculpted snake above the glass terrarium toward Patient S.M.'s open four-fingered hands",
+      "consequence": "her bold charcoal-black 2D ink eyes widen in bright curiosity with a calm cheerful smile",
+      "expression_id": "curious_head_tilt_perk",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.95,
+            1.35
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 36.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -1.45,
+            1.28
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 62.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "a clothed 2.5D matte cream-white vinyl neurologist in a crisp white lab coat",
+            "pos_start": [
+              -0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 18.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "actor_2",
+            "label": "Patient S.M. in a warm teal cardigan",
+            "pos_start": [
+              0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -18.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "a clothed 2.5D matte cream-white vinyl neurologist in a crisp white lab coat",
+            "entity_kind": "actor"
+          },
+          "actor_2": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Patient S.M. in a warm teal cardigan",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_reptile_room_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 8,
+      "locked_spoken_duration_sec": 6.8,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "end_sentence_index": 2,
+      "act": 1,
+      "scene_id": "S02",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "iowa_reptile_room",
+      "environment": "warm sunlit exotic reptile testing room beside a clear glass tarantula terrarium on an oak counter",
+      "cast": "Patient S.M. as a clothed 2.5D matte cream-white vinyl woman in a warm teal cardigan",
+      "action": "cradles the coiled emerald snake calmly in one hand while reaching her other four-fingered hand curiously toward a velvet tarantula",
+      "consequence": "relaxed 2D charcoal-black ink brows stay smooth in peaceful composure",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -1.45,
+            1.28
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 62.0
+        },
+        "camera_end": {
+          "pos": [
+            0.06,
+            -0.68,
+            1.02
+          ],
+          "look_at": [
+            0.0,
+            -0.34,
+            0.75
+          ],
+          "fov_deg": 38.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "Patient S.M. as a clothed 2.5D matte cream-white vinyl woman in a warm teal cardigan",
+            "pos_start": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Patient S.M. as a clothed 2.5D matte cream-white vinyl woman in a warm teal cardigan",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 1
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_reptile_room_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 4.23,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "end_sentence_index": 3,
+      "act": 1,
+      "scene_id": "S03",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "iowa_reptile_room",
+      "environment": "warm sunlit exotic reptile testing room with glass terrariums softly lit in the background",
+      "cast": "female neurologist as a clothed 2.5D matte cream-white vinyl researcher in a white lab coat holding an unmarked brass stopwatch",
+      "action": "raises one matte-white palm cautiously beside the glass terrarium while clicking the brass stopwatch",
+      "consequence": "concerned 2D charcoal-black ink eyebrows angle upward in careful clinical focus",
+      "expression_id": "asymmetric_skeptical_brow",
+      "transition_to_next": "whip_pan_blur_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.06,
+            -0.68,
+            1.02
+          ],
+          "look_at": [
+            0.0,
+            -0.34,
+            0.75
+          ],
+          "fov_deg": 38.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "female neurologist as a clothed 2.5D matte cream-white vinyl researcher in a white lab coat holding an unmarked brass stopwatch",
+            "pos_start": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "female neurologist as a clothed 2.5D matte cream-white vinyl researcher in a white lab coat holding an unmarked brass stopwatch",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 2
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_reptile_room_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.41,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "end_sentence_index": 4,
+      "act": 1,
+      "scene_id": "S04",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "haunted_corridor_set",
+      "environment": "dim moody stone haunted-house corridor lit by warm amber wall sconces and cool theatrical moonlight",
+      "cast": "Patient S.M. in a warm teal cardigan and a costumed monster actor in a dark cloak",
+      "action": "steps briskly around a dark stone corner and playfully pokes the startled monster actor on top of its hood",
+      "consequence": "Patient S.M. grins with cheerful 2D ink eyes while the monster leans back in double-blink surprise",
+      "expression_id": "double_blink_shock",
+      "transition_to_next": "dissolve_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.92,
+            -2.15,
+            1.34
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.88,
+            -2.15,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "Patient S.M. in a warm teal cardigan",
+            "pos_start": [
+              -0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 18.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "actor_2",
+            "label": "a costumed monster actor in a dark cloak",
+            "pos_start": [
+              0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -18.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Patient S.M. in a warm teal cardigan",
+            "entity_kind": "actor"
+          },
+          "actor_2": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "a costumed monster actor in a dark cloak",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_haunted_corridor_set_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 5.22,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 2,
+      "scene_id": "S05",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "gentle_push_in",
+      "location_id": "lecture_study_desk",
+      "environment": "warm walnut academic study desk with unmarked leather volumes and a brass desk lamp",
+      "analogy_object": "a heavy matte-porcelain toggle switch resting beside a stack of unmarked leather volumes",
+      "cast": "a clothed 2.5D matte cream-white vinyl professor in a tweed blazer at the walnut desk",
+      "action": "flips the heavy porcelain toggle switch down into its quiet off position on the walnut desk",
+      "consequence": "confident 2D charcoal-black ink mouth settles into a certain half-smile",
+      "expression_id": "confident_half_smile_lock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.12,
+            -2.45,
+            1.36
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.14
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.05,
+            -1.62,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.18
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "a clothed 2.5D matte cream-white vinyl professor in a tweed blazer at the walnut desk",
+            "pos_start": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.4,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.1,
+              1.55
+            ],
+            "size_xyz": [
+              4.4,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "bookshelf_block",
+            "pos": [
+              -1.35,
+              1.85,
+              1.15
+            ],
+            "size_xyz": [
+              1.1,
+              0.36,
+              2.3
+            ],
+            "color_hex": "#777D88"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.38
+            ],
+            "size_xyz": [
+              1.45,
+              0.72,
+              0.76
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "a clothed 2.5D matte cream-white vinyl professor in a tweed blazer at the walnut desk",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_lecture_study_desk_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.91,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 2,
+      "scene_id": "S06",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "pan_right",
+      "location_id": "iowa_reptile_room",
+      "environment": "warm sunlit exotic reptile testing room with oak counter, glass terrariums, and an unmarked pocket diary",
+      "cast": "Patient S.M. in a warm teal cardigan seated calmly beside the oak counter",
+      "action": "turns crisp pages of an unmarked pocket diary beside a portable projector glow and sets a brass pen down gently",
+      "consequence": "serene 2D charcoal-black ink eyes blink slowly in relaxed poise",
+      "expression_id": "deadpan_blink_pause",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.35,
+            -2.35,
+            1.35
+          ],
+          "look_at": [
+            -0.55,
+            0.15,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.25,
+            -2.35,
+            1.35
+          ],
+          "look_at": [
+            0.55,
+            0.15,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "Patient S.M. in a warm teal cardigan seated calmly beside the oak counter",
+            "pos_start": [
+              0.0,
+              0.08,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Patient S.M. in a warm teal cardigan seated calmly beside the oak counter",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_reptile_room_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 8,
+      "locked_spoken_duration_sec": 6.78,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 7,
+      "end_sentence_index": 7,
+      "act": 2,
+      "scene_id": "S07",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "iowa_observation_booth",
+      "environment": "cool slate-blue neurology observation booth with a wide glass viewing window and oak console",
+      "cast": "two clothed 2.5D matte cream-white vinyl neurologists in white lab coats behind the observation glass",
+      "action": "lean both elbows on the oak console and exchange a puzzled glance across the glass window",
+      "consequence": "skeptical 2D charcoal-black ink brows furrow in deep scientific curiosity",
+      "expression_id": "squint_suspicion_lean",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.92,
+            -2.15,
+            1.34
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.88,
+            -2.15,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "two clothed 2.5D matte cream-white vinyl neurologists in white lab coats behind the observation glass",
+            "pos_start": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "leaning",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.8,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#838890"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.1,
+              1.55
+            ],
+            "size_xyz": [
+              4.8,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#969BA4"
+          },
+          {
+            "block_id": "observation_glass_frame",
+            "pos": [
+              0.0,
+              -0.55,
+              1.35
+            ],
+            "size_xyz": [
+              2.4,
+              0.08,
+              1.15
+            ],
+            "color_hex": "#B4B9C2"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.45,
+              0.42
+            ],
+            "size_xyz": [
+              2.4,
+              0.55,
+              0.84
+            ],
+            "color_hex": "#757B86"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "two clothed 2.5D matte cream-white vinyl neurologists in white lab coats behind the observation glass",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_observation_booth_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 3.85,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 8,
+      "end_sentence_index": 8,
+      "act": 3,
+      "scene_id": "S08",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "iowa_breathing_lab",
+      "environment": "clean sunlit University of Iowa respiratory neurology lab with brushed-steel breathing valve and blue medical chair",
+      "cast": "lead neurologist in a crisp white lab coat lifting a clear silicone breathing mask connected to a flexible tube",
+      "action": "holds up the clear silicone breathing mask at chest height as a brass valve clicks open",
+      "consequence": "2D charcoal-black ink eyes lock forward in sharp anticipation",
+      "expression_id": "curious_head_tilt_perk",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.36,
+            -2.5,
+            1.38
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.16
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "lead neurologist in a crisp white lab coat lifting a clear silicone breathing mask connected to a flexible tube",
+            "pos_start": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "lead neurologist in a crisp white lab coat lifting a clear silicone breathing mask connected to a flexible tube",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_breathing_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.44,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 9,
+      "end_sentence_index": 9,
+      "act": 3,
+      "scene_id": "S09",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "iowa_breathing_lab",
+      "environment": "clean University of Iowa respiratory neurology lab around the blue medical exam chair",
+      "cast": "Patient S.M. in a warm teal cardigan seated in the blue medical exam chair with a neurologist beside her",
+      "action": "presses the clear silicone breathing mask gently over her mouth and inhales one deep breath through the corrugated tube",
+      "consequence": "her 2D charcoal-black ink pupils shrink to pinpoints as her eyebrows shoot straight up",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.06,
+            -0.68,
+            1.02
+          ],
+          "look_at": [
+            0.0,
+            -0.34,
+            0.75
+          ],
+          "fov_deg": 38.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "Patient S.M. in a warm teal cardigan seated in the blue medical exam chair with a neurologist beside her",
+            "pos_start": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Patient S.M. in a warm teal cardigan seated in the blue medical exam chair with a neurologist beside her",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 8
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_breathing_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 8,
+      "locked_spoken_duration_sec": 7.18,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 10,
+      "end_sentence_index": 10,
+      "act": 3,
+      "scene_id": "S10",
+      "grammar": "expressive_cameo_world",
+      "cameo_easter_egg": true,
+      "cameo_placement": "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly on the stainless-steel instrument shelf in the background",
+      "camera_move": "dolly_zoom_vertigo",
+      "location_id": "iowa_breathing_lab",
+      "environment": "clean University of Iowa respiratory neurology lab with stainless-steel instrument shelf and blue medical chair",
+      "cast": "Patient S.M. in a warm teal cardigan gripping the armrests of the blue exam chair as the neurologist steps in",
+      "action": "pulls the clear silicone breathing mask away with both four-fingered hands while gasping forward in the chair",
+      "consequence": "wide startled 2D charcoal-black ink eyes show sudden air-hunger alarm beside a tiny 4cm Mini-Cortex figurine on the steel shelf",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.06,
+            -0.68,
+            1.02
+          ],
+          "look_at": [
+            0.0,
+            -0.34,
+            0.75
+          ],
+          "fov_deg": 38.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -1.45,
+            1.28
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 62.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "Patient S.M. in a warm teal cardigan gripping the armrests of the blue exam chair as the neurologist steps in",
+            "pos_start": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "mini_cortex",
+            "label": "mini_cortex",
+            "pos_start": [
+              1.45,
+              1.78,
+              1.22
+            ],
+            "pos_end": [
+              1.45,
+              1.78,
+              1.22
+            ],
+            "height_m": 0.22,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -20.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Patient S.M. in a warm teal cardigan gripping the armrests of the blue exam chair as the neurologist steps in",
+            "entity_kind": "actor"
+          },
+          "mini_cortex": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "mini_cortex",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 9
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "reference_image": "03_visuals/reference_images/ref_cameo_9x16.png",
+      "secondary_reference_image": "03_visuals/reference_images/cameo_opt3_sheet.png",
+      "reference_images": [
+        "03_visuals/reference_images/ref_cameo_9x16.png",
+        "03_visuals/reference_images/cameo_opt3_sheet.png"
+      ],
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 3.9,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 3,
+      "scene_id": "S11",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "pan_left",
+      "location_id": "iowa_breathing_lab",
+      "environment": "clean University of Iowa respiratory neurology lab with two side-by-side blue clinical chairs and breathing tubes",
+      "cast": "two additional clothed 2.5D matte cream-white vinyl clinical participants in navy and olive sweaters with a lab-coat neurologist",
+      "action": "sit upright in the blue clinical chairs as the neurologist connects fresh clear breathing masks to the valve manifold",
+      "consequence": "attentive 2D charcoal-black ink eyes watch the clear tubing closely",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -1.45,
+            1.28
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 62.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.25,
+            -2.35,
+            1.35
+          ],
+          "look_at": [
+            -0.55,
+            0.15,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "two additional clothed 2.5D matte cream-white vinyl clinical participants in navy",
+            "pos_start": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 18.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "actor_2",
+            "label": "olive sweaters with a lab-coat neurologist",
+            "pos_start": [
+              0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -18.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "two additional clothed 2.5D matte cream-white vinyl clinical participants in navy",
+            "entity_kind": "actor"
+          },
+          "actor_2": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "olive sweaters with a lab-coat neurologist",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 10
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_breathing_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 5.16,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 3,
+      "scene_id": "S12",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "iowa_breathing_lab",
+      "environment": "clean University of Iowa respiratory neurology lab focused on the participant in the navy sweater",
+      "cast": "clothed 2.5D matte cream-white vinyl participant in a navy knit sweater seated in the blue exam chair",
+      "action": "lifts the clear breathing mask briskly away from the face and presses one four-fingered hand over the chest",
+      "consequence": "shocked 2D charcoal-black ink eyebrows arch high in sudden air-hunger alarm",
+      "expression_id": "double_blink_shock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.25,
+            -2.35,
+            1.35
+          ],
+          "look_at": [
+            -0.55,
+            0.15,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl participant in a navy knit sweater seated in the blue exam chair",
+            "pos_start": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl participant in a navy knit sweater seated in the blue exam chair",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 11
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_breathing_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 3.87,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 3,
+      "scene_id": "S13",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "iowa_breathing_lab",
+      "environment": "clean University of Iowa respiratory neurology lab showing the neurologist comforting the participant beside the breathing cart",
+      "cast": "neurologist in a white lab coat resting a reassuring hand on Patient S.M.'s shoulder beside the breathing valve cart",
+      "action": "offers a cup of cool water as the clear breathing mask rests safely on the steel tray",
+      "consequence": "stunned 2D charcoal-black ink eyes blink in wide scientific realization",
+      "expression_id": "wide_eureka_realization",
+      "transition_to_next": "dissolve_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.88,
+            -2.15,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "neurologist in a white lab coat resting a reassuring hand on Patient S.M.'s shoulder beside the breathing valve cart",
+            "pos_start": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "neurologist in a white lab coat resting a reassuring hand on Patient S.M.'s shoulder beside the breathing valve cart",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 12
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_iowa_breathing_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 9,
+      "locked_spoken_duration_sec": 7.97,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 14,
+      "end_sentence_index": 14,
+      "act": 4,
+      "scene_id": "S14",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "gentle_push_in",
+      "location_id": "dual_alarm_studio",
+      "environment": "sculpted architectural tabletop studio displaying two distinct brass bell alarms — a still outer window bell and a glowing crimson inner pipe valve alarm",
+      "analogy_object": "two separate mechanical alarms — a quiet outer brass bell beside a pulsing crimson inner air-pipe alarm",
+      "cast": "a clothed 2.5D matte cream-white vinyl neurologist in a slate blazer standing behind the architectural alarm model",
+      "action": "points to the silent outer brass bell while the crimson inner air-pipe valve pulses brightly beside it",
+      "consequence": "focused 2D charcoal-black ink eyes narrow in crisp eureka clarity",
+      "expression_id": "wide_eureka_realization",
+      "transition_to_next": "portal_crash_zoom_10f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.12,
+            -2.45,
+            1.36
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.14
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.05,
+            -1.62,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.18
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "a clothed 2.5D matte cream-white vinyl neurologist in a slate blazer standing behind the architectural alarm model",
+            "pos_start": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "a clothed 2.5D matte cream-white vinyl neurologist in a slate blazer standing behind the architectural alarm model",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_dual_alarm_studio_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 4.11,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 4,
+      "scene_id": "S15",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": false,
+      "brain_region": "amygdala",
+      "camera_move": "gentle_push_in",
+      "location_id": "xray_brain_observatory",
+      "environment": "deep midnight-navy studio void showcasing an isolated semi-transparent frosted-glass 3D human brain",
+      "cast": "standalone isolated semi-transparent frosted-glass 3D human brain with folded gyri, cerebellum, and brainstem",
+      "action": "camera pushes in smoothly as twin almond-shaped amygdala hubs deep inside the temporal lobes glow warm amber-gold",
+      "consequence": "delicate cyan-blue sensory arcs sweep from the outer cortex toward the deep temporal amygdala hubs",
+      "transition_to_next": "action_impact_cut",
+      "single_start_frame_lock": true,
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.22,
+            -1.15,
+            1.5736
+          ],
+          "look_at": [
+            0.0,
+            0.08,
+            1.5136
+          ],
+          "fov_deg": 40.0
+        },
+        "camera_end": {
+          "pos": [
+            0.18,
+            -0.62,
+            1.5536
+          ],
+          "look_at": [
+            0.0,
+            0.08,
+            1.5336
+          ],
+          "fov_deg": 34.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "standalone isolated semi-transparent frosted-glass 3D human brain with folded gyri",
+            "pos_start": [
+              -0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 18.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "cerebellum",
+            "label": "cerebellum",
+            "pos_start": [
+              0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -18.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          },
+          {
+            "role_id": "actor_3",
+            "label": "and brainstem",
+            "pos_start": [
+              0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -18.0,
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#808690"
+          },
+          {
+            "block_id": "curved_backdrop",
+            "pos": [
+              0.0,
+              2.25,
+              1.6
+            ],
+            "size_xyz": [
+              4.6,
+              0.18,
+              3.2
+            ],
+            "color_hex": "#9298A2"
+          },
+          {
+            "block_id": "pedestal_plinth",
+            "pos": [
+              0.0,
+              0.05,
+              0.35
+            ],
+            "size_xyz": [
+              0.9,
+              0.9,
+              0.7
+            ],
+            "color_hex": "#767C87"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "standalone isolated semi-transparent frosted-glass 3D human brain with folded gyri",
+            "entity_kind": "actor"
+          },
+          "cerebellum": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "cerebellum",
+            "entity_kind": "actor"
+          },
+          "actor_3": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "and brainstem",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png",
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.79,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 4,
+      "scene_id": "S16",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": false,
+      "brain_region": "brainstem",
+      "camera_move": "gentle_push_in",
+      "location_id": "xray_brain_observatory",
+      "environment": "deep midnight-navy studio void showcasing the isolated semi-transparent frosted-glass 3D human brain in elevated profile",
+      "cast": "standalone isolated semi-transparent frosted-glass 3D human brain with rim-lit cortical folds and glowing brainstem",
+      "action": "deep crimson-red chemical alarm pulses ignite at the lower brainstem and surge rapidly upward through the translucent core",
+      "consequence": "crimson-red urgent alarm waves radiate cleanly up from the brainstem while outer temporal hubs stay dim",
+      "transition_to_next": "dissolve_8f",
+      "single_start_frame_lock": true,
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.18,
+            -0.62,
+            1.5536
+          ],
+          "look_at": [
+            0.0,
+            0.08,
+            1.5336
+          ],
+          "fov_deg": 34.0
+        },
+        "camera_end": {
+          "pos": [
+            0.18,
+            -0.62,
+            1.5536
+          ],
+          "look_at": [
+            0.0,
+            0.08,
+            1.5336
+          ],
+          "fov_deg": 34.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "standalone isolated semi-transparent frosted-glass 3D human brain with rim-lit cortical folds",
+            "pos_start": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              -0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 18.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "actor_2",
+            "label": "glowing brainstem",
+            "pos_start": [
+              0.46,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.41000000000000003,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -18.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#808690"
+          },
+          {
+            "block_id": "curved_backdrop",
+            "pos": [
+              0.0,
+              2.25,
+              1.6
+            ],
+            "size_xyz": [
+              4.6,
+              0.18,
+              3.2
+            ],
+            "color_hex": "#9298A2"
+          },
+          {
+            "block_id": "pedestal_plinth",
+            "pos": [
+              0.0,
+              0.05,
+              0.35
+            ],
+            "size_xyz": [
+              0.9,
+              0.9,
+              0.7
+            ],
+            "color_hex": "#767C87"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "standalone isolated semi-transparent frosted-glass 3D human brain with rim-lit cortical folds",
+            "entity_kind": "actor"
+          },
+          "actor_2": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "glowing brainstem",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 15
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png",
+      "render_sec": 9,
+      "locked_spoken_duration_sec": 7.87,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 17,
+      "end_sentence_index": 17,
+      "act": 5,
+      "scene_id": "S17",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "crane_swoop_dive",
+      "location_id": "sunlit_office_desk",
+      "environment": "quiet sunlit modern home office with warm oak desk, potted fern, and closed laptop",
+      "cast": "a clothed 2.5D matte cream-white vinyl young adult in a soft oatmeal sweater seated at the calm desk",
+      "action": "suddenly presses one four-fingered hand against the center of the chest and sits bolt upright in the quiet room",
+      "consequence": "startled 2D charcoal-black ink eyes dart wide inside the peaceful sunlit room",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.35,
+            -2.55,
+            2.95
+          ],
+          "look_at": [
+            0.0,
+            -0.15,
+            0.95
+          ],
+          "fov_deg": 54.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1,
+            -1.25,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            -0.22,
+            0.82
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "a clothed 2.5D matte cream-white vinyl young adult in a soft oatmeal sweater seated at the calm desk",
+            "pos_start": [
+              0.0,
+              0.08,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "a clothed 2.5D matte cream-white vinyl young adult in a soft oatmeal sweater seated at the calm desk",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_sunlit_office_desk_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.48,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 18,
+      "end_sentence_index": 18,
+      "act": 5,
+      "scene_id": "S18",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "sunlit_office_desk",
+      "environment": "quiet sunlit modern home office with soft daylight streaming through wooden blinds",
+      "cast": "the clothed 2.5D matte cream-white vinyl young adult in the oatmeal sweater",
+      "action": "takes quick shallow upper-chest breaths with shoulders raised tightly near the collarbone",
+      "consequence": "tense 2D charcoal-black ink eyebrows pinch together in confused discomfort",
+      "expression_id": "frustrated_brow_furrow",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.1,
+            -1.25,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            -0.22,
+            0.82
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "the clothed 2.5D matte cream-white vinyl young adult in the oatmeal sweater",
+            "pos_start": [
+              0.05,
+              0.04,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "the clothed 2.5D matte cream-white vinyl young adult in the oatmeal sweater",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 17
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_sunlit_office_desk_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.59,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 19,
+      "end_sentence_index": 19,
+      "act": 6,
+      "scene_id": "S19",
+      "grammar": "expressive_pov_hands",
+      "camera_move": "tilt_up",
+      "location_id": "sunlit_office_desk",
+      "environment": "warm sunlit home office beside an open window with gentle golden breeze moving sheer curtains",
+      "cast": "the clothed 2.5D matte cream-white vinyl young adult in the oatmeal sweater",
+      "action": "rests both four-fingered hands low over the ribs and lets the shoulders drop in a long, slow, steady exhale",
+      "consequence": "2D charcoal-black ink eyebrows relax downward into calm steady focus",
+      "expression_id": "relieved_exhale_soft_eyes",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.144,
+            -1.65,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.2
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.04,
+            0.12,
+            1.508
+          ],
+          "look_at": [
+            0.25,
+            0.95,
+            0.82
+          ],
+          "fov_deg": 54.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "the clothed 2.5D matte cream-white vinyl young adult in the oatmeal sweater",
+            "pos_start": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "reaching",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "the clothed 2.5D matte cream-white vinyl young adult in the oatmeal sweater",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 18
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_sunlit_office_desk_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.75,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 6,
+      "scene_id": "S20",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "sunlit_office_desk",
+      "environment": "warm sunlit home office beside an open window overlooking green trees in golden afternoon light",
+      "cast": "the calm 2.5D matte cream-white vinyl young adult in the oatmeal sweater standing peacefully by the open window",
+      "action": "lifts a warm ceramic mug gently with both hands while breathing evenly in the golden window light",
+      "consequence": "warm 2D charcoal-black ink eyes settle into a grounded, confident half-smile",
+      "expression_id": "confident_half_smile_lock",
+      "transition_to_next": "dissolve_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.04,
+            0.12,
+            1.508
+          ],
+          "look_at": [
+            0.25,
+            0.95,
+            0.82
+          ],
+          "fov_deg": 54.0
+        },
+        "camera_end": {
+          "pos": [
+            0.88,
+            -2.15,
+            1.3
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            1.15
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "the calm 2.5D matte cream-white vinyl young adult in the oatmeal sweater standing peacefully by the open window",
+            "pos_start": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.05,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "the calm 2.5D matte cream-white vinyl young adult in the oatmeal sweater standing peacefully by the open window",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 19
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_sunlit_office_desk_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 8,
+      "locked_spoken_duration_sec": 6.79,
+      "forbid_slowmo_stretch": true
+    }
+  ],
+  "require_signature_hooks": true,
+  "us_anti_clone_v7": true,
+  "reenactment_track": "track_b",
+  "environment_props": [
+    "a tactile brushed-metal experimental instrument on a wooden desk"
+  ],
+  "cast": {
+    "subject": "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire",
+    "foil": "2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire"
+  },
+  "reference_anchors": [
+    {
+      "ref_id": "ref_loc_iowa_reptile_room_9x16",
+      "filename": "ref_loc_iowa_reptile_room_9x16.png",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "iowa_reptile_room",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm sunlit exotic reptile testing room with glass terrariums, oak counter, and brushed brass lamps with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_haunted_corridor_set_9x16",
+      "filename": "ref_loc_haunted_corridor_set_9x16.png",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "haunted_corridor_set",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of dim moody stone haunted-house corridor lit by warm amber wall sconces and cool theatrical moonlight with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_lecture_study_desk_9x16",
+      "filename": "ref_loc_lecture_study_desk_9x16.png",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "lecture_study_desk",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm walnut academic study desk with unmarked leather volumes and a brass desk lamp with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_iowa_observation_booth_9x16",
+      "filename": "ref_loc_iowa_observation_booth_9x16.png",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "iowa_observation_booth",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of cool slate-blue neurology observation booth with a wide glass viewing window and oak console with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_iowa_breathing_lab_9x16",
+      "filename": "ref_loc_iowa_breathing_lab_9x16.png",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "iowa_breathing_lab",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean sunlit University of Iowa respiratory neurology lab with brushed-steel breathing valve and blue medical chair with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_dual_alarm_studio_9x16",
+      "filename": "ref_loc_dual_alarm_studio_9x16.png",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "dual_alarm_studio",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of sculpted architectural tabletop studio displaying two distinct brass bell alarms — a still outer window bell and a glowing crimson inner pipe valve alarm with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_sunlit_office_desk_9x16",
+      "filename": "ref_loc_sunlit_office_desk_9x16.png",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "sunlit_office_desk",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of quiet sunlit modern home office with warm oak desk, potted fern, and closed laptop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "filename": "ref_cameo_9x16.png",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "setting": "real_env",
+      "location_id": "iowa_breathing_lab",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of clean University of Iowa respiratory neurology lab with stainless-steel instrument shelf and blue medical chair featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly on the stainless-steel instrument shelf in the background, cinema key-and-rim lighting, zero floating captions."
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "filename": "ref_xray_brain_9x16.png",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "setting": "brain_studio",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void (#050811): an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, electric cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text."
+    }
+  ],
+  "audio_before_flow_locked": true
+}

@@ -1,121 +1,167 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "melzack_wall_pain_gate",
-  "topic": "Ronald Melzack & Patrick Wall (1965): Spinal Gate Control Theory of Pain",
+  "topic": "Why Rubbing a Bumped Shin Physically Slams Your Spinal Pain Gate Shut",
   "pillar": "brain_basics",
+  "everyday_domain": "anxiety",
   "created_at": "2026-10-25T22:49:29+00:00",
   "status": "ready",
   "visual_mode": "NEURO_BIOLOGY",
-  "visual_mode_reason": "Understanding why rubbing a stubbed shin dulls pain requires visualizing fast thick A-beta touch fibers recruiting inhibitory interneurons in the spinal dorsal horn to gate slow C-fiber nociceptive transmission before signals climb to somatosensory cortex.",
+  "visual_mode_reason": "Explaining why rubbing a bumped shin or pressing warmth onto a stiff lower back dulls sharp ache requires showing fast myelinated touch fibers and descending brainstem signals closing the spinal gate before pain floods the thalamus and somatosensory cortex.",
+  "setup_18w": "MIT researchers tested gentle high-speed touch pulses on bare forearms to block slower incoming pain signals.",
+  "three_layer_formula": {
+    "everyday_problem": "Adults aged 35 to 65+ instinctively rub a bumped shin on a coffee table or press a warm hand against a flaring lower back, yet assume the relief is 'just mental distraction' rather than real spinal nerve gating.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.150.3699.971",
+      "source_ids": [
+        "SRC1",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1126/science.150.3699.971",
+        "10.1017/s081348390000718x"
+      ],
+      "summary": "Ronald Melzack & Patrick D. Wall (1965, Science) overturned 300 years of Cartesian bell-rope pain dogma by demonstrating dorsal-horn substantia gelatinosa gating between fast A-beta touch fibers, slow C pain fibers, and descending brain control."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2015",
+      "doi": "10.1016/j.cell.2014.11.003",
+      "year": 2015,
+      "source_ids": [
+        "SRC_NEURO_2015"
+      ],
+      "dois": [
+        "10.1016/j.cell.2014.11.003"
+      ],
+      "summary": "Bo Duan, Longzhen Cheng, Steeve Bourane, Olivier Britz et al. (2015, Cell) genetically mapped the exact dorsal-horn somatostatin and dynorphin inhibitory interneuron microcircuits that transmit and gate mechanical pain."
+    },
+    "psychology_studies": [
+      "SRC1",
+      "SRC4"
+    ],
+    "neuroscience_studies": [
+      "SRC_NEURO_2015"
+    ]
+  },
   "primary_case": {
-    "title": "Ronald Melzack & Patrick Wall's 1965 MIT Science synthesis & dorsal-horn substantia gelatinosa gate model",
+    "title": "Ronald Melzack & Patrick Wall's 1965 MIT Spinal Gate Control Discovery & Self-Tested Forearm Nerve Gating",
     "year": 1965,
     "place": "Massachusetts Institute of Technology (MIT), Cambridge, Massachusetts",
     "people": [
       {
         "name": "Ronald Melzack",
-        "role": "Canadian physiological psychologist whose clinical observations of phantom pain and wartime injury defied Cartesian 'alarm-wire' dogma",
+        "role": "Canadian physiological psychologist whose clinical studies of adult phantom-limb pain and chronic back pain exposed the failure of Descartes's straight-wire pain model",
         "source_id": "SRC1"
       },
       {
         "name": "Patrick D. Wall",
-        "role": "British neurophysiologist at MIT who mapped single-unit dorsal-horn spinal cord convergence of large tactile and small pain fibers",
+        "role": "British neurophysiologist at MIT who recorded dorsal-horn spinal convergence and tested high-frequency tactile nerve buzzing on his own arm to invent TENS pain relief",
         "source_id": "SRC1"
       },
       {
-        "name": "Henry K. Beecher",
-        "role": "Harvard anesthesiologist whose Anzio beachhead soldiers (feeling minimal pain despite severe wounds) inspired Melzack's descending brain-control pathway",
-        "source_id": "SRC1"
+        "name": "Bo Duan, Martyn Goulding & Qiufu Ma",
+        "role": "Modern molecular neurobiologists whose 2015 Cell genetic circuit dissection pinpointed the exact dynorphin inhibitory interneurons implementing Melzack and Wall's spinal gate",
+        "source_id": "SRC_NEURO_2015"
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "Published in Science on November 19, 1965, by MIT colleagues Ronald Melzack and Patrick Wall, Gate Control Theory overthrown 300 years of René Descartes's 'bell-rope' pain model.",
+      "fact": "Published in Science on November 19, 1965 by MIT colleagues Ronald Melzack and Patrick Wall, Gate Control Theory overturned 300 years of René Descartes's 1664 'bell-rope' model claiming pain travels up an unchangeable wire from skin straight to the head.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Before 1965, medicine assumed pain traveled up a dedicated, unmodifiable wire from skin injury straight to a pain bell in the brain — leaving doctors dismissing chronic or phantom pain patients as 'hysterical'.",
+      "fact": "Before 1965, physicians routinely dismissed middle-aged and older adults with fluctuating chronic back pain or post-amputation phantom pain as anxious or exaggerating whenever X-rays looked unchanged.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Melzack and Wall proposed a physiological 'gate' inside the substantia gelatinosa (lamina II) of the spinal cord dorsal horn that modulates sensory input BEFORE it triggers central transmission ('T') cells.",
+      "fact": "Melzack and Wall identified a biological checkpoint inside the substantia gelatinosa (lamina II) of the spinal cord dorsal horn that turns incoming sensory traffic up or down BEFORE it excites central transmission ('T') neurons.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Thin unmyelinated C-fibers and thinly myelinated A-delta fibers (carrying slow burning and sharp nociceptive signals at ~0.5-30 m/s) inhibit the inhibitory interneurons — swinging the spinal gate OPEN so pain ascends.",
+      "fact": "Inside the peripheral nervous system mapped by Melzack and Wall, thick myelinated A-beta touch fibers race toward the spinal cord gate at up to 100 meters per second, while thin unmyelinated C-fibers carry throbbing ache signals at roughly 2 meters per second.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Nerve Signal Speed Race",
+        "unit": "m/s",
+        "bars": [
+          {
+            "label": "Fast Touch Fiber",
+            "value": 100.0,
+            "unit": "m/s"
+          },
+          {
+            "label": "Slow Pain Fiber",
+            "value": 2.0,
+            "unit": "m/s"
+          }
+        ],
+        "doi": "10.1126/science.150.3699.971",
+        "source_citation": "Melzack & Wall (1965)"
+      }
+    },
+    {
+      "fact": "Because thick A-beta touch fibers travel roughly 50 times faster than slow C pain fibers, vigorously rubbing a bumped shin or pressing vibration onto sore muscles arrives at the spinal dorsal horn first and excites inhibitory interneurons that slam the pain gate shut.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Thick, heavily myelinated A-beta fibers (carrying non-painful touch, rubbing, vibration, and pressure at up to 70-100 m/s) race ahead and excite those substantia gelatinosa interneurons — swinging the spinal gate CLOSED.",
+      "fact": "Melzack and Wall also mapped a 'Central Control Trigger': fast dorsal-column signals alert the prefrontal cortex, anterior cingulate, and brainstem, sending top-down fibers down the spine to close the gate during intense focus or prop it wide open during anxious dread.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Crucially, Melzack and Wall added a 'Central Control Trigger': fast dorsal-column signals alert the brain (prefrontal cortex, anterior cingulate, and brainstem periaqueductal gray), which sends descending fibers back down the spine to open or slam the gate based on attention, fear, or relief.",
-      "source_id": "SRC1"
+      "fact": "Within 24 months of their 1965 Science paper, Patrick Wall and Boston neurosurgeon William Sweet stimulated their own large-diameter forearm touch nerves with gentle electrical pulses — inventing Transcutaneous Electrical Nerve Stimulation (TENS) and modern spinal cord stimulators.",
+      "source_id": "SRC2"
     },
     {
-      "fact": "Within two years of the 1965 paper, Wall and neurosurgeon William Sweet tested the theory directly on themselves by stimulating their own peripheral large-diameter nerves with mild electricity — launching Transcutaneous Electrical Nerve Stimulation (TENS) and spinal cord stimulators.",
-      "source_id": "SRC1"
-    },
-    {
-      "fact": "Subsequent intracellular electrophysiology refined exact circuit polarity (showing certain C-fiber hyperpolarization details in the 1965 diagram acted postsynaptically and via opioid/GABAergic interneurons), while validating dorsal-horn gating as the cornerstone of modern pain science.",
-      "source_id": "SRC4"
+      "fact": "Fifty years later in Cell (2015), Bo Duan and colleagues genetically isolated the exact somatostatin excitatory and dynorphin inhibitory dorsal-horn interneurons predicted by Melzack and Wall, proving why losing those inhibitory gatekeepers turns light everyday touch into searing neuropathic pain.",
+      "source_id": "SRC_NEURO_2015"
     }
   ],
   "wow_facts": [
     {
-      "fact": "Every time you instinctively rub a banged elbow or shake a pinched finger, you are exploiting a 100-meter-per-second race inside your spinal cord.",
-      "why_surprising": "Thick touch fibers literally outrun slow pain fibers and slam the dorsal-horn gate shut.",
+      "fact": "Every time you bang your shin on a low table and rub it briskly, you launch a 100-meter-per-second touch signal that literally beats the 2-meter-per-second ache signal to your spine and locks the gate from the inside.",
+      "why_surprising": "An everyday reflex every adult performs without thinking is pure high-speed neurophysiology.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "Two years after publishing their 1965 Science paper, Patrick Wall and surgeon William Sweet stuck needle electrodes into their OWN arms to prove gentle buzzing on thick touch nerves switched off pain — inventing TENS therapy.",
-      "why_surprising": "Few theories jump from blackboard diagram to self-tested medical hardware in 24 months.",
-      "source_id": "SRC1",
+      "fact": "To prove their chalkboard diagram worked in living humans, Patrick Wall and surgeon William Sweet inserted electrodes into their OWN arms at MIT and Massachusetts General Hospital — inventing modern TENS pain pads in two years flat.",
+      "why_surprising": "Self-experimentation turned a theoretical sketch into non-drug hardware used in millions of homes.",
+      "source_id": "SRC2",
       "rank": 2
     },
     {
-      "fact": "Soldiers evacuated alive from Anzio beachhead often declined morphine despite major wounds because survival relief sent descending brainstem signals down the spine to close the gate.",
-      "why_surprising": "Context changes spinal cord traffic before you even 'decide' to tough it out.",
-      "source_id": "SRC1",
+      "fact": "Before 1965, cutting spinal pain tracts in desperate chronic-pain surgeries often made phantom pain roar back even worse — because surgeons unknowingly severed the thick touch fibers needed to hold the spinal gate shut.",
+      "why_surprising": "Gate Control solved a heartbreaking neurosurgical paradox overnight.",
+      "source_id": "SRC3",
       "rank": 3
-    },
-    {
-      "fact": "Before 1965, surgeons sometimes cut spinal pain tracts expecting permanent cure — only to watch phantom pain roar back worse because cutting thick touch fibers permanently propped the gate open.",
-      "why_surprising": "Gate Control explained a devastating surgical mystery overnight.",
-      "source_id": "SRC2",
-      "rank": 4
     }
   ],
   "misconceptions": [
     {
-      "myth": "Pain is a direct 1-to-1 speedometer measuring exact tissue damage.",
-      "truth": "Identical injuries produce wildly different pain depending on spinal A-beta touch competition and descending brain modulation.",
+      "myth": "Pain is a direct 1-to-1 gauge measuring exact tissue damage in your back, knee, or shin.",
+      "truth": "Identical physical impacts produce dramatically different pain depending on fast A-beta touch competition in the spine and descending brainstem modulation.",
       "source_id": "SRC1"
     },
     {
-      "myth": "If doctors say 'your brain modulates your pain,' they mean you're faking or imagining it.",
-      "truth": "Descending modulation physically alters neurotransmitter release inside the spinal cord dorsal horn — the pain or relief is 100 percent real.",
+      "myth": "Rubbing a banged elbow or pressing a warm pack on your lower back only distracts your conscious mind.",
+      "truth": "Mechanical pressure and warmth recruit fast myelinated fibers and dynorphin interneurons (Duan et al. 2015) that physically block pain transmission right inside the spinal dorsal horn.",
+      "source_id": "SRC_NEURO_2015"
+    },
+    {
+      "myth": "If anxiety or relief changes how much your back hurts, doctors think you are imagining the pain.",
+      "truth": "Descending brainstem pathways release real neurotransmitters onto spinal dorsal-horn synapses — changing real nerve traffic before it ever reaches conscious awareness.",
       "source_id": "SRC3"
-    },
-    {
-      "myth": "Rubbing a bumped shin only distracts your mind psychologically.",
-      "truth": "Mechanical rubbing recruits myelinated A-beta mechanoreceptors that inhibit dorsal-horn transmission neurons right inside the spine.",
-      "source_id": "SRC1"
-    },
-    {
-      "myth": "Every single synaptic arrow in Melzack and Wall's original 1965 circuit sketch proved exact.",
-      "truth": "Later patch-clamp studies refined specific presynaptic vs postsynaptic interneuron synapses, while confirming the overarching spinal + descending gate architecture.",
-      "source_id": "SRC4"
     }
   ],
   "everyday_hooks": [
-    "Instinctively rubbing your shin vigorously the exact half-second you bump it against a coffee table.",
-    "Pressing a cool vibrating pack or TENS pad next to a sore lower back.",
-    "Noticing a scrape on your leg only AFTER the championship basketball game ends because descending focus held the spinal gate shut.",
-    "Feeling an injection sting twice as much when you stare anxiously at the needle with tense shoulders."
+    "Bumping your shin on a patio bench or coffee table and feeling the sharp throb drop by half the instant you rub the skin firmly.",
+    "Staring tensely at a nurse's blood-draw needle with rigid shoulders — unknowingly pulling your top-down brainstem pain gate wide open.",
+    "Finishing an absorbing Saturday afternoon gardening project before noticing a rose-thorn scratch on your forearm because focused calm held your spinal gate closed."
   ],
   "linked_projects": [
     "psych_23_melzack_wall_pain_gate"
@@ -124,5 +170,12 @@
     "diorama_73_melzack_wall_pain_gate"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "primary_doi": "10.1126/science.150.3699.971",
+  "offcenter_creator_bet": "My bet: rubbing beats toughing it out — fast touch nerves literally outrun slow ache wires to shut your spinal gate. Do you rub a bumped shin or hold still?",
+  "debate_ignition": {
+    "prebunk_myth": "Rubbing a bumped shin only distracts your thoughts while an unchanged pain signal races straight up to your brain.",
+    "open_verdict_question": "When you bang your shin or tweak your lower back, do you instinctively rub and move it right away or freeze completely still?",
+    "offcenter_creator_bet": "My bet: rubbing beats toughing it out — fast touch nerves literally outrun slow ache wires to shut your spinal gate. Do you rub a bumped shin or hold still?"
+  }
 }

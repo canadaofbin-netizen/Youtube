@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "hubel_wiesel_visual_orientation",
   "topic": "Hubel & Wiesel (1959): How a Jammed Glass Slide Accidentally Cracked the Visual Cortex's Edge Code",
   "pillar": "brain_basics",
@@ -64,7 +64,19 @@
     },
     {
       "fact": "In Hubel and Wiesel's (1959) cat striate recordings, an orientation-selective V1 simple cell fired near 0 spikes to diffuse full-field floodlight or a 90° orthogonal bar, yet discharged briskly when the slit tilted to its preferred 45° axis.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "inverted_u",
+        "title": "V1 Orientation Tuning Curve",
+        "concept": "Cortical Orientation Selectivity",
+        "x_label": "Bar Tilt Angle",
+        "y_label": "V1 Spike Rate",
+        "doi": "",
+        "source_citation": ""
+      }
     }
   ],
   "wow_facts": [
@@ -122,5 +134,37 @@
     "diorama_67_hubel_wiesel_visual_orientation"
   ],
   "reenactment_track": "track_a",
-  "reenactment_track_subtier": "A1a_ready_keyframes"
+  "reenactment_track_subtier": "A1a_ready_keyframes",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1113/jphysiol.1959.sp006308",
+  "three_layer_formula": {
+    "everyday_problem": "Realizing why simple 5-stroke black-and-white line caricatures look 100% lifelike to your brain — line drawings feed V1's exact native edge language.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1113/jphysiol.1959.sp006308",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1113/jphysiol.1959.sp006308"
+      ],
+      "summary": "D. H. Hubel, T. N. Wiesel (1959). Receptive fields of single neurones in the cat's striate cortex. The Journal of Physiology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.3390/brainsci12040470",
+      "source_ids": [
+        "SRC6"
+      ],
+      "dois": [
+        "10.3390/brainsci12040470"
+      ],
+      "summary": "Bin Li, Yuki Todo, Zheng Tang (2022). Artificial Visual System for Orientation Detection Based on Hubel–Wiesel Model. Brain Sciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Your primary visual cortex works like a camera sensor recording brightness pixel by pixel.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

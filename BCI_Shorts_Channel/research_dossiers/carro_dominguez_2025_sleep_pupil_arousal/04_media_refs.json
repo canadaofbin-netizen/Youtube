@@ -1,0 +1,72 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Reference YouTube media M1/M2 are talking-head educational EEG/brainstem tutorials (Gate 4 reject_track_b_only); actual experiment visualization uses ETH Zürich CC BY 4.0 Supplementary Movie 1 via R89 native split-sync/viewfinder staging.",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "youtube_educational_eeg",
+      "title": "Brain Waves During N2 Sleep: Sleep Spindles & K-Complexes",
+      "channel": "Gil Solano R. EEG T.",
+      "url": "https://www.youtube.com/watch?v=U-bqLPloiso",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.625,wps=0.0)",
+      "usage": "Concept & EEG waveform morphology background only — never re-uploaded to channel videos",
+      "timecodes": [
+        {
+          "t": "00:18",
+          "what": "Typical Stage N2 12-16 Hz sleep spindle burst morphology across central Cz lead"
+        },
+        {
+          "t": "00:52",
+          "what": "High-amplitude biphasic K-complex waveform characteristic of Stage N2 sensory gating"
+        }
+      ],
+      "analysis": {
+        "local_dir": "media/M1",
+        "keyframes_count": 12,
+        "contact_sheet": "contact_sheet.jpg"
+      },
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.1211,
+        "median_gray_sat_ratio": 0.0414,
+        "median_p90_sat": 187.0,
+        "max_p90_sat": 194.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.4115,
+        "median_motion_diff": 68.017,
+        "talking_head_ratio": 0.625,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "youtube_educational_neuroanatomy",
+      "title": "Episode 1 - Reticular System (Sleep/Wake Part)",
+      "channel": "Medical Cosmos",
+      "url": "https://www.youtube.com/watch?v=7JShphvch2w",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "no_verified_archival_or_experiment_footage_for_track_a",
+      "usage": "Background anatomical orientation for pontine brainstem ascending arousal projections",
+      "timecodes": [
+        {
+          "t": "00:40",
+          "what": "Ascending reticular activating projections rising from dorsal pons/brainstem into thalamus"
+        },
+        {
+          "t": "01:35",
+          "what": "Thalamocortical relay gating shifting between deep sleep spindles and wakefulness"
+        }
+      ],
+      "reenactment_suitability_metrics": {
+        "duration_sec": 0.0
+      }
+    }
+  ]
+}

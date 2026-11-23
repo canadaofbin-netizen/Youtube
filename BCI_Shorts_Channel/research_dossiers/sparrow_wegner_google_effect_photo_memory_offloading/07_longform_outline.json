@@ -1,0 +1,119 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "52-year-old adult snapping a quick museum photo with a puzzled blank look seconds later",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing silenced prefrontal-hippocampal content encoding vs bright parietal folder pointer",
+    "badge_text": "PERMISSION TO FORGET"
+  },
+  "r75_clean_seed_tags": [
+    "google effect memory",
+    "cognitive offloading",
+    "why i forget phone numbers",
+    "photo taking memory effect",
+    "hippocampus memory",
+    "memory psychology",
+    "neuroscience",
+    "brain science",
+    "everyday memory",
+    "attention and memory",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why you still know your 1988 landline by heart—yet forget a saved fact or photographed museum piece in ten minutes.",
+    "core_experiment": "Sparrow, Liu & Wegner (2011, Science): volunteers recalled 29% of typed facts they thought were erased vs 19% when saved—while remembering which folder held them.",
+    "twist": "Linda Henkel (2014) proved quick photos trigger the exact same 'permission to forget'—unless you pause or zoom onto one specific detail."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 1988 Landline Paradox",
+      "beats": [
+        "Why childhood phone numbers stick while modern contacts vanish",
+        "Harvard & Columbia's 2011 Science investigation"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "typing 40 trivia statements"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Saved (19%) vs Erased (29%) & The Folder Twist",
+      "beats": [
+        "Sparrow, Liu & Wegner (2011) Experiment 2 & 3",
+        "Remembering WHERE a file lives instead of WHAT it says"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "pointing to exact folder tab"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Point-and-Shoot Amnesia at the Art Museum (Henkel 2014)",
+      "beats": [
+        "Whole-object photos impair sculpture recall",
+        "Why zooming in on one detail rescues the entire memory"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "sunlit sculpture courtyard camera zoom"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Inside fMRI: Strategic Prefrontal Offloading & Replicability",
+      "beats": [
+        "Landsiedel & Gilbert (2015) NeuroImage prefrontal down-shift",
+        "Camerer et al. (2018) Stroop nuance vs Storm & Stone (2015) saving-enhanced learning"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 prefrontal -> parietal -> hippocampus"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Using Offloading Wisely Without Losing Life's Best Moments",
+      "beats": [
+        "Offload grocery lists to free RAM for creative thinking",
+        "The 5-second naked-eye rule before clicking the shutter"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "five-second mindful observation"
+      ]
+    }
+  ]
+}

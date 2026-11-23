@@ -15,7 +15,6 @@ from pipeline.config import (
     FLOW_PROMPT_PREFIX,
     FLOW_VOICE_PROMPT_DESCRIPTOR_V5,
     MODE_ROLE_SETTINGS,
-    VOICE_FALLBACK_MODEL_DIR,
     clip_roles,
 )
 from pipeline.flow_prompt_builder import (
@@ -27,7 +26,6 @@ from pipeline.flow_prompt_builder import (
 )
 from pipeline.plain_language import analyze_script, find_jargon, fk_grade, to_display_text, to_tts_text, tts_issues
 from pipeline.prompt_quality_v5 import _region_field_issue, check_action_physics, validate_production_v5
-from pipeline.voice_consistency import evaluate_f0_series, semitones
 
 NARRATIONS = [
     "In nineteen sixty one, a quiet man at Yale pressed a switch, and a stranger behind the wall screamed in pain.",
@@ -123,12 +121,12 @@ def test_jargon_and_readability_detection() -> None:
 
 
 # --------------------------------------------------------------------- voice
-def test_semitone_voice_gate() -> None:
-    assert round(semitones(240.0, 120.0), 2) == 12.0
-    ok = evaluate_f0_series([118, 120, 119, 121, 117, 120, 119, 118, 120, 121])
-    assert ok["passed"] and ok["regenerate_clips"] == []
-    bad = evaluate_f0_series([118, 121, 119, 140, 120, 117])
-    assert not bad["passed"] and bad["regenerate_clips"] == [4]
+def test_elevenlabs_only_voice_preset_resolution() -> None:
+    from pipeline.voice_fallback import resolve_diorama_voice_preset
+
+    pid, spec = resolve_diorama_voice_preset("elevenlabs_v4")
+    assert pid == "elevenlabs_v4"
+    assert spec["elevenlabs_voice_id"] == "CwhRBWXzGAHq8TQ4Fs17"
 
 
 # ------------------------------------------------------------------- builder
@@ -274,17 +272,14 @@ def test_asset_manifest_and_library(tmp_path: Path) -> None:
     assert search_library("toggle switch", idx)
 
 
-# --------------------------------------------------------------- tts fallback
-@pytest.mark.skipif(
-    not (Path(VOICE_FALLBACK_MODEL_DIR) / "kokoro-v1.0.onnx").exists(), reason="Kokoro model files not installed"
-)
-def test_kokoro_fallback_synthesizes_one_consistent_line(tmp_path: Path) -> None:
-    from pipeline.voice_fallback import synthesize_line
+# --------------------------------------------------------------- deterministic test stub
+def test_test_stub_synthesizes_one_consistent_line() -> None:
+    from pipeline.voice_fallback import _synthesize_test_stub_pcm
 
-    pcm = synthesize_line("The dog heard a click and started to drool.", sr=48000, cache_dir=tmp_path, clip_no=1)
-    assert 1.0 < len(pcm) / 48000 < 6.0
-    again = synthesize_line("The dog heard a click and started to drool.", sr=48000, cache_dir=tmp_path, clip_no=1)
-    assert len(again) == len(pcm)  # cached
+    pcm = _synthesize_test_stub_pcm("The dog heard a click and started to drool.", sr=48000, seed_idx=1)
+    assert 0.5 < len(pcm) / 48000 < 6.0
+    again = _synthesize_test_stub_pcm("The dog heard a click and started to drool.", sr=48000, seed_idx=1)
+    assert len(again) == len(pcm)
 
 
 # --------------------------------------------------------------- reference image qa (R51)

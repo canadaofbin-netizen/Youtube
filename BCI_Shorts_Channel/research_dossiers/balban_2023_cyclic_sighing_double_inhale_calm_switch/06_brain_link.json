@@ -1,0 +1,41 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "step1",
+      "region": "brainstem",
+      "plain": "breathing pacemaker and vagal nerve hub responding to the slow exhale",
+      "function": "couples prolonged exhalation and CO2 offloading to vagal parasympathetic slowing of heart and breathing rate",
+      "scene_id": "S1",
+      "narration_bridge": "Explains the significant 24-hour respiratory-rate drop in Balban et al. (2023, Cell Reports Medicine, SRC1).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "insula",
+      "plain": "internal body-state monitor reading the calmer heartbeat and lung stretch",
+      "function": "synchronizes cortical oscillations directly to volitional slow breathing cycles",
+      "scene_id": "S1",
+      "narration_bridge": "Directly recorded with human intracranial electrodes by Herrero et al. (2018, Journal of Neurophysiology, SRC2).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "amygdala",
+      "plain": "threat alarm dialing down as nasal-limbic rhythms slow",
+      "function": "reduces sympathetic threat reactivity as nasal respiration entrains limbic oscillations",
+      "scene_id": "S2",
+      "narration_bridge": "Grounded in Zelano et al.'s (2016, Journal of Neuroscience, SRC3) human intracranial limbic entrainment discovery.",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "executive control regaining clear perspective once bodily alarm quiets",
+      "function": "restores top-down emotional regulation and positive mood across daily practice",
+      "scene_id": "S2",
+      "narration_bridge": "Matches the 1.91 vs 1.22 daily mood-gain slope in Balban, Spiegel & Huberman (2023, SRC1).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

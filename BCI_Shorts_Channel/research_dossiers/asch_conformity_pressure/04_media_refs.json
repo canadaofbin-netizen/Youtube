@@ -49,7 +49,8 @@
         "words_per_sec": 2.449,
         "has_strong_archival_cue": true
       },
-      "recommended_section": "00:12-01:20"
+      "recommended_section": "00:12-01:20",
+      "reenactment_section": "00:12-01:20"
     },
     {
       "id": "M2",
@@ -88,7 +89,8 @@
       "reenactment_suitability_reason": "gate1_lecture_or_talking_head_kind(lecture)",
       "reenactment_suitability_metrics": {
         "gate_failed": 1
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     },
     {
       "id": "M3",
@@ -116,10 +118,12 @@
       "reenactment_suitability_reason": "gate1_non_video_or_animation_kind(photo)",
       "reenactment_suitability_metrics": {
         "gate_failed": 1
-      }
+      },
+      "reenactment_section": "00:05-00:35"
     }
   ],
   "suitability_schema_version": 2,
   "reenactment_track": "track_a",
-  "track_subtier": "A2_section_window"
+  "track_subtier": "A2_section_window",
+  "primary_reenactment_media_id": "M1"
 }

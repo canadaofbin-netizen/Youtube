@@ -1,0 +1,185 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2012 Sussex Behavioral & fMRI Suite: Silent Forearm-Scratching Screen Triggering Instant Mirror Itch vs Tapping Control",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2012, Sackler Centre for Consciousness Science, University of Sussex, Brighton, UK",
+      "layout": {
+        "description": "Sunlit cognitive neuroscience testing room with a crisp tabletop monitor displaying a cropped silent close-up of fingers scratching a forearm (paired beside a matched finger-tapping control frame), a 0-to-7 itch-rating button pad on the oak desk, and an adult observer trying not to scratch their own untouched sleeve.",
+        "positions": [
+          {
+            "who": "Adult study volunteer (42-year-old 2.5D matte cream-white vinyl figure in rolled-sleeve navy cotton sweater)",
+            "where": "seated facing the silent desktop display as their right hand involuntarily rises halfway from the button pad to scratch their untouched left forearm",
+            "facing": "seated facing desktop stimulus monitor"
+          },
+          {
+            "who": "Sussex neuroscientist Henning Holle (2.5D matte cream-white vinyl researcher in smart tweed blazer and collared shirt)",
+            "where": "standing beside the control console toggling between the Scratching clip and matched Tapping control clip while logging the 64% scratch rate",
+            "facing": "beside stimulus console facing volunteer"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "desktop stimulus monitor showing cropped forearm scratching vs finger tapping",
+          "period_detail": "faceless cropped upper-arm video frames isolating pure scratching motion from facial emotion (Holle et al. 2012)",
+          "physical_behavior": "State-A calm finger-tapping control clip (viewer hands flat) -> State-B active forearm-scratching clip (viewer hand snaps up to own arm)"
+        },
+        {
+          "name": "0-to-7 itchiness rating button box and personality trait clipboard",
+          "period_detail": "tracks the F=56.45 itch jump alongside neuroticism-over-empathy trait scores",
+          "physical_behavior": "State-A resting at zero during tapping -> State-B pressed firmly at high itch score right after the 5-second scratch clip"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sussex neuroscientist",
+          "verb_sequence": "switches silent monitor from finger-tapping control to forearm-scratching clip -> observes volunteer's immediate involuntary hand reach"
+        },
+        {
+          "who": "Adult study volunteer",
+          "verb_sequence": "watches silent scratching screen for 5 seconds -> reaches right hand briskly across to scratch untouched left forearm -> presses high rating button with a sheepish grin"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult study volunteer",
+          "reaction": "startled wide-eyed blink and wry laugh catching their own hand mid-scratch on completely unbitten skin"
+        },
+        {
+          "who": "Sussex neuroscientist",
+          "reaction": "notes strong neuroticism vigilance correlation and zero empathy link on the study chart"
+        }
+      ],
+      "wardrobe": "2012 British academic attire: researcher in charcoal blazer and light-blue Oxford shirt; adult volunteer in rolled-sleeve navy knit crewneck and chinos.",
+      "lighting": "Clean high-key coastal Sussex daylight across pale oak desk and crisp monitor frame.",
+      "recognition_hook": "Zero bugs, zero skin contact, zero sound — just five seconds of watching a stranger scratch on a silent screen makes 64% of healthy adults scratch their own arm!",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a sunlit Sussex neuroscience desk where an adult volunteer watching a silent close-up screen of a forearm being scratched reaches across to scratch their own untouched arm beside a 0-to-7 button pad",
+        "must_show": [
+          "monitor|screen",
+          "arm|forearm|scratch",
+          "button|pad|desk"
+        ],
+        "source": "M1@00:10-00:40; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Sunlit Outdoor Park Patio Table: One Person Scratching Sets Off a Chain Reaction Across Friends",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit outdoor neighborhood cafe patio & park bench",
+      "layout": {
+        "description": "Bright open-air wooden park picnic table under green afternoon trees where three middle-aged friends chat over iced coffee; one friend casually scratches an elbow and both companions across the table unconsciously rub their own neck and forearm within seconds.",
+        "positions": [
+          {
+            "who": "First patio friend (in linen button-down shirt)",
+            "where": "seated on the sunlit outdoor bench absentmindedly scratching their left elbow",
+            "facing": "across outdoor wooden table"
+          },
+          {
+            "who": "Two companion adults across the table",
+            "where": "glancing at the scratch motion and immediately rubbing their own unbitten forearm and collar in mirror sync",
+            "facing": "across sunlit patio table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "iced water glasses on sunlit outdoor wooden patio table",
+          "period_detail": "everyday open-air social setting where visual scratch contagion spreads across a group — plus cool glass press to break the loop",
+          "physical_behavior": "State-A resting on wooden table -> State-B cool glass pressed flat against forearm skin to calm the phantom prickle without raking nails"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patio companions",
+          "verb_sequence": "spot friend scratching elbow -> reach toward own forearm -> swap fingernail scratch for pressing the cool iced water glass calmly against skin"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "All three adults",
+          "reaction": "laughing in recognition at how fast the phantom itch jumped across the outdoor table"
+        }
+      ],
+      "wardrobe": "Relaxed adult weekend outdoor wear: rolled linen shirt, cotton polo, sunglasses resting on table.",
+      "lighting": "Warm natural afternoon sunlight dappled across open park greenery and cafe terrace.",
+      "recognition_hook": "One person scratches an elbow at an outdoor patio table, and five seconds later half the table is itching — until a cool flat press breaks the habit loop.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC5"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Wake Forest Saline-Drop Clinical Test: Visual Scratch Video Amplifying Body-Wide Itch 3.8x",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2011, Wake Forest Dermatology Clinic suite (Papoiu & Yosipovitch)",
+      "layout": {
+        "description": "Clean sunlit dermatology exam room with a tiny clear saline dropper bottle on a tray beside a video display showing scratching clips, illustrating how visual cues alone trigger body-wide itch.",
+        "positions": [
+          {
+            "who": "Dermatology clinician (in white clinical coat)",
+            "where": "placing a single harmless saline drop on an adult patient's forearm before starting the visual clip",
+            "facing": "beside exam chair"
+          },
+          {
+            "who": "Adult dermatology volunteer (in short-sleeve polo)",
+            "where": "feeling phantom itch spread to completely untouched shoulder and opposite arm as soon as the scratching clip plays",
+            "facing": "seated in clinical chair"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "clear saline control dropper and body-map distribution chart",
+          "period_detail": "documents Papoiu et al.'s (2011) 3.8x widespread scratching jump on rash-free skin",
+          "physical_behavior": "State-A neutral baseline under harmless saltwater -> State-B scattered body-map markers lighting up during visual scratch video"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Dermatology clinician",
+          "verb_sequence": "applies neutral saline control drop -> starts visual scratch clip -> logs widespread non-local itch sites on body chart"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult dermatology volunteer",
+          "reaction": "surprised realization that untouched opposite shoulder itches from pure visual input"
+        }
+      ],
+      "wardrobe": "Clean white dermatology coat; casual short-sleeve cotton polo and slacks.",
+      "lighting": "Bright clinical window daylight.",
+      "recognition_hook": "Put harmless saltwater on the left arm and play a scratching video — and volunteers start itching on their completely untouched right shoulder!",
+      "sources": [
+        "SRC3",
+        "SRC4"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Stranger scratching across an open table triggering instant visual-to-skin relay",
+    "landmark_or_object_b": "Cool palm pressure breaking the contagious scratch loop",
+    "arrow_3d_mode": "fixed_linear_corridor",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep skimming Sussex / sunlit glass atrium walkway ascending into top-down view",
+    "cut_b_topdown_3d_arrow": "90-degree top-down two-seat atrium table with a straight #FF2525 3D contagion arrow leaping directly from viewer to forearm",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

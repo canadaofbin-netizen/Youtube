@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "baars_global_workspace_theater",
   "topic": "Bernard Baars (1988-2005): Global Workspace Theory — How a Single Conscious 'Stage' Broadcasts to Billions of Unconscious Specialists",
   "pillar": "brain_basics",
@@ -48,7 +48,25 @@
     },
     {
       "fact": "Like an actor stepping into a bright spot on a theater stage in front of a dark auditorium of thousands of silent experts, the instant ONE piece of information wins entry to the Global Workspace, it broadcasts simultaneously to memory, language, motor planning, and emotion.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Global Workspace Ignition",
+        "concept": "Non-Linear Cortical Broadcast",
+        "fn": "sigmoid",
+        "x_label": "Sensory Gain Strength",
+        "y_label": "Frontoparietal Broadcast",
+        "markers": [
+          {
+            "x": 5.0,
+            "y": 50.0,
+            "label": "Ignition Threshold"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Consider binocular rivalry: show a house to the left eye and a face to the right eye simultaneously — both retinas and primary visual cortices fire continuously, yet you consciously see ONLY the face OR ONLY the house at any moment, broadcasting whichever wins across frontoparietal cortex.",
@@ -122,5 +140,38 @@
   ],
   "shorts_projects": [
     "diorama_22_baars_global_workspace_theater"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/s0079-6123(05)50004-9",
+  "three_layer_formula": {
+    "everyday_problem": "Forgetting a movie actor's name at dinner, broadcasting the mental question once, talking about dessert, and having the name pop onto your conscious stage ten minutes later.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/s0079-6123(05)50004-9",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/s0079-6123(05)50004-9"
+      ],
+      "summary": "Bernard J. Baars (2005). Global workspace theory of consciousness: toward a cognitive neuroscience of human experience. Progress in Brain Research."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1038/s41586-025-08888-1",
+      "source_ids": [
+        "SRC4"
+      ],
+      "dois": [
+        "10.1038/s41586-025-08888-1"
+      ],
+      "summary": "Oscar Ferrante, Urszula Górska, Simon E. Henin, Rony Hirschhorn, Aya F. Khalaf et al. (2025). Adversarial testing of global neuronal workspace and integrated information theories of consciousness. Nature."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Consciousness does all the heavy computational lifting in your brain while the unconscious is primitive.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

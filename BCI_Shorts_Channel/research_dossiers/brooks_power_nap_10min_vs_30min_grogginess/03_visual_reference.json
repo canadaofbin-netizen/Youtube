@@ -1,0 +1,167 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "3:00 PM Study Lounge: 10-Minute Brass-Timer Crisp Wakeup vs 30-Minute Heavy Couch Fog",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2006 Flinders University & 2021 Paris Brain Institute afternoon nap protocol",
+      "layout": {
+        "description": "Sun-dappled mid-century leather study recliner beside a low walnut side table holding a mechanical brass kitchen timer and a heavy brass sphere poised above a porcelain saucer.",
+        "positions": [
+          {
+            "who": "48-year-old architect / professional (stylized 2.5D vinyl character in rolled-sleeve oxford shirt reclining in leather armchair)",
+            "where": "reclined at 45 degrees with right hand loosely holding a heavy brass sphere over a floor saucer beside a 10-minute mechanical dial timer",
+            "facing": "three-quarter view toward the walnut side table"
+          },
+          {
+            "who": "Sleep physiologist (stylized 2.5D vinyl character in tailored charcoal cardigan and white coat holding a stopwatch)",
+            "where": "standing beside the study chair observing the exact moment finger tension relaxes at minute 10",
+            "facing": "angled toward the recliner and floor saucer"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Polished brass sphere held loosely above a resonant white porcelain floor saucer",
+          "period_detail": "Edison-style Paris Brain Institute N1 sleep-onset drop weight with zero electronic displays",
+          "physical_behavior": "State A fingers cradle the gleaming brass sphere as shoulders soften into light rest -> State B fingers relax open and the brass sphere drops clattering sharply onto the saucer"
+        },
+        {
+          "name": "Mechanical brushed-steel 10-minute vs 30-minute rotary dial timer",
+          "period_detail": "tactile twist-dial bell timer sitting on walnut side table",
+          "physical_behavior": "State A twisted crisply to the short 10-minute wedge -> State B rings a single bright bell as the sleeper sits straight up alert and energized"
+        }
+      ],
+      "actions": [
+        {
+          "who": "48-year-old professional",
+          "verb_sequence": "twists the mechanical dial to a brief 10-minute wedge and reclines holding the brass sphere -> drops the sphere onto the saucer at light sleep onset and sits upright instantly sharp"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleep physiologist",
+          "reaction": "records immediate high-speed post-nap reaction without a trace of 30-minute delta grogginess"
+        }
+      ],
+      "wardrobe": "Crisp rolled-sleeve sky-blue oxford shirt and chinos; researcher in white coat over charcoal knit.",
+      "lighting": "Warm afternoon window light filtered through wooden venetian blinds.",
+      "recognition_hook": "Ten minutes of light sleep gives you two and a half hours of razor-sharp focus—while twenty extra minutes drops you off a deep-sleep cliff!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "an adult reclining in a study armchair whose relaxing fingers drop a gleaming brass sphere onto a porcelain saucer beside a 10-minute mechanical bell timer, snapping upright refreshed",
+        "must_show": [
+          "chair|recliner",
+          "sphere|ball|saucer",
+          "timer|clock"
+        ],
+        "source": "M1@00:10-00:25; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Sunlit Courtyard Bench: Brisk Post-Nap Afternoon Walk",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern 3:20 PM sunlit office courtyard & park walkway",
+      "layout": {
+        "description": "Bright green outdoor tree-lined courtyard walkway with wooden benches, dappled afternoon sunlight, and brisk walking path.",
+        "positions": [
+          {
+            "who": "Refreshed 48-year-old professional",
+            "where": "striding briskly along the sunlit outdoor courtyard path carrying a leather sketchbook",
+            "facing": "forward into bright afternoon daylight"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Open leather architectural sketchbook and fountain pen",
+          "period_detail": "tactile cream paper pages flipping cleanly in outdoor breeze",
+          "physical_behavior": "hand sketches rapid clean geometry lines immediately after rising from the 10-minute rest"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Refreshed professional",
+          "verb_sequence": "steps out onto the sunlit courtyard path right after the 10-minute bell -> sketches rapid insight lines with crisp energy"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Refreshed professional",
+          "reaction": "alert upright stride holding steady through the whole late afternoon"
+        }
+      ],
+      "wardrobe": "Sky-blue oxford shirt with navy blazer slung over arm.",
+      "lighting": "Bright natural 3:20 PM outdoor sunlight.",
+      "recognition_hook": "Zero groggy recovery tax—just 155 minutes of clean afternoon brainpower.",
+      "sources": [
+        "SRC1",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "The 30-Minute Sofa Crash Contrast: Deep Delta Hangover",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Afternoon home living room sofa",
+      "layout": {
+        "description": "Dimmed living-room sofa with heavy throw blanket where a 30-minute sleeper sits up rubbing forehead in sluggish confusion.",
+        "positions": [
+          {
+            "who": "Groggy 30-minute napper",
+            "where": "slumped on the edge of a deep sofa tangled in a heavy throw blanket",
+            "facing": "downward rubbing temples"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Heavy wool throw blanket and 30-minute rotary timer",
+          "period_detail": "thick woven blanket weighing over shoulders",
+          "physical_behavior": "sleeper tugs sluggishly at the heavy blanket while struggling to stand upright"
+        }
+      ],
+      "actions": [
+        {
+          "who": "30-minute napper",
+          "verb_sequence": "sleeps past minute 20 into deep slow waves -> wakes at minute 30 slumped and heavy-headed for 35 minutes"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "30-minute napper",
+          "reaction": "squints in sluggish disorientation"
+        }
+      ],
+      "wardrobe": "Rumpled knit sweater.",
+      "lighting": "Muted late-afternoon indoor shade.",
+      "recognition_hook": "Crossing thirty minutes plunges a tired brain into deep slow-wave delta sleep that takes half an hour to shake off.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC5"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Crisp 10-minute light-nap express lane launching straight into 155-minute focus",
+    "landmark_or_object_b": "30-minute deep slow-wave pitfall trench causing heavy sleep inertia",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit university sleep-lab courtyard ascending into roof cutaway",
+    "cut_b_topdown_3d_arrow": "90-degree top-down dual timeline lanes comparing fast cyan 10-minute nap track overtaking stalled #FF2525 30-minute lane",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

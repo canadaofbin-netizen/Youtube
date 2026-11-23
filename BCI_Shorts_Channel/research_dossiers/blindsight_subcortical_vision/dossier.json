@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "blindsight_subcortical_vision",
   "topic": "Lawrence Weiskrantz (1974): 'Blindsight' — Patient D.B. Pointing With 90% Accuracy Into Total Conscious Darkness",
   "pillar": "brain_mysteries",
@@ -52,7 +52,17 @@
     },
     {
       "fact": "Careful controls ruled out stray light bouncing onto D.B.'s good half-retina (flashing targets onto the natural optic-disc blind spot inside the blind field dropped accuracy right down to 50% chance!).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Optic-Disc Control Chance",
+        "percent": 50.0,
+        "unit": "%",
+        "doi": "10.1093/brain/97.1.709",
+        "source_citation": "Weiskrantz et al. (1974, Brain)"
+      }
     },
     {
       "fact": "How did D.B.'s hand know what 'he' didn't see? About 10% of optic-nerve fibers bypass V1 completely, branching down to the ancient midbrain **superior colliculus**, **pulvinar**, and lateral geniculate shortcuts straight into dorsal action/motion areas (MT/V5) — guiding eyes and hands WITHOUT switching on conscious awareness.",
@@ -64,7 +74,28 @@
     },
     {
       "fact": "In Weiskrantz et al.'s (1974) forced-choice reaching and grating orientation trials, Patient D.B. reported zero conscious sight in his scotoma yet exceeded 90% accuracy — reaching roughly 93% on spatial localization blocks.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Patient D.B. Visual Accuracy",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Conscious Sight",
+            "value": 0.0,
+            "unit": "%"
+          },
+          {
+            "label": "Blind-Field Reach",
+            "value": 93.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1093/brain/97.1.709",
+        "source_citation": "Weiskrantz et al. (1974, Brain)"
+      }
     }
   ],
   "wow_facts": [
@@ -123,5 +154,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "My bet: hunches are real brain data — blindsight patients dodged obstacles their conscious vision swore were invisible. When has a split-second hunch saved you?"
+  "offcenter_creator_bet": "My bet: hunches are real brain data — blindsight patients dodged obstacles their conscious vision swore were invisible. When has a split-second hunch saved you?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1093/brain/97.1.709",
+  "three_layer_formula": {
+    "everyday_problem": "Ducking or jerking your hand back from a flying ball in peripheral vision half a second BEFORE your conscious mind registers what the object even was.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/brain/97.1.709",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1093/brain/97.1.709"
+      ],
+      "summary": "L. Weiskrantz, Elizabeth K. Warrington, M. D. Sanders, J. Marshall (1974). VISUAL CAPACITY IN THE HEMIANOPIC FIELD FOLLOWING A RESTRICTED OCCIPITAL ABLATION. Brain."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.7554/elife.08935",
+      "source_ids": [
+        "SRC6"
+      ],
+      "dois": [
+        "10.7554/elife.08935"
+      ],
+      "summary": "Sara Ajina, Franco Pestilli, Ariel Rokem, Christopher Kennard et al. (2015). Human blindsight is mediated by an intact geniculo-extrastriate pathway. eLife."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Patients with Blindsight are secretly peeking or seeing blurry dim shadows.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: hunches are real brain data — blindsight patients dodged obstacles their conscious vision swore were invisible. When has a split-second hunch saved you?"
+  }
 }

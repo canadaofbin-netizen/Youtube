@@ -1,0 +1,133 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2023 Stanford Medicine Remote RCT: Wearable Biometric Strap Tracking 5-Minute Double-Inhale Cyclic Sighing vs Passive Meditation",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "2023, Stanford Medicine remote physiology trial in a sunlit home study",
+      "layout": {
+        "description": "Sunlit California home office split visually between two 5-minute daily routines: a 46-year-old volunteer wearing a biometric wrist strap performs the crisp two-step nasal inhale and slow, shoulder-dropping exhale while heart-rate and breathing cadence settle smoothly.",
+        "positions": [
+          {
+            "who": "46-year-old volunteer (in soft navy knit crewneck wearing a sleek biometric wrist sensor)",
+            "where": "seated upright in a sunlit armchair placing one palm on upper chest as ribs expand twice on nasal inhale and shoulders melt downward on the long exhale",
+            "facing": "three-quarter angle toward tall window daylight"
+          },
+          {
+            "who": "Stanford physiology researcher (in white clinical coat over collared shirt inspecting biometric tablet readout)",
+            "where": "standing beside a clean physiological trace table comparing cyclic sighing's falling respiratory line against passive meditation",
+            "facing": "angled toward the volunteer and biometric wave readout"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "biometric wrist physiology sensor strap and 5-minute sandglass timer",
+          "period_detail": "Stanford NCT05304000 remote wearable tracking daily respiratory rate and heart-rate variability",
+          "physical_behavior": "State-A rapid tense chest rhythm as 5-minute timer flips -> State-B double nasal chest lift followed by long slow exhale as biometric pulse settles"
+        },
+        {
+          "name": "elastic dual-sphere lung compliance model on study table",
+          "period_detail": "illustrates how the second top-up nasal inhale pops open collapsed alveoli before the extended exhale",
+          "physical_behavior": "State-A partially deflated chambers -> State-B double pump fully inflates spheres before smooth, steady release"
+        }
+      ],
+      "actions": [
+        {
+          "who": "46-year-old volunteer",
+          "verb_sequence": "draws one deep nasal breath, adds a crisp second nasal top-up sniff expanding the ribcage -> releases a slow, steady 6-second mouth exhale as tense shoulders drop two inches"
+        },
+        {
+          "who": "Stanford researcher",
+          "verb_sequence": "points to the downward slope of daily breathing rate and rising mood score across the 28-day log"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "46-year-old volunteer",
+          "reaction": "opens eyes with calm, grounded clarity after five unhurried minutes"
+        },
+        {
+          "who": "Stanford researcher",
+          "reaction": "nods at the clear mechanical advantage of exhale-focused sighing"
+        }
+      ],
+      "wardrobe": "Navy cotton crewneck sweater and chinos; crisp Stanford clinical jacket.",
+      "lighting": "Bright, airy California morning window light.",
+      "recognition_hook": "Two quick inhales through the nose and one long exhale through the mouth flips your vagal brake faster than trying to think yourself calm.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "an adult in a sunlit armchair wearing a biometric wrist strap performing a visible double chest inhale and slow shoulder-dropping exhale beside a 5-minute timer",
+        "must_show": [
+          "chair|armchair",
+          "strap|wrist",
+          "timer|table"
+        ],
+        "source": "M1@00:15-00:55; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Parked Car / Courtyard Bench Reset: 60-Second Physiological Sigh Before a High-Stakes Meeting",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern sunlit outdoor office courtyard bench",
+      "layout": {
+        "description": "Sunlit tree-lined stone courtyard outside an office building where a 52-year-old executive pauses on a wooden bench with a leather briefcase beside them.",
+        "positions": [
+          {
+            "who": "52-year-old adult",
+            "where": "seated on the outdoor courtyard bench loosening a tight grip on the briefcase handle while executing two nasal inhales and one slow exhale",
+            "facing": "seated outdoors under dappled tree shade"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "structured leather briefcase and stainless watch",
+          "period_detail": "real-world adult pre-meeting stress moment outdoors",
+          "physical_behavior": "State-A white-knuckled fingers gripping briefcase handle -> State-B fingers unclench smoothly during the extended slow exhale"
+        }
+      ],
+      "actions": [
+        {
+          "who": "52-year-old adult",
+          "verb_sequence": "unclenches white-knuckled grip on the briefcase, takes two stacked nasal inhales, and exhales slowly into the sunlit courtyard air before standing up poised"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "52-year-old adult",
+          "reaction": "steady, composed posture striding calmly toward the building doors"
+        }
+      ],
+      "wardrobe": "Charcoal tailored blazer over light blue shirt.",
+      "lighting": "Crisp sunlit outdoor courtyard daylight.",
+      "recognition_hook": "Three silent physiological sighs on a courtyard bench lower heart-rate arousal before you ever walk into the room.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "5-minute passive mindfulness sit trying to suppress racing thoughts top-down",
+    "landmark_or_object_b": "5-minute double-inhale extended-exhale cyclic sighing mechanically engaging the vagal brake",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep across Stanford's palm-lined sandstone quad descending into a twin-room home-study cutaway",
+    "cut_b_topdown_3d_arrow": "Top-down two-lane physiological floorplan where a bold #FF2525 3D arrow surges ahead along the prolonged-exhale lane to calm respiratory rate and lift mood",
+    "ricks_tempo_sec_range": [
+      2.3,
+      3.1
+    ]
+  }
+}

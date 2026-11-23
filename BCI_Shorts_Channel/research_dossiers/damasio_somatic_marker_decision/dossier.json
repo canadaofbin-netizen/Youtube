@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "damasio_somatic_marker_decision",
   "topic": "Antonio Damasio & Antoine Bechara (1994-1997): Patient Elliot, the Iowa Gambling Task & Gut 'Somatic Markers'",
   "pillar": "brain_basics",
@@ -40,7 +40,28 @@
     },
     {
       "fact": "Standard lab tests couldn't catch Elliot's deficit until Antoine Bechara and the Damasios invented the 'Iowa Gambling Task' (1994): 100 card draws across four decks — Decks A & B ('Bad Decks': $100 wins, crushing $1,250 losses, net -$250 per 10 cards) vs Decks C & D ('Good Decks': $50 wins, tiny losses, net +$250 per 10 cards).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Iowa Gambling Task Card Wins",
+        "unit": "$",
+        "bars": [
+          {
+            "label": "Bad Decks A & B",
+            "value": 100.0,
+            "unit": "$"
+          },
+          {
+            "label": "Good Decks C & D",
+            "value": 50.0,
+            "unit": "$"
+          }
+        ],
+        "doi": "10.1016/0010-0277(94)90018-3",
+        "source_citation": "Bechara, Damasio et al. (1994)"
+      }
     },
     {
       "fact": "Healthy controls started sampling all four decks, then steadily shifted to safe Decks C & D by card ~30-50; vmPFC patients like Elliot kept chasing high-payout 'Bad' Decks A & B right into bankruptcy across all 100 cards ('myopia for the future').",
@@ -48,7 +69,27 @@
     },
     {
       "fact": "In 1996-1997, Bechara wired galvanic skin-conductance sensors to participants' palms: both groups sweated AFTER getting hit by a $1,250 loss, yet ONLY healthy brains developed ANTICIPATORY palm micro-sweats in the 5 seconds BEFORE reaching toward Bad Decks A & B — starting around card 10-20, BEFORE they could verbally explain which decks were rigged.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Anticipatory Gut Signal Onset",
+        "unit": "cards",
+        "series": [
+          {
+            "label": "Reliable Signal",
+            "start_label": "Early Hunches",
+            "values": [
+              10.0,
+              20.0
+            ],
+            "unit": "cards"
+          }
+        ],
+        "doi": "10.1016/0010-0277(94)90018-3",
+        "source_citation": "Bechara, Damasio et al. (1994)"
+      }
     },
     {
       "fact": "Even more stunning: EVEN AFTER vmPFC patients late in the game could state out loud 'Decks A and B are dangerous!', their palms stayed flat at zero anticipatory signal — and their hands STILL drew from the bad decks.",
@@ -122,5 +163,38 @@
   ],
   "shorts_projects": [
     "diorama_17_damasio_somatic_marker_decision"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/0010-0277(94)90018-3",
+  "three_layer_formula": {
+    "everyday_problem": "Spending forty-five minutes reading 300 identical toaster reviews on ten tabs because every rational spec ties and nothing 'clicks'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/0010-0277(94)90018-3",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/0010-0277(94)90018-3"
+      ],
+      "summary": "Antoine Bechara, Antonio R. Damasio, Hanna Damasio, Steven W. Anderson (1994). Insensitivity to future consequences following damage to human prefrontal cortex. Cognition."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1016/j.neuron.2023.09.026",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2023.09.026"
+      ],
+      "summary": "Hanna Damasio, Antonio Damasio (2023). Hanna and Antonio Damasio. Neuron."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Becoming 100% emotionless like Mr. Spock makes you a superior, hyper-rational decision-maker.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

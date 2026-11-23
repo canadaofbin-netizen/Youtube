@@ -1,0 +1,179 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2010 Harvard BIDMC Clinic Desk: Handing Over the Amber Bottle Boldly Labeled 'Placebo Pills'",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2010, Beth Israel Deaconess Medical Center consultation room, Boston, Massachusetts",
+      "layout": {
+        "description": "Sunlit Boston hospital consultation desk with a large amber pharmacy bottle printed with a crisp white 'PLACEBO PILLS' label, two blue-and-white cellulose capsules resting on a small ceramic dish, a clear glass water tumbler, and a 0-to-10 clinical pain-relief clipboard.",
+        "positions": [
+          {
+            "who": "Harvard clinician (2.5D matte cream-white vinyl adult physician in tailored navy blazer and white clinical coat)",
+            "where": "seated across the consultation desk sliding the amber 'Placebo Pills' bottle forward with an open palm while explaining the capsules hold zero active medicine",
+            "facing": "across consultation desk toward patient"
+          },
+          {
+            "who": "Midlife patient (47-year-old 2.5D matte cream-white vinyl adult in smart-casual olive cardigan and collared shirt)",
+            "where": "lifting the amber bottle to eye level, tipping two inert capsules into an open palm, and raising the water glass",
+            "facing": "seated facing clinician across desk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "amber pharmacy pill bottle with bold white placebo label and two blue-and-white capsules",
+          "period_detail": "standard clinical prescription bottle openly disclosing inert cellulose contents with zero deception",
+          "physical_behavior": "State-A closed upright on the oak desk -> State-B uncapped in the patient's hand tipping two capsules cleanly into an open palm"
+        },
+        {
+          "name": "clear glass water tumbler and clinical symptom-relief clipboard",
+          "period_detail": "everyday morning-and-evening pill-swallowing ritual paired with 21-day IBS and 0-to-10 back-pain tracking sheet",
+          "physical_behavior": "State-A resting full beside the dish -> State-B lifted smoothly to the mouth as shoulders drop out of guarded tension"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Harvard clinician",
+          "verb_sequence": "places the amber placebo bottle squarely on the desk -> points openly to the inert-ingredients card -> nods calmly as the patient inspects the bottle"
+        },
+        {
+          "who": "Midlife patient",
+          "verb_sequence": "unscrews the white cap -> taps two inert capsules into palm -> swallows with water and exhales as abdominal and lower-back tension softens"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Midlife patient",
+          "reaction": "wry skeptical raised eyebrow shifting into genuine physical relief as cramped posture unclenches"
+        },
+        {
+          "who": "Harvard clinician",
+          "reaction": "warm, transparent clinical composure recording the 59% vs 35% relief outcome"
+        }
+      ],
+      "wardrobe": "2010 Boston clinical attire: crisp white physician coat over navy blazer and tie; adult patient in olive knit cardigan, Oxford shirt, and dark chinos.",
+      "lighting": "Bright high-key New England hospital window daylight across warm oak desk and amber glass.",
+      "recognition_hook": "The doctor tells you straight to your face that the bottle holds zero medicine — yet swallowing two honest placebo capsules twice a day still cuts real clinical pain!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a Boston hospital consultation desk where a physician slides forward an amber bottle labeled Placebo Pills while an adult patient tips two capsules into hand beside a glass of water",
+        "must_show": [
+          "bottle|capsules|pills",
+          "glass|water",
+          "desk|clipboard|physician"
+        ],
+        "source": "M1@00:10-00:35; SRC1; SRC2"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2016 Chronic Back-Pain Morning Walk: Sunlit Outdoor Neighborhood Sidewalk Mobility Relief",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2016, Sunlit residential tree-lined morning sidewalk & front porch steps",
+      "layout": {
+        "description": "Open-air sunlit neighborhood brick walkway and porch steps in crisp morning daylight where a 52-year-old adult sets down a morning water mug on the porch rail and bends smoothly to pick up the morning newspaper without lower-back guarding.",
+        "positions": [
+          {
+            "who": "52-year-old adult back-pain volunteer (in casual quilted vest and walking shoes)",
+            "where": "stepping briskly down outdoor porch stairs onto the sunlit tree-lined sidewalk and bending comfortably to lift a canvas grocery tote",
+            "facing": "along sunlit outdoor brick sidewalk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "canvas morning tote bag on sunlit outdoor porch steps",
+          "period_detail": "everyday adult functional mobility test mirroring the Roland-Morris back-disability improvement in Carvalho et al. (2016)",
+          "physical_behavior": "State-A resting at the base of the outdoor steps -> State-B lifted smoothly to waist height with an unguarded upright spine"
+        }
+      ],
+      "actions": [
+        {
+          "who": "52-year-old adult volunteer",
+          "verb_sequence": "steps out onto the sunlit porch -> bends smoothly at knees and hips to lift the canvas tote -> strides comfortably down the open sidewalk"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "52-year-old adult volunteer",
+          "reaction": "pleasantly surprised smile touching lower back lightly as usual morning stiffness stays quiet"
+        }
+      ],
+      "wardrobe": "Adult smart-casual outdoor attire: navy quilted vest over heather crew shirt, khaki trousers, walking sneakers.",
+      "lighting": "Warm golden morning sunlight filtering across open neighborhood trees, brick porch, and sidewalk.",
+      "recognition_hook": "Three weeks of honest twice-daily cellulose capsules helped chronic back-pain adults bend, walk, and carry groceries outdoors with nearly 30% less pain.",
+      "sources": [
+        "SRC2",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2020 Non-Deceptive Saline Spray EEG Lab: Objective Neural Distress Wave Dropping Live",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2020, University affective neuroscience EEG suite (Guevarra, Moser, Wager & Kross)",
+      "layout": {
+        "description": "Clean sunlit university neurophysiology room where an adult participant wearing a soft 64-channel EEG cap administers a clearly labeled 'Inert Saline Placebo Spray' before viewing emotional stimulus cards while an adjacent waveform monitor shows the Late Positive Potential curve dropping.",
+        "positions": [
+          {
+            "who": "Adult EEG volunteer (in grey crewneck sweater wearing soft EEG sensor cap)",
+            "where": "seated upright holding the clearly marked inert saline nasal bottle on the desk while watching stimulus cards calmly",
+            "facing": "toward stimulus display stand"
+          },
+          {
+            "who": "Neuroscientist researcher (in white lab coat)",
+            "where": "standing beside the EEG waveform console comparing the high control distress wave against the dampened open-placebo wave",
+            "facing": "beside waveform monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "inert saline nasal spray bottle and dual EEG distress-waveform board",
+          "period_detail": "captures Guevarra et al.'s (2020) non-deceptive nasal spray protocol and Late Positive Potential (LPP) drop",
+          "physical_behavior": "State-A jagged high distress trace -> State-B settled low waveform amplitude within milliseconds"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Neuroscientist researcher",
+          "verb_sequence": "presents emotional test card after honest saline spray -> points to the flattened Late Positive Potential peak on the console"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult EEG volunteer",
+          "reaction": "steady breathing and relaxed jaw proving genuine psychobiological dampening rather than polite reporting"
+        }
+      ],
+      "wardrobe": "Modern university lab attire: crisp lab coat over collared shirt; soft grey cotton pullover.",
+      "lighting": "Clean high-key laboratory daylight.",
+      "recognition_hook": "An EEG cap catches the brain's involuntary distress wave shrinking in real time — proving honest placebos aren't just polite answers on a survey.",
+      "sources": [
+        "SRC3",
+        "SRC4"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Empty waiting-room bench with untreated recurring pain",
+    "landmark_or_object_b": "Harvard clinic pharmacy counter & open-label amber capsule ritual",
+    "arrow_3d_mode": "fixed_linear_corridor",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep skimming Harvard Longwood marble courtyard columns ascending steeply skyward",
+    "cut_b_topdown_3d_arrow": "90-degree top-down clinic corridor with a straight #FF2525 3D conditioned-ritual arrow driving straight to the relief checkpoint",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

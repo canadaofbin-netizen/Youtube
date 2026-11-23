@@ -1,0 +1,214 @@
+{
+  "schema_version": 2,
+  "slug": "kruger_phantom_pocket_vibration_habit_false_alarm",
+  "topic": "Why Your Brain Invents Fake Phone Buzzes Inside an Empty Pocket",
+  "pillar": "brain_basics",
+  "everyday_domain": "habits",
+  "created_at": "2026-11-16T03:49:55+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs concrete hospital-coat and everyday jacket-pocket empty-reach reenactments (while the silent phone sits visibly across the desk) with 3D brain cutaways showing basal ganglia / nucleus accumbens habit expectation overweighting somatosensory cortex and insula touch priors.",
+  "setup_18w": "Researchers surveyed hundreds of medical staff and adults whose pockets buzzed while their phones sat across the room.",
+  "primary_doi": "10.1136/bmj.c6914",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling an unmistakable two-pulse phone buzz against your thigh or jacket pocket during a busy afternoon — reaching in, and realizing your phone has been sitting face-up on the kitchen counter the entire time.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1136/bmj.c6914",
+      "source_ids": [
+        "SRC1",
+        "SRC5",
+        "SRC3"
+      ],
+      "dois": [
+        "10.1136/bmj.c6914",
+        "10.1089/cyber.2015.0406",
+        "10.1016/j.chb.2012.03.013"
+      ],
+      "summary": "Rothberg et al. (2010, BMJ) Baystate Medical Center cross-sectional survey (68% phantom vibration prevalence across 169 clinicians) paired with Kruger & Djerf (2016) attachment-alert vigilance ('ringxiety') study."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1126/science.aan3458",
+      "year": 2017,
+      "source_ids": [
+        "SRC2",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1126/science.aan3458",
+        "10.1016/j.cub.2014.11.026"
+      ],
+      "summary": "Powers, Mathys & Corlett (2017, Science) human fMRI + computational proof that conditioned top-down perceptual priors generate genuine sensory hallucinations in healthy brains, alongside Gindrat et al. (2015, Current Biology) touchscreen somatosensory cortical expansion."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1136/bmj.c6914",
+        "year": 2010,
+        "summary": "Hospital clinician survey identifying vibrate-mode hours, breast-pocket placement, and on-call duty as dose-dependent triggers (68% affected)."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1089/cyber.2015.0406",
+        "year": 2016,
+        "summary": "Kruger & Djerf behavioral study linking social vigilance and expected urgent messages to phantom pocket buzzes and rings."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1016/j.chb.2012.03.013",
+        "year": 2012,
+        "summary": "Replication documenting 89% phantom vibration prevalence in frequent daily mobile users."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1126/science.aan3458",
+        "year": 2017,
+        "summary": "Yale Science neuroimaging study showing overweighting of Pavlovian top-down priors in insula and sensory cortex creates real perceptual false alarms."
+      },
+      {
+        "source_id": "SRC4",
+        "doi": "10.1016/j.cub.2014.11.026",
+        "year": 2015,
+        "summary": "EEG mapping proving daily smartphone use physically amplifies thumb and skin somatosensory cortical potentials proportional to recent usage intensity."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "Baystate Medical Center Phantom Vibration Survey (BMJ 2010) & Yale Conditioned Perceptual Prior fMRI Discovery",
+    "year": 2010,
+    "place": "Baystate Medical Center (Tufts University School of Medicine, Springfield, Massachusetts) & Yale University, USA",
+    "summary": "Physician Michael Rothberg surveyed 169 doctors, residents, and nurses on hospital call and discovered 68% felt phantom pocket vibrations (climbing to 89% in heavy daily users, Drouin 2012), while Yale neuroscientists Albert Powers and Philip Corlett (2017, Science) proved on fMRI how conditioned expectation priors make healthy sensory cortex invent a buzz out of harmless cloth rustle.",
+    "people": [
+      {
+        "name": "Michael B. Rothberg & Baystate Clinical Research Team",
+        "role": "Tufts / Baystate Medical Center physicians who ran the landmark hospital phantom-vibration survey (BMJ, 2010)",
+        "source_id": "SRC1",
+        "bio": "Tested whether phantom pocket buzzes were rare nerve quirks or a predictable conditioned habit across 169 on-call clinicians."
+      },
+      {
+        "name": "Daniel J. Kruger & Michelle Drouin",
+        "role": "University of Michigan & Purdue behavioral scientists mapping 'ringxiety' vigilance and 89% general-user prevalence (2012, 2016)",
+        "source_id": "SRC5",
+        "bio": "Demonstrated that emotional urgency — waiting on a child's call, work alert, or partner text — lowers the sensory false-alarm threshold."
+      },
+      {
+        "name": "Albert R. Powers, Christoph Mathys & Philip R. Corlett",
+        "role": "Yale University & UCL computational neuroscientists (Science, 2017)",
+        "source_id": "SRC2",
+        "bio": "Proved via Pavlovian conditioning and human fMRI that strong top-down perceptual priors override zero sensory input in healthy adults."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "When physician Michael Rothberg asked fellow doctors at Baystate Medical Center in Massachusetts whether their pockets ever buzzed while their pager or phone was silent, nearly everyone laughed and admitted they thought only THEIR nerves were misfiring (2010 BMJ).",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Michael Rothberg's 2010 BMJ hospital survey of 169 medical staff carrying pagers and phones on vibrate mode, 68 percent (115 staff) experienced phantom vibrations in an empty or silent pocket, while 32 percent reported zero phantom buzzes — with Drouin et al. (2012) later documenting 89 percent prevalence in heavy texters.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Hospital Staff Phantom Buzz",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "No False Buzz",
+            "value": 32.0,
+            "unit": "%"
+          },
+          {
+            "label": "Felt Phantom Buzz",
+            "value": 68.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1136/bmj.c6914",
+        "source_citation": "Rothberg et al. (2010)"
+      }
+    },
+    {
+      "fact": "Rothberg et al. (2010 BMJ) uncovered clear dose-response predictors: carrying a device in a single breast pocket, keeping vibrate mode active more hours per day, and working high-alert resident shifts each independently multiplied phantom buzz odds.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Remarkably, simply moving the phone or pager into a DIFFERENT pocket stopped phantom vibrations in that original spot for many clinicians — proving the illusion was anchored to a specific patch of body-map skin rather than peripheral nerve damage.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Kruger & Djerf (2016) and Deb's (2015) systematic review showed phantom buzzes spike whenever you anxiously await an important call or work message — classic signal-detection trade-off where your brain prefers ten harmless false checks over missing one urgent alert.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Gindrat, Ghosh & colleagues (2015 Current Biology) proved on human EEG that repetitive daily smartphone touch physically enlarges and sensitizes somatosensory cortex responses in direct proportion to recent usage bursts.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In 2017 (Science), Yale neuroscientists Albert Powers, Christoph Mathys, and Philip Corlett paired visual and sensory cues in an fMRI scanner and proved healthy adults hallucinate nonexistent signals once Pavlovian conditioning cranks 'perceptual priors' high enough.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "When trousers brush lightly against your leg or a tiny muscle fiber twitches, overweighted basal ganglia and insula priors label that ambiguous rustle 'INCOMING BUZZ!' inside somatosensory cortex before conscious inspection can veto it.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "68 percent of surveyed hospital doctors and nurses (Rothberg et al., 2010 BMJ) — and up to 89 percent of frequent daily phone users (Drouin et al., 2012) — feel phantom pocket vibrations even when their phone is sitting across the room.",
+      "why_surprising": "Proves healthy adult brains routinely hallucinate tactile sensations whenever habit conditioning runs high.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Moving your phone from your right pocket to your briefcase or left pocket breaks the local skin prior — because your somatosensory cortex learned to hallucinate on that exact 3-inch patch of leg or chest skin (Rothberg et al., 2010).",
+      "why_surprising": "Shows a conditioned sensory prior is mapped down to the exact square inch of clothing contact.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Yale's 2017 Science fMRI study (Powers, Mathys & Corlett) proved Pavlovian conditioning makes completely healthy volunteers perceive absent stimuli by cranking anterior insula and sensory expectation weights over raw input.",
+      "why_surprising": "Reveals perception is never a passive microphone; it is a prediction engine guessing what touched you.",
+      "source_id": "SRC2",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Feeling a fake buzz in an empty pocket means pinched leg nerves or early neuropathy.",
+      "truth": "In healthy phone users, phantom vibration is a harmless top-down prediction error driven by vibrate-mode conditioning, not nerve damage.",
+      "reality": "In healthy phone users, phantom vibration is a harmless top-down prediction error driven by vibrate-mode conditioning, not nerve damage.",
+      "source_id": "SRC6"
+    },
+    {
+      "myth": "Only teenagers glued to social media get phantom phone vibrations.",
+      "truth": "Rothberg et al. (2010 BMJ) first documented the phenomenon in 68% of hospital physicians, residents, and nurses working high-responsibility shifts.",
+      "reality": "Rothberg et al. (2010 BMJ) first documented the phenomenon in 68% of hospital physicians, residents, and nurses working high-responsibility shifts.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Keeping your phone on vibrate in your pocket is calmer for your brain than an audible chime.",
+      "truth": "Continuous skin-contact vibrate mode trains your somatosensory cortex and insula to treat every pant-leg crease as an incoming alert.",
+      "reality": "Continuous skin-contact vibrate mode trains your somatosensory cortex and insula to treat every pant-leg crease as an incoming alert.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Patting your jacket or trouser pocket mid-conversation because you swore it buzzed twice — while your phone is charging in the kitchen.",
+    "Being on call for an aging parent, client, or hospital shift and feeling three phantom buzzes an hour whenever cotton fabric shifts.",
+    "Switching your phone out of your pocket and turning vibrate off for 48 hours to watch the false alarms vanish."
+  ],
+  "offcenter_creator_bet": "My bet: vibrate mode trains false alarms — habit circuits invent buzzes from fabric friction. Do you keep vibrate on or switch alerts completely off?",
+  "debate_ignition": {
+    "prebunk_myth": "Most people quietly wonder if a pinched nerve in their leg is making their empty pocket buzz.",
+    "open_verdict_question": "To stop your brain from inventing fake pocket alerts, would you rather turn vibrate mode completely off or keep your phone out of your pocket?",
+    "offcenter_creator_bet": "My bet: vibrate mode trains false alarms — habit circuits invent buzzes from fabric friction. Do you keep vibrate on or switch alerts completely off?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

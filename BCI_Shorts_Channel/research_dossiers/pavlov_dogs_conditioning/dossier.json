@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "pavlov_dogs_conditioning",
   "topic": "Ivan Pavlov's dogs and classical conditioning (St. Petersburg, Institute of Experimental Medicine, 1890s-1900s)",
   "pillar": "brain_history",
@@ -68,11 +68,44 @@
     },
     {
       "fact": "The neutral sound gained its power because it had repeatedly been followed immediately by food; after several pairings the metronome alone triggered salivation and the feeding movements.",
-      "source_id": "SRC_PAVLOV1927"
+      "source_id": "SRC_PAVLOV1927",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "sigmoid",
+        "title": "Conditioned Reflex Curve",
+        "concept": "CS-US Associative Salivation Strength",
+        "x_label": "Metronome-Food Pairings",
+        "y_label": "Salivary Secretion",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Order matters: with one dog the loud buzzing of an electric bell started 5-10 seconds after food failed to produce a conditioned reflex even after 374 combinations, while an electric buzzer started before the food worked after a single combination (Krestovnikov).",
-      "source_id": "SRC_PAVLOV1927"
+      "source_id": "SRC_PAVLOV1927",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Stimulus Order Pairings",
+        "unit": "trials",
+        "bars": [
+          {
+            "label": "Buzzer Before Food",
+            "value": 1.0,
+            "unit": "trials"
+          },
+          {
+            "label": "Bell After Food",
+            "value": 374.0,
+            "unit": "trials"
+          }
+        ],
+        "doi": "10.5214/ans.0972-7531.1017309",
+        "source_citation": "Pavlov (1927)"
+      }
     },
     {
       "fact": "At first the experimenter sat in the room with the dog on its stand, but his slightest movements (blinking, eye movements, posture, breathing) acted as stimuli and spoiled the results, so he was moved outside the room.",
@@ -175,5 +208,37 @@
     "diorama_35_pavlov_dogs_conditioning"
   ],
   "reenactment_track": "track_a",
-  "reenactment_track_subtier": "A1a_ready_keyframes"
+  "reenactment_track_subtier": "A1a_ready_keyframes",
+  "everyday_domain": "habits",
+  "primary_doi": "10.5214/ans.0972-7531.1017309",
+  "three_layer_formula": {
+    "everyday_problem": "Your phone's notification sound: a neutral tone that has been followed by messages thousands of times can pull your attention or your hand before you decide (illustrative example of the same pairing logic; no specific study cited).",
+    "psychology_experiment": {
+      "source_id": "SRC_PAVLOV1927_DOI",
+      "doi": "10.5214/ans.0972-7531.1017309",
+      "source_ids": [
+        "SRC_PAVLOV1927_DOI"
+      ],
+      "dois": [
+        "10.5214/ans.0972-7531.1017309"
+      ],
+      "summary": "Pavlov, I. P. (2010). Conditioned reflexes: An investigation of the physiological activity of the cerebral cortex. Annals of Neurosciences, 17(3), 136-141 (reprint of the 1927 Anrep translation excerpt)."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2015",
+      "doi": "10.1152/physrev.00023.2014",
+      "source_ids": [
+        "SRC_NEURO_2015"
+      ],
+      "dois": [
+        "10.1152/physrev.00023.2014"
+      ],
+      "summary": "W. Schultz (2015). Neuronal reward and decision signals: from theories to data. Physiological Reviews."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Pavlov always rang a hand bell before feeding his dogs.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

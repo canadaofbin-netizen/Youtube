@@ -1,0 +1,185 @@
+{
+  "schema_version": 2,
+  "slug": "carro_dominguez_2025_sleep_pupil_arousal",
+  "topic": "Why Your Pupils Pulse All Night Even When Eyes Are Shut",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-22T15:34:43+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Human sleeping infrared eye footage (Nature Communications 2025 Supplementary Movie 1) anchors the external behavior while 3D Ep #31 brain cutaways reveal internal brainstem-thalamus-prefrontal arousal gating.",
+  "three_layer_formula": {
+    "everyday_problem": "Waking up unrefreshed despite spending 7-8 hours asleep in a quiet dark bedroom, unsure whether hidden subconscious micro-arousals fragmented your deep rest.",
+    "psychology_experiment": {
+      "source_id": "SRC5",
+      "doi": "10.1016/j.cub.2010.06.032",
+      "year": 2010,
+      "summary": "Dang-Vu et al. (2010) showed sleepers with denser spontaneous 12-16 Hz sleep spindles withstand overnight acoustic bursts without waking, framing sleep resilience as an active thalamic gating process."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1038/s41467-025-57289-5",
+      "year": 2025,
+      "summary": "Carro-Domínguez et al. (ETH Zürich, Nature Communications 2025) paired 4h overnight infrared pupillometry with PSG in 17 healthy adults, revealing pupil size tracks brainstem-cortical arousal waves across macro stages, infraslow cycles (~108 deg vs spindles), K-complexes (+13.49%), arousals (+35.37%), and whether 45 dB sounds boost protective sigma spindles (+5.53 uV^2 vs +0.08 uV^2)."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC5",
+        "doi": "10.1016/j.cub.2010.06.032",
+        "year": 2010,
+        "summary": "Sleep spindle density predicts behavioral noise resilience during human NREM sleep."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1038/s41467-025-57289-5",
+        "year": 2025,
+        "summary": "Direct overnight infrared pupillometry + EEG reveals micro-arousal & auditory gating dynamics."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.7554/elife.55092",
+        "year": 2020,
+        "summary": "30-45 Hz EEG spectral slope quantifies tonic human arousal states matched by pupil ratio (R=0.34)."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "ETH Zürich Overnight Infrared Sleep Pupillometry Trial",
+    "year": 2025,
+    "place": "Neural Control of Movement Lab, ETH Zürich, Zurich, Switzerland",
+    "people": [
+      "Manuel Carro-Domínguez",
+      "Stephanie Huwiler",
+      "Stella Oberlin",
+      "Timona Leandra Oesch",
+      "Gabriela Badii",
+      "Anita Lüthi",
+      "Nicole Wenderoth",
+      "Sarah Nadine Meissner",
+      "Caroline Lustenberger"
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "During Stage N2 sleep at ETH Zürich, pupil size constricted by -11.51% (SEM 1.46%) right before sleep spindles, dilated by 13.49% (SEM 2.21%) within 10s after K-complexes, and surged 35.37% (SEM 9.88%) roughly 7s after spontaneous sleep arousals (p < 0.05; Table S7).",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Even behind closed eyes in total darkness, K-complexes and silent micro-arousals widen your pupil by 13.49% to 35.37%.",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "N2 Micro-Event Pupil Surge",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "K-Complex",
+            "value": 13.49,
+            "unit": "%"
+          },
+          {
+            "label": "Sleep Arousal",
+            "value": 35.37,
+            "unit": "%"
+          }
+        ],
+        "source_citation": "Carro-Domínguez et al. (2025)",
+        "doi": "10.1038/s41467-025-57289-5"
+      }
+    },
+    {
+      "fact": "Gentle 45 dB pink-noise tones played during Stage N2 increased 12-16 Hz sigma spindle power by 5.53 uV^2 (SEM 2.04, p = 0.044) when baseline pupils were small, versus only 0.08 uV^2 (SEM 2.17, p = 0.97) when baseline pupils were already large (interaction p = 0.027; Fig. 5A).",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Soft 45 dB sounds only strengthened protective sleep spindles (+5.53 uV^2) when a sleeper's baseline pupil was calm and constricted.",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "45 dB Sound Spindle Boost by Pupil",
+        "unit": "uV^2",
+        "bars": [
+          {
+            "label": "Small Pupil",
+            "value": 5.53,
+            "unit": "uV^2"
+          },
+          {
+            "label": "Large Pupil",
+            "value": 0.08,
+            "unit": "uV^2"
+          }
+        ],
+        "source_citation": "Carro-Domínguez et al. (2025)",
+        "doi": "10.1038/s41467-025-57289-5"
+      }
+    },
+    {
+      "fact": "Eighteen healthy adults were recruited (1 excluded for OSDI dry-eye > 12), leaving 17 included adults (10 female, mean age 29.83 +/- 8.69 years); 15 met >=44.61% valid pupil tracking frames (mean 75.69 +/- 5.66%) across the first 4h of a 7.5h sleep opportunity.",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Fifteen of seventeen healthy sleepers produced continuous high-quality dark-room pupil tracking for hours."
+    },
+    {
+      "fact": "Across macro sleep stages, pupil-to-iris ratio declined strongly (F(4, 57.43) = 168.90, p < 0.001) from Wake through N1 and N2 to equally small minima in deep slow-wave N3 and REM sleep.",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Your pupils shrink progressively as your brain sinks from wakefulness into deep and REM sleep."
+    },
+    {
+      "fact": "Momentary pupil size across sleep stages correlated significantly with prefrontal Fpz 30-45 Hz EEG spectral slope (repeated-measures R(4264) = 0.34, p < 0.001, 95% CI [0.31, 0.37]).",
+      "source_id": "SRC1",
+      "viewer_must_understand": "As high-frequency frontal brain chatter rises during sleep, pupils track those internal shifts live."
+    },
+    {
+      "fact": "Within Stage N2, pupil size followed a slow infraslow oscillation out of phase with Cz 12-16 Hz sigma spindle power by roughly 30% of a cycle (~108 degrees; cross-correlation R = -0.26, p < 0.001).",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Every ~60 seconds in light sleep, pupils and protective spindles trade turns peaking in opposite rhythm."
+    },
+    {
+      "fact": "Before auditory stimulation, small baseline pupil trials sat -25.21 +/- 3.40% below general N2 pupil size and also gained +928.67 +/- 381.79 uV^2 slow-wave delta power (p = 0.031) from 45 dB tones.",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Small-pupil sleep windows unlock big acoustic boosts in both spindles and restorative delta slow waves."
+    },
+    {
+      "fact": "Overall 45 dB acoustic stimulation dilated N2 pupils relative to sham during both early (+13.77 +/- 4.81%, p = 0.046) and late stimulation (+34.87 +/- 12.90%, p = 0.046) while heart rate climbed +11.18 +/- 2.31% during arousals.",
+      "source_id": "SRC1",
+      "viewer_must_understand": "Soft nighttime sounds register directly inside the sleeping brainstem, widening pupils up to 34.87%."
+    },
+    {
+      "fact": "Locus coeruleus spiking inside the brainstem tightly precedes pupil dilation transients (Joshi et al., 2016) and covaries with human pontine fMRI BOLD activity (Murphy et al., 2014).",
+      "source_id": "SRC4",
+      "viewer_must_understand": "Even in pitch darkness, rapid pupil jumps expose brief noradrenergic bursts firing from the brainstem."
+    },
+    {
+      "fact": "Higher 12-16 Hz sleep spindle rates generated via thalamocortical circuits predict whether people sleep undisturbed through environmental noise bursts (Dang-Vu et al., 2010).",
+      "source_id": "SRC5",
+      "viewer_must_understand": "Sleep spindles act like a thalamic shield keeping quiet noise from pulling you awake."
+    }
+  ],
+  "wow_facts": [
+    "Behind closed eyelids in total darkness, unconscious sleep arousals blow human pupils open by +35.37% in seven seconds.",
+    "Pupils shrink -11.51% right before sleep spindles fire—signaling the exact moment your thalamus locks out the room.",
+    "Soft 45 dB pink noise boosts protective sleep spindles (+5.53 uV^2) ONLY when pupils start small, failing (+0.08 uV^2) when pupils are already wide.",
+    "Pupil diameter rises and falls out of phase (~108 degrees) with ~60-second sigma brainwave waves throughout light N2 sleep."
+  ],
+  "misconceptions": [
+    "Myth: Eyelids shut out brain arousal shifts at night—Reality: Pupils keep widening and constricting continuously inside complete darkness.",
+    "Myth: Only loud noise triggers sleep disturbances—Reality: Soft 45 dB sounds measurably dilate pupils (+34.87% late) unless gated by low-arousal troughs.",
+    "Myth: All N2 light sleep minutes respond identically to sleep audio—Reality: Baseline pupil state gates whether acoustic clicks restore or fail to lift spindles."
+  ],
+  "everyday_hooks": [
+    "Ever sleep a solid eight hours in silence and still wake up feeling like you barely slept?",
+    "Why do some hallway creaks wreck your sleep at 2 AM while identical sounds barely register twenty minutes later?",
+    "Scientists taped sleeping volunteers' eyelids gently open in total darkness—and caught a hidden nighttime rhythm."
+  ],
+  "offcenter_creator_bet": "My bet: silent brainstem pulses — what if waking tired comes from hidden micro-surges rather than too few hours in bed?",
+  "debate_ignition": {
+    "prebunk_myth": "Sleep is not one flat offline switch where brain vigilance turns off evenly once eyelids close.",
+    "open_verdict_question": "Which tells you more about why someone wakes exhausted: total hours on a sleep app or how intensely their brainstem surges overnight?",
+    "offcenter_creator_bet": "My bet: silent brainstem pulses — what if waking tired comes from hidden micro-surges rather than too few hours in bed?"
+  },
+  "linked_projects": [
+    "v8_ep14_sleep_pupil_arousal"
+  ],
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor"
+}

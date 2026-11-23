@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "thorndike_law_of_effect",
   "topic": "Edward Thorndike (1898): Wooden Puzzle Boxes, Escaping Cats & the Birth of the Law of Effect",
   "pillar": "brain_history",
@@ -48,7 +48,26 @@
     },
     {
       "fact": "Crucially, when Thorndike plotted 'Seconds to Escape' across 20 to 40 trials ('time-curves'), the line did NOT drop in one vertical 'Aha. Now I understand pulleys!' cliff — it sloped DOWNWARD GRADUALLY from ~160 seconds down to a smooth 6-to-7 seconds as useless movements dropped out and the rewarded movement got 'stamped in'.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Puzzle-Box Escape Time",
+        "unit": "s",
+        "series": [
+          {
+            "label": "Escape Latency",
+            "values": [
+              160.0,
+              6.0
+            ],
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1037/10780-000",
+        "source_citation": "Thorndike (1898)"
+      }
     },
     {
       "fact": "Even more telling: when Thorndike lifted a cat and manually guided its paw onto the loop ('learning by imitation/instruction'), OR let a rookie cat watch an expert cat escape 10 times, the cats learned ZERO faster than pure trial-and-error.",
@@ -118,5 +137,37 @@
     "diorama_45_thorndike_law_of_effect"
   ],
   "reenactment_track": "track_a",
-  "reenactment_track_subtier": "A1a_ready_keyframes"
+  "reenactment_track_subtier": "A1a_ready_keyframes",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/10780-000",
+  "three_layer_formula": {
+    "everyday_problem": "Learning to ride a bike or hit a golf ball — where 10 hours of verbal physics lectures do nothing until your own muscles feel which micro-adjustments work.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/10780-000",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/10780-000"
+      ],
+      "summary": "Edward L. Thorndike (1898). Animal intelligence: An experimental study of the associative processes in animals."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1016/j.neuron.2017.09.046",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2017.09.046"
+      ],
+      "summary": "E. Kupferschmidt, R. M. Costa (2017). A corticostriatal balancing act supports skill learning. Neuron."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Animals solve hidden mechanical latches by reasoning out how strings and pulleys work like miniature engineers.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

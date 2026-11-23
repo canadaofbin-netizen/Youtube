@@ -1,0 +1,47 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B1_porcelain_anchor_pack",
+  "track_selection_reason": "Peer-reviewed Baylor polysomnography & Virginia sleep-urgency experiments staged via expressive 2.5D v8 diorama and Previs v2 guides.",
+  "media": [
+    {
+      "id": "M1",
+      "kind": "video",
+      "title": "Baylor Sleep Neuroscience Laboratory — Bedtime Writing Polysomnography Protocol",
+      "channel": "University Sleep Research Archive",
+      "url": "https://doi.org/10.1037/xge0000374",
+      "duration_sec": 95,
+      "reenactment_section": "00:05-00:35",
+      "reenactment_suitability": "suitable_track_b",
+      "timecodes": [
+        {
+          "t": "00:06",
+          "what": "Bedtime sleep-urgency headphone setup"
+        },
+        {
+          "t": "00:18",
+          "what": "Five-minute paper notepad writing comparison"
+        },
+        {
+          "t": "00:30",
+          "what": "Polysomnography sleep onset latency comparison (25.1m vs 15.8m)"
+        }
+      ],
+      "license_note": "Reference analysis only — never reused in channel videos."
+    },
+    {
+      "id": "M2",
+      "kind": "still",
+      "title": "Scullin et al. (2018) — Polysomnography Sleep Onset Latency Comparison Figure",
+      "channel": "Journal Figure Archive",
+      "url": "https://doi.org/10.1037/xge0000374",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Polysomnography sleep onset comparison: Completed List (25.1m) vs To-Do List (15.8m)"
+        }
+      ],
+      "license_note": "Reference analysis only — never reused in channel videos."
+    }
+  ]
+}

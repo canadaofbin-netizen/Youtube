@@ -1,0 +1,2436 @@
+{
+  "schema_version": 8,
+  "visual_mode": "HYBRID",
+  "style_profile": "expressive_25d_v8",
+  "aspect": "9:16",
+  "dossier": "v2_habits_marshmallow_prefrontal_trust",
+  "total_reference_images": 35,
+  "cast_lock": "Every person is an articulated matte-white porcelain mannequin, same design in every shot: subject in 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire; foil in 2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire.",
+  "generation_order": "1 pre-verified expressive_25d_v8 species/cameo/brain/conflict masters -> 2 18-character cast sheets -> 3 optional daisy-chain clip keyframes",
+  "master_anchors": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    }
+  ],
+  "clip_anchors": [
+    {
+      "ref_id": "kf_01_playroom_oak_table_eye_level_medium_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP01",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_01_playroom_oak_table_eye_level_medium_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging swings open the oak door and spreads two empty four-fingered matte-white palms above the bare table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S01_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher spreading empty hands",
+          "entity_kind": "actor"
+        },
+        "crayon_tin": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Small open tin of worn crayon stubs",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_02_playroom_oak_table_high_angle_3q_9x16",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP02",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_02_playroom_oak_table_high_angle_3q_9x16.png",
+      "title": "Clip 02 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging nudges two tiny snapped wax crayon stubs rolling across the oak tabletop with one four-fingered hand with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S02_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher stepping beside oak table",
+          "entity_kind": "actor"
+        },
+        "crayon_tin": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Two snapped wax crayon stubs rolling out of tin",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_03_playroom_oak_table_object_portal_macro_9x16",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP03",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_03_playroom_oak_table_object_portal_macro_9x16.png",
+      "title": "Clip 03 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging sets down a crisp white porcelain saucer holding one plump white marshmallow right on the center oak tabletop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S03_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher placing marshmallow plate",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_playroom_oak_table_over_shoulder_orbit_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP04",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_04_playroom_oak_table_over_shoulder_orbit_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of bright sunlit testing room with crisp cool-white plaster walls, frosted glass hallway doorway, and pale birch table staging holds up two matte-white fingers in a cheerful two-treat promise before stepping toward the bright frosted-gla with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S04_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow sweater at oak table",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher holding up two fingers at doorway",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_playroom_oak_table_end_9x16",
+      "clip_number": 4,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP05",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_04_playroom_oak_table_end_9x16.png",
+      "title": "Clip 04 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny cinema composition facing the foreground action) of bright sunlit testing room with crisp cool-white plaster walls, frosted glass hallway doorway, and pale birch table staging holds up two matte-white fingers in a cheerful two-treat promise before stepping toward the bright frosted-gla with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S04_end_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow sweater at oak table",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher holding up two fingers at doorway",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_05_bookstore_lecture_podi_eye_level_medium_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP06",
+      "setting": "real_env",
+      "location_id": "bookstore_lecture_podium",
+      "filename": "kf_05_bookstore_lecture_podi_eye_level_medium_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp staging taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S05_start_previs.png",
+      "color_role_legend": {
+        "guru_speaker": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Speaker in charcoal blazer",
+          "entity_kind": "actor"
+        },
+        "book_stack": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Stack of unmarked hardcover books on lectern",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_05_bookstore_lecture_podi_end_9x16",
+      "clip_number": 5,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP07",
+      "setting": "real_env",
+      "location_id": "bookstore_lecture_podium",
+      "filename": "kf_05_bookstore_lecture_podi_end_9x16.png",
+      "title": "Clip 05 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp staging taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S05_end_previs.png",
+      "color_role_legend": {
+        "guru_speaker": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Speaker in charcoal blazer",
+          "entity_kind": "actor"
+        },
+        "book_stack": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Stack of unmarked hardcover books on lectern",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_06_playroom_oak_table_high_angle_3q_9x16",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP08",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_06_playroom_oak_table_high_angle_3q_9x16.png",
+      "title": "Clip 06 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of amber-lit testing room oak tabletop with the empty broken-crayon tin beside the white saucer staging lunges forward across the oak table and snatches the plump white marshmallow off the saucer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S06_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure lunging forward in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer as marshmallow is snatched",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_07_playroom_oak_table_object_portal_macro_9x16",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP09",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_07_playroom_oak_table_object_portal_macro_9x16.png",
+      "title": "Clip 07 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of amber-lit testing room oak tabletop with an empty white porcelain saucer staging takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S07_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Empty white porcelain saucer on oak table",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_07_playroom_oak_table_end_9x16",
+      "clip_number": 7,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP10",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_07_playroom_oak_table_end_9x16.png",
+      "title": "Clip 07 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of amber-lit testing room oak tabletop with an empty white porcelain saucer staging takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S07_end_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Empty white porcelain saucer on oak table",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_08_observation_glass_boot_over_shoulder_orbit_9x16",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP11",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "filename": "kf_08_observation_glass_boot_over_shoulder_orbit_9x16.png",
+      "title": "Clip 08 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of dim slate-teal observation gallery with a wide glass viewing window and wooden console ledge staging shake their smooth oval heads and tap wooden clipboards firmly against the console ledge with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S08_start_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer in tweed jacket with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher watching quietly beside glass",
+          "entity_kind": "actor"
+        },
+        "clipboard_prop": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Unmarked wooden clipboard on console ledge",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_observation_glass_boot_eye_level_medium_9x16",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP12",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "filename": "kf_09_observation_glass_boot_eye_level_medium_9x16.png",
+      "title": "Clip 09 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray staging turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S09_start_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer pausing with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher lifting wooden marker tray",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Compartmentalized wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_observation_glass_boot_end_9x16",
+      "clip_number": 9,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP13",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "filename": "kf_09_observation_glass_boot_end_9x16.png",
+      "title": "Clip 09 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray staging turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S09_end_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer pausing with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher lifting wooden marker tray",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Compartmentalized wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP14",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "ref_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of bright sunlit wooden craft room with warm birch shelves, drawing paper, and golden daylight featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched on the oak craft shelf right behind a full wooden tray of colorful markers, cinema key-and-rim lighting, zero floating captions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_11_sunlit_art_craft_room_object_portal_macro_9x16",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP15",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_11_sunlit_art_craft_room_object_portal_macro_9x16.png",
+      "title": "Clip 11 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of bright sunlit wooden craft room with fresh colored markers spread across clean drawing paper staging draws bold colorful spirals across white drawing paper using a fresh bright-blue marker with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S11_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure in teal cardigan coloring calmly",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Full wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16",
+      "clip_number": 12,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP16",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16.png",
+      "title": "Clip 12 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of bright sunlit wooden craft room as the white porcelain marshmallow saucer arrives at center table staging places the crisp white porcelain saucer with one plump marshmallow at center table and steps calmly toward the with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S12_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure in teal cardigan folding hands calmly",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Researcher placing marshmallow saucer",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_13_sunlit_art_craft_room_eye_level_medium_9x16",
+      "clip_number": 13,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP17",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_13_sunlit_art_craft_room_eye_level_medium_9x16.png",
+      "title": "Clip 13 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of bright sunlit wooden craft room bathed in warm afternoon sunbeams with the untouched marshmallow saucer staging leans back comfortably in the oak chair drumming relaxed fingers gently on knee beside the untouched marshmall with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S13_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure leaning back calmly in teal cardigan",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Untouched white porcelain marshmallow saucer",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_13_sunlit_art_craft_room_end_9x16",
+      "clip_number": 13,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP18",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_13_sunlit_art_craft_room_end_9x16.png",
+      "title": "Clip 13 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of bright sunlit wooden craft room bathed in warm afternoon sunbeams with the untouched marshmallow saucer staging leans back comfortably in the oak chair drumming relaxed fingers gently on knee beside the untouched marshmall with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S13_end_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure leaning back calmly in teal cardigan",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Untouched white porcelain marshmallow saucer",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_14_nursery_courtyard_exte_high_angle_3q_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP19",
+      "setting": "real_env",
+      "location_id": "nursery_courtyard_exterior",
+      "filename": "kf_14_nursery_courtyard_exte_high_angle_3q_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale staging tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S14_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Young adult in olive jacket on courtyard bench",
+          "entity_kind": "actor"
+        },
+        "brass_scale": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Polished brass two-pan balance scale",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_14_nursery_courtyard_exte_end_9x16",
+      "clip_number": 14,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP20",
+      "setting": "real_env",
+      "location_id": "nursery_courtyard_exterior",
+      "filename": "kf_14_nursery_courtyard_exte_end_9x16.png",
+      "title": "Clip 14 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale staging tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S14_end_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Young adult in olive jacket on courtyard bench",
+          "entity_kind": "actor"
+        },
+        "brass_scale": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Polished brass two-pan balance scale",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_15_xray_brain_observatory_object_portal_macro_9x16",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP21",
+      "setting": "real_env",
+      "location_id": "xray_brain_observatory",
+      "filename": "kf_15_xray_brain_observatory_object_portal_macro_9x16.png",
+      "title": "Clip 15 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring staging inside the crystal glass dome, a deep crimson-red pulse fires brightly in the deep central nucleus accumbens h with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "clip_number": 15,
+      "frame": "end",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_9x16.png",
+      "title": "Clip 15 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master",
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) inside warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring: a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_2_9x16",
+      "clip_number": 16,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_2_9x16.png",
+      "title": "Clip 16 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master",
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) inside warm studio lighting around the crystal-dome cranium exposing glowing frontal valuation pathways: a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_17_midnight_fridge_kitche_eye_level_medium_9x16",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP24",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "filename": "kf_17_midnight_fridge_kitche_eye_level_medium_9x16.png",
+      "title": "Clip 17 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of cozy apartment kitchen at night lit by warm pendant glow and cool blue open-refrigerator light staging slumps shoulders beside a pile of unopened envelopes on the counter and pulls open the bright refrigerator doo with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S17_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Tired adult in grey hoodie at open fridge",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator glowing cool blue",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_midnight_fridge_kitche_high_angle_3q_9x16",
+      "clip_number": 18,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP25",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "filename": "kf_18_midnight_fridge_kitche_high_angle_3q_9x16.png",
+      "title": "Clip 18 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light staging reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S18_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Adult reaching hand toward fridge shelf",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator shelf with snack plate",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_midnight_fridge_kitche_end_9x16",
+      "clip_number": 18,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP26",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "filename": "kf_18_midnight_fridge_kitche_end_9x16.png",
+      "title": "Clip 18 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light staging reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S18_end_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Adult reaching hand toward fridge shelf",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator shelf with snack plate",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_19_morning_sunlit_desk_object_portal_macro_9x16",
+      "clip_number": 19,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP27",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "filename": "kf_19_morning_sunlit_desk_object_portal_macro_9x16.png",
+      "title": "Clip 19 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of warm sunlit oak morning desk beside a bright window with a linen notebook and ceramic mug staging draws one crisp bold checkmark inside an unmarked linen notebook square with a brass pen with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S19_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Refreshed adult in olive overshirt at morning desk",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open unmarked linen notebook and ceramic mug",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16",
+      "clip_number": 20,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP28",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "filename": "kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16.png",
+      "title": "Clip 20 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug staging closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S20_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Calm adult lifting ceramic mug in golden morning light",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Closed linen notebook and warm ceramic mug",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_morning_sunlit_desk_end_9x16",
+      "clip_number": 20,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP29",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "filename": "kf_20_morning_sunlit_desk_end_9x16.png",
+      "title": "Clip 20 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny cinema composition facing the foreground action) of warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug staging closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S20_end_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Calm adult lifting ceramic mug in golden morning light",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Closed linen notebook and warm ceramic mug",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ],
+  "all_specs": [
+    {
+      "ref_id": "species_opt1_sheet",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_SPECIES",
+      "setting": "real_env",
+      "filename": "species_opt1_sheet.png",
+      "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+      "must_include": [
+        "matte-white 2.5D vinyl cast",
+        "charcoal 2D ink facial features"
+      ]
+    },
+    {
+      "ref_id": "cameo_opt3_sheet",
+      "category": "cast_anchor",
+      "role": "cameo_master",
+      "scene_id": "MASTER_CAMEO",
+      "setting": "real_env",
+      "filename": "cameo_opt3_sheet.png",
+      "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+      "must_include": [
+        "Mini-Cortex palm-sized brain cameo mascot"
+      ]
+    },
+    {
+      "ref_id": "xray_brain75_master",
+      "category": "brain_anchor",
+      "role": "brain_master",
+      "scene_id": "MASTER_BRAIN",
+      "setting": "brain_studio",
+      "filename": "xray_brain75_master.png",
+      "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
+      "must_include": [
+        "golden seam crystal dome cranium",
+        "living 4-color 3D brain"
+      ]
+    },
+    {
+      "ref_id": "expressive_conflict_master",
+      "category": "environment_anchor",
+      "role": "env_master",
+      "scene_id": "MASTER_CONFLICT",
+      "setting": "real_env",
+      "filename": "expressive_conflict_master.png",
+      "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+      "generation_order": 1,
+      "conditioned_on": [],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
+      "must_include": [
+        "stylized 2.5D tactile room staging",
+        "matte-white vinyl protagonist"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_02_clinical_historical_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_CLINICAL",
+      "setting": "real_env",
+      "filename": "cast_sheet_02_clinical_historical_6roles.png",
+      "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "clinical and historical 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+      "category": "cast_anchor",
+      "role": "cast_master",
+      "scene_id": "MASTER_CAST_EVERYDAY",
+      "setting": "real_env",
+      "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+      "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+      "must_include": [
+        "everyday lifestyle 2.5D vinyl cast"
+      ]
+    },
+    {
+      "ref_id": "kf_01_playroom_oak_table_eye_level_medium_9x16",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP01",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_01_playroom_oak_table_eye_level_medium_9x16.png",
+      "title": "Clip 01 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging swings open the oak door and spreads two empty four-fingered matte-white palms above the bare table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S01_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher spreading empty hands",
+          "entity_kind": "actor"
+        },
+        "crayon_tin": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Small open tin of worn crayon stubs",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_02_playroom_oak_table_high_angle_3q_9x16",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP02",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_02_playroom_oak_table_high_angle_3q_9x16.png",
+      "title": "Clip 02 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging nudges two tiny snapped wax crayon stubs rolling across the oak tabletop with one four-fingered hand with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S02_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher stepping beside oak table",
+          "entity_kind": "actor"
+        },
+        "crayon_tin": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Two snapped wax crayon stubs rolling out of tin",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_03_playroom_oak_table_object_portal_macro_9x16",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP03",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_03_playroom_oak_table_object_portal_macro_9x16.png",
+      "title": "Clip 03 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging sets down a crisp white porcelain saucer holding one plump white marshmallow right on the center oak tabletop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S03_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher placing marshmallow plate",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_playroom_oak_table_over_shoulder_orbit_9x16",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP04",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_04_playroom_oak_table_over_shoulder_orbit_9x16.png",
+      "title": "Clip 04 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of bright sunlit testing room with crisp cool-white plaster walls, frosted glass hallway doorway, and pale birch table staging holds up two matte-white fingers in a cheerful two-treat promise before stepping toward the bright frosted-gla with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S04_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow sweater at oak table",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher holding up two fingers at doorway",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_04_playroom_oak_table_end_9x16",
+      "clip_number": 4,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP05",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_04_playroom_oak_table_end_9x16.png",
+      "title": "Clip 04 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny cinema composition facing the foreground action) of bright sunlit testing room with crisp cool-white plaster walls, frosted glass hallway doorway, and pale birch table staging holds up two matte-white fingers in a cheerful two-treat promise before stepping toward the bright frosted-gla with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S04_end_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow sweater at oak table",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher holding up two fingers at doorway",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_05_bookstore_lecture_podi_eye_level_medium_9x16",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP06",
+      "setting": "real_env",
+      "location_id": "bookstore_lecture_podium",
+      "filename": "kf_05_bookstore_lecture_podi_eye_level_medium_9x16.png",
+      "title": "Clip 05 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp staging taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S05_start_previs.png",
+      "color_role_legend": {
+        "guru_speaker": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Speaker in charcoal blazer",
+          "entity_kind": "actor"
+        },
+        "book_stack": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Stack of unmarked hardcover books on lectern",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_05_bookstore_lecture_podi_end_9x16",
+      "clip_number": 5,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP07",
+      "setting": "real_env",
+      "location_id": "bookstore_lecture_podium",
+      "filename": "kf_05_bookstore_lecture_podi_end_9x16.png",
+      "title": "Clip 05 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp staging taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S05_end_previs.png",
+      "color_role_legend": {
+        "guru_speaker": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Speaker in charcoal blazer",
+          "entity_kind": "actor"
+        },
+        "book_stack": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Stack of unmarked hardcover books on lectern",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_06_playroom_oak_table_high_angle_3q_9x16",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP08",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_06_playroom_oak_table_high_angle_3q_9x16.png",
+      "title": "Clip 06 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of amber-lit testing room oak tabletop with the empty broken-crayon tin beside the white saucer staging lunges forward across the oak table and snatches the plump white marshmallow off the saucer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S06_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure lunging forward in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer as marshmallow is snatched",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_07_playroom_oak_table_object_portal_macro_9x16",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP09",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_07_playroom_oak_table_object_portal_macro_9x16.png",
+      "title": "Clip 07 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of amber-lit testing room oak tabletop with an empty white porcelain saucer staging takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S07_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Empty white porcelain saucer on oak table",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_07_playroom_oak_table_end_9x16",
+      "clip_number": 7,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP10",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "filename": "kf_07_playroom_oak_table_end_9x16.png",
+      "title": "Clip 07 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of amber-lit testing room oak tabletop with an empty white porcelain saucer staging takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S07_end_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Empty white porcelain saucer on oak table",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_08_observation_glass_boot_over_shoulder_orbit_9x16",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP11",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "filename": "kf_08_observation_glass_boot_over_shoulder_orbit_9x16.png",
+      "title": "Clip 08 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of dim slate-teal observation gallery with a wide glass viewing window and wooden console ledge staging shake their smooth oval heads and tap wooden clipboards firmly against the console ledge with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S08_start_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer in tweed jacket with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher watching quietly beside glass",
+          "entity_kind": "actor"
+        },
+        "clipboard_prop": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Unmarked wooden clipboard on console ledge",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_observation_glass_boot_eye_level_medium_9x16",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP12",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "filename": "kf_09_observation_glass_boot_eye_level_medium_9x16.png",
+      "title": "Clip 09 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray staging turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S09_start_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer pausing with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher lifting wooden marker tray",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Compartmentalized wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_09_observation_glass_boot_end_9x16",
+      "clip_number": 9,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP13",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "filename": "kf_09_observation_glass_boot_end_9x16.png",
+      "title": "Clip 09 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray staging turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S09_end_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer pausing with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher lifting wooden marker tray",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Compartmentalized wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "scene_id": "EP14",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "ref_cameo_9x16.png",
+      "title": "Clip 10 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of bright sunlit wooden craft room with warm birch shelves, drawing paper, and golden daylight featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched on the oak craft shelf right behind a full wooden tray of colorful markers, cinema key-and-rim lighting, zero floating captions.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_11_sunlit_art_craft_room_object_portal_macro_9x16",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP15",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_11_sunlit_art_craft_room_object_portal_macro_9x16.png",
+      "title": "Clip 11 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of bright sunlit wooden craft room with fresh colored markers spread across clean drawing paper staging draws bold colorful spirals across white drawing paper using a fresh bright-blue marker with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S11_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure in teal cardigan coloring calmly",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Full wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16",
+      "clip_number": 12,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP16",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16.png",
+      "title": "Clip 12 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of bright sunlit wooden craft room as the white porcelain marshmallow saucer arrives at center table staging places the crisp white porcelain saucer with one plump marshmallow at center table and steps calmly toward the with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S12_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure in teal cardigan folding hands calmly",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Researcher placing marshmallow saucer",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_13_sunlit_art_craft_room_eye_level_medium_9x16",
+      "clip_number": 13,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP17",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_13_sunlit_art_craft_room_eye_level_medium_9x16.png",
+      "title": "Clip 13 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of bright sunlit wooden craft room bathed in warm afternoon sunbeams with the untouched marshmallow saucer staging leans back comfortably in the oak chair drumming relaxed fingers gently on knee beside the untouched marshmall with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S13_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure leaning back calmly in teal cardigan",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Untouched white porcelain marshmallow saucer",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_13_sunlit_art_craft_room_end_9x16",
+      "clip_number": 13,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP18",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "filename": "kf_13_sunlit_art_craft_room_end_9x16.png",
+      "title": "Clip 13 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of bright sunlit wooden craft room bathed in warm afternoon sunbeams with the untouched marshmallow saucer staging leans back comfortably in the oak chair drumming relaxed fingers gently on knee beside the untouched marshmall with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S13_end_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure leaning back calmly in teal cardigan",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Untouched white porcelain marshmallow saucer",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_14_nursery_courtyard_exte_high_angle_3q_9x16",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP19",
+      "setting": "real_env",
+      "location_id": "nursery_courtyard_exterior",
+      "filename": "kf_14_nursery_courtyard_exte_high_angle_3q_9x16.png",
+      "title": "Clip 14 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale staging tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S14_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Young adult in olive jacket on courtyard bench",
+          "entity_kind": "actor"
+        },
+        "brass_scale": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Polished brass two-pan balance scale",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_14_nursery_courtyard_exte_end_9x16",
+      "clip_number": 14,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP20",
+      "setting": "real_env",
+      "location_id": "nursery_courtyard_exterior",
+      "filename": "kf_14_nursery_courtyard_exte_end_9x16.png",
+      "title": "Clip 14 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale staging tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S14_end_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Young adult in olive jacket on courtyard bench",
+          "entity_kind": "actor"
+        },
+        "brass_scale": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Polished brass two-pan balance scale",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_15_xray_brain_observatory_object_portal_macro_9x16",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP21",
+      "setting": "real_env",
+      "location_id": "xray_brain_observatory",
+      "filename": "kf_15_xray_brain_observatory_object_portal_macro_9x16.png",
+      "title": "Clip 15 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring staging inside the crystal glass dome, a deep crimson-red pulse fires brightly in the deep central nucleus accumbens h with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "clip_number": 15,
+      "frame": "end",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_9x16.png",
+      "title": "Clip 15 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master",
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) inside warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring: a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "ref_xray_brain_2_9x16",
+      "clip_number": 16,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "scene_id": "BRAIN",
+      "setting": "brain_studio",
+      "location_id": null,
+      "filename": "ref_xray_brain_2_9x16.png",
+      "title": "Clip 16 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master",
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) inside warm studio lighting around the crystal-dome cranium exposing glowing frontal valuation pathways: a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": null,
+      "color_role_legend": null,
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_17_midnight_fridge_kitche_eye_level_medium_9x16",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP24",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "filename": "kf_17_midnight_fridge_kitche_eye_level_medium_9x16.png",
+      "title": "Clip 17 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium tiny cinema composition facing the foreground action) of cozy apartment kitchen at night lit by warm pendant glow and cool blue open-refrigerator light staging slumps shoulders beside a pile of unopened envelopes on the counter and pulls open the bright refrigerator doo with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S17_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Tired adult in grey hoodie at open fridge",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator glowing cool blue",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_midnight_fridge_kitche_high_angle_3q_9x16",
+      "clip_number": 18,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP25",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "filename": "kf_18_midnight_fridge_kitche_high_angle_3q_9x16.png",
+      "title": "Clip 18 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light staging reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S18_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Adult reaching hand toward fridge shelf",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator shelf with snack plate",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_18_midnight_fridge_kitche_end_9x16",
+      "clip_number": 18,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP26",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "filename": "kf_18_midnight_fridge_kitche_end_9x16.png",
+      "title": "Clip 18 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light staging reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S18_end_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Adult reaching hand toward fridge shelf",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator shelf with snack plate",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_19_morning_sunlit_desk_object_portal_macro_9x16",
+      "clip_number": 19,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP27",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "filename": "kf_19_morning_sunlit_desk_object_portal_macro_9x16.png",
+      "title": "Clip 19 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of warm sunlit oak morning desk beside a bright window with a linen notebook and ceramic mug staging draws one crisp bold checkmark inside an unmarked linen notebook square with a brass pen with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S19_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Refreshed adult in olive overshirt at morning desk",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open unmarked linen notebook and ceramic mug",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16",
+      "clip_number": 20,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP28",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "filename": "kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16.png",
+      "title": "Clip 20 start anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug staging closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S20_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Calm adult lifting ceramic mug in golden morning light",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Closed linen notebook and warm ceramic mug",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    },
+    {
+      "ref_id": "kf_20_morning_sunlit_desk_end_9x16",
+      "clip_number": 20,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "scene_id": "EP29",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "filename": "kf_20_morning_sunlit_desk_end_9x16.png",
+      "title": "Clip 20 end anchor",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "style_profile": "expressive_25d_v8",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium tiny cinema composition facing the foreground action) of warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug staging closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "diegetic_text_allowlist": [],
+      "present_cast": null,
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S20_end_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Calm adult lifting ceramic mug in golden morning light",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Closed linen notebook and warm ceramic mug",
+          "entity_kind": "prop"
+        }
+      },
+      "must_include": [
+        "matte-white 2.5D vinyl cast, no human skin"
+      ]
+    }
+  ]
+}

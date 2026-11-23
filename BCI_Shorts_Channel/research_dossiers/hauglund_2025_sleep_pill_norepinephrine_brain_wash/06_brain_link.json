@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "brainstem",
+      "plain": "fifty-second pump pacemaker",
+      "function": "Fires gentle norepinephrine waves during natural non-REM sleep to drive blood-vessel pumping—muted 50% by zolpidem.",
+      "scene_id": "S1",
+      "narration_bridge": "At the base, the brainstem, your nightly pump pacemaker, fires slow fifty-second pulses—until certain sleep pills mute it.",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "setup",
+      "region": "thalamus",
+      "plain": "deep sleep rhythm hub",
+      "function": "Coordinates slow non-REM sleep oscillations that open the nightly rinse window.",
+      "scene_id": "S3",
+      "narration_bridge": "In the center, the thalamus, your sleep-rhythm hub, syncs slow waves across the sleeping brain.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "prefrontal cortex",
+      "plain": "front thinking cortex",
+      "function": "Relies on nightly perivascular fluid pulses to clear sticky metabolic waste accumulated all day.",
+      "scene_id": "S3",
+      "narration_bridge": "Up front, the prefrontal cortex, your daytime thinking hub, needs those fluid waves to rinse away daily waste.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "primary visual cortex",
+      "plain": "back cortex fluid wave zone",
+      "function": "Shows large coupled blood-volume and cerebrospinal fluid waves during natural human non-REM sleep.",
+      "scene_id": "S3",
+      "narration_bridge": "All the way to the primary visual cortex at the back of your head, clear fluid pulses in behind every slow wave.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

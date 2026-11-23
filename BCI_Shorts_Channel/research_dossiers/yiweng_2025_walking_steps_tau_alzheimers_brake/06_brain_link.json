@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "step1",
+      "region": "motor cortex",
+      "plain": "movement strip driving brisk daily walking cadence",
+      "function": "coordinates rhythmic purposeful stride (~100–112 steps/min) that boosts cerebral blood flow and neurotrophic signaling",
+      "scene_id": "S2",
+      "narration_bridge": "Connects brisk accelerometer step cadence in del Pozo Cruz et al. (2022, SRC3) and Voss et al. (2019, SRC7).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "temporal lobe",
+      "plain": "side memory lobe where daily steps brake toxic tau tangle spread",
+      "function": "shows significantly slower longitudinal tau protein accumulation on PET imaging in walkers hitting 3,000–7,500 daily steps",
+      "scene_id": "S1",
+      "narration_bridge": "Core 2025 Nature Medicine longitudinal tau-PET discovery in the Harvard Aging Brain Study (SRC2).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "breakthrough",
+      "region": "hippocampus",
+      "plain": "memory hub preserving gray-matter volume and delaying cognitive decline up to 7 years",
+      "function": "maintains structural thickness and episodic memory performance despite baseline beta-amyloid burden",
+      "scene_id": "S1",
+      "narration_bridge": "Demonstrated across 6-to-14-year longitudinal MRI and PACC memory tracking in Rabin et al. (2019, SRC1) and Yau et al. (2025, SRC2).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "conclusion",
+      "region": "prefrontal cortex",
+      "plain": "frontal planning hub kept sharp by sustained midlife-to-late-life walking",
+      "function": "preserves executive sharpness and whole-brain gray-matter volume alongside vascular health",
+      "scene_id": "S3",
+      "narration_bridge": "Supported by Framingham MRI volume data (Spartano et al. 2019, SRC6) and the 2024 Lancet Commission (SRC5).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

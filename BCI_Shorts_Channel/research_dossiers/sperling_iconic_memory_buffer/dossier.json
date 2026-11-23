@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "sperling_iconic_memory_buffer",
   "topic": "George Sperling (1960): The 50-Millisecond Letter Grid & Proving You Briefly See 3x More Than You Can Say",
   "pillar": "brain_basics",
@@ -32,7 +32,28 @@
   "core_facts": [
     {
       "fact": "For nearly a century since J. M. Cattell (1886), flashing a card of **12 consonants (3 rows of 4 letters)** for **50 milliseconds** (1/20th of a second — too fast for a single eye movement!) produced a rock-solid brick wall: subjects could ONLY report **~4.3 to 4.5 letters** (**Whole Report**), yet insisted frustratedly: ***'I SAW all twelve letters clearly — they just vanished while I was writing the first four!'***",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Whole-Report Bottleneck",
+        "unit": "letters",
+        "bars": [
+          {
+            "label": "Whole-Report Limit",
+            "value": 4.5,
+            "unit": "letters"
+          },
+          {
+            "label": "Flashed Grid Total",
+            "value": 12.0,
+            "unit": "letters"
+          }
+        ],
+        "doi": "10.1037/h0093759",
+        "source_citation": "Sperling (1960)"
+      }
     },
     {
       "fact": "Behaviorists scoffed at that excuse (*'If you can only report 4.5, you only saw 4.5!'*) — until 25-year-old Harvard grad student **George Sperling (1960, *Psychological Monographs*)** invented the **Partial Report** sampling trick.",
@@ -44,7 +65,17 @@
     },
     {
       "fact": "Because the tone sounded **AFTER** the letters disappeared, subjects could NOT cheat by looking at one row in advance. Yet whichever random row the tone picked, subjects suddenly read off **3+ out of 4 letters (~76% — meaning ~9.1 out of ALL 12 letters were sitting vivid and readable inside their visual brain right after the flash ended)**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Partial-Report Row Recall",
+        "percent": 76.0,
+        "unit": "%",
+        "doi": "10.1037/h0093759",
+        "source_citation": "Sperling (1960)"
+      }
     },
     {
       "fact": "Then Sperling delayed the audio tone step-by-step after the screen went dark (**0 ms to 150 ms to 300 ms to 500 ms to 1.0 second**): accuracy plunged along a razor-sharp curve down to the old 4.5-letter ceiling within **~300 to 500 milliseconds** (less than half a second!).",
@@ -122,5 +153,37 @@
     "diorama_83_sperling_iconic_memory_buffer"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1037/h0093759",
+  "three_layer_formula": {
+    "everyday_problem": "Waving a sparkler wand or phone flashlight in the dark to draw a glowing circle in mid-air — your ~300-ms **iconic memory** holds the tail of the circle while the tip finishes.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0093759",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0093759"
+      ],
+      "summary": "George Sperling (1960). The information available in brief visual presentations. Psychological Monographs: General and Applied."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1016/j.tics.2016.12.007",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1016/j.tics.2016.12.007"
+      ],
+      "summary": "T. B. Christophel, P. C. Klink, B. Spitzer, P. R. Roelfsema, J.-D. Haynes (2017). The distributed nature of working memory. Trends in Cognitive Sciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "If you didn't catch every license-plate digit after a 1-second glance, your eyes 'failed to see' the rest.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

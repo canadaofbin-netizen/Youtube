@@ -1,0 +1,170 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2010 Baystate Hospital Station: Empty-Pocket Slap While Silent Phone Sits Across the Desk",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2010, Baystate Medical Center Doctors' Station, Springfield, Massachusetts",
+      "layout": {
+        "description": "Bright sunlit hospital clinic corridor and oak nurses' desk: in the foreground, a 46-year-old physician in a crisp white lab coat and navy trousers stops mid-stride patting and turning out a completely empty right trouser pocket; three meters behind on the clean oak desk, their black smartphone sits completely dark and motionless beside a ceramic mug.",
+        "positions": [
+          {
+            "who": "On-call physician (clothed 2.5D matte cream-white vinyl adult with smooth earless noseless hairless oval head and surprised 2D charcoal-black ink eyes in white lab coat over teal shirt and navy slacks)",
+            "where": "standing at left-center in the sunlit clinic corridor pulling the empty white cotton pocket lining outward",
+            "facing": "glancing down at the empty pocket then turning head sharply toward the oak desk"
+          },
+          {
+            "who": "Colleague nurse practitioner (clothed 2.5D matte cream-white vinyl adult in slate-blue scrubs holding an unmarked clipboard)",
+            "where": "standing beside the oak desk pointing calmly down at the physician's dark, untouched black smartphone resting on the wood surface",
+            "facing": "angled toward the physician with an amused recognizing nod"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "turned-out empty white cotton trouser pocket lining",
+          "period_detail": "immediately communicates the universal phantom-buzz empty-pocket check from Rothberg et al. (2010 BMJ)",
+          "physical_behavior": "State-A: physician's hand darts down to slap the right hip pocket -> State-B: pulls out empty white pocket fabric with zero device inside"
+        },
+        {
+          "name": "dark silent black smartphone resting untouched on oak desk across the room",
+          "period_detail": "unmarked matte-black glass slab completely powered dark with zero vibration ripples",
+          "physical_behavior": "State-A & State-B: sits 100% still and unlit beside a white ceramic mug three meters away from the physician's hip"
+        }
+      ],
+      "actions": [
+        {
+          "who": "On-call physician",
+          "verb_sequence": "stops mid-stride and slaps right hand onto trouser pocket -> pulls empty white cotton pocket lining outward -> turns head toward the silent dark phone resting across the room"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "On-call physician",
+          "reaction": "2D charcoal-black ink eyebrows lift in sheepish recognition seeing the phone sitting three meters away"
+        },
+        {
+          "who": "Colleague nurse practitioner",
+          "reaction": "taps own coat pocket knowingly — one of the 68 percent on the ward"
+        }
+      ],
+      "wardrobe": "46-year-old attending physician in crisp white coat, teal button-down, navy slacks; colleague in clean slate-blue hospital scrubs.",
+      "lighting": "Bright high-key clinical hallway daylight streaming through tall windows.",
+      "recognition_hook": "Your hand dives into your pocket for a buzz you 100 percent felt — and pulls out empty air while your phone sits dark across the room!",
+      "sources": [
+        "SRC1",
+        "SRC6",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "a hospital physician in a white coat pulling out an empty trouser pocket lining in surprise while a colleague points to the dark silent smartphone sitting untouched on a desk behind him",
+        "must_show": [
+          "pocket|coat|hand",
+          "phone|desk",
+          "corridor|hospital"
+        ],
+        "source": "M1@00:18-00:38; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2017 Yale Conditioning Booth: Overweighted Priors Pressing the False-Alarm Button",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2017, Yale University Perceptual Conditioning & fMRI Suite (Powers, Mathys & Corlett)",
+      "layout": {
+        "description": "Clean minimalist testing booth where an adult volunteer wearing a white scalp cap presses a 'felt it' response button even though the tactile pad beside their hand sits disconnected and still.",
+        "positions": [
+          {
+            "who": "Healthy adult volunteer (2.5D matte cream-white vinyl figure in charcoal knit sweater)",
+            "where": "seated at a clean testing table with left hand near an idle tactile pad and right hand pressing a response key",
+            "facing": "three-quarter angle toward unmarked conditioning light cue"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "idle tactile conditioning pad and response key",
+          "period_detail": "represents Powers, Mathys & Corlett (2017 Science) conditioned hallucination paradigm with zero text",
+          "physical_behavior": "State-A: soft amber cue lamp blinks while tactile pad stays completely motionless -> State-B: volunteer confidently presses the 'detected' button"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Healthy adult volunteer",
+          "verb_sequence": "watches the soft cue lamp blink while the pad stays motionless -> presses the response button convinced a pulse occurred"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Healthy adult volunteer",
+          "reaction": "confident nod demonstrating how strong priors override silent input"
+        }
+      ],
+      "wardrobe": "Charcoal crew-neck sweater and tailored slacks.",
+      "lighting": "Clean soft laboratory key light.",
+      "recognition_hook": "Train expectation hard enough, and a completely healthy human brain invents the sensation all by itself.",
+      "sources": [
+        "SRC2",
+        "SRC4"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Sunlit Courtyard Bench: Moving the Phone Off Skin Into a Shoulder Bag (Outdoor)",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit outdoor brick courtyard & park bench",
+      "layout": {
+        "description": "Open-world sunlit outdoor courtyard bench beneath green trees where the off-duty physician slides the silent smartphone out of their trouser pocket and zips it cleanly into a tan leather bag on the bench.",
+        "positions": [
+          {
+            "who": "Off-duty physician in casual olive jacket",
+            "where": "seated on a sunlit wooden park bench beside a leather messenger bag",
+            "facing": "angled toward sunlit trees while zipping the bag closed"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "tan leather messenger bag on sunlit wooden park bench",
+          "period_detail": "implements Rothberg et al. (2010) pocket-relocation & vibrate-off habit reset",
+          "physical_behavior": "State-A: adult lifts phone away from hip pocket -> State-B: drops it into leather bag on the bench and leans back relaxed"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Off-duty physician",
+          "verb_sequence": "removes phone from hip pocket -> places it inside the leather bag on the sunlit bench and leans back calmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Off-duty physician",
+          "reaction": "shoulders drop as continuous tactile vigilance switches off"
+        }
+      ],
+      "wardrobe": "Olive cotton field jacket over white shirt and navy chinos.",
+      "lighting": "Warm afternoon outdoor sunlight.",
+      "recognition_hook": "Take the buzzer off that patch of skin for 48 hours, and your body map stops shouting false alarms.",
+      "sources": [
+        "SRC1",
+        "SRC5",
+        "SRC_M1"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Empty trouser pocket firing false top-down vibration alert while phone rests 10 feet away",
+    "landmark_or_object_b": "Relocating phone into a carry bag across the desk to reset the thigh touch map",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit hospital glass courtyard into doctor's workstation cutaway",
+    "cut_b_topdown_3d_arrow": "90-degree top-down room showing a 10-foot gap between the silent desk phone and the #FF2525 false-alarm arrow at the pocket",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

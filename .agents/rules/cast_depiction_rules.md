@@ -1,12 +1,14 @@
-# Cast Depiction Rules (`R14-A`, `R45`, `R66`)
+---
+trigger: model_decision
+description: "Load when authoring or reviewing R88 faceless architectural porcelain cast prompts, wardrobe, silhouette/hands-only framing, or frozen v7/Ep1-12 cast anchors (R56, R66, R68, R85, R88)."
+---
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Code: [`pipeline/flow_prompt_builder.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/flow_prompt_builder.py), [`pipeline/porcelain_anchor_pack.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/porcelain_anchor_pack.py), [`pipeline/depiction_rules.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/depiction_rules.py)
+# Cast Depiction Rules (`R56`, `R66`, `R68`, `R85`, `R88`)
 
-## R66 — Active `porcelain_cinematic_v7` Cast Contract (`PORCELAIN_V7_CAST_STYLE`)
-- **Head & Surface**: Clothed articulated matte-white porcelain figures with **smooth featureless solid matte-white egg-shaped oval heads** — zero human skin/eyes/mouths (`PORCELAIN_V7_HUMAN_SKIN_MAX`, YuNet face gate = `0` faces) and **zero frosted-glass craniums** on `porcelain_cinematic_v7`.
-- **Wardrobe & Continuity**: Era/role-matched solid matte fabric clothing (`ref_cast_<role>.png` conditioned on `ref_env_master.png`), ball-jointed porcelain hands, zero crowd clutter.
-- **Acting**: Emotion and causality conveyed 100% via 2-Beat physical hand/arm/posture prop actions ([scene_depiction_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/scene_depiction_rules.md)). Animals render as articulated matte-white porcelain figures.
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Scene Acting: [scene_depiction_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/scene_depiction_rules.md) | Retired (`R14-A v4, R45 <=4` brain cap): [retired_rules_2026-11-18.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/_archive/retired_rules_2026-11-18.md)
 
-## R45 & R14-A — Visual Modes & Legacy v4/v5 Cast
-- **`VISUAL_MODES` (`R45`)**: `BEHAVIORAL_PSYCH` (`0` brain clips), `HYBRID` (`<= 2` brain clips), `NEURO_BIOLOGY` (`<= 4` brain clips) (`MAX_BRAIN_CLIPS_BY_MODE`, `MODE_ROLE_SETTINGS`).
-- **Legacy v4 (`R14-A`)**: Clothed articulated matte-white porcelain mannequins with translucent frosted-glass craniums (`Clip 1–3, 9–10`).
+## Active `R88` Faceless Architectural Porcelain Cast (`v8_ep13+`)
+- **[Tier-1 Hard Block (`R88`) — Faceless Porcelain Identity]**: `R88_FACELESS_CAST_PROFILE = "r88_faceless_porcelain"`. All human subjects (`v8_ep13+` / `r88_mode`) are **smooth featureless matte-white architectural porcelain figures (`#F5F2EB`)** wearing tailored 3D woven attire — **zero eyes, zero mouth, zero eyebrows, zero cartoon face, zero hair, zero photorealistic skin** (`R88_HUMAN_IDENTITY_LOCK_SUFFIX` / `R85_HUMAN_IDENTITY_LOCK_SUFFIX`). Frame subjects strictly via **hands-only close-ups**, **back/three-quarter silhouettes**, or **translucent Mode 1 x-ray cranium**.
+- **[Tier-1 Hard Block (`R88`) — Cartoon-Face & `B01–B15` Ban]**: All `15` cartoon-face canonical slots (`B01_base_adult_male_turnaround`..`B15_wardrobe_student`) are permanently retired (`status="retired_r88_cartoon_face"`, `selectable_for_new_episodes=false`; Zero-Deletion on disk). `prompt-gate` (`validate_r88_faceless_cast_contract`) & provenance checks emit `[r88_retired_cartoon_cast_ban]` if any `Ep #13+` cut binds `B01–B15` or uses `R88_BANNED_CARTOON_FACE_TOKENS` (`2d black ink`, `2d ink eyes/eyebrows/mouth/shock`, `open-o shocked mouth`, `furrowed curiosity`, etc.).
+- **Flow Video & Framing**: Human cuts lock `Start + End` / single-frame `VIDEO_FRAMES` via unified `Omni 1.2 Flash` (`3s–10s`; `0-credit` fallback `Veo 3.1 - Lite [Lower Priority]`; `Omni 1.1 Flash` retired `2026-12-05`).
+- **Frozen `Ep #01–#12` & `v7`**: `PRE_R88_FROZEN_V8_PROJECTS` preserves historical `Ep #01–#12` with `R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX` (or `porcelain_cinematic_v7` oval porcelain for legacy `v7`).

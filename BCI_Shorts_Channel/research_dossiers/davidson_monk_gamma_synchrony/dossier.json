@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "davidson_monk_gamma_synchrony",
   "topic": "Richard Davidson & Antoine Lutz (2004): Tibetan Monks With 50,000 Meditation Hours & Unprecedented 40-Hz Gamma Synchrony!",
   "pillar": "brain_health",
@@ -36,7 +36,28 @@
     },
     {
       "fact": "Twelve years later (**November 2004, *Proceedings of the National Academy of Sciences*, SRC1**), **Antoine Lutz, Matthieu Ricard, and Richard Davidson** brought **8 long-term Tibetan Buddhist practitioners** — each with **10,000 to 50,000 lifetime hours** across 15 to 40 years of training — into UW–Madison's high-density **128-channel geodesic EEG suite** alongside **10 trained novices**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "EEG Meditation Study Cohort",
+        "unit": "",
+        "bars": [
+          {
+            "label": "Tibetan Monks",
+            "value": 8.0,
+            "unit": ""
+          },
+          {
+            "label": "Trained Novices",
+            "value": 10.0,
+            "unit": ""
+          }
+        ],
+        "doi": "10.1073/pnas.0407401101",
+        "source_citation": "Lutz, Ricard & Davidson (2004)"
+      }
     },
     {
       "fact": "When the adepts shifted from neutral rest into **'unconditional loving-kindness and non-referential compassion'** (boundless readiness to help all living beings without locking onto a single memory), the UW–Madison engineers initially wondered if **a wall power cable was interfering with the amplifiers**.",
@@ -44,7 +65,27 @@
     },
     {
       "fact": "Why? Because the monks generated **extraordinary, sustained high-amplitude 25–42 Hz gamma-band oscillations** (peaking ~30–40 Hz) AND **long-distance frontoparietal phase synchrony** — the **highest non-pathological waking gamma power ever reported in neuroscience literature**, soaring **several standard deviations** above controls (and in several monks exceeding every single novice cleanly).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Sustained Gamma Band Range",
+        "unit": "Hz",
+        "series": [
+          {
+            "label": "High Gamma",
+            "start_label": "Low Gamma",
+            "values": [
+              25.0,
+              42.0
+            ],
+            "unit": "Hz"
+          }
+        ],
+        "doi": "10.1073/pnas.0407401101",
+        "source_citation": "Lutz, Ricard & Davidson (2004)"
+      }
     },
     {
       "fact": "Even more astonishing — **TRAIT CHANGE AT REST**: even **BEFORE** the monks started meditating (sitting quietly in the neutral resting baseline!), their **baseline gamma-to-slow-wave ratio over medial frontoparietal electrodes was ALREADY dramatically higher** than novices, and **scaled linearly (*r* = 0.79!) with total lifetime hours of practice**.",
@@ -110,5 +151,38 @@
   ],
   "shorts_projects": [
     "diorama_19_davidson_monk_gamma_synchrony"
-  ]
+  ],
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1073/pnas.0407401101",
+  "three_layer_formula": {
+    "everyday_problem": "Thinking *'I'm just naturally an impatient, anxious person'* — until seeing that kindness and focus remodel resting brain rhythms like physical reps in a gym.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1073/pnas.0407401101",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1073/pnas.0407401101"
+      ],
+      "summary": "Antoine Lutz, Lawrence L. Greischar, Nancy B. Rawlings, Matthieu Ricard et al. (2004). Long-term meditators self-induce high-amplitude gamma synchrony during mental practice. Proceedings of the National Academy of Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1038/nrn3916",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1038/nrn3916"
+      ],
+      "summary": "Y.-Y. Tang, B. K. Hölzel, M. I. Posner (2015). The neuroscience of mindfulness meditation. Nature Reviews Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Meditation puts your brain to sleep in drowsy, zoned-out slow waves.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

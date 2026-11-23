@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "skinner_operant_superstition",
   "topic": "B. F. Skinner (1948): Operant Conditioning Chamber & Accidental 'Superstition' in the Pigeon",
   "pillar": "brain_mysteries",
@@ -40,7 +40,17 @@
     },
     {
       "fact": "Six of the eight pigeons rapidly developed stereotyped, idiosyncratic movement rituals between hopper deliveries even though their actions had zero causal effect on food.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Pigeons Developing Rituals",
+        "highlighted_k": 6,
+        "total_n": 8,
+        "doi": "10.1037/h0055873",
+        "source_citation": "Skinner (1948)"
+      }
     },
     {
       "fact": "One pigeon executed two or three crisp counterclockwise full turns inside the cage between every 15-second hopper presentation.",
@@ -60,7 +70,27 @@
     },
     {
       "fact": "Shifting the fixed-time clock from 15 seconds to 60 seconds preserved high-rate ritualized movement in trained birds.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Non-Contingent Hopper Clock",
+        "unit": "s",
+        "series": [
+          {
+            "start_label": "Initial Interval",
+            "label": "Extended Interval",
+            "values": [
+              15.0,
+              60.0
+            ],
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1037/h0055873",
+        "source_citation": "Skinner (1948)"
+      }
     },
     {
       "fact": "In 1971, John Staddon and Virginia Simmelhag replicated Skinner's non-contingent schedule and found rituals split into 'interim' circling early in the interval and 'terminal' pecking right before food.",
@@ -137,5 +167,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "Hot take: humans love lucky rituals too — random timers turned hungry pigeons into tireless superstitious dancers. What harmless lucky ritual do you still catch yourself doing?"
+  "offcenter_creator_bet": "Hot take: humans love lucky rituals too — random timers turned hungry pigeons into tireless superstitious dancers. What harmless lucky ritual do you still catch yourself doing?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0055873",
+  "three_layer_formula": {
+    "everyday_problem": "Pressing an elevator 'door close' or crosswalk button five times in a row because the doors happened to shut right after your third press last week.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0055873",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0055873"
+      ],
+      "summary": "B. F. Skinner (1948). 'Superstition' in the pigeon. Journal of Experimental Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.35457/3bsbp866",
+      "source_ids": [
+        "SRC4"
+      ],
+      "dois": [
+        "10.35457/3bsbp866"
+      ],
+      "summary": "Muhammad Lukman Arif, Nurul Atik Hamida, Wahidah Ma’rifatunnisa’, Nurhasanah Nurhasanah (2026). Implementasi Teori Operant Conditioning B. F Skinner dalam Pembentukan Kedisiplinan Shalat Berjamaah pada Peserta Didik Usia Remaja. Konstruktivisme : Jurnal Pendidikan dan Pembelajaran."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Superstition requires complex human culture, language, or magical beliefs.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hot take: humans love lucky rituals too — random timers turned hungry pigeons into tireless superstitious dancers. What harmless lucky ritual do you still catch yourself doing?"
+  }
 }

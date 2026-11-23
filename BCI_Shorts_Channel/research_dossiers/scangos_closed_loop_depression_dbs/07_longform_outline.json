@@ -1,11 +1,60 @@
 {
-  "target_minutes": 10,
-  "published_longform_video_id": "",
-  "published_longform_title": "",
+  "target_minutes": 11,
   "shorts_extract": {
-    "hook": "",
-    "core_experiment": "",
-    "twist": ""
+    "hook": "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracranial stereo-EEG mapping in a 36-year-ol",
+    "core_experiment": "Katherine Scangos, Edward Chang, Andrew Krystal, and colleagues (Nature Medicine, Oct 2021) mapped a 36-year-old woman ('Sarah') with severe treatment-resistant",
+    "twist": "The patient's Montgomery-Åsberg Depression Rating Scale (MADRS) score dropped from 36 out of 54 at pre-surgical baseline to 14 within 12 day"
   },
-  "chapters": []
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Act 1: In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine",
+      "beats": [
+        "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracr"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Act 2: Delivering brief 6-second bursts of 100 Hz, 1 mA electrical ",
+      "beats": [
+        "Delivering brief 6-second bursts of 100 Hz, 1 mA electrical stimulation to the right ventral capsule"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Act 3: The implanted NeuroPace RNS closed-loop device delivered app",
+      "beats": [
+        "The implanted NeuroPace RNS closed-loop device delivered approximately 300 six-second stimulation bu"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Act 4: The patient's Montgomery-Åsberg Depression Rating Scale (MAD",
+      "beats": [
+        "The patient's Montgomery-Åsberg Depression Rating Scale (MADRS) score dropped from 36 out of 54 at p"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Act 5: Daily visual-analog depression severity ratings (VAS-D) fell",
+      "beats": [
+        "Daily visual-analog depression severity ratings (VAS-D) fell from 77 out of 100 before closed-loop t"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    }
+  ]
 }

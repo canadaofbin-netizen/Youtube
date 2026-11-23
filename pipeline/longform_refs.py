@@ -4,7 +4,7 @@ ALL ABOUT BRAIN — Standalone 16:9 (`1920x1080`) Hybrid (`Track A` + `Track B`)
 
 100% isolated from `9:16` Shorts `porcelain_anchor_pack.py` (`REENACT_QUARANTINE_ROOT = /tmp/aab_reenact`).
 Uses isolated `/tmp/aab_reenact_lf/<slug>` (`LONGFORM_QUARANTINE_ROOT`) when staging `Track A` sanitized
-experiment layout guides, generates `1920x1080` (`16:9`) `0-credit` Google Flow `Image` (`Nano Banana 2.1` `x4`)
+experiment layout guides, generates `1920x1080` (`16:9`) `0-credit` Google Flow `Image` (`Nano Banana 2.1`, `x1` first-pass / `x2` retry)
 master/room/3D-brain reference PNGs in `generation_order` `1 -> 2 -> 3`, verifies `Q1–Q10` widescreen CV QA,
 binds `reference_image` paths onto `visual_plan.json`, and renders `03_visuals/longform_ref_contact_sheet.png`.
 """
@@ -27,6 +27,7 @@ from pipeline.config import (
     DEFAULT_CDP_PORT,
     FLOW_ASPECT_LONGFORM,
     FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT,
     LONGFORM_QUARANTINE_ROOT,
     LONGFORM_VIDEO_HEIGHT,
     LONGFORM_VIDEO_WIDTH,
@@ -39,6 +40,7 @@ from pipeline.config import (
     REF_IMAGE_CROSS_LUMA_SPREAD_MAX,
     REF_IMAGES_DIRNAME,
     YUNET_FACE_MODEL_PATH,
+    resolve_flow_image_batch_count,
 )
 from pipeline.longform_prompt_builder import resolve_longform_project_dir, sanitize_longform_scene_props
 from pipeline.reference_image_qa import (
@@ -773,13 +775,15 @@ async def ensure_longform_reference_pack_async(
     project_id_or_dir: str | Path,
     *,
     cdp_port: int = DEFAULT_CDP_PORT,
-    batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    batch_count: int | None = None,
+    retry_batch_count: int = FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT,
     backend: str = "flow",
     force: bool = False,
 ) -> dict[str, Any]:
     """
-    Synthesizes & verifies all `1920x1080` (`16:9`) Reference Anchor PNGs exclusively via `0-credit` Google Flow `Image` (`x4`),
-    never touching pre-existing user tabs and always closing its dedicated worker tab + purging quarantine in `finally:`.
+    Synthesizes & verifies all `1920x1080` (`16:9`) Reference Anchor PNGs exclusively via `0-credit` Google Flow `Image`
+    (`x1` first-pass / `x2` retry or `--force`), never touching pre-existing user tabs and always closing its dedicated
+    worker tab + purging quarantine in `finally:`.
     """
     from pipeline.config import DEFAULT_REENACT_IMAGE_BACKEND, REENACT_EDL_FILENAME, REENACT_IMAGE_BACKENDS
     from pipeline.flow_ingredients import generate_flow_image_batch
@@ -865,6 +869,8 @@ async def ensure_longform_reference_pack_async(
             return
         release_and_close_leased_tab(tid, owner_id=owner_id, cdp_port=cdp_port)
 
+    unusual_activity_halted = False
+    halt_reason = ""
     try:
         source_dhashes = _prepare_longform_track_a_guides(
             p_dir=p_dir,
@@ -877,6 +883,9 @@ async def ensure_longform_reference_pack_async(
 
         for idx_sp, spec in enumerate(ordered_specs, start=1):
             ref_id = str(spec["ref_id"])
+            if unusual_activity_halted:
+                failed.append(ref_id)
+                continue
             out_png = ref_dir / str(spec["filename"])
             if out_png.exists() and not force:
                 chk = inspect_single_reference_image(
@@ -923,6 +932,12 @@ async def ensure_longform_reference_pack_async(
 
             ok_this = False
             for attempt in range(3):
+                attempt_batch = resolve_flow_image_batch_count(
+                    batch_count,
+                    is_retry=(attempt > 0),
+                    force=force,
+                    retry_batch_count=retry_batch_count,
+                )
                 try:
                     if client is None:
                         alloc = await allocate_dedicated_flow_project_tab(cdp_port=cdp_port)
@@ -945,7 +960,7 @@ async def ensure_longform_reference_pack_async(
                         else " Ensure bright high-key daylight architectural exposure, crisp edges, smooth matte-white porcelain oval heads, and full-bleed 16:9 widescreen composition."
                     )
                     print(
-                        f"[longform-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} (16:9 0-credit x{batch_count}, try {attempt + 1}/3, cond={[p.name for p in cond_paths]})...",
+                        f"[longform-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} (16:9 0-credit x{attempt_batch}, try {attempt + 1}/3, cond={[p.name for p in cond_paths]})...",
                         flush=True,
                     )
                     flow_res = await generate_flow_image_batch(
@@ -953,7 +968,7 @@ async def ensure_longform_reference_pack_async(
                         prompt=eff_prompt_base + retry_tail,
                         out_path=out_png,
                         conditioning_paths=cond_paths[:2] if cond_paths else None,
-                        batch_count=batch_count,
+                        batch_count=attempt_batch,
                         aspect=FLOW_ASPECT_LONGFORM,
                         uploaded_cache=uploaded_cache,
                         seen_img_srcs=seen_img_srcs,
@@ -970,10 +985,20 @@ async def ensure_longform_reference_pack_async(
                             flush=True,
                         )
                         break
+                    miss_reason = str(flow_res.get("reason") or "")
                     print(
-                        f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} miss: {flow_res.get('reason')}",
+                        f"[longform-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} miss: {miss_reason}",
                         flush=True,
                     )
+                    if miss_reason == "flow_unusual_activity_blocked":
+                        unusual_activity_halted = True
+                        halt_reason = miss_reason
+                        print(
+                            f"[longform-refs {idx_sp}/{len(ordered_specs)}] HARD HALT ({miss_reason}): "
+                            "Google Flow unusual activity detected; halting entire batch immediately (0 retries, 0 model hopping).",
+                            flush=True,
+                        )
+                        break
                 except Exception as exc:
                     print(f"[longform-refs {idx_sp}/{len(ordered_specs)}] transient CDP error ({exc}); rotating tab...", flush=True)
                     if client_cm is not None:
@@ -990,6 +1015,10 @@ async def ensure_longform_reference_pack_async(
 
             if not ok_this:
                 failed.append(ref_id)
+            if unusual_activity_halted:
+                for rem_spec in ordered_specs[idx_sp:]:
+                    failed.append(str(rem_spec["ref_id"]))
+                break
 
         _render_longform_reenactment_comparison_sheet(p_dir, ordered_specs, guides_dir)
     finally:
@@ -1025,6 +1054,8 @@ async def ensure_longform_reference_pack_async(
         "cached": False,
         "generated_ids": generated,
         "failed_ids": failed,
+        "unusual_activity_halted": unusual_activity_halted,
+        "halted_reason": halt_reason,
         "cv_pre_generation_ready": bool(qa_rep.get("cv_pre_generation_ready")),
         "contact_sheet": str(sheet),
         "qa_report": qa_rep,
@@ -1035,7 +1066,8 @@ def ensure_longform_reference_pack(
     project_id_or_dir: str | Path,
     *,
     cdp_port: int = DEFAULT_CDP_PORT,
-    batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    batch_count: int | None = None,
+    retry_batch_count: int = FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT,
     backend: str = "flow",
     force: bool = False,
 ) -> dict[str, Any]:
@@ -1044,6 +1076,7 @@ def ensure_longform_reference_pack(
             project_id_or_dir,
             cdp_port=cdp_port,
             batch_count=batch_count,
+            retry_batch_count=retry_batch_count,
             backend=backend,
             force=force,
         )

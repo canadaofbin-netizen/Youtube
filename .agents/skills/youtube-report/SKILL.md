@@ -11,7 +11,7 @@ SSOT: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtub
 - Live: `/home/canadaofbin/hermes-venv/bin/python3 -m pipeline.cli studio-report [--date YYYY-MM-DD] [--compare-date YYYY-MM-DD] [--cdp-port 9222]`
 - Offline snapshot only: add `--dry-run` (never fabricate missing metrics).
 - Pre-check: remove idle 0-byte `BCI_Shorts_Channel/.flow_download_harvest.lock` if no Flow worker holds it.
-- Post-check: verify `"data_source_mode": "LIVE_CDP_DOM"` in `BCI_Shorts_Channel/reports/daily/YYYY-MM-DD_studio_metrics.json` when Whale CDP `9222` is live; re-run if transient hiccup fell back to `PUBLIC_WATCH_PAGE_PROBED` / `LOCAL_SNAPSHOT_BASELINE`.
+- Post-check: verify `"data_source_mode": "LIVE_CDP_DOM"` in `BCI_Shorts_Channel/reports/daily/YYYY-MM-DD_studio_metrics.json` when Whale CDP `9222` is live (compact KPI chips like `8.5K`/`5.4K` must scale to full integers `8500`/`5400`, never `8`/`5`); re-run if transient hiccup fell back to `PUBLIC_WATCH_PAGE_PROBED` / `LOCAL_SNAPSHOT_BASELINE`.
 
 ## 2. Formatting & Artifact Rules
 - **Numbers-First Traffic Lights**: Pair `🟢` / `🟡` / `🔴` strictly with numbers/deltas (`🟢 +6.5%`, `🟡 -2.0%p (목표 70%)`, `🔴 -83.4%`); zero prose adjectives or per-video tables in the channel summary.

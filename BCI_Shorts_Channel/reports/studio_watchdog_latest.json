@@ -1,55 +1,65 @@
 {
   "schema_version": 1,
-  "executed_at_utc": "2026-11-02T18:00:00+00:00",
+  "executed_at_utc": "2026-11-22T20:13:04.474021+00:00",
   "dry_run": false,
   "scan": {
-    "scanned_at_utc": "2026-11-02T18:00:00+00:00",
-    "public_count": 1,
-    "scheduled_count": 1,
+    "scanned_at_utc": "2026-11-22T20:13:04.474021+00:00",
+    "public_count": 24,
+    "scheduled_count": 0,
     "due_for_public_transition": [
       {
-        "project_id": "diorama_11_elapsed",
-        "video_id": "1111111111A",
-        "scheduled_at_utc": "2026-11-02T12:00:00+00:00"
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "video_id": "fGxHHP9IuSE",
+        "scheduled_at_utc": "2026-11-22T00:30:00+00:00"
       }
     ],
     "missing_doi_pin": [
       {
-        "project_id": "diorama_11_elapsed",
-        "video_id": "1111111111A",
+        "project_id": "v8_ep12_doorway_effect_memory",
+        "video_id": "fGxHHP9IuSE",
         "visibility": "scheduled_elapsed"
       }
     ],
-    "missing_related_link": [
-      {
-        "project_id": "diorama_11_elapsed",
-        "video_id": "1111111111A",
-        "visibility": "public"
-      },
-      {
-        "project_id": "diorama_12_future",
-        "video_id": "2222222222B",
-        "visibility": "scheduled"
-      }
-    ]
+    "missing_related_link": []
   },
   "promoted_projects": [
-    "diorama_11_elapsed"
+    "v8_ep12_doorway_effect_memory"
   ],
-  "pin_results": [],
+  "pin_results": [
+    {
+      "project_id": "v8_ep12_doorway_effect_memory",
+      "video_id": "fGxHHP9IuSE",
+      "shorts_url": "https://www.youtube.com/shorts/fGxHHP9IuSE",
+      "comment_text": "When you blank in the kitchen doorway, do you retrace your steps or stand still until it clicks?",
+      "doi_included": false,
+      "pinned": true,
+      "deleted_previous_count": 0,
+      "posted_at": "2026-11-22T20:13:51.747541+00:00",
+      "status": "pinned"
+    }
+  ],
   "link_results": [],
   "queue_audit": {
-    "queue_exists": false,
-    "total_items": 0,
+    "queue_exists": true,
+    "total_items": 7,
     "duplicate_projects": [],
     "duplicate_slots": [],
+    "stale_scheduled_projects": [],
     "legacy_psych_items": 0,
     "healthy": true,
     "projects_dir_exists": true
   },
   "tab_cleanup": {
     "cdp_reachable": true,
-    "candidates": [],
-    "closed": []
+    "candidates": [
+      {
+        "id": "D3F34B4709F5EB694BA455BB1B3F93E4",
+        "url": "chrome://newtab/",
+        "reason": "idle_blank_tab"
+      }
+    ],
+    "closed": [
+      "D3F34B4709F5EB694BA455BB1B3F93E4"
+    ]
   }
 }

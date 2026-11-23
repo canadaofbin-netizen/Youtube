@@ -78,12 +78,16 @@ def _make_temp_db(db_path: Path) -> Path:
 def test_workspace_chatrooms_registry_valid() -> None:
     assert DEFAULT_REGISTRY_PATH.exists()
     data = json.loads(DEFAULT_REGISTRY_PATH.read_text(encoding="utf-8"))
-    by_handle = {c["handle"]: c["conversation_id"] for c in data["chatrooms"]}
+    active_rooms = [c for c in data["chatrooms"] if c.get("active", True)]
+    assert len(active_rooms) == 7
+    by_handle = {c["handle"]: c["conversation_id"] for c in active_rooms}
     assert by_handle["@YouTube_CEO"] == "b57c97a8-6324-4c31-a2bb-16b25e28dd55"
+    assert by_handle["@Operator"] == "1f9808d4-ebac-4b58-a570-45c8f1f00a85"
     assert by_handle["@Research"] == "ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c"
+    assert by_handle["@Deep_Research"] == "8c666be9-5bad-43d9-b91a-e7ba2b936c62"
     assert by_handle["@Daily_Report"] == "e3210c73-cc41-4432-87b1-c158efe9cadb"
-    assert by_handle["@Headquarters"] == "8c7f8d97-664d-4d6b-9ef8-b17e721354f9"
-    assert by_handle["@Channel_Art"] == "3c2fa53b-b43c-4f67-9dfd-0e5c86581f67"
+    assert by_handle["@QA_Scheduler"] == "ef8185bb-5afd-4859-b697-2fe07f1ecf1c"
+    assert by_handle["@Topic_Radar"] == "0ffee83a-d9de-4520-a177-7d3b57dc01dc"
 
 
 def test_resolve_english_korean_and_dynamic_db_mentions(tmp_path: Path) -> None:
@@ -141,15 +145,15 @@ def test_korean_particles_active_precedence_and_trailing_hyphen(tmp_path: Path) 
 
     # 1. Korean postpositions / honorifics / room-suffixes attached directly without whitespace
     ko = resolve_mentions(
-        "@리서치한테 @본부에게 @채널아트랑 @총괄님께 @Research한테 경쟁 채널 쇼츠 후킹 공식 분석해줘",
+        "@리서치한테 @오퍼레이터에게 @스케줄러랑 @총괄님께 @Research한테 경쟁 채널 쇼츠 후킹 공식 분석해줘",
         registry_path=reg_copy,
         db_path=missing_db,
     )
     assert ko["unresolved"] == []
     assert [r["recipient"] for r in ko["resolved"]] == [
         "ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c",
-        "8c7f8d97-664d-4d6b-9ef8-b17e721354f9",
-        "3c2fa53b-b43c-4f67-9dfd-0e5c86581f67",
+        "1f9808d4-ebac-4b58-a570-45c8f1f00a85",
+        "ef8185bb-5afd-4859-b697-2fe07f1ecf1c",
         "b57c97a8-6324-4c31-a2bb-16b25e28dd55",
     ]
     assert ko["task_message"] == "경쟁 채널 쇼츠 후킹 공식 분석해줘"
@@ -166,4 +170,49 @@ def test_korean_particles_active_precedence_and_trailing_hyphen(tmp_path: Path) 
     assert hyph["unresolved"] == []
     assert hyph["resolved"][0]["handle"] == "@Daily_Report"
     assert hyph["task_message"] == "check funnel metrics"
+
+
+def test_deep_research_routing_and_korean_aliases(tmp_path: Path) -> None:
+    reg_copy = tmp_path / "chatrooms.json"
+    reg_copy.write_text(DEFAULT_REGISTRY_PATH.read_text(encoding="utf-8"), encoding="utf-8")
+    missing_db = tmp_path / "missing.db"
+    deep_cid = "8c666be9-5bad-43d9-b91a-e7ba2b936c62"
+    research_cid = "ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c"
+
+    # 1. Exact @Deep_Research handle and kebab/compact variants
+    for mention in ("@Deep_Research", "@deep_research", "@deep-research", "@deepresearch"):
+        res = resolve_mentions(f"{mention} analyze viral Shorts hooks", registry_path=reg_copy, db_path=missing_db)
+        assert res["unresolved"] == []
+        assert len(res["resolved"]) == 1
+        assert res["resolved"][0]["handle"] == "@Deep_Research"
+        assert res["resolved"][0]["recipient"] == deep_cid
+        assert res["task_message"] == "analyze viral Shorts hooks"
+
+    # 2. Korean aliases with attached postpositions (@딥리서치한테, @립리서치에게, @심층리서치, @심층연구)
+    ko_deep = resolve_mentions(
+        "@딥리서치한테 @립리서치에게 경쟁 채널 유튜브 알고리즘 심층 분석 맡겨줘",
+        registry_path=reg_copy,
+        db_path=missing_db,
+    )
+    assert ko_deep["unresolved"] == []
+    assert [r["recipient"] for r in ko_deep["resolved"]] == [deep_cid]
+    assert ko_deep["resolved"][0]["handle"] == "@Deep_Research"
+    assert ko_deep["task_message"] == "경쟁 채널 유튜브 알고리즘 심층 분석 맡겨줘"
+
+    # 3. Distinct routing when @Research and @Deep_Research appear together
+    both = resolve_mentions(
+        "@Research Gate 1 검수하고 @심층리서치한테 외부 경쟁 채널 해부 맡겨줘",
+        registry_path=reg_copy,
+        db_path=missing_db,
+    )
+    assert both["unresolved"] == []
+    assert [r["recipient"] for r in both["resolved"]] == [research_cid, deep_cid]
+    assert both["task_message"] == "Gate 1 검수하고 외부 경쟁 채널 해부 맡겨줘"
+
+    # 4. Strict CLI resolution passes for @Deep_Research
+    rc_deep = main(
+        ["--registry", str(reg_copy), "--db", str(missing_db), "resolve", "--strict", "@Deep_Research audit docs"]
+    )
+    assert rc_deep == 0
+
 

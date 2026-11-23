@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "little_albert_fear_conditioning",
   "topic": "Watson & Rayner (1920): 'Little Albert', the Claw-Hammer Steel Bar & History's Most Controversial Fear Test",
   "pillar": "brain_history",
@@ -40,7 +40,28 @@
     },
     {
       "fact": "Starting at 11 months, 3 days old (Watson & Rayner, 1920), each time Albert's fingers touched the white rat, Watson slammed the steel bar behind his head — twice in Session 1, then five more pairings a week later (7 total pairings).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Conditioning Bar Strikes",
+        "unit": "pairings",
+        "bars": [
+          {
+            "label": "Session 1 Strikes",
+            "value": 2.0,
+            "unit": "pairings"
+          },
+          {
+            "label": "Session 2 Strikes",
+            "value": 5.0,
+            "unit": "pairings"
+          }
+        ],
+        "doi": "10.1037/h0069608",
+        "source_citation": "Watson & Rayner (1920)"
+      }
     },
     {
       "fact": "After 7 pairings, presenting the silent white rat ALONE caused Albert to cry, pucker his face, and crawl rapidly away across the mattress — conditioned fear transferred to a previously neutral animal.",
@@ -64,7 +85,26 @@
     },
     {
       "fact": "In Watson and Rayner's (1920) transfer tests 5 days after rat-plus-steel-bar conditioning, fear responses generalized to a rabbit, dog, sealskin coat, and Santa Claus mask; in 1924, Mary Cover Jones extinguished fear in child 'Peter' by moving a caged rabbit from 12 feet to 0 feet during snack feeding.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Exposure Counterconditioning",
+        "unit": "ft",
+        "series": [
+          {
+            "label": "Rabbit Distance",
+            "values": [
+              12.0,
+              0.0
+            ],
+            "unit": "ft"
+          }
+        ],
+        "doi": "10.1080/00221325.1991.9914707",
+        "source_citation": "Jones (1924)"
+      }
     }
   ],
   "wow_facts": [
@@ -123,5 +163,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "Hard take: adult phobias start tiny — one loud clang wired Albert's panic across every furry object he touched. What random childhood scare still makes your chest tighten?"
+  "offcenter_creator_bet": "Hard take: adult phobias start tiny — one loud clang wired Albert's panic across every furry object he touched. What random childhood scare still makes your chest tighten?",
+  "everyday_domain": "anxiety",
+  "primary_doi": "10.1037/h0069608",
+  "three_layer_formula": {
+    "everyday_problem": "Flinching instantly at the smell of a dentist's antiseptic or a hospital corridor sound because of one painful childhood visit.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0069608",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0069608"
+      ],
+      "summary": "John B. Watson, Rosalie Rayner (1920). Conditioned emotional reactions. Journal of Experimental Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2015",
+      "doi": "10.1038/nrn3945",
+      "source_ids": [
+        "SRC_NEURO_2015"
+      ],
+      "dois": [
+        "10.1038/nrn3945"
+      ],
+      "summary": "C. Tovote, J. P. Fadok, A. Lüthi (2015). Neuronal circuits for fear and anxiety. Nature Reviews Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Little Albert's conditioned rat phobia stayed rock-solid and permanent from the very first session.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hard take: adult phobias start tiny — one loud clang wired Albert's panic across every furry object he touched. What random childhood scare still makes your chest tighten?"
+  }
 }

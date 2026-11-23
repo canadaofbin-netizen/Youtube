@@ -31,30 +31,34 @@ from pipeline.publish import (
 )
 from pipeline.voice_fallback import (
     STORYTELLER_VOCAL_FILTER,
-    _resolve_kokoro_voice,
     resolve_diorama_voice_preset,
 )
 
 
 def test_all_five_voice_presets_have_complete_gender_matched_specs():
-    expected_ids = {"andrew_v7", "emma_v7", "ava_v7", "aria_v7", "christopher_v7"}
-    assert expected_ids.issubset(set(DIORAMA_VOICE_PRESETS.keys()))
-    assert DEFAULT_DIORAMA_VOICE_PRESET == "emma_v7"
+    expected_ids = {
+        "elevenlabs_v4",
+        "el_siren_v4",
+        "el_researcher_v4",
+        "el_minicortex_v4",
+        "elevenlabs_v4_female",
+        "elevenlabs_v4_male",
+    }
+    assert expected_ids == set(DIORAMA_VOICE_PRESETS.keys())
+    assert DEFAULT_DIORAMA_VOICE_PRESET == "elevenlabs_v4"
 
     for preset_id in expected_ids:
         spec = DIORAMA_VOICE_PRESETS[preset_id]
-        assert spec["voice"].startswith("en-US-")
+        assert spec["elevenlabs_voice_id"]
         assert spec["gender"] in {"male", "female"}
-        assert spec["kokoro_voice"]
+        assert "kokoro_voice" not in spec
         assert spec["flow_voice_anchor"].startswith("Voice:")
 
-    # Female voices must keep +0Hz natural pitch and avoid 70Hz male chest EQ
-    for fem_id in ("emma_v7", "ava_v7", "aria_v7"):
+    for fem_id in ("el_siren_v4", "el_researcher_v4", "el_minicortex_v4", "elevenlabs_v4_female"):
         spec = DIORAMA_VOICE_PRESETS[fem_id]
         assert spec["gender"] == "female"
         assert spec["pitch"] == "+0Hz"
-        assert spec["kokoro_voice"].startswith("af_")
-        assert "female" in spec["flow_voice_anchor"].lower()
+        assert any(tok in spec["flow_voice_anchor"].lower() for tok in ("female", "laura", "hope"))
 
     assert "highpass=f=95" in STORYTELLER_VOCAL_FILTER_FEMALE
     assert "f=70:" not in STORYTELLER_VOCAL_FILTER_FEMALE
@@ -64,39 +68,32 @@ def test_all_five_voice_presets_have_complete_gender_matched_specs():
 def test_resolve_diorama_voice_preset_priority_and_fallbacks():
     # Explicit overrides script_doc and visual_plan
     p_id, spec = resolve_diorama_voice_preset(
-        voice_preset="emma_v7",
-        script_doc={"voice_preset": "ava_v7"},
-        visual_plan={"voice_preset": "andrew_v7"},
+        voice_preset="el_researcher_v4",
+        script_doc={"voice_preset": "el_minicortex_v4"},
+        visual_plan={"voice_preset": "elevenlabs_v4"},
     )
-    assert p_id == "emma_v7"
-    assert spec["voice"] == "en-US-EmmaMultilingualNeural"
+    assert p_id == "el_researcher_v4"
+    assert spec["elevenlabs_voice_id"] == "tnSpp4vdxKPjI9w0GnoV"
 
     # Script fallback when explicit is None
     p_id2, spec2 = resolve_diorama_voice_preset(
         voice_preset=None,
-        script_doc={"voice_preset": "ava_v7"},
-        visual_plan={"voice_preset": "andrew_v7"},
+        script_doc={"voice_preset": "el_minicortex_v4"},
+        visual_plan={"voice_preset": "elevenlabs_v4"},
     )
-    assert p_id2 == "ava_v7"
-    assert spec2["kokoro_voice"] == "af_heart"
+    assert p_id2 == "el_minicortex_v4"
+    assert spec2["elevenlabs_voice_id"] == "FGY2WhTYpPnrIDTdsKH5"
 
-    # Reverse lookup by neural voice ID (both Emma and legacy Andrew)
-    p_id3, _ = resolve_diorama_voice_preset(voice="en-US-EmmaMultilingualNeural")
-    assert p_id3 == "emma_v7"
-    p_id_and, spec_and = resolve_diorama_voice_preset(voice_preset="andrew_v7")
-    assert p_id_and == "andrew_v7"
-    assert spec_and["voice"] == "en-US-AndrewMultilingualNeural"
+    # Reverse lookup by ElevenLabs voice ID
+    p_id3, _ = resolve_diorama_voice_preset(voice="tnSpp4vdxKPjI9w0GnoV")
+    assert p_id3 == "el_researcher_v4"
 
-    # Empty / unknown falls back cleanly to channel default (emma_v7)
+    # Legacy female maps to elevenlabs_v4_female; unknown maps to channel default (elevenlabs_v4)
+    p_fem, _ = resolve_diorama_voice_preset(voice_preset="emma_v7", script_doc={})
+    assert p_fem == "elevenlabs_v4_female"
     p_id4, spec4 = resolve_diorama_voice_preset(voice_preset="nonexistent_preset_xyz", script_doc={})
-    assert p_id4 == "emma_v7"
-    assert spec4["voice"] == "en-US-EmmaMultilingualNeural"
-
-    # Kokoro gender-matched fallback resolution
-    assert _resolve_kokoro_voice("en-US-EmmaMultilingualNeural", voice_preset="emma_v7") == "af_bella"
-    assert _resolve_kokoro_voice("en-US-AvaMultilingualNeural") == "af_heart"
-    assert _resolve_kokoro_voice("en-US-AndrewMultilingualNeural", voice_preset="andrew_v7") == "am_fenrir"
-    assert _resolve_kokoro_voice("", voice_preset=None) == "am_fenrir"
+    assert p_id4 == "elevenlabs_v4"
+    assert spec4["elevenlabs_voice_id"] == "CwhRBWXzGAHq8TQ4Fs17"
 
 
 def test_dynamic_us_v7_prosody_rates_and_anticlone_banks():
@@ -137,7 +134,7 @@ def test_flow_prompt_injects_female_voice_anchor_when_emma_selected():
     prompt_str = render_prompt(
         scene="A matte-white porcelain mother mannequin sets a toddler on a playmat and reaches for a wooden ring stack",
         narration="In 1970, Mary Ainsworth watched fifty-six toddlers enter an unfamiliar room.",
-        voice="emma_v7",
+        voice="elevenlabs_v4_female",
     )
     assert "female" in prompt_str.lower()
     assert "baritone" not in prompt_str.lower()

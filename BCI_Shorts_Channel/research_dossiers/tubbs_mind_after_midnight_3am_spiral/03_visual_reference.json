@@ -1,0 +1,167 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "3:00 AM Dark Bedroom Spiral Interrupted by Paper Notepad Circuit-Breaker",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2022 Mind After Midnight clinical sleep-psychology protocol in an adult bedroom",
+      "layout": {
+        "description": "Moonlit master bedroom with an upholstered headboard, walnut nightstand holding a mechanical flip-style 3:00 AM clock, a leather-bound pocket notepad with brass pen, and a face-down phone.",
+        "positions": [
+          {
+            "who": "50-year-old adult sleeper (stylized 2.5D vinyl character in navy cotton pajama shirt sitting bolt upright against pillows)",
+            "where": "seated upright in bed at 3:00 AM reaching first toward a glowing nightstand object before pivoting to jot three strokes on a paper notepad",
+            "facing": "three-quarter view toward the walnut nightstand"
+          },
+          {
+            "who": "Sleeping spouse / quiet bedroom companion (stylized 2.5D vinyl character resting peacefully beside on the right)",
+            "where": "asleep under the linen duvet providing calm visual contrast to the wide-awake 3:00 AM spiral",
+            "facing": "turned calmly on side"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Cream pocket paper notepad and weighted brass pen on walnut nightstand",
+          "period_detail": "tactile unlined pocket notebook and heavy brass ballpoint pen with zero readable text",
+          "physical_behavior": "State A clenched restless hands grip the duvet edge in tense 3:00 AM dread -> State B hand uncaps brass pen, makes one quick stroke on the notepad, snaps the cover shut, and shoulders drop"
+        },
+        {
+          "name": "Warm amber low-wattage bedside toggle lamp and mechanical clock hands at 3:00",
+          "period_detail": "analog clock hands pointing to three o'clock beside a hooded amber night-lamp",
+          "physical_behavior": "State A deep blue-black 3:00 AM bedroom shadows -> State B soft amber click illuminates the closed notepad before clicking back to calm rest"
+        }
+      ],
+      "actions": [
+        {
+          "who": "50-year-old adult sleeper",
+          "verb_sequence": "bolts upright gripping the duvet in tense 3:00 AM worry -> uncaps the brass pen, parks one quick stroke onto the pocket notepad, snaps the cover shut, and lies back calmly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "50-year-old adult sleeper",
+          "reaction": "exhales slowly as shoulders release tension once the thought is parked until daylight"
+        }
+      ],
+      "wardrobe": "Navy buttoned cotton pajama shirt.",
+      "lighting": "Deep indigo 3:00 AM moonlight balanced with a soft warm amber bedside rim.",
+      "recognition_hook": "At 3:00 AM your forehead reality-checker is offline and your threat alarm runs 60 percent hotter—never negotiate with your midnight brain!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a wide-awake adult sitting bolt upright in a moonlit bedroom at 3 AM who uncaps a brass pen to park a worry in a small leather notepad and snaps it shut",
+        "must_show": [
+          "bed|pillow",
+          "notepad|notebook|pen",
+          "clock|nightstand"
+        ],
+        "source": "M1@00:10-00:25; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "8:00 AM Sunlit Backyard Patio: Same Note Looks Tiny in Morning Daylight",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern 8:00 AM sunlit garden patio table",
+      "layout": {
+        "description": "Sun-drenched outdoor wooden patio table surrounded by morning garden greenery, steaming French-press coffee carafe, and the small pocket notepad from 3:00 AM.",
+        "positions": [
+          {
+            "who": "50-year-old adult (now in crisp morning cardigan outdoors)",
+            "where": "seated at the sunlit outdoor patio table flipping open the small pocket notepad beside warm coffee",
+            "facing": "angled toward morning sunlight"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Glass French-press coffee carafe and flipped-open pocket notepad in sunlight",
+          "period_detail": "warm morning sun glinting off freshly pressed coffee and small notebook",
+          "physical_behavior": "hand flips open the 3:00 AM notepad, shrugs with a calm relieved smile, and presses the coffee plunger smoothly down"
+        }
+      ],
+      "actions": [
+        {
+          "who": "50-year-old adult",
+          "verb_sequence": "opens the pocket notepad in bright 8:00 AM garden sunlight -> shakes head with a relieved chuckle and pours morning coffee"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "50-year-old adult",
+          "reaction": "calm, grounded perspective now that prefrontal braking is back online"
+        }
+      ],
+      "wardrobe": "Oatmeal knit morning cardigan over tee.",
+      "lighting": "Bright warm 8:00 AM outdoor garden sunlight.",
+      "recognition_hook": "The exact worry that felt like a ten-alarm crisis at 3:00 AM shrinks back to normal size once sunlight and deep sleep reconnect your prefrontal brake.",
+      "sources": [
+        "SRC1",
+        "SRC2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Brigham Circadian Crossover Suite: Biological Night vs Daytime Alignment",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2020 Harvard / Brigham inpatient circadian physiology suite",
+      "layout": {
+        "description": "Controlled time-free clinical suite where researchers track 24-hour circadian phase and fMRI prefrontal-amygdala coupling.",
+        "positions": [
+          {
+            "who": "Circadian researcher & adult participant",
+            "where": "comparing 3:00 AM circadian trough reactivity against 2:00 PM aligned calm",
+            "facing": "three-quarter laboratory framing"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "24-hour brass circadian phase dial model",
+          "period_detail": "physical day-night wheel marking the 2:00–4:00 AM trough",
+          "physical_behavior": "researcher rotates the wheel into the midnight trough zone"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Circadian researcher",
+          "verb_sequence": "rotates the 24-hour phase model to the 3:00 AM trough -> demonstrates mood drop across 4 misaligned days"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "recognizes biological clock timing as the hidden amplifier"
+        }
+      ],
+      "wardrobe": "Smart clinical attire.",
+      "lighting": "Clean neutral studio lighting.",
+      "recognition_hook": "Being awake out of sync with your hypothalamic clock directly amplifies negative mood.",
+      "sources": [
+        "SRC1",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Dark 3:00 AM bedroom spiral loop with offline frontal brake",
+    "landmark_or_object_b": "Bright 8:00 AM sunlit sidewalk straight problem-solving path",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep over moonlit city rooftops ascending above a solitary lit 3 AM window",
+    "cut_b_topdown_3d_arrow": "90-degree top-down bedroom-to-street cutaway contrasting tangled #FF2525 3 AM loop arrows vs straight daylight path",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

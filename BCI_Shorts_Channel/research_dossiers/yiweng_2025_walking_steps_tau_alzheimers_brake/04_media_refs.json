@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern cognitive/fMRI memory study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "5,000 Steps a Day May Help Slow Alzheimer’s Changes in the Brain",
+      "url": "https://www.youtube.com/watch?v=PsxqnmgN_f8",
+      "channel": "HealthDay",
+      "source_id": "SRC_M1",
+      "duration_sec": 84,
+      "timecodes": [
+        {
+          "t": "00:05-00:26",
+          "what": "HealthDay medical news report on the Mass General Brigham / Harvard Aging Brain Study Nature Medicine finding that 3,000–5,000 and 5,000–7,500 daily steps slow Alzheimer's decline."
+        },
+        {
+          "t": "00:28-00:50",
+          "what": "Visual summary of how daily step counts brake tau protein tangle buildup and delay cognitive decline by 3 to 7 years in amyloid-positive older adults."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-00:50 into media/M1/keyframes/.",
+          "HealthDay medical coverage of the 2025 Nature Medicine Harvard step-count study; analyzed for pacing and framing only."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Physical activity slows tau accumulation in preclinical Alzheimer's disease",
+      "url": "https://www.youtube.com/watch?v=FlM3C7VfgBo",
+      "channel": "AI x biology",
+      "source_id": "SRC_M2",
+      "duration_sec": 427,
+      "timecodes": [
+        {
+          "t": "00:15-00:55",
+          "what": "Walkthrough of the 296-participant Harvard Aging Brain Study design comparing baseline waist pedometers against longitudinal amyloid and tau PET imaging."
+        },
+        {
+          "t": "01:15-02:10",
+          "what": "Dose-response curve showing cognitive preservation plateauing past 7,500 daily steps."
+        }
+      ],
+      "license_note": "Complementary scientific walkthrough reference; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "2023 Stanford remote RCT staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "How cyclic breathing can relieve stress | 90 Seconds w/ Lisa Kim",
+      "url": "https://www.youtube.com/watch?v=lBJ2z4PxVt0",
+      "channel": "Stanford Medicine",
+      "source_id": "SRC_M1",
+      "duration_sec": 228,
+      "timecodes": [
+        {
+          "t": "00:15-00:42",
+          "what": "Stanford Medicine overview of the 5-minute daily RCT comparing cyclic sighing against mindfulness meditation."
+        },
+        {
+          "t": "00:43-01:05",
+          "what": "Demonstration of the double nasal inhale and prolonged mouth exhale driving parasympathetic calm."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-01:05 into media/M1/keyframes/.",
+          "Used strictly for Stanford RCT context and breathing-cadence framing; staged from scratch via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "institutional_interview_explainer_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Relieve Stress & Anxiety FAST with Cyclic Sighing!",
+      "url": "https://www.youtube.com/watch?v=ZcdQSwt12Ys",
+      "channel": "AskDoctorJo",
+      "source_id": "SRC_M2",
+      "duration_sec": 226,
+      "timecodes": [
+        {
+          "t": "00:20-00:55",
+          "what": "Physical ribcage mechanics of two stacked nasal inhalations followed by an extended slow mouth exhale."
+        },
+        {
+          "t": "01:00-01:40",
+          "what": "Practical 5-minute daily pacing for everyday adult stress relief."
+        }
+      ],
+      "license_note": "Complementary reference video for physical breath-pacing clarity; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_clinical_breathwork_track_b_scene_bible"
+    }
+  ]
+}

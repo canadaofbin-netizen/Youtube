@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "miller_magical_number_seven",
   "topic": "George A. Miller (1956): The Magical Number Seven, Plus or Minus Two & Cognitive Chunking",
   "pillar": "brain_basics",
@@ -40,7 +40,33 @@
     },
     {
       "fact": "Second, in immediate memory span, adults recall roughly 7 items (plus or minus 2) almost regardless of whether each item is a binary digit (1 bit), decimal digit (3.3 bits), letter (4.7 bits), or common English word (~10 bits).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Information per Chunk (bits)",
+        "unit": "bits",
+        "bars": [
+          {
+            "label": "Binary Digit",
+            "value": 1.0,
+            "unit": "bits"
+          },
+          {
+            "label": "Decimal Digit",
+            "value": 3.3,
+            "unit": "bits"
+          },
+          {
+            "label": "English Word",
+            "value": 10.0,
+            "unit": "bits"
+          }
+        ],
+        "doi": "10.1037/h0043158",
+        "source_citation": "Miller (1956)"
+      }
     },
     {
       "fact": "Because 7 English words carry roughly ten times more Shannon information bits than 7 binary zeros and ones, Miller proved immediate memory is constrained by the NUMBER OF CHUNKS rather than raw bit count.",
@@ -52,7 +78,26 @@
     },
     {
       "fact": "After learning an octal 3-to-1 recoding table (grouping every three binary digits like 101 into a single digit '5'), Smith's recall soared from 9 binary digits to 40 consecutive binary digits without error.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Octal Recoding Recall Jump",
+        "unit": "digits",
+        "series": [
+          {
+            "label": "Recalled Digits",
+            "values": [
+              9.0,
+              40.0
+            ],
+            "unit": "digits"
+          }
+        ],
+        "doi": "10.1037/h0043158",
+        "source_citation": "Miller (1956)"
+      }
     },
     {
       "fact": "Miller emphasized that the overlap between ~6.5 absolute-judgment categories and ~7 memory chunks was a humorous coincidence, not a mystical cosmic law.",
@@ -132,5 +177,37 @@
     "diorama_74_miller_magical_number_seven"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0043158",
+  "three_layer_formula": {
+    "everyday_problem": "Reading a 10-digit phone number easily as 555-867-5309 (three chunks) while fumbling 5558675309 as an unbroken wall.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0043158",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0043158"
+      ],
+      "summary": "George A. Miller (1956). The magical number seven, plus or minus two: Some limits on our capacity for processing information. Psychological Review."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1016/j.heliyon.2021.e06955",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1016/j.heliyon.2021.e06955"
+      ],
+      "summary": "Majid Manoochehri (2021). Up to the magical number seven: An evolutionary perspective on the capacity of short term memory. Heliyon."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Every human menu, slide, or list must contain exactly seven items because of a hardwired 'Law of Seven'.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

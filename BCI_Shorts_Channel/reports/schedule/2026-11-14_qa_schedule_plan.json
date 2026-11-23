@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "plan_date": "2026-11-14",
+  "generated_at": {
+    "utc": "2026-11-14 10:25 UTC",
+    "et": "2026-11-14 05:25 EST",
+    "kst": "2026-11-14 19:25 KST",
+    "iso_utc": "2026-11-14T10:25:49.174003+00:00"
+  },
+  "overall_decision": "HOLD",
+  "daily_report_summary": {
+    "report_date": "2026-11-14",
+    "report_age_hours": 3.43,
+    "data_source_mode": "LIVE_CDP_DOM",
+    "partial_dom_scrape_anomaly": true,
+    "subscribers_total": 6,
+    "views_24h": 8,
+    "realtime_48h_views": 1411,
+    "realtime_60m_views": 32,
+    "watch_hours_24h": 126.9,
+    "viewed_pct": 66.0,
+    "apv_pct": 66.0,
+    "us_share_pct": 55.6,
+    "tier1_share_pct": 62.2,
+    "shorts_feed_pct": 87.0,
+    "related_ring_complete": true
+  },
+  "platforms": {
+    "youtube": {
+      "platform": "youtube",
+      "handle": "@AllAboutBrainOfficial",
+      "verdict": "HOLD",
+      "regime": "under_10k_seed_protection",
+      "optimal_cadence": "1 Short / Day @ Slot 4 (19:30 ET) | Longform 16:9: HOLD",
+      "longform_verdict": "HOLD (<10K subs & 3s Hook <70%)",
+      "scheduled_runway_days": 2,
+      "scheduled_videos": [
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "video_id": "K_9IJVShp90",
+          "scheduled_time_et": "2026-11-14 19:30 ET",
+          "scheduled_at_utc": "2026-11-15T00:30:00+00:00"
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "video_id": "_p05nIlU9xs",
+          "scheduled_time_et": "2026-11-15 19:30 ET",
+          "scheduled_at_utc": "2026-11-16T00:30:00+00:00"
+        }
+      ],
+      "next_optimal_slot": {
+        "utc": "2026-11-17 00:30 UTC",
+        "et": "2026-11-16 19:30 EST",
+        "kst": "2026-11-17 09:30 KST",
+        "iso_utc": "2026-11-17T00:30:00+00:00"
+      },
+      "watchdog_tasks": {
+        "due_for_public_transition": [],
+        "missing_r35_pins_eligible": [],
+        "missing_r35b_links_unlocked": [],
+        "active_freeze_protected": [
+          "v8_ep06_bedtime_todo_list_sleep"
+        ]
+      },
+      "ready_candidates": [],
+      "blocked_candidates": [],
+      "penalty_audit": [
+        {
+          "id": "YT-REPORT-FRESH",
+          "status": "PASS",
+          "detail": "Daily Report 2026-11-14 (3.4h old)"
+        },
+        {
+          "id": "YT-DOM-MODE",
+          "status": "WARN",
+          "detail": "Partial DOM scrape detected (views_24h=8, realtime_48h=1411, watch=126.9h, measured_videos=0)"
+        },
+        {
+          "id": "YT-NO-SIMULTANEOUS",
+          "status": "PASS",
+          "detail": "0 simultaneous releases"
+        },
+        {
+          "id": "YT-ZERO-QUARANTINE",
+          "status": "PASS",
+          "detail": "0 quarantined episodes"
+        },
+        {
+          "id": "YT-R75-PLAYLIST-BAN",
+          "status": "PASS",
+          "detail": "0 playlists verified (R75)"
+        },
+        {
+          "id": "YT-US-AUDIENCE",
+          "status": "PASS",
+          "detail": "US 55.6% (>= 45%), Tier-1 62.2%"
+        },
+        {
+          "id": "YT-SHORTS-FEED",
+          "status": "PASS",
+          "detail": "Shorts Feed 87.0% (>= 70%)"
+        },
+        {
+          "id": "YT-3S-HOOK",
+          "status": "WARN",
+          "detail": "3s Hook 66.0% < 70% gate (require <=12w R68-H hook, keep 1/day cap)"
+        },
+        {
+          "id": "YT-APV",
+          "status": "PASS",
+          "detail": "APV 66.0% (gate >= 60%)"
+        }
+      ],
+      "block_reasons": [],
+      "warn_reasons": [
+        "YT-DOM-MODE: Partial DOM scrape detected (views_24h=8, realtime_48h=1411, watch=126.9h, measured_videos=0)",
+        "YT-3S-HOOK: 3s Hook 66.0% < 70% gate (require <=12w R68-H hook, keep 1/day cap)",
+        "0 QA-ready unpublished candidates and buffer is only 2d (< 3d target) -> produce new v8 episode first"
+      ]
+    },
+    "instagram": {
+      "platform": "instagram",
+      "handle": "@allaboutbrain.official",
+      "verdict": "HOLD",
+      "regime": "warmup",
+      "total_uploaded_reels": 2,
+      "hours_since_last_upload": 0.03,
+      "optimal_cadence": "1 Reel / Day (warmup 2/10) @ 11:45 ET or 18:15 ET",
+      "next_optimal_slot": {
+        "utc": "2026-11-15 16:45 UTC",
+        "et": "2026-11-15 11:45 EST",
+        "kst": "2026-11-16 01:45 KST",
+        "iso_utc": "2026-11-15T16:45:00+00:00"
+      },
+      "ready_reel_candidates": [
+        {
+          "project_id": "v8_ep05_ucl_tickle_delay_robot",
+          "youtube_visibility": "public",
+          "duration_sec": 111.63,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep06_bedtime_todo_list_sleep",
+          "youtube_visibility": "public",
+          "duration_sec": 114.27,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "youtube_visibility": "scheduled",
+          "duration_sec": 78.47,
+          "priority": 1
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "youtube_visibility": "scheduled",
+          "duration_sec": 75.87,
+          "priority": 1
+        }
+      ],
+      "ready_card_carousels": [],
+      "needs_bundle_export": [],
+      "penalty_audit": [
+        {
+          "id": "IG-RATE-LIMIT",
+          "status": "BLOCK",
+          "detail": "1 upload(s) in last 24h (cap 1)"
+        },
+        {
+          "id": "IG-INVENTORY",
+          "status": "PASS",
+          "detail": "4 Reel(s) + 0 Card Carousel(s) ready"
+        },
+        {
+          "id": "IG-ANTI-SPAM-SPEC",
+          "status": "PASS",
+          "detail": "Clean 1080x1920 bundle (0 watermark), <=90ch Line-1 hook, AI label ON, Graph API preferred over datacenter web CDP"
+        }
+      ],
+      "block_reasons": [
+        "IG 24h cap reached (1/1)"
+      ],
+      "warn_reasons": []
+    },
+    "tiktok": {
+      "platform": "tiktok",
+      "handle": "@allaboutbrain_official",
+      "verdict": "HOLD",
+      "regime": "warmup",
+      "total_uploaded_videos": 2,
+      "hours_since_last_upload": 0.01,
+      "optimal_cadence": "1 Video / Day (warmup 2/14) @ 15:30 ET or 20:45 ET",
+      "next_optimal_slot": {
+        "utc": "2026-11-15 20:30 UTC",
+        "et": "2026-11-15 15:30 EST",
+        "kst": "2026-11-16 05:30 KST",
+        "iso_utc": "2026-11-15T20:30:00+00:00"
+      },
+      "ready_candidates": [
+        {
+          "project_id": "v8_ep05_ucl_tickle_delay_robot",
+          "youtube_visibility": "public",
+          "duration_sec": 111.63,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep06_bedtime_todo_list_sleep",
+          "youtube_visibility": "public",
+          "duration_sec": 114.27,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "youtube_visibility": "scheduled",
+          "duration_sec": 78.47,
+          "priority": 1
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "youtube_visibility": "scheduled",
+          "duration_sec": 75.87,
+          "priority": 1
+        }
+      ],
+      "rejected_under_60s": [],
+      "needs_bundle_export": [],
+      "penalty_audit": [
+        {
+          "id": "TT-RATE-LIMIT",
+          "status": "BLOCK",
+          "detail": "1 upload(s) in last 24h (cap 1)"
+        },
+        {
+          "id": "TT-CREATOR-REWARDS-60S",
+          "status": "PASS",
+          "detail": "4 candidate(s) >= 61.5s with clean bundle"
+        },
+        {
+          "id": "TT-SECURITY-AIGC",
+          "status": "PASS",
+          "detail": "NO VPN, AIGC disclosure ON, 4-5 niche tags (0 #fyp/#viral), halt cleanly on CAPTCHA"
+        }
+      ],
+      "block_reasons": [
+        "TikTok 24h cap reached (1/1)"
+      ],
+      "warn_reasons": []
+    }
+  },
+  "execution_plan": [
+    {
+      "order_ts": "2026-11-14T10:40:49.174003+00:00",
+      "window": {
+        "utc": "2026-11-14 10:40 UTC",
+        "et": "2026-11-14 05:40 EST",
+        "kst": "2026-11-14 19:40 KST",
+        "iso_utc": "2026-11-14T10:40:49.174003+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "HOLD_AND_PRODUCE",
+      "verdict": "HOLD",
+      "target": "next_v8_episode",
+      "reason": "YouTube scheduled runway is 2d (< 3d target) and 0 QA-passed unpublished episodes remain; produce & pass QA for next v8 Short (<=88s, R68-H <=12w hook)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py diorama-episode --help"
+    }
+  ]
+}

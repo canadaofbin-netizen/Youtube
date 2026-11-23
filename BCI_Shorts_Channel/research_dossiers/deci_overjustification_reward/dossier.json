@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "deci_overjustification_reward",
   "topic": "Edward Deci (1971): Soma Puzzle Cubes, Overjustification & How Cash Rewards Undermine Intrinsic Motivation",
   "pillar": "brain_mysteries",
@@ -44,7 +44,27 @@
     },
     {
       "fact": "During paid Session 2, paid students played slightly more during the free break (313.9 seconds vs 205.7 seconds baseline) to practice winning.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Paid Session 2 Puzzle Play",
+        "unit": "s",
+        "series": [
+          {
+            "label": "Paid Session 2",
+            "start_label": "Session 1 Base",
+            "values": [
+              205.7,
+              313.9
+            ],
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1037/h0030644",
+        "source_citation": "Deci (1971)"
+      }
     },
     {
       "fact": "The shocker hit in Session 3 when Deci announced study funds had run out so nobody would be paid today: unpaid controls actually INCREASED spontaneous puzzle play slightly (241.2 seconds vs 212.1 in Session 1), whereas formerly paid students DROPPED nearly 50 seconds below their own Session 1 baseline (198.5 seconds vs 248.2 seconds).",
@@ -64,7 +84,28 @@
     },
     {
       "fact": "During Session 3's 8-minute (480-second) unobserved free-choice window after Session-2 piece-rate pay ended, unpaid control students spent 241 seconds solving Soma cube puzzles whereas formerly paid students dropped to 198 seconds.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Session 3 Free-Choice Play",
+        "unit": "s",
+        "bars": [
+          {
+            "label": "Unpaid Controls",
+            "value": 241.0,
+            "unit": "s"
+          },
+          {
+            "label": "Formerly Paid",
+            "value": 198.0,
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1037/h0030644",
+        "source_citation": "Deci (1971)"
+      }
     }
   ],
   "wow_facts": [
@@ -128,5 +169,37 @@
     "diorama_34_deci_overjustification_reward"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0030644",
+  "three_layer_formula": {
+    "everyday_problem": "Paying a child per page to read books they already enjoyed — and watching them stop reading the day the summer chart ends.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0030644",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0030644"
+      ],
+      "summary": "Edward L. Deci (1971). Effects of externally mediated rewards on intrinsic motivation. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1037/bar0000245",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1037/bar0000245"
+      ],
+      "summary": "Kerri P. Peters, Emma Grauerholz-Fisher, Timothy R. Vollmer, Angie Van Arsdale (2022). An evaluation of the overjustification hypothesis: A replication of Deci (1971). Behavior Analysis: Research and Practice."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Adding piece-rate cash bonuses on top of an enjoyable activity always adds extra total motivation ('intrinsic + extrinsic = more').",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

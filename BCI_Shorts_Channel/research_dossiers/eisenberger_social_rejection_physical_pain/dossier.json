@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "slug": "eisenberger_social_rejection_physical_pain",
+  "topic": "Why Being Left Out Fires the Exact Same Brain Pain Alarm as a Burn",
+  "pillar": "brain_basics",
+  "everyday_domain": "relationships",
+  "created_at": "2026-11-16T03:49:03+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Pairs concrete three-person ball-tossing exclusion in UCLA's fMRI suite and an everyday outdoor patio/park setting with high-contrast 3D brain cutaways showing dorsal anterior cingulate and anterior insula alarm activation counterbalanced by ventromedial/ventral prefrontal regulation.",
+  "setup_18w": "Volunteers played a three-person ball-tossing game inside a scanner until the other two suddenly stopped throwing.",
+  "primary_doi": "10.1126/science.1089134",
+  "three_layer_formula": {
+    "everyday_problem": "Walking into a family dinner, neighborhood gathering, or office meeting after age 40 and realizing two people have quietly stopped looping you in — triggering a physical hollow ache right behind your ribs.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.1089134",
+      "source_ids": [
+        "SRC1",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1126/science.1089134",
+        "10.1177/0956797610374741"
+      ],
+      "summary": "Eisenberger, Lieberman & Williams (2003, Science) Cyberball social-exclusion experiment (7 included throws followed by 45 excluded throws) paired with DeWall et al. (2010, Psychological Science) 3-week 1,000 mg daily acetaminophen trial."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC7",
+      "doi": "10.1093/scan/nsu110",
+      "year": 2015,
+      "source_ids": [
+        "SRC7",
+        "SRC5"
+      ],
+      "dois": [
+        "10.1093/scan/nsu110",
+        "10.1016/j.bbi.2015.01.003"
+      ],
+      "summary": "Rotge et al. (2015, Social Cognitive and Affective Neuroscience) 46-study, 940-participant fMRI meta-analysis confirming anterior cingulate recruitment across social exclusion and interpersonal stress."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1126/science.1089134",
+        "year": 2003,
+        "summary": "Foundational UCLA Cyberball fMRI social exclusion experiment across 13 scanned participants."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.1177/0956797610374741",
+        "year": 2010,
+        "summary": "Randomized double-blind 3-week acetaminophen (1,000 mg/day) vs placebo trial blunting daily social distress and dACC/insula reactivity."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC7",
+        "doi": "10.1093/scan/nsu110",
+        "year": 2015,
+        "summary": "Quantitative fMRI meta-analysis across 46 peer-reviewed studies (940 healthy adults) mapping ventral and dorsal ACC subdivisions during social rejection."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1016/j.bbi.2015.01.003",
+        "year": 2015,
+        "summary": "Psychoneuroimmunology follow-up linking chronic interpersonal rejection stress with inflammatory cytokine IL6 and IL1B pathways."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "UCLA Cyberball Social-Exclusion fMRI Discovery & Acetaminophen Social-Analgesia Follow-Up",
+    "year": 2003,
+    "place": "Ahmanson-Lovelace Brain Mapping Center, University of California, Los Angeles (UCLA), USA",
+    "summary": "Naomi Eisenberger, Matthew Lieberman, and Kipling Williams scanned volunteers playing a three-person virtual ball-tossing game who were abruptly cut out after 7 throws for 45 consecutive throws — proving social exclusion lights up the dorsal anterior cingulate cortex and anterior insula, the exact distress alarm hubs shared with physical thermal burns.",
+    "people": [
+      {
+        "name": "Naomi I. Eisenberger & Matthew D. Lieberman",
+        "role": "UCLA social neuroscientists who scanned social exclusion inside a 3T MRI bore (Science, 2003)",
+        "source_id": "SRC1",
+        "bio": "Tested whether English phrases like 'broken heart' and 'hurt feelings' reflect literal neural overlap with physical bodily distress circuits."
+      },
+      {
+        "name": "Kipling D. Williams",
+        "role": "Social psychologist who invented the Cyberball ostracism paradigm after an outdoor park frisbee incident",
+        "source_id": "SRC1",
+        "bio": "Created Cyberball after two strangers in a park tossed a stray frisbee to him briefly and then abruptly froze him out."
+      },
+      {
+        "name": "C. Nathan DeWall & Choong-Wan Woo / Tor Wager Group",
+        "role": "Pharmacological replication team (2010) and multivariate voxel-pattern critique team (2014)",
+        "source_id": "SRC2",
+        "bio": "DeWall et al. (2010) tested 1,000 mg daily acetaminophen on social rejection, while Woo et al. (2014) refined macroscopic overlap vs fine-grained voxel patterns."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Kipling Williams designed the Cyberball exclusion paradigm after sitting in a sunlit park where two strangers tossed a stray frisbee to him a few times and then abruptly tossed it only between themselves — leaving him stunned by how sharply a trivial snub stung.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Eisenberger, Lieberman & Williams (2003 Science), 13 scanned participants lay inside UCLA's MRI bore believing they were playing a live three-person ball-tossing game via button box with two adults in adjacent rooms.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "During the Cyberball exclusion scan, 13 scanned participants received just 7 initial ball throws before the two virtual players locked them out for 45 consecutive throws — firing the dorsal anterior cingulate cortex in direct proportion to self-reported social distress.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Cyberball Exclusion Throws",
+        "unit": "throws",
+        "bars": [
+          {
+            "label": "Throws Included",
+            "value": 7.0,
+            "unit": "throws"
+          },
+          {
+            "label": "Throws Ignored",
+            "value": 45.0,
+            "unit": "throws"
+          }
+        ],
+        "doi": "10.1126/science.1089134",
+        "source_citation": "Eisenberger et al. (2003)"
+      }
+    },
+    {
+      "fact": "Alongside the dorsal anterior cingulate cortex, social exclusion recruited the anterior insula (visceral bodily feeling hub), while stronger right ventral/ventromedial prefrontal cortex activation predicted lower subjective hurt — acting as a top-down brake.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even when participants are explicitly told that a computer program — not real humans — is refusing to throw them the ball, evolutionary ostracism alarms still trigger measurable distress.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In DeWall et al. (2010 Psychological Science), healthy adults randomized to 1,000 mg per day of over-the-counter acetaminophen (two 500 mg doses daily for 3 weeks) reported significantly lower daily hurt feelings and showed weaker dorsal ACC and anterior insula fMRI spikes during Cyberball exclusion than placebo controls.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "A major scientific nuance arrived in Woo, Koban, Kross, Lindquist & Wager (2014 Nature Communications): while physical heat and social rejection co-activate the same macroscopic anterior cingulate and insula neighborhoods, machine-learning multivoxel patterns separate fine-grained nociceptive vs rejection codes.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Pooling 46 peer-reviewed fMRI studies across 940 healthy adults, Rotge et al. (2015 Social Cognitive and Affective Neuroscience) confirmed reliable anterior cingulate engagement across social exclusion, while Tartter et al. (2015) linked chronic interpersonal rejection stress to inflammatory IL6/IL1B vulnerability.",
+      "source_id": "SRC7"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Getting frozen out of a simple cartoon ball-tossing game after just 7 throws lights up the dorsal anterior cingulate cortex and anterior insula — the same macroscopic distress alarm network triggered by a physical burn.",
+      "why_surprising": "Proves 'hurt feelings' is not just poetic slang; mammalian survival wired social exile onto the brain's ancient alarm board.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Taking 1,000 mg a day of standard acetaminophen for 3 weeks measurably blunted both daily hurt feelings and fMRI rejection spikes in the anterior cingulate and insula compared with placebo (DeWall et al., 2010).",
+      "why_surprising": "Demonstrates a direct central-nervous-system pharmacological bridge between physical ache and social sting (not a medical treatment recommendation).",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Across 46 fMRI studies and 940 healthy adults (Rotge et al., 2015), social rejection consistently recruits the anterior cingulate alarm, even though fine-grained voxel patterns still distinguish skin heat from heartbreak (Woo et al., 2014).",
+      "why_surprising": "Shows both shared macroscopic alarm hardware and distinct microscopic coding inside the same cortical hub.",
+      "source_id": "SRC7",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "'Sticks and stones may break my bones, but silent treatment is purely imaginary drama.'",
+      "truth": "fMRI across 940 healthy adults confirms social exclusion recruits visceral anterior insula and anterior cingulate alarm circuitry.",
+      "reality": "fMRI across 940 healthy adults confirms social exclusion recruits visceral anterior insula and anterior cingulate alarm circuitry.",
+      "source_id": "SRC7"
+    },
+    {
+      "myth": "Social rejection activates the exact same skin-surface sensory nerves as a finger burn.",
+      "truth": "Rejection shares the brain's affective distress hubs (dorsal ACC and anterior insula), while Woo et al. (2014) proved fine-grained multivoxel representations remain distinct.",
+      "reality": "Rejection shares the brain's affective distress hubs (dorsal ACC and anterior insula), while Woo et al. (2014) proved fine-grained multivoxel representations remain distinct.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Mature adults over 40 outgrow sensitivity to workplace or family exclusion.",
+      "truth": "Because mammalian survival depended on group belonging, the ostracism alarm fires reflexively across adulthood until prefrontal reappraisal engages.",
+      "reality": "Because mammalian survival depended on group belonging, the ostracism alarm fires reflexively across adulthood until prefrontal reappraisal engages.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Discovering a family group chat or workplace lunch happened without you and feeling a literal hollow drop in your chest.",
+    "Experiencing the cold silent treatment from a spouse or longtime colleague and wondering why it exhausts your body faster than a 10-hour workday.",
+    "Catching yourself replaying an unanswered text message at age 50 even when you logically know the sender is just busy."
+  ],
+  "offcenter_creator_bet": "My bet: silent treatment hits like fire — our brain treats cold shoulders as real bodily alarms. Do you talk it out fast or step back solo?",
+  "debate_ignition": {
+    "prebunk_myth": "Childhood rhymes taught us 'words and cold shoulders can never hurt me' as if social rejection were imaginary.",
+    "open_verdict_question": "When someone freezes you out at work or home, do you address it head-on fast or step back solo to let your alarm cool?",
+    "offcenter_creator_bet": "My bet: silent treatment hits like fire — our brain treats cold shoulders as real bodily alarms. Do you talk it out fast or step back solo?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "setup",
+      "region": "retina",
+      "plain": "eye light sensor",
+      "function": "Detects room light leaking right through closed eyelids via blue-sensitive melanopsin cells.",
+      "scene_id": "S1",
+      "narration_bridge": "Lining the back of your eye, the retina, your light sensor, catches bedroom glow right through closed eyelids.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "hypothalamus",
+      "plain": "master twenty-four-hour clock",
+      "function": "Mistakes nighttime bedroom light for dawn, flattening circadian amplitude and keeping heart rate up.",
+      "scene_id": "S3",
+      "narration_bridge": "Deep in the middle, the hypothalamus, your master clock, thinks dawn has broken at two in the morning.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "amygdala",
+      "plain": "mood and threat hub",
+      "function": "Receives circadian-gated nighttime light signals that heighten anxiety and mood vulnerability.",
+      "scene_id": "S1",
+      "narration_bridge": "Nearby, the amygdala, your emotional alarm, stays agitated under stray nighttime light.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "forehead mood stabilizer",
+      "function": "Regains steady daytime emotional regulation when dark nights pair with bright morning daylight.",
+      "scene_id": "S2",
+      "narration_bridge": "Up front, the prefrontal cortex, your mood stabilizer, rebounds when dark nights meet bright morning sun.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "ainsworth_strange_situation",
   "topic": "Mary Ainsworth's 1970 Strange Situation: Secure vs Avoidant Attachment & Hidden Cortisol Alarm",
   "pillar": "brain_health",
@@ -30,7 +30,28 @@
     },
     {
       "fact": "Across classic Strange Situation cohorts, roughly 65 to 70 percent of infants show secure attachment (using the caregiver as a secure base, protesting departure, and calming rapidly within seconds of reunion), about 20 percent show avoidant attachment, and roughly 10 to 15 percent show ambivalent-resistant attachment.",
-      "source_id": "SRC5"
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Infant Attachment Rates",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Secure Base",
+            "value": 70.0,
+            "unit": "%"
+          },
+          {
+            "label": "Resistant Style",
+            "value": 15.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/0033-2909.117.3.387",
+        "source_citation": "Ainsworth et al. (1978); van IJzendoorn (1995)"
+      }
     },
     {
       "fact": "Crucially, Ainsworth proved that attachment security is revealed not by how hard a toddler cries during separation, but by what the child does during the first 30 to 60 seconds of reunion when the caregiver walks back through the door.",
@@ -42,7 +63,27 @@
     },
     {
       "fact": "Spangler and Grossmann (1993) discovered that avoidant infants who looked outwardly calm and kept turning toward floor toys during separation and reunion experienced heart-rate accelerations of 15 to 25 beats per minute and significant post-session salivary cortisol spikes, proving their apparent independence was a behavioral mask over internal stress.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Hidden Avoidant Heart Spike",
+        "unit": "bpm",
+        "series": [
+          {
+            "start_label": "Calm Mask (+bpm)",
+            "label": "Peak Stress (+bpm)",
+            "values": [
+              15.0,
+              25.0
+            ],
+            "unit": "bpm"
+          }
+        ],
+        "doi": "10.2307/1131544",
+        "source_citation": "Spangler & Grossmann (1993, Child Dev.)"
+      }
     },
     {
       "fact": "In 2014 functional MRI research, Dylan Gee and Nim Tottenham showed that a trusted caregiver's presence switches the child's ventromedial prefrontal cortex (the social brake) into negative regulatory coupling with the amygdala (the emotional alarm), dampening threat reactivity.",
@@ -78,5 +119,38 @@
   ],
   "shorts_projects": [
     "reenact_01_ainsworth_strange_situation"
-  ]
+  ],
+  "everyday_domain": "anxiety",
+  "primary_doi": "10.2307/1127388",
+  "three_layer_formula": {
+    "everyday_problem": "Ever know an adult who shuts down, changes the subject, and acts totally fine during an argument while their pulse pounds inside?",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.2307/1127388",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.2307/1127388"
+      ],
+      "summary": "Attachment, Exploration, and Separation: Illustrated by the Behavior of One-Year-Olds in a Strange Situation"
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2019",
+      "doi": "10.1016/j.tics.2016.11.007",
+      "source_ids": [
+        "SRC_NEURO_2019"
+      ],
+      "dois": [
+        "10.1016/j.tics.2016.11.007"
+      ],
+      "summary": "R. Feldman (2017). The neurobiology of human attachments. Trends in Cognitive Sciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Many people assume Mary Ainsworth's 1970 Strange Situation: Secure vs Avoidant Attachment & Hi is purely a matter of conscious willpower.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

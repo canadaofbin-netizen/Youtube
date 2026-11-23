@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "step1",
+      "region": "brainstem",
+      "plain": "wakefulness relay where caffeine blocks sleep-pressure docking ports",
+      "function": "antagonizes adenosine receptors so ascending arousal signals stay elevated past bedtime",
+      "scene_id": "S1",
+      "narration_bridge": "Grounded in Reichert, Deboer & Landolt's (2022, SRC4) adenosine-caffeine receptor synthesis.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "thalamus",
+      "plain": "central sleep pacemaker knocked out of smooth slow-wave rhythm",
+      "function": "fails to lock into synchronized deep NREM delta oscillations, fragmenting recovery waves",
+      "scene_id": "S1",
+      "narration_bridge": "Drives the flattened 1/f slope and reduced NREM slow-wave synchrony in Thölke et al. (2025, SRC1).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "prefrontal cortex",
+      "plain": "front thinking cortex trapped in wired criticality while you lie unconscious",
+      "function": "fires complex, wake-like irregular patterns during NREM sleep instead of resting deeply",
+      "scene_id": "S1",
+      "narration_bridge": "Directly measured in 40 sleeping adults by Thölke, Carrier & Jerbi (2025, Communications Biology, SRC1).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step2",
+      "region": "hypothalamus",
+      "plain": "master body clock pushed 40 minutes later by evening caffeine",
+      "function": "shifts endogenous melatonin timing backward when caffeine arrives late in the day",
+      "scene_id": "S2",
+      "narration_bridge": "Demonstrated in humans in vivo by Burke et al. (2015, Science Translational Medicine, SRC6).",
+      "r78_circuit_state": "silenced"
+    }
+  ]
+}

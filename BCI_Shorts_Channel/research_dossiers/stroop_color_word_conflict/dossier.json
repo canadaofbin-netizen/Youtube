@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "stroop_color_word_conflict",
   "topic": "J. Ridley Stroop (1935): Why You Cannot Stop Reading the Word 'RED' Printed in Blue Ink",
   "pillar": "brain_basics",
@@ -40,7 +40,28 @@
     },
     {
       "fact": "Experiment 2 flipped the instruction — ignore the word and name ONLY the INK COLOR across 100 mismatched words — and human brains jammed. Naming solid color squares took 63.3 seconds, whereas naming ink on mismatched words shot up to 110.3 seconds: a massive +47.0-second (+74.3%) slowdown across 70 students, with EVERY SINGLE participant slowed down.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Stroop Ink-Naming Time",
+        "unit": "s",
+        "bars": [
+          {
+            "label": "Solid Color Squares",
+            "value": 63.3,
+            "unit": "s"
+          },
+          {
+            "label": "Mismatched Words",
+            "value": 110.3,
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1037/h0054651",
+        "source_citation": "Stroop (1935)"
+      }
     },
     {
       "fact": "In Experiment 3, Stroop gave 32 students 8 consecutive days of intensive ink-naming practice: interference shrank with training, and on Day 9 a brief 'Reverse Stroop' appeared where newly strengthened ink naming momentarily slowed word reading.",
@@ -64,7 +85,17 @@
     },
     {
       "fact": "In J. Ridley Stroop's (1935) Experiment 2 across 70 college undergraduates, incongruent color-word ink naming slowed mean completion time by 74.3% (about 74%, adding 47.0 seconds from 63.3 s on solid color squares to 110.3 s on mismatched words).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Incongruent Ink Slowdown",
+        "percent": 74.3,
+        "unit": "%",
+        "doi": "10.1037/h0054651",
+        "source_citation": "Stroop (1935)"
+      }
     }
   ],
   "wow_facts": [
@@ -122,5 +153,37 @@
     "diorama_84_stroop_color_word_conflict"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0054651",
+  "three_layer_formula": {
+    "everyday_problem": "Pressing a green button labeled 'DELETE / CANCEL' by mistake because color and text shouted opposite commands.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0054651",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0054651"
+      ],
+      "summary": "J. R. Stroop (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1093/cercor/bhz042",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1093/cercor/bhz042"
+      ],
+      "summary": "Sirawaj Itthipuripat, Sean Deering, John T Serences (2019). When Conflict Cannot be Avoided: Relative Contributions of Early Selection and Frontal Executive Control in Mitigating Stroop Conflict. Cerebral Cortex."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Stroop interference happens simply because eyes read words faster than eyes see color ('horse-race myth').",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

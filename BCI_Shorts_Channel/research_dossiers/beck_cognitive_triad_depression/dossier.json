@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "beck_cognitive_triad_depression",
   "topic": "Aaron T. Beck (1963): Automatic Negative Thoughts, the Cognitive Triad & Birth of CBT",
   "pillar": "brain_health",
@@ -27,7 +27,28 @@
   "core_facts": [
     {
       "fact": "In 1963 at the University of Pennsylvania, psychiatrist Aaron T. Beck analyzed verbatim therapy records of 50 depressed patients compared against 31 non-depressed control patients.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Beck (1963) Study Cohort",
+        "unit": "pts",
+        "bars": [
+          {
+            "label": "Depressed Group",
+            "value": 50.0,
+            "unit": "pts"
+          },
+          {
+            "label": "Non-Depressed Group",
+            "value": 31.0,
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1001/archpsyc.1963.01720160014002",
+        "source_citation": "Beck (1963, Arch. Gen. Psychiatry)"
+      }
     },
     {
       "fact": "Trained as a classical psychoanalyst, Beck originally tried to prove Freud's hypothesis that depression was 'anger turned inward' showing up as masochistic wish-fulfillment in dreams.",
@@ -51,7 +72,25 @@
     },
     {
       "fact": "When Beck invited patients to treat automatic thoughts as testable hypotheses rather than absolute truths — writing evidence for and against on paper — acute hopelessness dropped within sessions.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Cognitive Reappraisal Decay",
+        "concept": "Automatic Thought Belief Decay",
+        "fn": "exp_decay",
+        "x_label": "Evidence Testing Trials",
+        "y_label": "Hopelessness Intensity",
+        "markers": [
+          {
+            "x": 1.0,
+            "y": 65.5,
+            "label": "Hypothesis Check"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Hundreds of randomized clinical trials later established Beck's Cognitive Behavioral Therapy (CBT) as a gold-standard treatment on par with antidepressant medication for mild-to-moderate depression, with lower relapse rates.",
@@ -121,5 +160,38 @@
   ],
   "shorts_projects": [
     "diorama_23_beck_cognitive_triad_depression"
-  ]
+  ],
+  "everyday_domain": "anxiety",
+  "primary_doi": "10.1001/archpsyc.1963.01720160014002",
+  "three_layer_formula": {
+    "everyday_problem": "Sending a text message, seeing 'Read 2 hours ago' with no reply, and instantly concluding 'They're angry at me' (arbitrary inference).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1001/archpsyc.1963.01720160014002",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1001/archpsyc.1963.01720160014002"
+      ],
+      "summary": "Aaron T. Beck (1963). Thinking and Depression. Archives of General Psychiatry."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.61838/kman.aftj.5.2.23",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.61838/kman.aftj.5.2.23"
+      ],
+      "summary": "Houriyeh Barzegari Khanagha (2024). Comparison of Cognitive Behavioral Therapy and Acceptance and Commitment Therapy on Negative Automatic Thoughts and Negative Affect in Depressed Women. Applied Family Therapy Journal."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Cognitive Behavioral Therapy is just 'positive thinking' or chanting happy affirmations in the mirror.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

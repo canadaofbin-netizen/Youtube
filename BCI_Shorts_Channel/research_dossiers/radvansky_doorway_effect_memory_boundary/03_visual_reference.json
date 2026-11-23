@@ -1,0 +1,177 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2011 University of Notre Dame Real-Room Lab: Carrying Concealed Shoeboxes Through an Open Doorway vs Same-Room Walk",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "2011, Department of Psychology real-room testing suite, University of Notre Dame, Indiana",
+      "layout": {
+        "description": "Sunlit two-room Notre Dame testing suite bisected by a crisp oak doorframe: Table A in Room 1 holds geometric colored wooden blocks, while Table B sits just beyond the open doorway beside Gabriel Radvansky's probe clipboard.",
+        "positions": [
+          {
+            "who": "48-year-old volunteer (in smart-casual collared shirt and navy sweater)",
+            "where": "stepping directly through the oak doorway carrying a closed white cardboard shoebox with both hands toward Table B",
+            "facing": "walking forward across the doorway threshold toward the researcher"
+          },
+          {
+            "who": "Gabriel Radvansky (researcher in tweed blazer holding a recognition probe card)",
+            "where": "standing beside Table B in Room 2 flipping up a two-word object probe card the instant the volunteer crosses the doorway",
+            "facing": "angled toward the arriving volunteer at Table B"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "closed white cardboard carry shoebox and crimson wooden wedge block",
+          "period_detail": "2011 Notre Dame Experiment 2 concealed-carry box hiding colored wooden shapes from sight while walking",
+          "physical_behavior": "State-A volunteer drops crimson wooden wedge into box and presses lid shut at Table A -> State-B steps through oak doorway to Table B and freezes with hand hovering over the closed lid"
+        },
+        {
+          "name": "solid oak architectural doorframe and flip-up object probe stand",
+          "period_detail": "real-room physical doorway contrasting against equal-distance open-room tape line",
+          "physical_behavior": "State-A open doorway marks room transition -> State-B researcher flips up probe card as volunteer stalls at 28% error rate vs 23% same-room walk"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult volunteer",
+          "verb_sequence": "tucks the crimson wooden block inside the shoebox, closes the lid, and walks briskly through the oak doorway -> stops abruptly at Table B with palms raised in sudden confusion"
+        },
+        {
+          "who": "Gabriel Radvansky",
+          "verb_sequence": "flips up the object probe card on Table B and marks the doorway error spike on his clipboard"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult volunteer",
+          "reaction": "blinks in amused disbelief at forgetting an object placed in the box five seconds earlier"
+        },
+        {
+          "who": "Gabriel Radvansky",
+          "reaction": "points back to the oak doorframe identifying the Event Horizon boundary"
+        }
+      ],
+      "wardrobe": "2011 American campus smart-casual: navy crewneck sweater over Oxford shirt; brown tweed jacket and slacks.",
+      "lighting": "Clean high-key Midwestern tall-window daylight across warm oak flooring.",
+      "recognition_hook": "Walk ten feet across one room and you remember; walk the exact same ten feet through a doorframe and your working memory resets.",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "an adult volunteer stepping through an oak doorway carrying a closed white shoebox toward a researcher holding up an object-probe card at a wooden table",
+        "must_show": [
+          "doorway|doorframe",
+          "shoebox|box",
+          "table|clipboard"
+        ],
+        "source": "M1@00:24-00:48; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Sunlit Front Porch to Hallway Threshold: Stepping Inside From Gardening & Blanking Under Multitasking Load",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern Saturday morning sunlit suburban front porch and garden walk",
+      "layout": {
+        "description": "Sunlit outdoor brick front porch bordered by potted hydrangeas opening through a wide front door into a bright entryway.",
+        "positions": [
+          {
+            "who": "55-year-old homeowner",
+            "where": "kneeling on the sunlit outdoor porch beside garden shears, standing up while glancing at a buzzing wristwatch, and stepping across the open front-door threshold",
+            "facing": "walking from bright outdoor porch across the threshold"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "potted porch hydrangea, garden twine spool, and open front doorway",
+          "period_detail": "everyday American weekend porch gardening setup",
+          "physical_behavior": "State-A homeowner sets down empty twine spool on outdoor porch steps -> State-B crosses open front doorway while glancing at watch and stops dead inside the foyer with empty hands"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner",
+          "verb_sequence": "sets the empty twine spool on the porch railing, glances at a wristwatch alert, and strides across the front-door threshold -> halts mid-step staring at empty palms"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner",
+          "reaction": "tilts head with a relatable half-laugh realizing the doorway wiped the garden errand"
+        }
+      ],
+      "wardrobe": "Weekend chambray work shirt with rolled sleeves and canvas trousers.",
+      "lighting": "Crisp golden morning outdoor sunlight contrasting with airy indoor foyer.",
+      "recognition_hook": "Juggle two thoughts while stepping off your front porch through the door, and the threshold files your errand away.",
+      "sources": [
+        "SRC1",
+        "SRC5",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Carrying the Physical Cue Across the Kitchen Doorway: Unwrapped Parcel Beats the Reset",
+      "iconic": false,
+      "shorts_priority": 2,
+      "setting_type": "indoor",
+      "era": "Modern bright home living-room-to-kitchen doorway",
+      "layout": {
+        "description": "Airy home doorway connecting a living-room side table to a sunlit kitchen island drawer.",
+        "positions": [
+          {
+            "who": "55-year-old homeowner",
+            "where": "carrying the brown parcel directly through the kitchen doorway and pulling open the utility drawer for scissors without a second's pause",
+            "facing": "striding cleanly into the kitchen toward the island drawer"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unopened brown kraft parcel and stainless kitchen scissors",
+          "period_detail": "tangible household cue carried across the room boundary",
+          "physical_behavior": "State-A hands pick up brown parcel before leaving living room -> State-B carry parcel through kitchen doorway and slide drawer open straight to the scissors"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner",
+          "verb_sequence": "lifts the parcel in one hand, crosses the kitchen doorway, and pulls open the utility drawer to lift out the scissors smoothly"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner",
+          "reaction": "nods with effortless clarity as the physical hand cue bridges the room reset"
+        }
+      ],
+      "wardrobe": "Same casual weekend chambray shirt.",
+      "lighting": "Warm bright kitchen window daylight.",
+      "recognition_hook": "Carry one physical cue in your hand or say one noun out loud, and your errand rides safely across any doorway.",
+      "sources": [
+        "SRC5",
+        "SRC7"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Single continuous 10-foot living-room walk keeping memory intact",
+    "landmark_or_object_b": "10-foot walk crossing an open kitchen doorway threshold where the memory track snaps",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past Notre Dame Golden Dome ascending into an architectural house cutaway",
+    "cut_b_topdown_3d_arrow": "90-degree top-down two-room floorplan where a solid #FF2525 3D extruded arrow fractures cleanly at the doorway frame",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

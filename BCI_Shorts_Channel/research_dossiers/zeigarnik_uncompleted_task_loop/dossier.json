@@ -1,126 +1,192 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "zeigarnik_uncompleted_task_loop",
-  "topic": "Bluma Zeigarnik (1927): The Vienna Cafe Waiter's Memory & Why Interrupted Tasks Haunt Your Brain",
+  "topic": "Bluma Zeigarnik (1927): Why One Unfinished Task Wakes You at 3 AM While Twelve Finished Jobs Vanish",
   "pillar": "brain_health",
+  "everyday_domain": "memory",
   "created_at": "2026-10-25T22:49:33+00:00",
   "status": "ready",
-  "visual_mode": "BEHAVIORAL_PSYCH",
-  "visual_mode_reason": "Kurt Lewin's Berlin/Vienna cafe waiter observation and Bluma Zeigarnik's 1927 laboratory puzzle interruption experiments (recall ~90% higher for unfinished tasks!) are physical tabletop and behavioral experiments best told without brain cutaway overlays.",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs Bluma Zeigarnik and Kurt Lewin's 1927 Berlin cafe and tabletop puzzle-interruption scenes (R79-M gross-motor drawer sweep) with 3D cyan MNI152 brain-circuit contrast (R78) across dorsolateral prefrontal working-memory loops, anterior cingulate open-goal conflict monitoring, and hippocampal retrieval.",
+  "setup_18w": "Participants tackled twenty hands-on tabletop puzzles while researchers interrupted half right before the final piece.",
+  "primary_doi": "10.1007/bf02409755",
   "primary_case": {
     "title": "Bluma Zeigarnik & Kurt Lewin's 1927 University of Berlin Interrupted-Task Memory Experiments",
     "year": 1927,
-    "place": "Psychological Institute, University of Berlin (following Lewin's Berlin Biergarten / cafe waiter observation)",
+    "place": "Psychological Institute, University of Berlin, Germany",
+    "summary": "After Kurt Lewin watched a Berlin cafe waiter hold complex unpaid table orders in memory for hours and wipe them clean 30 seconds after the bill was paid, Bluma Zeigarnik tested 164 participants across 18 to 22 hands-on tabletop tasks, discovering interrupted tasks stayed 1.9 times (roughly 90%) more accessible in memory than completed tasks.",
     "people": [
       {
         "name": "Bluma Wulfovna Zeigarnik",
-        "role": "26-year-old Lithuanian-Soviet psychologist in Kurt Lewin's Berlin lab who tested 164 adults and children across 18-22 hands-on tasks — and later founded Soviet experimental pathopsychology",
+        "role": "Experimental psychologist at the University of Berlin who tested 164 participants across 18 to 22 hands-on puzzles to measure how unfinished goals hold working memory open",
         "source_id": "SRC1"
       },
       {
         "name": "Kurt Lewin",
-        "role": "Gestalt field theorist who noticed a cafe waiter remember a table's complex unpaid orders without writing a word down — then completely forget the entire order 30 seconds after the bill was paid.",
+        "role": "University of Berlin field theorist whose Berlin garden-cafe waiter observation sparked the quasi-need tension hypothesis of open memory loops",
         "source_id": "SRC1"
       },
       {
-        "name": "E. J. Masicampo & Roy F. Baumeister",
-        "role": "Modern social psychologists whose 2011 'Consider It Done!' experiments showed writing a concrete next-step plan silences Zeigarnik intrusion without finishing the whole project tonight",
-        "source_id": "SRC1"
+        "name": "Colin M. MacLeod",
+        "role": "Cognitive memory scientist whose 2020 Memory & Cognition synthesis traced the empirical boundary conditions and modern goal-maintenance mechanisms behind Zeigarnik's 1927 discovery",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Lying awake at night replaying one half-written work email or unreturned call from 4 PM while completely forgetting the twelve demanding tasks you finished cleanly before dinner.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1007/bf02409755",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1007/bf02409755"
+      ],
+      "summary": "Bluma Zeigarnik (1927, Psychologische Forschung) gave 164 participants 18 to 22 tactile tabletop tasks, interrupting half mid-stream and sweeping them into a drawer, yielding a 1.9-to-1 unfinished-over-completed free-recall advantage."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.3758/s13421-020-01033-5",
+      "year": 2020,
+      "source_ids": [
+        "SRC6",
+        "SRC3"
+      ],
+      "dois": [
+        "10.3758/s13421-020-01033-5",
+        "10.17759/cpp.2020280411"
+      ],
+      "summary": "MacLeod (2020, Memory & Cognition) and Kholmogorova et al. (2020) synthesize how unfulfilled goal intentions keep dorsolateral prefrontal working-memory scratchpads and anterior cingulate conflict alarms actively pinging until goal closure or concrete scheduling releases the loop."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1007/bf02409755",
+        "year": 1927,
+        "summary": "Zeigarnik (1927) Berlin interrupted-vs-completed task recall series across 164 participants."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC6",
+        "doi": "10.3758/s13421-020-01033-5",
+        "year": 2020,
+        "summary": "MacLeod (2020, Memory & Cognition) modern cognitive-neuroscience review of active goal-monitoring and selective attentional accessibility in the Zeigarnik effect."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.17759/cpp.2020280411",
+        "year": 2020,
+        "summary": "Kholmogorova, Pugovkina & Vedmitskaya (2020) pathopsychological and executive self-regulation synthesis of Zeigarnik's goal-tension framework."
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "In the mid-1920s in Berlin, Kurt Lewin and his students sat for hours in a cafe racking up complicated coffee and pastry orders; their waiter never wrote anything down and recited the bill flawlessly — yet when Lewin asked for the bill details moments AFTER paying, the waiter stared blankly: 'I have no idea anymore — it is paid!'",
+      "fact": "In mid-1920s Berlin, psychologist Kurt Lewin noticed a cafe waiter keep a table's complex unpaid coffee and pastry tab flawless in memory for hours without a notepad, then go completely blank 30 seconds after the bill was paid.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Lewin's doctoral student Bluma Zeigarnik (1927, Psychologische Forschung, 138 pages!) brought 164 participants (adults, students, and children) into the Berlin lab and gave each person 18 to 22 short hands-on tasks: molding clay animals, stringing beads, folding paper, solving riddles, and completing puzzles.",
+      "fact": "In 1927 at the University of Berlin (Psychologische Forschung, 138 pages), Bluma Zeigarnik tested 164 participants across sets of 18 to 22 hands-on tasks including molding clay figures, stringing wooden beads, folding paper, and solving puzzles.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Half the tasks were allowed to reach satisfying completion; on the other half, Zeigarnik interrupted the volunteer right at peak engagement ('Please start this next puzzle now') and swept all materials out of sight into a desk drawer.",
+      "fact": "Zeigarnik allowed half of the tasks to reach full completion, while on the other half she interrupted the participant at peak absorption and swept every piece out of sight into an oak desk drawer.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Immediately afterward, when asked purely offhand what tasks they had worked on, adults recalled UNFINISHED tasks roughly 90% MORE OFTEN than finished tasks (an Unfinished-to-Completed ratio RU/RC ≈ 1.9 across Experiment 1; ~2.1 in children who got deeply absorbed).",
+      "fact": "In Bluma Zeigarnik's (1927) University of Berlin Experiment 1, adults recalled interrupted tasks at a 1.9 ratio compared with 1.0 for completed tasks (roughly 90% higher recall for unfinished work), and deeply absorbed children reached a 2.1 ratio.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Relative Task Recall Rate",
+        "unit": "x",
+        "bars": [
+          {
+            "label": "Completed Tasks",
+            "value": 1.0,
+            "unit": "x"
+          },
+          {
+            "label": "Interrupted Tasks",
+            "value": 1.9,
+            "unit": "x"
+          }
+        ],
+        "doi": "10.1007/bf02409755",
+        "source_citation": "Zeigarnik (1927)"
+      }
+    },
+    {
+      "fact": "Clock duration did not explain the gap: volunteers often spent more minutes finishing a completed puzzle than working on an interrupted puzzle, yet finished tasks faded first once goal tension discharged.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Time spent was NOT the cause: often participants had spent MORE minutes finishing a completed puzzle than they had spent on an interrupted puzzle — yet the completed puzzle vanished from top-of-mind memory the instant its 'quasi-need tension system' discharged.",
+      "fact": "Zeigarnik documented three strict boundary conditions in 1927: exhausted participants showed no unfinished boost, interruptions before genuine engagement failed to stick, and resting 24 hours dissolved the short-term tension gap.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Zeigarnik herself discovered vital boundary conditions inside the original 1927 paper: exhausted subjects showed no effect, Tasks interrupted before the person actually cared didn't stick, and letting people finish interrupted tasks 24 hours later erased the memory boost.",
-      "source_id": "SRC1"
+      "fact": "Subsequent cognitive syntheses (MacLeod 2020) explain why humiliating test interruptions reverse the effect: when an interruption feels like personal failure rather than an unfinished project, people defensively suppress the stalled task.",
+      "source_id": "SRC6"
     },
     {
-      "fact": "Later replications (e.g., Van Bergen 1968; ego-threat studies) clarified why some labs failed to replicate: if interruption feels like humiliating IQ failure, defensive suppression flips recall toward successes; when a goal stays genuinely active without ego threat, open loops intrude persistently into working thoughts.",
-      "source_id": "SRC2"
-    },
-    {
-      "fact": "In 2011, E. J. Masicampo and Roy Baumeister discovered the practical off-switch ('Consider It Done!'): you do NOT have to finish a 10-hour report at midnight to sleep — writing down a specific WHERE-and-WHEN plan ('Tomorrow 9:00 a.m. at my desk I will draft Section 2') discharges the cognitive nag immediately.",
-      "source_id": "SRC2"
-    },
-    {
-      "fact": "In Zeigarnik's (1927) laboratory series of roughly 18 to 22 (around 20) interrupted-versus-completed tasks — and modern end-of-day (e.g., 5:30 PM) planning studies by Masicampo and Baumeister (2011) — concrete written plans quiet intrusive task loops.",
-      "source_id": "SRC1"
+      "fact": "Executive goal-regulation research extending Zeigarnik's paradigm shows that writing down a concrete time-and-place resumption plan at the end of the workday quiets intrusive open-task pings without working past dinner.",
+      "source_id": "SRC3"
     }
   ],
   "wow_facts": [
     {
-      "fact": "A Berlin waiter holds twelve complex orders in his head for two hours without paper, takes payment, and 30 seconds later genuinely cannot remember how many coffees were at the table — because 'Paid = Closed Tab'.",
-      "why_surprising": "Memory holds open goals on a priority clipboard and wipes the slate at closure.",
+      "fact": "A seasoned Berlin waiter held a table's entire unpaid tab in working memory for hours without paper, then forgot the order 30 seconds after cash hit the tray because his brain marked the tab closed.",
+      "why_surprising": "Everyday working memory acts like an active to-do clipboard, not a permanent archive.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "Interrupt someone right when they are deeply absorbed in molding a clay dog or solving a riddle, and they recall that unfinished puzzle ~90% MORE OFTEN than puzzles they actually spent longer finishing.",
-      "why_surprising": "Goal tension, not clock minutes, keeps a task glowing at the top of awareness.",
+      "fact": "Sweeping a puzzle into a drawer two pieces before the finish made adults recall it 1.9 times as often as puzzles they spent even longer completing.",
+      "why_surprising": "Unresolved goal tension—not minutes invested—controls what stays stuck at the top of your mind.",
       "source_id": "SRC1",
       "rank": 2
     },
     {
-      "fact": "Children in Zeigarnik's 1927 lab showed an even stronger 2.1-to-1 unfinished-task pull than adults — several begged to stay after the experiment just to glue the last piece onto their interrupted puzzle.",
-      "why_surprising": "Open loops tug physically on human motivation.",
-      "source_id": "SRC1",
+      "fact": "Waiting 24 hours or writing a concrete next-morning schedule discharges the 1.9x recall spike, proving the Zeigarnik loop is a short-term executive reminder rather than permanent super-memory.",
+      "why_surprising": "Your brain nags you at midnight only because it fears dropping an unscheduled obligation.",
+      "source_id": "SRC6",
       "rank": 3
-    },
-    {
-      "fact": "Masicampo & Baumeister (2011) proved why Sunday-night work dread keeps you awake AND how 60 seconds fixes it: writing a concrete When + Where plan satisfies your brain's alarm almost as cleanly as finishing the task.",
-      "why_surprising": "Your brain wasn't begging you to work at midnight — it was begging you not to forget.",
-      "source_id": "SRC2",
-      "rank": 4
     }
   ],
   "misconceptions": [
     {
-      "myth": "The Zeigarnik Effect guarantees you remember every interrupted thing forever in long-term memory.",
-      "truth": "It boosts short-term goal accessibility and mental intrusion ONLY while the goal remains active — once finished or abandoned, the advantage disappears within hours.",
-      "source_id": "SRC1"
+      "myth": "Leaving 20 browser tabs and half-written work emails open all afternoon boosts long-term memory and productivity.",
+      "truth": "Zeigarnik's effect is a short-term executive tension ping, not deep encoding; keeping 20 unclosed loops active fragments adult working-memory bandwidth and fuels evening rumination.",
+      "source_id": "SRC6"
     },
     {
-      "myth": "Leaving 25 browser tabs and half-written emails open makes you twice as productive.",
-      "truth": "One deliberate cliffhanger helps Hemingway start tomorrow morning, whereas 25 unplanned open loops hijack attention with intrusive mental pings on every task you try to do.",
-      "source_id": "SRC2"
-    },
-    {
-      "myth": "Every single replication finds an automatic 2x memory boost regardless of mood.",
-      "truth": "Under high ego threat ('this interruption means you failed an IQ test'), people often recall completed successes instead; genuine task engagement without shame drives the classic open-loop pull.",
-      "source_id": "SRC2"
+      "myth": "You must finish every complicated work project before bed to stop your brain from replaying it at 3 AM.",
+      "truth": "Because the frontal goal monitor only tracks whether a task is safely accounted for, logging a specific time and desk slot for tomorrow morning discharges the open loop.",
+      "source_id": "SRC3"
     }
   ],
   "everyday_hooks": [
-    "Waking up at 3:14 a.m. remembering one un-replied email while completely forgetting the twelve hard tasks you finished yesterday.",
-    "Getting hooked into 'just one more episode' by a 5-second cliffhanger right before the credits roll.",
-    "Ending a writing session mid-sentence on purpose (Hemingway's trick) so tomorrow morning starts effortlessly."
+    "Lying awake at 3 AM fixating on one unreturned client message or half-paid household bill while forgetting twelve harder chores you finished cleanly.",
+    "Leaving twenty half-started browser tabs and draft emails open on your work monitor and wondering why your forehead feels exhausted by 4 PM.",
+    "Spending 60 seconds at 5:30 PM writing down the exact morning hour and spot for tomorrow's unfinished task so your brain finally clocks out for dinner."
   ],
+  "debate_ignition": {
+    "prebunk_myth": "Most adults assume waking up thinking about unfinished work means anxiety or poor discipline, rather than a normal frontal memory circuit refusing to drop an unclosed tab.",
+    "open_verdict_question": "At the end of a busy workday, does writing a tomorrow list quiet your mind or do open tasks still follow you to bed?",
+    "offcenter_creator_bet": "My bet: a written plan beats midnight work — at 5 PM, do you push to finish or schedule tomorrow?"
+  },
+  "offcenter_creator_bet": "My bet: a written plan beats midnight work — at 5 PM, do you push to finish or schedule tomorrow?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
   "linked_projects": [
     "psych_52_zeigarnik_uncompleted_task_loop"
   ],
   "shorts_projects": [
     "diorama_61_zeigarnik_uncompleted_task_loop"
-  ],
-  "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  ]
 }

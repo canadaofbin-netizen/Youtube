@@ -22,10 +22,13 @@ with unified `1.08x` / `+8%` `en-US-AndrewMultilingualNeural` `+14Hz` Silk Clean
 from __future__ import annotations
 
 import asyncio
+import concurrent.futures
 import datetime as dt
 import hashlib
+import inspect
 import json
 import math
+import os
 import re
 import shutil
 import time
@@ -35,19 +38,32 @@ from typing import Any
 import cv2
 import numpy as np
 
+from pipeline import diorama_assembler as _diorama_assembler_mod
 from pipeline import research_dossier as rd
 from pipeline.asset_manifest import build_asset_manifest
+from pipeline.brain_simulator_blender import (
+    is_brain_simulator_clip_spec,
+    render_project_brain_simulator_clips_parallel,
+)
 from pipeline.config import (
+    AI_DISCLOSURE_SENTENCE,
     DIORAMA_DURATION_MIN_SEC,
-    DIORAMA_TTS_VOICE,
     FLOW_MAX_PARALLEL_BATCH_SIZE,
+    MIN_CLIP_SIZE_BYTES,
     PROJECTS_DIR,
     SHORTS_HARD_CEILING_SEC,
     WORKSPACE_ROOT,
 )
-from pipeline.diorama_assembler import assemble_diorama_project, load_diorama_script_sentences
+from pipeline.diorama_assembler import (
+    assemble_diorama_project,
+    build_crosscut_edl,
+    generate_diorama_audio_master,
+    load_diorama_script_sentences,
+)
 from pipeline.flow_diorama_sharded_worker import run_sharded_diorama_flow_generation
 from pipeline.flow_prompt_builder import build_diorama_v6_prompts, write_flow_prompts_json
+from pipeline.hardware_profile import resolve_cpu_budget
+from pipeline.media_cache import atomic_commit_from_scratch, ram_tempdir
 from pipeline.prompt_quality_v5 import validate_production_diorama_v6
 from pipeline.publish import validate_diorama_paradox_title
 from pipeline.storage import STAGE_NAMES, ProjectStorage, numeric_clip_sort_key
@@ -273,23 +289,39 @@ def build_editorial_description_from_dossier(
 
     from pipeline.config import (
         EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        PRE_R68H_FROZEN_V8_PROJECTS,
         SHORTS_EXPRESSIVE_V8_PROFILE,
         is_expressive_v8_plan,
     )
-    from pipeline.publish import _scrub_experiment_nicknames, build_expressive_v8_pinned_comment
+    from pipeline.publish import (
+        _scrub_experiment_nicknames,
+        build_expressive_v8_pinned_comment,
+        format_v8_viewer_story_description,
+    )
 
     is_v8_desc = is_expressive_v8_plan(script_doc)
+    is_frozen_v8 = bool(is_v8_desc and str(project_id or "") in PRE_R68H_FROZEN_V8_PROJECTS)
     omit_nicks = [
         str(x).strip()
         for x in (script_doc.get("omit_experiment_nicknames") or [])
         if str(x).strip()
     ]
+    if is_v8_desc and not is_frozen_v8:
+        r68d_desc = format_v8_viewer_story_description(
+            script_doc,
+            dossier=d_dir,
+            omit_nicknames=omit_nicks,
+        )
+        if not r68d_desc.lower().rstrip().endswith("#shorts"):
+            r68d_desc = f"{r68d_desc.rstrip()}\n\n#shorts"
+        return r68d_desc, ["#shorts"], doi
+
     if is_v8_desc and omit_nicks:
         para_1 = _scrub_experiment_nicknames(para_1, omit_nicks)
         para_2 = _scrub_experiment_nicknames(para_2, omit_nicks)
 
     if is_v8_desc:
-        hashtags = []
+        hashtags = ["#shorts"]
     else:
         slug_words = [w.capitalize() for w in slug.split("_") if len(w) >= 4 and w.lower() not in ("with", "from", "into", "that")]
         custom_tag = f"#{''.join(slug_words[:2])}" if slug_words else "#BrainResearch"
@@ -301,9 +333,7 @@ def build_editorial_description_from_dossier(
         if citation_lines
         else (f"Primary Peer-Reviewed Source: https://doi.org/{doi}\n\n" if doi else "")
     )
-    ai_disc_line = (
-        "AI Disclosure: Visual reenactments, 3D anatomical models, and narration in this documentary Short were produced with AI synthesis tools from verified peer-reviewed sources."
-    )
+    ai_disc_line = f"AI Disclosure: {AI_DISCLOSURE_SENTENCE}"
     desc = (
         f"{para_1}\n\n"
         f"{para_2}\n\n"
@@ -312,7 +342,8 @@ def build_editorial_description_from_dossier(
         + (f"\n\n{' '.join(hashtags)}" if hashtags else "")
     )
     if is_v8_desc:
-        desc = re.sub(r"#\w+", "", desc).strip()
+        desc_body = re.sub(r"#\w+", "", desc).strip()
+        desc = f"{desc_body}\n\n#shorts"
     return desc, hashtags, doi
 
 
@@ -324,17 +355,30 @@ def _default_metadata_from_script_and_dossier(
 ) -> dict[str, Any]:
     from pipeline.config import (
         EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        PRE_R68H_FROZEN_V8_PROJECTS,
         SHORTS_EXPRESSIVE_V8_PROFILE,
         is_expressive_v8_plan,
     )
-    from pipeline.publish import build_expressive_v8_pinned_comment
+    from pipeline.publish import (
+        build_clean_episode_tags,
+        build_expressive_v8_pinned_comment,
+    )
+    from pipeline.studio.config import DEFAULT_VIDEO_CATEGORY
 
     desc, hashtags, doi = build_editorial_description_from_dossier(project_id, pillar, slug, script_doc)
+    clean_tags = build_clean_episode_tags(
+        pillar=pillar,
+        script_doc=script_doc,
+        dossier=slug,
+        title=str(script_doc.get("title") or ""),
+        everyday_domain=str(script_doc.get("everyday_domain") or ""),
+    )
     meta_out: dict[str, Any] = {
         "project_id": project_id,
         "profile": "neuro_diorama",
         "pillar": pillar,
         "dossier_slug": slug,
+        "category": DEFAULT_VIDEO_CATEGORY,
         "language": "en-US",
         "video_language": "en-US",
         "title_description_language": "en-US",
@@ -342,21 +386,42 @@ def _default_metadata_from_script_and_dossier(
         "title": str(script_doc.get("title") or ""),
         "doi": doi,
         "ai_disclosure": True,
+        "ai_content_declaration": True,
+        "tags": clean_tags,
         "hashtags": hashtags,
         "description": desc,
     }
     if is_expressive_v8_plan(script_doc):
+        is_frozen_v8 = str(project_id or "") in PRE_R68H_FROZEN_V8_PROJECTS
         meta_out["style_profile"] = EXPRESSIVE_25D_V8_STYLE_PROFILE
         meta_out["shorts_format_profile"] = SHORTS_EXPRESSIVE_V8_PROFILE
-        meta_out["pinned_comment"] = build_expressive_v8_pinned_comment(
-            doi=doi,
-            debate_question=str(script_doc.get("debate_question") or ""),
-            cameo_prompt=str(script_doc.get("cameo_prompt") or "Did you spot the 4cm Mini-Cortex hiding in the room?"),
-        )
+        if is_frozen_v8:
+            meta_out["pinned_comment"] = build_expressive_v8_pinned_comment(
+                doi=doi,
+                debate_question=str(script_doc.get("debate_question") or ""),
+                cameo_prompt=str(script_doc.get("cameo_prompt") or "Did you spot the 4cm Mini-Cortex hiding in the room?"),
+                include_doi=True,
+            )
+        else:
+            meta_out["pinned_comment"] = build_expressive_v8_pinned_comment(
+                doi=doi,
+                debate_question=str(script_doc.get("debate_question") or ""),
+                cameo_prompt=(
+                    str(script_doc.get("cameo_prompt") or "")
+                    if script_doc.get("include_cameo_in_pinned_comment")
+                    else ""
+                ),
+                include_doi=False,
+            )
     return meta_out
 
 
-def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
+def sync_project_from_dossier_diorama(
+    spec: dict[str, Any],
+    *,
+    write_back_dossier: bool = True,
+    projects_dir: Path | None = None,
+) -> Path:
     """Materializes/updates `projects/<project_id>/` from `research_dossiers/<slug>/diorama_v8_expressive/` or `diorama_v7*/` (with v6 fallback)."""
     from pipeline.config import (
         DEFAULT_DIORAMA_STYLE_PROFILE,
@@ -519,32 +584,37 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
 
         populate_porcelain_reference_contract(visual_plan, dossier_dir=d_root)
     clips = build_flow_prompts(visual_plan, sentences)
-
-    # Save canonical prompts in draft_dir too
-    (draft_dir / "script.json").write_text(json.dumps(script_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (draft_dir / "visual_plan.json").write_text(json.dumps(visual_plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     eff_schema_ver = PROMPT_SCHEMA_VERSION_V8 if is_v8 else (PROMPT_SCHEMA_VERSION_V7 if is_v7 else 6)
-    draft_prompts_payload: dict[str, Any] = {
-        "schema_version": eff_schema_ver,
-        "profile": "neuro_diorama",
-        "voice": preset_cfg["voice"],
-        "voice_preset": preset_name,
-        "visual_mode": visual_plan.get("visual_mode", "NEURO_BIOLOGY"),
-        "aspect": "9:16",
-        "clips": clips,
-        "prompts": [c["prompt"] for c in clips],
-    }
-    if is_v7:
-        draft_prompts_payload["style_profile"] = resolved_v7_style
-    draft_prompts_json = json.dumps(draft_prompts_payload, indent=2, ensure_ascii=False) + "\n"
-    try:
-        (draft_dir / "flow_all_in_one_prompts.json").write_text(draft_prompts_json, encoding="utf-8")
-    except OSError:
-        (draft_dir / "03_visuals").mkdir(parents=True, exist_ok=True)
-        (draft_dir / "03_visuals" / "flow_all_in_one_prompts.json").write_text(draft_prompts_json, encoding="utf-8")
 
-    storage = ProjectStorage(project_id=project_id, title=str(script_doc.get("title") or project_id), pillar=pillar)
-    p_dir = storage.project_dir
+    # Save canonical prompts in draft_dir only when write_back_dossier=True (never during --precheck-only)
+    if write_back_dossier:
+        (draft_dir / "script.json").write_text(json.dumps(script_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        (draft_dir / "visual_plan.json").write_text(json.dumps(visual_plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        draft_prompts_payload: dict[str, Any] = {
+            "schema_version": eff_schema_ver,
+            "profile": "neuro_diorama",
+            "voice": preset_cfg["voice"],
+            "voice_preset": preset_name,
+            "visual_mode": visual_plan.get("visual_mode", "NEURO_BIOLOGY"),
+            "aspect": "9:16",
+            "clips": clips,
+            "prompts": [c["prompt"] for c in clips],
+        }
+        if is_v7:
+            draft_prompts_payload["style_profile"] = resolved_v7_style
+        draft_prompts_json = json.dumps(draft_prompts_payload, indent=2, ensure_ascii=False) + "\n"
+        try:
+            (draft_dir / "flow_all_in_one_prompts.json").write_text(draft_prompts_json, encoding="utf-8")
+        except OSError:
+            (draft_dir / "03_visuals").mkdir(parents=True, exist_ok=True)
+            (draft_dir / "03_visuals" / "flow_all_in_one_prompts.json").write_text(draft_prompts_json, encoding="utf-8")
+
+    if projects_dir is not None:
+        p_dir = Path(projects_dir) / project_id
+        p_dir.mkdir(parents=True, exist_ok=True)
+    else:
+        storage = ProjectStorage(project_id=project_id, title=str(script_doc.get("title") or project_id), pillar=pillar)
+        p_dir = storage.project_dir
     for s_name in STAGE_NAMES:
         (p_dir / s_name).mkdir(parents=True, exist_ok=True)
 
@@ -582,9 +652,10 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
             else:
                 built_specs = build_reference_image_specs(visual_plan, sentences)
                 write_reference_image_specs(p_dir, built_specs)
-                (draft_dir / "reference_image_specs.json").write_text(
-                    dst_specs.read_text(encoding="utf-8"), encoding="utf-8"
-                )
+                if write_back_dossier:
+                    (draft_dir / "reference_image_specs.json").write_text(
+                        dst_specs.read_text(encoding="utf-8"), encoding="utf-8"
+                    )
         d_edl = d_root / "08_reenactment_edl.json"
         dst_edl = p_dir / "03_visuals" / "source_edl.json"
         if not is_v8 or str(visual_plan.get("reenactment_track") or "") == "track_a":
@@ -616,23 +687,62 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
                 d_meta_doc = json.loads(d_meta_path.read_text(encoding="utf-8"))
                 if str(d_meta_doc.get("offcenter_creator_bet") or "").strip():
                     meta_doc["offcenter_creator_bet"] = str(d_meta_doc["offcenter_creator_bet"]).strip()
-            except Exception:
-                pass
+            except Exception as exc:
+                import logging
+
+                logging.getLogger("diorama_batch_orchestrator").warning(
+                    "Failed reading dossier.json offcenter_creator_bet for %s: %s", slug, exc
+                )
+    from pipeline.publish import build_clean_episode_tags, validate_episode_tags_hygiene
+    from pipeline.studio.config import DEFAULT_VIDEO_CATEGORY
+
     if is_v8:
+        from pipeline.config import PRE_R68H_FROZEN_V8_PROJECTS
+        from pipeline.publish import build_expressive_v8_pinned_comment as _build_v8_pin
+
+        is_frozen_v8 = str(project_id or "") in PRE_R68H_FROZEN_V8_PROJECTS
         fresh_desc, fresh_tags, fresh_doi = build_editorial_description_from_dossier(project_id, pillar, slug, script_doc)
         meta_doc["description"] = fresh_desc
         meta_doc["hashtags"] = fresh_tags
+        meta_doc["ai_disclosure"] = True
+        meta_doc["ai_content_declaration"] = True
         if fresh_doi and not meta_doc.get("doi"):
             meta_doc["doi"] = fresh_doi
-        if not str(meta_doc.get("pinned_comment") or "").strip():
-            from pipeline.publish import build_expressive_v8_pinned_comment as _build_v8_pin
-
+        if is_frozen_v8:
+            if not str(meta_doc.get("pinned_comment") or "").strip():
+                meta_doc["pinned_comment"] = _build_v8_pin(
+                    doi=str(meta_doc.get("doi") or ""),
+                    debate_question=str(script_doc.get("debate_question") or ""),
+                    cameo_prompt=str(script_doc.get("cameo_prompt") or "Did you spot the 4cm Mini-Cortex hiding in the room?"),
+                    include_doi=True,
+                )
+        else:
             meta_doc["pinned_comment"] = _build_v8_pin(
                 doi=str(meta_doc.get("doi") or ""),
                 debate_question=str(script_doc.get("debate_question") or ""),
-                cameo_prompt=str(script_doc.get("cameo_prompt") or "Did you spot the 4cm Mini-Cortex hiding in the room?"),
+                cameo_prompt=(
+                    str(script_doc.get("cameo_prompt") or "")
+                    if script_doc.get("include_cameo_in_pinned_comment")
+                    else ""
+                ),
+                include_doi=False,
             )
-    meta_src.write_text(json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+    meta_doc["category"] = str(meta_doc.get("category") or DEFAULT_VIDEO_CATEGORY)
+    existing_tags = meta_doc.get("tags")
+    if isinstance(existing_tags, list) and not validate_episode_tags_hygiene(existing_tags, pillar=pillar, raise_on_error=False):
+        meta_doc["tags"] = validate_episode_tags_hygiene(existing_tags, pillar=pillar, raise_on_error=True)
+    else:
+        meta_doc["tags"] = build_clean_episode_tags(
+            pillar=pillar,
+            script_doc=script_doc,
+            dossier=d_root,
+            title=str(meta_doc.get("title") or script_doc.get("title") or ""),
+            everyday_domain=str(meta_doc.get("everyday_domain") or script_doc.get("everyday_domain") or ""),
+            extra_tags=existing_tags if isinstance(existing_tags, list) else None,
+        )
+    if write_back_dossier:
+        meta_src.write_text(json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (p_dir / "06_publish" / "metadata.json").write_text(
         json.dumps(meta_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
@@ -660,9 +770,9 @@ def sync_project_from_dossier_diorama(spec: dict[str, Any]) -> Path:
     m_path.write_text(json.dumps(m_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     ProjectStorage.sync_existing_manifest_from_disk(p_dir)
 
-    # Link project_id into dossier.json
+    # Link project_id into dossier.json only when write_back_dossier=True (never during --precheck-only)
     d_json_path = rd.dossier_dir(slug) / "dossier.json"
-    if d_json_path.exists():
+    if write_back_dossier and d_json_path.exists():
         ddoc = json.loads(d_json_path.read_text(encoding="utf-8"))
         sp = list(ddoc.get("shorts_projects") or [])
         if project_id not in sp:
@@ -730,6 +840,7 @@ def _plan_lock_mapping_issues(
         "lowpoly_matte_brain",
         "porcelain_living_brain",
         "expressive_xray_brain",
+        "brain_simulator_3d",
         "living_brain",
         "matte_brain",
     }
@@ -780,8 +891,12 @@ def precheck_diorama_project(
     run_tts_clock: bool = True,
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
+    *,
+    materialize_project: bool = False,
+    allow_live_tts: bool = False,
 ) -> dict[str, Any]:
-    """Validates `prompt-gate`, contract lock mapping (DQ1/DQ3), paradox/R68 title, zero-plaque nouns, and pre-Flow TTS + Prosody P1-P6/P8/P10."""
+    """Validates `prompt-gate`, contract lock mapping (DQ1/DQ3), paradox/R68 title, zero-plaque nouns, and pre-Flow TTS + Prosody P1-P6/P8/P10 without mutating `research_dossiers/` or `projects/` unless `materialize_project=True`."""
+    import contextlib
     import os
     import tempfile
 
@@ -798,7 +913,7 @@ def precheck_diorama_project(
         shorts_duration_range_for_profile,
     )
     from pipeline.dynamic_episode_qa import compile_episode_qa_contract
-    from pipeline.flow_prompt_builder import build_flow_prompts
+    from pipeline.flow_prompt_builder import build_flow_prompts, validate_flow_credit_safety_lint
     from pipeline.prosody import evaluate_prosody_gates_on_audio
     from pipeline.voice_fallback import _write_mono_wav, resolve_diorama_voice_preset
 
@@ -807,108 +922,170 @@ def precheck_diorama_project(
         eff_spec["voice_preset"] = voice_preset
     if prosody_mode:
         eff_spec["prosody_mode"] = prosody_mode
-    p_dir = sync_project_from_dossier_diorama(eff_spec)
-    slug = str(spec["slug"])
-    proj_id = str(spec["project_id"])
-    sentences, script_doc = load_diorama_script_sentences(p_dir)
-    visual_plan = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
-    is_v8 = is_expressive_v8_plan(visual_plan, script_doc)
-    is_v7 = is_v8 or is_diorama_v7_plan(visual_plan) or is_diorama_v7_plan(script_doc)
-    clips = build_flow_prompts(visual_plan, sentences)
-
-    issues: list[str] = []
-    is_frozen_v1 = (
-        slug in FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS
-        or any(proj_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
-    )
-    if bool(spec.get("require_schema_v2", not is_frozen_v1)):
-        d_val = rd.validate_dossier(slug, require_schema_v2=True)
-        if not d_val.get("ready"):
-            issues.extend([f"[dossier_v2] {iss}" for iss in (d_val.get("issues") or [])])
-    issues.extend(validate_production_diorama_v6(visual_plan, sentences, clips, script_doc=script_doc))
-    issues.extend(rd.check_narration_facts(slug, sentences))
-    issues.extend(validate_diorama_paradox_title(str(script_doc.get("title") or ""), is_expressive_v8=is_v8))
-    contract = compile_episode_qa_contract(visual_plan, sentences, clips, script_doc=script_doc)
-    issues.extend(_plan_lock_mapping_issues(visual_plan, contract, rendered_clips=clips))
-
-    # Positive scene scan for empirical plaque-trigger nouns (excluding negated clauses and allowlisted diegetic tokens)
-    for c in clips:
-        sc = re.sub(r"\b(?:without|zero|no)\s+[a-z\s,-]{1,35}", " ", str(c.get("scene") or ""), flags=re.IGNORECASE)
-        for allow_tok in (c.get("diegetic_text_allowlist") or []):
-            if str(allow_tok or "").strip():
-                sc = re.sub(re.escape(str(allow_tok).strip()), " ", sc, flags=re.IGNORECASE)
-        hits = sorted({m.group(0).lower() for m in _PLAQUE_TRIGGER_NOUNS_RE.finditer(sc)})
-        if hits:
-            issues.append(f"[plaque_lock] clip {c['clip_number']} positive scene contains plaque-trigger word(s) {hits}")
-
-    tts_duration = None
-    preflight_prosody: dict[str, Any] | None = None
-    fmt_profile = resolve_shorts_format_profile(
-        visual_plan,
-        script_doc,
-        {"sentences": sentences, "clips": clips},
-        slug=slug,
-        project_id=str(spec.get("project_id") or p_dir.name),
-    )
-    is_micro = fmt_profile == MICRO_SHORT_PROFILE
-    if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
-        min_dur, max_dur = shorts_duration_range_for_profile(fmt_profile)
-    else:
-        min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC
-        max_dur = SHORTS_HARD_CEILING_SEC
-    eff_vp = voice_preset or str(spec.get("voice_preset") or script_doc.get("voice_preset") or visual_plan.get("voice_preset") or "").strip() or None
-    eff_pm = prosody_mode or str(spec.get("prosody_mode") or script_doc.get("prosody_mode") or "").strip() or None
-    preset_name, preset_cfg = resolve_diorama_voice_preset(eff_vp, script_doc=script_doc, visual_plan=visual_plan)
-    if run_tts_clock and not issues:
-        tts_res = synthesize_continuous_diorama_track(
-            project_dir=p_dir,
-            sentences=sentences,
-            align_whisper=True,
-            prosody_mode=eff_pm,
-            script_doc=script_doc,
-            voice_preset=eff_vp,
+    with contextlib.ExitStack() as stack:
+        scratch_projects_dir: Path | None = None
+        if not materialize_project:
+            scratch_projects_dir = Path(stack.enter_context(tempfile.TemporaryDirectory(prefix="aab_precheck_")))
+        p_dir = sync_project_from_dossier_diorama(
+            eff_spec,
+            write_back_dossier=False,
+            projects_dir=scratch_projects_dir,
         )
-        tts_duration = round(float(tts_res["total_duration_sec"]), 2)
-        if not (min_dur <= tts_duration <= max_dur):
-            issues.append(
-                f"[tts_clock] synthesized {preset_cfg['voice']} ({preset_name}) "
-                f"total_duration_sec={tts_duration}s outside {min_dur}..{max_dur}s"
-            )
-        if is_v7 and not is_micro and (p_dir / "04_audio" / "prosody_report.json").exists() and "pcm" in tts_res:
-            tmp_wav = Path(tempfile.gettempdir()) / f"aab_preflight_voice_{spec['project_id']}_{os.getpid()}.wav"
-            try:
-                _write_mono_wav(tmp_wav, tts_res["pcm"], int(tts_res.get("sr") or 48000))
-                preflight_prosody = evaluate_prosody_gates_on_audio(
-                    p_dir,
-                    audio_path=tmp_wav,
-                    gates=("P1", "P2", "P3", "P4", "P5", "P6", "P8", "P10"),
-                    run_asr=True,
-                )
-                for g_name, g_val in (preflight_prosody.get("gates") or {}).items():
-                    if not g_val.get("passed"):
-                        issues.append(f"[preflight_prosody:{g_name}] {g_val}")
-            finally:
-                tmp_wav.unlink(missing_ok=True)
+        slug = str(spec["slug"])
+        proj_id = str(spec["project_id"])
+        sentences, script_doc = load_diorama_script_sentences(p_dir)
+        visual_plan = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))
+        is_v8 = is_expressive_v8_plan(visual_plan, script_doc)
+        is_v7 = is_v8 or is_diorama_v7_plan(visual_plan) or is_diorama_v7_plan(script_doc)
+        clips = build_flow_prompts(visual_plan, sentences)
 
-    return {
-        "project_id": spec["project_id"],
-        "slug": slug,
-        "wave": spec["wave"],
-        "schema_version": 8 if is_v8 else (7 if is_v7 else 6),
-        "voice_preset": preset_name,
-        "prosody_mode": eff_pm or script_doc.get("prosody_mode"),
-        "passed": len(issues) == 0,
-        "sentences": len(sentences),
-        "clips": len(clips),
-        "words": sum(len(s.split()) for s in sentences),
-        "tts_duration_sec": tts_duration,
-        "preflight_prosody": (
-            {"passed": preflight_prosody["passed"], "gates_passed": preflight_prosody["gates_passed"]}
-            if preflight_prosody is not None
-            else None
-        ),
-        "issues": issues,
-    }
+        issues: list[str] = []
+        is_frozen_v1 = (
+            slug in FROZEN_PRE_SCHEMA_V2_DOSSIER_SLUGS
+            or any(proj_id.startswith(pref) for pref in FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES)
+        )
+        if bool(spec.get("require_schema_v2", not is_frozen_v1)):
+            d_val = rd.validate_dossier(slug, require_schema_v2=True)
+            if not d_val.get("ready"):
+                issues.extend([f"[dossier_v2] {iss}" for iss in (d_val.get("issues") or [])])
+        issues.extend(validate_production_diorama_v6(visual_plan, sentences, clips, script_doc=script_doc))
+        issues.extend(validate_flow_credit_safety_lint(visual_plan, clips))
+        issues.extend(rd.check_narration_facts(slug, sentences))
+        issues.extend(validate_diorama_paradox_title(str(script_doc.get("title") or ""), is_expressive_v8=is_v8))
+        contract = compile_episode_qa_contract(visual_plan, sentences, clips, script_doc=script_doc)
+        issues.extend(_plan_lock_mapping_issues(visual_plan, contract, rendered_clips=clips))
+
+        # Positive scene scan for empirical plaque-trigger nouns (excluding negated clauses and allowlisted diegetic tokens)
+        for c in clips:
+            sc = re.sub(r"\b(?:without|zero|no)\s+[a-z\s,-]{1,35}", " ", str(c.get("scene") or ""), flags=re.IGNORECASE)
+            for allow_tok in (c.get("diegetic_text_allowlist") or []):
+                if str(allow_tok or "").strip():
+                    sc = re.sub(re.escape(str(allow_tok).strip()), " ", sc, flags=re.IGNORECASE)
+            hits = sorted({m.group(0).lower() for m in _PLAQUE_TRIGGER_NOUNS_RE.finditer(sc)})
+            if hits:
+                issues.append(f"[plaque_lock] clip {c['clip_number']} positive scene contains plaque-trigger word(s) {hits}")
+
+        tts_duration = None
+        preflight_prosody: dict[str, Any] | None = None
+        fmt_profile = resolve_shorts_format_profile(
+            visual_plan,
+            script_doc,
+            {"sentences": sentences, "clips": clips},
+            slug=slug,
+            project_id=str(spec.get("project_id") or p_dir.name),
+        )
+        is_micro = fmt_profile == MICRO_SHORT_PROFILE
+        if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
+            min_dur, max_dur = shorts_duration_range_for_profile(
+                fmt_profile,
+                project_id=str(spec.get("project_id") or p_dir.name),
+            )
+        else:
+            min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7 else DIORAMA_DURATION_MIN_SEC
+            max_dur = SHORTS_HARD_CEILING_SEC
+        eff_vp = voice_preset or str(spec.get("voice_preset") or script_doc.get("voice_preset") or visual_plan.get("voice_preset") or "").strip() or None
+        eff_pm = prosody_mode or str(spec.get("prosody_mode") or script_doc.get("prosody_mode") or "").strip() or None
+        preset_name, preset_cfg = resolve_diorama_voice_preset(eff_vp, script_doc=script_doc, visual_plan=visual_plan)
+        if run_tts_clock and not issues:
+            from pipeline.elevenlabs_tts import is_episode_fully_cached
+            from pipeline.prosody import plan_sentence_prosody, resolve_prosody_mode
+
+            resolved_pm = resolve_prosody_mode(eff_pm, script_doc, is_v7)
+            gears_pre = (
+                [str(pl["gear"]) for pl in plan_sentence_prosody(sentences, script_doc, resolved_pm)]
+                if resolved_pm != "uniform_108x"
+                else None
+            )
+            ep_cached = is_episode_fully_cached(
+                sentences,
+                voice_id=str(preset_cfg.get("elevenlabs_voice_id") or preset_cfg.get("voice")),
+                gears=gears_pre,
+                preserve_exclamation=bool(is_v8),
+            )
+            use_stub = (not bool(allow_live_tts or spec.get("_allow_live_tts"))) and (not ep_cached)
+            tts_res = synthesize_continuous_diorama_track(
+                project_dir=p_dir,
+                sentences=sentences,
+                align_whisper=(not use_stub),
+                prosody_mode=eff_pm,
+                script_doc=script_doc,
+                voice_preset=preset_name,
+                allow_test_stub=use_stub,
+            )
+            tts_duration = round(float(tts_res["total_duration_sec"]), 2)
+            if not (min_dur <= tts_duration <= max_dur):
+                issues.append(
+                    f"[tts_clock] synthesized {preset_cfg['voice']} ({preset_name}) "
+                    f"total_duration_sec={tts_duration}s outside {min_dur}..{max_dur}s"
+                )
+            if is_v7 and not is_micro and (p_dir / "04_audio" / "prosody_report.json").exists() and "pcm" in tts_res:
+                tmp_wav = Path(tempfile.gettempdir()) / f"aab_preflight_voice_{spec['project_id']}_{os.getpid()}.wav"
+                try:
+                    _write_mono_wav(tmp_wav, tts_res["pcm"], int(tts_res.get("sr") or 48000))
+                    pros_gates = ("P1", "P2", "P3", "P4", "P5", "P8", "P10") if use_stub else ("P1", "P2", "P3", "P4", "P5", "P6", "P8", "P10")
+                    preflight_prosody = evaluate_prosody_gates_on_audio(
+                        p_dir,
+                        audio_path=tmp_wav,
+                        gates=pros_gates,
+                        run_asr=(not use_stub),
+                    )
+                    for g_name, g_val in (preflight_prosody.get("gates") or {}).items():
+                        if not g_val.get("passed"):
+                            issues.append(f"[preflight_prosody:{g_name}] {g_val}")
+                finally:
+                    tmp_wav.unlink(missing_ok=True)
+
+        return {
+            "project_id": spec["project_id"],
+            "slug": slug,
+            "wave": spec["wave"],
+            "schema_version": 8 if is_v8 else (7 if is_v7 else 6),
+            "voice_preset": preset_name,
+            "prosody_mode": eff_pm or script_doc.get("prosody_mode"),
+            "passed": len(issues) == 0,
+            "sentences": len(sentences),
+            "clips": len(clips),
+            "words": sum(len(s.split()) for s in sentences),
+            "tts_duration_sec": tts_duration,
+            "preflight_prosody": (
+                {"passed": preflight_prosody["passed"], "gates_passed": preflight_prosody["gates_passed"]}
+                if preflight_prosody is not None
+                else None
+            ),
+            "issues": issues,
+        }
+
+
+def render_keyframe_contact_sheet(project_dir: Path) -> Path | None:
+    """Renders `03_visuals/keyframe_contact_sheet.jpg` grid of all `03_visuals/reference_images/*.png` for pre-Flow human/CV checkpoint."""
+    from pipeline.media_cache import stage_local_file
+
+    p_dir = Path(project_dir)
+    ref_dir = p_dir / "03_visuals" / "reference_images"
+    if not ref_dir.exists():
+        return None
+    pngs = sorted(p for p in ref_dir.glob("*.png") if p.is_file())
+    if not pngs:
+        return None
+    cols = min(7, len(pngs))
+    rows = int(math.ceil(len(pngs) / float(cols)))
+    tw, th = 180, 320
+    canvas = np.full((rows * th, cols * tw, 3), 24, dtype=np.uint8)
+    for idx, img_p in enumerate(pngs):
+        r, c = divmod(idx, cols)
+        local_p, _ = stage_local_file(img_p)
+        img = cv2.imread(str(local_p), cv2.IMREAD_COLOR)
+        if img is None or img.size == 0:
+            continue
+        thumb = cv2.resize(img, (tw, th), interpolation=cv2.INTER_AREA)
+        cv2.rectangle(thumb, (0, 0), (tw, 28), (18, 18, 22), -1)
+        label = f"#{idx + 1:02d} {img_p.stem[:16]}"
+        cv2.putText(thumb, label, (6, 19), cv2.FONT_HERSHEY_SIMPLEX, 0.43, (245, 245, 245), 1, cv2.LINE_AA)
+        canvas[r * th : (r + 1) * th, c * tw : (c + 1) * tw] = thumb
+    out = p_dir / "03_visuals" / "keyframe_contact_sheet.jpg"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    cv2.imwrite(str(out), canvas, [cv2.IMWRITE_JPEG_QUALITY, 90])
+    return out
 
 
 def _render_contact_sheet(project_dir: Path) -> Path | None:
@@ -981,10 +1158,391 @@ def _write_stage_timings(asm_dir: Path, project_id: str, timings: dict[str, floa
     (asm_dir / "stage_timings.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def _resolve_project_visual_plan(p_dir: Path) -> dict[str, Any]:
+    vp_path = next(
+        (
+            p
+            for p in (
+                p_dir / "03_visuals" / "visual_plan.json",
+                p_dir / "02_script" / "visual_plan.json",
+                p_dir / "visual_plan.json",
+            )
+            if p.is_file()
+        ),
+        None,
+    )
+    if vp_path is None:
+        return {}
+    try:
+        doc = json.loads(vp_path.read_text(encoding="utf-8"))
+        return doc if isinstance(doc, dict) else {}
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def partition_project_clips_by_engine(project_dir: str | Path) -> tuple[list[int], list[int]]:
+    """Returns `(human_flow_clip_indices, brain_simulator_clip_indices)` (1-based) from `visual_plan.json`."""
+    cand_p = Path(str(project_dir))
+    p_dir = cand_p.resolve() if cand_p.exists() else (Path(PROJECTS_DIR) / str(project_dir)).resolve()
+    vp = _resolve_project_visual_plan(p_dir)
+    clips = vp.get("clips") if isinstance(vp.get("clips"), list) else []
+    human_idxs: list[int] = []
+    sim_idxs: list[int] = []
+    for pos_i, c_spec in enumerate(clips, start=1):
+        if not isinstance(c_spec, dict):
+            continue
+        c_idx = int(c_spec.get("clip_number") or c_spec.get("clip_index") or c_spec.get("id") or pos_i)
+        if is_brain_simulator_clip_spec(c_spec):
+            sim_idxs.append(c_idx)
+        else:
+            human_idxs.append(c_idx)
+    return human_idxs, sim_idxs
+
+
+def has_brain_simulator_clips(project_dir: str | Path) -> bool:
+    _, sim_idxs = partition_project_clips_by_engine(project_dir)
+    return bool(sim_idxs)
+
+
+def has_pending_human_flow_clips(
+    project_dir: str | Path,
+    *,
+    only_clips: list[int] | None = None,
+    clean_existing: bool = False,
+) -> tuple[bool, int]:
+    """Checks whether any Flow-eligible human clips still require Google Flow browser generation."""
+    cand_p = Path(str(project_dir))
+    p_dir = cand_p.resolve() if cand_p.exists() else (Path(PROJECTS_DIR) / str(project_dir)).resolve()
+    human_idxs, _ = partition_project_clips_by_engine(p_dir)
+    if only_clips is not None:
+        only_set = {int(x) for x in only_clips}
+        eligible = [c for c in human_idxs if c in only_set]
+    else:
+        eligible = list(human_idxs)
+    if not eligible:
+        return False, 0
+    if clean_existing and not only_clips:
+        return True, len(eligible)
+    native_dir = p_dir / "03_visuals" / "flow_native_clips"
+    pending = 0
+    for c_idx in eligible:
+        mp4_p = native_dir / f"clip_{c_idx}.mp4"
+        if not mp4_p.is_file() or mp4_p.stat().st_size < int(MIN_CLIP_SIZE_BYTES):
+            pending += 1
+    return pending > 0, pending
+
+
+def _v8_transition_overlap_frames(tr_raw: str, visual_plan: dict[str, Any] | None = None) -> int:
+    from pipeline.config import (
+        EXPRESSIVE_V8_DISSOLVE_8_FRAMES,
+        EXPRESSIVE_V8_DISSOLVE_FRAMES,
+        EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES,
+        EXPRESSIVE_V8_WHIP_PAN_FRAMES,
+    )
+
+    tr_n = str(tr_raw or "").strip().lower()
+    allow_alpha = bool((visual_plan or {}).get("allow_alpha_dissolves"))
+    if tr_n == "portal_crash_zoom_10f":
+        return int(EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES)
+    if tr_n in ("whip_pan_blur_8f", "occlusion_wipe"):
+        return int(EXPRESSIVE_V8_WHIP_PAN_FRAMES)
+    if allow_alpha:
+        if tr_n == "dissolve_15f":
+            return 15
+        if tr_n == "dissolve_12f":
+            return 12
+        if tr_n in ("dissolve_8f", "split_screen_wipe", "daisy_chain_bridge"):
+            return int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+        if tr_n in ("dissolve_6f", "match_cut_bridge"):
+            return int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
+    return 0
+
+
+def compute_edl_frame_map_from_edl(
+    edl: dict[str, Any],
+    visual_plan: dict[str, Any] | None = None,
+    *,
+    safety_pad_frames: int = 6,
+) -> dict[int, int]:
+    """Computes per-clip required frames (`eff_f + ov_f_next + safety_pad_frames`, floored at `fps * 2`)."""
+    fps = max(1, int(edl.get("fps") or (visual_plan or {}).get("fps") or 30))
+    min_frames = int(fps) * 2
+    pad = max(0, int(safety_pad_frames))
+    total_frames = int(edl.get("total_frames") or 0)
+    cuts = edl.get("cuts") if isinstance(edl.get("cuts"), list) else []
+    frame_map: dict[int, int] = {}
+    cum_frames = 0
+    for idx_c, cut in enumerate(cuts):
+        if not isinstance(cut, dict):
+            continue
+        raw_f = max(1, int(cut.get("frames") or 0))
+        if total_frames > 0:
+            rem = total_frames - cum_frames
+            if rem <= 0:
+                break
+            eff_f = min(rem, raw_f)
+        else:
+            eff_f = raw_f
+        cum_frames += eff_f
+        ov_out = _v8_transition_overlap_frames(
+            str(cut.get("transition_out") or cut.get("transition_to_next") or ""),
+            visual_plan,
+        )
+        prev_tr = (
+            str(cuts[idx_c - 1].get("transition_out") or cuts[idx_c - 1].get("transition_to_next") or "")
+            if idx_c > 0 and isinstance(cuts[idx_c - 1], dict)
+            else ""
+        )
+        ov_in = _v8_transition_overlap_frames(prev_tr, visual_plan)
+        req_f = max(min_frames, int(eff_f) + max(ov_out, ov_in) + pad)
+        c_idx = int(cut.get("clip_index") or 0)
+        if c_idx >= 1:
+            frame_map[c_idx] = max(frame_map.get(c_idx, 0), req_f)
+        sec_idx = cut.get("secondary_clip_index")
+        if sec_idx is not None and int(sec_idx) >= 1:
+            s_i = int(sec_idx)
+            frame_map[s_i] = max(frame_map.get(s_i, 0), req_f)
+    return frame_map
+
+
+def lock_episode_audio_and_edl_frames(
+    project_dir: str | Path,
+    *,
+    voice_preset: str | None = None,
+    prosody_mode: str | None = None,
+    safety_pad_frames: int = 6,
+) -> dict[str, Any]:
+    """
+    Guard 4 Step 1 (Audio & Virtual Master EDL Lock):
+      1. Runs `synthesize_continuous_diorama_track` + `P6` audio gate to lock `04_audio/audio_master.wav`
+         and `04_audio/voice_report.json` BEFORE any Flow / Blender fork.
+      2. Computes exact `30fps` per-clip frame requirements (`edl_frame_map`, `eff_f + ov_f_next + 6`)
+         from the locked TTS timeline and persists `05_assembly/edl_timing_lock.json`.
+    """
+    import wave
+
+    cand_p = Path(str(project_dir))
+    p_dir = cand_p.resolve() if cand_p.exists() else (Path(PROJECTS_DIR) / str(project_dir)).resolve()
+    audio_dir = p_dir / "04_audio"
+    asm_dir = p_dir / "05_assembly"
+    audio_dir.mkdir(parents=True, exist_ok=True)
+    asm_dir.mkdir(parents=True, exist_ok=True)
+
+    visual_plan = _resolve_project_visual_plan(p_dir)
+    if visual_plan:
+        visual_plan = {**visual_plan, "_visuals_dir": str(p_dir / "03_visuals")}
+    sentences, script_doc = load_diorama_script_sentences(p_dir)
+
+    eff_voice_preset = (
+        str(
+            voice_preset
+            or script_doc.get("voice_preset")
+            or visual_plan.get("voice_preset")
+            or ""
+        ).strip()
+        or None
+    )
+    eff_prosody_mode = (
+        str(
+            prosody_mode
+            or script_doc.get("prosody_mode")
+            or visual_plan.get("prosody_mode")
+            or ""
+        ).strip()
+        or None
+    )
+    if eff_voice_preset:
+        script_doc = {**script_doc, "voice_preset": eff_voice_preset}
+
+    vp_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
+    n_plan_clips = max(1, len(vp_clips))
+    virtual_clip_files = [
+        p_dir / "03_visuals" / "flow_native_clips" / f"clip_{i}.mp4"
+        for i in range(1, n_plan_clips + 1)
+    ]
+
+    tts_res = synthesize_continuous_diorama_track(
+        project_dir=p_dir,
+        sentences=sentences,
+        align_whisper=True,
+        script_doc=script_doc,
+        prosody_mode=eff_prosody_mode,
+        voice_preset=eff_voice_preset,
+    )
+
+    wav_path = audio_dir / "audio_master.wav"
+    vr_path = audio_dir / "voice_report.json"
+
+    def _materialize_virtual_edl_and_audio(cur_tts: dict[str, Any]) -> dict[str, Any]:
+        if not vr_path.is_file():
+            rep_doc = cur_tts.get("report") if isinstance(cur_tts.get("report"), dict) else {
+                "sentence_spans": cur_tts.get("sentence_spans") or [],
+                "events": cur_tts.get("events") or [],
+                "speech_end_sec": float(cur_tts.get("speech_end_sec") or 0.0),
+                "total_duration_sec": float(cur_tts.get("total_duration_sec") or 0.0),
+                "sample_rate": int(cur_tts.get("sr") or 48000),
+            }
+            with ram_tempdir(prefix="aab_vrep_") as td_vr:
+                tmp_vr = Path(td_vr) / "voice_report.json"
+                tmp_vr.write_text(json.dumps(rep_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+                atomic_commit_from_scratch(tmp_vr, vr_path)
+
+        try:
+            v_edl = build_crosscut_edl(
+                visual_plan=visual_plan,
+                sentence_spans=cur_tts["sentence_spans"],
+                clip_files=virtual_clip_files,
+                speech_end_sec=float(cur_tts["speech_end_sec"]),
+                total_duration_sec=float(cur_tts["total_duration_sec"]),
+                script_doc=script_doc,
+            )
+        except Exception:  # noqa: BLE001
+            fps_fb = max(1, int(visual_plan.get("fps") or 30))
+            tot_s_fb = float(cur_tts.get("total_duration_sec") or 8.0)
+            fb_cuts = []
+            for idx_fb, c_fb in enumerate(vp_clips, start=1):
+                dur_fb = float((c_fb if isinstance(c_fb, dict) else {}).get("duration_sec") or max(2.0, tot_s_fb / max(1, len(vp_clips))))
+                fb_cuts.append(
+                    {
+                        "cut_index": idx_fb,
+                        "clip_index": idx_fb,
+                        "frames": max(fps_fb * 2, int(round(dur_fb * fps_fb))),
+                        "duration_sec": dur_fb,
+                        "transition_out": str((c_fb if isinstance(c_fb, dict) else {}).get("transition_out") or "hard"),
+                    }
+                )
+            v_edl = {
+                "fps": fps_fb,
+                "speech_end_sec": float(cur_tts.get("speech_end_sec") or tot_s_fb),
+                "total_duration_sec": tot_s_fb,
+                "total_frames": int(round(tot_s_fb * fps_fb)),
+                "cuts": fb_cuts,
+            }
+
+        pcm_arr = cur_tts.get("pcm")
+        sr_val = int(cur_tts.get("sr") or 48000)
+        if isinstance(pcm_arr, np.ndarray) and pcm_arr.size > 0:
+            with ram_tempdir(prefix="aab_audiomaster_") as td_w:
+                tmp_wav = Path(td_w) / "audio_master.wav"
+                generate_diorama_audio_master(
+                    wav_path=tmp_wav,
+                    voice_pcm=pcm_arr,
+                    sr=sr_val,
+                    speech_end_sec=float(v_edl["speech_end_sec"]),
+                    edl=v_edl,
+                )
+                atomic_commit_from_scratch(tmp_wav, wav_path)
+        elif not wav_path.is_file():
+            with ram_tempdir(prefix="aab_audiomaster_stub_") as td_w:
+                tmp_wav = Path(td_w) / "audio_master.wav"
+                n_stub = max(sr_val, int(round(float(v_edl.get("total_duration_sec") or 1.0) * sr_val)))
+                with wave.open(str(tmp_wav), "wb") as wf:
+                    wf.setnchannels(2)
+                    wf.setsampwidth(2)
+                    wf.setframerate(sr_val)
+                    wf.writeframes(b"\x00\x00\x00\x00" * min(n_stub, sr_val))
+                atomic_commit_from_scratch(tmp_wav, wav_path)
+        return v_edl
+
+    virtual_edl = _materialize_virtual_edl_and_audio(tts_res)
+
+    # Pre-Fork P6 audio gate (catches word drops once before parallel video generation starts)
+    retried_sentences: list[int] = []
+    if (audio_dir / "prosody_report.json").is_file() and isinstance(tts_res.get("pcm"), np.ndarray):
+        try:
+            from pipeline import prosody as _prosody_mod
+
+            pre_pros = _prosody_mod.evaluate_prosody_gates_on_audio(
+                p_dir,
+                audio_path=wav_path,
+                gates=("P6_asr_by_gear",),
+                run_asr=True,
+            )
+            p6_gate = (pre_pros.get("gates") or {}).get("P6_asr_by_gear") or {}
+            low_sents = sorted({int(i) for i in (p6_gate.get("low_sentences_lt_0_80") or []) if int(i) >= 1})
+            if (not p6_gate.get("passed", True)) or low_sents:
+                retry_targets = set(low_sents) if low_sents else set(range(1, len(sentences) + 1))
+                retried_sentences = sorted(retry_targets)
+                tts_res = synthesize_continuous_diorama_track(
+                    project_dir=p_dir,
+                    sentences=sentences,
+                    align_whisper=True,
+                    script_doc=script_doc,
+                    prosody_mode=eff_prosody_mode,
+                    voice_preset=eff_voice_preset,
+                    retry_intact_sentence_indices=retry_targets,
+                )
+                virtual_edl = _materialize_virtual_edl_and_audio(tts_res)
+        except Exception:  # noqa: BLE001
+            pass
+
+    fps = max(1, int(virtual_edl.get("fps") or visual_plan.get("fps") or 30))
+    edl_frame_map = compute_edl_frame_map_from_edl(
+        virtual_edl,
+        visual_plan,
+        safety_pad_frames=safety_pad_frames,
+    )
+
+    asm_lock_fn = getattr(_diorama_assembler_mod, "compute_locked_edl_cut_frame_requirements", None)
+    if callable(asm_lock_fn):
+        try:
+            helper_res = asm_lock_fn(p_dir, tts_res, safety_pad_frames=safety_pad_frames)
+            helper_map = helper_res.get("edl_frame_map") if isinstance(helper_res, dict) else None
+            if isinstance(helper_map, dict):
+                for k_h, v_h in helper_map.items():
+                    c_i = int(k_h)
+                    edl_frame_map[c_i] = max(edl_frame_map.get(c_i, 0), int(v_h))
+        except Exception:  # noqa: BLE001
+            pass
+
+    for pos_i, c_spec in enumerate(vp_clips, start=1):
+        if not isinstance(c_spec, dict):
+            continue
+        c_idx = int(c_spec.get("clip_number") or c_spec.get("clip_index") or c_spec.get("id") or pos_i)
+        if c_idx not in edl_frame_map:
+            dur_s = float(
+                c_spec.get("duration_sec")
+                or c_spec.get("target_duration_sec")
+                or c_spec.get("locked_spoken_duration_sec")
+                or 4.8
+            )
+            edl_frame_map[c_idx] = max(fps * 2, int(round(dur_s * fps)) + int(safety_pad_frames))
+
+    lock_path = asm_dir / "edl_timing_lock.json"
+    lock_doc = {
+        "project_id": p_dir.name,
+        "fps": int(fps),
+        "safety_pad_frames": int(safety_pad_frames),
+        "speech_end_sec": round(float(virtual_edl.get("speech_end_sec") or tts_res.get("speech_end_sec") or 0.0), 4),
+        "total_duration_sec": round(float(virtual_edl.get("total_duration_sec") or tts_res.get("total_duration_sec") or 0.0), 4),
+        "edl_frame_map": {str(k): int(v) for k, v in sorted(edl_frame_map.items())},
+        "p6_retried_sentences": retried_sentences,
+        "locked_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
+    }
+    with ram_tempdir(prefix="aab_edl_lock_") as td_lk:
+        tmp_lk = Path(td_lk) / "edl_timing_lock.json"
+        tmp_lk.write_text(json.dumps(lock_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        atomic_commit_from_scratch(tmp_lk, lock_path)
+
+    return {
+        "project_dir": str(p_dir),
+        "audio_master_path": str(wav_path),
+        "voice_report_path": str(vr_path),
+        "edl_timing_lock_path": str(lock_path),
+        "edl_frame_map": dict(edl_frame_map),
+        "fps": int(fps),
+        "speech_end_sec": lock_doc["speech_end_sec"],
+        "total_duration_sec": lock_doc["total_duration_sec"],
+    }
+
+
 def finalize_and_verify_diorama_project(
     project_id: str,
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
+    *,
+    cpu_budget: int | None = None,
+    preserve_audio_master: bool = False,
 ) -> dict[str, Any]:
     """Runs `assemble_diorama_project`, fail-fast Prosody P1-P10, DQ1-DQ12, R64, `autopsy`, `thumbnail`, `reenact-qa` (Track A), KB sync, and `verify`."""
     from pipeline import thumbnail_studio
@@ -1020,6 +1578,14 @@ def finalize_and_verify_diorama_project(
         asm_kwargs["voice_preset"] = voice_preset
     if prosody_mode:
         asm_kwargs["prosody_mode"] = prosody_mode
+    asm_sig = inspect.signature(assemble_diorama_project)
+    asm_has_varkw = any(p.kind == inspect.Parameter.VAR_KEYWORD for p in asm_sig.parameters.values())
+    if preserve_audio_master and (asm_has_varkw or "preserve_audio_master" in asm_sig.parameters):
+        asm_kwargs["preserve_audio_master"] = True
+    elif "preserve_audio_master" in asm_sig.parameters:
+        asm_kwargs["preserve_audio_master"] = bool(preserve_audio_master)
+    if cpu_budget is not None and (asm_has_varkw or "cpu_budget" in asm_sig.parameters):
+        asm_kwargs["cpu_budget"] = int(cpu_budget)
     asm_res = assemble_diorama_project(project_id, **asm_kwargs)
     timings["assembly_sec"] = time.monotonic() - t_s
     final_mp4 = Path(asm_res["final_mp4"])
@@ -1077,10 +1643,12 @@ def finalize_and_verify_diorama_project(
             for c_u in cuts_u:
                 c_s = float(c_u["out_start_sec"])
                 c_e = max(c_s + 0.12, min(dur_u if dur_u > 0 else float(c_u["out_end_sec"]), float(c_u["out_end_sec"])))
-                pad = min(0.08, 0.15 * (c_e - c_s))
+                c_dur = c_e - c_s
+                pad = min(0.38, 0.18 * c_dur) if c_dur >= 2.2 else min(0.08, 0.15 * c_dur)
                 t0, t1 = c_s + pad, max(c_s + pad + 0.04, c_e - pad)
-                for fr in (0.0, 0.25, 0.50, 0.75, 1.0):
-                    union_fidxs.add(max(0, min(fc_u - 1, int(round((t0 + fr * (t1 - t0)) * fps_u)))))
+                for ts_u in np.arange(t0, t1 + 1e-6, 0.25):
+                    union_fidxs.add(max(0, min(fc_u - 1, int(round(float(ts_u) * fps_u)))))
+                union_fidxs.add(max(0, min(fc_u - 1, int(round(t1 * fps_u)))))
             edl_doc = json.loads((asm_dir / "edit_decision_list.json").read_text(encoding="utf-8"))
             edl_cuts = edl_doc.get("cuts") or []
             sents_u, sdoc_u = load_diorama_script_sentences(p_dir)
@@ -1101,8 +1669,12 @@ def finalize_and_verify_diorama_project(
                 if str(ec.get("mode") or "") in ("split_hstack", "split_vstack"):
                     mid_t = 0.5 * (float(ec["out_start_sec"]) + float(ec["out_end_sec"]))
                     union_fidxs.add(max(0, min(fc_u - 1, int(round(mid_t * fps_u)))))
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("diorama_batch_orchestrator").warning(
+                "Union frame pre-decode sample index scan warning for %s: %s", project_id, exc
+            )
 
     ref_imgs_dir = p_dir / "03_visuals" / "reference_images"
     if ref_imgs_dir.exists() and any(ref_imgs_dir.glob("*.png")):
@@ -1135,29 +1707,38 @@ def finalize_and_verify_diorama_project(
         _write_stage_timings(asm_dir, project_id, timings, "QA_FAILED_DQ", t_total0)
         _sync_full_project_manifest(p_dir, status="QA_FAILED")
         raise RuntimeError(f"DynamicEpisodeQA (DQ1-DQ12) failed for {project_id}: {ep_qa_rep.get('gates_passed')}")
-    if not posthoc_rep.get("passed"):
+    if not posthoc_rep.get("cv_passed", False):
         _write_stage_timings(asm_dir, project_id, timings, "QA_FAILED_POSTHOC", t_total0)
         _sync_full_project_manifest(p_dir, status="QA_FAILED")
         raise RuntimeError(
             f"PostHocSemanticQA (R64) flagged weak cuts for {project_id}: {posthoc_rep['summary']['weak_cut_indices']}"
         )
-    from pipeline.config import UNMANNED_QA_SIGNOFF_DEFAULT
+    if not posthoc_rep.get("passed"):
+        from pipeline.posthoc_semantic_qa import init_posthoc_semantic_review_template
 
-    if UNMANNED_QA_SIGNOFF_DEFAULT:
-        from pipeline.posthoc_semantic_qa import auto_signoff_posthoc_semantic_review
+        rev_file = asm_dir / "posthoc_semantic_review.json"
+        if not rev_file.exists():
+            init_posthoc_semantic_review_template(p_dir, qa_report=posthoc_rep, auto_populate_from_cv=False)
+        _write_stage_timings(asm_dir, project_id, timings, "REVIEW_PENDING", t_total0)
+        _sync_full_project_manifest(p_dir, status="REVIEW_PENDING")
+        raise RuntimeError(
+            f"REVIEW_PENDING (Gate 2 @Research visual sign-off required) for {project_id}: "
+            f"sheets={posthoc_rep.get('viewer_sheets')} review_file={rev_file}"
+        )
 
-        auto_signoff_posthoc_semantic_review(p_dir, qa_report=posthoc_rep)
-
-    # R65 Thumbnail Studio hard gate (TQ1-TQ8)
+    # R65 v2 Thumbnail Studio hard gate (TQ1-TQ9; auto-generates 0-credit cutaway keyart when cutaway_keyart_prompt is set)
     t_s = time.monotonic()
     try:
-        thumb_rep = thumbnail_studio.run(p_dir, force=False, strict=True)
+        vp_th_path = p_dir / "03_visuals" / "visual_plan.json"
+        vp_th_doc = json.loads(vp_th_path.read_text(encoding="utf-8")) if vp_th_path.exists() else {}
+        auto_keyart = bool(((vp_th_doc.get("thumbnail") or {}) if isinstance(vp_th_doc, dict) else {}).get("cutaway_keyart_prompt"))
+        thumb_rep = thumbnail_studio.run(p_dir, force=False, strict=True, generate_keyart=auto_keyart)
         timings["thumbnail_sec"] = time.monotonic() - t_s
     except Exception as exc:
         timings["thumbnail_sec"] = time.monotonic() - t_s
         _write_stage_timings(asm_dir, project_id, timings, "QA_FAILED_THUMBNAIL", t_total0)
         _sync_full_project_manifest(p_dir, status="QA_FAILED")
-        raise RuntimeError(f"Thumbnail Studio QA (R65 TQ1-TQ8) failed for {project_id}: {exc}") from exc
+        raise RuntimeError(f"Thumbnail Studio QA (R65 TQ1-TQ9) failed for {project_id}: {exc}") from exc
 
     # R67 Reenactment Non-Infringement & Fidelity QA (RQ1-RQ5) for Track A / source-EDL episodes
     rqa_rep: dict[str, Any] = {"passed": True, "skipped": True}
@@ -1167,8 +1748,14 @@ def finalize_and_verify_diorama_project(
         from pipeline.source_reenactment import purge_reenactment_quarantine, validate_reenactment_non_infringement
 
         t_s = time.monotonic()
-        purge_reenactment_quarantine()
         d_dir_rqa = rd.resolve_dossier_for_project(project_id)
+        rqa_slug = str(
+            vp_chk_doc.get("dossier_slug")
+            or vp_chk_doc.get("dossier")
+            or (d_dir_rqa.name if d_dir_rqa else "")
+            or project_id
+        ).strip()
+        purge_reenactment_quarantine(slug=rqa_slug)
         rqa_rep = validate_reenactment_non_infringement(
             project_dir=p_dir,
             dossier_dir=d_dir_rqa,
@@ -1182,6 +1769,9 @@ def finalize_and_verify_diorama_project(
             raise RuntimeError(f"ReenactmentQA (RQ1-RQ5) failed for {project_id}: {rqa_rep.get('gates_passed')}")
 
     t_s = time.monotonic()
+    from pipeline.publish import export_multi_platform_bundle
+
+    multi_bundle = export_multi_platform_bundle(p_dir, copy_video=True)
     build_asset_manifest(p_dir)
     sync_project_to_knowledge_base(p_dir, posthoc_report=posthoc_rep)
     timings["asset_and_kb_sec"] = time.monotonic() - t_s
@@ -1223,6 +1813,7 @@ def finalize_and_verify_diorama_project(
             "total_sec": round(time.monotonic() - t_total0, 2),
         },
         "completed_mp4": str(completed_mp4),
+        "multi_platform_bundle_dir": multi_bundle["bundle_dir"],
     }
 
 
@@ -1248,8 +1839,12 @@ def _collect_auto_heal_plan(project_id: str) -> dict[str, Any]:
             if not pr_doc.get("passed", True):
                 failed_p = [k for k, v in (pr_doc.get("gates") or {}).items() if not v.get("passed")]
                 script_fix_reasons.append(f"prosody_qa:{failed_p}")
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("diorama_batch_orchestrator").warning(
+                "Failed reading prosody_qa_report.json for %s: %s", project_id, exc
+            )
 
     dq_path = asm_dir / "dynamic_episode_qa_report.json"
     if dq_path.exists():
@@ -1297,8 +1892,12 @@ def _collect_auto_heal_plan(project_id: str) -> dict[str, Any]:
                         m_cut = re.search(r"\bcut(?:_index)?[_\s#:\"=]*(\d+)\b", fail_str, flags=re.IGNORECASE)
                         if m_cut:
                             regen_cuts.add(int(m_cut.group(1)))
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("diorama_batch_orchestrator").warning(
+                "Failed reading dynamic_episode_qa_report.json for %s: %s", project_id, exc
+            )
 
     if script_fix_reasons:
         return {
@@ -1337,8 +1936,12 @@ def _collect_auto_heal_plan(project_id: str) -> dict[str, Any]:
                         edl_only_cuts.add(cid)
                     else:
                         regen_cuts.add(cid)
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("diorama_batch_orchestrator").warning(
+                "Failed reading posthoc_semantic_qa_report.json for %s: %s", project_id, exc
+            )
 
     # If a freeze cut has no shift_edl_source_window recommendation or already failed R64 source motion, escalate to regen
     for cid in list(edl_only_cuts):
@@ -1363,8 +1966,12 @@ def _collect_auto_heal_plan(project_id: str) -> dict[str, Any]:
                     sec_idx = cut.get("secondary_clip_index") or cut.get("right_clip_index")
                     if sec_idx:
                         bad_clips.add(int(sec_idx))
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("diorama_batch_orchestrator").warning(
+                "Failed reading edit_decision_list.json for %s: %s", project_id, exc
+            )
 
     regen_list = sorted(c for c in bad_clips if c > 0)
     return {
@@ -1385,10 +1992,12 @@ def _is_already_completed(project_id: str) -> bool:
     from pipeline.config import (
         DEFAULT_DIORAMA_VOICE_PRESET,
         DIORAMA_V7_US_PROSODY_MODE,
+        DIORAMA_VOICE_PRESETS,
         DOSSIER_SCHEMA_VERSION,
         EXPRESSIVE_25D_V8_STYLE_PROFILE,
         EXPRESSIVE_V8_PROSODY_MODE,
         FROZEN_PRE_SCHEMA_V2_PROJECT_PREFIXES,
+        HISTORICAL_LEGACY_VOICE_PRESET_IDS,
         PORCELAIN_V7_STYLE_PROFILE,
         REENACT_QA_REPORT_FILENAME,
     )
@@ -1440,15 +2049,17 @@ def _is_already_completed(project_id: str) -> bool:
                 if vp_style == EXPRESSIVE_25D_V8_STYLE_PROFILE
                 else DIORAMA_V7_US_PROSODY_MODE
             )
-            vp_voice = str(sc_doc.get("voice_preset") or vp_doc.get("voice_preset") or "")
-            vp_prosody = str(sc_doc.get("prosody_mode") or vp_doc.get("prosody_mode") or "")
-            if vp_voice != DEFAULT_DIORAMA_VOICE_PRESET or vp_prosody != expected_prosody:
+            vp_voice = str(sc_doc.get("voice_preset") or vp_doc.get("voice_preset") or DEFAULT_DIORAMA_VOICE_PRESET).strip()
+            vp_prosody = str(sc_doc.get("prosody_mode") or vp_doc.get("prosody_mode") or "").strip()
+            allowed_voices = set(DIORAMA_VOICE_PRESETS) | set(HISTORICAL_LEGACY_VOICE_PRESET_IDS)
+            if vp_voice not in allowed_voices or vp_prosody != expected_prosody:
                 return False
             pr_meta_path = p_dir / "04_audio" / "prosody_report.json"
             if pr_meta_path.exists():
                 pr_meta = json.loads(pr_meta_path.read_text(encoding="utf-8"))
+                pr_voice = str(pr_meta.get("voice_preset") or "").strip()
                 if (
-                    str(pr_meta.get("voice_preset") or "") != DEFAULT_DIORAMA_VOICE_PRESET
+                    (pr_voice and pr_voice != vp_voice)
                     or str(pr_meta.get("prosody_mode") or "") != expected_prosody
                 ):
                     return False
@@ -1489,6 +2100,18 @@ def _save_batch_status(state: dict[str, Any]) -> None:
     os.replace(tmp_path, BATCH_STATUS_PATH)
 
 
+def _unlink_sim_clips_for_regen(project_dir: Path, clip_indices: list[int]) -> None:
+    sim_dir = project_dir / "03_visuals" / "brain_simulator_clips"
+    for c_idx in clip_indices:
+        for name in (
+            f"clip_{c_idx}.mp4",
+            f"clip_{c_idx:02d}.mp4",
+            f"clip_{c_idx}_sim_qa.json",
+            f"clip_{c_idx}_camera_track.json",
+        ):
+            (sim_dir / name).unlink(missing_ok=True)
+
+
 def generate_and_finalize_diorama_episode(
     project_id: str,
     tabs: int = FLOW_MAX_PARALLEL_BATCH_SIZE,
@@ -1500,16 +2123,22 @@ def generate_and_finalize_diorama_episode(
     prosody_mode: str | None = None,
 ) -> dict[str, Any]:
     """
-    Gear 3 + Gear 4 for ONE already-synced project: sharded Flow generation, then
-    `finalize_and_verify_diorama_project` (assembly + P1-P10 + DQ1-DQ12 + R64 + autopsy + verify + KB sync)
-    with up to `max_heal_rounds` auto-heal rounds (EDL-only rebuild or targeted clip regeneration).
+    Gear 3 + Gear 4 for ONE already-synced project with Level A overlapping (Guard 4):
+      1. Step 1 (Audio & Virtual Master EDL Lock): locks `audio_master.wav`, `voice_report.json`, and
+         `05_assembly/edl_timing_lock.json` (`edl_frame_map`) strictly BEFORE Fork.
+      2. Step 2 (Concurrent Fork): overlaps R76 Blender `3x2` (`6 vCPU`) rendering in a background
+         future while Google Flow runs human clips on CDP `9222` (`<= 5` tabs), or runs Blender at
+         `4x2` (`8 vCPU`) standalone when 0 Flow human clips are pending.
+      3. Step 3 (Join -> Preserve Audio Master Assembly): joins both branches and runs
+         `finalize_and_verify_diorama_project(..., preserve_audio_master=True, cpu_budget=8)`.
     """
-    import inspect
-
     flow_sig = inspect.signature(run_sharded_diorama_flow_generation)
+    flow_has_varkw = any(p.kind == inspect.Parameter.VAR_KEYWORD for p in flow_sig.parameters.values())
     extra_flow_kwargs: dict[str, Any] = {}
-    if engine_mode is not None and "engine_mode" in flow_sig.parameters:
+    if engine_mode is not None and (flow_has_varkw or "engine_mode" in flow_sig.parameters):
         extra_flow_kwargs["engine_mode"] = engine_mode
+    if flow_has_varkw or "include_brain_simulator_clips" in flow_sig.parameters:
+        extra_flow_kwargs["include_brain_simulator_clips"] = False
 
     pid = str(project_id)
     p_dir = Path(PROJECTS_DIR) / pid
@@ -1524,31 +2153,101 @@ def generate_and_finalize_diorama_episode(
                 p_dir,
                 cdp_port=cdp_port,
                 force=False,
-                require_review=False,
+                require_review=True,
             )
+            sheet_p_g1 = render_keyframe_contact_sheet(p_dir)
             if not ref_res.get("pre_generation_ready"):
+                if ref_res.get("cv_pre_generation_ready"):
+                    raise RuntimeError(
+                        f"REVIEW_PENDING (Gate 1 @Research keyframe sign-off required) for {pid}: "
+                        f"contact_sheet={sheet_p_g1} review_file={p_dir / '03_visuals' / 'reference_images' / 'reference_semantic_review.json'}"
+                    )
                 raise RuntimeError(
                     f"Reference pack failed pre_generation_ready for {pid}: "
                     f"regenerate={ref_res.get('regenerate_image_ids')} score={ref_res.get('reference_qa_score')}"
                 )
 
-    asyncio.run(
-        run_sharded_diorama_flow_generation(
-            project_id=pid,
-            clean_existing=clean_existing,
-            only_clips=None,
-            max_parallel_tabs=tabs,
-            cdp_port=cdp_port,
-            **extra_flow_kwargs,
-        )
+    # Step 1 (Guard 4): Strictly lock TTS + P6 + Master EDL frame budget BEFORE Flow/Blender fork
+    lock_info = lock_episode_audio_and_edl_frames(
+        p_dir,
+        voice_preset=voice_preset,
+        prosody_mode=prosody_mode,
     )
+    edl_frame_map: dict[int, int] = dict(lock_info["edl_frame_map"])
+
+    # Step 2 (Guard 4): Concurrent Fork of Google Flow (human clips) + R76 Blender 3D Simulator
+    human_clip_nums, sim_clip_nums = partition_project_clips_by_engine(p_dir)
+    pending_flow, _ = has_pending_human_flow_clips(p_dir, clean_existing=clean_existing)
+
+    if sim_clip_nums and pending_flow:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as fork_pool:
+            sim_fut = fork_pool.submit(
+                render_project_brain_simulator_clips_parallel,
+                p_dir,
+                edl_frame_map=edl_frame_map,
+                overlapped=True,
+                force=bool(clean_existing),
+            )
+            try:
+                asyncio.run(
+                    run_sharded_diorama_flow_generation(
+                        project_id=pid,
+                        clean_existing=clean_existing,
+                        only_clips=None,
+                        max_parallel_tabs=tabs,
+                        cdp_port=cdp_port,
+                        **extra_flow_kwargs,
+                    )
+                )
+            finally:
+                sim_res = sim_fut.result()
+        if not sim_res.get("all_passed", True):
+            raise RuntimeError(f"R76 Brain Simulator QA failed during overlapped fork for {pid}: {sim_res}")
+    elif sim_clip_nums:
+        if human_clip_nums:
+            asyncio.run(
+                run_sharded_diorama_flow_generation(
+                    project_id=pid,
+                    clean_existing=clean_existing,
+                    only_clips=None,
+                    max_parallel_tabs=tabs,
+                    cdp_port=cdp_port,
+                    **extra_flow_kwargs,
+                )
+            )
+        sim_res = render_project_brain_simulator_clips_parallel(
+            p_dir,
+            edl_frame_map=edl_frame_map,
+            cpu_budget=resolve_cpu_budget(overlapped=False),
+            overlapped=False,
+            force=bool(clean_existing),
+        )
+        if not sim_res.get("all_passed", True):
+            raise RuntimeError(f"R76 Brain Simulator QA failed for {pid}: {sim_res}")
+    else:
+        asyncio.run(
+            run_sharded_diorama_flow_generation(
+                project_id=pid,
+                clean_existing=clean_existing,
+                only_clips=None,
+                max_parallel_tabs=tabs,
+                cdp_port=cdp_port,
+                **extra_flow_kwargs,
+            )
+        )
+
+    # Step 3 (Guard 4): Join -> Preserve Audio Master Assembly (8-core /dev/shm)
     fin: dict[str, Any] | None = None
     last_exc: Exception | None = None
-    fin_kwargs: dict[str, Any] = {}
+    fin_kwargs: dict[str, Any] = {
+        "cpu_budget": resolve_cpu_budget(overlapped=False),
+        "preserve_audio_master": True,
+    }
     if voice_preset:
         fin_kwargs["voice_preset"] = voice_preset
     if prosody_mode:
         fin_kwargs["prosody_mode"] = prosody_mode
+    sim_set = set(sim_clip_nums)
     for heal_round in range(max_heal_rounds + 1):
         try:
             fin = finalize_and_verify_diorama_project(pid, **fin_kwargs)
@@ -1578,22 +2277,57 @@ def generate_and_finalize_diorama_episode(
                 f"[Diorama][AutoHeal {heal_round + 1}/{max_heal_rounds}] {pid} flagged clips {heal_clips} "
                 f"({qa_exc}); regenerating offending clips..."
             )
-            clips_dir = Path(PROJECTS_DIR) / pid / "03_visuals" / "flow_native_clips"
-            for c_idx in heal_clips:
-                for pat in (f"clip_{c_idx:02d}.mp4", f"clip_{c_idx}.mp4"):
-                    fp = clips_dir / pat
-                    if fp.exists():
-                        fp.unlink()
-            asyncio.run(
-                run_sharded_diorama_flow_generation(
-                    project_id=pid,
-                    clean_existing=False,
-                    only_clips=heal_clips,
-                    max_parallel_tabs=min(tabs, max(1, len(heal_clips))),
-                    cdp_port=cdp_port,
-                    **extra_flow_kwargs,
+            sim_heal = [int(c) for c in heal_clips if int(c) in sim_set]
+            human_heal = [int(c) for c in heal_clips if int(c) not in sim_set]
+            if human_heal:
+                clips_dir = p_dir / "03_visuals" / "flow_native_clips"
+                for c_idx in human_heal:
+                    for pat in (f"clip_{c_idx:02d}.mp4", f"clip_{c_idx}.mp4"):
+                        (clips_dir / pat).unlink(missing_ok=True)
+            if sim_heal:
+                _unlink_sim_clips_for_regen(p_dir, sim_heal)
+
+            if sim_heal and human_heal:
+                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as heal_pool:
+                    sim_heal_fut = heal_pool.submit(
+                        render_project_brain_simulator_clips_parallel,
+                        p_dir,
+                        edl_frame_map=edl_frame_map,
+                        overlapped=True,
+                        force=False,
+                    )
+                    try:
+                        asyncio.run(
+                            run_sharded_diorama_flow_generation(
+                                project_id=pid,
+                                clean_existing=False,
+                                only_clips=human_heal,
+                                max_parallel_tabs=min(tabs, max(1, len(human_heal))),
+                                cdp_port=cdp_port,
+                                **extra_flow_kwargs,
+                            )
+                        )
+                    finally:
+                        sim_heal_fut.result()
+            elif sim_heal:
+                render_project_brain_simulator_clips_parallel(
+                    p_dir,
+                    edl_frame_map=edl_frame_map,
+                    cpu_budget=resolve_cpu_budget(overlapped=False),
+                    overlapped=False,
+                    force=False,
                 )
-            )
+            elif human_heal:
+                asyncio.run(
+                    run_sharded_diorama_flow_generation(
+                        project_id=pid,
+                        clean_existing=False,
+                        only_clips=human_heal,
+                        max_parallel_tabs=min(tabs, max(1, len(human_heal))),
+                        cdp_port=cdp_port,
+                        **extra_flow_kwargs,
+                    )
+                )
     if fin is None:
         assert last_exc is not None
         raise last_exc
@@ -1612,16 +2346,21 @@ def run_single_diorama_episode(
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
     draft_subdir: str | None = None,
+    stop_after: str | None = None,
 ) -> dict[str, Any]:
     """
     One-shot production of ANY dossier-backed episode (not limited to DIORAMA_BATCH_20_SPECS):
     sync `research_dossiers/<slug>/diorama_v8_expressive/` (or `diorama_v7_porcelain/` / `diorama_v7_lowpoly/`) -> `projects/<project_id>/`,
     pre-Flow precheck (prompt-gate incl. R57-H2 cold-open, fact trace, paradox title, plaque lock, TTS clock),
-    then Flow generation + assembly + full QA chain. Refuses to touch published projects.
+    optional checkpoint halt (`stop_after='audio'` or `'keyframes'`), then Flow generation + assembly + full QA chain.
+    Refuses to touch published projects.
     """
     p_dir = Path(PROJECTS_DIR) / project_id
     if (p_dir / "06_publish" / "upload_receipt.json").exists():
         raise RuntimeError(f"Refusing to (re)produce published project {project_id} (upload_receipt.json present)")
+    stop_stage = str(stop_after or "").strip().lower() or None
+    if stop_stage is not None and stop_stage not in ("audio", "keyframes"):
+        raise ValueError(f"Unsupported stop_after={stop_after!r} (expected None, 'audio', or 'keyframes')")
     spec: dict[str, Any] = {"index": 0, "wave": 0, "project_id": project_id, "slug": slug, "pillar": pillar}
     if draft_subdir:
         spec["draft_subdir"] = str(draft_subdir).strip()
@@ -1629,8 +2368,12 @@ def run_single_diorama_episode(
         spec["voice_preset"] = voice_preset
     if prosody_mode:
         spec["prosody_mode"] = prosody_mode
+    if not precheck_only and stop_stage is None and not force_regenerate and _is_already_completed(project_id):
+        pre = precheck_diorama_project(spec, run_tts_clock=True)
+        return {"passed": True, "mode": "already_completed", "project_id": project_id, "precheck": pre}
     t0 = time.time()
-    pre = precheck_diorama_project(spec, run_tts_clock=True)
+    precheck_spec = {**spec, "_allow_live_tts": bool(not precheck_only)} if not precheck_only else spec
+    pre = precheck_diorama_project(precheck_spec, run_tts_clock=True)
     print(
         f"[Precheck][{'PASS' if pre['passed'] else 'FAIL'}] {project_id} | sents={pre['sentences']} "
         f"clips={pre['clips']} words={pre['words']} tts={pre['tts_duration_sec']}s"
@@ -1641,8 +2384,51 @@ def run_single_diorama_episode(
         raise RuntimeError(f"Precheck failed for {project_id}: {pre['issues']}")
     if precheck_only:
         return {"passed": bool(pre["passed"]), "mode": "precheck_only", "precheck": pre}
-    if not force_regenerate and _is_already_completed(project_id):
-        return {"passed": True, "mode": "already_completed", "project_id": project_id, "precheck": pre}
+    sync_project_from_dossier_diorama(spec, write_back_dossier=True)
+    if stop_stage in ("audio", "keyframes"):
+        from pipeline.voice_fallback import _write_mono_wav
+
+        sents_st, sdoc_st = load_diorama_script_sentences(p_dir)
+        tts_st = synthesize_continuous_diorama_track(
+            project_dir=p_dir,
+            sentences=sents_st,
+            align_whisper=True,
+            prosody_mode=prosody_mode or str(sdoc_st.get("prosody_mode") or "").strip() or None,
+            script_doc=sdoc_st,
+            voice_preset=voice_preset or str(sdoc_st.get("voice_preset") or "").strip() or None,
+        )
+        wav_out = p_dir / "04_audio" / "audio_master.wav"
+        _write_mono_wav(wav_out, tts_st["pcm"], int(tts_st.get("sr") or 48000))
+        if stop_stage == "audio":
+            return {
+                "passed": True,
+                "mode": "stopped_after_audio",
+                "project_id": project_id,
+                "audio_master": str(wav_out),
+                "tts_duration_sec": round(float(tts_st["total_duration_sec"]), 3),
+                "precheck": pre,
+            }
+        from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
+
+        ref_res = ensure_porcelain_reference_pack(
+            p_dir,
+            cdp_port=cdp_port,
+            force=force_regenerate,
+            require_review=True,
+        )
+        sheet_p = render_keyframe_contact_sheet(p_dir)
+        return {
+            "passed": bool(ref_res.get("pre_generation_ready")),
+            "status": "APPROVED" if ref_res.get("pre_generation_ready") else ("REVIEW_PENDING" if ref_res.get("cv_pre_generation_ready") else "QA_FAILED"),
+            "mode": "stopped_after_keyframes",
+            "project_id": project_id,
+            "audio_master": str(wav_out),
+            "tts_duration_sec": round(float(tts_st["total_duration_sec"]), 3),
+            "reference_qa_score": ref_res.get("reference_qa_score"),
+            "pre_generation_ready": bool(ref_res.get("pre_generation_ready")),
+            "contact_sheet": str(sheet_p) if sheet_p else None,
+            "precheck": pre,
+        }
     gen_kwargs: dict[str, Any] = {
         "tabs": tabs,
         "clean_existing": force_regenerate,
@@ -1672,6 +2458,7 @@ def run_diorama_batch(
     engine_mode: str | None = None,
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
+    sequential: bool = False,
 ) -> dict[str, Any]:
     specs = select_batch_specs(wave=wave, project_ids=project_ids)
     if not specs:
@@ -1681,9 +2468,32 @@ def run_diorama_batch(
     if prosody_mode:
         specs = [{**sp, "prosody_mode": prosody_mode} for sp in specs]
 
+    if not precheck_only and not sequential:
+        from pipeline.diorama_pipeline_runner import run_diorama_pipeline
+
+        pipe_rep = run_diorama_pipeline(
+            specs=specs,
+            precheck_only=False,
+            tabs=tabs,
+            force_regenerate=force_regenerate,
+            cdp_port=cdp_port,
+            engine_mode=engine_mode,
+            isolate_precheck_failures=False,
+            voice_preset=voice_preset,
+            prosody_mode=prosody_mode,
+        )
+        return {
+            "mode": "pipeline",
+            "wave": wave,
+            "completed_in_run": int(pipe_rep["completed_in_run"]),
+            "total_completed_overall": int(pipe_rep["total_completed_overall"]),
+            "results": list(pipe_rep["results"]),
+        }
+
     prechecks = []
     for sp in specs:
-        rep = precheck_diorama_project(sp, run_tts_clock=True)
+        sp_pre = {**sp, "_allow_live_tts": bool(not precheck_only)} if not precheck_only else sp
+        rep = precheck_diorama_project(sp_pre, run_tts_clock=True)
         prechecks.append(rep)
         status_tag = "PASS" if rep["passed"] else "FAIL"
         print(
@@ -1729,6 +2539,7 @@ def run_diorama_batch(
             f"\n==================== [DioramaBatch #{sp['index']:02d}/{len(DIORAMA_DAILY_30_SPECS)} | Wave {sp['wave']}] {pid} ===================="
         )
         try:
+            sync_project_from_dossier_diorama(sp, write_back_dossier=True)
             gen_kwargs: dict[str, Any] = {
                 "tabs": tabs,
                 "clean_existing": force_regenerate,

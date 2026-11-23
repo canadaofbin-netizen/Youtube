@@ -1,3 +1,64 @@
 {
-  "sources": []
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "S.-J. Blakemore, D. M. Wolpert, C. D. Frith (1998). Central cancellation of self-produced tickle sensation. Nature Neuroscience.",
+      "doi": "10.1038/2870",
+      "url": "https://doi.org/10.1038/2870",
+      "year": 1998,
+      "verified": true,
+      "notes": "Foundational UCL fMRI study (n=6) showing bilateral secondary somatosensory cortex and anterior cingulate suppression during self-generated vs externally produced tactile stimulation."
+    },
+    {
+      "id": "SRC2",
+      "type": "primary",
+      "citation": "S.-J. Blakemore, C. D. Frith, D. M. Wolpert (1999). Spatio-temporal prediction modulates the perception of self-produced stimuli. Journal of Cognitive Neuroscience.",
+      "doi": "10.1162/089892999563607",
+      "url": "https://doi.org/10.1162/089892999563607",
+      "year": 1999,
+      "verified": true,
+      "notes": "Robotic master-slave delay study (n=16) proving perceived ticklishness climbs monotonically across 0 ms, 100 ms, 200 ms, and 300 ms delays and across 0°, 45°, and 90° trajectory rotations."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "S.-J. Blakemore, J. Smith, R. Steel, C. E. Johnstone, C. D. Frith (2000). The perception of self-produced sensory stimuli in patients with auditory hallucinations and passivity experiences: evidence for a breakdown in self-monitoring. Psychological Medicine.",
+      "doi": "10.1017/s0033291799002676",
+      "url": "https://doi.org/10.1017/s0033291799002676",
+      "year": 2000,
+      "verified": true,
+      "notes": "Clinical study showing patients with passivity delusions fail to attenuate self-touch and can tickle themselves."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "S.-J. Blakemore, D. M. Wolpert, C. D. Frith (2000). Why can't you tickle yourself? NeuroReport.",
+      "doi": "10.1097/00001756-200008030-00002",
+      "url": "https://doi.org/10.1097/00001756-200008030-00002",
+      "year": 2000,
+      "verified": true,
+      "notes": "Synthesis of cerebellar internal forward models and efference-copy sensory attenuation."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "K. Kilteni, H. H. Ehrsson (2020). Functional connectivity between the cerebellum and somatosensory areas implements the attenuation of self-generated touch. Journal of Neuroscience.",
+      "doi": "10.1523/JNEUROSCI.1732-19.2019",
+      "url": "https://doi.org/10.1523/JNEUROSCI.1732-19.2019",
+      "year": 2020,
+      "verified": true,
+      "notes": "Modern 2020 human fMRI study proving cerebellum-to-S1/S2 functional connectivity directly mediates self-touch cancellation."
+    },
+    {
+      "id": "SRC6",
+      "type": "critique",
+      "citation": "C. Press, P. Kok, H. Yon (2020). The perceptual paradox: how expectation sharpens and dampens sensory representations. Trends in Cognitive Sciences.",
+      "doi": "10.1016/j.tics.2019.11.003",
+      "url": "https://doi.org/10.1016/j.tics.2019.11.003",
+      "year": 2020,
+      "verified": true,
+      "notes": "Modern predictive-processing critique reconciling initial sensory sharpening with post-surprise attenuation."
+    }
+  ]
 }

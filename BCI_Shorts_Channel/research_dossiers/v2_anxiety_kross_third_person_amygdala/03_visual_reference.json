@@ -1,153 +1,168 @@
 {
   "scenes": [
     {
-      "id": "tsst_speech_panel_room",
-      "title": "Trier Social Stress Test speech gauntlet: 2 minutes prep before two white-coated judges and a tripod camera",
+      "id": "S1",
+      "title": "Trier Social Stress Test Speech Gauntlet: Chrome Floor Mic Before Two White-Coated Judges & Tripod Camera",
       "iconic": true,
       "shorts_priority": 1,
-      "era": "2014 & 2017 University of Michigan & Michigan State Emotion & Self-Control Laboratories",
+      "era": "2014 & 2017, University of Michigan & Michigan State Emotion & Self-Control Laboratories",
       "layout": {
-        "description": "Crisp high-key clinical evaluation room with a brushed-chrome floor microphone at left-center facing an oak evaluator table where two motionless figures in crisp white lab coats sit beside a black cinema camera on an aluminum tripod.",
+        "description": "Crisp high-key clinical evaluation room with a brushed-chrome floor microphone at left-center facing an oak evaluator table where two motionless clothed 2.5D matte cream-white vinyl judges in crisp white lab coats sit beside a black cinema camera on an aluminum tripod.",
         "positions": [
           {
-            "who": "Job-speech participant (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in navy-blue knit crew sweater and gray trousers)",
-            "where": "standing behind the brushed-chrome floor microphone facing the evaluator table",
+            "who": "Adult speech participant (clothed 2.5D matte cream-white vinyl adult with smooth earless noseless hairless oval head and expressive 2D charcoal-black ink eyes, brows, and mouth in navy-blue knit crew sweater and tailored gray slacks)",
+            "where": "standing behind the brushed-chrome floor microphone facing the oak evaluator table",
             "facing": "facing the two white-coated judges and tripod camera"
           },
           {
-            "who": "Two evaluative judges (clothed matte-white porcelain figures with smooth featureless solid matte-white egg-shaped oval heads in crisp buttoned white lab coats)",
-            "where": "seated side-by-side behind the oak table flanking the black tripod camera with unmarked clipboards",
-            "facing": "facing the standing speaker in complete stillness"
+            "who": "Two evaluative judges (clothed 2.5D matte cream-white vinyl adults in crisp buttoned white lab coats over dark collars)",
+            "where": "seated side-by-side behind the oak table flanking the black tripod camera with unmarked wooden clipboards",
+            "facing": "facing the standing speaker in stone-faced stillness"
           }
         ]
       },
       "props": [
         {
           "name": "brushed-chrome floor microphone stand and black cinema camera on aluminum tripod",
-          "period_detail": "classic Kirschbaum (1993) & Kross (2014) Trier Social Stress Test speech apparatus",
-          "physical_behavior": "speaker's porcelain hands initially grip the chrome stand tightly under 'I' self-talk, then release into calm open gestures after silent first-name shift"
+          "period_detail": "authentic Kirschbaum (1993) & Kross (2014) Trier Social Stress Test speech apparatus with zero text",
+          "physical_behavior": "State-A: speaker grips the chrome microphone stem tightly with tense raised shoulders -> State-B: releases tense two-handed grip into calm open-palmed gesture after silent first-name shift"
         },
         {
           "name": "two unmarked wooden clipboards resting on the oak judge table",
           "period_detail": "clean blank paper sheets held by motionless white-coated evaluators",
-          "physical_behavior": "evaluators sit stone-still taking silent notes as the speaker delivers the 5-minute speech"
+          "physical_behavior": "State-A: judges sit motionless with pens poised -> State-B: incline heads slightly marking strong confident delivery scores"
         }
       ],
       "actions": [
         {
-          "who": "Job-speech participant",
-          "verb_sequence": "releases a tense two-handed grip on the chrome microphone stem -> stands tall with open calm porcelain hands facing the two white-coated judges"
+          "who": "Adult speech participant",
+          "verb_sequence": "grips the chrome microphone stem tightly with tense shoulders -> inhales calmly shifting inner voice to first name -> releases grip into steady open-palmed speech delivery"
         }
       ],
       "reactions": [
         {
+          "who": "Adult speech participant",
+          "reaction": "2D charcoal-black ink brows settle from wide alarm into composed steady confidence"
+        },
+        {
           "who": "Two evaluative judges",
-          "reaction": "incline their smooth white oval heads slightly as they mark strong speech performance on blank clipboards"
+          "reaction": "incline their smooth heads slightly marking confident speech ratings on blank clipboards"
         }
       ],
-      "wardrobe": "Speaker in navy-blue knit sweater and tailored gray slacks; two evaluators in crisp white lab coats over dark collars.",
+      "wardrobe": "45-year-old speaker in navy-blue knit sweater and tailored gray trousers; two evaluators in crisp white lab coats.",
       "lighting": "Crisp high-key laboratory daylight illumination.",
-      "recognition_hook": "Standing alone at a microphone facing stone-faced judges and a camera — where swapping one silent word in your head changes everything in 1,000 milliseconds.",
+      "recognition_hook": "Two minutes to prep in front of stone-faced judges and a camera — where swapping one silent word inside your head steadies your voice in one second!",
       "sources": [
         "kross_2014",
-        "kirschbaum_1993",
-        "tsst_protocol_jove"
+        "kirschbaum_1993"
       ],
       "key_visual": {
-        "description": "porcelain speaker in navy-blue sweater standing at a chrome floor microphone facing two white-coated porcelain judges seated behind a table beside a black tripod camera",
+        "description": "an adult speaker in a navy-blue sweater standing calmly with open hands at a chrome floor microphone facing two white-coated judges seated behind an oak table beside a black tripod camera",
         "must_show": [
           "microphone|stand|camera|tripod",
           "coat|table|clipboard",
-          "porcelain"
+          "speaker"
         ],
         "source": "tsst_protocol_jove@00:20-00:55; kross_2014"
       }
     },
     {
-      "id": "erp_cap_one_second_drop",
-      "title": "2017 Michigan State ERP & fMRI recording: 1-second emotional voltage drop with zero willpower strain",
+      "id": "S2",
+      "title": "2017 Michigan State ERP & fMRI Booth: 1-Second Voltage Drop With Zero Willpower Strain",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "2017 Michigan State University ERP & University of Michigan fMRI suites",
+      "era": "2017, Michigan State University ERP & University of Michigan fMRI Suites (Moser & Kross)",
       "layout": {
-        "description": "Bright neurophysiology booth where a porcelain volunteer wearing a sleek white electrode cap sits calmly before an unmarked waveform screen.",
+        "description": "Bright neurophysiology booth where the adult volunteer wearing a sleek white scalp electrode cap sits calmly beside an unmarked glass waveform monitor.",
         "positions": [
           {
-            "who": "Volunteer in navy sweater and white sensor cap",
-            "where": "seated in ergonomic testing chair",
-            "facing": "unmarked waveform monitor"
+            "who": "Adult volunteer in navy sweater and white scalp sensor cap",
+            "where": "seated in ergonomic clinical chair with hands resting loosely on thighs",
+            "facing": "angled toward unmarked waveform monitor"
           }
         ]
       },
       "props": [
         {
-          "name": "white scalp sensor cap and unmarked waveform screen",
-          "period_detail": "clean text-free voltage trace dropping from tall crimson peak to low calm blue line",
-          "physical_behavior": "tall jagged wave drops smoothly within one second while subject's hands stay relaxed"
+          "name": "white high-density scalp sensor cap and unmarked waveform screen",
+          "period_detail": "text-free voltage trace dropping from tall crimson peak to calm cyan-blue baseline inside 1,000 ms",
+          "physical_behavior": "State-A: tall jagged crimson peak on screen -> State-B: drops smoothly within 1 second while volunteer's hands stay completely relaxed"
         }
       ],
       "actions": [
         {
-          "who": "Volunteer",
-          "verb_sequence": "sits calmly wearing the white sensor cap -> lowers shoulders as the screen trace drops smoothly"
+          "who": "Adult volunteer",
+          "verb_sequence": "watches tall jagged wave appear on screen -> relaxes shoulders effortlessly as the trace drops flat in one second"
         }
       ],
       "reactions": [
         {
-          "who": "Researcher",
-          "reaction": "points calmly toward the rapid wave drop"
+          "who": "Adult volunteer",
+          "reaction": "unstrained calm ink expression showing zero willpower effort"
         }
       ],
-      "wardrobe": "Navy-blue sweater and white lab coat.",
+      "wardrobe": "Navy-blue knit sweater and gray slacks.",
       "lighting": "Clean high-key clinical daylight.",
-      "recognition_hook": "Millisecond brain waves drop inside 1 second without burning prefrontal willpower.",
+      "recognition_hook": "Emotional brainwave voltage drops inside 1,000 milliseconds without burning a drop of prefrontal willpower.",
       "sources": [
         "moser_2017",
         "orvell_2021"
       ]
     },
     {
-      "id": "brain_one_second_chatter_drop",
-      "title": "Contained Living 4-Color 3D Brain medial cutaway: amygdala & midline self-loop cooling without frontoparietal strain",
+      "id": "S3",
+      "title": "Sunlit Brick Courtyard Walk Before the Big Meeting: Coaching Yourself Like a Friend (Outdoor)",
       "iconic": false,
-      "shorts_priority": 1,
-      "era": "2017 ERP + fMRI Circuit Gallery",
+      "shorts_priority": 2,
+      "era": "Modern sunlit outdoor brick university / corporate plaza",
       "layout": {
-        "description": "Bright white architectural gallery with Contained Living 4-Color 3D Brain medial-sagittal cutaway on matte-white pedestal.",
+        "description": "Open-world sunlit outdoor brick courtyard framed by autumn trees outside glass office doors where the 45-year-old adult in a navy blazer pauses, closes a leather portfolio calmly, and steps forward.",
         "positions": [
           {
-            "who": "3D Medial Brain Model",
-            "where": "centered on matte-white pedestal",
-            "facing": "medial three-quarter view"
+            "who": "45-year-old professional in navy blazer over white shirt",
+            "where": "standing on the sunlit brick plaza outside glass building doors",
+            "facing": "forward toward the entrance with composed posture"
           }
         ]
       },
       "props": [
         {
-          "name": "translucent medial 3D brain cutaway",
-          "period_detail": "contained four-color subsurface neural glow",
-          "physical_behavior": "crimson-red amygdala and medial prefrontal chatter flares cool rapidly into calm pearl-aqua and electric cyan-blue"
+          "name": "unmarked tan leather briefing portfolio in sunlit plaza",
+          "period_detail": "everyday pre-presentation moment for midlife professionals",
+          "physical_behavior": "State-A: pauses holding open folder -> State-B: closes portfolio crisply under arm and strides smoothly toward glass doors"
         }
       ],
       "actions": [
         {
-          "who": "3D Brain",
-          "verb_sequence": "flashes crimson-red in deep amygdala and midline prefrontal hub -> cools within one second into smooth pearl-aqua waves"
+          "who": "45-year-old professional",
+          "verb_sequence": "pauses on sunlit brick plaza -> closes leather portfolio crisply under left arm and strides forward calmly"
         }
       ],
       "reactions": [
         {
-          "who": "3D Brain",
-          "reaction": "upper dorsolateral willpower cortex stays cool and unstrained"
+          "who": "45-year-old professional",
+          "reaction": "steady confident ink expression ready for high-stakes talk"
         }
       ],
-      "wardrobe": "None.",
-      "lighting": "High-key white gallery daylight.",
-      "recognition_hook": "Shows why silent name-switching works even when panic leaves willpower empty.",
+      "wardrobe": "Tailored navy blazer, crisp white shirt, gray slacks.",
+      "lighting": "Warm morning outdoor sunlight.",
+      "recognition_hook": "Silently calling yourself by your own first name turns you into the calm advisor you already are for your friends.",
       "sources": [
-        "moser_2017",
-        "kross_2005"
+        "kross_2014",
+        "orvell_2021"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "First-person 'I' self-talk trapping attention inside the stage spotlight",
+    "landmark_or_object_b": "Stepping back via own first name onto a calm observer vantage point",
+    "arrow_3d_mode": "fixed_linear_corridor",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past Michigan stone auditorium portico ascending steeply above the roof",
+    "cut_b_topdown_3d_arrow": "90-degree top-down auditorium stage with a straight #FF2525 3D step-back arrow creating clean psychological distance in 1 second",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

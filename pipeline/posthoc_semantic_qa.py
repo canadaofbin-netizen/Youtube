@@ -421,6 +421,7 @@ def extract_cut_intent_specs(
                     "camera_move": camera_move,
                     "location_id": str(c.get("location_id") or v_meta.get("location_id") or ""),
                     "brain_mode": resolved_bmode,
+                    "neural_state": str(c.get("neural_state") or v_meta.get("neural_state") or p_meta.get("neural_state") or "").strip().lower(),
                     "brain_region": str(c.get("brain_region") or v_meta.get("brain_region") or p_meta.get("brain_region") or ""),
                     "is_outro": is_outro,
                     "out_start_sec": round(float(c.get("out_start_sec") or 0.0), 3),
@@ -436,6 +437,9 @@ def extract_cut_intent_specs(
                     "anatomy_locks": bound_anatomy,
                     "cast_locked": (clip_idx in cast_clip_nums),
                     "diegetic_text_allowlist": list(diegetic_allowlist) if isinstance(diegetic_allowlist, list) else [],
+                    "has_data_stamp": bool(c.get("has_data_stamp")),
+                    "has_anatomy_callout": bool(c.get("has_anatomy_callout")),
+                    "stacked_cutaway_brain_compare": bool(c.get("stacked_cutaway_brain_compare")),
                 }
             )
     else:
@@ -554,6 +558,7 @@ def _concat_clean_roi_360(
     has_top_overlay: bool = False,
     is_outro: bool = False,
     is_expressive_v8: bool = False,
+    has_hero_stamp: bool = False,
 ) -> np.ndarray:
     """Concatenates non-subtitle clean scene ROIs and normalizes width to 360px for scale-invariant CV metrics."""
     rois = _non_subtitle_scene_rois(
@@ -561,6 +566,7 @@ def _concat_clean_roi_360(
         has_top_overlay=has_top_overlay,
         is_outro=is_outro,
         is_expressive_v8=is_expressive_v8,
+        has_hero_stamp=has_hero_stamp,
     )
     if not rois:
         h, w = frame_bgr.shape[:2]
@@ -680,6 +686,365 @@ def _compute_optical_flow_summary(clean_a: np.ndarray, clean_b: np.ndarray) -> t
     dx = round(float(np.median(flow[..., 0])), 3)
     dy = round(float(np.median(flow[..., 1])), 3)
     return dx, dy
+
+
+_PLANNED_FAST_FLICKER_EXEMPT_TOKENS: tuple[str, ...] = (
+    "whip_pan",
+    "portal_zoom",
+    "portal_dive_flight",
+    "crash_zoom",
+)
+
+
+def detect_intracut_grid_luma_flicker(
+    frames_bgr_or_gray: list[np.ndarray] | tuple[np.ndarray, ...],
+    *,
+    fps: float = 30.0,
+    camera_move: str = "",
+    cut_index: int = 0,
+    boundary_trim_frames: int = 2,
+    luma_spike_thresh: float = 18.0,
+    min_flagged_cells: int = 2,
+    max_neighbor_drift: float = 8.0,
+) -> dict[str, Any]:
+    """
+    Detect 1-frame intra-cut luminance flicker over a 4x3 regional grid at 64x36 grayscale (P1-6, Tier-2).
+    Trims cut boundaries to ignore NLE crossfades and exempts planned rapid camera transitions.
+    """
+    cam_low = str(camera_move or "").strip().lower()
+    exempt_planned_fast_move = any(tok in cam_low for tok in _PLANNED_FAST_FLICKER_EXEMPT_TOKENS)
+    seq = list(frames_bgr_or_gray or [])
+    trim = max(0, int(boundary_trim_frames))
+    if trim > 0:
+        end_idx = len(seq) - trim
+        trimmed = seq[trim:end_idx] if end_idx > trim else []
+    else:
+        trimmed = seq
+
+    grid_rows: list[np.ndarray] = []
+    orig_indices: list[int] = []
+    for offset, frm in enumerate(trimmed):
+        if frm is None or not isinstance(frm, np.ndarray) or frm.size == 0:
+            continue
+        if frm.ndim == 3:
+            if frm.shape[2] == 4:
+                gray = cv2.cvtColor(frm, cv2.COLOR_BGRA2GRAY)
+            elif frm.shape[2] == 3:
+                gray = cv2.cvtColor(frm, cv2.COLOR_BGR2GRAY)
+            else:
+                gray = frm[:, :, 0]
+        elif frm.ndim == 2:
+            gray = frm
+        else:
+            continue
+        if gray.shape != (36, 64):
+            gray = cv2.resize(gray, (64, 36), interpolation=cv2.INTER_AREA)
+        g_f32 = gray.astype(np.float32)
+        # (36, 64) partitions cleanly into 3x4 = 12 regional luma cells (12px x 16px each)
+        cells = g_f32.reshape(3, 12, 4, 16).mean(axis=(1, 3)).ravel()
+        grid_rows.append(cells)
+        orig_indices.append(trim + offset)
+
+    inspected_frames = len(grid_rows)
+    spikes: list[dict[str, Any]] = []
+    safe_fps = max(1.0, float(fps or 30.0))
+    if inspected_frames >= 3:
+        mat = np.stack(grid_rows, axis=0)
+        luma_thresh = float(luma_spike_thresh)
+        drift_cap = float(max_neighbor_drift)
+        min_cells = max(1, int(min_flagged_cells))
+        for t in range(1, inspected_frames - 1):
+            mid = 0.5 * (mat[t - 1] + mat[t + 1])
+            spike_vec = np.abs(mat[t] - mid)
+            drift_vec = np.abs(mat[t + 1] - mat[t - 1])
+            flagged = (spike_vec >= luma_thresh) & (drift_vec <= drift_cap)
+            flagged_count = int(np.sum(flagged))
+            if flagged_count >= min_cells:
+                max_delta = float(np.max(spike_vec[flagged]))
+                f_idx = int(orig_indices[t])
+                spikes.append(
+                    {
+                        "frame_idx": f_idx,
+                        "time_sec": round(float(f_idx) / safe_fps, 4),
+                        "max_cell_delta": round(max_delta, 3),
+                        "flagged_cells": flagged_count,
+                    }
+                )
+
+    max_spike_delta = round(max((float(s["max_cell_delta"]) for s in spikes), default=0.0), 3)
+    extreme_warning = (not exempt_planned_fast_move) and (max_spike_delta >= 32.0 or len(spikes) >= 3)
+    return {
+        "cut_index": int(cut_index),
+        "inspected_frames": inspected_frames,
+        "intracut_flicker_spikes": len(spikes),
+        "max_spike_delta": max_spike_delta,
+        "spikes": spikes,
+        "exempt_planned_fast_move": exempt_planned_fast_move,
+        "extreme_flicker_warning": extreme_warning,
+    }
+
+
+def evaluate_cut_temporal_smoothness(
+    mp4_path: Path,
+    cuts: list[dict[str, Any]],
+    *,
+    freeze_diff_thresh: float = 0.12,
+    max_consec_frozen_moving: int = 3,
+    max_frozen_ratio_moving: float = 0.06,
+) -> dict[int, dict[str, Any]]:
+    """
+    Single-pass frame-by-frame temporal smoothness audit across all EDL cuts (Rule R77).
+    Computes consecutive frame-to-frame center-ROI luminance MAD `[y=30..68%, x=12..88%]`
+    and flags moving-camera / `brain_simulator_3d` cuts with `max_consecutive_frozen_frames >= 3`
+    or `frozen_frame_ratio > 0.06` (catches slow-motion stretch & 24->30fps frame duplication stutter).
+    """
+    out: dict[int, dict[str, Any]] = {}
+    if not mp4_path.exists() or mp4_path.stat().st_size < 1024 or not cuts:
+        return out
+    cap = cv2.VideoCapture(str(mp4_path))
+    if not cap.isOpened():
+        return out
+    try:
+        fps = max(1.0, float(cap.get(cv2.CAP_PROP_FPS) or 30.0))
+        total_fc = max(0, int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0))
+        windows: list[tuple[int, int, int, bool, bool, bool, str]] = []
+        for idx, c in enumerate(cuts):
+            c_idx = int(c.get("cut_index") or (idx + 1))
+            c_s = float(c.get("out_start_sec") or 0.0)
+            c_e = float(c.get("out_end_sec") or (c_s + float(c.get("duration_sec") or 0.0)))
+            f0 = max(0, int(round(c_s * fps)) + 1)
+            f1 = int(round(c_e * fps)) - 1
+            if total_fc > 0:
+                f1 = min(total_fc, f1)
+            is_outro = bool(c.get("outro_sky_card") or c.get("is_outro"))
+            has_stamp = bool(c.get("has_data_stamp"))
+            cam = str(c.get("camera_move") or c.get("camera") or "")
+            g = str(c.get("grammar") or "")
+            is_moving = _is_moving_camera(cam) or (g == "brain_simulator_3d") or (str(c.get("render_engine") or "") == "blender_3d_simulator")
+            out[c_idx] = {
+                "cut_index": c_idx,
+                "is_moving": bool(is_moving),
+                "is_outro": bool(is_outro),
+                "pairs_checked": 0,
+                "frozen_frames": 0,
+                "max_consecutive_frozen_frames": 0,
+                "frozen_frame_ratio": 0.0,
+                "min_diff": 0.0,
+                "intracut_flicker_spikes": 0,
+                "intracut_flicker_max_delta": 0.0,
+                "intracut_flicker_exempt_fast_move": False,
+                "extreme_flicker_warning": False,
+                "passed": True,
+            }
+            if (f1 - f0) >= 6 and not is_outro:
+                windows.append((f0, f1, c_idx, is_moving, is_outro, has_stamp, cam))
+        if not windows:
+            return out
+
+        windows.sort(key=lambda item: item[0])
+        max_f_needed = max(w[1] for w in windows)
+        stats_acc: dict[int, dict[str, Any]] = {
+            c_idx: {
+                "prev": None,
+                "prev_low": None,
+                "run": 0,
+                "max_run": 0,
+                "frozen": 0,
+                "pairs": 0,
+                "min_d": 999.0,
+                "flicker_64x36": [],
+            }
+            for _f0, _f1, c_idx, _mv, _io, _hs, _cam in windows
+        }
+        # Build quick lookup from frame index -> active cut_index (cuts are contiguous non-overlapping)
+        win_ptr = 0
+        f_num = 0
+        while f_num <= max_f_needed:
+            while win_ptr < len(windows) and f_num >= windows[win_ptr][1]:
+                win_ptr += 1
+            if win_ptr >= len(windows):
+                break
+            f0, f1, c_idx, _mv, _io, has_stamp, _cam = windows[win_ptr]
+            if f_num < f0:
+                if not cap.grab():
+                    break
+                f_num += 1
+                continue
+            ok, frm = cap.read()
+            if not ok or frm is None:
+                break
+            h_f, w_f = frm.shape[:2]
+            roi = frm[int(h_f * 0.30) : int(h_f * 0.68), int(w_f * 0.12) : int(w_f * 0.88)]
+            g_roi = cv2.cvtColor(cv2.resize(roi, (192, 192), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY).astype(np.float32)
+            g_low = None
+            if has_stamp:
+                # On I01 data-stamp cuts, [0.00..0.72] is intentionally blank backdrop and ASS subtitles sit above y=0.73;
+                # measure unobstructed physical tabletop motion in [0.76..0.97, 0.10..0.90] alongside center ROI.
+                roi_low = frm[int(h_f * 0.76) : int(h_f * 0.97), int(w_f * 0.10) : int(w_f * 0.90)]
+                g_low = cv2.cvtColor(cv2.resize(roi_low, (192, 128), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY).astype(np.float32)
+            g_64 = cv2.cvtColor(cv2.resize(frm, (64, 36), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+            st = stats_acc[c_idx]
+            st["flicker_64x36"].append(g_64)
+            if st["prev"] is not None:
+                d_val = float(np.mean(np.abs(g_roi - st["prev"])))
+                if g_low is not None and st["prev_low"] is not None:
+                    d_val = max(d_val, float(np.mean(np.abs(g_low - st["prev_low"]))))
+                st["pairs"] += 1
+                if d_val < st["min_d"]:
+                    st["min_d"] = d_val
+                if d_val < freeze_diff_thresh:
+                    st["frozen"] += 1
+                    st["run"] += 1
+                    if st["run"] > st["max_run"]:
+                        st["max_run"] = st["run"]
+                else:
+                    st["run"] = 0
+            st["prev"] = g_roi
+            st["prev_low"] = g_low
+            f_num += 1
+
+        for _f0, _f1, c_idx, is_moving, is_outro, _hs, cam in windows:
+            st = stats_acc[c_idx]
+            flk = detect_intracut_grid_luma_flicker(
+                st["flicker_64x36"],
+                fps=fps,
+                camera_move=cam,
+                cut_index=c_idx,
+                boundary_trim_frames=1,
+            )
+            st["flicker_64x36"].clear()
+            pairs = int(st["pairs"])
+            if pairs <= 0:
+                continue
+            ratio = float(st["frozen"]) / float(pairs)
+            max_run = int(st["max_run"])
+            if is_moving:
+                cut_ok = not (max_run >= max_consec_frozen_moving or ratio > max_frozen_ratio_moving)
+            else:
+                # Locked tripod: still catches hard encoded freezes / severe stretch without false-failing subtle ambient scenes
+                cut_ok = not (max_run >= 12 or ratio > 0.35)
+            out[c_idx] = {
+                "cut_index": c_idx,
+                "is_moving": bool(is_moving),
+                "is_outro": bool(is_outro),
+                "pairs_checked": pairs,
+                "frozen_frames": int(st["frozen"]),
+                "max_consecutive_frozen_frames": max_run,
+                "frozen_frame_ratio": round(ratio, 4),
+                "min_diff": round(float(st["min_d"]) if st["min_d"] < 900.0 else 0.0, 4),
+                "intracut_flicker_spikes": int(flk["intracut_flicker_spikes"]),
+                "intracut_flicker_max_delta": float(flk["max_spike_delta"]),
+                "intracut_flicker_exempt_fast_move": bool(flk["exempt_planned_fast_move"]),
+                "extreme_flicker_warning": bool(flk["extreme_flicker_warning"]),
+                "passed": bool(cut_ok),
+            }
+        return out
+    finally:
+        cap.release()
+
+
+def detect_circular_lens_border_intrusion(
+    frames_or_frame: np.ndarray | list[np.ndarray],
+) -> dict[str, Any]:
+    """
+    Detects circular fisheye / wide-angle camera lens housing bezels & corner vignettes in Flow frames (Rule R77).
+    Measures outer corner quadrant Laplacian smoothness vs center ROI (`lap_ratio`), corner-to-center
+    radial edge strength (`q_rad`), and low corner chroma relative to inner subject region.
+    """
+    frame_list = frames_or_frame if isinstance(frames_or_frame, list) else [frames_or_frame]
+    valid_frames = [f for f in frame_list if isinstance(f, np.ndarray) and f.size > 0]
+    if not valid_frames:
+        return {"detected": False, "quad_smooth": 0, "lap_ratio": 1.0, "min_q_rad": 0.0, "mean_q_rad": 0.0}
+
+    w_std, h_std = 270, 480
+    cx, cy = (w_std - 1) * 0.5, (h_std - 1) * 0.5
+    yy, xx = np.mgrid[0:h_std, 0:w_std].astype(np.float32)
+    dx = xx - cx
+    dy = yy - cy
+    rr = np.hypot(dx, dy) + 1e-6
+    ux = dx / rr
+    uy = dy / rr
+    # Outer corner bands (0..18% / 82..100%) where circular lens bezels sit cleanly outside the subject field
+    cw, ch = int(w_std * 0.22), int(h_std * 0.16)
+    corner_slices = (
+        (slice(0, ch), slice(0, cw)),
+        (slice(0, ch), slice(w_std - cw, w_std)),
+        (slice(h_std - ch, h_std), slice(0, cw)),
+        (slice(h_std - ch, h_std), slice(w_std - cw, w_std)),
+    )
+    ring_quad_slices = (
+        (slice(0, int(h_std * 0.30)), slice(0, int(w_std * 0.42))),
+        (slice(0, int(h_std * 0.30)), slice(int(w_std * 0.58), w_std)),
+        (slice(int(h_std * 0.70), h_std), slice(0, int(w_std * 0.42))),
+        (slice(int(h_std * 0.70), h_std), slice(int(w_std * 0.58), w_std)),
+    )
+    half_diag = math.hypot(cx, cy)
+    r_norm = rr / max(1.0, half_diag)
+    ring_band = (r_norm >= 0.62) & (r_norm <= 0.98)
+
+    best_hit: dict[str, Any] = {
+        "detected": False,
+        "quad_smooth": 0,
+        "lap_ratio": 1.0,
+        "min_q_rad": 0.0,
+        "mean_q_rad": 0.0,
+    }
+    for frm in valid_frames:
+        resized = cv2.resize(frm, (w_std, h_std), interpolation=cv2.INTER_AREA)
+        gray = cv2.cvtColor(resized, cv2.COLOR_BGR2GRAY).astype(np.float32)
+        hsv = cv2.cvtColor(resized, cv2.COLOR_BGR2HSV).astype(np.float32)
+        lap_map = np.abs(cv2.Laplacian(gray, cv2.CV_32F, ksize=3))
+        gx = cv2.Sobel(gray, cv2.CV_32F, 1, 0, ksize=3) * 0.25
+        gy = cv2.Sobel(gray, cv2.CV_32F, 0, 1, ksize=3) * 0.25
+        rad_edge = np.abs(gx * ux + gy * uy)
+
+        inner_lap = float(np.mean(lap_map[int(h_std * 0.24) : int(h_std * 0.72), int(w_std * 0.20) : int(w_std * 0.80)]))
+        q_laps = [float(np.mean(lap_map[sy, sx])) for sy, sx in corner_slices]
+        q_sats = [float(np.mean(hsv[sy, sx, 1])) for sy, sx in corner_slices]
+        q_lumas = [float(np.mean(gray[sy, sx])) for sy, sx in corner_slices]
+        center_luma = float(np.mean(gray[int(h_std * 0.24) : int(h_std * 0.72), int(w_std * 0.20) : int(w_std * 0.80)]))
+        corner_luma = float(np.mean(q_lumas))
+        outer_lap = float(np.mean(q_laps))
+        outer_sat = float(np.mean(q_sats))
+        lap_ratio = outer_lap / max(1.0, inner_lap)
+        quad_smooth = sum(1 for ql in q_laps if ql <= 0.30 * max(1.0, inner_lap) and ql <= 18.0)
+
+        q_rads: list[float] = []
+        for sy, sx in ring_quad_slices:
+            sub_mask = ring_band[sy, sx]
+            vals = rad_edge[sy, sx][sub_mask]
+            q_rads.append(float(np.percentile(vals, 90)) if vals.size > 0 else 0.0)
+        min_q_rad = min(q_rads, default=0.0)
+        mean_q_rad = float(np.mean(q_rads)) if q_rads else 0.0
+        # Smooth frosted/circular lens bezel (Rule R77) or heavy dark optical vignette across >=3 corners
+        is_smooth_ring = (
+            quad_smooth >= 3
+            and lap_ratio <= 0.095
+            and outer_sat <= 65.0
+            and min_q_rad >= 1.55
+            and mean_q_rad >= 1.80
+        )
+        is_dark_vignette = (
+            quad_smooth >= 3
+            and corner_luma < 26.0
+            and (center_luma - corner_luma) > 34.0
+            and mean_q_rad >= 1.65
+        )
+        detected = bool(is_smooth_ring or is_dark_vignette)
+        score_cur = (10 if detected else 0) + quad_smooth + mean_q_rad
+        score_best = (10 if best_hit["detected"] else 0) + best_hit["quad_smooth"] + best_hit["mean_q_rad"]
+        if detected or (not best_hit["detected"] and score_cur > score_best):
+            best_hit = {
+                "detected": bool(detected),
+                "quad_smooth": int(quad_smooth),
+                "lap_ratio": round(lap_ratio, 4),
+                "outer_lap": round(outer_lap, 2),
+                "inner_lap": round(inner_lap, 2),
+                "outer_sat": round(outer_sat, 1),
+                "min_q_rad": round(min_q_rad, 3),
+                "mean_q_rad": round(mean_q_rad, 3),
+            }
+    return best_hit
 
 
 def _inspect_source_clip_windows(clip_path: Path) -> dict[str, Any]:
@@ -1084,8 +1449,16 @@ def init_posthoc_semantic_review_template(
         rep_path = p_dir / "05_assembly" / POSTHOC_SEMANTIC_QA_REPORT_FILENAME
         qa_report = _read_json(rep_path) if rep_path.exists() else run_posthoc_semantic_qa(p_dir)
 
+    from pipeline.config import is_r86_semantic_beat_plan
+
     vp_path = next((p for p in (p_dir / "03_visuals" / "visual_plan.json", p_dir / "visual_plan.json") if p.exists()), None)
     vp_doc = _read_json(vp_path) if vp_path else {}
+    is_r86_rev = is_r86_semantic_beat_plan(vp_doc, project_id=p_dir.name)
+    vp_clips_by_num = {
+        int(vc.get("clip_number") or vc.get("id") or (i + 1)): vc
+        for i, vc in enumerate(vp_doc.get("clips") or [])
+        if isinstance(vc, dict)
+    }
     has_continuity_ledger = bool(
         (p_dir / "03_visuals" / "source_edl.json").exists()
         or vp_doc.get("require_scene_state_ledger")
@@ -1093,6 +1466,16 @@ def init_posthoc_semantic_review_template(
     )
 
     review_path = p_dir / "05_assembly" / POSTHOC_SEMANTIC_REVIEW_FILENAME
+    dq8_by_cut: dict[int, list[dict[str, Any]]] = {}
+    deq_rep_p = p_dir / "05_assembly" / "dynamic_episode_qa_report.json"
+    if deq_rep_p.is_file():
+        try:
+            deq_doc = _read_json(deq_rep_p)
+            for sd in ((deq_doc.get("gates") or {}).get("DQ8_zero_uncanny_skin_gore") or {}).get("suspect_detections") or []:
+                if isinstance(sd, dict) and sd.get("cut_index") is not None:
+                    dq8_by_cut.setdefault(int(sd["cut_index"]), []).append(sd)
+        except Exception:
+            pass
     cuts_payload: list[dict[str, Any]] = []
     for c in qa_report.get("cuts", []):
         c_idx = int(c["cut_index"])
@@ -1108,6 +1491,7 @@ def init_posthoc_semantic_review_template(
         else:
             obs = ""
             expresses = None
+        vc_meta = vp_clips_by_num.get(int(c["clip_index"]), {})
         row_entry: dict[str, Any] = {
             "cut_index": c_idx,
             "clip_index": int(c["clip_index"]),
@@ -1122,6 +1506,23 @@ def init_posthoc_semantic_review_template(
             "expresses_intended_meaning": expresses,
             "action_needed": ("none" if c.get("passed") else c.get("remediation", "regenerate_flow_clip")),
         }
+        if is_r86_rev or vc_meta.get("viewer_must_understand"):
+            row_entry["viewer_must_understand"] = str(vc_meta.get("viewer_must_understand") or "")
+            row_entry["delivers_viewer_must_understand"] = None
+        from pipeline.config import is_r87_plan as _is_r87_tmpl
+
+        if _is_r87_tmpl(vp_doc, project_id=p_dir.name):
+            row_entry["narration_visual_logic_match"] = None
+            if c_idx == 1:
+                row_entry["silent_3s_scroll_stop"] = None
+                row_entry["thumbnail_to_0s_promise_kept"] = None
+        if c_idx in dq8_by_cut:
+            c_sds = dq8_by_cut[c_idx]
+            row_entry["dq8_suspect_tier"] = (
+                "HIGH_SUSPECT" if any(s.get("suspect_tier") == "HIGH_SUSPECT" for s in c_sds) else "MODERATE_SUSPECT"
+            )
+            row_entry["dq8_suspect_crops"] = [str(s.get("crop_path") or "") for s in c_sds if s.get("crop_path")]
+            row_entry["zero_human_skin_or_hair_leak"] = None
         if has_continuity_ledger:
             bool_default = True if auto_populate_from_cv else None
             row_entry["zero_duplicate_actors"] = bool_default
@@ -1277,8 +1678,12 @@ def validate_posthoc_semantic_review(
             "rejected_actions": {},
         }
 
+    from pipeline.config import is_r86_semantic_beat_plan, is_r87_plan
+
     vp_path = next((p for p in (project_dir / "03_visuals" / "visual_plan.json", project_dir / "visual_plan.json") if p.exists()), None)
     vp_doc = _read_json(vp_path) if vp_path else {}
+    require_r86_goal = is_r86_semantic_beat_plan(vp_doc, project_id=project_dir.name)
+    require_r87_common_sense = is_r87_plan(vp_doc, project_id=project_dir.name)
     require_continuity_flags = bool(
         (project_dir / "03_visuals" / "source_edl.json").exists()
         or vp_doc.get("require_scene_state_ledger")
@@ -1286,6 +1691,12 @@ def validate_posthoc_semantic_review(
 
     doc = _read_json(review_path)
     issues: list[str] = []
+    rev_origin = str(doc.get("review_origin") or "").strip().lower()
+    rev_author = str(doc.get("reviewer") or "").strip().lower()
+    if rev_origin in ("unmanned_cv_verified_signoff", "auto_populated_cv_baseline", "auto_cv_verified_v7") or rev_author.startswith(
+        ("auto_", "unmanned_")
+    ):
+        issues.append(f"unmanned_cv_verified_signoff_forbidden:{rev_origin or rev_author}")
     if str(doc.get("final_mp4_sha256") or "") != str(final_mp4_sha256):
         issues.append("stale_review_final_mp4_sha256_mismatch")
     if edl_sha256 and str(doc.get("edl_sha256") or "") != str(edl_sha256):
@@ -1300,6 +1711,10 @@ def validate_posthoc_semantic_review(
     norm_notes: list[str] = []
     short_note_cuts: list[int] = []
     auto_populated_cuts: list[int] = []
+    prompt_copied_cuts: list[int] = []
+    r86_goal_failed_cuts: list[int] = []
+    r87_common_sense_failures: list[str] = []
+    dq8_gate2_failed_cuts: list[int] = []
     rejected_cuts: list[int] = []
     rejected_actions: dict[int, str] = {}
     unset_cuts: list[int] = []
@@ -1313,6 +1728,26 @@ def validate_posthoc_semantic_review(
         note = str(r.get("observed_visual_summary") or "").strip()
         if bool(r.get("auto_populated")) or bool(_AUTO_CV_BOILERPLATE_RE.search(note)):
             auto_populated_cuts.append(c_idx)
+        intended_sc = str(r.get("intended_scene") or "").strip()
+        obs_toks = set(re.findall(r"[a-z0-9]+", note.lower()))
+        scene_toks = set(re.findall(r"[a-z0-9]+", intended_sc.lower()))
+        if len(obs_toks) >= 4 and len(scene_toks) >= 4:
+            inter_n = len(obs_toks & scene_toks)
+            jacc = inter_n / float(max(1, len(obs_toks | scene_toks)))
+            obs_cont = inter_n / float(max(1, len(obs_toks)))
+            obs_seq = " ".join(re.findall(r"[a-z0-9]+", note.lower()))
+            scene_words = re.findall(r"[a-z0-9]+", intended_sc.lower())
+            has_verbatim_span = any(
+                " ".join(scene_words[k : k + 7]) in obs_seq
+                for k in range(max(0, len(scene_words) - 6))
+            ) if len(scene_words) >= 7 else False
+            if (
+                jacc >= 0.70
+                or has_verbatim_span
+                or (len(scene_toks) >= 15 and obs_cont >= 0.70)
+                or (len(obs_toks) >= 6 and obs_cont >= 0.78)
+            ):
+                prompt_copied_cuts.append(c_idx)
         if len(note) < POSTHOC_MIN_REVIEW_NOTE_CHARS:
             short_note_cuts.append(c_idx)
         else:
@@ -1325,6 +1760,35 @@ def validate_posthoc_semantic_review(
             act_need = str(r.get("action_needed") or "").strip()
             if act_need and act_need != "none":
                 rejected_actions[c_idx] = act_need
+        if "delivers_viewer_must_understand" in r or require_r86_goal:
+            dv_val = r.get("delivers_viewer_must_understand")
+            if not isinstance(dv_val, bool) or dv_val is False:
+                r86_goal_failed_cuts.append(c_idx)
+                if dv_val is False and c_idx not in rejected_cuts:
+                    rejected_cuts.append(c_idx)
+        if require_r87_common_sense or any(
+            k in r for k in ("narration_visual_logic_match", "silent_3s_scroll_stop", "thumbnail_to_0s_promise_kept")
+        ):
+            nv_val = r.get("narration_visual_logic_match")
+            if require_r87_common_sense or "narration_visual_logic_match" in r:
+                if not isinstance(nv_val, bool) or nv_val is False:
+                    r87_common_sense_failures.append(f"cut_{c_idx}:narration_visual_logic_match={nv_val!r}")
+                    if nv_val is False and c_idx not in rejected_cuts:
+                        rejected_cuts.append(c_idx)
+            if c_idx == 1:
+                for hk in ("silent_3s_scroll_stop", "thumbnail_to_0s_promise_kept"):
+                    hval = r.get(hk) if hk in r else doc.get(hk)
+                    if require_r87_common_sense or hk in r or hk in doc:
+                        if not isinstance(hval, bool) or hval is False:
+                            r87_common_sense_failures.append(f"cut_{c_idx}:{hk}={hval!r}")
+                            if hval is False and c_idx not in rejected_cuts:
+                                rejected_cuts.append(c_idx)
+        if "zero_human_skin_or_hair_leak" in r or bool(r.get("dq8_suspect_crops")):
+            zh_val = r.get("zero_human_skin_or_hair_leak")
+            if not isinstance(zh_val, bool) or zh_val is False:
+                dq8_gate2_failed_cuts.append(c_idx)
+                if zh_val is False and c_idx not in rejected_cuts:
+                    rejected_cuts.append(c_idx)
         for ck in continuity_keys:
             if ck in r or require_continuity_flags:
                 cval = r.get(ck)
@@ -1335,6 +1799,14 @@ def validate_posthoc_semantic_review(
 
     if auto_populated_cuts:
         issues.append(f"auto_populated_cv_baseline_not_semantically_verified:cuts={auto_populated_cuts[:10]}")
+    if prompt_copied_cuts:
+        issues.append(f"prompt_copied_into_observed_summary:cuts={prompt_copied_cuts[:10]}")
+    if r86_goal_failed_cuts:
+        issues.append(f"r86_delivers_viewer_must_understand_failed:cuts={r86_goal_failed_cuts[:10]}")
+    if r87_common_sense_failures:
+        issues.append(f"r87_viewer_common_sense_failed:{r87_common_sense_failures[:10]}")
+    if dq8_gate2_failed_cuts:
+        issues.append(f"dq8_gate2_skin_or_hair_review_failed:cuts={dq8_gate2_failed_cuts[:10]}")
     if short_note_cuts:
         issues.append(f"review_notes_too_short_lt_{POSTHOC_MIN_REVIEW_NOTE_CHARS}chars:cuts={short_note_cuts[:10]}")
     if unset_cuts:
@@ -1418,7 +1890,7 @@ def run_posthoc_semantic_qa(
     project_id_or_dir: str | Path,
     render_strips: bool | None = None,
     run_asr_sync: bool = True,
-    require_review: bool = False,
+    require_review: bool | None = None,
     save_report: bool = True,
     sync_knowledge_base: bool = False,
 ) -> dict[str, Any]:
@@ -1457,11 +1929,11 @@ def run_posthoc_semantic_qa(
     vr_path = p_dir / "04_audio" / "voice_report.json"
     vr_sha = _sha256_file(vr_path) if vr_path.exists() else ""
     vr = _read_json(vr_path)
-    is_synth_test = vr.get("engine") == "kokoro-onnx" and not (p_dir / "04_audio" / "tts_diorama" / "clip_1.wav").exists()
+    is_synth_test = vr.get("engine") in ("test_stub", "kokoro-onnx") and not (p_dir / "04_audio" / "tts_diorama" / "clip_1.wav").exists()
     is_custom_asr = _asr_word_timeline_from_mp4 is not _ORIG_ASR_WORD_TIMELINE_FN
 
     cv_cache_key = hashlib.sha1(
-        f"v4_r68spoken|{final_mp4_sha}|{edl_sha}|{ass_sha}|{vp_sha}|{sc_sha}|{eqc_sha}|{prompts_sha}|{vr_sha}|{int(bool(run_asr_sync))}|{int(bool(is_synth_test))}".encode("utf-8")
+        f"v8_r85_v5_flicker_xray_roi|{final_mp4_sha}|{edl_sha}|{ass_sha}|{vp_sha}|{sc_sha}|{eqc_sha}|{prompts_sha}|{vr_sha}|{int(bool(run_asr_sync))}|{int(bool(is_synth_test))}".encode("utf-8")
     ).hexdigest()[:28]
     thumbs_npz_path = get_speed_cache_dir() / "posthoc_cv" / f"{cv_cache_key}.npz"
     cached_cv = None if is_custom_asr else get_cached_json("posthoc_cv_v1", cv_cache_key)
@@ -1485,7 +1957,7 @@ def run_posthoc_semantic_qa(
                 parts = ln.split(",", 9)
                 if len(parts) >= 10:
                     t_a, t_b = _parse_ass_ts_sec(parts[1]), _parse_ass_ts_sec(parts[2])
-                    if ",ChapterHeadline," in ln or ",AnatomyLabel," in ln:
+                    if ",ChapterHeadline," in ln or ",AnatomyLabel," in ln or ",HookTitle," in ln:
                         chapter_spans.append((t_a, t_b))
                     elif ",Default," in ln:
                         default_sub_spans.append((t_a, t_b))
@@ -1519,7 +1991,8 @@ def run_posthoc_semantic_qa(
         for c in cuts_spec:
             c_s = float(c["out_start_sec"])
             c_e = max(c_s + 0.12, min(mp4_dur if mp4_dur > 0 else float(c["out_end_sec"]), float(c["out_end_sec"])))
-            pad = min(0.08, 0.15 * (c_e - c_s))
+            c_dur = c_e - c_s
+            pad = min(0.38, 0.18 * c_dur) if c_dur >= 2.2 else min(0.08, 0.15 * c_dur)
             t0 = c_s + pad
             t1 = max(t0 + 0.04, c_e - pad)
             fracs = (0.0, 0.25, 0.50, 0.75, 1.0)
@@ -1528,6 +2001,9 @@ def run_posthoc_semantic_qa(
             needed_fidxs.update(f_list)
 
         _, _, frame_cache = decode_needed_frames(local_mp4, final_mp4_sha, needed_fidxs)
+        smoothness_by_cut = (
+            {} if is_synth_test else evaluate_cut_temporal_smoothness(local_mp4, cuts_spec)
+        )
 
         sent_cuts_map: dict[int, list[dict[str, Any]]] = {}
         for c_pre in cuts_spec:
@@ -1594,17 +2070,22 @@ def run_posthoc_semantic_qa(
             is_outro = bool(c["is_outro"])
             is_v8_cut = bool(ctx.get("is_expressive_v8"))
             c_s, c_e = float(c["out_start_sec"]), float(c["out_end_sec"])
+            has_hero_st = bool(c.get("has_data_stamp"))
             has_top_ov = (
                 c.get("mode") in ("split_hstack", "split_vstack")
+                or has_hero_st
+                or bool(c.get("has_anatomy_callout"))
                 or any(cs0 < c_e - 0.04 and cs1 > c_s + 0.04 for cs0, cs1 in chapter_spans)
             )
 
+            clean_hero_st = bool(has_hero_st and str(c.get("grammar") or "") not in ("brain_simulator_3d", "expressive_xray_brain"))
             clean_seq = [
                 _concat_clean_roi_360(
                     f,
                     has_top_overlay=has_top_ov,
                     is_outro=is_outro,
                     is_expressive_v8=is_v8_cut,
+                    has_hero_stamp=clean_hero_st,
                 )
                 for f in frames
             ]
@@ -1699,14 +2180,30 @@ def run_posthoc_semantic_qa(
                     or (max(step_diffs) < 2.0 and float(np.median(step_diffs)) < med_freeze_cap)
                 )
             )
-            if max_hist_jump > POSTHOC_MAX_STEP_HIST_JUMP:
-                defects.append(f"mid_cut_morph_hist_jump={max_hist_jump:.2f}>{POSTHOC_MAX_STEP_HIST_JUMP}")
-                temp_score = round(max(20.0, 55.0 - (max_hist_jump - POSTHOC_MAX_STEP_HIST_JUMP) * 120.0), 1)
+            eff_hist_jump_cap = (
+                0.88 if str(c.get("grammar") or "") in ("expressive_xray_brain", "brain_simulator_3d") else POSTHOC_MAX_STEP_HIST_JUMP
+            )
+            if max_hist_jump > eff_hist_jump_cap:
+                defects.append(f"mid_cut_morph_hist_jump={max_hist_jump:.2f}>{eff_hist_jump_cap}")
+                temp_score = round(max(20.0, 55.0 - (max_hist_jump - eff_hist_jump_cap) * 120.0), 1)
             elif intra_freeze:
                 defects.append("intra_cut_motion_freeze_stall")
                 temp_score = 45.0
             else:
                 temp_score = round(max(76.0, 100.0 - max_hist_jump * 28.0), 1)
+
+            sm_info = smoothness_by_cut.get(c_idx, {})
+            if (
+                not is_synth_test
+                and not is_outro
+                and int(sm_info.get("pairs_checked") or 0) >= 6
+                and not bool(sm_info.get("passed", True))
+            ):
+                defects.append(
+                    f"R64_stutter_freeze(max_run={int(sm_info.get('max_consecutive_frozen_frames') or 0)},"
+                    f"frozen_ratio={float(sm_info.get('frozen_frame_ratio') or 0.0):.3f})"
+                )
+                temp_score = min(temp_score, 32.0)
 
             # 4. Grammar & Semantic Intent Alignment (20%)
             intent_score = 92.0
@@ -1739,16 +2236,22 @@ def run_posthoc_semantic_qa(
                     defects.append("split_hstack_divider_missing")
                     intent_score = min(intent_score, 45.0)
 
-            if grammar in ("expressive_xray_brain", "porcelain_living_brain", "lowpoly_matte_brain", "arch_brain_maquette", "frosted_crystal_specimen", "brain_void"):
-                brain_chroma_val = _compute_brain_highlight_chroma(clean_mid)
+            if grammar in ("brain_simulator_3d", "expressive_xray_brain", "porcelain_living_brain", "lowpoly_matte_brain", "arch_brain_maquette", "frosted_crystal_specimen", "brain_void"):
+                brain_chroma_val = max((_compute_brain_highlight_chroma(cf) for cf in clean_seq), default=0.0)
                 combined_intent_low = f"{c['spoken_narration']} {c['intended_scene']} {c['prompt']}".lower()
-                expects_highlight = any(kw in combined_intent_low for kw in _HIGHLIGHT_SIGNAL_KEYWORDS)
-                if expects_highlight and not is_synth_test and brain_chroma_val < POSTHOC_BRAIN_HIGHLIGHT_MIN_CHROMA:
+                neural_state_cut = str(c.get("neural_state") or "").strip().lower()
+                is_silenced_sim = grammar == "brain_simulator_3d" and neural_state_cut in ("silenced", "dormant", "baseline")
+                expects_highlight = (not is_silenced_sim) and any(kw in combined_intent_low for kw in _HIGHLIGHT_SIGNAL_KEYWORDS)
+                if grammar == "brain_simulator_3d":
+                    min_chroma_req = 4.0 if str(c.get("camera_move") or "") == "global_system_orbit_drone" else 8.0
+                else:
+                    min_chroma_req = POSTHOC_BRAIN_HIGHLIGHT_MIN_CHROMA
+                if expects_highlight and not is_synth_test and brain_chroma_val < min_chroma_req:
                     defects.append(
-                        f"weak_brain_lesion_or_tract_highlight(chroma={brain_chroma_val:.1f}<{POSTHOC_BRAIN_HIGHLIGHT_MIN_CHROMA})"
+                        f"weak_brain_lesion_or_tract_highlight(chroma={brain_chroma_val:.1f}<{min_chroma_req})"
                     )
                     intent_score = min(intent_score, 52.0)
-                if is_v8_cut and not is_synth_test and grammar == "expressive_xray_brain":
+                if is_v8_cut and not is_synth_test and grammar in ("expressive_xray_brain", "brain_simulator_3d"):
                     ng_ratio = max((compute_neon_green_spill_ratio(cf) for cf in clean_seq), default=0.0)
                     if ng_ratio > 0.08:
                         defects.append(f"neon_green_spill(ratio={ng_ratio:.4f}>0.08)")
@@ -1836,7 +2339,7 @@ def run_posthoc_semantic_qa(
                     if max_peach > flesh_cap_r64:
                         defects.append(f"human_skin_or_face_leak(peach={max_peach:.3f}>{flesh_cap_r64:.2f})")
                         intent_score = min(intent_score, 35.0)
-                    if mode not in ("split_hstack", "split_vstack"):
+                    if mode not in ("split_hstack", "split_vstack") and not bool(c.get("stacked_cutaway_brain_compare")):
                         max_hsplit = max((detect_unintended_horizontal_split_seam(sf) for sf in (f_start, f_mid, f_end)), default=0.0)
                         if max_hsplit >= 0.72:
                             defects.append(f"unintended_horizontal_split_screen(seam={max_hsplit:.3f})")
@@ -1850,6 +2353,7 @@ def run_posthoc_semantic_qa(
                         has_top_overlay=has_top_ov,
                         is_outro=is_outro,
                         is_expressive_v8=is_v8_cut,
+                        has_hero_stamp=has_hero_st,
                     )
                 ]
                 plaque_run = max((_max_horizontal_plaque_glyph_run(r) for r in rois_for_plaque), default=0)
@@ -1865,7 +2369,7 @@ def run_posthoc_semantic_qa(
 
                 if is_v7 and not is_outro:
                     if is_v8_cut:
-                        min_cut_luma = 26.0
+                        min_cut_luma = 18.0 if grammar in ("brain_simulator_3d", "expressive_xray_brain") else 26.0
                     else:
                         lo_y, _hi_y = PORCELAIN_V7_LUMA_RANGE if ctx.get("is_porcelain_v7") else DIORAMA_V7_LUMA_RANGE
                         min_cut_luma = max(72.0, lo_y - 32.0)
@@ -1873,11 +2377,73 @@ def run_posthoc_semantic_qa(
                         defects.append(f"dark_void_exposure_drop(luma={mean_luma:.1f})")
                         intent_score = min(intent_score, 48.0)
 
+                if has_hero_st:
+                    hs_h, hs_w = f_mid.shape[:2]
+                    hs_roi = cv2.cvtColor(
+                        f_mid[int(0.11 * hs_h) : int(0.56 * hs_h), int(0.08 * hs_w) : int(0.84 * hs_w)],
+                        cv2.COLOR_BGR2GRAY,
+                    )
+                    if hs_roi.size > 0:
+                        bg_p35 = float(np.percentile(hs_roi, 35))
+                        fg_p99 = float(np.percentile(hs_roi, 99.2))
+
+                        def _srgb_rel_lum(v255: float) -> float:
+                            u = max(0.0, min(1.0, v255 / 255.0))
+                            return u / 12.92 if u <= 0.04045 else ((u + 0.055) / 1.055) ** 2.4
+
+                        l_bg = _srgb_rel_lum(bg_p35)
+                        l_fg = _srgb_rel_lum(fg_p99)
+                        stamp_wcag = (max(l_fg, l_bg) + 0.05) / (min(l_fg, l_bg) + 0.05)
+                        if stamp_wcag < 7.0:
+                            defects.append(f"R70_low_contrast_data_stamp_wcag(wcag={stamp_wcag:.2f}<7.0)")
+                            legibility_score = min(legibility_score, 32.0)
+
+                if grammar == "expressive_xray_brain" or bool(c.get("brain_clip")):
+                    neon_vals_r85: list[float] = []
+                    for sf_n in (frames or [f_start, f_mid, f_end]):
+                        hsv_n = cv2.cvtColor(sf_n, cv2.COLOR_BGR2HSV)
+                        n_mask = (hsv_n[:, :, 0] >= 80) & (hsv_n[:, :, 0] <= 120) & (hsv_n[:, :, 1] >= 75) & (hsv_n[:, :, 2] >= 244)
+                        neon_vals_r85.append(float(np.mean(n_mask)))
+                    if len(neon_vals_r85) >= 3:
+                        n_base = float(np.percentile(neon_vals_r85, 15))
+                        n_pk = float(np.max(neon_vals_r85))
+                        n_sg = n_pk / max(0.0005, n_base)
+                        if n_pk >= 0.018 and (n_pk - n_base) >= 0.012 and n_sg >= 4.0:
+                            defects.append(f"R85_mid_cut_electric_arc_flash(neon_max={n_pk:.4f},surge={n_sg:.1f}x)")
+                            intent_score = min(intent_score, 25.0)
+
+                if (
+                    not is_outro
+                    and mode == "single"
+                    and grammar not in ("brain_simulator_3d", "expressive_xray_brain")
+                    and not bool(c.get("brain_clip"))
+                ):
+                    lens_info = detect_circular_lens_border_intrusion([f_start, f_mid, f_end])
+                    if bool(lens_info.get("detected")):
+                        defects.append(
+                            f"R64_circular_lens_border_intrusion(quads={lens_info.get('quad_smooth')},"
+                            f"lap_ratio={float(lens_info.get('lap_ratio') or 0.0):.3f})"
+                        )
+                        intent_score = min(intent_score, 30.0)
+                else:
+                    lens_info = {"detected": False}
+            else:
+                lens_info = {"detected": False}
+
             # 5. Composition & Subtitle Non-Occlusion / Sync (10%)
             comp_score = 94.0
             fh_m, fw_m = f_mid.shape[:2]
-            main_band = cv2.cvtColor(f_mid[int(fh_m * 0.22) : int(fh_m * 0.56), int(fw_m * 0.08) : int(fw_m * 0.92)], cv2.COLOR_BGR2GRAY)
-            main_edges = float(np.mean(cv2.Canny(main_band, 45, 135) > 0))
+            focal_samples = frames if (is_v8_cut and moving_cam and frames) else [f_mid]
+            is_hands_grammar = "hands" in grammar
+            def _sample_focal_edges(sf_foc: np.ndarray) -> float:
+                top_b = sf_foc[int(fh_m * (0.12 if is_hands_grammar else 0.22)) : int(fh_m * 0.56), int(fw_m * 0.08) : int(fw_m * 0.92)]
+                e_top = float(np.mean(cv2.Canny(cv2.cvtColor(top_b, cv2.COLOR_BGR2GRAY), 45, 135) > 0))
+                if not is_hands_grammar:
+                    return e_top
+                bot_b = sf_foc[int(fh_m * 0.75) : int(fh_m * 0.94), int(fw_m * 0.08) : int(fw_m * 0.92)]
+                e_bot = float(np.mean(cv2.Canny(cv2.cvtColor(bot_b, cv2.COLOR_BGR2GRAY), 45, 135) > 0))
+                return max(e_top, e_bot)
+            main_edges = max(_sample_focal_edges(sf_foc) for sf_foc in focal_samples)
             if not is_outro and not is_synth_test and main_edges < 0.0025:
                 defects.append(f"empty_upper_center_focal_zone(edges={main_edges:.4f})")
                 comp_score = 52.0
@@ -1940,6 +2506,13 @@ def run_posthoc_semantic_qa(
                         "optical_flow_dx": flow_dx,
                         "optical_flow_dy": flow_dy,
                         "max_step_hist_jump": max_hist_jump,
+                        "max_consecutive_frozen_frames": int(sm_info.get("max_consecutive_frozen_frames") or 0),
+                        "frozen_frame_ratio": float(sm_info.get("frozen_frame_ratio") or 0.0),
+                        "intracut_flicker_spikes": int(sm_info.get("intracut_flicker_spikes") or 0),
+                        "intracut_flicker_max_delta": float(sm_info.get("intracut_flicker_max_delta") or 0.0),
+                        "intracut_flicker_exempt_fast_move": bool(sm_info.get("intracut_flicker_exempt_fast_move")),
+                        "extreme_flicker_warning": bool(sm_info.get("extreme_flicker_warning")),
+                        "circular_lens_border_detected": bool(lens_info.get("detected")),
                         "split_pane_diff": pane_diff_val,
                         "brain_highlight_chroma": brain_chroma_val,
                         "main_focal_edge_density": round(main_edges, 5),
@@ -1979,8 +2552,12 @@ def run_posthoc_semantic_qa(
                         **{f"c{k}": np.stack(v, axis=0) for k, v in sample_thumbs_by_cut.items() if len(v) == 3},
                     )
                     prune_speed_cache_subdir("posthoc_cv", MAX_POSTHOC_CV_BYTES)
-                except OSError:
-                    pass
+                except OSError as exc:
+                    import logging
+
+                    logging.getLogger("posthoc_semantic_qa").warning(
+                        "Failed writing posthoc thumbnail cache %s: %s", thumbs_npz_path, exc
+                    )
 
     # Pure CV status before applying semantic review overrides
     cv_scores = [float(x["clarity_score"]) for x in cut_reports]
@@ -2182,8 +2759,12 @@ def run_posthoc_semantic_qa(
                             if k.startswith("c") and k[1:].isdigit():
                                 arr = zf[k]
                                 sample_thumbs_by_cut[int(k[1:])] = [arr[0], arr[1], arr[2]]
-                except Exception:  # noqa: BLE001
-                    pass
+                except Exception as exc:  # noqa: BLE001
+                    import logging
+
+                    logging.getLogger("posthoc_semantic_qa").warning(
+                        "Failed loading cached posthoc thumbnails %s: %s", thumbs_npz_path, exc
+                    )
             viewer_sheets = render_posthoc_viewer_strips(
                 cut_reports=cut_reports,
                 sample_thumbs_by_cut=sample_thumbs_by_cut,
@@ -2198,8 +2779,12 @@ def run_posthoc_semantic_qa(
                 try:
                     st_v = vp_s.stat()
                     state_items.append({"path": str(vp_s), "size": st_v.st_size, "mtime_ns": st_v.st_mtime_ns})
-                except OSError:
-                    pass
+                except OSError as exc:
+                    import logging
+
+                    logging.getLogger("posthoc_semantic_qa").warning(
+                        "Failed writing posthoc thumbnail cache %s: %s", thumbs_npz_path, exc
+                    )
             if len(state_items) == len(viewer_sheets):
                 put_cached_json("posthoc_strips_v1", strips_state_key, state_items)
     elif strips_dir.exists():
@@ -2260,7 +2845,23 @@ def run_posthoc_semantic_qa(
         and len(weak_cuts) == 0
         and mean_clarity >= POSTHOC_MIN_EPISODE_MEAN_CLARITY_SCORE
     )
-    overall_passed = cuts_all_clear and (bool(review_status["valid"]) if require_review else True)
+    eff_require_review = (int(ctx.get("schema_version") or 0) >= 8) if require_review is None else bool(require_review)
+    stale_or_invalid_existing_review = bool(review_status.get("present")) and any(
+        str(iss).startswith(
+            (
+                "stale_review_",
+                "unmanned_cv_verified_signoff_forbidden",
+                "prompt_copied_into_observed_summary",
+                "reviewer_flagged_unclear_expression",
+            )
+        )
+        for iss in (review_status.get("issues") or [])
+    )
+    overall_passed = (
+        cuts_all_clear
+        and not stale_or_invalid_existing_review
+        and (bool(review_status["valid"]) if eff_require_review else True)
+    )
 
     report = {
         "project_id": p_dir.name,
@@ -2276,7 +2877,7 @@ def run_posthoc_semantic_qa(
         "duration_sec": round(mp4_dur, 3),
         "passed": overall_passed,
         "cv_passed": cv_passed,
-        "require_review": require_review,
+        "require_review": eff_require_review,
         "semantic_review": review_status,
         "summary": {
             "cut_count": len(cut_reports),
@@ -2296,6 +2897,12 @@ def run_posthoc_semantic_qa(
                 for s in source_clips_summary
                 if "corrupted_or_unreadable_source_clip" in s.get("defects", [])
             ],
+            "intracut_flicker_cuts_flagged": sum(
+                1 for cr in cut_reports if int((cr.get("metrics") or {}).get("intracut_flicker_spikes") or 0) > 0
+            ),
+            "extreme_flicker_warnings": sum(
+                1 for cr in cut_reports if bool((cr.get("metrics") or {}).get("extreme_flicker_warning"))
+            ),
         },
         "act_clarity_summary": act_summary,
         "grammar_clarity_summary": grammar_summary,
@@ -2334,6 +2941,7 @@ def run_posthoc_semantic_qa(
 
 __all__ = [
     "auto_signoff_posthoc_semantic_review",
+    "detect_intracut_grid_luma_flicker",
     "extract_cut_intent_specs",
     "init_posthoc_semantic_review_template",
     "render_posthoc_viewer_strips",

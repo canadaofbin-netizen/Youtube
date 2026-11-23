@@ -6,6 +6,7 @@ reuses active tabs, prunes duplicate windows/tabs, and safely handles Polymer UI
 
 import asyncio
 from datetime import datetime, timezone
+import os
 from pathlib import Path
 import subprocess
 import time
@@ -19,12 +20,14 @@ from playwright.async_api import (
 )
 
 from pipeline.studio.config import (
+    CONTAINER_BROWSER_BRIDGE_DIR,
     DEFAULT_CDP_HOST,
     DEFAULT_CDP_PORT,
+    HOST_BROWSER_BRIDGE_DIR,
     WHALE_EXECUTABLE,
 )
 
-_FLOW_BRIDGE_DIR = Path("/home/canadaofbin/chrome-profile/flow_bridge")
+_FLOW_BRIDGE_DIR = HOST_BROWSER_BRIDGE_DIR
 _STAGED_BRIDGE_FILES: set[Path] = set()
 _EN_MONTH_ABBR = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 
@@ -72,10 +75,53 @@ class WhaleSessionController:
     """
 
     def __init__(self, cdp_port: int = DEFAULT_CDP_PORT, cdp_host: str = DEFAULT_CDP_HOST):
+        import atexit
+        import weakref
+
         self.cdp_port = cdp_port
         self.cdp_host = cdp_host
         self.cdp_url = f"http://{cdp_host}:{cdp_port}"
         self.whale_exe = WHALE_EXECUTABLE
+        self._owned_tabs: dict[str, str] = {}
+        self_ref = weakref.ref(self)
+
+        def _atexit_close() -> None:
+            inst = self_ref()
+            if inst is not None:
+                inst.close()
+
+        atexit.register(_atexit_close)
+
+    def __enter__(self) -> "WhaleSessionController":
+        return self
+
+    def __exit__(self, *_exc_info: Any) -> None:
+        self.close()
+
+    def close(self) -> list[str]:
+        """
+        Releases and closes ONLY self-opened CDP tabs tracked by this controller instance,
+        never touching unleased user tabs or sibling worker tabs (AGENTS.md Core Lock #4 / R36-B).
+        """
+        if not self._owned_tabs:
+            return []
+        from pipeline.cdp_tab_lease import release_and_close_leased_tab
+
+        closed: list[str] = []
+        for tid, owner_id in list(self._owned_tabs.items()):
+            self._owned_tabs.pop(tid, None)
+            try:
+                if release_and_close_leased_tab(
+                    tid,
+                    owner_id=owner_id or None,
+                    cdp_port=self.cdp_port,
+                    cdp_host=self.cdp_host,
+                    timeout=3.0,
+                ):
+                    closed.append(tid)
+            except Exception:
+                continue
+        return closed
 
     def launch_whale_with_cdp(self) -> bool:
         """Launches visible Naver Whale with --remote-debugging-port enabled if not already active."""
@@ -111,13 +157,13 @@ class WhaleSessionController:
 
     def get_tab_target(self, url_match_pattern: str, default_url: str | None = None) -> dict[str, Any]:
         """
-        Finds an open page target in Whale matching url_match_pattern via CDP HTTP API
-        (skipping tabs actively leased by sibling workers).
-        If none found and default_url is given, opens a new background-leased tab.
+        Finds a pipeline-leased CDP page target owned by THIS process matching `url_match_pattern`,
+        NEVER hijacking unleased personal user tabs (`studio.youtube.com`, etc.) or sibling-leased tabs.
+        If no self-leased tab exists, opens a dedicated background-leased tab via `open_leased_cdp_tab`.
         """
         import json
         import urllib.request
-        from pipeline.cdp_tab_lease import is_tab_leased_by_other, open_leased_cdp_tab
+        from pipeline.cdp_tab_lease import get_tab_lease, open_leased_cdp_tab, renew_tab_lease
 
         try:
             res = urllib.request.urlopen(f"{self.cdp_url}/json/list", timeout=5).read().decode("utf-8")
@@ -129,29 +175,59 @@ class WhaleSessionController:
             res = urllib.request.urlopen(f"{self.cdp_url}/json/list", timeout=5).read().decode("utf-8")
             targets = json.loads(res)
 
-        matching = [
-            t for t in targets
-            if t.get("type") == "page"
-            and url_match_pattern.lower() in t.get("url", "").lower()
-            and not is_tab_leased_by_other(str(t.get("id") or ""), cdp_port=self.cdp_port)
-        ]
-        for t in matching:
-            if "UC4FeioYYv9X04Di07_MfZ7g" in t.get("url", ""):
-                return t
-        if matching:
-            return matching[0]
+        pat_low = url_match_pattern.lower()
+        self_leased_matching: list[dict[str, Any]] = []
+        for t in targets:
+            if not isinstance(t, dict) or t.get("type") != "page":
+                continue
+            tid = str(t.get("id") or "").strip()
+            if not tid:
+                continue
+            lease = get_tab_lease(tid, cdp_port=self.cdp_port)
+            if not (
+                isinstance(lease, dict)
+                and int(lease.get("pid") or 0) == os.getpid()
+                and bool(lease.get("created_by_pipeline", False))
+            ):
+                continue
+            candidate_urls = (
+                str(t.get("url") or "").lower(),
+                str(lease.get("url") or "").lower(),
+                str(lease.get("initial_url") or "").lower(),
+            )
+            if not any(pat_low in u for u in candidate_urls if u):
+                continue
+            owner_str = str(lease.get("owner_id") or "")
+            renew_tab_lease(tid, owner_id=owner_str, cdp_port=self.cdp_port)
+            self._owned_tabs.setdefault(tid, owner_str)
+            self_leased_matching.append(t)
 
-        if default_url:
-            return open_leased_cdp_tab(
-                default_url,
+        for t in self_leased_matching:
+            if "UC4FeioYYv9X04Di07_MfZ7g" in str(t.get("url") or ""):
+                return t
+        if self_leased_matching:
+            return self_leased_matching[0]
+
+        open_url = default_url or (
+            f"https://{url_match_pattern.lstrip('/')}/"
+            if "://" not in url_match_pattern and "." in url_match_pattern
+            else None
+        )
+        if open_url:
+            opened = open_leased_cdp_tab(
+                open_url,
                 purpose="studio_tab",
                 cdp_port=self.cdp_port,
                 cdp_host=self.cdp_host,
                 timeout=8.0,
                 background=True,
             )
+            opened_id = str(opened.get("id") or "").strip()
+            if opened_id:
+                self._owned_tabs[opened_id] = str(opened.get("lease_owner_id") or "")
+            return opened
 
-        raise RuntimeError(f"No tab matching '{url_match_pattern}' found in Whale browser.")
+        raise RuntimeError(f"No pipeline-leased tab matching '{url_match_pattern}' found in Whale browser.")
 
     def get_direct_client(self, url_match_pattern: str, default_url: str | None = None) -> "DirectCDPClient":
         """Returns a DirectCDPClient connected to the target tab websocket."""
@@ -163,7 +239,7 @@ class WhaleSessionController:
 
     def open_temp_direct_client(self, target_url: str) -> tuple["DirectCDPClient", str]:
         """
-        Opens a dedicated background temporary tab with an active lease in `/tmp/aab_cdp_leases.json`
+        Opens a dedicated background temporary tab with an active lease in `/tmp/aab_locks/`
         and returns `(DirectCDPClient, target_id)` so callers close ONLY that temporary tab
         without hijacking focus or touching existing user/sibling tabs (R36-B).
         """
@@ -194,6 +270,7 @@ class WhaleSessionController:
         target_id = str(target.get("id") or "")
         if not ws_url or not target_id:
             raise RuntimeError(f"Temporary tab for '{target_url}' missing webSocketDebuggerUrl or id.")
+        self._owned_tabs[target_id] = str(target.get("lease_owner_id") or "")
         return DirectCDPClient(ws_url), target_id
 
     def close_tab_by_id(self, target_id: str, *, owner_id: str | None = None) -> bool:
@@ -202,13 +279,17 @@ class WhaleSessionController:
             return False
         from pipeline.cdp_tab_lease import release_and_close_leased_tab
 
-        return release_and_close_leased_tab(
+        eff_owner = owner_id if owner_id is not None else (self._owned_tabs.get(target_id) or None)
+        ok = release_and_close_leased_tab(
             target_id,
-            owner_id=owner_id,
+            owner_id=eff_owner,
             cdp_port=self.cdp_port,
             cdp_host=self.cdp_host,
             timeout=5.0,
         )
+        if ok:
+            self._owned_tabs.pop(target_id, None)
+        return ok
 
     def recycle_studio_tab(
         self,
@@ -239,12 +320,13 @@ class WhaleSessionController:
             if t.get("type") != "page":
                 continue
             t_id = str(t.get("id") or "")
-            t_url = str(t.get("url") or "").lower()
-            if "studio.youtube.com" not in t_url or not t_id:
-                continue
-            if is_tab_leased_by_other(t_id, cdp_port=self.cdp_port):
+            if not t_id or is_tab_leased_by_other(t_id, cdp_port=self.cdp_port):
                 continue
             lease = get_tab_lease(t_id, cdp_port=self.cdp_port)
+            t_url = str(t.get("url") or "").lower()
+            l_url = str((lease or {}).get("initial_url") or (lease or {}).get("url") or "").lower()
+            if "studio.youtube.com" not in t_url and "studio.youtube.com" not in l_url:
+                continue
             if target_id is not None and t_id == target_id:
                 if lease is not None:
                     stale_studio_ids.append(t_id)
@@ -260,11 +342,15 @@ class WhaleSessionController:
             background=True,
         )
         new_id = str(new_target.get("id") or "")
+        if new_id:
+            self._owned_tabs[new_id] = str(new_target.get("lease_owner_id") or "")
 
         for old_id in stale_studio_ids:
             if old_id and old_id != new_id:
+                eff_owner = self._owned_tabs.pop(old_id, None) or None
                 release_and_close_leased_tab(
                     old_id,
+                    owner_id=eff_owner,
                     cdp_port=self.cdp_port,
                     cdp_host=self.cdp_host,
                     timeout=5.0,
@@ -732,17 +818,36 @@ class DirectCDPClient:
         if not date_candidates or not time_candidates:
             return False
 
-        # 1. Expand Schedule container if collapsed
-        await self.eval(
+        # 1. Explicitly select & verify SCHEDULE radio button + expanded ytcp-visibility-scheduler
+        radio_ok = bool(await self.eval(
             f"""(() => {{
+                // __scheduleRadioVerified
                 {_DEEP_QUERY_HELPER_JS}
-                const sched = __queryAllDeep('ytcp-visibility-scheduler')[0];
-                if (!sched || sched.getBoundingClientRect().height === 0) {{
-                    const btn = __queryAllDeep('#second-container-expand-button, #second-container, tp-yt-paper-radio-button[name="SCHEDULE"]')[0];
-                    if (btn) btn.click();
+                const radios = __queryAllDeep('tp-yt-paper-radio-button[name="SCHEDULE"], #schedule-radio-button');
+                const expandBtn = __queryAllDeep('#second-container-expand-button, #second-container')[0];
+                if (expandBtn) {{
+                    const sched0 = __queryAllDeep('ytcp-visibility-scheduler')[0];
+                    if (!sched0 || sched0.getBoundingClientRect().height === 0) {{
+                        try {{ expandBtn.click(); }} catch (e) {{}}
+                    }}
                 }}
+                for (const r of radios) {{
+                    const checked = Boolean(r.checked) || r.getAttribute('aria-checked') === 'true' || r.hasAttribute('checked');
+                    if (!checked) {{
+                        try {{ r.click(); }} catch (e) {{}}
+                    }}
+                }}
+                const rAfter = radios[0];
+                const schedAfter = __queryAllDeep('ytcp-visibility-scheduler')[0];
+                if (rAfter) {{
+                    return Boolean(rAfter.checked) || rAfter.getAttribute('aria-checked') === 'true' || rAfter.hasAttribute('checked')
+                        || Boolean(schedAfter && schedAfter.getBoundingClientRect().height > 0);
+                }}
+                return Boolean(schedAfter && schedAfter.getBoundingClientRect().height > 0);
             }})()"""
-        )
+        ))
+        if not radio_ok:
+            return False
         await asyncio.sleep(1.0)
 
         # 2. Click datepicker-trigger and set date matching Studio's active locale format
@@ -786,6 +891,7 @@ class DirectCDPClient:
 
                 for (const candidate of ordered) {{
                     inp.focus();
+                    inp.select && inp.select();
                     if (nativeSetter) nativeSetter.call(inp, candidate);
                     else inp.value = candidate;
                     inp.dispatchEvent(new Event('input', {{ bubbles: true, composed: true }}));
@@ -801,6 +907,14 @@ class DirectCDPClient:
                 return false;
             }})()"""
         ))
+        if date_ok:
+            # Dispatch trusted CDP Enter key so Polymer ytcp-date-picker commits selectedDate (+2d UTC safe)
+            try:
+                await self.send("Input.dispatchKeyEvent", {"type": "keyDown", "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13})
+                await asyncio.sleep(0.05)
+                await self.send("Input.dispatchKeyEvent", {"type": "keyUp", "key": "Enter", "code": "Enter", "windowsVirtualKeyCode": 13, "nativeVirtualKeyCode": 13})
+            except Exception:
+                pass
         await asyncio.sleep(0.8)
 
         # 3. Click time-of-day input and select matching 24h or 12h (EN/KO) tp-yt-paper-item
@@ -850,7 +964,58 @@ class DirectCDPClient:
             }})()"""
         ))
         await asyncio.sleep(0.6)
-        return bool(date_ok and time_clicked)
+        if not (date_ok and time_clicked):
+            return False
+
+        # Close any lingering calendar/time-of-day sub-popover so its backdrop cannot swallow #done-button click
+        await self.eval(
+            f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                for (const sub of __queryAllDeep('ytcp-date-picker tp-yt-paper-dialog, #time-of-day-container tp-yt-paper-dialog, tp-yt-iron-dropdown')) {{
+                    try {{ if (typeof sub.close === 'function') sub.close(); }} catch (e) {{}}
+                }}
+                if (document.activeElement && typeof document.activeElement.blur === 'function') {{
+                    try {{ document.activeElement.blur(); }} catch (e) {{}}
+                }}
+            }})()"""
+        )
+        await asyncio.sleep(0.35)
+
+        # 4. Verify zero invalid inputs AND verify upload-wizard #done-button reads Schedule/예약 (never Save/저장 Draft)
+        commit_check = await self.eval(
+            f"""(() => {{
+                // __verifyScheduleCommitReady
+                {_DEEP_QUERY_HELPER_JS}
+                const sched = __queryAllDeep('ytcp-visibility-scheduler')[0];
+                const dp = __queryAllDeep('ytcp-date-picker')[0];
+                const dpInp = __queryAllDeep('ytcp-date-picker input')[0];
+                const tmInp = __queryAllDeep('ytcp-visibility-scheduler #time-of-day-container input, #time-of-day-container input')[0];
+                const hasInvalid = Boolean(
+                    (sched && sched.hasAttribute('invalid'))
+                    || (dp && dp.hasAttribute('invalid'))
+                    || (dpInp && (dpInp.hasAttribute('invalid') || dpInp.getAttribute('aria-invalid') === 'true'))
+                    || (tmInp && (tmInp.hasAttribute('invalid') || tmInp.getAttribute('aria-invalid') === 'true'))
+                );
+                if (hasInvalid) {{
+                    return {{ ok: false, reason: 'scheduler_input_invalid', doneText: '' }};
+                }}
+                const upDlg = document.querySelector('ytcp-uploads-dialog, ytcp-upload-dialog');
+                if (upDlg && upDlg.offsetParent !== null) {{
+                    const doneBtn = __queryAllDeep('ytcp-uploads-dialog #done-button, #done-button')[0];
+                    const doneText = (doneBtn ? (doneBtn.innerText || doneBtn.textContent || '') : '').trim();
+                    const low = doneText.toLowerCase();
+                    if (doneText && !low.includes('schedule') && !doneText.includes('예약')) {{
+                        return {{ ok: false, reason: 'done_button_not_schedule:' + doneText, doneText }};
+                    }}
+                    return {{ ok: true, reason: 'ok', doneText }};
+                }}
+                return {{ ok: true, reason: 'edit_modal_ok', doneText: '' }};
+            }})()"""
+        )
+        if isinstance(commit_check, dict) and not commit_check.get("ok"):
+            print(f"[DirectCDPClient] Schedule commit readiness failed: {commit_check}")
+            return False
+        return True
 
     async def set_file_input(
         self,
@@ -862,7 +1027,7 @@ class DirectCDPClient:
         import shutil
         resolved_path = file_path.resolve()
         cdp_file_str = str(resolved_path)
-        if os.name != "nt" and Path("/home/canadaofbin/chrome-profile").exists():
+        if os.name != "nt" and _FLOW_BRIDGE_DIR.parent.exists():
             host_dl_dir = _FLOW_BRIDGE_DIR
             host_dl_dir.mkdir(parents=True, exist_ok=True)
             staged_name = f"studio_upload_{resolved_path.parent.parent.name}_{resolved_path.name}"
@@ -871,7 +1036,7 @@ class DirectCDPClient:
                 shutil.copy2(resolved_path, host_staged)
                 _STAGED_BRIDGE_FILES.add(host_staged)
                 self._staged_bridge_files.add(host_staged)
-            cdp_file_str = f"/home/seluser/chrome-profile/flow_bridge/{staged_name}"
+            cdp_file_str = f"{CONTAINER_BROWSER_BRIDGE_DIR.rstrip('/')}/{staged_name}"
 
         if isinstance(selector, list):
             sel_parts = [s.strip() for s in selector if isinstance(s, str) and s.strip()]

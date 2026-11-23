@@ -1,0 +1,32 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "anterior cingulate cortex",
+      "plain": "conflict detector",
+      "function": "Fires an urgent distress alarm during the 45 ignored Cyberball throws, scaling directly with how rejected the person feels.",
+      "scene_id": "S1",
+      "narration_bridge": "Along the midline, your conflict detector — the anterior cingulate cortex — blazes like a burn alarm.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step1",
+      "region": "insula",
+      "plain": "body-feeling center",
+      "function": "Turns social exclusion into physical chest tightness and visceral ache — and quiets down after 3 weeks of central analgesia.",
+      "scene_id": "S2",
+      "narration_bridge": "Deep on each side, your body-feeling center — the insula — turns that snub into a real chest ache.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "ventromedial prefrontal cortex",
+      "plain": "reality-checker",
+      "function": "Steps in to reframe the snub calmly and dial down the anterior cingulate distress signal.",
+      "scene_id": "S3",
+      "narration_bridge": "Right behind your eyes, your reality-checker — the ventromedial prefrontal cortex — cools the alarm back down.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

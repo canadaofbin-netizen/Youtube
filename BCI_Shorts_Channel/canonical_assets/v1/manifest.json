@@ -1,0 +1,3651 @@
+{
+  "schema": "aab_canonical_asset_library_v1",
+  "version": "v1",
+  "status": "approved",
+  "generated_at_utc": "2026-11-18T11:27:03.717875+00:00",
+  "research_screened_by": "@Research (ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c)",
+  "research_screening_receipt": "BCI_Shorts_Channel/canonical_assets/v1/research_screening_v1.json",
+  "ceo_brain_upgrade_applied": true,
+  "root_dir": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1",
+  "total_slots": 42,
+  "total_candidate_files": 128,
+  "category_usage_rules": {
+    "A_brain": "모든 에피소드의 뇌 해부·신경 메커니즘·신호 이동·기능 억제·A vs B 뇌 부피 비교 컷 생성 시, 대상 해부 부위와 시점(A01~A12)에 맞는 1순위 앵커를 스타일·구조 기준 이미지로 고정 첨부한다.",
+    "B_characters": "모든 2.5D 인간 서사·실험·일상 컷 생성 시, 기본 체형 시트(B01~B04)에 상황별 의상(B11~B15)과 감정 표정(B05~B10)을 조합하여 전 에피소드 동일 종족·비율을 유지한다.",
+    "C_arrows_r80": "실험군 vs 대조군의 공간 이동 경로·단절(문턱 효과 등) 비교 컷에서 일직선(C01)·적응형 지그재그(C02)·경계 단절 sever(C03) 탑다운 #FF2525 3D 화살표 문법의 시작·끝 기준 틀로 사용한다.",
+    "D_drone_120ft": "에피소드 초반 S01~S04 연구 대학(D01) 또는 임상 병원·연구소(D02) 도입부에서 지상 보행 착시 없는 진짜 120ft 상공 부감 드론샷 앵커로 사용한다.",
+    "E_environments": "반복 등장하는 5대 실내 공간(연구실·MRI실·집 문턱·강의실·주방) 연출 시, 인물 없는 빈 배경판(E01~E05)에 에피소드 인물을 배치하거나 스케일 기준판(E06~E10)으로 조명·원근을 통일한다."
+  },
+  "origin_31_O2CmlKOk_anchors": [
+    {
+      "filename": "ep31_orig_mode1_head_9x16.png",
+      "rel_path": "_reference_31_O2CmlKOk/ep31_orig_mode1_head_9x16.png",
+      "sha256": "0247783668365f06bcaad1d9741c7ba60b7895289ee01e66e379f45138526cfe"
+    },
+    {
+      "filename": "ep31_orig_mode2_lateral_9x16.png",
+      "rel_path": "_reference_31_O2CmlKOk/ep31_orig_mode2_lateral_9x16.png",
+      "sha256": "46906115c5a79f152fa603b010709bea9b6e348300d07b0544907dd536c8bc31"
+    },
+    {
+      "filename": "ep31_orig_mode2_dorsal_9x16.png",
+      "rel_path": "_reference_31_O2CmlKOk/ep31_orig_mode2_dorsal_9x16.png",
+      "sha256": "a7bea8186f4cacdf4bf6a74d913a381db126681dbe2178e3daa545d20f217cdd"
+    },
+    {
+      "filename": "ep31_orig_mode2_vessel_macro_9x16.png",
+      "rel_path": "_reference_31_O2CmlKOk/ep31_orig_mode2_vessel_macro_9x16.png",
+      "sha256": "77fcb4aa87adda4e9436290be14b02cd9c0d1de2bac4a80350e6d9a78d921400"
+    }
+  ],
+  "slots": [
+    {
+      "slot_id": "A01_mode1_translucent_head_lateral",
+      "category": "A_brain",
+      "title_ko": "A1. Mode 1 밝은 회색 반투명 마네킹 두상 + 내부 뇌 (측면)",
+      "when_to_use": "인간 일상 서사에서 뇌 메커니즘으로 진입할 때(Mode 1 X-Ray 두상 투시 입구 컷) 기본 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 Mode 1 X-Ray style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: hollow semi-transparent light-gray clear glass human mannequin head, face, brow, and cranium shell (50% see-through glass transparency with crisp outer glass contour reflections overlapping in front of the brain, never an opaque porcelain bust with a brain sitting on top) cleanly enclosing a full interior almost-white matte gypsum-plaster 3D brain (#DCDFE3 to #F0F3F6) with a dense branching network of thick opaque sky-blue (#27D8FF to #58E4FF) cylindrical blood-vessel tubes inside, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Left-facing side profile of a SEE-THROUGH hollow semi-transparent light-gray clear glass mannequin head, face, brow, temple, ear, and neck (55% see-through clear glass shell throughout the ENTIRE face and cranium — strictly NEVER an opaque white porcelain bust with a brain sitting on top): crisp outer clear-glass rim reflections curve visibly IN FRONT OF and OVER the brain, cleanly enclosing the whole full-sized interior bright matte chalk-white gypsum 3D brain (#E4E8EC to #F2F5F8) densely covered with thick branching sky-blue (#27D8FF) 3D blood-vessel tubes visible right through the transparent glass forehead, temple, and cranium wall; bold hero framing filling 86% of the horizontal 9:16 width over solid flat #040711 dark navy void (neutral baseline, zero hands, zero background panels, zero outer glow).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=11.00s (ep31_orig_mode1_head_9x16.png)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 92%, 하늘색 혈관망 밀도 7.9%, 밝은 백색 석고 조명 V=168.4 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A01_mode1_translucent_head_lateral/cand_01.png",
+          "sha256": "dd25ec623358a806476cd96d8187c9964c12c7c63f498ad4dfead2137822624d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 112.83,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode1",
+            "cortex_sat_mean": 28.4,
+            "cortex_luma_mean": 155.6,
+            "mode1_head_p75": 155.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.917,
+            "left_margin": 0.042,
+            "right_margin": 0.042,
+            "top_margin": 0.141,
+            "cyan_pct": 7.9,
+            "cortex_luma": 168.4,
+            "mode1_inner_cyan_pct": 12.11
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A01_mode1_translucent_head_lateral/cand_02.png",
+          "sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 47.37,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode1",
+            "cortex_sat_mean": 28.2,
+            "cortex_luma_mean": 174.6,
+            "mode1_head_p75": 201.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.954,
+            "left_margin": 0.046,
+            "right_margin": 0.0,
+            "top_margin": 0.219,
+            "cyan_pct": 7.03,
+            "cortex_luma": 184.0,
+            "mode1_inner_cyan_pct": 18.28
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A01_mode1_translucent_head_lateral/cand_03.png",
+          "sha256": "0e6d3b65604bd01e1247154cbfe4043665f49e42ba56482d7b25c509ece5ff2e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 51.7,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode1",
+            "cortex_sat_mean": 31.6,
+            "cortex_luma_mean": 161.1,
+            "mode1_head_p75": 191.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 19.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.966,
+            "left_margin": 0.034,
+            "right_margin": 0.0,
+            "top_margin": 0.218,
+            "cyan_pct": 6.32,
+            "cortex_luma": 174.4,
+            "mode1_inner_cyan_pct": 16.64
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A01_mode1_translucent_head_lateral/cand_02.png",
+      "approved_sha256": "937d0cb741f46714f6a5334ac194ec41b79b5152b7a6d7ca9d7ebca696180f10",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A02_mode2_whole_brain_lateral",
+      "category": "A_brain",
+      "title_ko": "A2. Mode 2 전체 뇌 외측면 (기본 중립)",
+      "when_to_use": "전체 대뇌 반구 외측면 조망 또는 외측 피질·고랑 혈관 흐름을 설명하는 기본 뇌 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Clean neutral left-facing exterior lateral view of a whole uncropped human 3D brain (frontal pole on LEFT, occipital pole and intact cerebellum and brainstem at bottom-RIGHT) floating centered over solid flat #040711 dark navy void. Every cortical lobe across the ENTIRE brain surface is densely laced with a rich, continuous branching tree of THICK, plump, round 3D sky-blue (#27D8FF to #5AE6FF) cerebral blood-vessel tubes with crisp glossy white specular edge highlights running through both primary AND secondary sulcal grooves (thick prominent vessel caliber matching the reference image across ~20% of the brain surface — NEVER sparse, NEVER thin hairline threads). Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray). (100% neutral baseline with zero amber or red highlights).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s (ep31_orig_mode2_lateral_9x16.png)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 94%, 하늘색 혈관망 밀도 31.36%, 밝은 백색 석고 조명 V=191.5 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_01.png",
+          "sha256": "58cfa9010222f542158e6fc6ed9986c20ee725ea2eabf6b33171f4dd36291aa6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 122.33,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 33.8,
+            "cortex_luma_mean": 186.7,
+            "mode1_head_p75": 186.7,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.936,
+            "left_margin": 0.032,
+            "right_margin": 0.031,
+            "top_margin": 0.27,
+            "cyan_pct": 31.36,
+            "cortex_luma": 191.5,
+            "mode1_inner_cyan_pct": 36.08
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+          "sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 126.67,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 45.8,
+            "cortex_luma_mean": 200.0,
+            "mode1_head_p75": 200.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.946,
+            "left_margin": 0.027,
+            "right_margin": 0.027,
+            "top_margin": 0.27,
+            "cyan_pct": 41.8,
+            "cortex_luma": 217.8,
+            "mode1_inner_cyan_pct": 49.18
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_03.png",
+          "sha256": "fa00c9bb3e7440a52b0b8a3753bb4a89fbc409f743024d97b1de7d010d83afff",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 75.3,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 29.1,
+            "cortex_luma_mean": 187.2,
+            "mode1_head_p75": 187.2,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 23.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.938,
+            "left_margin": 0.031,
+            "right_margin": 0.031,
+            "top_margin": 0.27,
+            "cyan_pct": 15.85,
+            "cortex_luma": 189.7,
+            "mode1_inner_cyan_pct": 18.51
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_04.png",
+          "sha256": "1d6f8811a976805b213acede28cf34eb09c4f0e07b4bf075e7e62ccc7c5775f6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 69.12,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 28.9,
+            "cortex_luma_mean": 189.8,
+            "mode1_head_p75": 189.8,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 24.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.909,
+            "left_margin": 0.046,
+            "right_margin": 0.044,
+            "top_margin": 0.282,
+            "cyan_pct": 14.91,
+            "cortex_luma": 191.9,
+            "mode1_inner_cyan_pct": 17.0
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "approved_sha256": "b55cc9ee4f7163307d3cf71193de6e13ef81afded79846129a35e5ddd5307e8c",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A03_mode2_whole_brain_dorsal_topdown",
+      "category": "A_brain",
+      "title_ko": "A3. Mode 2 전체 뇌 상면 (Top-Down 좌우 반구)",
+      "when_to_use": "좌뇌 vs 우뇌 대칭·비대칭 비교나 양측 대뇌 피질 전반의 혈류·노폐물 세척을 위에서 내려다볼 때 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Symmetrical 90-degree dorsal top-down view of a whole uncropped two-hemisphere human 3D brain centered over solid flat #040711 dark navy void: bright high-key top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum left and right cerebral hemispheres (#E4E8EC to #F2F5F8, matching the bright white gypsum luminosity of the second reference image — strictly NEVER dim or dark gray), densely covered across both hemispheres from frontal to occipital poles with a rich branching network of thick plump sky-blue (#27D8FF to #5AE6FF) 3D cylindrical blood-vessel tubes with glossy white rim highlights, filling 86% of the horizontal 9:16 frame width (zero red dots, zero amber).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=68.65s (ep31_orig_mode2_dorsal_9x16.png)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 92%, 하늘색 혈관망 밀도 39.03%, 밝은 백색 석고 조명 V=208.8 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_01.png",
+          "sha256": "4444bed5c62726b65af5b1295e0d1277e6383e0b7c8a3f6ba9575ebb1ab68cc9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 152.74,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 36.8,
+            "cortex_luma_mean": 202.3,
+            "mode1_head_p75": 202.3,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.924,
+            "left_margin": 0.038,
+            "right_margin": 0.038,
+            "top_margin": 0.18,
+            "cyan_pct": 39.03,
+            "cortex_luma": 208.8,
+            "mode1_inner_cyan_pct": 40.84
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_02.png",
+          "sha256": "0d15874576e1ce17dd4b1fa1cea148b66bb8ac32efe6c0fb490f25b971c34fe5",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 129.54,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 43.1,
+            "cortex_luma_mean": 190.6,
+            "mode1_head_p75": 190.6,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 19.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.956,
+            "left_margin": 0.022,
+            "right_margin": 0.022,
+            "top_margin": 0.165,
+            "cyan_pct": 36.26,
+            "cortex_luma": 201.1,
+            "mode1_inner_cyan_pct": 38.65
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_03.png",
+          "sha256": "01ff10a51d23311648b387414b5110caebb7bf1dbb3b8c1697123d0dc8cdec18",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 48.64,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 36.3,
+            "cortex_luma_mean": 164.8,
+            "mode1_head_p75": 164.8,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 19.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 1.0,
+            "left_margin": 0.0,
+            "right_margin": 0.0,
+            "top_margin": 0.132,
+            "cyan_pct": 26.76,
+            "cortex_luma": 165.8,
+            "mode1_inner_cyan_pct": 28.59
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_04.png",
+          "sha256": "86a2a368e8c6c44e2a3530e5e8c97765c95a746f1b406e6e3cdb134f5c4b2d8a",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 53.56,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 37.8,
+            "cortex_luma_mean": 165.7,
+            "mode1_head_p75": 165.7,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 1.0,
+            "left_margin": 0.0,
+            "right_margin": 0.0,
+            "top_margin": 0.132,
+            "cyan_pct": 29.29,
+            "cortex_luma": 166.7,
+            "mode1_inner_cyan_pct": 31.02
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_02.png",
+      "approved_sha256": "0d15874576e1ce17dd4b1fa1cea148b66bb8ac32efe6c0fb490f25b971c34fe5",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A04_mode2_whole_brain_anterior_frontal",
+      "category": "A_brain",
+      "title_ko": "A4. Mode 2 전체 뇌 전면 (Anterior 정면)",
+      "when_to_use": "양측 전두엽·측두엽 정면 대칭 구도 또는 관상단면(Coronal cutaway) 진입 직전 정면 기준 뇌로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Symmetrical straight-on anterior front view of a whole uncropped human 3D brain (both left and right frontal and temporal poles facing the viewer with lower pons and brainstem centered underneath) floating over solid flat #040711 dark navy void. Every cortical lobe across the ENTIRE brain surface is densely laced with a rich, continuous branching tree of THICK, plump, round 3D sky-blue (#27D8FF to #5AE6FF) cerebral blood-vessel tubes with crisp glossy white specular edge highlights running through both primary AND secondary sulcal grooves (thick prominent vessel caliber matching the reference image across ~20% of the brain surface — NEVER sparse, NEVER thin hairline threads). Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray). (100% neutral baseline, zero colored patches).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        },
+        {
+          "type": "wikimedia_open_license_guide",
+          "title": "File:Cerebrum - frontal lobe - anterior view.png",
+          "url": "https://commons.wikimedia.org/wiki/File:Cerebrum_-_frontal_lobe_-_anterior_view.png",
+          "license": "CC BY-SA 2.1 jp"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 95%, 하늘색 혈관망 밀도 29.51%, 밝은 백색 석고 조명 V=206.8 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A04_mode2_whole_brain_anterior_frontal/cand_01.png",
+          "sha256": "87304688b2ddcf63b425083968385c60925ecc530ccbf94c9a3a18385d3ae18a",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 87.19,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 41.8,
+            "cortex_luma_mean": 193.7,
+            "mode1_head_p75": 193.7,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 23.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.948,
+            "left_margin": 0.026,
+            "right_margin": 0.026,
+            "top_margin": 0.241,
+            "cyan_pct": 29.51,
+            "cortex_luma": 206.8,
+            "mode1_inner_cyan_pct": 33.89
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A04_mode2_whole_brain_anterior_frontal/cand_02.png",
+          "sha256": "26be7e75ef1862aacccbedb59e05c0880f17377f05dfbb97f4fa1ee28edb0d4e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 98.24,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 44.3,
+            "cortex_luma_mean": 186.8,
+            "mode1_head_p75": 186.8,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.95,
+            "left_margin": 0.025,
+            "right_margin": 0.025,
+            "top_margin": 0.201,
+            "cyan_pct": 37.18,
+            "cortex_luma": 198.3,
+            "mode1_inner_cyan_pct": 44.74
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A04_mode2_whole_brain_anterior_frontal/cand_03.png",
+          "sha256": "d7b5dbcb7f0a50454200b25e7d50893c6c4bf0e94d0a31d78b2ddd9db801f661",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 52.11,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 27.3,
+            "cortex_luma_mean": 188.5,
+            "mode1_head_p75": 188.5,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.889,
+            "left_margin": 0.056,
+            "right_margin": 0.056,
+            "top_margin": 0.249,
+            "cyan_pct": 11.19,
+            "cortex_luma": 190.1,
+            "mode1_inner_cyan_pct": 13.65
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A04_mode2_whole_brain_anterior_frontal/cand_04.png",
+          "sha256": "7996dd2528fcf4284f63876629aa77594ff74054e58c11aae47a75025c9d2d55",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 41.33,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 31.8,
+            "cortex_luma_mean": 184.1,
+            "mode1_head_p75": 184.1,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.764,
+            "left_margin": 0.118,
+            "right_margin": 0.119,
+            "top_margin": 0.333,
+            "cyan_pct": 13.13,
+            "cortex_luma": 186.5,
+            "mode1_inner_cyan_pct": 16.8
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A04_mode2_whole_brain_anterior_frontal/cand_02.png",
+      "approved_sha256": "26be7e75ef1862aacccbedb59e05c0880f17377f05dfbb97f4fa1ee28edb0d4e",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A05_sulcal_vessel_macro",
+      "category": "A_brain",
+      "title_ko": "A5. 주름 고랑 사이 굵은 불투명 하늘색 혈관 근접 (Macro)",
+      "when_to_use": "뇌혈관 박동·뇌척수액(CSF) 유입·고랑 미세혈관 클로즈업 장면의 근접 질감 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Extreme close-up macro view of three sculpted almost-white matte gypsum-plaster cortical gyri folds (#DCDFE3 to #ECEFF2, ultra-low saturation chalky plaster texture) meeting at deep Y-shaped sulcal grooves: nestled cleanly inside the dark sulcal grooves run thick, smooth, round, opaque sky-blue (#27D8FF) cylindrical blood-vessel tubes with subtle clean rim sheen only (neutral baseline, zero red cells, zero particles).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=30.20s (ep31_orig_mode2_vessel_macro_9x16.png)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_02.png] 원본 31번(t=30.2s) 혈관 매크로와 동일하게 중앙 고랑을 상하로 관통하는 굵고 매끄러운 불투명 하늘색 Y자 혈관 튜브 연속성이 cand_02에서 가장 명확함 (cand_01은 좌하단 고랑 빈 틈이 커 2순위).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A05_sulcal_vessel_macro/cand_01.png",
+          "sha256": "90b27537a303de4922216544d4ec8a4b13b58b6a47995f1a650d98db5d835218",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 9.81,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 36.3,
+            "cortex_luma_mean": 179.6,
+            "mode1_head_p75": 179.6,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 0.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 1.0,
+            "left_margin": 0.0,
+            "right_margin": 0.0,
+            "top_margin": 0.0,
+            "cyan_pct": 32.27,
+            "cortex_luma": 186.8,
+            "mode1_inner_cyan_pct": 27.87
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A05_sulcal_vessel_macro/cand_02.png",
+          "sha256": "f9d7c46cdc1ba98c485444becc6dea236ab0b16a16ac2cb0a9b49f1d99c10bc5",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 11.3,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 37.4,
+            "cortex_luma_mean": 180.3,
+            "mode1_head_p75": 180.3,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 0.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 1.0,
+            "left_margin": 0.0,
+            "right_margin": 0.0,
+            "top_margin": 0.0,
+            "cyan_pct": 26.68,
+            "cortex_luma": 192.4,
+            "mode1_inner_cyan_pct": 26.05
+          },
+          "sha256_locked": true
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A05_sulcal_vessel_macro/cand_02.png",
+      "approved_sha256": "f9d7c46cdc1ba98c485444becc6dea236ab0b16a16ac2cb0a9b49f1d99c10bc5",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A06_hippocampus_cutaway",
+      "category": "A_brain",
+      "title_ko": "A6. 해마 단면 (외측 하방 측두엽 절개 Inferior-Lateral Cutaway)",
+      "when_to_use": "기억·공간 탐색·경계 세포 등 해마(Hippocampus) 관련 모든 컷의 필수 해부 시점 앵커로 사용한다(뇌량 오표기 원천 차단).",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Inferior-lateral anatomical cutaway of a whole uncropped left-facing human 3D brain over solid flat #040711 dark navy void (strictly zero floor reflection): a clean recessed architectural window in the lower-left temporal lobe reveals the curved C-shaped seahorse structure of the hippocampus tinted in smooth matte warm golden-amber (#F2A93B) deep inside the medial temporal horn, while the corpus callosum remains untouched. Every cortical lobe across the ENTIRE brain surface is densely laced with a rich, continuous branching tree of THICK, plump, round 3D sky-blue (#27D8FF to #5AE6FF) cerebral blood-vessel tubes with crisp glossy white specular edge highlights running through both primary AND secondary sulcal grooves (thick prominent vessel caliber matching the reference image across ~20% of the brain surface — NEVER sparse, NEVER thin hairline threads). Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        },
+        {
+          "type": "wikimedia_open_license_guide",
+          "title": "File:Hippocampus image.png",
+          "url": "https://commons.wikimedia.org/wiki/File:Hippocampus_image.png",
+          "license": "CC BY-SA 2.1 jp"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 94%, 하늘색 혈관망 밀도 26.42%, 밝은 백색 석고 조명 V=196.0 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A06_hippocampus_cutaway/cand_01.png",
+          "sha256": "a40d8258e9ef190909b87cc5f9804c56ff3c5466e93e138db32594fecbc51af3",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 94.29,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 32.7,
+            "cortex_luma_mean": 189.8,
+            "mode1_head_p75": 189.8,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.943,
+            "left_margin": 0.029,
+            "right_margin": 0.029,
+            "top_margin": 0.248,
+            "cyan_pct": 26.42,
+            "cortex_luma": 196.0,
+            "mode1_inner_cyan_pct": 30.6
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A06_hippocampus_cutaway/cand_02.png",
+          "sha256": "db19b9237ac57d028737877cb1caacee0a2ac91675a01312299baa5bfa8dbd48",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 81.91,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 43.5,
+            "cortex_luma_mean": 189.6,
+            "mode1_head_p75": 189.6,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.964,
+            "left_margin": 0.019,
+            "right_margin": 0.018,
+            "top_margin": 0.235,
+            "cyan_pct": 32.64,
+            "cortex_luma": 202.9,
+            "mode1_inner_cyan_pct": 40.77
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A06_hippocampus_cutaway/cand_03.png",
+          "sha256": "93b6a402d6ab53d93260161ce42b7fff2969837ec5091d60249b6f49ea22fdbf",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 43.52,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 29.3,
+            "cortex_luma_mean": 196.7,
+            "mode1_head_p75": 196.7,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.953,
+            "left_margin": 0.019,
+            "right_margin": 0.028,
+            "top_margin": 0.224,
+            "cyan_pct": 11.15,
+            "cortex_luma": 199.8,
+            "mode1_inner_cyan_pct": 13.33
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A06_hippocampus_cutaway/cand_04.png",
+          "sha256": "ee17e3e1081187781d2c491f5141ffd2bc916a698d34feb402a6b535ff046bdc",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 68.28,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 30.5,
+            "cortex_luma_mean": 184.6,
+            "mode1_head_p75": 184.6,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.968,
+            "left_margin": 0.017,
+            "right_margin": 0.016,
+            "top_margin": 0.243,
+            "cyan_pct": 13.52,
+            "cortex_luma": 188.7,
+            "mode1_inner_cyan_pct": 16.68
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A06_hippocampus_cutaway/cand_02.png",
+      "approved_sha256": "db19b9237ac57d028737877cb1caacee0a2ac91675a01312299baa5bfa8dbd48",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A07_thalamus_brainstem_midsagittal",
+      "category": "A_brain",
+      "title_ko": "A7. 시상·뇌간·뇌실 정중시상 단면 (Midsagittal Cutaway)",
+      "when_to_use": "수면 각성·통증 하행 억제·뇌척수액(CSF)·시상(Thalamus)·뇌간(Brainstem/청반) 설명 시 정중시상 단면 기준 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Clean midsagittal medial cross-section of a whole uncropped human 3D brain facing left over solid flat #040711 dark navy void: clearly showing the arched corpus callosum, lateral/third/fourth CSF ventricular chambers, central egg-shaped thalamus tinted in smooth matte warm amber (#F2A93B), midbrain, pons, medulla brainstem, and foliated cerebellum arbor vitae; the entire medial cortical gyri and cingulate sulci are densely laced with thick branching sky-blue (#27D8FF to #5AE6FF) 3D blood-vessel tubes with glossy rim highlights. Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        },
+        {
+          "type": "wikimedia_open_license_guide",
+          "title": "File:Thalamus.png",
+          "url": "https://commons.wikimedia.org/wiki/File:Thalamus.png",
+          "license": "CC BY-SA 2.1 jp"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 95%, 하늘색 혈관망 밀도 27.04%, 밝은 백색 석고 조명 V=207.8 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A07_thalamus_brainstem_midsagittal/cand_01.png",
+          "sha256": "bbf739939d59e4c9a848cefbdd97dfba1d36dc4896d4423422975143baf3a11d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 123.79,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 32.6,
+            "cortex_luma_mean": 201.2,
+            "mode1_head_p75": 201.2,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.952,
+            "left_margin": 0.024,
+            "right_margin": 0.024,
+            "top_margin": 0.235,
+            "cyan_pct": 27.04,
+            "cortex_luma": 207.8,
+            "mode1_inner_cyan_pct": 32.07
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A07_thalamus_brainstem_midsagittal/cand_02.png",
+          "sha256": "3ca5ca87ee850f65f711380375d16e9c2318804bd3043b8cd21bcf1328932f69",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 129.92,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 42.6,
+            "cortex_luma_mean": 197.0,
+            "mode1_head_p75": 197.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.939,
+            "left_margin": 0.031,
+            "right_margin": 0.031,
+            "top_margin": 0.255,
+            "cyan_pct": 34.05,
+            "cortex_luma": 209.8,
+            "mode1_inner_cyan_pct": 40.44
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A07_thalamus_brainstem_midsagittal/cand_03.png",
+          "sha256": "52b3b03ee2ec68c1bcbbdaee09f5f20a6bd8811dcf7305866b0630466d037ec6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 78.73,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 27.1,
+            "cortex_luma_mean": 188.4,
+            "mode1_head_p75": 188.4,
+            "floating_spark_clusters": 1,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.904,
+            "left_margin": 0.048,
+            "right_margin": 0.048,
+            "top_margin": 0.234,
+            "cyan_pct": 12.35,
+            "cortex_luma": 192.0,
+            "mode1_inner_cyan_pct": 14.11
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A07_thalamus_brainstem_midsagittal/cand_04.png",
+          "sha256": "a3fe7129bbd59ebcc066e370b262effd96f24810d37c7cb6c5d1fd378019d56e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 94.26,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 31.1,
+            "cortex_luma_mean": 186.3,
+            "mode1_head_p75": 186.3,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.906,
+            "left_margin": 0.046,
+            "right_margin": 0.048,
+            "top_margin": 0.254,
+            "cyan_pct": 10.82,
+            "cortex_luma": 191.6,
+            "mode1_inner_cyan_pct": 13.84
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A07_thalamus_brainstem_midsagittal/cand_02.png",
+      "approved_sha256": "3ca5ca87ee850f65f711380375d16e9c2318804bd3043b8cd21bcf1328932f69",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A08_insula_operculum_retracted",
+      "category": "A_brain",
+      "title_ko": "A8. 섬엽 단면 (외측 실비우스열 덮개 젖힘 Operculum Retracted)",
+      "when_to_use": "통증·내수용감각·혐오·직관 등 섬엽(Insula) 설명 시 외측 덮개(Operculum) 절개 시점 전용 앵커로 사용한다(정중시상면 절대 금지).",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Exterior left-lateral anatomical view of a whole uncropped human 3D brain over solid flat #040711 dark navy void where the fronto-parietal and temporal opercula along the lateral Sylvian fissure are cleanly parted open to expose the hidden fan-shaped insular cortex gyri deep inside (insular gyri subtly tinted in smooth matte warm amber #F2A93B, never a midsagittal split). Every cortical lobe across the ENTIRE brain surface is densely laced with a rich, continuous branching tree of THICK, plump, round 3D sky-blue (#27D8FF to #5AE6FF) cerebral blood-vessel tubes with crisp glossy white specular edge highlights running through both primary AND secondary sulcal grooves (thick prominent vessel caliber matching the reference image across ~20% of the brain surface — NEVER sparse, NEVER thin hairline threads). Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        },
+        {
+          "type": "wikimedia_open_license_guide",
+          "title": "File:Brain lobes - insular lobe.png",
+          "url": "https://commons.wikimedia.org/wiki/File:Brain_lobes_-_insular_lobe.png",
+          "license": "CC BY 2.5"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 95%, 하늘색 혈관망 밀도 29.5%, 밝은 백색 석고 조명 V=205.5 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A08_insula_operculum_retracted/cand_01.png",
+          "sha256": "97759779cd0b6c6aac7a0bd558eccd64160d2d7b1391599979f965ff8d838699",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 96.81,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 40.0,
+            "cortex_luma_mean": 192.5,
+            "mode1_head_p75": 192.5,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 26.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.949,
+            "left_margin": 0.025,
+            "right_margin": 0.026,
+            "top_margin": 0.248,
+            "cyan_pct": 29.5,
+            "cortex_luma": 205.5,
+            "mode1_inner_cyan_pct": 34.64
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A08_insula_operculum_retracted/cand_02.png",
+          "sha256": "79fb690e1bc2207c9043846eec5f84cf53a0bc8d617311a5f07a3bdd8eb43bcb",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 98.49,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 43.6,
+            "cortex_luma_mean": 195.5,
+            "mode1_head_p75": 195.5,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 24.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.961,
+            "left_margin": 0.019,
+            "right_margin": 0.019,
+            "top_margin": 0.239,
+            "cyan_pct": 33.24,
+            "cortex_luma": 210.4,
+            "mode1_inner_cyan_pct": 40.85
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A08_insula_operculum_retracted/cand_03.png",
+          "sha256": "6079fde92e07ec8284afde2dcd281c16e585c1d691316798798a46328833fa35",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 70.9,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 26.5,
+            "cortex_luma_mean": 179.3,
+            "mode1_head_p75": 179.3,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.939,
+            "left_margin": 0.03,
+            "right_margin": 0.031,
+            "top_margin": 0.256,
+            "cyan_pct": 9.54,
+            "cortex_luma": 183.1,
+            "mode1_inner_cyan_pct": 11.44
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A08_insula_operculum_retracted/cand_04.png",
+          "sha256": "dab481eaba0435f0148afb85ba801c253122765824b15dfffa601a279718a75f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 68.73,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 20.0,
+            "cortex_luma_mean": 179.5,
+            "mode1_head_p75": 179.5,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.964,
+            "left_margin": 0.019,
+            "right_margin": 0.017,
+            "top_margin": 0.257,
+            "cyan_pct": 9.73,
+            "cortex_luma": 180.7,
+            "mode1_inner_cyan_pct": 11.05
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A08_insula_operculum_retracted/cand_02.png",
+      "approved_sha256": "79fb690e1bc2207c9043846eec5f84cf53a0bc8d617311a5f07a3bdd8eb43bcb",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A09_prefrontal_cortex_3q_anterolateral",
+      "category": "A_brain",
+      "title_ko": "A9. 전전두엽 (3/4 전외측 Anterolateral 시점)",
+      "when_to_use": "자기통제·의사결정·위약 예측·실행기능 등 전전두엽(Prefrontal Cortex) 활성/억제 설명 시 3/4 전외측 표준 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Three-quarter anterolateral view of a whole uncropped human 3D brain over solid flat #040711 dark navy void: the anterior prefrontal cortex (dorsolateral and ventrolateral prefrontal gyri at the front-left pole) is cleanly shaded in smooth matte warm amber-ochre pigment (#EEAA3E, matte surface pigment only, zero glow), while thick branching sky-blue (#27D8FF to #5AE6FF) 3D cylindrical blood-vessel tubes with glossy specular edge highlights branch densely across BOTH the prefrontal sulci and the rest of the bright matte gypsum cortex. Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        },
+        {
+          "type": "wikimedia_open_license_guide",
+          "title": "File:Prefrontal cortex (left) - lateral view.png",
+          "url": "https://commons.wikimedia.org/wiki/File:Prefrontal_cortex_(left)_-_lateral_view.png",
+          "license": "CC BY-SA 2.1 jp"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 90%, 하늘색 혈관망 밀도 24.37%, 밝은 백색 석고 조명 V=201.4 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A09_prefrontal_cortex_3q_anterolateral/cand_01.png",
+          "sha256": "2f79dbeb809f0ac281306b37c64dd38ea06b0f1e3e0ea2430a857316ca86bff2",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 78.66,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 45.5,
+            "cortex_luma_mean": 192.5,
+            "mode1_head_p75": 192.5,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.904,
+            "left_margin": 0.059,
+            "right_margin": 0.037,
+            "top_margin": 0.253,
+            "cyan_pct": 24.37,
+            "cortex_luma": 201.4,
+            "mode1_inner_cyan_pct": 28.51
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A09_prefrontal_cortex_3q_anterolateral/cand_02.png",
+          "sha256": "839395292d05808729c65c5b313f2cea817446ac0ac59b26ffb1fe25a7e22d7d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 54.49,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 42.6,
+            "cortex_luma_mean": 197.0,
+            "mode1_head_p75": 197.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 23.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0002,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.919,
+            "left_margin": 0.044,
+            "right_margin": 0.037,
+            "top_margin": 0.254,
+            "cyan_pct": 21.49,
+            "cortex_luma": 201.9,
+            "mode1_inner_cyan_pct": 24.82
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A09_prefrontal_cortex_3q_anterolateral/cand_03.png",
+          "sha256": "1089fab987fdb1f052a24bedab17127ab72b96a7a0aabaa06778e4cba4dc32a4",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 40.05,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 30.4,
+            "cortex_luma_mean": 192.8,
+            "mode1_head_p75": 192.8,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.871,
+            "left_margin": 0.09,
+            "right_margin": 0.039,
+            "top_margin": 0.254,
+            "cyan_pct": 10.8,
+            "cortex_luma": 194.5,
+            "mode1_inner_cyan_pct": 12.17
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A09_prefrontal_cortex_3q_anterolateral/cand_04.png",
+          "sha256": "558f706cf68225157b2ba61cabd87e7812584f19f0df10609ed352bd5524da9a",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 50.75,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 36.1,
+            "cortex_luma_mean": 187.8,
+            "mode1_head_p75": 187.8,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.904,
+            "left_margin": 0.054,
+            "right_margin": 0.043,
+            "top_margin": 0.253,
+            "cyan_pct": 15.06,
+            "cortex_luma": 191.3,
+            "mode1_inner_cyan_pct": 17.65
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A09_prefrontal_cortex_3q_anterolateral/cand_02.png",
+      "approved_sha256": "839395292d05808729c65c5b313f2cea817446ac0ac59b26ffb1fe25a7e22d7d",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A10_signal_segment_sample",
+      "category": "A_brain",
+      "title_ko": "A10. 신호 전달 표현 표준 샘플 (튜브 속 짧은 불투명 금색 구간, 무입자·무발광)",
+      "when_to_use": "뇌 영역 간 신경 신호 이동을 연출할 때 입자·번개·발광 대신 고랑/경로 튜브 내부의 짧고 불투명한 단색 구간으로 표현하는 시각 문법 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Exterior lateral view of a whole uncropped human 3D brain over solid flat #040711 dark navy void demonstrating canonical solid in-tube neural signal segments: across the dense branching network of thick plump sky-blue (#27D8FF) 3D cylindrical sulcal tubes covering the entire brain, three short crisp solid opaque warm amber-gold (#FFB830) cylindrical plug segments sit cleanly inside a primary fronto-temporal sulcal tube (solid physical tube segments only — strictly zero outer glow, zero sparks, zero particles). Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s (exact 2 short amber tube segments)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 96%, 하늘색 혈관망 밀도 31.35%, 밝은 백색 석고 조명 V=196.3 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A10_signal_segment_sample/cand_01.png",
+          "sha256": "6db3d7a235f91c31a625b5abaec33a459051e9ac645771917b1c32808722f33f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 52.23,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 41.1,
+            "cortex_luma_mean": 187.2,
+            "mode1_head_p75": 187.2,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.957,
+            "left_margin": 0.021,
+            "right_margin": 0.021,
+            "top_margin": 0.252,
+            "cyan_pct": 31.35,
+            "cortex_luma": 196.3,
+            "mode1_inner_cyan_pct": 35.91
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A10_signal_segment_sample/cand_02.png",
+          "sha256": "bdfad9571415a3f78e35e11f8027f120482e4d06a828753212d7025ad787461e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 56.83,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 38.0,
+            "cortex_luma_mean": 183.0,
+            "mode1_head_p75": 183.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.955,
+            "left_margin": 0.022,
+            "right_margin": 0.023,
+            "top_margin": 0.247,
+            "cyan_pct": 25.62,
+            "cortex_luma": 187.8,
+            "mode1_inner_cyan_pct": 29.92
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A10_signal_segment_sample/cand_03.png",
+          "sha256": "438ff17f89bf38d237e14eed5fc3219c448bff8ca7a8ec6c15465a70403f9183",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 59.76,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 24.0,
+            "cortex_luma_mean": 190.4,
+            "mode1_head_p75": 190.4,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.907,
+            "left_margin": 0.049,
+            "right_margin": 0.044,
+            "top_margin": 0.278,
+            "cyan_pct": 11.83,
+            "cortex_luma": 191.6,
+            "mode1_inner_cyan_pct": 13.16
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A10_signal_segment_sample/cand_04.png",
+          "sha256": "f5f722b9c8a544e1aab068011327f293909e45414eb9fd304cf8c7b13fdb822e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 61.65,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 26.7,
+            "cortex_luma_mean": 187.2,
+            "mode1_head_p75": 187.2,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.896,
+            "left_margin": 0.055,
+            "right_margin": 0.049,
+            "top_margin": 0.276,
+            "cyan_pct": 12.17,
+            "cortex_luma": 189.2,
+            "mode1_inner_cyan_pct": 13.86
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A10_signal_segment_sample/cand_02.png",
+      "approved_sha256": "bdfad9571415a3f78e35e11f8027f120482e4d06a828753212d7025ad787461e",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A11_region_shutdown_sample",
+      "category": "A_brain",
+      "title_ko": "A11. 구역 꺼짐(Shutdown/기능 저하) 표현 표준 샘플",
+      "when_to_use": "수면 부족·약물 억제·병변·회백질 위축 등 특정 뇌 구역이 꺼지거나 둔화되는 상태를 단색 매트 슬레이트 암전으로 표현할 때 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Exterior lateral view of a whole uncropped human 3D brain over solid flat #040711 dark navy void demonstrating canonical regional shutdown: the anterior frontal lobe zone is cleanly de-saturated into dark muted matte slate-gray (#525A64) with its internal sulcal tubes completely darkened/extinguished inside that bounded zone, contrasting sharply against the active posterior parietal/temporal/occipital cortex of bright chalk-white matte gypsum (#E4E8EC to #F2F5F8) densely covered with thick branching sky-blue (#27D8FF) 3D blood-vessel tubes. Bold close-medium hero scale where the whole uncropped 3D brain fills 85% to 90% of the horizontal 9:16 frame width (leaving clean 5%–8% dark navy side margins, 100% uncropped poles/cerebellum/brainstem) under unified bright top-left 45-degree studio keylight illuminating bright chalk-white matte sculpted gypsum gyri (#E4E8EC to #F2F5F8, never dim gray). (zero smoke, zero fog).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 95%, 하늘색 혈관망 밀도 29.67%, 밝은 백색 석고 조명 V=190.0 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A11_region_shutdown_sample/cand_01.png",
+          "sha256": "c3f4a96cd0c233c4d297a1b19613966130a6c76dd56123e76d7be2d7b62dd80d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 53.42,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 45.6,
+            "cortex_luma_mean": 172.4,
+            "mode1_head_p75": 172.4,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 18.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.952,
+            "left_margin": 0.026,
+            "right_margin": 0.022,
+            "top_margin": 0.258,
+            "cyan_pct": 29.67,
+            "cortex_luma": 190.0,
+            "mode1_inner_cyan_pct": 42.47
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A11_region_shutdown_sample/cand_02.png",
+          "sha256": "d03028c7027f1b0d6ec347c27dd238786099c1e5cfbbceffce407d5357db20a2",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 43.95,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 47.9,
+            "cortex_luma_mean": 166.5,
+            "mode1_head_p75": 166.5,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0151,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.958,
+            "left_margin": 0.022,
+            "right_margin": 0.019,
+            "top_margin": 0.259,
+            "cyan_pct": 33.01,
+            "cortex_luma": 185.3,
+            "mode1_inner_cyan_pct": 45.62
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A11_region_shutdown_sample/cand_03.png",
+          "sha256": "d9566a1133a6170418d66cab9b1f8a27f9716ff4f50cea0e1f75f503f957a41c",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 60.25,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 32.4,
+            "cortex_luma_mean": 168.3,
+            "mode1_head_p75": 168.3,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.952,
+            "left_margin": 0.025,
+            "right_margin": 0.023,
+            "top_margin": 0.273,
+            "cyan_pct": 11.37,
+            "cortex_luma": 175.6,
+            "mode1_inner_cyan_pct": 20.57
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A11_region_shutdown_sample/cand_04.png",
+          "sha256": "ffebb3ec99488150b33ff6979a418afeabc5b0b645ca31a1b461c3ff7043d69c",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 57.22,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 29.8,
+            "cortex_luma_mean": 178.0,
+            "mode1_head_p75": 178.0,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 21.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.934,
+            "left_margin": 0.033,
+            "right_margin": 0.032,
+            "top_margin": 0.266,
+            "cyan_pct": 11.35,
+            "cortex_luma": 187.3,
+            "mode1_inner_cyan_pct": 19.25
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A11_region_shutdown_sample/cand_02.png",
+      "approved_sha256": "d03028c7027f1b0d6ec347c27dd238786099c1e5cfbbceffce407d5357db20a2",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "A12_dual_brain_top_bottom_compare",
+      "category": "A_brain",
+      "title_ko": "A12. 상·하 2개 온전한 뇌 비교 표준 틀 (절단선·잘림 0%)",
+      "when_to_use": "실험군(상단 활성/팽창) vs 대조군(하단 비활성/기본) 두 뇌를 한 화면에서 직관적으로 비교할 때 상·하 2개 온전한 뇌 레이아웃 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 ultra-clean 3D neuroanatomy render in the genuine Episode #31 style over solid flat dark navy void (#040711), large hero framing filling 82% to 90% of the horizontal 9:16 frame width under unified bright top-left 45-degree studio keylight: almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk texture, strictly zero blue steel tint, zero wet cortical gloss) densely covered across the entire cortical surface by a rich branching network of thick round opaque sky-blue (#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy white specular edge highlights running through both primary and secondary sulcal grooves, zero text, zero labels, zero watermark. Zero glow, zero neon, zero particles, zero sparks, zero embers, zero light beams, zero bloom halo, zero smoke or haze. Two complete uncropped lateral human 3D brains stacked vertically (UPPER brain and LOWER brain) floating in one continuous seamless #040711 dark navy 9:16 space (strictly zero horizontal divider line, zero split-screen seam), each brain spanning 84% of the horizontal frame width: both brains feature bright chalk-white matte gypsum gyri (#E4E8EC to #F2F5F8) densely covered across all lobes by thick branching sky-blue (#27D8FF) 3D cylindrical blood-vessel tubes with glossy rim highlights; the UPPER brain shows a full matte warm-amber (#F2A93B) posterior temporal-parietal zone, while the LOWER brain shows the same zone darkened in muted matte slate-gray (#525A64) (zero text, zero glow).",
+      "reference_origins": [
+        {
+          "type": "channel_31_O2CmlKOk_native",
+          "frame": "t=39.33s"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[CEO 4대 보강 반영 1순위] 가로 채움 89%, 하늘색 혈관망 밀도 29.46%, 밝은 백색 석고 조명 V=214.1 (cand_01·02는 80~90% 고밀도 혈관 보강안, cand_03+는 기존 @Research 선별 중형 프레임 비교안)",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "A_brain/A12_dual_brain_top_bottom_compare/cand_01.png",
+          "sha256": "e223cc4146d713226a066cb7b20c2a65ee0bf9ea8e22ef7e901b130c9c5cb677",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 157.98,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 47.4,
+            "cortex_luma_mean": 190.2,
+            "mode1_head_p75": 190.2,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.889,
+            "left_margin": 0.056,
+            "right_margin": 0.056,
+            "top_margin": 0.062,
+            "cyan_pct": 29.46,
+            "cortex_luma": 214.1,
+            "mode1_inner_cyan_pct": 29.78
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "A_brain/A12_dual_brain_top_bottom_compare/cand_02.png",
+          "sha256": "7d936ebbd227c33489bb24c7031e187ac5ab49212670a7521db624efdec18bf3",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 221.44,
+          "status": "approved",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 41.6,
+            "cortex_luma_mean": 180.7,
+            "mode1_head_p75": 180.7,
+            "floating_spark_clusters": 2,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.909,
+            "left_margin": 0.045,
+            "right_margin": 0.045,
+            "top_margin": 0.052,
+            "cyan_pct": 22.98,
+            "cortex_luma": 196.2,
+            "mode1_inner_cyan_pct": 25.83
+          },
+          "sha256_locked": true
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "A_brain/A12_dual_brain_top_bottom_compare/cand_03.png",
+          "sha256": "3a52841758cad070aa847dc9b1d4fce64a7d85260dc1af5d081b596b59b700b8",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 115.3,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 22.1,
+            "cortex_luma_mean": 175.3,
+            "mode1_head_p75": 175.3,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 22.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.82,
+            "left_margin": 0.09,
+            "right_margin": 0.09,
+            "top_margin": 0.048,
+            "cyan_pct": 10.85,
+            "cortex_luma": 176.6,
+            "mode1_inner_cyan_pct": 11.86
+          },
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "A_brain/A12_dual_brain_top_bottom_compare/cand_04.png",
+          "sha256": "537297a5986a7e87d3c4ec9570afc4d54afe7c2fa1686427cb95fdad56435db8",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 107.54,
+          "status": "candidate",
+          "ep31_brain_fidelity": {
+            "passed": true,
+            "mode": "mode2",
+            "cortex_sat_mean": 31.6,
+            "cortex_luma_mean": 185.4,
+            "mode1_head_p75": 185.4,
+            "floating_spark_clusters": 0,
+            "void_halo_luma_p90": 20.0,
+            "void_halo_bloom_ratio": 0.0,
+            "warm_light_beam_ratio": 0.0,
+            "reasons": []
+          },
+          "ceo_frame_and_vessel_metrics": {
+            "width_ratio": 0.782,
+            "left_margin": 0.109,
+            "right_margin": 0.108,
+            "top_margin": 0.085,
+            "cyan_pct": 17.52,
+            "cortex_luma": 187.2,
+            "mode1_inner_cyan_pct": 19.2
+          },
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_02.png",
+      "approved_rel_path": "A_brain/A12_dual_brain_top_bottom_compare/cand_02.png",
+      "approved_sha256": "7d936ebbd227c33489bb24c7031e187ac5ab49212670a7521db624efdec18bf3",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "C01_arrow_straight_corridor",
+      "category": "C_arrows_r80",
+      "title_ko": "C1. R80 대조 화살표 — 일직선 경로 (Straight Top-Down)",
+      "when_to_use": "고정 노선·단순 반복·직선 이동 대조군 경로를 보여주는 90도 수직 탑다운 #FF2525 입체 직선 화살표 기준 틀로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 crisp 90-degree bird's-eye top-down 3D miniature architectural diorama under bright sunlit daylight: down the center of a clean unmarked smooth gray avenue flanked by symmetrical minimalist cream-stone architectural roof blocks runs ONE SINGLE CONTINUOUS UNBROKEN vivid matte crimson-red (#FF2525) 3D extruded rectangular arrow shaft rising from a crisp white circular start disc near the bottom to a bold pointed crimson 3D arrowhead near the top, casting a sharp contact shadow on the gray surface; zero vehicles, zero pedestrians, zero text, zero numbers.",
+      "reference_origins": [
+        {
+          "type": "aab_r80_canonical_spec",
+          "rule": "R80 fixed_linear_corridor (#FF2525)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "90도 수직 탑다운 크림색 도시 블록 사이로 하단 흰 출발 원부터 상단 화살촉까지 끊김 0%로 뻗은 단일 #FF2525 3D 직선 화살표 (cand_01 1순위, cand_03 2순위; 무문자·무보행자 완벽).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_01.png",
+          "sha256": "e0eadd91b4e62b13e4ff06786b677da0f5dd0ae97d3624ea104bda5ab039fa73",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 218.63,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_02.png",
+          "sha256": "df8fa0180e4263445b858b48b2cf617b5ef34fadf81749ca2541672d68ef0cd5",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 180.69,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_03.png",
+          "sha256": "0087973eed83fa0289cda76deaa94d92d49da8e2436de1027cb6d7f2fa154564",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 202.94,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_04.png",
+          "sha256": "d226076bf294124908ca1a23161eb5299d5eedfaaa37e893ee7fa704f42189b9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 120.31,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "C_arrows_r80/C01_arrow_straight_corridor/cand_01.png",
+      "approved_sha256": "e0eadd91b4e62b13e4ff06786b677da0f5dd0ae97d3624ea104bda5ab039fa73",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "C02_arrow_adaptive_zigzag",
+      "category": "C_arrows_r80",
+      "title_ko": "C2. R80 대조 화살표 — 지그재그 우회 경로 (Zigzag Top-Down)",
+      "when_to_use": "실시간 경로 재탐색·복합 공간 학습·유연한 적응형 행동을 보여주는 90도 탑다운 #FF2525 입체 지그재그 화살표 기준 틀로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 crisp 90-degree bird's-eye top-down 3D miniature architectural grid diorama under bright sunlit daylight: across clean intersecting unmarked gray streets between neat cream-stone miniature city blocks, ONE continuous vivid matte crimson-red (#FF2525) 3D extruded arrow starts at a white circular bottom node and weaves through four crisp 90-degree right-and-left turns up the grid to a bold pointed crimson arrowhead near the top, casting crisp ground shadows; zero vehicles, zero pedestrians, zero text, zero labels.",
+      "reference_origins": [
+        {
+          "type": "aab_r80_canonical_spec",
+          "rule": "R80 adaptive_landmark_zigzag (#FF2525)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "C01(cand_01)과 건물 블록 스케일·도로 폭·하단 흰 출발 원 크기가 1:1로 호환되면서 다중 우회 지그재그 경로를 선명히 보여주는 cand_01 1순위, cand_03 2순위 (cand_02는 블록이 지나치게 잘게 쪼개져 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "C_arrows_r80/C02_arrow_adaptive_zigzag/cand_01.png",
+          "sha256": "f061e40b6b57acbadb614471189d2631b55aecbec97a80ebd46b78894b71dc94",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 382.03,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "C_arrows_r80/C02_arrow_adaptive_zigzag/cand_02.png",
+          "sha256": "d6ac0cefbebb3a766556b733249b78fca90ff2096a89d23f35bebae76798f3cd",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 331.04,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "C_arrows_r80/C02_arrow_adaptive_zigzag/cand_01.png",
+      "approved_sha256": "f061e40b6b57acbadb614471189d2631b55aecbec97a80ebd46b78894b71dc94",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "C03_arrow_doorway_sever_gap",
+      "category": "C_arrows_r80",
+      "title_ko": "C3. R80 대조 화살표 — 문턱 경계 단절 (Doorway Sever Gap Top-Down)",
+      "when_to_use": "문턱 효과·맥락 단절·신경 경로 차단처럼 경계선을 넘는 순간 연속성이 끊기는 현상을 보여주는 #FF2525 끊긴 화살표(Sever) 기준 틀로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 crisp 90-degree bird's-eye top-down architectural cutaway of two spotless sunlit warm-oak rooms separated horizontally across the middle by a clean cream interior wall with an open doorway threshold: a vivid matte crimson-red (#FF2525) 3D extruded arrow starts at a white circular node in the lower room, stops abruptly at a clean squared-off break right before the doorway threshold leaving a wide unmistakable empty physical gap across the doorway, and only a short faded slate-gray dashed stub sits beyond the doorway in the upper room; zero figures, zero text.",
+      "reference_origins": [
+        {
+          "type": "aab_r80_canonical_spec",
+          "rule": "R80 doorway_boundary_sever (#FF2525)"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "풀프레임 9:16 탑다운 원목 바닥 위 #FF2525 3D 화살표가 열린 문턱 앞에서 물리적으로 완전히 끊기고 문 너머는 희미한 회색 점선 흔적만 남아 '문지방 단절(sever)'이 즉시 읽히는 cand_01 1순위, cand_03 2순위 (cand_02는 외곽 흰 테두리 노출로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "C_arrows_r80/C03_arrow_doorway_sever_gap/cand_01.png",
+          "sha256": "578089d24e763e984515f54a9fa30d0ec62f49d3fe0e53b9a02c0a14d6ce8349",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 135.14,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "C_arrows_r80/C03_arrow_doorway_sever_gap/cand_02.png",
+          "sha256": "360ed7eee0acc610598b086d510b15615662a61633e504657518ecb2c31acd68",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 117.72,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "C_arrows_r80/C03_arrow_doorway_sever_gap/cand_01.png",
+      "approved_sha256": "578089d24e763e984515f54a9fa30d0ec62f49d3fe0e53b9a02c0a14d6ce8349",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "D01_drone_university_campus_120ft",
+      "category": "D_drone_120ft",
+      "title_ko": "D1. 120ft 상공 대학 캠퍼스 부감 표준 구도 (인물은 작은 점)",
+      "when_to_use": "대학 심리학·뇌과학 연구 에피소드 오프닝(S01~S04)에서 지상 워킹샷 착시 없는 진짜 120ft 상공 캠퍼스 항공 드론샷 기준 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 high-altitude 120ft bird's-eye 45-degree aerial overview looking down across a sunlit classical red-brick and cream-limestone university quadrangle with a neoclassical rotunda dome, manicured green lawns, stone walkways, and lush green tree canopies in stylized 3D miniature architectural cinema; 120ft altitude where any courtyard figures read strictly as tiny 3-pixel distant pinprick dots (zero close-up pedestrians, zero faces), completely blank stone friezes, zero banners, zero signage, zero text.",
+      "reference_origins": [
+        {
+          "type": "aab_r85_drone_spec",
+          "rule": "R82/R85 120ft altitude university aerial"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "화면 상하단 인위적 블러나 안개 없이 120ft 상공에서 붉은 벽돌 대학 캠퍼스 돔·잔디 광장과 미세 점 크기 보행자를 선명히 담은 cand_01 1순위, cand_04 2순위 (cand_02는 상하 미니어처 틸트시프트 블러, cand_03은 상단 뿌연 안개로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "D_drone_120ft/D01_drone_university_campus_120ft/cand_01.png",
+          "sha256": "1f84b4b1ed6160f57f04087efde86a28dab6596a02314d9529eba44d61d90615",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 874.4,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "D_drone_120ft/D01_drone_university_campus_120ft/cand_02.png",
+          "sha256": "9dec64300f44d40e5dd0532a6c7fca4f4c0ccceabf0b451843a1b258f176071b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 437.72,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "D_drone_120ft/D01_drone_university_campus_120ft/cand_01.png",
+      "approved_sha256": "1f84b4b1ed6160f57f04087efde86a28dab6596a02314d9529eba44d61d90615",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "D02_drone_medical_hospital_120ft",
+      "category": "D_drone_120ft",
+      "title_ko": "D2. 120ft 상공 임상 병원·뇌연구소 부감 표준 구도 (인물은 작은 점)",
+      "when_to_use": "대학병원·수면센터·신경과 임상 연구 에피소드 오프닝(S01~S04)에서 간판·응급실 글자 없는 깨끗한 120ft 상공 병원 항공 드론샷 기준 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 high-altitude 120ft bird's-eye 45-degree aerial overview looking down over a modern sunlit glass-and-pale-limestone clinical neuroscience research hospital campus with a circular landscaped courtyard, clean stone plazas, and green trees in stylized 3D miniature architectural cinema; 120ft altitude where figures on walkways appear strictly as tiny distant pinprick dots, completely blank unmarked building facades with zero red emergency signs, zero letters, zero hospital logos, zero text.",
+      "reference_origins": [
+        {
+          "type": "aab_r85_drone_spec",
+          "rule": "R82/R85 120ft altitude clinical institute aerial"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_02.png / cand_01·03 제외] 무문자 현대식 대학병원 원형 중정과 연결 브리지를 가장 또렷한 초점으로 조망한 cand_02 1순위, cand_04 2순위 (cand_01은 상하 가장자리 블러 과다, cand_03은 우상단 빛번짐 안개로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "D_drone_120ft/D02_drone_medical_hospital_120ft/cand_01.png",
+          "sha256": "a0b9a9e656104807e792c55868e716f78c0e5a2d0328f4797da3f49a0fe4fad7",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 472.45,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "D_drone_120ft/D02_drone_medical_hospital_120ft/cand_02.png",
+          "sha256": "f1312c4cc4ccb9dd9f4b8efd829e2a3a35d7322a55a7b66a456527b3649f267d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 377.19,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "D_drone_120ft/D02_drone_medical_hospital_120ft/cand_01.png",
+      "approved_sha256": "a0b9a9e656104807e792c55868e716f78c0e5a2d0328f4797da3f49a0fe4fad7",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "B01_base_adult_male_turnaround",
+      "category": "B_characters",
+      "title_ko": "B1. 기본형 캐릭터 1 — 성인 남성 3각도 턴어라운드 (정면·3/4·측면)",
+      "when_to_use": "성인 남성 피험자·연구자의 기본 체형·두상 비율 기준 시트로, B05~B10 표정 및 B11~B15 의상을 조합할 때 1차 종족 앵커로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body 3-pose character turnaround reference sheet showing ONE identical adult male 2.5D vinyl character standing side by side in FRONT view (left), THREE-QUARTER view (center), and SIDE PROFILE view (right), wearing a plain neutral light-gray crew-neck t-shirt, neat charcoal trousers, and closed matte-white sneakers. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_species_master",
+          "file": "species_opt1_sheet.png"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_03.png / cand_02·04 제외] 의상·환경 슬롯(B11~B15, E06~E10)과 정확히 호환되는 4.2등신 성인 비례 + 안정적인 2D 먹선 눈을 가진 cand_03을 1순위, cand_01을 2순위로 선정 (cand_02·04는 2.5~3등신 유아/치비 비례 불일치로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B01_base_adult_male_turnaround/cand_01.png",
+          "sha256": "308d295dcb1e04da26e61c33175caf06f5ebe361fb3b9f79a53363b7642a0607",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 47.99,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B01_base_adult_male_turnaround/cand_02.png",
+          "sha256": "23a6e88388ce00d1507d4984029f616bcc1e2c6ccf7073c5ee03f6256c5adc63",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 81.9,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B01_base_adult_male_turnaround/cand_01.png",
+      "approved_sha256": "308d295dcb1e04da26e61c33175caf06f5ebe361fb3b9f79a53363b7642a0607",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B02_base_adult_female_turnaround",
+      "category": "B_characters",
+      "title_ko": "B2. 기본형 캐릭터 2 — 성인 여성 3각도 턴어라운드 (정면·3/4·측면)",
+      "when_to_use": "성인 여성 피험자·의사·연구자의 기본 체형·두상 비율 기준 시트로 사용한다(머리카락 0%, 대머리 크림 비닐 + 2D 잉크 속눈썹/눈).",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body 3-pose character turnaround reference sheet matching the exact studio backdrop and 2.5D bald cream-white vinyl species of the reference image, showing ONE adult female 2.5D vinyl character (graceful tailored slimmer shoulders, completely bald smooth hairless cream-white vinyl oval head, delicate crisp 2D black ink eyes with subtle ink corner lash flick) in FRONT view, THREE-QUARTER view, and SIDE PROFILE view, wearing a plain neutral soft-gray boat-neck top, tailored slate trousers, and closed matte-white flats. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_species_master",
+          "file": "species_opt1_sheet.png"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[🚨필수 승격: cand_02.png 단독 확정 / cand_01·03·04 전면 제외] cand_01·03·04는 모두 6.5등신 마네킹 체형에 3D 입술·콧대·음영 눈매가 들어가 실사형 얼굴 드리프트를 유발함. 오직 cand_02만 B01(cand_03)·B03(cand_01)과 100% 일치하는 4.2등신 대머리 크림 비닐 + 순수 2D 먹선 눈 정체성을 지킴.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B02_base_adult_female_turnaround/cand_01.png",
+          "sha256": "34fc7bf2d57595d65ec2a94581d495c646c882eb99a20e9ef544cc7a309a31cf",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 33.17,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B02_base_adult_female_turnaround/cand_02.png",
+          "sha256": "0262f5649174a74db6ba3028aaa831aa2bd8d9ce010f63f3d987da0ba8c354a9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 35.13,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B02_base_adult_female_turnaround/cand_03.png",
+          "sha256": "57cb90815105f1c87abc3735e721fff3224108e671bc7903c97bc90ec67d1bfa",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 28.0,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "B_characters/B02_base_adult_female_turnaround/cand_04.png",
+          "sha256": "a00833579da576bb53474553d640a4bdba25f0044189e7348818abb003f2bce4",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 34.61,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B02_base_adult_female_turnaround/cand_01.png",
+      "approved_sha256": "34fc7bf2d57595d65ec2a94581d495c646c882eb99a20e9ef544cc7a309a31cf",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B03_base_older_adult_turnaround",
+      "category": "B_characters",
+      "title_ko": "B3. 기본형 캐릭터 3 — 노인 3각도 턴어라운드 (정면·3/4·측면)",
+      "when_to_use": "고령 피험자·노화·기억 연구 에피소드에서 실사 주름/백발 없이 2D 잉크 선만으로 연령감을 표현하는 노인 기본 체형 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body 3-pose character turnaround reference sheet matching the exact studio backdrop and bald cream-white 2.5D vinyl species of the reference image, showing ONE older senior adult 2.5D vinyl character (gentle dignified slightly rounded shoulders, completely bald smooth matte cream-white vinyl head with two minimal clean 2D charcoal-black cartoon ink forehead/smile lines and warm 2D ink eyes — strictly zero hair, zero gray hair, zero photoreal skin wrinkles) in FRONT, THREE-QUARTER, and SIDE PROFILE views, wearing a plain neutral warm-taupe cardigan over a pale shirt, dark trousers, and closed matte-white shoes. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_species_master",
+          "file": "species_opt1_sheet.png"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "모발·실사 주름 질감 없이 담백한 2D 먹선 이마선·눈썹만으로 노년 인상을 표현하고 4.2등신 성인 비례가 일치하는 cand_01 1순위, cand_03 2순위 (cand_02·04는 짧은 치비 비례로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B03_base_older_adult_turnaround/cand_01.png",
+          "sha256": "16c39e9dff3fa1a4fcd9eb45f856676f319ac909cc6371189a7630d8037f4ee3",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 60.85,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B03_base_older_adult_turnaround/cand_02.png",
+          "sha256": "acb2543bd749b52e277eaccffa60d1ab5d1abbdb2edc7cd722c2088fc2e5ce06",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 44.43,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B03_base_older_adult_turnaround/cand_01.png",
+      "approved_sha256": "16c39e9dff3fa1a4fcd9eb45f856676f319ac909cc6371189a7630d8037f4ee3",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B04_base_child_turnaround",
+      "category": "B_characters",
+      "title_ko": "B4. 기본형 캐릭터 4 — 아이 3각도 턴어라운드 (정면·3/4·측면)",
+      "when_to_use": "발달심리·아동 학습·초기 기억 에피소드에서 성인 대비 작은 키와 둥근 비율을 유지하는 아동 기본 체형 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body 3-pose character turnaround reference sheet matching the exact studio backdrop and bald cream-white 2.5D vinyl species of the reference image, showing ONE young child 2.5D vinyl character (compact 5-head child stature, slightly larger round bald smooth cream-white vinyl head, bright curious 2D charcoal-black cartoon ink eyes, four-fingered cream vinyl hands) in FRONT, THREE-QUARTER, and SIDE PROFILE views, wearing a plain neutral sky-slate crew sweatshirt, neat shorts-length trousers, and closed matte-white canvas sneakers. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_species_master",
+          "file": "species_opt1_sheet.png"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_03.png / cand_02 제외] 성인(4.2등신) 대비 명확히 작은 아동 비례(약 3.2등신)와 깔끔한 평면 2D 점/선 먹선 눈을 갖춘 cand_03 1순위, cand_04 2순위 (cand_02는 성인에 가까운 키여서 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B04_base_child_turnaround/cand_01.png",
+          "sha256": "1251a02b36e1987b1412bdf3523ba7b96965094f60b68ca1118c0b39b4609564",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 33.71,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B04_base_child_turnaround/cand_02.png",
+          "sha256": "96714b33afa52f4b876c84ed72bbd74ccf363f321dc2cba0244c53a630810d2e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 34.59,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B04_base_child_turnaround/cand_03.png",
+          "sha256": "c8c8115e093603ddaecc53dd071d056c308280ca79ded518a31d74546be505c8",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 57.1,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B04_base_child_turnaround/cand_01.png",
+      "approved_sha256": "1251a02b36e1987b1412bdf3523ba7b96965094f60b68ca1118c0b39b4609564",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B05_expr_surprised",
+      "category": "B_characters",
+      "title_ko": "B5. 모듈형 표정 1 — 놀람 (Surprised)",
+      "when_to_use": "예상 밖의 실험 결과·반전 훅·갑작스러운 자극에 반응하는 컷에서 캐릭터 얼굴 2D 잉크 표정 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 chest-up three-quarter portrait of the exact bald smooth cream-white 2.5D vinyl base character from the reference image in a plain neutral slate crewneck sweater, displaying a clear SURPRISED 2D charcoal-black ink facial expression: high arched raised 2D black ink eyebrows, wide circular 2D black ink eyes, and a neat small oval open 'O' 2D black ink mouth. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "매끈한 대머리 크림 화이트 비닐 위 동그란 2D 먹선 눈과 'O'자 입으로 놀람 표정이 즉각 읽히며 목 이음매 그림자가 가장 깔끔한 cand_01 1순위, cand_04 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B05_expr_surprised/cand_01.png",
+          "sha256": "097d3b30e4facdf4d33707a140b8e09fba4be389835aa892e3d2f3eefd676e31",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 89.9,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B05_expr_surprised/cand_02.png",
+          "sha256": "a871f6c49c038f5e9c9f1b885db96801db19fb64c7ff92697bcbf251dde652c4",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 35.34,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B05_expr_surprised/cand_03.png",
+          "sha256": "5c24d3c5b4aabc141043a9930abcecc4f6fbb0a09d9708c465055abf83c99485",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 29.6,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "B_characters/B05_expr_surprised/cand_04.png",
+          "sha256": "b5549984cbae37fddfd9bf766b5b6a44092ad0a26a509f1d97cc6ad0bcefaae4",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 48.64,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B05_expr_surprised/cand_01.png",
+      "approved_sha256": "097d3b30e4facdf4d33707a140b8e09fba4be389835aa892e3d2f3eefd676e31",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B06_expr_joy",
+      "category": "B_characters",
+      "title_ko": "B6. 모듈형 표정 2 — 기쁨·안도 (Joy)",
+      "when_to_use": "증상 완화·문제 해결·긍정적 행동 변화 컷에서 따뜻한 미소와 기쁨을 표현하는 2D 잉크 표정 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 chest-up three-quarter portrait of the exact bald smooth cream-white 2.5D vinyl base character from the reference image in a plain neutral slate crewneck sweater, displaying a warm JOYFUL 2D charcoal-black ink facial expression: gently lifted cheerful 2D black ink eyebrows, happy upward-curved 2D black ink eyes, and a clean broad upward 2D black ink smile. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_02.png] 볼에 불필요한 3D 주름 골 없이 매끈한 크림 비닐 표면에 2D 반달 먹선 눈·미소가 가장 깔끔하게 그려진 cand_02 1순위, cand_03 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B06_expr_joy/cand_01.png",
+          "sha256": "cd4b7db223aa6fa62d0ee8a1a1906359699a3c5ae661dff9e2875030aad6c5bd",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 18.49,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B06_expr_joy/cand_02.png",
+          "sha256": "721307263f3a880cb2b6ca5390446d4ac5281ae0c1bd0b4b3cc021701b9e576b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 24.38,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B06_expr_joy/cand_03.png",
+          "sha256": "816ae0af0db3c3aeb9a10ff592be08a8ed706d809a41b3382a8873aa78b381c3",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 59.67,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "B_characters/B06_expr_joy/cand_04.png",
+          "sha256": "ae1fd0d5afe48c6004dd7c759ffe16030b83456499882a8304b65885911f98b5",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 26.26,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B06_expr_joy/cand_01.png",
+      "approved_sha256": "cd4b7db223aa6fa62d0ee8a1a1906359699a3c5ae661dff9e2875030aad6c5bd",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B07_expr_worry",
+      "category": "B_characters",
+      "title_ko": "B7. 모듈형 표정 3 — 걱정·불안 (Worry)",
+      "when_to_use": "수면 부족·통증·스트레스·실수 위기 구간에서 불안과 걱정을 전달하는 2D 잉크 표정 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 chest-up three-quarter portrait of the exact bald smooth cream-white 2.5D vinyl base character from the reference image in a plain neutral slate crewneck sweater, displaying a clear WORRIED 2D charcoal-black ink facial expression: inner corners of the 2D black ink eyebrows tilted sharply upward in concern, wide uneasy 2D ink eyes, and a slight downward curved tense 2D black ink mouth. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_03.png / cand_04 제외] 팔자형 2D 먹선 눈썹과 걱정스러운 입매·손동작이 자연스럽고 스튜디오 배경이 균일한 cand_03 1순위, cand_01 2순위 (cand_04는 우측 배경 벽 모서리 세로줄 그림자가 있어 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B07_expr_worry/cand_01.png",
+          "sha256": "b4df384b2ba87901099bb75c0ec27bfdcce2ef0c284848343cf5e7c58698e2e6",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 68.9,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B07_expr_worry/cand_02.png",
+          "sha256": "06159de5f612eea689d84554afd40ec70200779c38ab1bfaaf6b4ef5bd8bde1b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 222.87,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B07_expr_worry/cand_03.png",
+          "sha256": "f2bb5f73a153e3e88469ac2101f3d667edde942ad66f89122fafc039bc759b04",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 233.24,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B07_expr_worry/cand_01.png",
+      "approved_sha256": "b4df384b2ba87901099bb75c0ec27bfdcce2ef0c284848343cf5e7c58698e2e6",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B08_expr_focus",
+      "category": "B_characters",
+      "title_ko": "B8. 모듈형 표정 4 — 깊은 집중 (Focus)",
+      "when_to_use": "실험 과제 수행·암기·운전·데이터 판독 등 고도의 집중 상태를 표현하는 2D 잉크 표정 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 chest-up three-quarter portrait of the exact bald smooth cream-white 2.5D vinyl base character from the reference image in a plain neutral slate crewneck sweater, displaying an intent FOCUSED 2D charcoal-black ink facial expression: lowered steady straight 2D black ink eyebrows, sharp attentive 2D black ink eyes locked forward, and a firm composed closed 2D ink mouth line. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_02.png / cand_01 제외] 또렷하게 모은 2D 먹선 눈썹과 다문 입으로 '집중/몰입' 감정이 명확히 전달되는 cand_02 1순위, cand_03 2순위 (cand_01은 눈이 크게 떠져 놀람 표정에 가까워 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B08_expr_focus/cand_01.png",
+          "sha256": "c82a743c8e0962f3d7c27de9323bd00469338a646397dff4a44e6803d8839159",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 120.39,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B08_expr_focus/cand_02.png",
+          "sha256": "ea6d7d5b460f66ad55fdc2b6751248e0134c66c6f6d1d6e880c739bcdbed99a9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 22.45,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B08_expr_focus/cand_03.png",
+          "sha256": "c5bd95b706693d304241409d077e32fe60ae5a4e634bc039e5df0ce755ccafc0",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 33.31,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B08_expr_focus/cand_01.png",
+      "approved_sha256": "c82a743c8e0962f3d7c27de9323bd00469338a646397dff4a44e6803d8839159",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B09_expr_confusion",
+      "category": "B_characters",
+      "title_ko": "B9. 모듈형 표정 5 — 혼란·의아함 (Confusion)",
+      "when_to_use": "기억 망각·착각·모순된 실험 현상 앞에서 어리둥절해하는 컷의 2D 잉크 표정 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 chest-up three-quarter portrait of the exact bald smooth cream-white 2.5D vinyl base character from the reference image in a plain neutral slate crewneck sweater with a slight puzzled 8-degree head tilt, displaying a CONFUSED 2D charcoal-black ink facial expression: asymmetrical 2D black ink eyebrows (one raised high, one knitted low), squinting puzzled 2D ink eyes, and an off-center crooked 2D ink mouth. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_04.png] 비대칭으로 찌푸린 2D 먹선 눈썹, 물결 모양 입매, 턱을 짚은 손동작이 결합되어 '혼란/의문'이 0.2초 만에 읽히는 cand_04 1순위, cand_01 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B09_expr_confusion/cand_01.png",
+          "sha256": "da4c7a6472ecc6865dd74f09004ae85f5ee69d2311188714c9e592a78df27778",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 41.89,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B09_expr_confusion/cand_02.png",
+          "sha256": "ea3174bf2d70128a47f218e2f2a907547063afba70ca70284cebf278ec99445f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 33.06,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B09_expr_confusion/cand_03.png",
+          "sha256": "1cf9658ae32ecd2e3556edecff471373b50cc03d375d5aed8c60f3d30022e50b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 49.04,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "B_characters/B09_expr_confusion/cand_04.png",
+          "sha256": "e20941dc9e6ea148baf26323309310174c00566ae6891ea91ad591e57b906551",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 39.14,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B09_expr_confusion/cand_01.png",
+      "approved_sha256": "da4c7a6472ecc6865dd74f09004ae85f5ee69d2311188714c9e592a78df27778",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B10_expr_eureka",
+      "category": "B_characters",
+      "title_ko": "B10. 모듈형 표정 6 — 깨달음·유레카 (Realization)",
+      "when_to_use": "뇌 메커니즘의 원리가 밝혀지거나 통찰을 얻는 전환점(Pivot/Takeaway) 컷의 2D 잉크 표정 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 chest-up three-quarter portrait of the exact bald smooth cream-white 2.5D vinyl base character from the reference image in a plain neutral slate crewneck sweater raising one four-fingered cream vinyl index finger in quiet 'aha' realization, displaying a clear EUREKA REALIZATION 2D charcoal-black ink expression: bright lifted symmetrical 2D ink eyebrows, crisp alert wide 2D ink eyes, and a confident knowing half-smile. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "검지를 들어 올린 유레카 포즈와 평면 2D 먹선 눈·미소가 코 음영 과장 없이 가장 담백하게 표현된 cand_01 1순위, cand_03 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B10_expr_eureka/cand_01.png",
+          "sha256": "6d2b523d3588c3d46dde33dea477a8a22be6c72de1442b31d34b901251f3e3e0",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 41.8,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B10_expr_eureka/cand_02.png",
+          "sha256": "98cf15e5fc2315d9c6df0cf89f4c88b151477ace2cd78efaff8d8074af617371",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 30.37,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B10_expr_eureka/cand_03.png",
+          "sha256": "dc01b58efcfb04df8f238dc4450c59f82e9a74c60e344baf8fff9a5ba5aa13ba",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 40.5,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "B_characters/B10_expr_eureka/cand_04.png",
+          "sha256": "0a7a364c7b72f627330836808104668391a2f1c88b080eb54f53d3eec9b0da06",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 24.46,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B10_expr_eureka/cand_01.png",
+      "approved_sha256": "6d2b523d3588c3d46dde33dea477a8a22be6c72de1442b31d34b901251f3e3e0",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B11_wardrobe_white_lab_coat",
+      "category": "B_characters",
+      "title_ko": "B11. 모듈형 의상 1 — 흰 연구·진료 가운 (White Lab Coat)",
+      "when_to_use": "신경과학자·임상의·심리학 실험 진행자 캐릭터에 입히는 표준 무문자 흰 가운 의상 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body standing three-quarter reference sheet of the exact bald smooth cream-white 2.5D vinyl base character from the reference image (identical body proportions and head size) dressed in a crisp knee-length matte-white clinical laboratory coat worn open over a slate-blue woven button shirt, charcoal tailored trousers, and closed matte-white shoes (zero name badge, zero pocket text). Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 4,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_03.png] 눈두덩 3D 굴곡 없이 순수 2D 검은 먹선 점눈과 깔끔한 무문자 흰 연구 가운 핏이 가장 단정한 cand_03 1순위, cand_01 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B11_wardrobe_white_lab_coat/cand_01.png",
+          "sha256": "88b96940d7d4663ba89e927ee2029379ce2942438bb7ee09e2d72d1100d329af",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 32.1,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B11_wardrobe_white_lab_coat/cand_02.png",
+          "sha256": "e587d030e7074cca985ca4885cec1b2dea68eb36aabb05d01a0fabe7e2525711",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 23.98,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B11_wardrobe_white_lab_coat/cand_03.png",
+          "sha256": "4fdc8458a151217ef0b52756deccc1efa286a15bddde840cea32e763906f72e9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 23.12,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 4,
+          "filename": "cand_04.png",
+          "rel_path": "B_characters/B11_wardrobe_white_lab_coat/cand_04.png",
+          "sha256": "fe3cc5e8563960b66aa74a0f30357bca0cff02bd373a0f88fb2f3f11bf1fd437",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 26.59,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B11_wardrobe_white_lab_coat/cand_01.png",
+      "approved_sha256": "88b96940d7d4663ba89e927ee2029379ce2942438bb7ee09e2d72d1100d329af",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B12_wardrobe_surgical_scrubs",
+      "category": "B_characters",
+      "title_ko": "B12. 모듈형 의상 2 — 청록색 임상·수술복 (Clinical Scrubs)",
+      "when_to_use": "뇌수술·수면다원검사·MRI 기사·응급/병동 의료진 역할에 입히는 표준 무문자 수술복 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body standing three-quarter reference sheet of the exact bald smooth cream-white 2.5D vinyl base character from the reference image (identical body proportions and bald head, zero surgical cap, zero mask) dressed in clean matte muted-teal V-neck clinical scrubs top and matching teal scrub trousers with closed matte-white clinical clogs (zero badge, zero embroidery). Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_03.png / cand_02 제외] B11·B13·B14·B15와 동일한 4.2등신 성인 비례 및 청록색 수술복 톤이 깔끔한 cand_03 1순위, cand_01 2순위 (cand_02는 대두 치비 비례 불일치로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B12_wardrobe_surgical_scrubs/cand_01.png",
+          "sha256": "7d08a6457429d8ae2abc0c1b6393711b9186a6ea4944e5937825a97cc6766dbb",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 25.49,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B12_wardrobe_surgical_scrubs/cand_02.png",
+          "sha256": "3f7b4bc7ce980e1ad7f4e711405f3715df13fe331ce9cf2bb61412337bfd8c3a",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 23.78,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B12_wardrobe_surgical_scrubs/cand_03.png",
+          "sha256": "236b4c5cd364affe2bdaa090d89ce4aa758cd9749584772e6132972934b5a96d",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 22.54,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B12_wardrobe_surgical_scrubs/cand_01.png",
+      "approved_sha256": "7d08a6457429d8ae2abc0c1b6393711b9186a6ea4944e5937825a97cc6766dbb",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B13_wardrobe_casual_everyday",
+      "category": "B_characters",
+      "title_ko": "B13. 모듈형 의상 3 — 일상 평상복 (Everyday Casual)",
+      "when_to_use": "일반 성인 참가자·가정/주방/거리 일상 장면 주인공에게 입히는 표준 평상복 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body standing three-quarter reference sheet of the exact bald smooth cream-white 2.5D vinyl base character from the reference image (identical body proportions and head size) dressed in everyday casual attire: a warm olive-slate textured knit crew sweater layered over a crisp white collar rim, clean khaki-tan chinos, and closed matte-white sneakers (zero logos). Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "올리브 니트 스웨터 + 베이지 면바지 일상복 차림으로 E08·E10 실내 배치 캐릭터와 1:1 일치하는 cand_01 1순위, cand_02 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B13_wardrobe_casual_everyday/cand_01.png",
+          "sha256": "42ff22f71bd79ee1fbaa88f40841b563a1d09f96ce666da0bdecae6a9d53af45",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 154.61,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B13_wardrobe_casual_everyday/cand_02.png",
+          "sha256": "b91a43dd3f1c744b303390aaef9e80dd253d10887c3c6b5612070f69c1b10383",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 87.6,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B13_wardrobe_casual_everyday/cand_01.png",
+      "approved_sha256": "42ff22f71bd79ee1fbaa88f40841b563a1d09f96ce666da0bdecae6a9d53af45",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B14_wardrobe_formal_suit",
+      "category": "B_characters",
+      "title_ko": "B14. 모듈형 의상 4 — 단정한 정장·학술복 (Formal Suit)",
+      "when_to_use": "교수·강연자·직장인·고전 심리학 실험 연구자 역할에 입히는 표준 네이비 정장 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body standing three-quarter reference sheet of the exact bald smooth cream-white 2.5D vinyl base character from the reference image (identical body proportions and head size) dressed in a tailored dark navy two-button wool suit jacket over a crisp white dress shirt, muted slate necktie, matching navy tailored trousers, and closed matte-white dress shoes. Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "네이비 정장 수트·넥타이 핏과 4.2등신 성인 비례가 단정한 cand_01 1순위, cand_02 2순위 (cand_03은 다리가 짧은 치비 체형으로 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B14_wardrobe_formal_suit/cand_01.png",
+          "sha256": "a9dfc59cff00a19437603a306685eb38ea1f34f12bb12b2dddccfabeb339afd9",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 59.56,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B14_wardrobe_formal_suit/cand_02.png",
+          "sha256": "aa3ed6c13587801064b9bb18ea2c1ad3ffe309c0d4e4c7083d0b12ab7eae0d25",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 61.95,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B14_wardrobe_formal_suit/cand_01.png",
+      "approved_sha256": "a9dfc59cff00a19437603a306685eb38ea1f34f12bb12b2dddccfabeb339afd9",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "B15_wardrobe_student",
+      "category": "B_characters",
+      "title_ko": "B15. 모듈형 의상 5 — 대학생 복장 (University Student)",
+      "when_to_use": "대학 실험 참가 학생·수험생·강의실 청중 역할에 입히는 표준 무로고 학생 복장 시트로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Vertical 9:16 full-body standing three-quarter reference sheet of the exact bald smooth cream-white 2.5D vinyl base character from the reference image (identical body proportions and head size) dressed as a university student in an open muted-burgundy casual zip overshirt over a plain cream t-shirt, dark denim-slate trousers, plain unmarked tan canvas backpack straps over the shoulders, and closed matte-white sneakers (strictly zero school crest, zero letters). Unified neutral warm-stone seamless studio cyclorama backdrop (#EAE6DF) under consistent 45-degree soft cinema key-and-rim lighting; smooth bald hairless matte cream-white 2.5D vinyl head and four-fingered hands, bold crisp 2D charcoal-black cartoon ink eyes eyebrows and mouth, strictly zero hair, zero beard, zero photorealistic human skin texture, zero text, zero watermark.",
+      "reference_origins": [
+        {
+          "type": "canonical_b01_derived",
+          "base": "B01_base_adult_male_turnaround"
+        }
+      ],
+      "status": "retired_r88_cartoon_face",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "버건디 재킷·백팩·청바지 대학생 의상과 4.2등신 대머리 비닐 정체성이 균일하게 잘 나온 cand_01 1순위, cand_03 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "B_characters/B15_wardrobe_student/cand_01.png",
+          "sha256": "d5e55e1da50167144cae155e948c3f42e67639d55c2055bcc26ee64c6e42080f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 39.57,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "B_characters/B15_wardrobe_student/cand_02.png",
+          "sha256": "a6faa059186bee80697e01930505e92d84d08f4198e61a6ddcd777415722d4a0",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 33.82,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "B_characters/B15_wardrobe_student/cand_03.png",
+          "sha256": "3d396e418f49f3b3b03132666378d6d29489b559b627abec82f6cdb365abc577",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 37.57,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "B_characters/B15_wardrobe_student/cand_01.png",
+      "approved_sha256": "d5e55e1da50167144cae155e948c3f42e67639d55c2055bcc26ee64c6e42080f",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+      "pre_r88_status": "approved",
+      "selectable_for_new_episodes": false
+    },
+    {
+      "slot_id": "E01_laboratory_empty",
+      "category": "E_environments",
+      "title_ko": "E1. 자주 쓰는 장소 1 — 연구실 (인물 없는 빈 공간 기본판)",
+      "when_to_use": "행동·인지·신경과학 실험실 장면에서 원하는 인원·소품을 자유롭게 배치하기 위한 무인 빈 연구실 배경판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior architectural cinema shot captured from INSIDE the room at human eye-level 35mm f/8 deep-focus perspective (interior walls, ceiling, and floor fill 100% of the 9:16 frame edge-to-edge; strictly NO cutaway dollhouse box, NO isometric floating room cube, NO exterior wall cross-sections, NO tabletop maquette base), rendered in smooth matte-crafted 2.5D stylized 3D interior lighting under warm sunlit morning window daylight: spotless intact freshly painted smooth walls and clean floors (strictly zero cracks, zero peeling paint, zero ruins, zero clutter), strictly zero text, zero letters, zero numbers, zero clocks, zero wall posters, zero signage, zero watermark. Clean modern cognitive-neuroscience laboratory interior with smooth warm cream plaster walls, light oak cabinetry, a central brushed-wood experimental workbench with two empty ergonomic chairs, blank unmarked glass-front shelves holding clear unmarked glass vessels, and tall left-side windows casting soft sunlit beams; completely empty room with zero people.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_canonical_room",
+          "room": "laboratory_empty"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "따뜻한 채광의 원목 연구 책상·듀얼 모니터·유리 시약장 구도가 깨끗하고 무문자·무결점인 cand_01 1순위(E06 cand_01과 1:1 공간 일치), cand_03 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E01_laboratory_empty/cand_01.png",
+          "sha256": "a55af79fb54f287bff4e391ceae098102897715b43d71488be65bafc00d08c59",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 115.87,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E01_laboratory_empty/cand_02.png",
+          "sha256": "9599294c45215c89bf931564b0adf845a99d5d432a0a1d91a274a5f113dd6a9f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 94.85,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "E_environments/E01_laboratory_empty/cand_03.png",
+          "sha256": "c2a806f52d73d17c8b6dcae439556070f7ecee78be251f04fc57756a7bff8d00",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 128.67,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E01_laboratory_empty/cand_01.png",
+      "approved_sha256": "a55af79fb54f287bff4e391ceae098102897715b43d71488be65bafc00d08c59",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E02_mri_suite_empty",
+      "category": "E_environments",
+      "title_ko": "E2. 자주 쓰는 장소 2 — MRI 뇌스캔실 (인물 없는 빈 공간 기본판)",
+      "when_to_use": "뇌 영상(fMRI/구조 MRI) 측정 장면에서 피험자·연구자를 프롬프트로 배치하기 위한 무인 깨끗한 3T MRI실 배경판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior architectural cinema shot captured from INSIDE the room at human eye-level 35mm f/8 deep-focus perspective (interior walls, ceiling, and floor fill 100% of the 9:16 frame edge-to-edge; strictly NO cutaway dollhouse box, NO isometric floating room cube, NO exterior wall cross-sections, NO tabletop maquette base), rendered in smooth matte-crafted 2.5D stylized 3D interior lighting under warm sunlit morning window daylight: spotless intact freshly painted smooth walls and clean floors (strictly zero cracks, zero peeling paint, zero ruins, zero clutter), strictly zero text, zero letters, zero numbers, zero clocks, zero wall posters, zero signage, zero watermark. Spotless bright clinical neuroimaging suite housing a smooth matte-white cylindrical 3T MRI scanner gantry and padded motorized patient table centered in a clean cream-and-pale-wood architectural room with a clear observation window on the side; strictly zero warning signs, zero manufacturer logos, zero text, and completely empty with zero people.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_canonical_room",
+          "room": "mri_suite_empty"
+        },
+        {
+          "type": "wikimedia_open_license_guide",
+          "title": "File:An MRI scanner.JPG",
+          "url": "https://commons.wikimedia.org/wiki/File:An_MRI_scanner.JPG",
+          "license": "CC BY-SA 4.0"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "벽면 포스터·문자·균열 0%인 밝고 청결한 3T MRI 검사실 풀프레임 구도로 E07(cand_01)과 조명·카메라 각도가 1:1 일치하는 cand_01 1순위, cand_03 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E02_mri_suite_empty/cand_01.png",
+          "sha256": "b5a00545014341331ca4e4e5fb43c1eb393566b231d9593684e9804aa4eff763",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 27.58,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E02_mri_suite_empty/cand_02.png",
+          "sha256": "3b28f63fa4f413974f98b1c876ddd9751dbb8822cf8cc89d678ec392f4adab41",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 26.57,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "E_environments/E02_mri_suite_empty/cand_03.png",
+          "sha256": "b1d020e10aea1e707ab72e16ee2af3427b97a12b810f255035c13c9c84784b7b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 25.11,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E02_mri_suite_empty/cand_01.png",
+      "approved_sha256": "b5a00545014341331ca4e4e5fb43c1eb393566b231d9593684e9804aa4eff763",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E03_home_doorway_empty",
+      "category": "E_environments",
+      "title_ko": "E3. 자주 쓰는 장소 3 — 집 현관·방 문턱 (인물 없는 빈 공간 기본판)",
+      "when_to_use": "문턱 효과·일상 귀가·방 이동 기억 실험 장면의 기본이 되는 온전하고 따뜻한 무인 가정집 문턱 배경판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior architectural cinema shot captured from INSIDE the room at human eye-level 35mm f/8 deep-focus perspective (interior walls, ceiling, and floor fill 100% of the 9:16 frame edge-to-edge; strictly NO cutaway dollhouse box, NO isometric floating room cube, NO exterior wall cross-sections, NO tabletop maquette base), rendered in smooth matte-crafted 2.5D stylized 3D interior lighting under warm sunlit morning window daylight: spotless intact freshly painted smooth walls and clean floors (strictly zero cracks, zero peeling paint, zero ruins, zero clutter), strictly zero text, zero letters, zero numbers, zero clocks, zero wall posters, zero signage, zero watermark. Warm sunlit residential interior looking across a polished honey-oak hardwood hallway threshold through a wide open white-trimmed wooden doorway connecting a tidy living room (with a minimal console table) into an adjacent sunlit study room; crisp intact plaster moldings, zero wall frames with text, completely empty with zero people.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_canonical_room",
+          "room": "home_doorway_empty"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "햇살 비치는 원목 마루와 정면 열린 흰 문틀 너머 다음 방까지 깔끔히 이어지며 E08(cand_01)과 1:1 일치하는 cand_01 1순위, cand_02 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E03_home_doorway_empty/cand_01.png",
+          "sha256": "9c17b36c61036dd1a22a24f4859c4fd0b1fe985492277500bb5a9a6890fa415e",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 68.84,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E03_home_doorway_empty/cand_02.png",
+          "sha256": "339a8ca5306b17ec3242c127051e9147af5b08dda4087d072f86f1f0e1aa1d63",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 64.54,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E03_home_doorway_empty/cand_01.png",
+      "approved_sha256": "9c17b36c61036dd1a22a24f4859c4fd0b1fe985492277500bb5a9a6890fa415e",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E04_lecture_room_empty",
+      "category": "E_environments",
+      "title_ko": "E4. 자주 쓰는 장소 4 — 대학 강의실·세미나실 (인물 없는 빈 공간 기본판)",
+      "when_to_use": "대학 강의·시험·집단 심리 실험 장면에서 교수·학생을 배치하기 위한 무인 세미나 강의실 배경판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior architectural cinema shot captured from INSIDE the room at human eye-level 35mm f/8 deep-focus perspective (interior walls, ceiling, and floor fill 100% of the 9:16 frame edge-to-edge; strictly NO cutaway dollhouse box, NO isometric floating room cube, NO exterior wall cross-sections, NO tabletop maquette base), rendered in smooth matte-crafted 2.5D stylized 3D interior lighting under warm sunlit morning window daylight: spotless intact freshly painted smooth walls and clean floors (strictly zero cracks, zero peeling paint, zero ruins, zero clutter), strictly zero text, zero letters, zero numbers, zero clocks, zero wall posters, zero signage, zero watermark. Sunlit university seminar lecture room with tiered warm oak wooden desks and neat chairs facing a clean front wooden lectern and a completely blank unmarked smooth dark-slate wall panel (strictly zero chalk writing, zero letters, zero numbers), tall arched windows along the left wall; completely empty room with zero people.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_canonical_room",
+          "room": "lecture_room_empty"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "아치형 채광창·계단식 원목 강의석·무문자 칠판이 대칭으로 정돈되어 E09(cand_01)와 1:1 일치하는 cand_01 1순위, cand_02 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E04_lecture_room_empty/cand_01.png",
+          "sha256": "fc39173b82f3f58423f4e3997ce43bd96c31d88fed2710287ca4653b9080ca1b",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 110.82,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E04_lecture_room_empty/cand_02.png",
+          "sha256": "75f9898b9cb2ff6d07444b86d354b3ac49122f79ef24c329c746fd92136391ca",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": false,
+          "laplacian_sharpness": 142.83,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E04_lecture_room_empty/cand_01.png",
+      "approved_sha256": "fc39173b82f3f58423f4e3997ce43bd96c31d88fed2710287ca4653b9080ca1b",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E05_kitchen_empty",
+      "category": "E_environments",
+      "title_ko": "E5. 자주 쓰는 장소 5 — 일상 주방 (인물 없는 빈 공간 기본판)",
+      "when_to_use": "식습관·카페인·수면 후 아침 루틴·습관 형성 등 일상 생활밀착형 장면의 무인 주방 배경판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior architectural cinema shot captured from INSIDE the room at human eye-level 35mm f/8 deep-focus perspective (interior walls, ceiling, and floor fill 100% of the 9:16 frame edge-to-edge; strictly NO cutaway dollhouse box, NO isometric floating room cube, NO exterior wall cross-sections, NO tabletop maquette base), rendered in smooth matte-crafted 2.5D stylized 3D interior lighting under warm sunlit morning window daylight: spotless intact freshly painted smooth walls and clean floors (strictly zero cracks, zero peeling paint, zero ruins, zero clutter), strictly zero text, zero letters, zero numbers, zero clocks, zero wall posters, zero signage, zero watermark. Clean cozy sunlit residential kitchen with matte cream shaker cabinets, warm butcher-block wooden island counter, plain ceramic mugs and a clear glass carafe, brushed-steel faucet, and morning sunlight streaming through a window over the sink; strictly zero food brand labels, zero appliance digits, zero text, and completely empty with zero people.",
+      "reference_origins": [
+        {
+          "type": "aab_v8_canonical_room",
+          "room": "kitchen_empty"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "따뜻한 자연광 주방 아일랜드 식탁과 머그잔 구성이 깨끗하고 E10(cand_02·01)과 1:1 화각·가구가 일치하는 cand_01 1순위, cand_03 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E05_kitchen_empty/cand_01.png",
+          "sha256": "667897ef24a7a5a0c7b549ab5cde3cb19718152c9acb28c58e87c743bba6acb1",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 45.04,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E05_kitchen_empty/cand_02.png",
+          "sha256": "dc03d75ab14be16f27c9c09eed3fce732a7b02a0d6c4a7b73be5328b06f324b8",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 49.24,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "E_environments/E05_kitchen_empty/cand_03.png",
+          "sha256": "70b8cbed363d71673687afedf1788b9fa0593bd2d17051897cce925bea8bb3de",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 67.85,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E05_kitchen_empty/cand_01.png",
+      "approved_sha256": "667897ef24a7a5a0c7b549ab5cde3cb19718152c9acb28c58e87c743bba6acb1",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E06_laboratory_staged",
+      "category": "E_environments",
+      "title_ko": "E6. 연구실 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "when_to_use": "E1 빈 연구실에 흰 가운 연구자를 배치할 때 인물-책상 비율과 조명 일체감을 맞추는 결합 예시 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior cinema shot from INSIDE the room matching the exact sunlit cream-and-oak laboratory architecture and eye-level 35mm camera angle of the first reference image (strictly NO cutaway dollhouse box), with one bald smooth matte cream-white 2.5D vinyl researcher in a crisp white lab coat (from the second reference image) standing naturally beside the central wooden workbench; 2D black ink eyes, four-fingered cream vinyl hands, zero hair, zero text.",
+      "reference_origins": [
+        {
+          "type": "canonical_paired",
+          "room": "E01_laboratory_empty",
+          "cast": "B11_wardrobe_white_lab_coat"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[cand_01.png 단독 확정 / cand_02·03·04 전면 제외] E01(cand_01) 연구실 책상·모니터·수납장 구도를 1:1로 유지한 채 흰 가운 대머리 비닐 연구원 1인을 자연스러운 스케일로 배치한 것은 cand_01뿐임 (cand_02·03·04는 장비가 사라지고 빈 나무 상자 방으로 변질되어 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E06_laboratory_staged/cand_01.png",
+          "sha256": "70959a2a9e2843e23fce54393d75886c497f0e31675a9168a7d6bbd181af71a0",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 49.34,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E06_laboratory_staged/cand_02.png",
+          "sha256": "03cf412288f06d111f7eecd00f63a470ac05fa568bed46f1597aee8dc08234a8",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 188.56,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E06_laboratory_staged/cand_01.png",
+      "approved_sha256": "70959a2a9e2843e23fce54393d75886c497f0e31675a9168a7d6bbd181af71a0",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E07_mri_suite_staged",
+      "category": "E_environments",
+      "title_ko": "E7. MRI실 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "when_to_use": "E2 빈 MRI실에 의료진·피험자를 배치할 때 스캐너 보어 대비 인물 크기와 조명을 맞추는 결합 예시 레퍼런스로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior cinema shot from INSIDE the room matching the exact spotless clinical 3T MRI suite and eye-level 35mm camera angle of the first reference image (strictly NO cutaway dollhouse box), with one bald smooth matte cream-white 2.5D vinyl clinician in a white lab coat standing beside the padded MRI patient table; 2D black ink eyes, four-fingered cream vinyl hands, zero hair, zero warning signs, zero text.",
+      "reference_origins": [
+        {
+          "type": "canonical_paired",
+          "room": "E02_mri_suite_empty",
+          "cast": "B11_wardrobe_white_lab_coat"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 3,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "E02(cand_01) MRI실과 1:1 공간 일치를 유지하며 스캐너 베드 옆 흰 가운 비닐 의료진의 키·비례가 자연스러운 cand_01 1순위, cand_03 2순위 (cand_02는 인물 키가 보어 대비 과대해 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E07_mri_suite_staged/cand_01.png",
+          "sha256": "4cfbfb172e6511a77c77b627caaafa8b47f6b98978cd452ef4e800ec792c9adf",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 15.66,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E07_mri_suite_staged/cand_02.png",
+          "sha256": "8334fb5e0cdc293238eceb8778696a02d79a46e8bb03aab7863e4b2cbbc8be5f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 15.72,
+          "status": "candidate",
+          "sha256_locked": false
+        },
+        {
+          "rank": 3,
+          "filename": "cand_03.png",
+          "rel_path": "E_environments/E07_mri_suite_staged/cand_03.png",
+          "sha256": "9ab054e7f3743be639785752ea4de9ca5f22969474cbb29ed207d022d396c1d5",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 16.2,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E07_mri_suite_staged/cand_01.png",
+      "approved_sha256": "4cfbfb172e6511a77c77b627caaafa8b47f6b98978cd452ef4e800ec792c9adf",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E08_home_doorway_staged",
+      "category": "E_environments",
+      "title_ko": "E8. 집 현관·문턱 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "when_to_use": "E3 빈 집 문턱 공간에 평상복 주인공을 세워 문틀 높이와 인물 비율을 고정할 때 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior cinema shot from INSIDE the room matching the exact sunlit honey-oak home hallway and open white-trimmed doorway of the first reference image (strictly NO cutaway dollhouse box), with one bald smooth matte cream-white 2.5D vinyl protagonist in casual olive-slate sweater and chinos stepping cleanly across the open doorway threshold; 2D black ink eyes, four-fingered cream vinyl hands, zero hair, zero text.",
+      "reference_origins": [
+        {
+          "type": "canonical_paired",
+          "room": "E03_home_doorway_empty",
+          "cast": "B13_wardrobe_casual_everyday"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "E03(cand_01) 문틀과 1:1 동일한 공간에서 올리브 니트 대머리 비닐 캐릭터가 문턱을 자연스럽게 걸어 나오는 cand_01 1순위, cand_02 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E08_home_doorway_staged/cand_01.png",
+          "sha256": "8cc337fa9cdc5562adce4a27fadd1a4d4f000a49ec439f9f049e67cb0248f7b3",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 46.15,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E08_home_doorway_staged/cand_02.png",
+          "sha256": "5e17aa63f8bd34f894fb106cbdb43f350b9f6a3182539675b1b4336b2b35f19f",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 39.33,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E08_home_doorway_staged/cand_01.png",
+      "approved_sha256": "8cc337fa9cdc5562adce4a27fadd1a4d4f000a49ec439f9f049e67cb0248f7b3",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E09_lecture_room_staged",
+      "category": "E_environments",
+      "title_ko": "E9. 강의실 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "when_to_use": "E4 빈 강의실 강단에 강연자를 배치할 때 책상·칠판 대비 인물 스케일을 맞추는 기준판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior cinema shot from INSIDE the room matching the exact sunlit oak-tiered university seminar room and blank dark-slate front panel of the first reference image (strictly NO cutaway dollhouse box), with one bald smooth matte cream-white 2.5D vinyl professor in a navy suit standing beside the wooden lectern; 2D black ink eyes, four-fingered cream vinyl hands, zero chalk writing, zero hair, zero text.",
+      "reference_origins": [
+        {
+          "type": "canonical_paired",
+          "room": "E04_lecture_room_empty",
+          "cast": "B14_wardrobe_formal_suit"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "E04(cand_01) 강의실 연단 위 정장 차림 대머리 비닐 강연자의 비율과 포즈가 가장 또렷한 cand_01 1순위, cand_02 2순위.",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E09_lecture_room_staged/cand_01.png",
+          "sha256": "a355bc14072cd75c726e6c640057ea72998225235caf040664eefd5e745b47ba",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 61.95,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E09_lecture_room_staged/cand_02.png",
+          "sha256": "a329989de11141ecb5f47a8397f789e042158385d3a426e4ab26cc54a7b08687",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 58.52,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E09_lecture_room_staged/cand_01.png",
+      "approved_sha256": "a355bc14072cd75c726e6c640057ea72998225235caf040664eefd5e745b47ba",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    },
+    {
+      "slot_id": "E10_kitchen_staged",
+      "category": "E_environments",
+      "title_ko": "E10. 주방 — 캐릭터 1인 배치 스케일·조명 기준판",
+      "when_to_use": "E5 빈 주방 아일랜드 식탁 앞에 일상복 주인공을 배치할 때 조리대 높이와 아침 채광 톤을 맞추는 기준판으로 사용한다.",
+      "generation_model": "Nano Banana 2.1",
+      "prompt": "Full-frame edge-to-edge vertical 9:16 interior cinema shot from INSIDE the room matching the exact sunlit cream-and-wood kitchen of the first reference image (strictly NO cutaway dollhouse box), with one bald smooth matte cream-white 2.5D vinyl protagonist in casual olive-slate sweater standing behind the wooden kitchen island holding a plain unmarked ceramic mug; 2D black ink eyes, four-fingered cream vinyl hands, zero hair, zero text.",
+      "reference_origins": [
+        {
+          "type": "canonical_paired",
+          "room": "E05_kitchen_empty",
+          "cast": "B13_wardrobe_casual_everyday"
+        }
+      ],
+      "status": "approved",
+      "research_screening_verdict": "PASS",
+      "candidate_count": 2,
+      "recommended_rank1": "cand_01.png",
+      "recommendation_reason": "[1순위 승격: cand_02.png / cand_03·04 제외] E05(cand_01) 주방 화각·창문·아일랜드 식탁과 1:1 일치하면서 인물 얼굴에 역광 그늘이 덜 지고 2D 먹선 눈이 더 선명한 cand_02 1순위, cand_01 2순위 (cand_03·04는 창문 벽면 위치와 화각이 달라져 제외).",
+      "candidates": [
+        {
+          "rank": 1,
+          "filename": "cand_01.png",
+          "rel_path": "E_environments/E10_kitchen_staged/cand_01.png",
+          "sha256": "12a8078b25ee2be941f57974d01b072da667500ed257dbb1a0cc3858579bf29c",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 23.89,
+          "status": "approved",
+          "sha256_locked": true
+        },
+        {
+          "rank": 2,
+          "filename": "cand_02.png",
+          "rel_path": "E_environments/E10_kitchen_staged/cand_02.png",
+          "sha256": "ab50b4edcfd5832d2abebe59a63f59cddfbdeaa7bec0286724c5ea959665efe0",
+          "width": 1080,
+          "height": 1920,
+          "cv_qa_passed": true,
+          "laplacian_sharpness": 23.1,
+          "status": "candidate",
+          "sha256_locked": false
+        }
+      ],
+      "approved_filename": "cand_01.png",
+      "approved_rel_path": "E_environments/E10_kitchen_staged/cand_01.png",
+      "approved_sha256": "12a8078b25ee2be941f57974d01b072da667500ed257dbb1a0cc3858579bf29c",
+      "approved_at_utc": "2026-11-18T12:20:55.190772+00:00"
+    }
+  ],
+  "approved_at_utc": "2026-11-18T12:20:55.190772+00:00",
+  "approved_by": "User & @YouTube_CEO (2026-11-18T12:17:56Z — A01..A12=cand_02.png, B..E=cand_01.png)",
+  "locked_approved_slots": 42,
+  "active_approved_slots": 27,
+  "retired_r88_slots": 15,
+  "pre_r88_manifest_sha256": "c9d2e271b8134363605890c289512ebd304ba09529260265f45bcbbc844a3892"
+}

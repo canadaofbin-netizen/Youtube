@@ -486,13 +486,15 @@ def test_studio_short_linker_stub_cdp_and_consolidated_receipt(tmp_path: Path, m
         rel_rec = json.loads((projects_dir / pid / "06_publish" / "related_video_receipt.json").read_text(encoding="utf-8"))
         assert rel_rec["verified"] is True
         assert rel_rec["match_mode"] == "video_id"
-        assert rel_rec["playlist_verified"] is True
+        # Rule R75: playlists are permanently disabled even if assign_playlists=True is passed
+        assert rel_rec["playlist_verified"] is False
+        assert rel_rec["playlist_skipped_reason"] == "playlists_permanently_disabled_r75"
 
         cons_path = write_studio_publish_receipt(pid, projects_dir=projects_dir)
         cons_rec = json.loads(cons_path.read_text(encoding="utf-8"))
         assert cons_rec["stage_5_complete"] is True
         assert cons_rec["related_video"]["linked"] is True
-        assert cons_rec["playlist"]["assigned"] is True
+        assert cons_rec["playlist"]["assigned"] is False
         assert cons_rec["community_pin"]["pinned"] is True
 
 

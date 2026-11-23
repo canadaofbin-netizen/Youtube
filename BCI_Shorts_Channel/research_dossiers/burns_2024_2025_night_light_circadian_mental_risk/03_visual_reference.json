@@ -1,0 +1,168 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "100-Lux Bedroom Glare Through Sheer Blinds Switched to Pitch-Dark Blackout Drapes",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2023–2024 UK Biobank Wrist Light-Sensor & Northwestern 100-Lux Sleep Trial",
+      "layout": {
+        "description": "Adult master bedroom at night where bluish-white streetlamp and hallway light leak across a sleeper's closed eyelids before heavy velvet blackout drapes are pulled shut.",
+        "positions": [
+          {
+            "who": "60-year-old adult sleeper (stylized 2.5D vinyl character in soft sage cotton pajamas wearing a small calibrated wrist light-sensor band)",
+            "where": "rising from the pillow bathed in 100-lux bluish window glare to grasp heavy floor-to-ceiling blackout curtain pulls",
+            "facing": "three-quarter angle from bed toward tall bedroom window"
+          },
+          {
+            "who": "Resting spouse (stylized 2.5D vinyl character in cream sleepwear)",
+            "where": "clicking off a glowing hallway sconce switch by the bedroom door and setting a paper hardcover book on the nightstand",
+            "facing": "toward the bedroom door switch and bed"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Heavy floor-to-ceiling slate velvet blackout curtains on brass traverse rod",
+          "period_detail": "thick light-blocking architectural drapery with zero wall text",
+          "physical_behavior": "State A parted sheer blinds spill harsh 100-lux streetlamp glare directly across the pillow -> State B hands sweep heavy velvet blackout panels briskly together until the seam seals into calm <3-lux darkness"
+        },
+        {
+          "name": "Wrist-worn circular light-sensor band and cloth-bound printed bedside book",
+          "period_detail": "compact UK Biobank-style wrist actigraphy/lux band paired with a classic paper book",
+          "physical_behavior": "wrist sensor catches the sharp drop from bright room glare to calm darkness as the paper book closes on the nightstand"
+        }
+      ],
+      "actions": [
+        {
+          "who": "60-year-old adult sleeper & spouse",
+          "verb_sequence": "winces as harsh bedroom glare hits closed eyelids -> sweeps heavy blackout curtains shut and clicks off the hallway sconce into calm darkness"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Both sleepers",
+          "reaction": "settle into deep, slow-breathing stillness with relaxed shoulders"
+        }
+      ],
+      "wardrobe": "Soft sage and cream cotton buttoned pajamas.",
+      "lighting": "Sharp contrast from 100-lux cool artificial glare to calm <3-lux velvet darkness.",
+      "recognition_hook": "Your eyelids aren't blackout curtains—across 86,000 adults, bedroom light at night raised depression risk 30 percent even when they slept!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a 60-year-old adult wearing a wrist light sensor sweeping heavy blackout curtains shut to block harsh nighttime glare across a bedroom bed",
+        "must_show": [
+          "curtain|drape|window",
+          "wrist|sensor|band",
+          "bed|pillow"
+        ],
+        "source": "M1@00:10-00:25; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Morning Sunlit Garden Walk: Soaking in 10,000-Lux Daylight",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern 8:15 AM sunlit neighborhood sidewalk & garden",
+      "layout": {
+        "description": "Wide sunlit neighborhood sidewalk lined with flowering trees where the same 60-year-old couple walks briskly in radiant morning sky light.",
+        "positions": [
+          {
+            "who": "60-year-old adult couple (wearing wrist light sensors and light morning jackets)",
+            "where": "walking side-by-side outdoors under open morning sky",
+            "facing": "toward warm morning sunlight"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Wrist light-sensor band and ceramic morning tea mug on garden wall",
+          "period_detail": "natural morning sky brightness bathing sensor face",
+          "physical_behavior": "sleeper steps out from indoor shade into full golden morning sunlight"
+        }
+      ],
+      "actions": [
+        {
+          "who": "60-year-old couple",
+          "verb_sequence": "steps outdoors before 9:00 AM without sunglasses -> walks briskly for 15 minutes soaking in bright natural sky light"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "60-year-old couple",
+          "reaction": "warm, uplifted morning mood and crisp daytime energy"
+        }
+      ],
+      "wardrobe": "Light linen and cotton morning walking jackets.",
+      "lighting": "Brilliant golden outdoor morning sunlight.",
+      "recognition_hook": "Brighter days and darker nights: natural morning sky cut depression risk by 20 percent.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC5"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Northwestern Inpatient Sleep Suite: 100-Lux vs <3-Lux Heart-Rate Check",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2022 Northwestern University Feinberg School of Medicine sleep lab",
+      "layout": {
+        "description": "Controlled sleep-lab bedroom comparing overhead 100-lux illumination against <3-lux darkness with chest heart-rate sensor leads.",
+        "positions": [
+          {
+            "who": "Sleep physiologist & sleeping adult participant",
+            "where": "physiologist measuring pillow lux level with a handheld light meter beside the sleeping volunteer",
+            "facing": "beside laboratory bed"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Handheld analog incident-light lux meter at pillow height",
+          "period_detail": "white dome light sensor held beside closed eyelids",
+          "physical_behavior": "needle drops from 100 lux down below 3 lux as overhead dimmer turns off"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sleep physiologist",
+          "verb_sequence": "checks pillow lux dome under 100-lux ceiling light -> dims room below 3 lux as sleeper's heart rate slows"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleeping participant",
+          "reaction": "pulse calms out of sympathetic tension into true parasympathetic rest"
+        }
+      ],
+      "wardrobe": "Participant in cotton sleep shirt; researcher in white clinical coat.",
+      "lighting": "100-lux ceiling wash dimming to <3-lux twilight.",
+      "recognition_hook": "Just one night under 100 lux raises overnight heart rate and next-morning insulin resistance.",
+      "sources": [
+        "SRC3",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Bedroom bathed in artificial street/TV glow leaking across closed eyelids at night",
+    "landmark_or_object_b": "Pitch-dark bedroom paired with bright outdoor morning park walk",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep from illuminated city streetlamp canyon rising over residential rooftops",
+    "cut_b_topdown_3d_arrow": "90-degree top-down house-and-park cutaway showing #FF2525 night-light intrusion beam vs clean outdoor daylight corridor",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

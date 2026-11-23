@@ -1,0 +1,215 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "opening_mode": "case_stamp",
+  "core_reveal_sentence_index": 15,
+  "sentence_beats": [
+    "case_stamp",
+    "setup",
+    "promise",
+    "rehook",
+    "myth",
+    "evidence",
+    "conflict",
+    "rehook",
+    "evidence",
+    "evidence",
+    "escalation",
+    "evidence",
+    "evidence",
+    "rehook",
+    "core",
+    "mechanism",
+    "payoff",
+    "payoff",
+    "payoff",
+    "climax_cut"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp"
+  ],
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "project_id": "v8_ep06_bedtime_todo_list_sleep",
+  "pillar": "brain_basics",
+  "everyday_domain": "sleep",
+  "dossier": "scullin_bedtime_todo_list_sleep",
+  "language": "en-US",
+  "title": "How Trying to Fall Asleep Backfires",
+  "doi": "10.1037/xge0000374",
+  "secondary_doi": "10.1016/0005-7967(96)00031-9",
+  "mechanism_doi": "10.1523/JNEUROSCI.1326-21.2022",
+  "omit_experiment_nicknames": [],
+  "viewer_description": "At the University of Virginia in 1996, volunteers who tried to fall asleep as fast as possible while brass marching music played ended up lying awake much longer than volunteers who did not try at all. Under stress, forcing sleep turns on a mental monitor that keeps checking whether you are still awake.\n\nIn 2018, sleep researchers at Baylor University wired 57 young adults to overnight brain monitors and gave them five minutes to write on paper before bed. People who listed finished tasks took 25.1 minutes to fall asleep, while people who wrote a specific to-do list for tomorrow fell asleep in 15.8 minutes as their hippocampus and prefrontal cortex stood down.\n\nResearch: Scullin et al., Baylor University (2018).",
+  "debate_question": "Do you fall asleep faster on the living room couch than you do once you actually climb into bed?",
+  "offcenter_creator_bet": "",
+  "cameo_prompt": "",
+  "us_anti_clone_v7": true,
+  "acts": [
+    {
+      "act": 1,
+      "name": "Virginia Brass Marching Music Sleep-Urgency Backfire",
+      "sentences": [
+        "In nineteen ninety-six at Virginia, psychologists played brass marches while volunteers tried to sleep!",
+        "Half tried to fall asleep as fast as possible, while others drifted off whenever they wanted.",
+        "Close your eyes right now and fall asleep as fast as you possibly can.",
+        "Yet why did volunteers trying the hardest lie wide awake far longer than everyone else?"
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Midnight Willpower Myth & Ironic Wakefulness Monitor",
+      "sentences": [
+        "Most people assume forcing your eyes shut at midnight helps you fall asleep faster.",
+        "Under mental stress, urgent effort backfires because checking if you are asleep jolts your mind awake!",
+        "Every glance at a bedside timepiece turns rest into a test."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Pivot & Baylor Five-Minute To-Do List Polysomnography",
+      "sentences": [
+        "Hold on! If forcing sleep backfires, why would listing tomorrow's chores knock you out faster?",
+        "In twenty eighteen at Baylor, scientists wired fifty-seven sleepers to brain monitors.",
+        "Before lights out, half spent five minutes writing finished tasks, while half listed tomorrow's chores.",
+        "Critics feared writing tomorrow's stressful errands right before bed would ruin the whole night!",
+        "Instead, sleep onset dropped from twenty-five point one minutes down to fifteen point eight — nine minutes faster!",
+        "Even better, the more specific tasks volunteers wrote down, the faster they fell asleep."
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Unpaid Night Watchman Totem: Hippocampus & Prefrontal Offloading",
+      "sentences": [
+        "Wait — why does a five-minute paper list quiet a racing mind when willpower fails?",
+        "Open plans keep your hippocampus — your memory center — pacing like an unpaid night watchman.",
+        "Writing tasks down lets your prefrontal cortex — your planner — finally stand down!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Everyday Sofa-vs-Bed Paradox Mirror",
+      "sentences": [
+        "That is why you nod off effortlessly on the couch yet stare wide-eyed in bed.",
+        "On the couch nobody tries to sleep, whereas dark silence wakes every unscheduled errand."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Exoneration Flip & Five-Minute Paper Checklist Protocol",
+      "sentences": [
+        "Your midnight thoughts are not a broken mind, just a loyal watchman begging for a checklist.",
+        "Before bed tonight, write tomorrow's tasks on paper for five minutes and rest in peace."
+      ]
+    }
+  ],
+  "sentences": [
+    "In nineteen ninety-six at Virginia, psychologists played brass marches while volunteers tried to sleep!",
+    "Half tried to fall asleep as fast as possible, while others drifted off whenever they wanted.",
+    "Close your eyes right now and fall asleep as fast as you possibly can.",
+    "Yet why did volunteers trying the hardest lie wide awake far longer than everyone else?",
+    "Most people assume forcing your eyes shut at midnight helps you fall asleep faster.",
+    "Under mental stress, urgent effort backfires because checking if you are asleep jolts your mind awake!",
+    "Every glance at a bedside timepiece turns rest into a test.",
+    "Hold on! If forcing sleep backfires, why would listing tomorrow's chores knock you out faster?",
+    "In twenty eighteen at Baylor, scientists wired fifty-seven sleepers to brain monitors.",
+    "Before lights out, half spent five minutes writing finished tasks, while half listed tomorrow's chores.",
+    "Critics feared writing tomorrow's stressful errands right before bed would ruin the whole night!",
+    "Instead, sleep onset dropped from twenty-five point one minutes down to fifteen point eight — nine minutes faster!",
+    "Even better, the more specific tasks volunteers wrote down, the faster they fell asleep.",
+    "Wait — why does a five-minute paper list quiet a racing mind when willpower fails?",
+    "Open plans keep your hippocampus — your memory center — pacing like an unpaid night watchman.",
+    "Writing tasks down lets your prefrontal cortex — your planner — finally stand down!",
+    "That is why you nod off effortlessly on the couch yet stare wide-eyed in bed.",
+    "On the couch nobody tries to sleep, whereas dark silence wakes every unscheduled errand.",
+    "Your midnight thoughts are not a broken mind, just a loyal watchman begging for a checklist.",
+    "Before bed tonight, write tomorrow's tasks on paper for five minutes and rest in peace."
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 6,
+      "mode": "illustrative",
+      "preset": "curve_marker",
+      "chart": "curve_marker",
+      "style": "ink_pen",
+      "fn": "exp_growth",
+      "title": "Sleep Urgency Backfire",
+      "concept": "Ironic Mental Control Under Load",
+      "x_label": "Effort to Force Sleep",
+      "y_label": "Minutes Lying Awake",
+      "doi": "",
+      "source_citation": ""
+    },
+    {
+      "sentence_index": 12,
+      "mode": "study",
+      "preset": "bar_compare",
+      "chart": "bar_compare",
+      "style": "ink_pen",
+      "title": "Polysomnography Sleep Onset",
+      "unit": "m",
+      "bars": [
+        {
+          "label": "Done List (5m)",
+          "value": 25.1,
+          "unit": "m"
+        },
+        {
+          "label": "To-Do List (5m)",
+          "value": 15.8,
+          "unit": "m"
+        }
+      ],
+      "doi": "10.1037/xge0000374",
+      "source_citation": "Scullin et al. (2018)"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "ETH Zürich taped sleeping volunteers' eyelids gently open in total darkness—and caught their pupils pulsing all night long.",
+    "core_experiment": "Seventeen adults slept wearing infrared pupillometry cameras paired with brain sensors while soft 45 dB sounds tested whether pupil size predicts sleep protection.",
+    "twist": "Small baseline pupils let gentle sounds boost protective sleep spindles by +5.53 uV^2, while already-dilated pupils blocked that boost (+0.08 uV^2)."
+  },
+  "chapters": [
+    {
+      "title": "1. The Night Mystery: Eight Hours in Bed, Zero Rest",
+      "minutes": "0:00-1:45"
+    },
+    {
+      "title": "2. Inside ETH Zürich's Pitch-Dark Infrared Sleep Setup",
+      "minutes": "1:45-3:40"
+    },
+    {
+      "title": "3. The Hidden 60-Second Rhythm & -11.51% Spindle Constriction",
+      "minutes": "3:40-5:30"
+    },
+    {
+      "title": "4. Silent Surges: K-Complex (+13.49%) and Arousal (+35.37%) Explosions",
+      "minutes": "5:30-7:25"
+    },
+    {
+      "title": "5. 45 dB Sound Test & Brainstem Locus Coeruleus Mechanism",
+      "minutes": "7:25-9:10"
+    },
+    {
+      "title": "6. Honest Limits & What Real Sleep Fragility Actually Means",
+      "minutes": "9:10-10:00"
+    }
+  ],
+  "r75_clean_seed_tags": [
+    "sleep neuroscience",
+    "pupil dilation",
+    "brainstem",
+    "locus coeruleus",
+    "sleep spindles",
+    "k complex",
+    "eth zurich",
+    "nature communications",
+    "sleep quality",
+    "brain health"
+  ],
+  "r65_split_thumbnail_spec": {
+    "style": "in_skull_cross_section_cutaway",
+    "left_half": "Constricted small-pupil sleeping silhouette with tranquil steady #27D8FF glow inside central thalamus spindles",
+    "right_half": "Dilated micro-arousal pupil bursting alongside bright cyan brainstem locus coeruleus pulse inside translucent skull cutaway",
+    "zero_ai_text_inside_image": true
+  }
+}

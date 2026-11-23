@@ -4,26 +4,29 @@
     {
       "role": "symptom",
       "region": "temporal lobe",
-      "plain": "bilateral hMT+/V5 visual-motion gray-matter expansion (+3–4% at Scan 2)",
-      "function": "tracking three simultaneous parabolic arcs in peripheral sight so trajectory timing is predicted hundreds of milliseconds before catch — expanding at Month 3 and receding at Month 6 idle",
+      "plain": "side lobe visual-motion radar",
+      "function": "tracking three fast parabolic ball arcs in peripheral vision hundreds of milliseconds before catch — expanding ~4% at Day 90 and receding halfway after 90 idle days",
       "scene_id": "S1",
-      "narration_bridge": "Primary bilateral peak in Draganski et al. 2004 Nature (SRC1)."
+      "narration_bridge": "Primary bilateral hMT+/V5 gray-matter peak in Draganski et al. 2004 Nature (SRC1).",
+      "r78_circuit_state": "active"
     },
     {
       "role": "pivot",
       "region": "parietal cortex",
-      "plain": "left posterior intraparietal sulcus visuomotor coordinate transformation",
-      "function": "mapping visual arc peaks into precise 3D spatial catch locations (where underlying white matter also thickens in Scholz et al. 2009!)",
-      "scene_id": "S1",
-      "narration_bridge": "Second significant structural peak in Nature 2004."
+      "plain": "spatial map",
+      "function": "translating visual ball peaks into exact 3D hand-catch coordinates in the posterior intraparietal sulcus",
+      "scene_id": "S2",
+      "narration_bridge": "Second structural expansion peak in Draganski et al. 2004 (SRC1).",
+      "r78_circuit_state": "active"
     },
     {
-      "role": "step1",
-      "region": "motor cortex",
-      "plain": "rhythmic bimanual throw-and-catch execution",
-      "function": "executing smooth low-variance throws once visual-parietal trajectory prediction solves the spatial bottleneck",
-      "scene_id": "S2",
-      "narration_bridge": "Completes the V5 to Parietal to Motor cascade."
+      "role": "breakthrough",
+      "region": "hippocampus",
+      "plain": "memory hub",
+      "function": "expanding alongside nucleus accumbens reward circuits when 50-to-67-year-old adults master 3-ball juggling",
+      "scene_id": "S3",
+      "narration_bridge": "Proves older adults gain memory-hub plasticity from visuomotor learning in Boyke et al. 2008 (SRC5).",
+      "r78_circuit_state": "active"
     }
   ]
 }

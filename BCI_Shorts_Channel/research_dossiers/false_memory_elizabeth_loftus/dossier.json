@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "false_memory_elizabeth_loftus",
   "topic": "Elizabeth Loftus & John Palmer (1974) / Pickrell (1995): Post-Event Misinformation, 'Smashed' vs 'Hit', and Rich False Memories",
   "pillar": "brain_history",
@@ -53,7 +53,33 @@
     },
     {
       "fact": "32 percent of witnesses originally asked the 'smashed' question falsely remembered seeing broken glass on the road, more than double the 14 percent in the 'hit' group and 12 percent in unqueried controls.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "False Broken-Glass Recall",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Asked 'Smashed'",
+            "value": 32.0,
+            "unit": "%"
+          },
+          {
+            "label": "Asked 'Hit'",
+            "value": 14.0,
+            "unit": "%"
+          },
+          {
+            "label": "Unqueried Control",
+            "value": 12.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1016/s0022-5371(74)80011-3",
+        "source_citation": "Loftus & Palmer (1974)"
+      }
     },
     {
       "fact": "In 1995, Loftus and Jacqueline Pickrell gave 24 participants booklets containing three real childhood events from relatives plus one fabricated story of getting lost in a shopping mall at age five and rescued by an elderly person.",
@@ -61,7 +87,17 @@
     },
     {
       "fact": "Six of the 24 participants (25 percent) came to remember the fictional mall event partially or fully, adding vivid sensory details like the rescuer's flannel shirt that nobody had ever told them.",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Lost-in-Mall False Memory",
+        "highlighted_k": 6,
+        "total_n": 24,
+        "doi": "10.3928/0048-5713-19951201-07",
+        "source_citation": "Loftus & Pickrell (1995)"
+      }
     },
     {
       "fact": "Modern memory reconsolidation neuroscience shows that retrieving an episodic trace via the hippocampus temporarily destabilizes it, allowing prefrontal verbal framing to splice new details in before re-storage.",
@@ -146,5 +182,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hot take: eyewitness certainty is fragile — changing one verb planted fake broken glass inside honest memories. Have you and a sibling ever sworn opposite versions of one day?"
+  "offcenter_creator_bet": "Hot take: eyewitness certainty is fragile — changing one verb planted fake broken glass inside honest memories. Have you and a sibling ever sworn opposite versions of one day?",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1016/s0022-5371(74)80011-3",
+  "three_layer_formula": {
+    "everyday_problem": "Two siblings arguing at Thanksgiving over a childhood vacation story where both are 100 percent certain of opposite details.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/s0022-5371(74)80011-3",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/s0022-5371(74)80011-3"
+      ],
+      "summary": "Elizabeth F. Loftus, John C. Palmer (1974). Reconstruction of automobile destruction: An example of the interaction between language and memory. Journal of Verbal Learning and Verbal Behavior."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1177/0956797614562862",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1177/0956797614562862"
+      ],
+      "summary": "Julia Shaw, Stephen Porter (2015). Constructing Rich False Memories of Committing Crime. Psychological Science."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Human memory works like a video camera that plays back unaltered files unless you lie.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hot take: eyewitness certainty is fragile — changing one verb planted fake broken glass inside honest memories. Have you and a sibling ever sworn opposite versions of one day?"
+  }
 }

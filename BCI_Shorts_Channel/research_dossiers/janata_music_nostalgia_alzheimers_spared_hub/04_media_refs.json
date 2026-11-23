@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern cognitive/fMRI memory study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Petr Janata - Music, memories, and the brain",
+      "url": "https://www.youtube.com/watch?v=41cv5uPBWzg",
+      "channel": "CIRMMT",
+      "source_id": "SRC_M1",
+      "duration_sec": 3264,
+      "timecodes": [
+        {
+          "t": "00:08-00:26",
+          "what": "CIRMMT distinguished lecture introduction of UC Davis neuroscientist Petr Janata and his fMRI research on music-evoked autobiographical memories."
+        },
+        {
+          "t": "00:28-00:49",
+          "what": "Petr Janata outlines how tonal progressions in youth Billboard songs couple directly to medial prefrontal autobiographical memory hubs."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-00:50 into media/M1/keyframes/.",
+          "CIRMMT keynote by primary study author Petr Janata; used strictly for researcher likeness/attire context and terminology."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Reason An Old Song Stops You Cold, Decades Later",
+      "url": "https://www.youtube.com/watch?v=0UCmjhPW2_E",
+      "channel": "Human Pattern",
+      "source_id": "SRC_M2",
+      "duration_sec": 411,
+      "timecodes": [
+        {
+          "t": "00:12-00:48",
+          "what": "Everyday scenario contrasting forgetting recent names against instant multi-decade song nostalgia."
+        },
+        {
+          "t": "01:30-02:15",
+          "what": "Overview of Jacobsen et al. (2015) 7T MRI findings on spared musical-memory regions in Alzheimer's disease."
+        }
+      ],
+      "license_note": "Complementary reference video for pacing and visual storytelling framing; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_fmri_study_track_b_scene_bible"
+    }
+  ]
+}

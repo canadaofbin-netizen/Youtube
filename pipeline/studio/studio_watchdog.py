@@ -163,20 +163,86 @@ def scan_go_live_transitions(
     }
 
 
+def sync_staging_queue_transitions(
+    *,
+    queue_file: Path | None = None,
+    projects_dir: Path | None = None,
+    now_utc: datetime | None = None,
+    dry_run: bool = True,
+) -> dict[str, Any]:
+    """
+    Promotes stale `status == "scheduled"` / `visibility == "scheduled"` items in `staging_queue.json`
+    (`scheduled_items` and `history`) to `"published_public"` / `"public"` once their project's
+    `upload_receipt.json` is `public` or their scheduled release timestamp has elapsed.
+    """
+    q_path = queue_file or STAGING_QUEUE_FILE
+    p_root = projects_dir or PROJECTS_DIR
+    now = now_utc or datetime.now(timezone.utc)
+    doc = _load_json(q_path)
+    if not doc:
+        return {"queue_exists": False, "updated_count": 0, "updated_projects": []}
+
+    updated_projects: list[str] = []
+    for section_key in ("scheduled_items", "history"):
+        rows = doc.get(section_key)
+        if not isinstance(rows, list):
+            continue
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            pid = str(row.get("project_id") or "").strip()
+            vid = str(row.get("video_id") or "").strip()
+            if not pid or not vid:
+                continue
+            curr_status = str(row.get("status") or "").strip().lower()
+            curr_vis = str(row.get("visibility") or "").strip().lower()
+            if curr_status not in {"scheduled", "scheduled_public"} and curr_vis != "scheduled":
+                continue
+
+            rec = _load_json(p_root / pid / "06_publish" / "upload_receipt.json") if p_root.exists() else {}
+            rec_vis = normalize_visibility(rec) if rec else ""
+            sched_dt = (
+                _parse_iso_utc(row.get("scheduled_time_et") or row.get("target_time_et"), default_tz=_ET_TZ)
+                or _parse_iso_utc(rec.get("scheduled_at_utc"), default_tz=timezone.utc)
+                or _parse_iso_utc(rec.get("scheduled_time_et"), default_tz=_ET_TZ)
+            )
+            should_promote = rec_vis == "public" or (sched_dt is not None and sched_dt <= now)
+            if should_promote:
+                if not dry_run:
+                    row["status"] = "published_public"
+                    row["visibility"] = "public"
+                if pid not in updated_projects:
+                    updated_projects.append(pid)
+
+    if updated_projects and not dry_run:
+        doc["updated_at"] = now.isoformat()
+        q_path.write_text(json.dumps(doc, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    return {
+        "queue_exists": True,
+        "updated_count": len(updated_projects),
+        "updated_projects": updated_projects,
+    }
+
+
 def audit_staging_queue_integrity(
     *,
     queue_file: Path | None = None,
     projects_dir: Path | None = None,
+    now_utc: datetime | None = None,
 ) -> dict[str, Any]:
-    """Audits staging_queue.json for duplicate video_ids, duplicate slots, or missing receipts."""
+    """Audits staging_queue.json for duplicate video_ids, duplicate slots, or stale elapsed scheduled entries."""
     q_path = queue_file or STAGING_QUEUE_FILE
     p_root = projects_dir or PROJECTS_DIR
+    now = now_utc or datetime.now(timezone.utc)
     doc = _load_json(q_path)
     items = list(doc.get("scheduled_items") or [])
+    history = list(doc.get("history") or [])
     seen_pids: set[str] = set()
     seen_slots: set[str] = set()
     duplicate_projects: list[str] = []
     duplicate_slots: list[str] = []
+    stale_scheduled_projects: list[str] = []
     legacy_psych_items: int = 0
 
     for item in items:
@@ -195,13 +261,25 @@ def audit_staging_queue_integrity(
                 duplicate_slots.append(slot_key)
             seen_slots.add(slot_key)
 
+    for row in items + history:
+        if not isinstance(row, dict):
+            continue
+        pid = str(row.get("project_id") or "").strip()
+        if not pid:
+            continue
+        if str(row.get("status") or "").lower() in {"scheduled", "scheduled_public"} or str(row.get("visibility") or "").lower() == "scheduled":
+            sched_dt = _parse_iso_utc(row.get("scheduled_time_et") or row.get("target_time_et"), default_tz=_ET_TZ)
+            if sched_dt is not None and sched_dt <= now and pid not in stale_scheduled_projects:
+                stale_scheduled_projects.append(pid)
+
     return {
         "queue_exists": q_path.exists(),
         "total_items": len(items),
         "duplicate_projects": duplicate_projects,
         "duplicate_slots": duplicate_slots,
+        "stale_scheduled_projects": stale_scheduled_projects,
         "legacy_psych_items": legacy_psych_items,
-        "healthy": len(duplicate_projects) == 0 and len(duplicate_slots) == 0,
+        "healthy": len(duplicate_projects) == 0 and len(duplicate_slots) == 0 and len(stale_scheduled_projects) == 0,
         "projects_dir_exists": p_root.exists(),
     }
 
@@ -228,25 +306,40 @@ def cleanup_idle_whale_tabs(
     if not isinstance(targets, list):
         return {"cdp_reachable": False, "candidates": [], "closed": []}
 
-    from pipeline.cdp_tab_lease import list_active_tab_leases
+    from pipeline.cdp_tab_lease import _locked_lease_registry, has_inflight_tab_creations, list_active_tab_leases
 
     page_tabs = [t for t in targets if isinstance(t, dict) and str(t.get("type") or "") == "page"]
     active_leases = list_active_tab_leases(cdp_port=cdp_port)
-    studio_edit_tabs = [
-        t
-        for t in page_tabs
-        if "studio.youtube.com/video/" in str(t.get("url") or "")
-        and "/edit" in str(t.get("url") or "")
-        and str(t.get("id") or "") not in active_leases
-    ]
-    blank_tabs = [
-        t
-        for t in page_tabs
-        if str(t.get("url") or "").strip() in {"about:blank", "chrome://newtab/", "whale://newtab/"}
-        and str(t.get("id") or "") not in active_leases
-    ]
+    inflight_creation = has_inflight_tab_creations(cdp_port=cdp_port)
+    orphan_pipeline_ids: set[str] = set()
+    try:
+        with _locked_lease_registry(cdp_port) as (reg_state, _):
+            raw_orph = reg_state.get("orphan_pipeline_tabs")
+            if isinstance(raw_orph, dict):
+                orphan_pipeline_ids = {str(k) for k in raw_orph.keys() if str(k)}
+    except Exception:
+        orphan_pipeline_ids = set()
 
-    # Always leave at least 1 page tab open in the browser window; keep the newest Studio edit tab if no dashboard exists
+    # Never close unleased user studio.youtube.com tabs; only close evicted pipeline-created Studio tabs
+    orphan_studio_edit_tabs = [
+        t
+        for t in page_tabs
+        if "studio.youtube.com" in str(t.get("url") or "").lower()
+        and str(t.get("id") or "") not in active_leases
+        and str(t.get("id") or "") in orphan_pipeline_ids
+    ]
+    blank_tabs = (
+        []
+        if inflight_creation
+        else [
+            t
+            for t in page_tabs
+            if str(t.get("url") or "").strip() in {"about:blank", "chrome://newtab/", "whale://newtab/"}
+            and str(t.get("id") or "") not in active_leases
+        ]
+    )
+
+    # Always leave at least 1 page tab open in the browser window
     close_candidates: list[dict[str, str]] = []
     if len(page_tabs) > 1:
         for bt in blank_tabs:
@@ -255,12 +348,12 @@ def cleanup_idle_whale_tabs(
             tid = str(bt.get("id") or "").strip()
             if tid and tid not in active_leases:
                 close_candidates.append({"id": tid, "url": str(bt.get("url") or ""), "reason": "idle_blank_tab"})
-        for st in studio_edit_tabs[1:]:
+        for st in orphan_studio_edit_tabs:
             if len(page_tabs) - len(close_candidates) <= 1:
                 break
             tid = str(st.get("id") or "").strip()
             if tid and tid not in active_leases:
-                close_candidates.append({"id": tid, "url": str(st.get("url") or ""), "reason": "duplicate_studio_edit_tab"})
+                close_candidates.append({"id": tid, "url": str(st.get("url") or ""), "reason": "orphan_pipeline_studio_edit_tab"})
 
     closed_ids: list[str] = []
     if not dry_run:
@@ -268,8 +361,10 @@ def cleanup_idle_whale_tabs(
             try:
                 with urllib.request.urlopen(f"{base_url}/json/close/{cand['id']}", timeout=2.0):
                     closed_ids.append(cand["id"])
-            except Exception:
-                pass
+            except Exception as exc:
+                import logging
+
+                logging.getLogger("studio_watchdog").warning("Failed to close idle CDP tab %s: %s", cand["id"], exc)
 
     return {
         "cdp_reachable": True,
@@ -289,6 +384,7 @@ def run_studio_watchdog(
     apply_links: bool = True,
     promote_elapsed_receipts: bool = True,
     cleanup_tabs: bool = True,
+    force_immediate_pin: bool = False,
     now_utc: datetime | None = None,
 ) -> dict[str, Any]:
     """
@@ -319,6 +415,15 @@ def run_studio_watchdog(
                 rec_path.write_text(json.dumps(rec, indent=2, ensure_ascii=False), encoding="utf-8")
                 write_studio_publish_receipt(pid, projects_dir=p_root)
                 promoted.append(pid)
+        q_sync = sync_staging_queue_transitions(
+            queue_file=queue_file,
+            projects_dir=p_root,
+            now_utc=now,
+            dry_run=False,
+        )
+        for q_pid in q_sync.get("updated_projects") or []:
+            if q_pid not in promoted:
+                promoted.append(q_pid)
 
     pin_results: list[dict[str, Any]] = []
     if apply_pins and scan["missing_doi_pin"]:
@@ -337,7 +442,13 @@ def run_studio_watchdog(
                 })
             else:
                 try:
-                    res = cm.post_and_pin_comment(project_id=pid, video_id=vid, dry_run=False)
+                    res = cm.post_and_pin_comment(
+                        project_id=pid,
+                        video_id=vid,
+                        dry_run=False,
+                        force_immediate_pin=force_immediate_pin,
+                        now_utc=now,
+                    )
                     pin_results.append(res)
                 except Exception as exc:
                     pin_results.append({
@@ -358,7 +469,7 @@ def run_studio_watchdog(
             pid = item["project_id"]
             plan_res = linker.run(
                 mode="seed_boost",
-                assign_playlists=True,
+                assign_playlists=False,
                 dry_run=dry_run,
                 force=False,
                 project_id=pid,
@@ -375,7 +486,7 @@ def run_studio_watchdog(
                     "verified": False,
                 })
 
-    queue_audit = audit_staging_queue_integrity(queue_file=queue_file, projects_dir=p_root)
+    queue_audit = audit_staging_queue_integrity(queue_file=queue_file, projects_dir=p_root, now_utc=now)
     tab_cleanup = (
         cleanup_idle_whale_tabs(cdp_port=cdp_port, dry_run=dry_run)
         if cleanup_tabs

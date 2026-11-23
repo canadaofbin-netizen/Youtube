@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "baddeley_working_memory_architecture",
   "topic": "Baddeley & Hitch (1974): Holding 8 Random Digits While Reasoning — Why Short-Term Memory Is a 4-Room Workshop, Not One Shelf",
   "pillar": "brain_basics",
@@ -35,7 +35,27 @@
     },
     {
       "fact": "According to single-box dogma, an 8-digit load filling 100% of STM should have **totally crashed reasoning to 50% chance**. Instead, Baddeley & Hitch stared at the stopwatch in shock: even under a crushing **8-digit concurrent chant**, volunteers took only ~1 second longer (~3.27 s vs ~2.15 s at 0 digits) and kept **95% reasoning accuracy**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Reasoning Latency vs Load",
+        "unit": "s",
+        "series": [
+          {
+            "start_label": "0-Digit Load",
+            "label": "8-Digit Load",
+            "values": [
+              2.15,
+              3.27
+            ],
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1016/s0079-7421(08)60452-1",
+        "source_citation": "Baddeley & Hitch (1974)"
+      }
     },
     {
       "fact": "From 10+ clever dual-task experiments, Baddeley & Hitch replaced unitary 'Short-Term Memory' with a multi-room active workshop called **Working Memory**: (1) **Central Executive** (attentional boss), (2) **Phonological Loop** (~2-second inner-ear + inner-voice sound tape), and (3) **Visuospatial Sketchpad** (mental eye for 3D shapes, chessboards, and routes).",
@@ -59,7 +79,28 @@
     },
     {
       "fact": "In Baddeley, Thomson, and Buchanan's (1975) word-length experiments, immediate serial recall dropped from roughly 90% on five monosyllabic words to roughly 50% on five 5-syllable words, governed by an articulatory rehearsal window of ~2.0 seconds.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Word-Length Recall Drop",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "1-Syllable Words",
+            "value": 90.0,
+            "unit": "%"
+          },
+          {
+            "label": "5-Syllable Words",
+            "value": 50.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1016/s0079-7421(08)60452-1",
+        "source_citation": "Baddeley, Thomson & Buchanan (1975)"
+      }
     }
   ],
   "wow_facts": [
@@ -118,5 +159,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Honest take: multitasking is brain lag — cramming audio and text into one verbal loop drops half your thoughts. Do you think better on paper or out loud?"
+  "offcenter_creator_bet": "Honest take: multitasking is brain lag — cramming audio and text into one verbal loop drops half your thoughts. Do you think better on paper or out loud?",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1016/s0079-7421(08)60452-1",
+  "three_layer_formula": {
+    "everyday_problem": "Repeating a 6-digit verification code under your breath ('4-9-2-8-1-7... 4-9-2...') across the room — and watching someone saying 'Wait, what time is dinner?' wipe your **2-second Phonological Loop** clean.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/s0079-7421(08)60452-1",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/s0079-7421(08)60452-1"
+      ],
+      "summary": "Alan D. Baddeley, Graham Hitch (1974). Working Memory. Psychology of Learning and Motivation."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.12788/cp.0150",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.12788/cp.0150"
+      ],
+      "summary": "Cynthia He (2021). The challenge of ‘holding space’ while holding the pager. Current Psychiatry."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Short-term memory holds '7 plus or minus 2' items no matter how big or long the words are.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Honest take: multitasking is brain lag — cramming audio and text into one verbal loop drops half your thoughts. Do you think better on paper or out loud?"
+  }
 }

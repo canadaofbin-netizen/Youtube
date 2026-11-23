@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "langer_copy_machine_because_heuristic",
   "topic": "Ellen Langer (1978): The Xerox Copy-Machine 'Because' Trick — 93% Let You Cut in Line for a Meaningless Reason!",
   "pillar": "brain_basics",
@@ -44,7 +44,17 @@
     },
     {
       "fact": "Then came the jaw-dropper — **Placebic (Empty) Information**: *'Excuse me, I have 5 pages. May I use the Xerox machine, **because I have to make copies**?'* Zero new information — every single human standing at a Xerox machine is there to make copies! — yet **93%** stepped aside and said *'Sure, go ahead!'*",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "5-Page Placebic Compliance",
+        "percent": 93.0,
+        "unit": "%",
+        "doi": "10.1037/0022-3514.36.6.635",
+        "source_citation": "Langer et al. (1978)"
+      }
     },
     {
       "fact": "Wait — **HALF THE INTERNET STOPS THERE AND MISSES THE SECOND HALF OF LANGER'S TABLE**. What happened in Condition 2 when the confederate asked to copy **20 PAGES** instead of 5 (a costly, annoying wait)?",
@@ -52,7 +62,33 @@
     },
     {
       "fact": "At **20 pages**, **Request Only** got **24%**, the **Real Reason** (*'because I'm in a rush'*) STILL doubled compliance to **42%** — and the fake tautology (*'because I have to make copies'*) **CRASHED ALL THE WAY BACK DOWN TO 24.0%** (statistically identical to giving no reason at all).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Large Favor (20 Pages) Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Request Only",
+            "value": 24.0,
+            "unit": "%"
+          },
+          {
+            "label": "Placebic Because",
+            "value": 24.0,
+            "unit": "%"
+          },
+          {
+            "label": "Real Rush Reason",
+            "value": 42.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/0022-3514.36.6.635",
+        "source_citation": "Langer et al. (1978)"
+      }
     },
     {
       "fact": "Langer's 1978 paper actually opened with two office-memo studies too (**Studies 1 & 2, SRC1**): secretaries complied ~90% with interoffice memos formatted in familiar routine syntax regardless of empty wording, proving **'mindlessness'** isn't stupidity — it's an energy-saving **scripted autopilot** ('Request + Because + Something') that only runs when **stakes are low**.",
@@ -112,5 +148,37 @@
     "diorama_70_langer_copy_machine_because_heuristic"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/0022-3514.36.6.635",
+  "three_layer_formula": {
+    "everyday_problem": "Writing a quick Slack request or calendar change WITH a crisp honest *'because [specific deadline]'* instead of a bare demand — and getting an instant 'Yes!'",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/0022-3514.36.6.635",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/0022-3514.36.6.635"
+      ],
+      "summary": "Ellen J. Langer, Arthur Blank, Benzion Chanowitz (1978). The mindlessness of ostensibly thoughtful action: The role of \"placebic\" information in interpersonal interaction. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2017",
+      "doi": "10.1146/annurev-neuro-072116-031526",
+      "source_ids": [
+        "SRC_NEURO_2017"
+      ],
+      "dois": [
+        "10.1146/annurev-neuro-072116-031526"
+      ],
+      "summary": "A. Shenhav, S. Musslick, F. Lieder, W. Kool, T. L. Griffiths, J. D. Cohen, M. M. Botvinick (2017). Toward a rational and mechanistic account of mental effort. Annual Review of Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "'Because' is a magic hypnosis word that makes people obey huge, expensive requests for nonsense reasons.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

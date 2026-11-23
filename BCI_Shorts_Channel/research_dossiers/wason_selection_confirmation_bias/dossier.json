@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "wason_selection_confirmation_bias",
   "topic": "Peter Wason (1966/1968): The Four-Card Puzzle ('E — K — 4 — 7') That Stumps 90% of Educated Adults",
   "pillar": "brain_basics",
@@ -40,7 +40,17 @@
     },
     {
       "fact": "Across university students, professors, and even trained mathematicians caught off guard, **fewer than 10%** (typically 4% to 10%) picked the logically correct pair (**E and 7**).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Abstract 4-Card Accuracy",
+        "percent": 10.0,
+        "unit": "%",
+        "doi": "10.1080/14640746808400161",
+        "source_citation": "Wason (1968)"
+      }
     },
     {
       "fact": "Instead, roughly **45-50%** picked **E and 4**, and another ~35% picked **E alone**.",
@@ -64,7 +74,28 @@
     },
     {
       "fact": "While roughly 90% of adults fail Wason's abstract E-K-4-7 card rule (<10% choosing E and 7, echoing Wason's 1960 '2-4-6' rule-discovery task), Griggs and Cox's (1982) drinking-age rule raised logical falsification accuracy toward ~75–80%.",
-      "source_id": "SRC5"
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Rule Falsification Accuracy",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Abstract Card Rule",
+            "value": 10.0,
+            "unit": "%"
+          },
+          {
+            "label": "Drinking-Age Rule",
+            "value": 75.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1111/j.2044-8295.1982.tb01823.x",
+        "source_citation": "Griggs & Cox (1982)"
+      }
     }
   ],
   "wow_facts": [
@@ -122,5 +153,37 @@
     "diorama_89_wason_selection_confirmation_bias"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1080/14640746808400161",
+  "three_layer_formula": {
+    "everyday_problem": "Googling 'why intermittent fasting / my favorite stock works' (flipping the 4) instead of 'strongest evidence against my stock thesis' (flipping the 7).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1080/14640746808400161",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1080/14640746808400161"
+      ],
+      "summary": "P. C. Wason (1968). Reasoning about a Rule. Quarterly Journal of Experimental Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1016/j.tics.2015.11.002",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1016/j.tics.2015.11.002"
+      ],
+      "summary": "T. Sharot, N. Garrett (2016). Forming beliefs: Why valence asymmetries matter and how prefrontal circuits gate disconfirming evidence. Trends in Cognitive Sciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Failing E-K-4-7 means someone has low intelligence or poor education.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

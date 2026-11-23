@@ -22,8 +22,14 @@ from pipeline.config import (
     DESCRIPTION_EDITORIAL_TEMPLATES,
     PROJECTS_DIR,
 )
-from pipeline.studio.config import CHANNEL_ID, DEFAULT_CDP_PORT, RELATED_VIDEO_SELECTORS
-from pipeline.studio.short_linker import is_valid_youtube_video_id, normalize_visibility
+from pipeline.studio.config import (
+    CHANNEL_ID,
+    DEFAULT_CDP_PORT,
+    POST_RELEASE_FREEZE_HOURS,
+    PRE_RELEASE_FREEZE_HOURS,
+    RELATED_VIDEO_SELECTORS,
+)
+from pipeline.studio.short_linker import ShortLinkGraph, is_valid_youtube_video_id, normalize_visibility
 from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS, WhaleSessionController
 
 
@@ -189,7 +195,9 @@ def build_diversified_description(
         lead_summary = " ".join(sents[:2]).strip() or title
 
     if is_v8:
-        tag_list: list[str] = []
+        from pipeline.config import PRE_R68H_FROZEN_V8_PROJECTS
+
+        tag_list: list[str] = [] if project_id in PRE_R68H_FROZEN_V8_PROJECTS else ["#shorts"]
     else:
         raw_tags = metadata.get("hashtags") or ["#Shorts", "#Neuroscience", "#BrainScience", "#Psychology"]
         if isinstance(raw_tags, list):
@@ -216,7 +224,7 @@ def build_diversified_description(
         source_summary=lead_summary,
         hashtags=tag_list[:5],
         seed=index_seed,
-        zero_hashtags=is_v8,
+        zero_hashtags=bool(is_v8 and not tag_list),
         omit_nicknames=omit_nicknames if is_v8 else None,
     )
 
@@ -229,14 +237,19 @@ def sanitize_scheduled_projects(
     apply_studio_dom: bool = False,
     diversify_titles: bool = True,
     cdp_port: int = DEFAULT_CDP_PORT,
+    now_utc: datetime | None = None,
+    force_freeze_override: bool = False,
 ) -> dict[str, Any]:
     """
     Updates local `06_publish/metadata.json` (and optionally YouTube Studio `/video/<id>/edit`
     title & description textboxes via DirectCDPClient) on `scheduled` projects only.
+    Enforces R75 `PRE_RELEASE_FREEZE_HOURS` (3.0h before Scheduled go-live) and
+    `POST_RELEASE_FREEZE_HOURS` (24.0h after Public go-live).
     """
-    from pipeline.config import is_expressive_v8_plan
+    from pipeline.config import PRE_R68H_FROZEN_V8_PROJECTS, is_expressive_v8_plan
 
     p_root = projects_dir or PROJECTS_DIR
+    ref_now = now_utc or datetime.now(timezone.utc)
     candidates: list[Path] = []
     if project_ids:
         for pid in project_ids:
@@ -258,6 +271,27 @@ def sanitize_scheduled_projects(
         if vis != "scheduled":
             skipped.append({"project_id": pid, "reason": f"visibility={vis} (only scheduled allowed)"})
             continue
+        if not force_freeze_override:
+            pub_ts = str(upload_rec.get("published_at_utc") or upload_rec.get("published_at") or "").strip()
+            sched_ts = str(upload_rec.get("scheduled_at_utc") or upload_rec.get("scheduled_time_et") or "").strip()
+            freeze_node = {
+                "project_id": pid,
+                "visibility": vis,
+                "published_at_utc": pub_ts,
+                "published_at": pub_ts,
+                "scheduled_at_utc": sched_ts,
+                "scheduled_at": sched_ts,
+            }
+            seed_guard = ShortLinkGraph(projects_dir=p_root, now_utc=ref_now)
+            is_locked, lock_reason = seed_guard.is_seed_locked(freeze_node)
+            if is_locked:
+                skipped.append(
+                    {
+                        "project_id": pid,
+                        "reason": f"pre_release_freeze_window ({lock_reason})",
+                    }
+                )
+                continue
         meta_path = pub_dir / "metadata.json"
         meta = _load_json(meta_path)
         script = _load_json(p_dir / "02_script" / "script.json")
@@ -271,7 +305,7 @@ def sanitize_scheduled_projects(
         )
         meta_for_desc = {**meta, "title": new_title}
         if is_v8:
-            meta_for_desc["hashtags"] = []
+            meta_for_desc["hashtags"] = [] if pid in PRE_R68H_FROZEN_V8_PROJECTS else ["#shorts"]
         new_desc = build_diversified_description(
             project_id=pid,
             metadata=meta_for_desc,
@@ -295,7 +329,7 @@ def sanitize_scheduled_projects(
             meta["title"] = new_title
             meta["description"] = new_desc
             if is_v8:
-                meta["hashtags"] = []
+                meta["hashtags"] = [] if pid in PRE_R68H_FROZEN_V8_PROJECTS else ["#shorts"]
             meta["sanitized_at_utc"] = datetime.now(timezone.utc).isoformat()
             meta_path.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
             rec_entry["local_saved"] = True

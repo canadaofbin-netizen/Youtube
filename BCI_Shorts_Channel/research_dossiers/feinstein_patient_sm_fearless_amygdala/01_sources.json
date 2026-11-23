@@ -1,3 +1,64 @@
 {
-  "sources": []
+  "sources": [
+    {
+      "id": "SRC1",
+      "type": "primary",
+      "citation": "J. S. Feinstein, R. Adolphs, A. Damasio, D. Tranel (2011). The human amygdala and the induction and experience of fear. Current Biology.",
+      "doi": "10.1016/j.cub.2010.11.042",
+      "url": "https://doi.org/10.1016/j.cub.2010.11.042",
+      "year": 2011,
+      "verified": true,
+      "notes": "Landmark behavioral study of Patient S.M. across snakes, spiders, Waverly Hills Haunted House, horror film clips, and 3 months of ecological momentary experience sampling."
+    },
+    {
+      "id": "SRC2",
+      "type": "primary",
+      "citation": "J. S. Feinstein, C. Buzza, R. Hurlemann, R. L. Follmer et al. (2013). Fear and panic in humans with bilateral amygdala damage. Nature Neuroscience.",
+      "doi": "10.1038/nn.3323",
+      "url": "https://doi.org/10.1038/nn.3323",
+      "year": 2013,
+      "verified": true,
+      "notes": "Single-breath 35% CO2 inhalation experiment in 3 bilateral amygdala lesion patients (S.M., A.M., B.G.) vs 12 healthy controls."
+    },
+    {
+      "id": "SRC3",
+      "type": "follow_up",
+      "citation": "R. Adolphs, D. Tranel, H. Damasio, A. Damasio (1994). Impaired recognition of emotion in facial expressions following bilateral damage to the human amygdala. Nature.",
+      "doi": "10.1038/372669a0",
+      "url": "https://doi.org/10.1038/372669a0",
+      "year": 1994,
+      "verified": true,
+      "notes": "Foundational Nature paper on Patient S.M. showing selective inability to recognize fear in human faces."
+    },
+    {
+      "id": "SRC4",
+      "type": "follow_up",
+      "citation": "R. Adolphs, F. Gosselin, T. W. Buchanan, D. Tranel, P. Schyns, A. R. Damasio (2005). A mechanism for impaired fear recognition after amygdala damage. Nature.",
+      "doi": "10.1038/nature03086",
+      "url": "https://doi.org/10.1038/nature03086",
+      "year": 2005,
+      "verified": true,
+      "notes": "Eye-tracking discovery that S.M. fails to look spontaneously at the eyes of fearful faces."
+    },
+    {
+      "id": "SRC5",
+      "type": "follow_up",
+      "citation": "C. Tovote, J. P. Fadok, A. Lüthi (2015). Neuronal circuits for fear and anxiety. Nature Reviews Neuroscience.",
+      "doi": "10.1038/nrn3945",
+      "url": "https://doi.org/10.1038/nrn3945",
+      "year": 2015,
+      "verified": true,
+      "notes": "Modern circuit synthesis distinguishing amygdala exteroceptive threat pathways from brainstem/insular interoceptive panic networks."
+    },
+    {
+      "id": "SRC6",
+      "type": "critique",
+      "citation": "J. E. LeDoux, D. S. Pine (2016). Using neuroscience to help understand fear and anxiety: a two-system framework. American Journal of Psychiatry.",
+      "doi": "10.1176/appi.ajp.2016.16030353",
+      "url": "https://doi.org/10.1176/appi.ajp.2016.16030353",
+      "year": 2016,
+      "verified": true,
+      "notes": "Two-system critique separating subcortical defensive survival circuits from cortical conscious feelings of fear and panic."
+    }
+  ]
 }

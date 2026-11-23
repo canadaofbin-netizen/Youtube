@@ -1,0 +1,92 @@
+{
+  "schema": "episode_qa_contract_v3",
+  "is_v7": true,
+  "is_expressive_v8": true,
+  "style_profile": "expressive_25d_v8",
+  "dossier": "hauglund_2025_sleep_pill_norepinephrine_brain_wash",
+  "project_id": "",
+  "sentence_count": 16,
+  "clip_count": 18,
+  "analogy_locks": [],
+  "cast_clip_locks": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "act": 1,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "act": 2,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 8,
+      "act": 3,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 13,
+      "act": 4,
+      "requires_wardrobe_or_hat": false,
+      "min_action_verbs": 1,
+      "cv_signature": "expressive_25d_world"
+    }
+  ],
+  "cold_open_impact_locks": [],
+  "anatomy_locks": [
+    {
+      "sentence_index": 11,
+      "sentence_text": "In natural sleep, your brain's relay station, the thalamus, locks slow waves to vessel pumps.",
+      "anatomy_terms": [
+        "thalamus"
+      ],
+      "bound_clip_numbers": [
+        13
+      ]
+    }
+  ],
+  "early_hook_sentences": [],
+  "require_early_ceramic_reenactment_min_clips": 0,
+  "tempo_targets": {
+    "wpm_min": 135.0,
+    "wpm_max": 238.0,
+    "min_cut_sec": 2.2,
+    "avg_cut_min_sec": 3.4,
+    "avg_cut_max_sec": 5.2,
+    "first_cut_max_sec": 5.2,
+    "first_15s_max_cut_sec": 5.8,
+    "first_15s_min_cuts": 2,
+    "fast_cut_threshold_sec": 2.5,
+    "fast_cut_ratio_min": 0.0,
+    "cut_duration_cv_min": 0.05,
+    "max_single_sentence_cut_sec": 6.5,
+    "max_single_speech_cut_sec": 6.5,
+    "max_clip_reuse": 1
+  }
+}

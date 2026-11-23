@@ -2,72 +2,72 @@
   "scenes": [
     {
       "id": "S1",
-      "title": "Bluma Zeigarnik interrupting absorbed 1927 Berlin participants mid-puzzle while sweeping unfinished clay & bead tasks into a drawer",
+      "title": "1927 University of Berlin Workbench: Bluma Zeigarnik Sweeping a Two-Pieces-Left Jigsaw Into the Oak Drawer",
       "iconic": true,
       "shorts_priority": 1,
+      "setting_type": "indoor",
       "era": "1927, Psychological Institute, University of Berlin",
       "layout": {
-        "description": "Sunlit 1927 Berlin wood-paneled laboratory table arranged with tactile Weimar-era craft puzzles — a half-sculpted matte-white porcelain dog figurine, a half-strung wooden bead cord, a completed folded-paper star, and a wooden jigsaw frame — beside a deep oak desk drawer where interrupted tasks are swept out of sight.",
+        "description": "Sunlit tall-window 1927 Berlin oak workbench holding a completed folded-paper star set neatly to one side and a wooden jigsaw puzzle missing just two corner pieces right beside a deep sliding oak desk drawer.",
         "positions": [
           {
-            "who": "Bluma Zeigarnik (mannequin in 1927 tailored blouse, cardigan, and midi skirt)",
-            "where": "gently placing a palm between the volunteer and a 75%-finished wooden puzzle to interrupt right at peak absorption while sliding it into the oak drawer",
-            "facing": "standing beside the craft table"
+            "who": "Bluma Zeigarnik (researcher in 1927 tailored cardigan, collared blouse, and pleated wool skirt)",
+            "where": "standing beside the oak workbench, reaching forward to sweep the 90%-finished wooden jigsaw tray into the open oak drawer",
+            "facing": "angled toward the seated adult volunteer across the workbench"
           },
           {
-            "who": "Participant mannequin (in 1920s knit vest and rolled sleeves)",
-            "where": "hands still hovering forward in mid-air longing to snap the final two puzzle pieces in, eyes tracking the drawer rather than the finished paper star on the table",
-            "facing": "seated at the workbench"
+            "who": "45-year-old Berlin volunteer (in 1920s wool vest and rolled shirt sleeves)",
+            "where": "seated at the workbench with hand lifted holding the second-to-last wooden puzzle piece in mid-air as the tray slides out of sight",
+            "facing": "leaning forward toward the closing oak drawer"
           }
         ]
       },
       "props": [
         {
-          "name": "half-finished jigsaw & clay sculpture vs completed folded paper star",
-          "period_detail": "tactile hands-on tasks clearly contrasting 75%-done interrupted work with 100%-done completed work",
-          "physical_behavior": "stages Zeigarnik's exact 18-22 tabletop tasks"
+          "name": "wooden jigsaw frame missing two pieces beside a finished folded-paper star",
+          "period_detail": "1927 Weimar tabletop craft puzzle in warm birch wood paired with a crisp finished paper star",
+          "physical_behavior": "State-A open tabletop puzzle with two empty slots -> State-B swept briskly off the tabletop into the deep oak drawer before the volunteer's hand can drop the piece in"
         },
         {
-          "name": "deep oak 'Out-of-Sight' sweep drawer & 'Unfinished 1.9x Recall' ledger",
-          "period_detail": "wooden table drawer hiding all materials before the surprise free-recall question",
-          "physical_behavior": "proves mental tension — not visual cues — drives the ~90% recall jump"
+          "name": "deep sliding oak desk drawer and cloth-bound 1927 recall ledger",
+          "period_detail": "solid brass-pull Berlin laboratory drawer hiding all unfinished pieces out of sight",
+          "physical_behavior": "State-A pulled open to swallow the unfinished puzzle -> State-B pushed shut with a crisp wooden click while Zeigarnik opens the recall ledger"
         }
       ],
       "actions": [
         {
-          "who": "Participant mannequin",
-          "verb_sequence": "finishes folding the paper star and sets it aside calmly -> leans in deeply absorbed on the last pieces of the wooden jigsaw"
+          "who": "Adult volunteer",
+          "verb_sequence": "sets the finished paper star aside without a second glance -> leans forward gripping the penultimate wooden jigsaw piece just above the slot"
         },
         {
           "who": "Bluma Zeigarnik",
-          "verb_sequence": "steps in right before completion, sweeps the unfinished jigsaw into the closed drawer, and asks what tasks they remember -> Participant immediately names every unfinished task first"
+          "verb_sequence": "steps beside the table, sweeps the unfinished jigsaw tray into the oak drawer, pushes the drawer shut, and opens her ledger for immediate recall"
         }
       ],
       "reactions": [
         {
-          "who": "Participant mannequin",
-          "reaction": "leans toward the closed drawer still mentally finishing the interrupted puzzle while barely recalling the completed star"
+          "who": "Adult volunteer",
+          "reaction": "keeps fingers poised in mid-air staring at the closed drawer and immediately names the unfinished puzzle first"
         },
         {
           "who": "Bluma Zeigarnik",
-          "reaction": "records the 1.9-to-1 Unfinished/Completed recall ratio in her 1927 ledger"
+          "reaction": "logs the 1.9x unfinished-over-completed recall jump in her cloth notebook"
         }
       ],
-      "wardrobe": "1927 Berlin university attire: pleated midi skirt, collared blouse and cardigan; wool knit vest over crisp cotton shirt.",
-      "lighting": "Warm, bright tall-window European laboratory daylight.",
-      "recognition_hook": "Finish a puzzle and your mind drops it in seconds — snatch it away two pieces before the end and it dominates your memory nearly two to one.",
+      "wardrobe": "1927 Berlin academic attire: charcoal wool vest over crisp white shirt sleeves; olive knit cardigan over ivory blouse and midi wool skirt.",
+      "lighting": "Bright natural morning daylight streaming through tall European casement windows.",
+      "recognition_hook": "Finish a task and your brain drops it in seconds—sweep it into a drawer two pieces before the end and it dominates recall nearly two to one.",
       "sources": [
         "SRC1",
-        "SRC2",
+        "SRC6",
         "SRC_M1",
-        "SRC_M2",
         "SRC_STILL"
       ],
       "key_visual": {
-        "description": "a 1927 researcher at a wooden workbench sweeping a nearly finished jigsaw puzzle and matte-white porcelain figurine into a drawer while a seated participant's hands still reach to finish it",
+        "description": "a 1927 researcher at a sunlit oak workbench sweeping a nearly finished wooden jigsaw puzzle into a sliding desk drawer while a seated adult volunteer's hand reaches forward holding a puzzle piece",
         "must_show": [
-          "puzzle|clay|tasks",
-          "drawer|table|workbench",
+          "puzzle|jigsaw",
+          "drawer|workbench",
           "ledger|notebook"
         ],
         "source": "M1@00:54-01:06; M3@still; SRC1"
@@ -75,139 +75,109 @@
     },
     {
       "id": "S2",
-      "title": "Kurt Lewin's Berlin Cafe Waiter: Razor-Sharp Until Paid, Blank 30 Seconds Later",
+      "title": "Outdoor 1926 Berlin Garden Cafe Terrace: The Waiter's Instant Memory Wipe 30 Seconds After Payment",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "1926, Berlin garden cafe",
+      "setting_type": "outdoor",
+      "era": "1926, outdoor sunlit sidewalk garden cafe, Berlin",
       "layout": {
-        "description": "Sunlit 1920s cafe terrace with marble-topped bistro tables, porcelain coffee cups, and pastry plates.",
+        "description": "Open-air Berlin street-side garden terrace under chestnut trees with round marble bistro tables, porcelain coffee cups, and pastry plates.",
         "positions": [
           {
-            "who": "Waiter mannequin in crisp white apron and bow tie",
-            "where": "reciting a table's six-person order effortlessly from memory, then shrugging blankly moments after closing the leather bill folder",
-            "facing": "beside Kurt Lewin's cafe table"
+            "who": "Veteran Berlin cafe waiter (in white waist apron, black vest, and bow tie)",
+            "where": "standing beside the outdoor bistro table snapping a leather billfold shut after taking cash",
+            "facing": "turning toward Kurt Lewin by the sidewalk hedge"
           },
           {
-            "who": "Kurt Lewin & Bluma Zeigarnik mannequins",
-            "where": "leaning forward fascinated by the instant memory wipe upon payment",
-            "facing": "seated at bistro table"
+            "who": "Kurt Lewin & Bluma Zeigarnik",
+            "where": "standing up beside the outdoor marble table, stepping back two paces to ask what was on the bill",
+            "facing": "facing the waiter on the sunlit terrace"
           }
         ]
       },
       "props": [
         {
-          "name": "porcelain coffee service & closed leather billfold ('PAID')",
-          "period_detail": "marks the exact psychological boundary between open tension and closed tab",
-          "physical_behavior": "the real-world spark of the Zeigarnik Effect"
+          "name": "leather cafe billfold and brass coin tray",
+          "period_detail": "1920s European outdoor bistro check folder and silver coffee service",
+          "physical_behavior": "State-A held open while waiter recites six orders flawlessly -> State-B snapped shut over banknotes, triggering instant memory release"
         }
       ],
       "actions": [
         {
-          "who": "Waiter",
-          "verb_sequence": "recites complex order perfectly -> closes PAID billfold -> looks genuinely blank when Lewin asks to repeat it 30 seconds later"
+          "who": "Berlin cafe waiter",
+          "verb_sequence": "counts coins onto the brass tray, snaps the leather billfold shut, and tucks it into his apron -> lifts empty palms in blank surprise thirty seconds later"
         }
       ],
       "reactions": [
         {
-          "who": "Lewin & Zeigarnik",
-          "reaction": "exchange an 'aha!' glance and open a research notebook"
+          "who": "Kurt Lewin",
+          "reaction": "smiles in sudden realization and taps his pocket notebook to sketch the open-tab rule"
         }
       ],
-      "wardrobe": "1920s café waiter waistcoat and apron; academic tweed jackets.",
-      "lighting": "Bright European morning terrace sunlight.",
-      "recognition_hook": "No notepad for two hours, 100% accuracy — until the bill is paid and the waiter's mental blackboard wipes itself clean.",
+      "wardrobe": "1920s outdoor cafe waistcoat and crisp white apron; tweed academic overcoat and round spectacles.",
+      "lighting": "Crisp golden morning sunlight filtering through outdoor street trees.",
+      "recognition_hook": "Two hours of complex unpaid orders held without paper—wiped clean thirty seconds after the bill is paid.",
       "sources": [
         "SRC1",
-        "SRC2",
-        "SRC_M1",
-        "SRC_M2"
+        "SRC6",
+        "SRC_M1"
       ]
     },
     {
       "id": "S3",
-      "title": "TV Cliffhangers vs 25 Unplanned Open Browser Tabs",
-      "iconic": false,
-      "shorts_priority": 1,
-      "era": "Modern evening living room / study",
-      "layout": {
-        "description": "Bright study desk contrasting twenty cluttered half-started sticky notes against a streaming screen freezing on 'TO BE CONTINUED...'",
-        "positions": [
-          {
-            "who": "Viewer/worker mannequin",
-            "where": "feeling hooked by a single cliffhanger vs scattered by twenty half-finished tasks",
-            "facing": "at desk"
-          }
-        ]
-      },
-      "props": [
-        {
-          "name": "20 half-written sticky notes",
-          "period_detail": "trigger intrusive attention pings during focus tasks",
-          "physical_behavior": "shows the dark side of unmanaged open loops"
-        }
-      ],
-      "actions": [
-        {
-          "who": "Worker",
-          "verb_sequence": "tries to read one page while eyes keep darting back to unfinished task notes"
-        }
-      ],
-      "reactions": [
-        {
-          "who": "Worker",
-          "reaction": "rubs forehead feeling cognitive drag"
-        }
-      ],
-      "wardrobe": "Modern casual sweater.",
-      "lighting": "Clean indoor daylight.",
-      "recognition_hook": "Storytellers weaponize one open loop to hook you — twenty accidental open loops at work hijack your evening peace.",
-      "sources": [
-        "SRC1",
-        "SRC2"
-      ]
-    },
-    {
-      "id": "S4",
-      "title": "The 60-Second Shutdown Plan ('Consider It Done', 2011)",
+      "title": "5:30 PM Home-Office Shutdown Ritual: Closing the Open Loop With a Written Tomorrow Slot",
       "iconic": false,
       "shorts_priority": 2,
-      "era": "Modern 5:30 p.m. office desk",
+      "setting_type": "indoor",
+      "era": "Modern late-afternoon home study and outdoor front porch walk",
       "layout": {
-        "description": "Sunlit tidy oak desk where a planner notebook sits beside a closed laptop.",
+        "description": "Warm modern home-office desk facing a sunlit neighborhood window, with an open laptop full of tabs beside a thick paper planner and fountain pen.",
         "positions": [
           {
-            "who": "Professional mannequin",
-            "where": "writing 'Tomorrow 9:00 AM — Draft Slide 4 at desk', closing the planner cleanly, and walking out relaxed",
-            "facing": "at desk"
+            "who": "50-year-old homeowner professional",
+            "where": "sitting at the oak home desk writing a single concrete morning line in a paper planner before folding the laptop shut",
+            "facing": "angled toward the desk planner and sunlit window"
           }
         ]
       },
       "props": [
         {
-          "name": "When-and-Where Shutdown Card",
-          "period_detail": "satisfies the goal-tracking alarm without working until midnight",
-          "physical_behavior": "Masicampo & Baumeister 2011 solution"
+          "name": "hardcover daily planner and brushed-aluminum laptop lid",
+          "period_detail": "contemporary adult home-office desk setup with warm brass desk lamp",
+          "physical_behavior": "State-A glowing screen cluttered with open work tabs -> State-B pen writes next-morning time slot and hand folds laptop lid firmly shut"
         }
       ],
       "actions": [
         {
-          "who": "Professional",
-          "verb_sequence": "writes concrete time + place for remaining task -> closes laptop and smiles calmly"
+          "who": "Homeowner professional",
+          "verb_sequence": "writes a two-line 9 AM plan into the paper notebook, caps the pen, and folds the laptop lid shut with one decisive hand"
         }
       ],
       "reactions": [
         {
-          "who": "Professional",
-          "reaction": "shoulders drop into genuine off-duty rest"
+          "who": "Homeowner professional",
+          "reaction": "exhales deeply as tense shoulders drop into calm evening relief"
         }
       ],
-      "wardrobe": "Modern smart-casual shirt.",
-      "lighting": "Warm late-afternoon golden-white daylight.",
-      "recognition_hook": "You don't have to finish a 10-hour project tonight — hand your brain a written 9:00 a.m. appointment and it closes the tab.",
+      "wardrobe": "Modern navy knit sweater over collared shirt.",
+      "lighting": "Warm late-afternoon golden sunlight across oak desk.",
+      "recognition_hook": "Hand your brain a concrete 9 AM appointment on paper, and it finally stops pinging you at 3 AM.",
       "sources": [
-        "SRC1",
-        "SRC2"
+        "SRC3",
+        "SRC6"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "12 completed Berlin cafe orders vanishing cleanly off the mental board",
+    "landmark_or_object_b": "1 interrupted unpaid puzzle/order keeping a live #FF2525 3D alert arrow active",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past classic Berlin stone boulevard cafe terrace ascending into overhead view",
+    "cut_b_topdown_3d_arrow": "90-degree top-down tabletop grid where an interrupted #FF2525 3D task arrow stops just short of the goal pin and glows",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "step1",
+      "region": "prefrontal cortex",
+      "plain": "reality-checker behind the forehead",
+      "function": "recognizing the structured medical care ritual and sending top-down safety predictions even while knowing the capsule is inert",
+      "scene_id": "S1",
+      "narration_bridge": "Connects the honest clinical ritual at the desk to top-down appraisal (Ashar, Chang & Wager 2017; Wager & Atlas 2015).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "brainstem",
+      "plain": "reflex stem pain switch",
+      "function": "releasing endogenous opioids down into the spinal cord dorsal horn to gate incoming back and gut pain signals",
+      "scene_id": "S1",
+      "narration_bridge": "Matches Eippert et al. (2009 Neuron) descending opioidergic pain-control activation.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "anterior cingulate cortex",
+      "plain": "pain distress alarm",
+      "function": "quieting down its urgent distress broadcast once descending brainstem gating dampens ascending ache traffic",
+      "scene_id": "S2",
+      "narration_bridge": "Explains why daily back pain and emotional distress scores drop sharply across the 21-day trial.",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "step2",
+      "region": "insula",
+      "plain": "body-feeling center",
+      "function": "registering calmer internal gut and lower-back sensation as visceral threat gain turns down",
+      "scene_id": "S3",
+      "narration_bridge": "Links non-deceptive placebo appraisal to quieted internal body-state monitoring.",
+      "r78_circuit_state": "silenced"
+    }
+  ]
+}

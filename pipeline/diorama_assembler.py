@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import math
 import os
 import re
@@ -24,11 +25,14 @@ import subprocess
 import tempfile
 import time
 import wave
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
 import cv2
 import numpy as np
+
+logger = logging.getLogger("diorama_assembler")
 
 import pipeline.config as _cfg  # runtime-tunable audio constants (DIORAMA_V7_MASTER_DEESSER)
 
@@ -97,6 +101,7 @@ from pipeline.config import (
     PORCELAIN_V7_MIN_CUT_SEC,
     PROJECTS_DIR,
     PROMPT_SCHEMA_VERSION_V7,
+    EXPRESSIVE_V8_HARD_CEILING_SEC,
     SHORTS_HARD_CEILING_FRAMES,
     SHORTS_HARD_CEILING_FRAMES_V7,
     SHORTS_HARD_CEILING_SEC,
@@ -108,6 +113,18 @@ from pipeline.config import (
     is_expressive_v8_plan,
     is_porcelain_v7_plan,
     resolve_diorama_v7_style_profile,
+)
+from pipeline.hardware_profile import (
+    resolve_assembler_workers,
+    resolve_cpu_budget,
+    resolve_ffmpeg_threads_per_worker,
+    resolve_xfade_workers,
+)
+from pipeline.media_cache import (
+    atomic_commit_from_scratch,
+    enforce_ram_scratch_budget,
+    get_ram_scratch_root,
+    ram_tempdir,
 )
 from pipeline.media_integrity import MediaIntegrityValidator
 from pipeline.storage import numeric_clip_sort_key
@@ -365,6 +382,7 @@ def build_one_to_one_edl(
     speech_end_sec: float,
     total_duration_sec: float,
     script_doc: dict[str, Any] | None = None,
+    virtual_clip_duration_sec: float | None = None,
 ) -> dict[str, Any]:
     """
     R58 Schema v6.1 Unlimited Dedicated 1:1 Zero-Reuse EDL builder:
@@ -386,7 +404,15 @@ def build_one_to_one_edl(
     outro_frames = max(30, total_frames - speech_frames)
 
     plan_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
-    clip_durs = [max(4.0, float(_clip_duration(Path(cf)))) for cf in clip_files]
+    clip_durs = [
+        max(
+            4.0,
+            float(virtual_clip_duration_sec)
+            if (virtual_clip_duration_sec is not None and (not Path(cf).is_file() or Path(cf).stat().st_size <= 0))
+            else float(_clip_duration(Path(cf))),
+        )
+        for cf in clip_files
+    ]
     clip_grammars: dict[int, str] = {}
     for idx in range(n_clips):
         spec = plan_clips[idx] if idx < len(plan_clips) and isinstance(plan_clips[idx], dict) else {}
@@ -627,9 +653,11 @@ _V7_DEFAULT_CAM_CYCLE: tuple[str, ...] = (
 
 
 def _resolve_v7_clip_camera(spec: dict[str, Any], idx_0based: int) -> str:
-    """Resolves Schema v7 camera_move identically to build_diorama_v7_prompts."""
+    """Resolves Schema v7/v8 camera_move identically to build_diorama_v7_prompts / build_expressive_v8_prompts."""
+    from pipeline.config import EXPRESSIVE_V8_CAMERA_MOVES
+
     explicit_cam = str(spec.get("camera") or spec.get("camera_move") or "").strip().lower()
-    if explicit_cam in DIORAMA_V7_CAMERA_MOVES:
+    if explicit_cam in DIORAMA_V7_CAMERA_MOVES or explicit_cam in EXPRESSIVE_V8_CAMERA_MOVES:
         return explicit_cam
     if str(spec.get("cut_role") or "").strip().lower() == "outro":
         return "tilt_up"
@@ -658,6 +686,7 @@ def _select_v7_source_window(
         empty-wall pre-roll before the primary subject enters frame.
     """
     spec_d = spec if isinstance(spec, dict) else {}
+    allow_slowmo = bool(spec_d.get("allow_slowmo_stretch"))
     max_usable_end = max(0.62, float(clip_dur) - 0.08)
     explicit_end = (
         override_src_end_sec
@@ -705,9 +734,65 @@ def _select_v7_source_window(
                             max_usable_end = max(0.62, min(float(clip_dur) - 0.02, snapped_end))
                 finally:
                     cap_kf.release()
+    min_non_slowmo_span = min(max(0.50, float(clip_dur) - 0.08), float(out_dur))
+    if not allow_slowmo and (max_usable_end - 0.06) < min_non_slowmo_span and float(clip_dur) >= float(out_dur) + 0.08:
+        # Never accidentally clamp a native full-length clip below out_dur into artificial slow-mo stretch.
+        max_usable_end = max(max_usable_end, min(float(clip_dur) - 0.04, 0.06 + min_non_slowmo_span))
+    from pipeline.config import (
+        EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+        EXPRESSIVE_V8_DRONE_PEAK_CORE_WINDOW_SEC,
+        EXPRESSIVE_V8_NEURAL_DIVE_MOVES,
+        EXPRESSIVE_V8_NEURAL_DIVE_PEAK_WINDOW_SEC,
+        R79M_HUMAN_CUT_MAX_MAIN_SPEED,
+    )
+
+    is_r79m_snappy = bool(spec_d.get("_r79m_snappy_human") or spec_d.get("r79m_snappy_human"))
+    is_full_traj = bool(spec_d.get("end_reference_image") or spec_d.get("full_trajectory_span"))
+    cam_spec_cur = str(spec_d.get("camera_move") or spec_d.get("camera") or "").strip()
+    is_sim_3d = (
+        str(spec_d.get("grammar") or "") == "brain_simulator_3d"
+        or str(spec_d.get("render_engine") or "") == "blender_3d_simulator"
+        or "brain_simulator_clips" in str(clip_path)
+    )
+    if is_sim_3d:
+        exp_sim_s = (
+            override_src_start_sec
+            if override_src_start_sec is not None
+            else (
+                spec_d.get("src_start_sec")
+                if spec_d.get("src_start_sec") is not None
+                else spec_d.get("source_start_sec")
+            )
+        )
+        is_flow_brain = (
+            str(spec_d.get("render_engine") or "").strip().lower() == "google_flow"
+            and "brain_simulator_clips" not in str(clip_path)
+        )
+        sim_s = 0.0
+        if exp_sim_s is not None:
+            try:
+                sim_s = max(0.0, min(max(0.0, float(clip_dur) - float(out_dur) - 0.04), float(exp_sim_s)))
+            except (TypeError, ValueError):
+                sim_s = 0.0
+        elif is_flow_brain and float(clip_dur) >= float(out_dur) + 0.32:
+            sim_s = 0.20
+        span_sim = max(0.50, min(max(0.50, float(clip_dur) - sim_s - (0.04 if sim_s > 0.0 else 0.0)), float(out_dur)))
+        return round(sim_s, 4), round(span_sim, 4)
     default_s = 0.12
-    default_avail = max(0.50, max_usable_end - default_s)
+    if cam_spec_cur in EXPRESSIVE_V8_DRONE_CAMERA_MOVES and not is_full_traj:
+        peak_s = float(EXPRESSIVE_V8_DRONE_PEAK_CORE_WINDOW_SEC[0])
+        if max_usable_end - peak_s >= max(0.50, float(out_dur) * float(DIORAMA_V7_VISUAL_PLAYBACK_SPEED)) + 0.10:
+            default_s = peak_s
+    elif cam_spec_cur in EXPRESSIVE_V8_NEURAL_DIVE_MOVES and cam_spec_cur != "neural_macro_orbit_hold" and not is_full_traj:
+        peak_s = float(EXPRESSIVE_V8_NEURAL_DIVE_PEAK_WINDOW_SEC[0])
+        if max_usable_end - peak_s >= max(0.50, float(out_dur) * float(DIORAMA_V7_VISUAL_PLAYBACK_SPEED)) + 0.10:
+            default_s = peak_s
     target_src_span = float(out_dur) * float(DIORAMA_V7_VISUAL_PLAYBACK_SPEED)
+    if not allow_slowmo:
+        target_src_span = max(float(out_dur), target_src_span)
+    if not allow_slowmo and (max_usable_end - default_s) < float(out_dur) and (max_usable_end - 0.06) >= float(out_dur):
+        default_s = max(0.06, max_usable_end - max(float(out_dur), target_src_span))
+    default_avail = max(0.50, max_usable_end - default_s)
     default_span = target_src_span if default_avail >= target_src_span else default_avail
 
     explicit_start = (
@@ -719,11 +804,14 @@ def _select_v7_source_window(
             else spec_d.get("source_start_sec")
         )
     )
-    is_full_traj = bool(spec_d.get("end_reference_image") or spec_d.get("full_trajectory_span"))
     if explicit_start is not None:
         try:
             exp_s = float(explicit_start)
-            if explicit_end is not None or is_full_traj:
+            if not allow_slowmo:
+                needed_span = min(max(0.50, max_usable_end - 0.06), max(float(out_dur), target_src_span))
+                latest_s = max(0.06, max_usable_end - needed_span)
+                chosen_s = max(0.06, min(latest_s, exp_s))
+            elif explicit_end is not None or is_full_traj:
                 chosen_s = max(0.06, min(max(0.06, max_usable_end - 0.50), exp_s))
             else:
                 latest_s = max(0.08, max_usable_end - default_span)
@@ -738,7 +826,118 @@ def _select_v7_source_window(
     if is_full_traj and clip_dur >= float(out_dur) + 0.16:
         traj_s = 0.06
         traj_span = max(float(out_dur), max_usable_end - traj_s)
+        if is_r79m_snappy:
+            traj_span = min(traj_span, float(out_dur) * float(R79M_HUMAN_CUT_MAX_MAIN_SPEED))
+        if (
+            str(spec_d.get("grammar") or "") in ("architectural_cutaway_portal", "expressive_exterior_establishing")
+            and clip_path.exists()
+            and clip_path.stat().st_size >= 8_192
+            and (max_usable_end - (traj_s + 0.85)) >= traj_span
+        ):
+            try:
+                from pipeline.flow_diorama_sharded_worker import _max_horizontal_plaque_glyph_run
+
+                cap_p = cv2.VideoCapture(str(clip_path))
+                if cap_p.isOpened():
+                    pfps = max(1.0, float(cap_p.get(cv2.CAP_PROP_FPS) or 24.0))
+                    cap_p.set(cv2.CAP_PROP_POS_FRAMES, int(round((traj_s + 0.22) * pfps)))
+                    ok_p0, fr_p0 = cap_p.read()
+                    if ok_p0 and fr_p0 is not None and _max_horizontal_plaque_glyph_run(fr_p0) >= 5:
+                        for cand_nudge in (0.75, 0.95, 1.15):
+                            if (max_usable_end - cand_nudge) < traj_span:
+                                break
+                            cap_p.set(cv2.CAP_PROP_POS_FRAMES, int(round((cand_nudge + 0.18) * pfps)))
+                            ok_pn, fr_pn = cap_p.read()
+                            if ok_pn and fr_pn is not None and _max_horizontal_plaque_glyph_run(fr_pn) < 5:
+                                traj_s = cand_nudge
+                                break
+                    cap_p.release()
+            except Exception:  # noqa: BLE001
+                pass
         return round(traj_s, 4), round(traj_span, 4)
+
+    if is_r79m_snappy and clip_dur >= float(out_dur) + 0.12 and clip_path.exists() and clip_path.stat().st_size >= 8_192:
+        from pipeline.media_cache import cached_by_clip_stat
+
+        min_s_r79 = 0.16 if (max_usable_end - 0.16) >= float(out_dur) else 0.06
+        max_avail_r79 = max(0.50, max_usable_end - min_s_r79)
+        # Prefer 1.25x snappy cadence (maps 24fps Flow natively 1:1 onto 30fps without frame-drop judder)
+        pref_span = float(out_dur) * 1.25
+        if max_avail_r79 >= pref_span:
+            r79_span = pref_span
+        else:
+            r79_span = min(max_avail_r79, max(float(out_dur), float(out_dur) * min(float(R79M_HUMAN_CUT_MAX_MAIN_SPEED), max_avail_r79 / max(0.1, float(out_dur)))))
+        r79_span = min(r79_span, float(out_dur) * float(R79M_HUMAN_CUT_MAX_MAIN_SPEED))
+
+        if (max_usable_end - min_s_r79 - r79_span) < 0.24:
+            return round(min_s_r79, 4), round(r79_span, 4)
+
+        def _probe_r79_dis_tel(local_clip: Path) -> dict[str, Any]:
+            cap_d = cv2.VideoCapture(str(local_clip))
+            if not cap_d.isOpened():
+                return {"ok": False}
+            sfps = max(1.0, float(cap_d.get(cv2.CAP_PROP_FPS) or 24.0))
+            sw_d, sh_d = 270, 480
+            gs: list[np.ndarray] = []
+            ts: list[float] = []
+            fi_d = 0
+            while True:
+                ok_d, bgr_d = cap_d.read()
+                if not ok_d:
+                    break
+                if fi_d % 2 == 0:
+                    t_c = fi_d / sfps
+                    if t_c <= max_usable_end + 0.06:
+                        sm_d = cv2.resize(bgr_d, (sw_d, sh_d), interpolation=cv2.INTER_AREA)
+                        gs.append(cv2.cvtColor(sm_d, cv2.COLOR_BGR2GRAY))
+                        ts.append(round(t_c, 4))
+                fi_d += 1
+            cap_d.release()
+            if len(gs) < 5:
+                return {"ok": False}
+            dis_f = cv2.DISOpticalFlow_create(cv2.DISOPTICAL_FLOW_PRESET_FAST)
+            b_mask = np.ones((sh_d, sw_d), dtype=bool)
+            b_mask[int(sh_d * 0.22) : int(sh_d * 0.82), int(sw_d * 0.18) : int(sw_d * 0.82)] = False
+            pairs: list[list[float]] = []
+            for k_i in range(len(gs) - 1):
+                fl = dis_f.calc(gs[k_i], gs[k_i + 1], None)
+                fx_d, fy_d = fl[..., 0], fl[..., 1]
+                mvx = float(np.median(fx_d[b_mask]))
+                mvy = float(np.median(fy_d[b_mask]))
+                res_m = np.hypot(fx_d - mvx, fy_d - mvy)
+                roi_m = res_m[int(sh_d * 0.12) : int(sh_d * 0.88), int(sw_d * 0.12) : int(sw_d * 0.88)]
+                p90_v = float(np.percentile(roi_m, 90))
+                pairs.append([round(0.5 * (ts[k_i] + ts[k_i + 1]), 4), round(p90_v, 4)])
+            return {"ok": True, "pairs": pairs}
+
+        r79_tel = cached_by_clip_stat(
+            clip_path,
+            namespace="v8_r79_dis_tel_v1",
+            compute_fn=_probe_r79_dis_tel,
+            extra_key=f"{round(max_usable_end, 2)}",
+        )
+        if isinstance(r79_tel, dict) and r79_tel.get("ok") and r79_tel.get("pairs"):
+            p_list = [(float(tm), float(pv)) for tm, pv in r79_tel["pairs"]]
+            latest_ws = max(min_s_r79, max_usable_end - r79_span)
+            best_ws = min_s_r79
+            best_wscore = -1.0
+            ws_c = min_s_r79
+            while ws_c <= latest_ws + 1e-6:
+                we_c = ws_c + r79_span
+                vals_w = [pv for tm, pv in p_list if ws_c - 1e-3 <= tm <= we_c + 1e-3]
+                if len(vals_w) >= 2:
+                    h_w = max(1, len(vals_w) // 2)
+                    m_all = float(np.mean(vals_w))
+                    sh_r = float(np.mean(vals_w[h_w:]) / max(0.15, float(np.mean(vals_w[:h_w]))))
+                    tail_mult = min(1.12, max(0.25, sh_r)) if sh_r < 0.45 else min(1.12, 0.85 + 0.25 * min(1.2, sh_r))
+                    dead_head = 0.82 if vals_w[0] < 0.65 else 1.0
+                    sc_w = m_all * tail_mult * dead_head
+                    if sc_w > best_wscore:
+                        best_wscore = sc_w
+                        best_ws = ws_c
+                ws_c += 0.20
+            return round(best_ws, 4), round(r79_span, 4)
+        return round(min_s_r79, 4), round(r79_span, 4)
 
     if (
         out_dur > PORCELAIN_V7_LONG_TAKE_MAX_SEC
@@ -945,6 +1144,204 @@ def _resolve_v7_cut_anatomy_label(
     return canon, None
 
 
+def resolve_overlay_window_conflicts(
+    resolved_data_stamps: list[dict[str, Any]],
+    resolved_anatomy_callouts: list[dict[str, Any]],
+    *,
+    buffer_sec: float | None = None,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """
+    R70-M8 / R81 conflict avoidance between R70 HERO Data Stamps and R71/R81 3D Anatomy Leader-Line Callouts:
+      - Ensures at least `DATA_STAMP_OVERLAY_BUFFER_SEC` (`2.0s`) separation when sharing the same cut,
+        and `DATA_STAMP_CROSS_CUT_BUFFER_SEC` (`0.08s`) across distinct cuts already separated by a hard cut.
+      - Shifts/trims the anatomy callout if `>= 1.2s` of non-conflicting duration remains; otherwise suppresses
+        the overlapping anatomy callout so R70 HERO graph takes priority.
+    """
+    from pipeline.config import DATA_STAMP_CROSS_CUT_BUFFER_SEC, DATA_STAMP_OVERLAY_BUFFER_SEC
+
+    buf = float(DATA_STAMP_OVERLAY_BUFFER_SEC if buffer_sec is None else buffer_sec)
+    if not resolved_data_stamps or not resolved_anatomy_callouts:
+        return list(resolved_anatomy_callouts or []), []
+
+    kept_callouts: list[dict[str, Any]] = []
+    conflicts: list[dict[str, Any]] = []
+    for ac in resolved_anatomy_callouts:
+        if not isinstance(ac, dict):
+            continue
+        ac0 = float(ac.get("start_sec") or 0.0)
+        ac1 = float(ac.get("end_sec") or 0.0)
+        ac_cut_s = ac.get("cut_start_sec")
+        ac_cut_e = ac.get("cut_end_sec")
+        adj0, adj1 = ac0, ac1
+        suppressed = False
+        for ds in resolved_data_stamps:
+            if not isinstance(ds, dict):
+                continue
+            ds0 = float(ds.get("start_sec") or 0.0)
+            ds1 = float(ds.get("end_sec") or 0.0)
+            is_distinct_cut = (
+                buffer_sec is None
+                and ac_cut_s is not None
+                and ac_cut_e is not None
+                and (ds1 <= float(ac_cut_s) + 0.05 or ds0 >= float(ac_cut_e) - 0.05)
+            )
+            eff_buf = float(DATA_STAMP_CROSS_CUT_BUFFER_SEC) if is_distinct_cut else buf
+            if adj0 < ds1 + eff_buf and adj1 > ds0 - eff_buf:
+                # Try keeping tail after ds1 + eff_buf or head before ds0 - eff_buf
+                if adj1 - (ds1 + eff_buf) >= 1.2:
+                    conflicts.append(
+                        {
+                            "type": "shifted_after_data_stamp",
+                            "region": ac.get("canonical_region"),
+                            "old_span": [round(adj0, 3), round(adj1, 3)],
+                            "new_span": [round(ds1 + eff_buf, 3), round(adj1, 3)],
+                        }
+                    )
+                    adj0 = ds1 + eff_buf
+                elif (ds0 - eff_buf) - adj0 >= 1.2:
+                    conflicts.append(
+                        {
+                            "type": "trimmed_before_data_stamp",
+                            "region": ac.get("canonical_region"),
+                            "old_span": [round(adj0, 3), round(adj1, 3)],
+                            "new_span": [round(adj0, 3), round(ds0 - eff_buf, 3)],
+                        }
+                    )
+                    adj1 = ds0 - eff_buf
+                else:
+                    conflicts.append(
+                        {
+                            "type": "suppressed_by_data_stamp",
+                            "region": ac.get("canonical_region"),
+                            "old_span": [round(adj0, 3), round(adj1, 3)],
+                            "stamp_span": [round(ds0, 3), round(ds1, 3)],
+                        }
+                    )
+                    suppressed = True
+                    break
+        if not suppressed and adj1 - adj0 >= 1.0:
+            kept_callouts.append(
+                {
+                    **ac,
+                    "start_sec": round(adj0, 3),
+                    "end_sec": round(adj1, 3),
+                    "duration_sec": round(adj1 - adj0, 3),
+                }
+            )
+    return kept_callouts, conflicts
+
+
+def _resolve_diorama_clip_files(visuals_dir: Path) -> list[Path]:
+    """Collects `flow_native_clips/clip_*.mp4` and lets `brain_simulator_clips/` + verified `archival_insert_clips/` + verified `archival_video_clips/` override matching indices."""
+    from pipeline.archival_insert_builder import load_verified_archival_insert_clip_map
+    from pipeline.archival_video_builder import load_verified_archival_video_clip_map
+
+    clips_dir = visuals_dir / "flow_native_clips"
+    sim_dir = visuals_dir / "brain_simulator_clips"
+    by_name: dict[str, Path] = {}
+    if clips_dir.is_dir():
+        for f in clips_dir.glob("clip_*.mp4"):
+            if f.is_file():
+                by_name[f.name] = f
+    if sim_dir.is_dir():
+        for f in sim_dir.glob("clip_*.mp4"):
+            if f.is_file():
+                by_name[f.name] = f
+    for verified_map in (
+        load_verified_archival_insert_clip_map(visuals_dir),
+        load_verified_archival_video_clip_map(visuals_dir),
+    ):
+        for clip_num, entry in sorted(verified_map.items()):
+            c_path = Path(str(entry.get("resolved_clip_path") or entry.get("clip_path") or ""))
+            if c_path.is_file():
+                target_key = f"clip_{clip_num:02d}.mp4"
+                unpadded_key = f"clip_{clip_num}.mp4"
+                if unpadded_key in by_name and target_key not in by_name:
+                    del by_name[unpadded_key]
+                by_name[target_key] = c_path
+    return sorted(by_name.values(), key=numeric_clip_sort_key)
+
+
+def enforce_combined_r88a_r89_edl_contract(
+    project_dir: str | Path,
+    edl: dict[str, Any],
+    total_duration_sec: float,
+) -> dict[str, Any]:
+    """
+    Validates R88-A + R89 EDL placement (`cut_index >= 2`, `start >= 2.20s` for R89 video cuts)
+    and combined quota (`<= 2` cuts total, `<= 10%` combined duration share).
+    """
+    p_dir = Path(project_dir)
+    v_dir = p_dir / "03_visuals"
+    r88_mf = v_dir / "archival_inserts_manifest.json"
+    r89_mf = v_dir / "archival_videos_manifest.json"
+    if not r88_mf.is_file() and not r89_mf.is_file():
+        return {"present": False, "passed": True, "r88a_cuts": [], "r89_cuts": []}
+
+    from pipeline.archival_insert_builder import load_verified_archival_insert_clip_map
+    from pipeline.archival_video_builder import (
+        load_verified_archival_video_clip_map,
+        validate_archival_videos_manifest,
+        validate_combined_archival_budget,
+    )
+    from pipeline.config import R89_MIN_CUT_INDEX, R89_MIN_START_SEC
+
+    if r89_mf.is_file():
+        r89_val = validate_archival_videos_manifest(
+            p_dir,
+            episode_duration_sec=total_duration_sec,
+            edl=edl,
+            check_faces=False,
+            strict_sha256=False,
+        )
+        if not r89_val["passed"]:
+            raise ValueError("R89 archival videos contract failed: " + "; ".join(r89_val["issues"]))
+
+    r88_map = load_verified_archival_insert_clip_map(v_dir)
+    r89_map = load_verified_archival_video_clip_map(v_dir)
+
+    r88_used: list[dict[str, Any]] = []
+    r89_used: list[dict[str, Any]] = []
+    for cut in edl.get("cuts") or []:
+        if not isinstance(cut, dict) or cut.get("outro_sky_card"):
+            continue
+        c_idx = int(cut.get("clip_index") or 0)
+        cut_num = int(cut.get("cut_index") or 0)
+        start_s = float(cut.get("start") or 0.0)
+        end_s = float(cut.get("end") or start_s)
+        dur_s = max(0.0, end_s - start_s)
+        c_file = str(cut.get("clip_file") or "").replace("\\", "/")
+
+        is_r89 = ("archival_video_clips/" in c_file) or (c_idx in r89_map and "flow_native_clips/" not in c_file)
+        is_r88 = ("archival_insert_clips/" in c_file) or (c_idx in r88_map and "flow_native_clips/" not in c_file and not is_r89)
+        if is_r89:
+            if cut_num < R89_MIN_CUT_INDEX or start_s < R89_MIN_START_SEC - 1e-6:
+                raise ValueError(
+                    f"[r89_cut_placement_forbidden] cut {cut_num} at start={start_s:.2f}s violates "
+                    f"Cut>={R89_MIN_CUT_INDEX} & start>={R89_MIN_START_SEC:.2f}s (118pt HookTitle zone)"
+                )
+            r89_used.append({"cut_index": cut_num, "clip_index": c_idx, "duration_sec": dur_s})
+        elif is_r88:
+            r88_used.append({"cut_index": cut_num, "clip_index": c_idx, "duration_sec": dur_s})
+
+    edl_budget_issues = validate_combined_archival_budget(
+        len(r88_used),
+        sum(x["duration_sec"] for x in r88_used),
+        len(r89_used),
+        sum(x["duration_sec"] for x in r89_used),
+        episode_duration_sec=total_duration_sec,
+    )
+    if edl_budget_issues:
+        raise ValueError("; ".join(edl_budget_issues))
+
+    return {
+        "present": True,
+        "passed": True,
+        "r88a_cuts": r88_used,
+        "r89_cuts": r89_used,
+    }
+
+
 def build_v7_dynamic_edl(
     visual_plan: dict[str, Any],
     sentence_spans: list[dict[str, Any]],
@@ -953,6 +1350,7 @@ def build_v7_dynamic_edl(
     total_duration_sec: float,
     script_doc: dict[str, Any] | None = None,
     source_window_overrides: dict[int, Any] | None = None,
+    virtual_clip_duration_sec: float | None = None,
 ) -> dict[str, Any]:
     """
     R63/R66 Schema v7 (`porcelain_cinematic_v7` / `lowpoly_pastel_v7`) 24.0fps Dynamic-Rhythm Zero-Reuse EDL builder:
@@ -966,7 +1364,14 @@ def build_v7_dynamic_edl(
     """
     from pipeline.config import (
         EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        EXPRESSIVE_V8_3D_FLIGHT_MOVES,
         EXPRESSIVE_V8_CLIP_COUNT_RANGE,
+        EXPRESSIVE_V8_FIRST_15S_MAX_CUT_SEC,
+        EXPRESSIVE_V8_FIRST_CUT_MAX_SEC,
+        EXPRESSIVE_V8_FLIGHT_SPEED_RAMP_RANGE,
+        EXPRESSIVE_V8_HARD_CEILING_SEC,
+        EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN,
+        EXPRESSIVE_V8_LONG_TAKE_MAX_SEC,
         EXPRESSIVE_V8_MAX_CUT_SEC,
         EXPRESSIVE_V8_MIN_CUT_SEC,
         EXPRESSIVE_V8_VIDEO_FPS,
@@ -983,14 +1388,56 @@ def build_v7_dynamic_edl(
         normalize_porcelain_v7_grammar,
     )
 
+    from pipeline.config import (
+        EXPRESSIVE_V8_LEGACY_FIRST_15S_MAX_CUT_SEC,
+        EXPRESSIVE_V8_LEGACY_FIRST_CUT_MAX_SEC,
+        EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE,
+        EXPRESSIVE_V8_LEGACY_LONG_TAKE_MAX_SEC,
+        EXPRESSIVE_V8_LEGACY_MAX_CUT_SEC,
+        BRAIN_SIM_ONLY_CLIP_COUNT_RANGE,
+        EXPRESSIVE_V8_R76_BRAIN_SIM_MIN_CUT_SEC,
+        EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE,
+        EXPRESSIVE_V8_R76_HUMAN_MIN_CUT_SEC,
+        EXPRESSIVE_V8_R76_MAX_CUT_SEC,
+        EXPRESSIVE_V8_SPATIAL_RELAY_MIN_CUT_SEC,
+        R80_SPATIAL_FLIGHT_SPEED_RAMP_RANGE,
+        R82_BRAIN_MAX_CUT_SEC,
+        R82_BRAIN_MIN_CUT_SEC,
+        R82_CLIP_COUNT_RANGE,
+        R82_FIRST_15S_MAX_CUT_SEC,
+        R82_FIRST_CUT_MAX_SEC,
+        R82_HUMAN_MAX_CUT_SEC,
+        R82_HUMAN_MIN_CUT_SEC,
+        SHORTS_EXPRESSIVE_V8_CUT_COUNT_MIN,
+        is_brain_sim_only_plan,
+        is_r72_open_world_v8_plan,
+        is_r76_v8_plan,
+        is_r82_dual_speed_pacing_plan,
+    )
+
     n_sents = len(sentence_spans)
     n_clips = len(clip_files)
     is_v8 = is_expressive_v8_plan(visual_plan, script_doc)
+    is_brain_only_edl = is_v8 and is_brain_sim_only_plan(visual_plan, script_doc)
+    is_r82_edl = is_v8 and is_r82_dual_speed_pacing_plan(visual_plan, script_doc)
+    is_r76_edl = is_v8 and is_r76_v8_plan(visual_plan, script_doc)
+    is_r72_edl = is_v8 and is_r72_open_world_v8_plan(visual_plan, script_doc)
     fmt_prof_edl = resolve_shorts_format_profile(visual_plan, script_doc)
     if fmt_prof_edl == MICRO_SHORT_PROFILE:
         min_edl_clips = MICRO_SHORT_CUT_MIN
+    elif is_brain_only_edl:
+        min_edl_clips = BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0]
+    elif is_r82_edl:
+        min_edl_clips = R82_CLIP_COUNT_RANGE[0]
+    elif is_r76_edl:
+        min_edl_clips = EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE[0]
     elif is_v8 or fmt_prof_edl == SHORTS_EXPRESSIVE_V8_PROFILE:
-        min_edl_clips = EXPRESSIVE_V8_CLIP_COUNT_RANGE[0]
+        if bool(visual_plan.get("allow_legacy_v8_clip_count")):
+            min_edl_clips = EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN
+        elif not is_r72_edl:
+            min_edl_clips = min(EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE[0], EXPRESSIVE_V8_CLIP_COUNT_RANGE[0])
+        else:
+            min_edl_clips = EXPRESSIVE_V8_CLIP_COUNT_RANGE[0]
     else:
         min_edl_clips = DIORAMA_CLIP_COUNT_MIN
     if n_clips < min_edl_clips:
@@ -999,7 +1446,7 @@ def build_v7_dynamic_edl(
         )
     use_porcelain = (not is_v8) and is_porcelain_v7_plan(visual_plan)
     fps = int(visual_plan.get("fps") or (EXPRESSIVE_V8_VIDEO_FPS if is_v8 else DIORAMA_V7_VIDEO_FPS))
-    ceiling_edl_frames = int(round(SHORTS_HARD_CEILING_SEC * fps)) if is_v8 else SHORTS_HARD_CEILING_FRAMES_V7
+    ceiling_edl_frames = int(round(EXPRESSIVE_V8_HARD_CEILING_SEC * fps)) if is_v8 else SHORTS_HARD_CEILING_FRAMES_V7
     total_frames = min(ceiling_edl_frames, max(48, int(round(total_duration_sec * fps))))
     if is_v8:
         speech_frames_actual = min(total_frames - 2, max(24, int(round(speech_end_sec * fps))))
@@ -1022,7 +1469,15 @@ def build_v7_dynamic_edl(
     )
     plan_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
     auto_anat = False if is_v8 else bool(visual_plan.get("auto_anatomy_labels", True))
-    clip_durs = [max(4.0, float(_clip_duration(Path(cf)))) for cf in clip_files]
+
+    def _v7_edl_clip_dur(cf: Path) -> float:
+        p_cf = Path(cf)
+        if virtual_clip_duration_sec is not None and (not p_cf.is_file() or p_cf.stat().st_size <= 0):
+            return max(0.50, float(virtual_clip_duration_sec))
+        raw_cd = float(_clip_duration(p_cf))
+        return max(0.50, raw_cd) if raw_cd > 0.05 else 4.0
+
+    clip_durs = [_v7_edl_clip_dur(cf) for cf in clip_files]
     clip_specs: dict[int, dict[str, Any]] = {}
     clip_grammars: dict[int, str] = {}
     clip_locations: dict[int, str] = {}
@@ -1183,10 +1638,45 @@ def build_v7_dynamic_edl(
             else:
                 raise ValueError(f"build_v7_dynamic_edl has zero usable primary clips at sentence {s_cursor}")
 
+    # Consume any remaining unused spare clips on R72 fast-cut timelines by splitting the longest single-clip beats
+    # Rule R76-P forbids mid-sentence spare-clip splitting to eliminate chaotic ADHD flicker.
+    while is_r72_edl and (not is_r76_edl) and spare_cursor < len(spare_clips) and raw_beats:
+        longest_i = max(
+            range(len(raw_beats)),
+            key=lambda bi: (
+                float(raw_beats[bi]["t1"]) - float(raw_beats[bi]["t0"])
+                if "brain" not in str(clip_grammars.get(int(raw_beats[bi]["clip_idx"])) or "")
+                and not bool(clip_specs.get(int(raw_beats[bi]["clip_idx"]), {}).get("cameo_easter_egg"))
+                else -1.0
+            ),
+        )
+        b_long = raw_beats[longest_i]
+        span_l = float(b_long["t1"]) - float(b_long["t0"])
+        if span_l < 2.40:
+            break
+        nxt_spare = spare_clips[spare_cursor]
+        spare_cursor += 1
+        used_primary.add(nxt_spare)
+        emitted_primary.add(nxt_spare)
+        mid_t_l = 0.5 * (float(b_long["t0"]) + float(b_long["t1"]))
+        raw_beats[longest_i : longest_i + 1] = [
+            {**b_long, "sub_beat": int(b_long.get("sub_beat") or 0), "t1": mid_t_l},
+            {**b_long, "sub_beat": int(b_long.get("sub_beat") or 0) + 1, "clip_idx": nxt_spare, "t0": mid_t_l},
+        ]
+
     if is_v8:
-        eff_min_cut_sec = EXPRESSIVE_V8_MIN_CUT_SEC
-        eff_mid_act_max_sec = EXPRESSIVE_V8_MAX_CUT_SEC
-        eff_long_take_max_sec = EXPRESSIVE_V8_MAX_CUT_SEC
+        if is_r82_edl:
+            eff_min_cut_sec = R82_HUMAN_MIN_CUT_SEC
+            eff_mid_act_max_sec = R82_BRAIN_MAX_CUT_SEC
+            eff_long_take_max_sec = R82_BRAIN_MAX_CUT_SEC
+        elif is_r76_edl:
+            eff_min_cut_sec = EXPRESSIVE_V8_R76_HUMAN_MIN_CUT_SEC
+            eff_mid_act_max_sec = EXPRESSIVE_V8_R76_MAX_CUT_SEC
+            eff_long_take_max_sec = EXPRESSIVE_V8_R76_MAX_CUT_SEC
+        else:
+            eff_min_cut_sec = EXPRESSIVE_V8_MIN_CUT_SEC
+            eff_mid_act_max_sec = EXPRESSIVE_V8_MAX_CUT_SEC if is_r72_edl else EXPRESSIVE_V8_LEGACY_MAX_CUT_SEC
+            eff_long_take_max_sec = EXPRESSIVE_V8_MAX_CUT_SEC if is_r72_edl else EXPRESSIVE_V8_LEGACY_LONG_TAKE_MAX_SEC
     else:
         eff_min_cut_sec = DIORAMA_V7_RAPID_CUT_MIN_SEC if is_legacy_lowpoly else PORCELAIN_V7_MIN_CUT_SEC
         eff_mid_act_max_sec = DIORAMA_V7_MID_ACT_MAX_CUT_SEC if is_legacy_lowpoly else PORCELAIN_V7_MID_ACT_MAX_CUT_SEC
@@ -1206,21 +1696,83 @@ def build_v7_dynamic_edl(
         )
         max_cf = max(min_cf + 1, int(eff_long_take_max_sec * fps))
         max_ss_cf = max(min_cf + 1, int(eff_mid_act_max_sec * fps))
-        caps_loc = [
-            max_ss_cf
-            if int(b.get("end_sentence_index") or b.get("sentence_index") or 0) == int(b.get("sentence_index") or 0)
-            else max_cf
+        r82_human_cap_cf = max(min_cf + 1, int(math.floor(R82_HUMAN_MAX_CUT_SEC * fps)))
+        r82_brain_cap_cf = max(min_cf + 1, int(math.floor(R82_BRAIN_MAX_CUT_SEC * fps)))
+        is_brain_beat_cap = [
+            str(clip_grammars.get(int(b.get("clip_idx") or 0)) or "") == "brain_simulator_3d"
+            or bool(clip_specs.get(int(b.get("clip_idx") or 0), {}).get("brain_clip"))
             for b in beats_in
         ]
+        caps_loc = [
+            (r82_brain_cap_cf if is_b_c else r82_human_cap_cf)
+            if is_r82_edl
+            else (
+                max_ss_cf
+                if int(b.get("end_sentence_index") or b.get("sentence_index") or 0) == int(b.get("sentence_index") or 0)
+                else max_cf
+            )
+            for b, is_b_c in zip(beats_in, is_brain_beat_cap)
+        ]
+        if is_v8 and nb_loc > 0 and not bool(visual_plan.get("allow_legacy_v8_clip_count")):
+            from pipeline.config import R87_FIRST_CUT_MAX_SEC, is_r87_plan as _is_r87_edl_fn
+
+            is_r87_edl = _is_r87_edl_fn(visual_plan, None)
+            eff_first_cap_s = (
+                R87_FIRST_CUT_MAX_SEC
+                if is_r87_edl
+                else (
+                    R82_FIRST_CUT_MAX_SEC
+                    if is_r82_edl
+                    else (
+                        5.20
+                        if is_r76_edl
+                        else (EXPRESSIVE_V8_FIRST_CUT_MAX_SEC if is_r72_edl else EXPRESSIVE_V8_LEGACY_FIRST_CUT_MAX_SEC)
+                    )
+                )
+            )
+            eff_f15_cap_s = (
+                R82_FIRST_15S_MAX_CUT_SEC
+                if is_r82_edl
+                else (
+                    5.80
+                    if is_r76_edl
+                    else (EXPRESSIVE_V8_FIRST_15S_MAX_CUT_SEC if is_r72_edl else EXPRESSIVE_V8_LEGACY_FIRST_15S_MAX_CUT_SEC)
+                )
+            )
+            first_cap_cf = max(min_cf, int(round(eff_first_cap_s * fps)))
+            first_15_cap_cf = max(min_cf + 1, int(round(eff_f15_cap_s * fps)))
+            cand_caps = list(caps_loc)
+            cand_caps[0] = min(cand_caps[0], first_cap_cf)
+            for idx_cap in range(1, nb_loc):
+                if float(beats_in[idx_cap].get("t0") or 0.0) < 15.0:
+                    cand_caps[idx_cap] = min(cand_caps[idx_cap], first_15_cap_cf)
+            if sum(cand_caps) >= speech_frames:
+                caps_loc = cand_caps
+            elif (cand_caps[0] + sum(caps_loc[1:])) >= speech_frames:
+                caps_loc[0] = cand_caps[0]
         if nb_loc > 0 and sum(caps_loc) < speech_frames <= nb_loc * max_cf:
             caps_loc = [max_cf] * nb_loc
         bnds = [0]
         ref_end_sec = max(0.1, total_duration_sec if is_v8 else speech_end_sec)
+        spatial_min_cf = min(
+            min_cf,
+            max(10, int(math.ceil(EXPRESSIVE_V8_SPATIAL_RELAY_MIN_CUT_SEC * fps - 1e-9))),
+        )
+        is_spatial_relay_beat = [
+            str(clip_grammars.get(int(b.get("clip_idx") or 0)) or "") in ("spatial_3d_arrow_diorama", "expressive_split_contrast")
+            or bool(clip_specs.get(int(b.get("clip_idx") or 0), {}).get("spatial_relay_cut"))
+            or bool(clip_specs.get(int(b.get("clip_idx") or 0), {}).get("non_spatial_contrast_cut"))
+            for b in beats_in
+        ]
+        init_mins_loc = [
+            spatial_min_cf if (is_r76_edl and is_sp_b) else min_cf
+            for is_sp_b in is_spatial_relay_beat
+        ]
         for i_b in range(1, nb_loc):
             ideal_t = float(beats_in[i_b]["t0"])
             f_idx = int(round((ideal_t / ref_end_sec) * speech_frames))
-            min_f = bnds[-1] + min_cf
-            max_f = speech_frames - (nb_loc - i_b) * min_cf
+            min_f = bnds[-1] + init_mins_loc[i_b - 1]
+            max_f = speech_frames - sum(init_mins_loc[i_b:])
             bnds.append(max(min_f, min(max_f, f_idx)))
         bnds.append(speech_frames)
         if nb_loc > 0 and speech_frames <= sum(caps_loc):
@@ -1245,6 +1797,45 @@ def build_v7_dynamic_edl(
             bnds = [0]
             for ln_f in lens:
                 bnds.append(bnds[-1] + ln_f)
+        if is_r76_edl and nb_loc > 1:
+            eff_b_min_s = R82_BRAIN_MIN_CUT_SEC if is_r82_edl else EXPRESSIVE_V8_R76_BRAIN_SIM_MIN_CUT_SEC
+            brain_min_cf = max(min_cf, int(math.ceil((eff_b_min_s + 0.02) * fps - 1e-9)))
+            is_brain_beat = [
+                str(clip_grammars.get(int(b.get("clip_idx") or 0)) or "") == "brain_simulator_3d"
+                or bool(clip_specs.get(int(b.get("clip_idx") or 0), {}).get("brain_clip"))
+                for b in beats_in
+            ]
+            mins_loc = [
+                brain_min_cf if is_b else (min_cf if is_r82_edl else (spatial_min_cf if is_sp_b else min_cf))
+                for is_b, is_sp_b in zip(is_brain_beat, is_spatial_relay_beat)
+            ]
+            if sum(mins_loc) <= speech_frames:
+                lens_r76 = [bnds[i_b + 1] - bnds[i_b] for i_b in range(nb_loc)]
+                for i_b in range(nb_loc):
+                    while lens_r76[i_b] < mins_loc[i_b]:
+                        best_j = -1
+                        for same_dom in (True, False):
+                            for dist in range(1, nb_loc):
+                                cand_js = [
+                                    j_c
+                                    for j_c in (i_b + dist, i_b - dist)
+                                    if 0 <= j_c < nb_loc
+                                    and lens_r76[j_c] > mins_loc[j_c]
+                                    and ((is_brain_beat[j_c] == is_brain_beat[i_b]) if same_dom else True)
+                                ]
+                                if cand_js:
+                                    best_j = max(cand_js, key=lambda j_c: lens_r76[j_c] - mins_loc[j_c])
+                                    break
+                            if best_j >= 0:
+                                break
+                        if best_j < 0:
+                            break
+                        give = min(mins_loc[i_b] - lens_r76[i_b], lens_r76[best_j] - mins_loc[best_j])
+                        lens_r76[i_b] += give
+                        lens_r76[best_j] -= give
+                bnds = [0]
+                for ln_f in lens_r76:
+                    bnds.append(bnds[-1] + ln_f)
         all_durs_loc = [max(10, bnds[i_b + 1] - bnds[i_b]) / float(fps) for i_b in range(nb_loc)]
         if not is_v8:
             all_durs_loc.append(outro_frames / float(fps))
@@ -1260,7 +1851,14 @@ def build_v7_dynamic_edl(
             return False
         c_i = int(b_item.get("clip_idx") or 0)
         gm = str(clip_grammars.get(c_i) or "")
-        if "brain" in gm or "analogy" in gm or clip_anatomy_labels.get(c_i):
+        if (
+            "brain" in gm
+            or "analogy" in gm
+            or gm in ("spatial_3d_arrow_diorama", "expressive_split_contrast")
+            or bool(clip_specs.get(c_i, {}).get("spatial_relay_cut"))
+            or bool(clip_specs.get(c_i, {}).get("non_spatial_contrast_cut"))
+            or clip_anatomy_labels.get(c_i)
+        ):
             return False
         return True
 
@@ -1334,6 +1932,13 @@ def build_v7_dynamic_edl(
                 cur_cv = cand_cv
 
     n_b = len(raw_beats)
+    from pipeline.config import (
+        EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+        R79M_HUMAN_CUT_MAX_MAIN_SPEED,
+        is_r79m_character_motion_plan,
+    )
+
+    is_r79m_edl = bool(is_v8 and is_r79m_character_motion_plan(visual_plan, script_doc))
 
     cuts: list[dict[str, Any]] = []
     for cut_i in range(n_b):
@@ -1345,6 +1950,13 @@ def build_v7_dynamic_edl(
         s_idx = int(beat["sentence_index"])
         s_end = int(beat["end_sentence_index"])
         chosen = int(beat["clip_idx"])
+        c_spec_raw = clip_specs.get(chosen) or {}
+        is_r79m_human_cut = bool(
+            is_r79m_edl
+            and str(clip_grammars.get(chosen, default_grammar)) != "brain_simulator_3d"
+            and str(c_spec_raw.get("render_engine") or "") != "blender_3d_simulator"
+            and str(clip_cameras.get(chosen, "")) not in EXPRESSIVE_V8_DRONE_CAMERA_MOVES
+        )
 
         split_sc = None
         if chosen in split_by_left_clip:
@@ -1380,11 +1992,12 @@ def build_v7_dynamic_edl(
                 return float(val[1])
             return None
 
+        spec_for_win = {**c_spec_raw, "_r79m_snappy_human": True} if is_r79m_human_cut else clip_specs.get(chosen)
         src_s, src_span = _select_v7_source_window(
             Path(clip_files[chosen]),
             clip_durs[chosen],
             out_dur,
-            clip_specs.get(chosen),
+            spec_for_win,
             override_src_start_sec=_override_start_for_1based(chosen + 1),
             override_src_end_sec=_override_end_for_1based(chosen + 1),
         )
@@ -1438,9 +2051,11 @@ def build_v7_dynamic_edl(
             "anatomy_label": (None if is_v8 else (clip_anatomy_labels.get(chosen) if mode == "single" else None)),
             "src_start_sec": round(src_s, 4),
             "src_end_sec": src_e,
+            "forbid_slowmo_stretch": bool(c_spec_cur.get("forbid_slowmo_stretch")),
+            "allow_slowmo_stretch": bool(c_spec_cur.get("allow_slowmo_stretch")),
             "speed_ramp": False,
             "main_speed": round(src_span / max(0.1, out_dur), 4),
-            "crop_zoom": 1.00,
+            "crop_zoom": round(max(1.0, min(1.30, float(c_spec_cur.get("crop_zoom") or 1.00))), 4),
             "secondary_clip_index": (secondary_clip_idx + 1 if secondary_clip_idx is not None else None),
             "secondary_clip_file": (clip_files[secondary_clip_idx].name if secondary_clip_idx is not None else None),
             "secondary_camera_move": secondary_cam,
@@ -1463,11 +2078,67 @@ def build_v7_dynamic_edl(
             cut_row["cameo_easter_egg"] = bool(c_spec_cur.get("cameo_easter_egg"))
             if c_spec_cur.get("end_reference_image"):
                 cut_row["end_reference_image"] = str(c_spec_cur["end_reference_image"])
+            is_flight_span = bool(
+                c_spec_cur.get("end_reference_image")
+                or c_spec_cur.get("full_trajectory_span")
+                or clip_cameras.get(chosen, "") in EXPRESSIVE_V8_3D_FLIGHT_MOVES
+            )
+            cut_row["is_3d_flight"] = is_flight_span
+            is_r80_spatial = bool(
+                str(cut_row.get("grammar") or "") == "spatial_3d_arrow_diorama"
+                or c_spec_cur.get("spatial_relay_cut")
+            )
+            if is_r80_spatial:
+                cut_row["spatial_relay_cut"] = True
+                if c_spec_cur.get("arrow_3d_mode"):
+                    cut_row["arrow_3d_mode"] = str(c_spec_cur.get("arrow_3d_mode")).strip()
+            if is_flight_span and (c_spec_cur.get("flight_speed_ramp") is not None or is_r80_spatial):
+                raw_rv = c_spec_cur.get("flight_speed_ramp")
+                ramp_v = float(raw_rv) if raw_rv is not None else 1.32
+                if is_r80_spatial:
+                    lo_r, hi_r = R80_SPATIAL_FLIGHT_SPEED_RAMP_RANGE
+                elif is_r82_edl or is_r76_edl or (raw_rv is not None and float(raw_rv) < 2.0):
+                    lo_r, hi_r = (1.05, float(R79M_HUMAN_CUT_MAX_MAIN_SPEED))
+                else:
+                    lo_r, hi_r = EXPRESSIVE_V8_FLIGHT_SPEED_RAMP_RANGE
+                ramp_v = max(lo_r, min(hi_r, ramp_v))
+                max_avail_span = max(0.50, clip_durs[chosen] - 0.08 - src_s)
+                ramped_span = min(max_avail_span, out_dur * ramp_v)
+                cut_row["src_end_sec"] = round(src_s + ramped_span, 4)
+                cut_row["main_speed"] = round(ramped_span / max(0.1, out_dur), 4)
+                cut_row["flight_speed_ramp"] = round(ramped_span / max(0.1, out_dur), 3)
+            elif is_flight_span:
+                cut_row["flight_speed_ramp"] = round(float(cut_row["main_speed"]), 3)
+            cur_src_span = float(cut_row["src_end_sec"]) - float(cut_row["src_start_sec"])
+            is_sim_cut = (
+                str(cut_row.get("grammar") or "") == "brain_simulator_3d"
+                or str(c_spec_cur.get("render_engine") or "") == "blender_3d_simulator"
+            )
             if (
-                mode == "single"
+                not is_sim_cut
+                and not bool(cut_row.get("allow_slowmo_stretch"))
+                and float(clip_durs[chosen]) >= out_dur + 0.08
+                and cur_src_span < out_dur - 0.02
+            ):
+                safe_clip_end = float(clip_durs[chosen]) - 0.04
+                new_s0 = max(0.06, min(float(cut_row["src_start_sec"]), safe_clip_end - out_dur))
+                new_s1 = min(safe_clip_end, new_s0 + out_dur)
+                cut_row["src_start_sec"] = round(new_s0, 4)
+                cut_row["src_end_sec"] = round(new_s1, 4)
+                cut_row["main_speed"] = round((new_s1 - new_s0) / max(0.1, out_dur), 4)
+            is_r82_non_brain_cut = bool(is_r82_edl and not is_sim_cut)
+            if (is_r79m_human_cut or is_r82_non_brain_cut) and float(cut_row["main_speed"]) > float(R79M_HUMAN_CUT_MAX_MAIN_SPEED) + 1e-4:
+                clamped_span = round(out_dur * float(R79M_HUMAN_CUT_MAX_MAIN_SPEED), 4)
+                cut_row["src_end_sec"] = round(float(cut_row["src_start_sec"]) + clamped_span, 4)
+                cut_row["main_speed"] = round(clamped_span / max(0.1, out_dur), 4)
+                if "flight_speed_ramp" in cut_row:
+                    cut_row["flight_speed_ramp"] = round(float(cut_row["main_speed"]), 3)
+            if (
+                bool(getattr(_cfg, "EXPRESSIVE_V8_CURVE_RAMP", False) or c_spec_cur.get("force_curve_ramp"))
+                and mode == "single"
                 and bool(c_spec_cur.get("end_reference_image") or c_spec_cur.get("full_trajectory_span"))
-                and (src_span / max(0.1, out_dur)) >= 1.28
-                and out_dur >= 1.30
+                and (float(cut_row["src_end_sec"]) - float(cut_row["src_start_sec"])) / max(0.1, out_dur) >= 1.28
+                and out_dur >= 1.10
             ):
                 cut_row["v8_curve_ramp"] = True
             cut_row["diegetic_text_allowlist"] = [
@@ -1476,6 +2147,26 @@ def build_v7_dynamic_edl(
             cut_row["lighting_mode"] = str(c_spec_cur.get("lighting_mode") or "daylight_studio")
             if c_spec_cur.get("foley_cue"):
                 cut_row["foley_cue"] = str(c_spec_cur["foley_cue"])
+            for r74b_k in ("render_engine", "start_brain_region", "end_brain_region", "neural_state", "start_neural_state", "callout_mode", "callout_gloss"):
+                if c_spec_cur.get(r74b_k) is not None and str(c_spec_cur.get(r74b_k)).strip():
+                    cut_row[r74b_k] = str(c_spec_cur[r74b_k]).strip()
+            if isinstance(c_spec_cur.get("r78m_callout"), dict):
+                cut_row["r78m_callout"] = dict(c_spec_cur["r78m_callout"])
+            if "callout_enabled" in c_spec_cur:
+                cut_row["callout_enabled"] = c_spec_cur["callout_enabled"]
+            if "anatomy_label" in c_spec_cur:
+                cut_row["anatomy_label"] = c_spec_cur["anatomy_label"]
+            if c_spec_cur.get("single_start_frame_lock"):
+                cut_row["single_start_frame_lock"] = True
+            for r82_k in ("human_action_relay", "r72_cold_open_relay", "side_by_side_brain_compare", "stacked_cutaway_brain_compare", "dashed_baseline"):
+                if c_spec_cur.get(r82_k):
+                    cut_row[r82_k] = True
+            if c_spec_cur.get("surgical_cutaway") is not None:
+                cut_row["surgical_cutaway"] = bool(c_spec_cur["surgical_cutaway"])
+            if c_spec_cur.get("morph_mode"):
+                cut_row["morph_mode"] = str(c_spec_cur["morph_mode"]).strip()
+            if c_spec_cur.get("stacked_cutaway_brain_compare") and not cut_row.get("secondary_clip_index"):
+                cut_row["mode"] = "split_vstack"
         cuts.append(cut_row)
 
     # Append dedicated final Act 6 Sky Tilt-Up Outro Card cut ONLY for Schema v7 (suppressed on Schema v8)
@@ -1552,6 +2243,75 @@ def build_v7_dynamic_edl(
             aba_returns += 1
         seen_locs[loc] = idx_c
 
+    from pipeline.anatomy_label_overlay import resolve_anatomy_callout_windows
+    from pipeline.data_stamp_overlay import resolve_data_stamp_windows
+
+    allow_v8_alpha_dissolves = bool((visual_plan or {}).get("allow_alpha_dissolves"))
+    if is_v8 and not allow_v8_alpha_dissolves:
+        _alpha_fade_names = {
+            "dissolve_6f",
+            "dissolve_8f",
+            "dissolve_12f",
+            "dissolve_15f",
+            "match_cut_bridge",
+            "split_screen_wipe",
+            "daisy_chain_bridge",
+        }
+        for c in cuts:
+            if str(c.get("transition_out") or "").strip().lower() in _alpha_fade_names:
+                c["transition_out"] = "action_impact_cut"
+                c["transition_to_next"] = "action_impact_cut"
+
+    resolved_data_stamps = resolve_data_stamp_windows(
+        script_doc,
+        sentence_spans,
+        round(total_frames / float(fps), 3),
+    )
+    if is_v8 and resolved_data_stamps and cuts:
+        for ds in resolved_data_stamps:
+            ds_s_idx = int(ds.get("sentence_index") or 0)
+            ds_e_idx = int(ds.get("end_sentence_index") or ds_s_idx)
+            matching_cuts = [
+                c_it
+                for c_it in cuts
+                if int(c_it.get("sentence_index") or 0) <= ds_e_idx
+                and int(c_it.get("end_sentence_index") or c_it.get("sentence_index") or 0) >= ds_s_idx
+            ]
+            if matching_cuts:
+                c_bound_s = float(matching_cuts[0].get("out_start_sec") or 0.0)
+                c_bound_e = float(matching_cuts[-1].get("out_end_sec") or 0.0)
+                ds_t0 = float(ds.get("start_sec") or 0.0)
+                ds_t1 = float(ds.get("end_sec") or 0.0)
+                ds_dur = max(1.0, ds_t1 - ds_t0)
+                if (c_bound_e - c_bound_s) >= 1.60 and (ds_t0 < c_bound_s + 0.05 or ds_t1 > c_bound_e - 0.05):
+                    new_t0 = max(ds_t0, c_bound_s + 0.06)
+                    new_t1 = min(c_bound_e - 0.06, new_t0 + ds_dur)
+                    if new_t1 - new_t0 >= 1.0:
+                        ds["start_sec"] = round(new_t0, 3)
+                        ds["end_sec"] = round(new_t1, 3)
+                        ds["duration_sec"] = round(new_t1 - new_t0, 3)
+    data_stamp_spans = [[float(ds["start_sec"]), float(ds["end_sec"])] for ds in resolved_data_stamps]
+    vdir_hint = (visual_plan or {}).get("_visuals_dir")
+    raw_anatomy_callouts = (
+        resolve_anatomy_callout_windows(
+            {"cuts": cuts},
+            visual_plan,
+            visuals_dir=Path(str(vdir_hint)) if vdir_hint else None,
+        )
+        if is_v8
+        else []
+    )
+    resolved_anatomy_callouts, overlay_conflicts_resolved = resolve_overlay_window_conflicts(
+        resolved_data_stamps,
+        raw_anatomy_callouts,
+    )
+    anatomy_callout_spans = [[float(ac["start_sec"]), float(ac["end_sec"])] for ac in resolved_anatomy_callouts]
+    for c in cuts:
+        c_s0 = float(c.get("out_start_sec") or 0.0)
+        c_e0 = float(c.get("out_end_sec") or 0.0)
+        c["has_data_stamp"] = any(ds0 < c_e0 - 0.04 and ds1 > c_s0 + 0.04 for ds0, ds1 in data_stamp_spans)
+        c["has_anatomy_callout"] = any(ac0 < c_e0 - 0.04 and ac1 > c_s0 + 0.04 for ac0, ac1 in anatomy_callout_spans)
+
     all_used = {int(c["clip_index"]) for c in cuts} | {
         int(c["secondary_clip_index"]) for c in cuts if c.get("secondary_clip_index") is not None
     }
@@ -1584,13 +2344,20 @@ def build_v7_dynamic_edl(
         "split_screen_cuts": sum(1 for c in cuts if c["mode"] in ("split_hstack", "split_vstack")),
         "split_hstack_cuts": sum(1 for c in cuts if c["mode"] == "split_hstack"),
         "act5_montage_cuts": sum(1 for c in cuts if c["act"] == 5),
+        "data_stamp_spans": data_stamp_spans,
+        "resolved_data_stamps": resolved_data_stamps,
+        "anatomy_callout_spans": anatomy_callout_spans,
+        "resolved_anatomy_callouts": resolved_anatomy_callouts,
+        "overlay_conflicts_resolved": overlay_conflicts_resolved,
         "cuts": cuts,
     }
     if is_v8:
         edl_out["cameo_cuts"] = sum(1 for c in cuts if c.get("cameo_easter_egg"))
         edl_out["dissolve_6f_cuts"] = sum(1 for c in cuts if c.get("transition_out") == "dissolve_6f")
         edl_out["camera_bridge_cuts"] = sum(
-            1 for c in cuts[:-1] if str(c.get("transition_out") or "").strip().lower() not in ("", "hard", "action_impact_cut")
+            1
+            for c in cuts[:-1]
+            if str(c.get("transition_out") or "").strip().lower() not in ("", "hard", "action_impact_cut", "seamless_relay_cut")
         )
     return edl_out
 
@@ -1603,6 +2370,7 @@ def build_crosscut_edl(
     total_duration_sec: float,
     script_doc: dict[str, Any] | None = None,
     source_window_overrides: dict[int, Any] | None = None,
+    virtual_clip_duration_sec: float | None = None,
 ) -> dict[str, Any]:
     """
     R58 / R63 / R68 NLE Edit Decision List builder:
@@ -1621,6 +2389,7 @@ def build_crosscut_edl(
             total_duration_sec=total_duration_sec,
             script_doc=script_doc,
             source_window_overrides=source_window_overrides,
+            virtual_clip_duration_sec=virtual_clip_duration_sec,
         )
     if bool(visual_plan.get("zero_clip_reuse")) or len(clip_files) >= len(sentence_spans) + 1:
         return build_one_to_one_edl(
@@ -1630,6 +2399,7 @@ def build_crosscut_edl(
             speech_end_sec=speech_end_sec,
             total_duration_sec=total_duration_sec,
             script_doc=script_doc,
+            virtual_clip_duration_sec=virtual_clip_duration_sec,
         )
     if len(clip_files) < DIORAMA_CLIP_COUNT_MIN:
         raise ValueError(
@@ -1643,7 +2413,14 @@ def build_crosscut_edl(
 
     plan_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
     n_clips = len(clip_files)
-    clip_durs = [max(4.0, float(_clip_duration(Path(cf)))) for cf in clip_files]
+    clip_durs = [
+        (
+            max(0.50, float(virtual_clip_duration_sec))
+            if (virtual_clip_duration_sec is not None and (not Path(cf).is_file() or Path(cf).stat().st_size <= 0))
+            else (max(0.50, raw_cd) if (raw_cd := float(_clip_duration(Path(cf)))) > 0.05 else 4.0)
+        )
+        for cf in clip_files
+    ]
 
     # Group 0-based clip indices by Act (1..6)
     act_pools: dict[int, list[int]] = {a: [] for a in range(1, DIORAMA_ACT_COUNT + 1)}
@@ -1973,11 +2750,77 @@ def generate_diorama_ass_subtitles(
     """
     from pipeline.config import (
         EXPRESSIVE_V8_SUBTITLE_FONT_SIZE,
+        EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_ASS_BGR,
+        EXPRESSIVE_V8_SUBTITLE_MARGIN_L,
+        EXPRESSIVE_V8_SUBTITLE_MARGIN_R,
         EXPRESSIVE_V8_SUBTITLE_MARGIN_V,
+        EXPRESSIVE_V8_SUBTITLE_MAX_WORDS,
         EXPRESSIVE_V8_SUBTITLE_OUTLINE_WIDTH,
         EXPRESSIVE_V8_SUBTITLE_SHADOW_DEPTH,
+        R87_HOOK_TITLE_ACCENT_ASS_BGR,
+        R87_HOOK_TITLE_DURATION_SEC,
+        R87_HOOK_TITLE_FONT_SIZE,
+        R87_HOOK_TITLE_FONT_SIZE_RANGE,
+        R87_HOOK_TITLE_MARGIN_L,
+        R87_HOOK_TITLE_MARGIN_R,
+        R87_HOOK_TITLE_MARGIN_V,
+        R87_HOOK_TITLE_MAX_WIDTH_PX,
+        R87_HOOK_TITLE_OUTLINE,
+        R87_HOOK_TITLE_SCALE_X,
+        R87_HOOK_TITLE_SHADOW,
         is_expressive_v8_plan,
     )
+
+    _V8_ANCHOR_PRIORITY_WORDS = frozenset(
+        {
+            "brain", "brains", "striatum", "hippocampus", "amygdala", "cortex", "brainstem",
+            "dopamine", "neuron", "neurons", "synapse", "rewired", "rewire", "muted", "locked",
+            "froze", "wiped", "grew", "shrank", "blocked", "stalled", "hijacked", "placebo",
+            "pill", "pills", "snack", "snacks", "pudding", "sleep", "doorway", "memory", "pain",
+            "shock", "fake", "awake", "asleep", "blind", "zero", "never", "stopped", "tricked",
+            "pound", "pounds", "eight", "one", "two", "twice", "half", "triple", "percent",
+            "sugar", "fat", "coffee", "caffeine", "wash", "rinse", "pump", "switch", "taxi",
+            "london", "map", "maps", "route", "habit", "habits", "reward", "craving",
+        }
+    )
+    _V8_SUB_STOPWORDS = frozenset(
+        {
+            "the", "and", "that", "this", "with", "from", "into", "your", "their", "they",
+            "them", "when", "what", "where", "which", "while", "about", "after", "before",
+            "would", "could", "should", "there", "these", "those", "still", "every", "just",
+        }
+    )
+
+    def _highlight_v8_anchor_keyword(raw_text: str) -> str:
+        hl_bgr = str(EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_ASS_BGR or "&H00FFFFFF&").strip()
+        if not is_v8 or not raw_text or hl_bgr.upper() == "&H00FFFFFF&":
+            return raw_text
+        toks = raw_text.split()
+        if not toks:
+            return raw_text
+        chosen_idx = -1
+        for i_t, tok in enumerate(toks):
+            if any(ch.isdigit() for ch in tok) or "%" in tok or "$" in tok:
+                chosen_idx = i_t
+                break
+        if chosen_idx < 0:
+            for i_t, tok in enumerate(toks):
+                cleaned = re.sub(r"[^a-zA-Z0-9']", "", tok).lower()
+                if cleaned in _V8_ANCHOR_PRIORITY_WORDS:
+                    chosen_idx = i_t
+                    break
+        if chosen_idx < 0 and len(toks) >= 2:
+            best_len = 4
+            for i_t, tok in enumerate(toks):
+                cleaned = re.sub(r"[^a-zA-Z]", "", tok).lower()
+                if len(cleaned) > best_len and cleaned not in _V8_SUB_STOPWORDS:
+                    best_len = len(cleaned)
+                    chosen_idx = i_t
+        if chosen_idx < 0:
+            return raw_text
+        out_toks = list(toks)
+        out_toks[chosen_idx] = f"{{\\c{hl_bgr}}}{out_toks[chosen_idx]}{{\\c&H00FFFFFF&}}"
+        return " ".join(out_toks)
 
     ass_path = Path(ass_path)
     ass_path.parent.mkdir(parents=True, exist_ok=True)
@@ -2000,6 +2843,8 @@ def generate_diorama_ass_subtitles(
         def_out = EXPRESSIVE_V8_SUBTITLE_OUTLINE_WIDTH if is_v8 else DIORAMA_V7_SUBTITLE_OUTLINE_WIDTH
         def_shd = EXPRESSIVE_V8_SUBTITLE_SHADOW_DEPTH if is_v8 else DIORAMA_V7_SUBTITLE_SHADOW_DEPTH
         def_mv = EXPRESSIVE_V8_SUBTITLE_MARGIN_V if is_v8 else DIORAMA_V7_SUBTITLE_MARGIN_V
+        def_ml = EXPRESSIVE_V8_SUBTITLE_MARGIN_L if is_v8 else 80
+        def_mr = EXPRESSIVE_V8_SUBTITLE_MARGIN_R if is_v8 else 80
 
         header_v7 = [
             "[Script Info]",
@@ -2014,7 +2859,10 @@ def generate_diorama_ass_subtitles(
             "Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, "
             "Alignment, MarginL, MarginR, MarginV, Encoding",
             f"Style: Default,{DIORAMA_V7_SUBTITLE_FONT_NAME},{def_fs},&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,"
-            f"0,0,0,0,100,100,0,0,1,{def_out},{def_shd},2,80,80,{def_mv},1",
+            f"0,0,0,0,100,100,0,0,1,{def_out},{def_shd},2,{def_ml},{def_mr},{def_mv},1",
+            f"Style: HookTitle,{DIORAMA_V7_SUBTITLE_FONT_NAME},{R87_HOOK_TITLE_FONT_SIZE},&H00FFFFFF,&H00FFFFFF,&H00000000,&H88000000,"
+            f"0,0,0,0,{R87_HOOK_TITLE_SCALE_X},100,1,0,1,{R87_HOOK_TITLE_OUTLINE},{R87_HOOK_TITLE_SHADOW},8,"
+            f"{R87_HOOK_TITLE_MARGIN_L},{R87_HOOK_TITLE_MARGIN_R},{R87_HOOK_TITLE_MARGIN_V},1",
             f"Style: ChapterHeadline,{DIORAMA_V7_SUBTITLE_FONT_NAME},{DIORAMA_V7_CHAPTER_HEADLINE_FONT_SIZE},&H00FFFFFF,&H00FFFFFF,&H00000000,&H88000000,"
             f"0,0,0,0,{DIORAMA_V7_CHAPTER_HEADLINE_SCALE_X},100,2,0,1,{DIORAMA_V7_CHAPTER_HEADLINE_OUTLINE_WIDTH},4.5,8,"
             f"{DIORAMA_V7_CHAPTER_HEADLINE_MARGIN_LR},{DIORAMA_V7_CHAPTER_HEADLINE_MARGIN_LR},{DIORAMA_V7_CHAPTER_HEADLINE_MARGIN_V},1",
@@ -2039,14 +2887,22 @@ def generate_diorama_ass_subtitles(
         ]
         lines_v7 = list(header_v7)
 
-        filtered_evs = [
-            (
-                float(t0),
-                float(t1),
-                [_sanitize_ass_single_line(w) for w in words[:DIORAMA_SUBTITLE_MAX_WORDS] if _sanitize_ass_single_line(w)],
-            )
-            for t0, t1, words in events
-        ]
+        max_sub_words = EXPRESSIVE_V8_SUBTITLE_MAX_WORDS if is_v8 else DIORAMA_SUBTITLE_MAX_WORDS
+        filtered_evs: list[tuple[float, float, list[str]]] = []
+        for t0, t1, words in events:
+            clean_all = [_sanitize_ass_single_line(w) for w in (words or []) if _sanitize_ass_single_line(w)]
+            if not clean_all:
+                continue
+            if is_v8 and len(clean_all) > max_sub_words:
+                n_w = len(clean_all)
+                span_ev = max(0.04, float(t1) - float(t0))
+                for k_w in range(0, n_w, max_sub_words):
+                    sub_chunk = clean_all[k_w : k_w + max_sub_words]
+                    st0 = float(t0) + span_ev * (k_w / float(n_w))
+                    st1 = float(t0) + span_ev * (min(n_w, k_w + max_sub_words) / float(n_w))
+                    filtered_evs.append((st0, st1, sub_chunk))
+            else:
+                filtered_evs.append((float(t0), float(t1), clean_all[:max_sub_words]))
         filtered_evs = [x for x in filtered_evs if x[2] and x[0] < speech_end - 0.04]
         act_break_times = [
             float(sp["end_sec"])
@@ -2062,7 +2918,7 @@ def generate_diorama_ass_subtitles(
             from pipeline.plain_language import to_display_text
 
             raw_disp = _sanitize_ass_single_line(to_display_text(" ".join(clean_words)))
-            txt = _format_v8_highlighted_phrase(raw_disp) if is_v8 else raw_disp
+            txt = _highlight_v8_anchor_keyword(raw_disp) if is_v8 else raw_disp
             is_act_break_after = (
                 idx_e + 1 < n_evs
                 and any(abs(t1 - ab_t) <= 0.24 and filtered_evs[idx_e + 1][0] >= ab_t - 0.12 for ab_t in act_break_times)
@@ -2155,6 +3011,48 @@ def generate_diorama_ass_subtitles(
             for cut in (edl.get("cuts") or [])
             if cut.get("mode") in ("split_hstack", "split_vstack")
         ]
+        if is_v8:
+            # R87-H3: 0.00s–2.20s Silent-Scroll HookTitle (2-3 ALL-CAPS words, 118pt 2-tone white + #FFE14A, Y=250..415px, X=85..905px)
+            raw_hook_title = str(
+                visual_plan.get("hook_title_text")
+                or visual_plan.get("opening_hook_title")
+                or ""
+            ).strip()
+            if raw_hook_title:
+                safe_ht = _sanitize_ass_multiline(raw_hook_title, max_lines=2).upper()
+                ht_lines = [seg.strip() for seg in safe_ht.split("\\N") if seg.strip()]
+                if ht_lines:
+                    ht_sx = float(R87_HOOK_TITLE_SCALE_X) / 100.0
+                    ht_lo_fs, ht_hi_fs = R87_HOOK_TITLE_FONT_SIZE_RANGE
+                    base_ht_fs = min(int(R87_HOOK_TITLE_FONT_SIZE), 96) if len(ht_lines) >= 2 else int(R87_HOOK_TITLE_FONT_SIZE)
+                    max_ht_w = 0.0
+                    for seg in ht_lines:
+                        bb_h = pil_fnt_v7.getbbox(seg)
+                        pil_w_h = (bb_h[2] - bb_h[0]) * (float(base_ht_fs) / float(DIORAMA_V7_CHAPTER_HEADLINE_FONT_SIZE))
+                        est_w_h = pil_w_h * ht_sx * 0.725 + 1.5 * max(0, len(seg) - 1) + 20.0
+                        if est_w_h > max_ht_w:
+                            max_ht_w = est_w_h
+                    if max_ht_w > float(R87_HOOK_TITLE_MAX_WIDTH_PX):
+                        fit_ht_fs = max(
+                            int(ht_lo_fs),
+                            int(math.floor(base_ht_fs * (float(R87_HOOK_TITLE_MAX_WIDTH_PX) / max_ht_w))),
+                        )
+                    else:
+                        fit_ht_fs = min(int(ht_hi_fs), base_ht_fs)
+                    if len(ht_lines) >= 2:
+                        ht_styled = f"{ht_lines[0]}\\N{{\\c{R87_HOOK_TITLE_ACCENT_ASS_BGR}}}{ht_lines[1]}{{\\c&H00FFFFFF&}}"
+                    else:
+                        ht_toks = ht_lines[0].split()
+                        if len(ht_toks) >= 2:
+                            ht_styled = f"{' '.join(ht_toks[:-1])} {{\\c{R87_HOOK_TITLE_ACCENT_ASS_BGR}}}{ht_toks[-1]}{{\\c&H00FFFFFF&}}"
+                        else:
+                            ht_styled = f"{{\\c{R87_HOOK_TITLE_ACCENT_ASS_BGR}}}{ht_lines[0]}{{\\c&H00FFFFFF&}}"
+                    ht_end_sec = min(float(R87_HOOK_TITLE_DURATION_SEC), max(1.20, float(speech_end)))
+                    ht_end_f = max(4, min(speech_end_frame, int(round(ht_end_sec * fps))))
+                    ht_s1 = _frame_boundary_ass_sec(ht_end_f, fps)
+                    lines_v7.append(
+                        f"Dialogue: 3,0:00:00.00,{_format_ass_ts(ht_s1)},HookTitle,,0,0,0,,{{\\q2\\fs{fit_ht_fs}\\fad(0,120)}}{ht_styled}"
+                    )
         if not is_v8:
             # 2. Giant Top Chapter Impact Headlines (~144px height, <= DIORAMA_V7_CHAPTER_HEADLINE_MAX_WIDTH_PX width, >= 80px side margins)
             emitted_chapter_spans: list[tuple[float, float]] = []
@@ -2830,18 +3728,32 @@ def _synthesize_expressive_v8_ambience_and_foley(
       - Continuous minor/Phrygian dark synth-cello + sub-bass tension underscore (`C2 + G2 + C3 + Eb3 + Db3`
         slow breathing swell, zero 88-BPM beat grid, vocal-pocket low-passed below `520 Hz`, narrow/center-focused
         stereo with subtle `±0.22 Hz` chorus + `-30 dBFS` decorrelated room air).
-      - Smooth rising envelope from `EXPRESSIVE_V8_BGM_START_DBFS` (`-25.0 dBFS` post-LUFS) at `0.0s` to
-        `EXPRESSIVE_V8_BGM_PEAK_DBFS` (`-18.0 dBFS` post-LUFS) across the narrative climax (`86%` of speech),
-        gliding cleanly into `-26.5 dBFS` across the `0.20s` seamless loop tail (`[-38, -22] dBFS`).
-      - Crisp procedural physical foley + synchronized camera-transition `whoosh`/`thud` accents.
+      - Strictly monotonic rising envelope from `EXPRESSIVE_V8_BGM_START_DB` (`-25.0 dBFS` post-LUFS) at `0.0s` to
+        `EXPRESSIVE_V8_BGM_PEAK_DB` / `EXPRESSIVE_V8_BGM_END_DB` (`-18.0 dBFS` post-LUFS) held through climax & ending
+        with zero tail dip.
+      - Crisp procedural physical foley + auto-placed camera-flight/styled-transition `whoosh`/`thud` accents.
     """
     from pipeline.config import (
-        EXPRESSIVE_V8_BGM_PEAK_DBFS,
-        EXPRESSIVE_V8_BGM_START_DBFS,
+        EXPRESSIVE_V8_3D_FLIGHT_MOVES,
+        EXPRESSIVE_V8_BGM_BREATH_DB,
+        EXPRESSIVE_V8_BGM_DUCK_DB,
+        EXPRESSIVE_V8_BGM_END_DB,
+        EXPRESSIVE_V8_BGM_MODE,
+        EXPRESSIVE_V8_BGM_PEAK_DB,
+        EXPRESSIVE_V8_BGM_START_DB,
         EXPRESSIVE_V8_BGM_TAIL_DBFS,
+        EXPRESSIVE_V8_DEFAULT_BGM_MOOD,
+        EXPRESSIVE_V8_FLIGHT_WHOOSH_DBFS,
         EXPRESSIVE_V8_FOLEY_PEAK_DBFS,
         EXPRESSIVE_V8_FOLEY_TYPES,
         EXPRESSIVE_V8_ROOM_AMBIENCE_DBFS,
+        EXPRESSIVE_V8_ROOM_TONE_DBFS,
+        EXPRESSIVE_V8_SYNTH_TONAL_FOLEY,
+    )
+    from pipeline.elevenlabs_music import (
+        synthesize_or_load_elevenlabs_bgm,
+        synthesize_room_tone_only,
+        synthesize_tonal_fixed_underscore,
     )
 
     if n_samples <= 0:
@@ -2852,148 +3764,162 @@ def _synthesize_expressive_v8_ambience_and_foley(
     total_sec = max(0.25, n_samples / float(sr))
     sp_end = max(0.20, min(total_sec, float(speech_end_sec or total_sec)))
 
-    # 1a. Rising dark-suspense tonal underscore (C2 65.41Hz + G2 98.00Hz + C3 130.81Hz + Eb3 155.56Hz + Db3 138.59Hz swell)
-    phrygian_swell = 0.5 - 0.5 * np.cos(2.0 * np.pi * 0.17 * t_sec)
-    bow_vibrato = 0.0025 * np.sin(2.0 * np.pi * 4.1 * t_sec)
-    drone_core = (
-        0.44 * np.sin(2.0 * np.pi * 65.406 * t_sec)
-        + 0.30 * np.sin(2.0 * np.pi * 97.999 * t_sec + 0.4)
-        + 0.12 * phrygian_swell * np.sin(2.0 * np.pi * 138.591 * t_sec + 1.1)
-    ).astype(np.float32)
-    upper_l = (
-        0.22 * np.sin(2.0 * np.pi * 130.813 * (1.0 + bow_vibrato) * t_sec + 0.0)
-        + 0.14 * np.sin(2.0 * np.pi * (155.563 + 0.22) * t_sec + 0.7)
-    ).astype(np.float32)
-    upper_r = (
-        0.22 * np.sin(2.0 * np.pi * 130.813 * (1.0 - bow_vibrato) * t_sec + 0.18)
-        + 0.14 * np.sin(2.0 * np.pi * (155.563 - 0.22) * t_sec + 0.92)
-    ).astype(np.float32)
-    # Soft warm analog cello saturation (bounded harmonics cleanly below vocal 1.1-3.2kHz presence band)
-    tonal_l = np.tanh((drone_core + upper_l) * 1.25).astype(np.float32)
-    tonal_r = np.tanh((drone_core + upper_r) * 1.25).astype(np.float32)
-    tonal_st = np.column_stack([tonal_l, tonal_r])
-    tonal_unit_rms = max(1e-6, float(np.sqrt(np.mean(np.square(tonal_st)))))
-    tonal_st /= tonal_unit_rms
-
-    # Smooth rising gain envelope (pre-master is -4.0 dB below post-(-14 LUFS) mastered target)
-    climax_t = max(0.15, 0.86 * sp_end)
-    pre_start_db = float(EXPRESSIVE_V8_BGM_START_DBFS) - 4.0
-    pre_peak_db = float(EXPRESSIVE_V8_BGM_PEAK_DBFS) - 4.0
-    pre_tail_db = float(EXPRESSIVE_V8_BGM_TAIL_DBFS) - 6.0  # ~ -26.5 dBFS post-LUFS in the 0.20s loop bridge
-    env_db = np.empty(n_samples, dtype=np.float32)
-    m_rise = t_sec <= climax_t
-    prog_rise = np.clip(t_sec[m_rise] / climax_t, 0.0, 1.0)
-    env_db[m_rise] = pre_start_db + (pre_peak_db - pre_start_db) * (0.5 - 0.5 * np.cos(np.pi * prog_rise))
-    m_glide = (t_sec > climax_t) & (t_sec <= sp_end)
-    glide_span = max(0.04, sp_end - climax_t)
-    prog_glide = np.clip((t_sec[m_glide] - climax_t) / glide_span, 0.0, 1.0)
-    env_db[m_glide] = pre_peak_db + (pre_tail_db - pre_peak_db) * (0.5 - 0.5 * np.cos(np.pi * prog_glide))
-    m_tail = t_sec > sp_end
-    if np.any(m_tail):
-        env_db[m_tail] = pre_tail_db
-    bgm_st = tonal_st * (10.0 ** (env_db / 20.0)).astype(np.float32)[:, None]
-
-    # 1b. Decorrelated stereo dark room-tone air (55..480 Hz, ~ -32 dBFS) for natural depth & DQ11 stereo decorrelation
-    freqs = np.fft.rfftfreq(n_samples, d=1.0 / float(sr))
-    hp = np.clip((freqs - 45.0) / 35.0, 0.0, 1.0)
-    lp = np.exp(-0.5 * (np.maximum(0.0, freqs - 240.0) / 220.0) ** 2)
-    mask = (hp * lp).astype(np.float32)
-    mask[0] = 0.0
-    amb_l = np.fft.irfft(np.fft.rfft(rng.standard_normal(n_samples).astype(np.float32)) * mask, n=n_samples).astype(np.float32)
-    amb_r = np.fft.irfft(np.fft.rfft(rng.standard_normal(n_samples).astype(np.float32)) * mask, n=n_samples).astype(np.float32)
-    amb_st = np.column_stack([amb_l, amb_r])
-    amb_rms = float(np.sqrt(np.mean(np.square(amb_st)))) if amb_st.size else 0.0
-    target_pre_rms = float(10.0 ** ((float(EXPRESSIVE_V8_ROOM_AMBIENCE_DBFS) - 5.5) / 20.0))
-    if amb_rms > 1e-7:
-        amb_st *= target_pre_rms / amb_rms
-    amb_st = (amb_st + bgm_st).astype(np.float32)
-
-    fade_in = min(n_samples // 6, int(0.035 * sr))
-    if fade_in > 0:
-        amb_st[:fade_in, :] *= np.linspace(0.28, 1.0, fade_in, dtype=np.float32)[:, None]
-    fade_out = min(n_samples // 6, int(0.055 * sr))
-    if fade_out > 0:
-        amb_st[-fade_out:, :] *= np.linspace(1.0, 0.35, fade_out, dtype=np.float32)[:, None]
-
-    # 2. Procedural physical foley inside non-speech `gap_windows` + subtle camera-transition whoosh accents
-    foley_peak = float(10.0 ** ((float(EXPRESSIVE_V8_FOLEY_PEAK_DBFS) - 1.5) / 20.0))  # ~ -12 dBFS post-LUFS
-    cuts = edl.get("cuts") if isinstance(edl.get("cuts"), list) else []
+    bgm_mode = str(edl.get("bgm_mode") or EXPRESSIVE_V8_BGM_MODE or "elevenlabs_music").strip().lower()
+    bgm_mood = str(edl.get("bgm_mood") or EXPRESSIVE_V8_DEFAULT_BGM_MOOD).strip()
     gap_windows = edl.get("gap_windows") if isinstance(edl.get("gap_windows"), list) else []
-    windows_to_fill: list[tuple[float, float]] = []
-    for gw in gap_windows:
-        if isinstance(gw, (list, tuple)) and len(gw) >= 2:
-            g0, g1 = float(gw[0]), float(gw[1])
-            if g1 - g0 >= 0.14 and g1 <= speech_end_sec + 0.05:
-                windows_to_fill.append((g0 + 0.015, g1 - 0.015))
-    if not windows_to_fill and cuts:
-        for c_item in cuts[:-1]:
-            t_b = float(c_item.get("out_end_sec") or 0.0)
-            if 0.20 <= t_b <= speech_end_sec - 0.15:
-                windows_to_fill.append((t_b - 0.08, t_b + 0.06))
 
+    bgm_meta: dict[str, Any] = {"bgm_source": bgm_mode}
+    if bgm_mode == "elevenlabs_music":
+        unit_bgm_st, bgm_meta = synthesize_or_load_elevenlabs_bgm(
+            mood_id=bgm_mood,
+            duration_sec=total_sec,
+            sr=sr,
+            n_samples=n_samples,
+        )
+        if bgm_meta.get("bgm_source") == "room_tone_fallback":
+            amb_st = unit_bgm_st.astype(np.float32)
+        else:
+            # Vocal-clear dynamic ducking: -21.5 dB pre-LUFS (~ -25.5 dB raw) during speech, gentle lift in breath gaps
+            duck_db = float(EXPRESSIVE_V8_BGM_DUCK_DB) - 4.0
+            breath_db = float(EXPRESSIVE_V8_BGM_BREATH_DB) - 4.0
+            env_db = np.full(n_samples, duck_db, dtype=np.float32)
+            for gw in gap_windows:
+                if isinstance(gw, (list, tuple)) and len(gw) >= 2:
+                    g0, g1 = float(gw[0]), float(gw[1])
+                    i0 = max(0, min(n_samples, int(round((g0 - 0.08) * sr))))
+                    i1 = max(i0, min(n_samples, int(round((g1 + 0.08) * sr))))
+                    if i1 - i0 >= 16:
+                        win_u = np.linspace(0.0, 1.0, i1 - i0, dtype=np.float32)
+                        bump = (breath_db - duck_db) * np.sin(np.pi * win_u)
+                        env_db[i0:i1] = np.maximum(env_db[i0:i1], duck_db + bump)
+            bgm_st = unit_bgm_st * (10.0 ** (env_db / 20.0)).astype(np.float32)[:, None]
+            room_st = synthesize_room_tone_only(n_samples, sr=sr, target_dbfs=EXPRESSIVE_V8_ROOM_TONE_DBFS, seed=seed_val)
+            amb_st = (bgm_st + room_st).astype(np.float32)
+    elif bgm_mode == "tonal_fixed":
+        tonal_st = synthesize_tonal_fixed_underscore(n_samples, sr=sr)
+        tonal_rms = max(1e-6, float(np.sqrt(np.mean(np.square(tonal_st)))))
+        tonal_st = tonal_st / tonal_rms
+        gain_lin = float(10.0 ** ((-31.0 - 4.0) / 20.0))
+        room_st = synthesize_room_tone_only(n_samples, sr=sr, target_dbfs=EXPRESSIVE_V8_ROOM_TONE_DBFS, seed=seed_val)
+        amb_st = (tonal_st * gain_lin + room_st).astype(np.float32)
+    else:
+        amb_st = synthesize_room_tone_only(n_samples, sr=sr, target_dbfs=EXPRESSIVE_V8_ROOM_TONE_DBFS, seed=seed_val)
+
+    fade_in = min(n_samples // 6, int(0.045 * sr))
+    if fade_in > 0:
+        amb_st[:fade_in, :] *= np.linspace(0.15, 1.0, fade_in, dtype=np.float32)[:, None]
+    fade_out = min(n_samples // 6, int(0.18 * sr))
+    if fade_out > 0:
+        amb_st[-fade_out:, :] *= np.linspace(1.0, 0.05, fade_out, dtype=np.float32)[:, None]
+
+    # 2. Subtle non-tonal physical thud/whoosh foley on cut boundaries (all 1.4-3.3 kHz sine click/shimmer tones disabled)
     placed_foley: list[dict[str, Any]] = []
-    cue_cycle = ("pop", "click", "thud", "whoosh")
+    cuts = edl.get("cuts") if isinstance(edl.get("cuts"), list) else []
     outgoing_candidates = cuts[:-1] if len(cuts) > 1 else cuts
-    for w_idx, (w0, w1) in enumerate(windows_to_fill):
+    foley_peak = float(10.0 ** ((float(EXPRESSIVE_V8_FOLEY_PEAK_DBFS) + 1.5) / 20.0))
+    for gw in gap_windows:
+        if not (isinstance(gw, (list, tuple)) and len(gw) >= 2):
+            continue
+        g0, g1 = float(gw[0]), float(gw[1])
+        if g1 - g0 < 0.14 or g1 > sp_end + 0.05:
+            continue
+        w0, w1 = g0 + 0.015, g1 - 0.015
         avail = w1 - w0
-        if avail < 0.06:
+        if avail < 0.08:
             continue
         mid_t = 0.5 * (w0 + w1)
-        out_cut = (
-            min(outgoing_candidates, key=lambda c: abs(float(c.get("out_end_sec") or 0.0) - mid_t))
-            if outgoing_candidates
-            else {}
-        )
-        in_cut = min(cuts, key=lambda c: abs(float(c.get("out_start_sec") or 0.0) - mid_t)) if cuts else {}
-        explicit_cue = str(out_cut.get("foley_cue") or in_cut.get("foley_cue") or "").strip().lower()
-        gm = f"{out_cut.get('grammar') or ''} {in_cut.get('grammar') or ''}".lower()
-        tr = str(out_cut.get("transition_out") or "").strip().lower()
-        if explicit_cue in EXPRESSIVE_V8_FOLEY_TYPES:
-            cue = explicit_cue
-        elif "xray_brain" in gm or "living_brain" in gm:
-            cue = "crystal_shimmer"
-        elif out_cut.get("cameo_easter_egg") or in_cut.get("cameo_easter_egg"):
-            cue = "pop"
-        elif tr == "action_impact_cut":
-            cue = "thud"
-        elif tr in ("portal_crash_zoom_10f", "whip_pan_blur_8f", "dissolve_8f", "dissolve_6f", "occlusion_wipe", "split_screen_wipe"):
-            cue = "whoosh"
-        elif tr in ("match_cut_bridge", "daisy_chain_bridge"):
-            cue = "click"
+        out_cut = None
+        best_dt = 999.0
+        for c_cand in outgoing_candidates:
+            ce = float(c_cand.get("out_end_sec") or 0.0)
+            dt = abs(ce - mid_t)
+            if dt < best_dt and dt <= 0.45:
+                best_dt = dt
+                out_cut = c_cand
+        tr_out = str((out_cut or {}).get("transition_out") or "").strip().lower()
+        if tr_out == "action_impact_cut":
+            cue_name = "thud"
+        elif tr_out in ("whip_pan_blur_8f", "portal_crash_zoom_10f", "occlusion_wipe", "seamless_relay_cut") or bool(EXPRESSIVE_V8_SYNTH_TONAL_FOLEY):
+            cue_name = "whoosh"
         else:
-            cue = cue_cycle[w_idx % len(cue_cycle)]
-        dur_cue = min(avail, 0.17 if cue in ("crystal_shimmer", "heartbeat_thump", "whoosh") else 0.09)
-        oneshot = _synthesize_v8_foley_oneshot(cue, dur_cue, sr, rng) * foley_peak
+            continue
+        dur_cue = min(avail, 0.13)
+        oneshot = _synthesize_v8_foley_oneshot(cue_name, dur_cue, sr, rng) * foley_peak
         s0 = max(0, int(round((mid_t - 0.5 * dur_cue) * sr)))
         s1 = min(n_samples, s0 + oneshot.shape[0])
         if s1 > s0:
             amb_st[s0:s1, :] += oneshot[: s1 - s0, :]
-            placed_foley.append({"time_sec": round(s0 / float(sr), 3), "cue": cue, "duration_sec": round((s1 - s0) / float(sr), 3)})
+            placed_foley.append({"time_sec": round(s0 / float(sr), 3), "cue": cue_name, "duration_sec": round((s1 - s0) / float(sr), 3)})
 
-    # Subtle ducked camera-flight whoosh accents on 3D portal/whip transitions not already covered by gap_windows
-    for c_item in outgoing_candidates:
-        tr = str(c_item.get("transition_out") or "").strip().lower()
-        if tr not in ("portal_crash_zoom_10f", "whip_pan_blur_8f"):
-            continue
-        t_cut = float(c_item.get("out_end_sec") or 0.0)
-        if t_cut <= 0.15 or t_cut >= total_sec - 0.18:
-            continue
-        if any(abs(float(pf["time_sec"]) - t_cut) <= 0.28 for pf in placed_foley):
-            continue
-        sw_dur = 0.18 if tr == "portal_crash_zoom_10f" else 0.14
-        sw_sig = _synthesize_v8_foley_oneshot("whoosh", sw_dur, sr, rng) * (foley_peak * 0.34)
-        s0 = max(0, int(round((t_cut - 0.5 * sw_dur) * sr)))
-        s1 = min(n_samples, s0 + sw_sig.shape[0])
-        if s1 > s0:
-            amb_st[s0:s1, :] += sw_sig[: s1 - s0, :]
-            placed_foley.append({"time_sec": round(s0 / float(sr), 3), "cue": "whoosh", "duration_sec": round((s1 - s0) / float(sr), 3)})
+    # Rule R74: Subtle -21 dBFS bandpass (160-850 Hz) velvet air-glass portal whoosh (0.36s) on neural & portal dives
+    from pipeline.config import (
+        NEURAL_WHOOSH_BAND_HZ,
+        NEURAL_WHOOSH_DURATION_SEC,
+        NEURAL_WHOOSH_GAIN_DB,
+    )
 
-    edl["bgm_profile"] = "rising_dark_suspense_v8"
-    edl["bgm_start_dbfs"] = float(EXPRESSIVE_V8_BGM_START_DBFS)
-    edl["bgm_peak_dbfs"] = float(EXPRESSIVE_V8_BGM_PEAK_DBFS)
+    neural_whoosh_events: list[dict[str, Any]] = []
+    whoosh_moves = {
+        "neural_fpv_dive_in",
+        "neural_fpv_pullback_out",
+        "neural_tract_relay_flight",
+        "fpv_window_portal_breach",
+    }
+    w_len = max(64, int(round(float(NEURAL_WHOOSH_DURATION_SEC) * sr)))
+    w_peak = float(10.0 ** (float(NEURAL_WHOOSH_GAIN_DB) / 20.0))
+    cuts_for_whoosh = edl.get("cuts") if isinstance(edl.get("cuts"), list) else []
+    for c_w in cuts_for_whoosh:
+        if not isinstance(c_w, dict):
+            continue
+        cm_w = str(c_w.get("camera_move") or c_w.get("camera") or "").strip().lower()
+        if cm_w not in whoosh_moves:
+            continue
+        t_w = max(0.0, float(c_w.get("out_start_sec") or 0.0))
+        s0_w = max(0, int(round(t_w * sr)))
+        s1_w = min(n_samples, s0_w + w_len)
+        if s1_w - s0_w < 32:
+            continue
+        seg_n = s1_w - s0_w
+        wn = rng.standard_normal(seg_n).astype(np.float64)
+        freqs = np.fft.rfftfreq(seg_n, d=1.0 / float(sr))
+        lo_hz, hi_hz = float(NEURAL_WHOOSH_BAND_HZ[0]), float(NEURAL_WHOOSH_BAND_HZ[1])
+        spec_w = np.fft.rfft(wn)
+        bp_mask = np.exp(-0.5 * ((np.maximum(0.0, lo_hz - freqs) / 45.0) ** 2)) * np.exp(
+            -0.5 * ((np.maximum(0.0, freqs - hi_hz) / 180.0) ** 2)
+        )
+        velvet_mono = np.fft.irfft(spec_w * bp_mask, n=seg_n)
+        t_axis = np.linspace(0.0, float(seg_n) / float(sr), seg_n, endpoint=False)
+        chime_sub = 0.22 * np.sin(2.0 * math.pi * (420.0 if cm_w != "neural_fpv_pullback_out" else 340.0) * t_axis)
+        raw_velvet = (velvet_mono / max(1e-6, float(np.max(np.abs(velvet_mono))))) * 0.78 + chime_sub
+        env_w = np.hanning(seg_n)
+        pan_l = np.linspace(0.92, 0.68, seg_n) if cm_w != "neural_fpv_pullback_out" else np.linspace(0.68, 0.92, seg_n)
+        pan_r = np.linspace(0.68, 0.92, seg_n) if cm_w != "neural_fpv_pullback_out" else np.linspace(0.92, 0.68, seg_n)
+        whoosh_st = np.column_stack([raw_velvet * env_w * pan_l, raw_velvet * env_w * pan_r]).astype(np.float32)
+        mx_w = float(np.max(np.abs(whoosh_st)))
+        if mx_w > 1e-6:
+            whoosh_st = whoosh_st * (w_peak / mx_w)
+        amb_st[s0_w:s1_w, :] += whoosh_st
+        neural_whoosh_events.append(
+            {
+                "cut_index": c_w.get("cut_index"),
+                "camera_move": cm_w,
+                "time_sec": round(s0_w / float(sr), 3),
+                "duration_sec": round(seg_n / float(sr), 3),
+                "gain_dbfs": float(NEURAL_WHOOSH_GAIN_DB),
+            }
+        )
+
+    edl["neural_whoosh_events"] = neural_whoosh_events
+    edl["bgm_profile"] = str(bgm_meta.get("bgm_source") or bgm_mode)
+    edl["bgm_mood"] = bgm_mood
+    edl["bgm_model_id"] = bgm_meta.get("model_id")
+    edl["bgm_file"] = bgm_meta.get("bgm_file")
+    edl["bgm_start_dbfs"] = float(EXPRESSIVE_V8_BGM_DUCK_DB)
+    edl["bgm_peak_dbfs"] = float(EXPRESSIVE_V8_BGM_BREATH_DB)
+    edl["bgm_end_dbfs"] = float(EXPRESSIVE_V8_BGM_DUCK_DB)
     edl["bgm_tail_dbfs"] = float(EXPRESSIVE_V8_BGM_TAIL_DBFS)
     edl["bgm_melodic_ratio"] = 1.0
-    edl["room_ambience_dbfs"] = float(EXPRESSIVE_V8_ROOM_AMBIENCE_DBFS)
+    edl["room_ambience_dbfs"] = float(EXPRESSIVE_V8_ROOM_TONE_DBFS)
     edl["foley_events_synthesized"] = len(placed_foley)
     edl["placed_foley"] = placed_foley
     return amb_st
@@ -3031,9 +3957,11 @@ def generate_diorama_audio_master(
         # Stage unclipped 16-bit PCM with clean headroom before 2-pass EBU R128 linear normalization
         pre_scale = min(0.78, 0.92 / peak_raw) if peak_raw > 1e-5 else 0.78
         mixed_st = (raw_sum * pre_scale).astype(np.float32)
-        with tempfile.TemporaryDirectory(prefix="aab_diorama_mix_v7_") as td:
-            raw_wav = Path(td) / "raw_mix_st.wav"
-            norm_wav = Path(td) / "norm_mix_st.wav"
+        with ram_tempdir(prefix="aab_diorama_mix_v7_") as td:
+            td_p = Path(td)
+            raw_wav = td_p / "raw_mix_st.wav"
+            norm_wav = td_p / "norm_mix_st.wav"
+            out_wav_tmp = td_p / "audio_master_st.wav"
             _write_stereo_wav(raw_wav, mixed_st, sr)
             # Pass 1: Measure integrated loudness & LRA so Schema v7/v8 uses pure constant scalar linear gain
             # rather than FFmpeg single-pass loudnorm's 3-second sliding-window dynamic AGC gain-rider.
@@ -3104,15 +4032,18 @@ def generate_diorama_audio_master(
             if mute_n > 0:
                 env_tail = np.linspace(1.0, 0.0, mute_n, dtype=np.float32)[:, None]
                 pcm_st[-mute_n:, :] *= env_tail
-            _write_stereo_wav(wav_path, pcm_st, sr)
+            _write_stereo_wav(out_wav_tmp, pcm_st, sr)
+            atomic_commit_from_scratch(out_wav_tmp, wav_path)
         return wav_path
 
     accompaniment = _synthesize_documentary_pulse_bgm(n_samples, sr, speech_end_sec, edl)
     mixed = np.clip(voice_pcm.astype(np.float32) + accompaniment, -0.96, 0.96)
 
-    with tempfile.TemporaryDirectory(prefix="aab_diorama_mix_") as td:
-        raw_wav = Path(td) / "raw_mix.wav"
-        norm_wav = Path(td) / "norm_mix.wav"
+    with ram_tempdir(prefix="aab_diorama_mix_") as td:
+        td_p = Path(td)
+        raw_wav = td_p / "raw_mix.wav"
+        norm_wav = td_p / "norm_mix.wav"
+        out_wav_tmp = td_p / "audio_master_mono.wav"
         _write_mono_wav(raw_wav, mixed, sr)
         af = (
             f"loudnorm=I={DIORAMA_TARGET_LUFS}:TP=-2.2:LRA=4.0,"
@@ -3139,7 +4070,8 @@ def generate_diorama_audio_master(
         mute_n = min(len(pcm_out), int(0.095 * sr))
         if mute_n > 0:
             pcm_out[-mute_n:] *= np.linspace(1.0, 0.0, mute_n, dtype=np.float32)
-        _write_mono_wav(wav_path, pcm_out, sr)
+        _write_mono_wav(out_wav_tmp, pcm_out, sr)
+        atomic_commit_from_scratch(out_wav_tmp, wav_path)
     return wav_path
 
 
@@ -3188,6 +4120,377 @@ def _compute_v7_pastel_eq_filter(clip_path: Path) -> str:
     return str(cached_by_clip_stat(Path(clip_path), namespace="pastel_eq_v1", compute_fn=_probe_pastel_eq))
 
 
+def _probe_segment_frame_count(seg_path: Path) -> int:
+    """Probes exact video frame count of a rendered cut/xfade segment (fast metadata + decode fallback)."""
+    if not seg_path.is_file() or seg_path.stat().st_size <= 0:
+        return 0
+    cap = cv2.VideoCapture(str(seg_path))
+    if not cap.isOpened():
+        return 0
+    try:
+        meta_cnt = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+        if meta_cnt > 0:
+            return meta_cnt
+        cnt = 0
+        while True:
+            ok, _ = cap.read()
+            if not ok:
+                break
+            cnt += 1
+        return cnt
+    finally:
+        cap.release()
+
+
+def _execute_xfade_batch_ffmpeg(
+    ff: str,
+    batch_inputs: list[tuple[Path, int, str, int]],
+    out_path: Path,
+    fps: int,
+    *,
+    target_crf: int = 18,
+    ass_filter: str = "",
+    burn_start_sec: float | None = None,
+    cwd: Path | None = None,
+    ffmpeg_threads: int = 2,
+) -> int:
+    """Validates input frame counts & xfade offsets and merges `batch_inputs` into `out_path` without silent truncation."""
+    in_frame_counts: list[int] = []
+    for b_idx, (raw_p, req_eff_f, _xf_k, req_ov_f) in enumerate(batch_inputs):
+        actual_in_f = _probe_segment_frame_count(raw_p)
+        min_needed_f = int(req_eff_f) + (
+            int(req_ov_f) + 1 if (b_idx < len(batch_inputs) - 1 and int(req_ov_f) > 0) else 0
+        )
+        if actual_in_f < min_needed_f:
+            raise RuntimeError(
+                f"FFmpeg xfade input {raw_p.name} has {actual_in_f} frames (< required {min_needed_f} frames)"
+            )
+        in_frame_counts.append(actual_in_f)
+
+    fc_parts: list[str] = [
+        f"[{b_i}:v]setpts=PTS-STARTPTS,fps={fps}[vin{b_i}]"
+        for b_i in range(len(batch_inputs))
+    ]
+    prev_lbl = "[vin0]"
+    acc_f = 0
+    avail_f = in_frame_counts[0]
+    for m_idx in range(1, len(batch_inputs)):
+        _prev_raw, prev_eff_f, prev_xf_kind, prev_ov_f = batch_inputs[m_idx - 1]
+        acc_f += prev_eff_f
+        nxt_lbl = f"[xf{m_idx}]"
+        off_sec = acc_f / float(fps)
+        ov_sec = prev_ov_f / float(fps)
+        avail_dur = avail_f / float(fps)
+        if not (off_sec < avail_dur - ov_sec - 1e-6):
+            raise RuntimeError(
+                f"Invalid xfade offset {off_sec:.6f}s >= avail_dur {avail_dur:.6f}s - overlap {ov_sec:.6f}s "
+                f"at chain index {m_idx}"
+            )
+        fc_parts.append(
+            f"{prev_lbl}[vin{m_idx}]xfade=transition={prev_xf_kind}:duration={ov_sec:.6f}:offset={off_sec:.6f}{nxt_lbl}"
+        )
+        avail_f = acc_f + in_frame_counts[m_idx]
+        prev_lbl = nxt_lbl
+
+    is_final_stage = burn_start_sec is not None
+    if is_final_stage:
+        total_out_f = sum(int(x[1]) for x in batch_inputs)
+        ass_chain = f",{ass_filter}" if ass_filter else ""
+        fc_parts.append(
+            f"{prev_lbl}fps={fps},setpts=PTS+{float(burn_start_sec):.6f}/TB{ass_chain},setpts=PTS-STARTPTS,format=yuv420p[vout]"
+        )
+        enc_preset = "ultrafast"
+        enc_crf = str(max(14, int(target_crf) - 2))
+    else:
+        tail_ov_f = int(batch_inputs[-1][3])
+        total_out_f = sum(int(x[1]) for x in batch_inputs) + (tail_ov_f + 1 if tail_ov_f > 0 else 0)
+        fc_parts.append(f"{prev_lbl}fps={fps},setpts=PTS-STARTPTS,format=yuv420p[vout]")
+        enc_preset = "ultrafast"
+        enc_crf = str(max(13, int(target_crf) - 3))
+
+    in_args: list[str] = []
+    for raw_p, _, _, _ in batch_inputs:
+        in_args.extend(["-i", raw_p.name if cwd is not None else str(raw_p)])
+    out_arg = out_path.name if cwd is not None else str(out_path)
+    res_xf = subprocess.run(
+        [
+            ff,
+            "-nostdin",
+            "-hide_banner",
+            "-loglevel",
+            "error",
+            "-y",
+            *in_args,
+            "-filter_complex",
+            ";".join(fc_parts),
+            "-map",
+            "[vout]",
+            "-frames:v",
+            str(total_out_f),
+            "-r",
+            str(fps),
+            "-c:v",
+            "libx264",
+            "-preset",
+            enc_preset,
+            "-crf",
+            enc_crf,
+            "-profile:v",
+            "high",
+            "-level:v",
+            "4.2",
+            "-x264-params",
+            "stitchable=1",
+            "-video_track_timescale",
+            str(fps * 1000),
+            "-threads",
+            str(max(1, int(ffmpeg_threads))),
+            "-pix_fmt",
+            "yuv420p",
+            "-an",
+            out_arg,
+        ],
+        cwd=str(cwd) if cwd is not None else None,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=240,
+        stdin=subprocess.DEVNULL,
+    )
+    if res_xf.returncode != 0 or not out_path.exists():
+        raise RuntimeError(f"FFmpeg Track-V1 camera transition xfade failed: {(res_xf.stderr or '')[:300]}")
+    rendered_xf_f = _probe_segment_frame_count(out_path)
+    if rendered_xf_f < total_out_f:
+        raise RuntimeError(
+            f"FFmpeg Track-V1 xfade output {out_path.name} truncated ({rendered_xf_f} < {total_out_f} frames)"
+        )
+    return rendered_xf_f
+
+
+def _merge_xfade_group_multistage(
+    ff: str,
+    grp_inputs: list[tuple[Path, int, str, int]],
+    out_path: Path,
+    fps: int,
+    *,
+    target_crf: int = 18,
+    ass_filter: str = "",
+    burn_start_sec: float | None = 0.0,
+    cwd: Path | None = None,
+    group_idx: int = 0,
+    n_workers: int | None = None,
+) -> int:
+    """Multi-stage (<=4-input per FFmpeg call) xfade merger preserving exact frame counts across mixed timebases."""
+    eff_workers = int(n_workers) if (n_workers is not None and int(n_workers) >= 1) else resolve_xfade_workers()
+    eff_ff_threads = resolve_ffmpeg_threads_per_worker(eff_workers)
+    work_dir = cwd if cwd is not None else out_path.parent
+    cur_stage = list(grp_inputs)
+    stage_round = 0
+    while len(cur_stage) > 4:
+        chunks = [cur_stage[i : i + 4] for i in range(0, len(cur_stage), 4)]
+        next_stage: list[tuple[Path, int, str, int]] = []
+        sub_jobs: list[tuple[list[tuple[Path, int, str, int]], Path]] = []
+        for ch_idx, chunk in enumerate(chunks):
+            if len(chunk) == 1:
+                next_stage.append(chunk[0])
+            else:
+                mid_p = work_dir / f"xfmid_g{group_idx}_r{stage_round}_{ch_idx}.mp4"
+                sub_jobs.append((chunk, mid_p))
+                next_stage.append((mid_p, sum(int(x[1]) for x in chunk), chunk[-1][2], int(chunk[-1][3])))
+        if sub_jobs:
+            with ThreadPoolExecutor(max_workers=min(max(1, eff_workers), len(sub_jobs))) as xf_pool:
+                list(
+                    xf_pool.map(
+                        lambda jb: _execute_xfade_batch_ffmpeg(
+                            ff=ff,
+                            batch_inputs=jb[0],
+                            out_path=jb[1],
+                            fps=fps,
+                            target_crf=int(target_crf),
+                            ass_filter="",
+                            burn_start_sec=None,
+                            cwd=work_dir,
+                            ffmpeg_threads=eff_ff_threads,
+                        ),
+                        sub_jobs,
+                    )
+                )
+        cur_stage = next_stage
+        stage_round += 1
+    return _execute_xfade_batch_ffmpeg(
+        ff=ff,
+        batch_inputs=cur_stage,
+        out_path=out_path,
+        fps=fps,
+        target_crf=int(target_crf),
+        ass_filter=ass_filter,
+        burn_start_sec=burn_start_sec,
+        cwd=work_dir,
+        ffmpeg_threads=resolve_ffmpeg_threads_per_worker(1),
+    )
+
+
+def _clamp_source_window_to_eof(
+    clip_path: Path,
+    s0_in: float,
+    s1_in: float,
+    min_span: float = 0.20,
+) -> tuple[float, float]:
+    """Shifts `s0` backward and clamps `s1` when a cut window approaches or exceeds source clip EOF."""
+    s0 = max(0.0, float(s0_in))
+    s1 = max(s0 + min_span, float(s1_in))
+    actual_dur = float(_clip_duration(clip_path) or 0.0)
+    if actual_dur <= min_span:
+        return s0, s1
+    req_span = max(min_span, s1 - s0)
+    safe_eof = max(min_span, actual_dur - 0.015)
+    if s1 > safe_eof:
+        s0 = max(0.0, min(s0, safe_eof - req_span))
+        s1 = max(s0 + min(min_span, safe_eof), min(s1, actual_dur))
+    return round(s0, 5), round(s1, 5)
+
+
+def _upsample_clip_window_optical_flow(
+    ff: str,
+    src_path: Path,
+    s0: float,
+    s1: float,
+    target_fps: int,
+    *,
+    tail_pad_sec: float = 0.22,
+) -> tuple[Path, float] | None:
+    """
+    Upsamples `[s0, s1 + tail_pad_sec]` from a sub-30fps source (e.g. 24fps Flow clip) to `target_fps` (e.g. 30fps)
+    using half-res bidirectional OpenCV `DISOpticalFlow` (`ULTRAFAST`) so every output frame has genuine sub-frame
+    motion without `fps=30` duplicated-frame judder or blurry alpha frame-blending.
+    Returns `(temp_mp4_path, actual_t0)` when upsampled, or `None` if source is already `>= target_fps - 0.5` or small.
+    """
+    if not src_path.exists() or src_path.stat().st_size < 4096:
+        return None
+    cap = cv2.VideoCapture(str(src_path))
+    if not cap.isOpened():
+        return None
+    try:
+        src_fps = float(cap.get(cv2.CAP_PROP_FPS) or 0.0)
+        w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 0)
+        h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 0)
+        if src_fps <= 0.5 or src_fps >= float(target_fps) - 0.5 or w < 320 or h < 320:
+            return None
+        start_f = max(0, int(math.floor(max(0.0, float(s0) - 0.02) * src_fps)))
+        end_f = max(start_f + 2, int(math.ceil((float(s1) + float(tail_pad_sec)) * src_fps)) + 1)
+        frames: list[np.ndarray] = []
+        f_idx = 0
+        while f_idx <= end_f:
+            if f_idx < start_f:
+                if not cap.grab():
+                    break
+            else:
+                ok, frm = cap.read()
+                if not ok or frm is None:
+                    break
+                frames.append(frm)
+            f_idx += 1
+    finally:
+        cap.release()
+    if len(frames) < 2:
+        return None
+
+    actual_t0 = float(start_f) / src_fps
+    t_rel_end = float(len(frames) - 1) / src_fps
+    n_out = max(2, int(math.ceil(t_rel_end * float(target_fps))) + 1)
+    sw = max(64, ((w // 2) // 2) * 2)
+    sh = max(64, ((h // 2) // 2) * 2)
+    sx_scale = float(w) / float(sw)
+    sy_scale = float(h) / float(sh)
+    dis = cv2.DISOpticalFlow_create(cv2.DISOPTICAL_FLOW_PRESET_ULTRAFAST)
+    grays = [cv2.cvtColor(cv2.resize(f, (sw, sh), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY) for f in frames]
+    grid_x, grid_y = np.meshgrid(np.arange(w, dtype=np.float32), np.arange(h, dtype=np.float32))
+
+    tmp_f = tempfile.NamedTemporaryFile(
+        suffix=".mp4",
+        prefix="aab_oflow_",
+        dir=str(get_ram_scratch_root()),
+        delete=False,
+    )
+    tmp_path = Path(tmp_f.name)
+    tmp_f.close()
+
+    cmd_pipe = [
+        ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+        "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{w}x{h}", "-r", str(int(target_fps)),
+        "-i", "pipe:0",
+        "-c:v", "libx264", "-preset", "ultrafast", "-crf", "10", "-threads", "1",
+        "-pix_fmt", "yuv420p", "-an",
+        str(tmp_path),
+    ]
+    proc: subprocess.Popen[bytes] | None = None
+    try:
+        proc = subprocess.Popen(cmd_pipe, stdin=subprocess.PIPE, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
+        assert proc.stdin is not None
+        cached_pair = -1
+        cached_fwd: np.ndarray | None = None
+        cached_bwd: np.ndarray | None = None
+        cached_cut = False
+        for k in range(n_out):
+            pos = min(float(len(frames) - 1), (float(k) / float(target_fps)) * src_fps)
+            i0 = min(len(frames) - 2, max(0, int(math.floor(pos))))
+            i1 = i0 + 1
+            alpha = max(0.0, min(1.0, pos - float(i0)))
+            if alpha <= 0.005:
+                out_frm = frames[i0]
+            elif alpha >= 0.995:
+                out_frm = frames[i1]
+            else:
+                if i0 != cached_pair:
+                    g0, g1 = grays[i0], grays[i1]
+                    mad = float(np.mean(np.abs(g1.astype(np.float32) - g0.astype(np.float32))))
+                    cached_pair = i0
+                    if mad > 68.0:
+                        cached_cut = True
+                        cached_fwd = None
+                        cached_bwd = None
+                    else:
+                        cached_cut = False
+                        f_low = dis.calc(g0, g1, None)
+                        b_low = dis.calc(g1, g0, None)
+                        ff_full = cv2.resize(f_low, (w, h), interpolation=cv2.INTER_LINEAR)
+                        fb_full = cv2.resize(b_low, (w, h), interpolation=cv2.INTER_LINEAR)
+                        ff_full[:, :, 0] *= sx_scale
+                        ff_full[:, :, 1] *= sy_scale
+                        fb_full[:, :, 0] *= sx_scale
+                        fb_full[:, :, 1] *= sy_scale
+                        cached_fwd = ff_full
+                        cached_bwd = fb_full
+                if cached_cut or cached_fwd is None or cached_bwd is None:
+                    out_frm = frames[i0 if alpha < 0.5 else i1]
+                else:
+                    # Warp frames cleanly along bidirectional displacement fields without ghost crossfade.
+                    m0x = grid_x - alpha * cached_fwd[:, :, 0]
+                    m0y = grid_y - alpha * cached_fwd[:, :, 1]
+                    m1x = grid_x - (1.0 - alpha) * cached_bwd[:, :, 0]
+                    m1y = grid_y - (1.0 - alpha) * cached_bwd[:, :, 1]
+                    w0 = cv2.remap(frames[i0], m0x, m0y, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+                    w1 = cv2.remap(frames[i1], m1x, m1y, interpolation=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
+                    out_frm = cv2.addWeighted(w0, 1.0 - alpha, w1, alpha, 0.0)
+            proc.stdin.write(np.ascontiguousarray(out_frm).tobytes())
+        proc.stdin.close()
+        proc.wait(timeout=120)
+        if proc.returncode != 0 or not tmp_path.exists() or tmp_path.stat().st_size < 1024:
+            tmp_path.unlink(missing_ok=True)
+            return None
+        return tmp_path, round(actual_t0, 6)
+    except Exception:
+        if proc is not None:
+            try:
+                if proc.stdin:
+                    proc.stdin.close()
+                proc.kill()
+            except Exception:
+                pass
+        tmp_path.unlink(missing_ok=True)
+        return None
+
+
 def _render_cut_segment(
     ff: str,
     cut: dict[str, Any],
@@ -3201,6 +4504,7 @@ def _render_cut_segment(
     cwd: Path | None = None,
     single_frame_offset_sec: float | None = None,
     override_frames: int | None = None,
+    ffmpeg_threads: int = 1,
 ) -> None:
     """Renders one frame-exact stitchable H.264 cut segment (`1080x1920 @ fps`, optional single-pass ASS burn-in or 1-frame PNG)."""
     c_frames = int(override_frames if override_frames is not None else cut["frames"])
@@ -3208,199 +4512,282 @@ def _render_cut_segment(
     c1_num = int(cut["clip_index"])
     p1 = clips_by_num[c1_num]
     eq1 = (pastel_eq_by_num or {}).get(c1_num, "")
-    s0 = float(cut["src_start_sec"])
-    s1 = float(cut["src_end_sec"])
-    src_dur = max(0.25, s1 - s0)
+    s0, s1 = _clamp_source_window_to_eof(p1, float(cut["src_start_sec"]), float(cut["src_end_sec"]))
+    src_dur = max(0.20, s1 - s0)
     pts_ratio = out_dur / src_dur
+    if bool(cut.get("forbid_slowmo_stretch")):
+        pts_ratio = min(1.0, pts_ratio)
     zoom = float(cut.get("crop_zoom") or 1.0)
     scaled_w = int(round(VIDEO_WIDTH * zoom))
     scaled_h = int(round(VIDEO_HEIGHT * zoom))
     scaled_w += scaled_w % 2
     scaled_h += scaled_h % 2
 
-    interp_fps = max(48, fps * 2)
-    pre_interp_1 = f"framerate=fps={interp_fps}:interp_start=0:interp_end=255:scene=100," if pts_ratio > 1.22 else ""
+    # Never use FFmpeg double-image alpha frame-blending (causes blurry ghosting); use bidirectional DISOpticalFlow instead.
+    pre_interp_1 = ""
     s1_pad = s1 + (0.05 if pts_ratio > 1.22 else 0.04)
-    tail_trim = ""
-    if single_frame_offset_sec is not None:
-        off_t = max(0.0, min(max(0.0, out_dur - (1.0 / float(fps))), float(single_frame_offset_sec)))
-        tail_trim = f",trim=start={off_t:.4f},setpts=PTS-STARTPTS"
-    eff_ass = "" if single_frame_offset_sec is not None else ass_burn_chain
-
-    v_enc_args = (
-        ["-frames:v", "1", str(out_seg)]
-        if single_frame_offset_sec is not None
-        else [
-            "-frames:v", str(c_frames), "-r", str(fps),
-            "-c:v", "libx264", "-preset", preset, "-crf", str(crf),
-            "-profile:v", "high", "-level:v", "4.2",
-            "-x264-params", "stitchable=1",
-            "-video_track_timescale", str(fps * 1000),
-            "-threads", "1",
-            "-pix_fmt", "yuv420p", "-an",
-            str(out_seg),
-        ]
-    )
-
-    if cut.get("mode") == "split_hstack" and cut.get("secondary_clip_index"):
-        c2_num = int(cut["secondary_clip_index"])
-        p2 = clips_by_num[c2_num]
-        eq2 = (pastel_eq_by_num or {}).get(c2_num, "")
-        sec0, sec1 = cut["secondary_src_span"]
-        sec_dur = max(0.25, float(sec1) - float(sec0))
-        pts2 = out_dur / sec_dur
-        pre_interp_2 = f"framerate=fps={interp_fps}:interp_start=0:interp_end=255:scene=100," if pts2 > 1.22 else ""
-        sec1_pad = float(sec1) + (0.05 if pts2 > 1.22 else 0.04)
-        div_w = int(DIORAMA_V7_SPLIT_DIVIDER_PX)
-        left_w = (VIDEO_WIDTH - div_w) // 2
-        right_w = VIDEO_WIDTH - left_w - div_w
-        pts_expr_1 = "setpts=PTS-STARTPTS" if abs(pts_ratio - 1.0) <= 0.035 else f"{pre_interp_1}setpts=({pts_ratio:.5f})*(PTS-STARTPTS)"
-        pts_expr_2 = "setpts=PTS-STARTPTS" if abs(pts2 - 1.0) <= 0.035 else f"{pre_interp_2}setpts=({pts2:.5f})*(PTS-STARTPTS)"
-        fc = (
-            f"[0:v]trim=start={s0:.4f}:end={s1_pad:.4f},{pts_expr_1},"
-            f"fps={fps},tpad=stop_mode=clone:stop_duration=0.25,"
-            f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
-            f"{eq1}unsharp=5:5:0.35:5:5:0.0,format=gbrp,crop={left_w}:{VIDEO_HEIGHT}:(in_w-{left_w})/2:0[left];"
-            f"[1:v]trim=start={sec0:.4f}:end={sec1_pad:.4f},{pts_expr_2},"
-            f"fps={fps},tpad=stop_mode=clone:stop_duration=0.25,"
-            f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
-            f"{eq2}unsharp=5:5:0.35:5:5:0.0,format=gbrp,crop={right_w}:{VIDEO_HEIGHT}:(in_w-{right_w})/2:0[right];"
-            f"color=c=black:s={div_w}x{VIDEO_HEIGHT}:r={fps}:d={out_dur + 0.25:.4f},format=gbrp[div];"
-            f"[left][div][right]hstack=inputs=3,setsar=1,format=yuv420p{eff_ass}{tail_trim}[vout]"
-        )
-        cmd = [
-            ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
-            "-i", str(p1), "-i", str(p2),
-            "-filter_complex", fc, "-map", "[vout]",
-            *v_enc_args,
-        ]
-    elif cut.get("mode") == "split_vstack" and cut.get("secondary_clip_index"):
-        p2 = clips_by_num[int(cut["secondary_clip_index"])]
-        sec0, sec1 = cut["secondary_src_span"]
-        sec_dur = max(0.25, float(sec1) - float(sec0))
-        pts2 = out_dur / sec_dur
-        pre_interp_2 = f"framerate=fps={interp_fps}:interp_start=0:interp_end=255:scene=100," if pts2 > 1.22 else ""
-        sec1_pad = float(sec1) + (0.05 if pts2 > 1.22 else 0.04)
-        half_h = (VIDEO_HEIGHT - 6) // 2
-        half_h -= half_h % 2
-        rem_h = VIDEO_HEIGHT - half_h - 6
-        fc = (
-            f"[0:v]trim=start={s0:.4f}:end={s1_pad:.4f},{pre_interp_1}setpts=({pts_ratio:.5f})*(PTS-STARTPTS),"
-            f"fps={fps},tpad=stop_mode=clone:stop_duration=0.25,"
-            f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
-            f"unsharp=5:5:0.35:5:5:0.0,crop={VIDEO_WIDTH}:{half_h}[top];"
-            f"[1:v]trim=start={sec0:.4f}:end={sec1_pad:.4f},{pre_interp_2}setpts=({pts2:.5f})*(PTS-STARTPTS),"
-            f"fps={fps},tpad=stop_mode=clone:stop_duration=0.25,"
-            f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
-            f"unsharp=5:5:0.35:5:5:0.0,crop={VIDEO_WIDTH}:{rem_h}[bot];"
-            f"color=c=white:s={VIDEO_WIDTH}x6:r={fps}:d={out_dur + 0.25:.4f}[div];"
-            f"[top][div][bot]vstack=inputs=3,setsar=1,format=yuv420p{eff_ass}{tail_trim}[vout]"
-        )
-        cmd = [
-            ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
-            "-i", str(p1), "-i", str(p2),
-            "-filter_complex", fc, "-map", "[vout]",
-            *v_enc_args,
-        ]
-    else:
-        use_v8_curve = bool(cut.get("v8_curve_ramp") and single_frame_offset_sec is None and not cut.get("outro_sky_card"))
-        use_ramp = bool(cut.get("speed_ramp") and not cut.get("outro_sky_card"))
-        if use_v8_curve:
-            nom_f = int(cut.get("curve_nominal_frames") or c_frames)
-            nom_dur = max(0.25, nom_f / float(fps))
-            s1_curve_pad = s1 + 0.12
-            pts_chain = (
-                f"trim=start={s0:.4f}:end={s1_curve_pad:.4f},"
-                "setpts=PTS-STARTPTS,"
-                f"setpts='(({nom_dur:.5f})*(min(T/{src_dur:.5f},1.0)-0.054113*sin(6.283185*min(T/{src_dur:.5f},1.0))+max(0.0,T/{src_dur:.5f}-1.0)*0.66))/TB',"
+    stop_pad = max(1.50, out_dur + 1.00)
+    tmp_oflow_paths: list[Path] = []
+    allow_oflow = single_frame_offset_sec is None and not bool(cut.get("disable_optical_flow"))
+    try:
+        if allow_oflow and (pts_ratio >= 0.76 or int(fps) >= 29):
+            # At ~1.25x speed on a 24fps source (24 / 0.80 = 30.0fps), native frames already supply >= target_fps
+            # without synthetic optical-flow interpolation blur or dropped-frame cadence judder.
+            cap_chk = cv2.VideoCapture(str(p1))
+            src_fps_chk = float(cap_chk.get(cv2.CAP_PROP_FPS) or 0.0) if cap_chk.isOpened() else 0.0
+            cap_chk.release()
+            eff_src_rate = src_fps_chk / max(0.25, float(pts_ratio)) if src_fps_chk > 0.5 else 0.0
+            up1 = (
+                None
+                if (pts_ratio < 0.96 and abs(eff_src_rate - float(fps)) <= 0.65)
+                else _upsample_clip_window_optical_flow(ff, p1, s0, s1, int(fps), tail_pad_sec=0.22)
             )
-        elif use_ramp:
-            start_spd = max(1.05, float(DIORAMA_ENTRY_RAMP_START_SPEED))
-            main_spd = max(0.85, float(cut.get("main_speed") or DIORAMA_ENTRY_RAMP_MAIN_SPEED))
-            src_head = round(0.35 * start_spd, 5)
-            s1_ramp_pad = s1 + 0.08
-            pts_chain = (
-                f"trim=start={s0:.4f}:end={s1_ramp_pad:.4f},"
-                "setpts=PTS-STARTPTS,"
-                f"setpts='(if(lt(T,{src_head:.5f}),T/{start_spd:.5f},0.35+(T-{src_head:.5f})/{main_spd:.5f}))/TB',"
+            if up1 is not None:
+                p1_up, t0_1 = up1
+                tmp_oflow_paths.append(p1_up)
+                p1 = p1_up
+                s0 = max(0.0, s0 - t0_1)
+                s1 = max(s0 + 0.20, s1 - t0_1)
+                s1_pad = max(s1 + 0.04, s1_pad - t0_1)
+        tail_trim = f",trim=end_frame={c_frames},setpts=PTS-STARTPTS"
+        if single_frame_offset_sec is not None:
+            off_t = max(0.0, min(max(0.0, out_dur - (1.0 / float(fps))), float(single_frame_offset_sec)))
+            tail_trim = f",trim=start={off_t:.4f},setpts=PTS-STARTPTS"
+        eff_ass = "" if single_frame_offset_sec is not None else ass_burn_chain
+
+        v_enc_args = (
+            ["-frames:v", "1", str(out_seg)]
+            if single_frame_offset_sec is not None
+            else [
+                "-frames:v", str(c_frames), "-r", str(fps),
+                "-c:v", "libx264", "-preset", preset, "-crf", str(crf),
+                "-profile:v", "high", "-level:v", "4.2",
+                "-x264-params", "stitchable=1",
+                "-video_track_timescale", str(fps * 1000),
+                "-threads", str(max(1, int(ffmpeg_threads))),
+                "-pix_fmt", "yuv420p", "-an",
+                str(out_seg),
+            ]
+        )
+
+        if cut.get("mode") == "split_hstack" and cut.get("secondary_clip_index"):
+            c2_num = int(cut["secondary_clip_index"])
+            p2 = clips_by_num[c2_num]
+            eq2 = (pastel_eq_by_num or {}).get(c2_num, "")
+            raw_sec0, raw_sec1 = cut["secondary_src_span"]
+            sec0, sec1 = _clamp_source_window_to_eof(p2, float(raw_sec0), float(raw_sec1))
+            sec_dur = max(0.20, float(sec1) - float(sec0))
+            pts2 = out_dur / sec_dur
+            pre_interp_2 = ""
+            sec1_pad = float(sec1) + (0.05 if pts2 > 1.22 else 0.04)
+            if allow_oflow and pts2 >= 0.85:
+                up2 = _upsample_clip_window_optical_flow(ff, p2, sec0, sec1, int(fps), tail_pad_sec=0.22)
+                if up2 is not None:
+                    p2_up, t0_2 = up2
+                    tmp_oflow_paths.append(p2_up)
+                    p2 = p2_up
+                    sec0 = max(0.0, sec0 - t0_2)
+                    sec1 = max(sec0 + 0.20, sec1 - t0_2)
+                    sec1_pad = max(sec1 + 0.04, sec1_pad - t0_2)
+            div_w = int(DIORAMA_V7_SPLIT_DIVIDER_PX)
+            left_w = (VIDEO_WIDTH - div_w) // 2
+            right_w = VIDEO_WIDTH - left_w - div_w
+            pts_expr_1 = "setpts=PTS-STARTPTS" if abs(pts_ratio - 1.0) <= 0.035 else f"{pre_interp_1}setpts=({pts_ratio:.5f})*(PTS-STARTPTS)"
+            pts_expr_2 = "setpts=PTS-STARTPTS" if abs(pts2 - 1.0) <= 0.035 else f"{pre_interp_2}setpts=({pts2:.5f})*(PTS-STARTPTS)"
+            fc = (
+                f"[0:v]trim=start={s0:.4f}:end={s1_pad:.4f},{pts_expr_1},"
+                f"fps={fps},tpad=stop_mode=clone:stop_duration={stop_pad:.4f},"
+                f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
+                f"{eq1}unsharp=5:5:0.35:5:5:0.0,format=gbrp,crop={left_w}:{VIDEO_HEIGHT}:(in_w-{left_w})/2:0[left];"
+                f"[1:v]trim=start={sec0:.4f}:end={sec1_pad:.4f},{pts_expr_2},"
+                f"fps={fps},tpad=stop_mode=clone:stop_duration={stop_pad:.4f},"
+                f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
+                f"{eq2}unsharp=5:5:0.35:5:5:0.0,format=gbrp,crop={right_w}:{VIDEO_HEIGHT}:(in_w-{right_w})/2:0[right];"
+                f"color=c=black:s={div_w}x{VIDEO_HEIGHT}:r={fps}:d={out_dur + stop_pad:.4f},format=gbrp[div];"
+                f"[left][div][right]hstack=inputs=3,setsar=1,format=yuv420p{eff_ass}{tail_trim}[vout]"
             )
-        elif abs(pts_ratio - 1.0) <= 0.035:
-            pts_chain = f"trim=start={s0:.4f}:end={s1 + 0.08:.4f},setpts=PTS-STARTPTS,"
+            cmd = [
+                ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+                "-i", str(p1), "-i", str(p2),
+                "-filter_complex", fc, "-map", "[vout]",
+                *v_enc_args,
+            ]
+        elif cut.get("mode") == "split_vstack" and cut.get("secondary_clip_index"):
+            p2 = clips_by_num[int(cut["secondary_clip_index"])]
+            raw_sec0, raw_sec1 = cut["secondary_src_span"]
+            sec0, sec1 = _clamp_source_window_to_eof(p2, float(raw_sec0), float(raw_sec1))
+            sec_dur = max(0.20, float(sec1) - float(sec0))
+            pts2 = out_dur / sec_dur
+            pre_interp_2 = ""
+            sec1_pad = float(sec1) + (0.05 if pts2 > 1.22 else 0.04)
+            if allow_oflow and pts2 >= 0.85:
+                up2 = _upsample_clip_window_optical_flow(ff, p2, sec0, sec1, int(fps), tail_pad_sec=0.22)
+                if up2 is not None:
+                    p2_up, t0_2 = up2
+                    tmp_oflow_paths.append(p2_up)
+                    p2 = p2_up
+                    sec0 = max(0.0, sec0 - t0_2)
+                    sec1 = max(sec0 + 0.20, sec1 - t0_2)
+                    sec1_pad = max(sec1 + 0.04, sec1_pad - t0_2)
+            half_h = (VIDEO_HEIGHT - 6) // 2
+            half_h -= half_h % 2
+            rem_h = VIDEO_HEIGHT - half_h - 6
+            fc = (
+                f"[0:v]trim=start={s0:.4f}:end={s1_pad:.4f},{pre_interp_1}setpts=({pts_ratio:.5f})*(PTS-STARTPTS),"
+                f"fps={fps},tpad=stop_mode=clone:stop_duration={stop_pad:.4f},"
+                f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
+                f"unsharp=5:5:0.35:5:5:0.0,crop={VIDEO_WIDTH}:{half_h}[top];"
+                f"[1:v]trim=start={sec0:.4f}:end={sec1_pad:.4f},{pre_interp_2}setpts=({pts2:.5f})*(PTS-STARTPTS),"
+                f"fps={fps},tpad=stop_mode=clone:stop_duration={stop_pad:.4f},"
+                f"scale={VIDEO_WIDTH}:{VIDEO_HEIGHT}:force_original_aspect_ratio=increase:flags=lanczos,"
+                f"unsharp=5:5:0.35:5:5:0.0,crop={VIDEO_WIDTH}:{rem_h}[bot];"
+                f"color=c=white:s={VIDEO_WIDTH}x6:r={fps}:d={out_dur + stop_pad:.4f}[div];"
+                f"[top][div][bot]vstack=inputs=3,setsar=1,format=yuv420p{eff_ass}{tail_trim}[vout]"
+            )
+            cmd = [
+                ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+                "-i", str(p1), "-i", str(p2),
+                "-filter_complex", fc, "-map", "[vout]",
+                *v_enc_args,
+            ]
         else:
-            pts_chain = (
-                f"trim=start={s0:.4f}:end={s1_pad:.4f},"
-                f"{pre_interp_1}"
-                f"setpts=({pts_ratio:.5f})*(PTS-STARTPTS),"
+            use_v8_curve = bool(cut.get("v8_curve_ramp") and single_frame_offset_sec is None and not cut.get("outro_sky_card"))
+            use_ramp = bool(cut.get("speed_ramp") and not cut.get("outro_sky_card"))
+            if use_v8_curve:
+                nom_f = max(c_frames, int(cut.get("curve_nominal_frames") or c_frames))
+                nom_dur = max(0.25, nom_f / float(fps))
+                s1_curve_pad = s1 + 0.12
+                pts_chain = (
+                    f"trim=start={s0:.4f}:end={s1_curve_pad:.4f},"
+                    "setpts=PTS-STARTPTS,"
+                    f"setpts='(({nom_dur:.5f})*(min(T/{src_dur:.5f},1.0)-0.054113*sin(6.283185*min(T/{src_dur:.5f},1.0))+max(0.0,T/{src_dur:.5f}-1.0)*0.66))/TB',"
+                )
+            elif use_ramp:
+                start_spd = max(1.05, float(DIORAMA_ENTRY_RAMP_START_SPEED))
+                main_spd = max(0.85, float(cut.get("main_speed") or DIORAMA_ENTRY_RAMP_MAIN_SPEED))
+                src_head = round(0.35 * start_spd, 5)
+                s1_ramp_pad = s1 + 0.08
+                pts_chain = (
+                    f"trim=start={s0:.4f}:end={s1_ramp_pad:.4f},"
+                    "setpts=PTS-STARTPTS,"
+                    f"setpts='(if(lt(T,{src_head:.5f}),T/{start_spd:.5f},0.35+(T-{src_head:.5f})/{main_spd:.5f}))/TB',"
+                )
+            elif abs(pts_ratio - 1.0) <= 0.035:
+                pts_chain = f"trim=start={s0:.4f}:end={s1 + 0.08:.4f},setpts=PTS-STARTPTS,"
+            else:
+                pts_chain = (
+                    f"trim=start={s0:.4f}:end={s1_pad:.4f},"
+                    f"{pre_interp_1}"
+                    f"setpts=({pts_ratio:.5f})*(PTS-STARTPTS),"
+                )
+            portal_zoom_parts: list[str] = []
+            pz_head = int(cut.get("_portal_zoom_head_frames") or 0)
+            pz_tail_start = cut.get("_portal_zoom_tail_start_f")
+            if single_frame_offset_sec is None and (pz_head > 0 or pz_tail_start is not None):
+                z_expr = "1.0"
+                if pz_head > 0 and pz_tail_start is not None:
+                    ts_i = max(1, int(pz_tail_start))
+                    span_t = max(2, c_frames - ts_i)
+                    z_expr = f"if(lte(n,{pz_head}),1.16-0.16*n/{float(pz_head):.1f},if(gte(n,{ts_i}),1.0+0.20*(n-{ts_i})/{float(span_t):.1f},1.0))"
+                elif pz_head > 0:
+                    z_expr = f"if(lte(n,{pz_head}),1.16-0.16*n/{float(pz_head):.1f},1.0)"
+                elif pz_tail_start is not None:
+                    ts_i = max(1, int(pz_tail_start))
+                    span_t = max(2, c_frames - ts_i)
+                    z_expr = f"if(gte(n,{ts_i}),1.0+0.20*(n-{ts_i})/{float(span_t):.1f},1.0)"
+                portal_zoom_parts.append(
+                    f"scale=w='trunc(iw*({z_expr})/2)*2':h='trunc(ih*({z_expr})/2)*2':eval=frame:flags=bicubic,"
+                    f"crop={VIDEO_WIDTH}:{VIDEO_HEIGHT}:'(in_w-{VIDEO_WIDTH})/2':'(in_h-{VIDEO_HEIGHT})/2',"
+                )
+            elif (
+                single_frame_offset_sec is None
+                and not cut.get("outro_sky_card")
+                and c_frames >= 20
+                and any(k in str(cut.get("camera_move") or "").lower() for k in ("push", "pull", "dolly", "orbit"))
+            ):
+                # Locked-camera Flow Start->End color-morph clips (e.g. K06 twin stacked brains over #040711 void)
+                # can have near-zero frame-to-frame camera motion (median center-ROI diff < 0.30).
+                # Apply a silky sub-pixel 5.5% Ken Burns micro-push/pull so 30fps temporal motion stays fluid (0 frozen pairs).
+                try:
+                    cap_m = cv2.VideoCapture(str(p1))
+                    if cap_m.isOpened():
+                        fps_m = max(1.0, float(cap_m.get(cv2.CAP_PROP_FPS) or 24.0))
+                        f_a = max(0, int(round(s0 * fps_m)))
+                        f_b = max(f_a + 4, int(round(s1 * fps_m)))
+                        sample_idxs = sorted({min(f_b - 1, f_a + int((f_b - f_a) * r)) for r in (0.15, 0.35, 0.55, 0.75)})
+                        m_diffs: list[float] = []
+                        for si in sample_idxs:
+                            cap_m.set(cv2.CAP_PROP_POS_FRAMES, si)
+                            ok_1, fr_1 = cap_m.read()
+                            ok_2, fr_2 = cap_m.read()
+                            if ok_1 and ok_2 and fr_1 is not None and fr_2 is not None:
+                                g1 = cv2.cvtColor(fr_1, cv2.COLOR_BGR2GRAY)
+                                g2 = cv2.cvtColor(fr_2, cv2.COLOR_BGR2GRAY)
+                                hh, ww = g1.shape[:2]
+                                r1 = g1[int(hh * 0.30):int(hh * 0.68), int(ww * 0.12):int(ww * 0.88)]
+                                r2 = g2[int(hh * 0.30):int(hh * 0.68), int(ww * 0.12):int(ww * 0.88)]
+                                m_diffs.append(float(np.mean(cv2.absdiff(r1, r2))))
+                        cap_m.release()
+                        if m_diffs and float(np.median(m_diffs)) < 0.30:
+                            is_pull_cam = "pull" in str(cut.get("camera_move") or "").lower()
+                            zp_expr = (
+                                f"1.055-0.055*min(1,in/{max(1, c_frames):.1f})"
+                                if is_pull_cam
+                                else f"1+0.055*min(1,in/{max(1, c_frames):.1f})"
+                            )
+                            portal_zoom_parts.append(
+                                f"zoompan=z='{zp_expr}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={VIDEO_WIDTH}x{VIDEO_HEIGHT}:fps={fps},"
+                            )
+                except Exception:
+                    pass
+            portal_zoom_str = "".join(portal_zoom_parts)
+            vf = (
+                f"{pts_chain}"
+                f"fps={fps},"
+                f"tpad=stop_mode=clone:stop_duration={stop_pad:.4f},"
+                f"scale={scaled_w}:{scaled_h}:force_original_aspect_ratio=increase:flags=lanczos,"
+                f"{eq1}unsharp=5:5:0.75:3:3:0.35,"
+                f"crop={VIDEO_WIDTH}:{VIDEO_HEIGHT},"
+                f"{portal_zoom_str}"
+                f"setsar=1,format=yuv420p"
             )
-        portal_zoom_parts: list[str] = []
-        pz_head = int(cut.get("_portal_zoom_head_frames") or 0)
-        pz_tail_start = cut.get("_portal_zoom_tail_start_f")
-        if single_frame_offset_sec is None and (pz_head > 0 or pz_tail_start is not None):
-            z_expr = "1.0"
-            if pz_head > 0 and pz_tail_start is not None:
-                ts_i = max(1, int(pz_tail_start))
-                span_t = max(2, c_frames - ts_i)
-                z_expr = f"if(lte(n,{pz_head}),1.16-0.16*n/{float(pz_head):.1f},if(gte(n,{ts_i}),1.0+0.20*(n-{ts_i})/{float(span_t):.1f},1.0))"
-            elif pz_head > 0:
-                z_expr = f"if(lte(n,{pz_head}),1.16-0.16*n/{float(pz_head):.1f},1.0)"
-            elif pz_tail_start is not None:
-                ts_i = max(1, int(pz_tail_start))
-                span_t = max(2, c_frames - ts_i)
-                z_expr = f"if(gte(n,{ts_i}),1.0+0.20*(n-{ts_i})/{float(span_t):.1f},1.0)"
-            portal_zoom_parts.append(
-                f"scale=w='trunc(iw*({z_expr})/2)*2':h='trunc(ih*({z_expr})/2)*2':eval=frame:flags=bilinear,"
-                f"crop={VIDEO_WIDTH}:{VIDEO_HEIGHT}:'(in_w-{VIDEO_WIDTH})/2':'(in_h-{VIDEO_HEIGHT})/2',"
-            )
-        portal_zoom_str = "".join(portal_zoom_parts)
-        vf = (
-            f"{pts_chain}"
-            f"fps={fps},"
-            f"tpad=stop_mode=clone:stop_duration=0.55,"
-            f"scale={scaled_w}:{scaled_h}:force_original_aspect_ratio=increase:flags=lanczos,"
-            f"{eq1}unsharp=5:5:0.35:5:5:0.0,"
-            f"crop={VIDEO_WIDTH}:{VIDEO_HEIGHT},"
-            f"{portal_zoom_str}"
-            f"setsar=1,format=yuv420p"
+            if cut.get("outro_sky_card"):
+                fade_s = max(0.0, out_dur - 0.14)
+                vf += f",fade=t=out:st={fade_s:.3f}:d=0.12"
+            if eff_ass:
+                vf += eff_ass
+            if tail_trim:
+                vf += tail_trim
+            cmd = [
+                ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
+                "-i", str(p1), "-vf", vf,
+                *v_enc_args,
+            ]
+        res = subprocess.run(
+            cmd,
+            cwd=(str(cwd) if cwd is not None else None),
+            capture_output=True,
+            text=True,
+            check=False,
+            timeout=180,
+            stdin=subprocess.DEVNULL,
         )
-        if cut.get("outro_sky_card"):
-            fade_s = max(0.0, out_dur - 0.14)
-            vf += f",fade=t=out:st={fade_s:.3f}:d=0.12"
-        if eff_ass:
-            vf += eff_ass
-        if tail_trim:
-            vf += tail_trim
-        cmd = [
-            ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
-            "-i", str(p1), "-vf", vf,
-            *v_enc_args,
-        ]
-    res = subprocess.run(
-        cmd,
-        cwd=(str(cwd) if cwd is not None else None),
-        capture_output=True,
-        text=True,
-        check=False,
-        timeout=180,
-        stdin=subprocess.DEVNULL,
-    )
-    if res.returncode != 0 or not out_seg.exists():
-        raise RuntimeError(f"Failed rendering EDL cut {cut['cut_index']}: {res.stderr[:280]}")
+        if res.returncode != 0 or not out_seg.exists():
+            raise RuntimeError(f"Failed rendering EDL cut {cut['cut_index']}: {res.stderr[:280]}")
+        if single_frame_offset_sec is None:
+            rendered_f = _probe_segment_frame_count(out_seg)
+            if rendered_f < c_frames:
+                raise RuntimeError(
+                    f"Rendered EDL cut {cut['cut_index']} truncated: got {rendered_f} frames < expected {c_frames} frames ({out_seg.name})"
+                )
+    finally:
+        for tp in tmp_oflow_paths:
+            tp.unlink(missing_ok=True)
 
 
 def _atomic_copy_file(src: Path, dst: Path, suffix: str | None = None) -> None:
-    """Copies `src` to a temporary sibling file and atomically replaces `dst` via `os.replace()`."""
-    dst.parent.mkdir(parents=True, exist_ok=True)
-    tmp_dst = dst.with_suffix(suffix) if suffix else dst.with_name(f".tmp_{os.getpid()}_{dst.name}")
-    shutil.copy2(src, tmp_dst)
-    for attempt in range(5):
-        try:
-            os.replace(tmp_dst, dst)
-            return
-        except OSError:
-            if attempt == 4:
-                tmp_dst.unlink(missing_ok=True)
-                raise
-            time.sleep(0.15 * (attempt + 1))
+    """Copies `src` to a temporary sibling file and atomically replaces `dst` via `atomic_commit_from_scratch` (`EXDEV`-safe, preserves `src`)."""
+    atomic_commit_from_scratch(src, dst, suffix=suffix, keep_src=True)
 
 
 from pipeline.config import DIORAMA_MUX_TRUE_PEAK_LIMITER, DIORAMA_MUX_TRUE_PEAK_TARGET_DBTP  # noqa: E402
@@ -3739,14 +5126,19 @@ def _raw_cut_cache_path(
         "ass_sha1": ass_sha1 if ass_burn_chain else "",
     }
     raw_key = hashlib.sha1(
-        f"raw_v8_v1|{sha1_clip}|{sha2_clip}|{json.dumps(render_spec, sort_keys=True)}".encode("utf-8")
+        f"raw_v8_v2_noblend|{sha1_clip}|{sha2_clip}|{json.dumps(render_spec, sort_keys=True)}".encode("utf-8")
     ).hexdigest()[:24]
     raw_dir = _segment_cache_dir(p_dir) / "raw_v8"
     raw_dir.mkdir(parents=True, exist_ok=True)
     return raw_dir / f"{raw_key}.mp4"
 
 
-def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], allow_published_overwrite: bool = False) -> dict[str, Any]:
+def recut_diorama_cuts(
+    project_id_or_dir: str | Path,
+    cut_indices: list[int],
+    allow_published_overwrite: bool = False,
+    cpu_budget: int | None = None,
+) -> dict[str, Any]:
     """
     F-3 official partial re-render: re-renders only `cut_indices` from the current EDL (font-safe libass burn-in at the
     exact output offset), reuses every other cached segment, re-concats with `-c:v copy`, and re-muxes audio_master.wav.
@@ -3764,6 +5156,8 @@ def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], al
         in (
             "dissolve_6f",
             "dissolve_8f",
+            "dissolve_12f",
+            "dissolve_15f",
             "portal_crash_zoom_10f",
             "whip_pan_blur_8f",
             "occlusion_wipe",
@@ -3779,6 +5173,7 @@ def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], al
             force_rebuild=True,
             preserve_audio_master=keep_audio,
             allow_published_overwrite=allow_published_overwrite,
+            cpu_budget=cpu_budget,
         )
         res["recut_cuts"] = sorted({int(c) for c in cut_indices})
         return res
@@ -3797,11 +5192,10 @@ def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], al
         raise RuntimeError(f"Segment cache incomplete ({len(missing)} missing); run a full diorama-assemble.")
     want = {int(c) for c in cut_indices}
     cuts_by_idx = {int(c["cut_index"]): c for c in edl["cuts"]}
-    clips_dir = p_dir / "03_visuals" / "flow_native_clips"
-    clip_files = sorted((f for f in clips_dir.glob("clip_*.mp4") if f.is_file()), key=numeric_clip_sort_key)
+    clip_files = _resolve_diorama_clip_files(p_dir / "03_visuals")
     ff = _ffmpeg()
     fps = int(index["fps"])
-    with tempfile.TemporaryDirectory(prefix="aab_recut_") as td:
+    with ram_tempdir(prefix="aab_recut_") as td:
         td_path = Path(td)
         need_nums = set()
         for ci in want:
@@ -3824,22 +5218,45 @@ def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], al
         if not font_rep["passed"]:
             raise RuntimeError(f"F-2 font guard failed during recut: {font_rep['fallbacks'][:2]}")
         ass_filter = "ass=subtitles.ass:fontsdir=fonts"
-        for s in segs:
-            if s["cut_index"] not in want:
-                continue
-            out_seg = td_path / s["file"]
-            burn = f",setpts=PTS+{float(s['start_sec']):.6f}/TB,{ass_filter},setpts=PTS-STARTPTS"
+        recut_targets = [s for s in segs if s["cut_index"] in want]
+        recut_workers = min(resolve_assembler_workers(cpu_budget), max(1, len(want)))
+        recut_ff_threads = resolve_ffmpeg_threads_per_worker(recut_workers, cpu_budget)
+
+        def _recut_one_seg(s_entry: dict[str, Any]) -> None:
+            out_seg = td_path / s_entry["file"]
+            burn = f",setpts=PTS+{float(s_entry['start_sec']):.6f}/TB,{ass_filter},setpts=PTS-STARTPTS"
             _render_cut_segment(
-                ff, cuts_by_idx[s["cut_index"]], local_clips, out_seg, fps,
-                pastel_eq_by_num=pastel, ass_burn_chain=burn, crf=18, preset="veryfast", cwd=td_path,
-                override_frames=int(s["frames"]),
+                ff,
+                cuts_by_idx[s_entry["cut_index"]],
+                local_clips,
+                out_seg,
+                fps,
+                pastel_eq_by_num=pastel,
+                ass_burn_chain=burn,
+                crf=18,
+                preset="veryfast",
+                cwd=td_path,
+                override_frames=int(s_entry["frames"]),
+                ffmpeg_threads=recut_ff_threads,
             )
-            shutil.copy2(out_seg, cdir / s["file"])
+            _atomic_copy_file(out_seg, cdir / s_entry["file"])
+
+        if recut_targets:
+            prev_cv_threads = cv2.getNumThreads()
+            if recut_workers > 1 and prev_cv_threads > 1:
+                cv2.setNumThreads(1)
+            try:
+                with ThreadPoolExecutor(max_workers=recut_workers) as recut_pool:
+                    list(recut_pool.map(_recut_one_seg, recut_targets))
+            finally:
+                if recut_workers > 1 and prev_cv_threads > 1:
+                    cv2.setNumThreads(prev_cv_threads)
         concat_txt = td_path / "concat.txt"
         concat_txt.write_text("\n".join(f"file '{(cdir / s['file']).as_posix()}'" for s in segs) + "\n", encoding="utf-8")
         shutil.copy2(wav_path, td_path / "audio_master.wav")
         cum = sum(int(s["frames"]) for s in segs)
-        exact_dur = min(SHORTS_HARD_CEILING_SEC, cum / float(fps))
+        recut_ceil_sec = EXPRESSIVE_V8_HARD_CEILING_SEC if is_expressive_v8_plan(edl) else SHORTS_HARD_CEILING_SEC
+        exact_dur = min(recut_ceil_sec, cum / float(fps))
         local_final = td_path / "final_shorts_1080x1920.mp4"
 
         def _recut_mux(trim_db: float) -> subprocess.CompletedProcess:
@@ -3876,7 +5293,8 @@ def recut_diorama_cuts(project_id_or_dir: str | Path, cut_indices: list[int], al
 
         thumbnail_studio.run(p_dir, force=True, strict=False)
     except Exception:
-        pass
+        logger.warning("Non-fatal thumbnail refresh error during recut_diorama_cuts for %s", p_dir.name, exc_info=True)
+    enforce_ram_scratch_budget()
     return {"project_dir": str(p_dir), "final_mp4": str(final_mp4), "recut_cuts": sorted(want), "frames": cum}
 
 
@@ -3895,6 +5313,7 @@ def assemble_diorama_project(
     allow_published_overwrite: bool = False,
     optimize_plaque_windows: bool = True,
     preserve_audio_master: bool = False,
+    cpu_budget: int | None = None,
 ) -> dict[str, Any]:
     """
     End-to-end Schema v6 / Schema v7 `neuro_diorama` Gear 4 assembly:
@@ -3938,6 +5357,8 @@ def assemble_diorama_project(
 
     vp_path = next((p for p in (p_dir / "03_visuals" / "visual_plan.json", p_dir / "visual_plan.json") if p.exists()), None)
     visual_plan = json.loads(vp_path.read_text(encoding="utf-8")) if vp_path else {}
+    if isinstance(visual_plan, dict):
+        visual_plan = {**visual_plan, "_visuals_dir": str(p_dir / "03_visuals")}
     sentences, script_doc = load_diorama_script_sentences(p_dir)
     fmt_profile = resolve_shorts_format_profile(
         visual_plan,
@@ -3948,14 +5369,33 @@ def assemble_diorama_project(
     if fmt_profile == MICRO_SHORT_PROFILE:
         min_clips_req = MICRO_SHORT_CUT_MIN
     elif fmt_profile == SHORTS_EXPRESSIVE_V8_PROFILE:
-        min_clips_req = EXPRESSIVE_V8_CLIP_COUNT_RANGE[0]
+        from pipeline.config import (
+            BRAIN_SIM_ONLY_CLIP_COUNT_RANGE,
+            EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN,
+            EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE,
+            EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE,
+            is_brain_sim_only_plan,
+            is_r72_open_world_v8_plan,
+            is_r76_v8_plan,
+        )
+
+        if bool(visual_plan.get("allow_legacy_v8_clip_count")):
+            min_clips_req = EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN
+        elif is_brain_sim_only_plan(visual_plan, script_doc):
+            min_clips_req = BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0]
+        elif is_r76_v8_plan(visual_plan, script_doc, project_id=p_dir.name):
+            min_clips_req = EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE[0]
+        elif not is_r72_open_world_v8_plan(visual_plan, script_doc, project_id=p_dir.name):
+            min_clips_req = min(EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE[0], EXPRESSIVE_V8_CLIP_COUNT_RANGE[0])
+        else:
+            min_clips_req = EXPRESSIVE_V8_CLIP_COUNT_RANGE[0]
     elif fmt_profile == SHORTS_90S_PROFILE:
         min_clips_req = SHORTS_90S_CLIP_COUNT_MIN
     else:
         min_clips_req = DIORAMA_CLIP_COUNT_MIN
 
     clips_dir = p_dir / "03_visuals" / "flow_native_clips"
-    clip_files = sorted((f for f in clips_dir.glob("clip_*.mp4") if f.is_file()), key=numeric_clip_sort_key)
+    clip_files = _resolve_diorama_clip_files(p_dir / "03_visuals")
     if len(clip_files) < min_clips_req:
         raise RuntimeError(
             f"neuro_diorama assembly requires >= {min_clips_req} clips in {clips_dir} (found {len(clip_files)})"
@@ -3996,6 +5436,23 @@ def assemble_diorama_project(
             )
         verify_script_audio_freshness(p_dir, context="assemble_diorama_project(preserve_audio_master=True)")
         vr = json.loads(existing_vr.read_text(encoding="utf-8"))
+        preserved_pcm: np.ndarray | None = None
+        preserved_sr = int(vr.get("sample_rate") or 48000)
+        needs_stereo_soundscape_mix = False
+        try:
+            import wave as _wave_mod
+
+            with _wave_mod.open(str(existing_wav), "rb") as _wf_chk:
+                if _wf_chk.getnchannels() == 1 and _wf_chk.getsampwidth() == 2:
+                    dry_backup = audio_dir / "voice_dry_mono.wav"
+                    if not dry_backup.exists():
+                        _atomic_copy_file(existing_wav, dry_backup)
+                    preserved_sr = int(_wf_chk.getframerate() or preserved_sr)
+                    raw_i16 = np.frombuffer(_wf_chk.readframes(_wf_chk.getnframes()), dtype=np.int16)
+                    preserved_pcm = (raw_i16.astype(np.float32) / 32768.0).reshape(-1)
+                    needs_stereo_soundscape_mix = True
+        except Exception:  # noqa: BLE001
+            needs_stereo_soundscape_mix = False
         tts_res = {
             "sentence_spans": vr["sentence_spans"],
             "events": vr["events"],
@@ -4004,8 +5461,9 @@ def assemble_diorama_project(
             "active_speech_ratio": float(vr.get("active_speech_ratio", 0.90)),
             "true_rms_voiced_ratio": vr.get("true_rms_voiced_ratio"),
             "report": vr,
-            "pcm": None,
-            "sr": int(vr.get("sample_rate") or 48000),
+            "pcm": preserved_pcm,
+            "sr": preserved_sr,
+            "_needs_stereo_soundscape_mix": needs_stereo_soundscape_mix,
         }
     else:
         tts_res = synthesize_continuous_diorama_track(
@@ -4017,6 +5475,7 @@ def assemble_diorama_project(
             rate=tts_rate,
             prosody_mode=prosody_mode,
             voice_preset=eff_voice_preset,
+            cpu_budget=cpu_budget,
         )
 
     # 2. Cross-Cut EDL (applying explicit or prior R64 shift_window_recommendations when present)
@@ -4110,7 +5569,7 @@ def assemble_diorama_project(
             visual_plan=visual_plan,
             edl=cur_edl,
         )
-        if preserve_audio_master:
+        if preserve_audio_master and not cur_tts_res.get("_needs_stereo_soundscape_mix"):
             cur_wav = audio_dir / "audio_master.wav"
         else:
             cur_wav = generate_diorama_audio_master(
@@ -4126,6 +5585,11 @@ def assemble_diorama_project(
         return cur_edl, cur_ass, cur_wav
 
     edl, ass_path, wav_path = _build_edl_and_audio_outputs(tts_res)
+    enforce_combined_r88a_r89_edl_contract(
+        p_dir,
+        edl,
+        float(edl.get("total_duration_sec") or tts_res.get("total_duration_sec") or 0.0),
+    )
 
     # 3B. Pre-Assembly 3-Second Audio & ASR Prosody Gate (Workstream 2A: catch word drops BEFORE video encode)
     pre_assembly_prosody_retried_sentences: list[int] = []
@@ -4156,10 +5620,16 @@ def assemble_diorama_project(
                     prosody_mode=prosody_mode,
                     voice_preset=eff_voice_preset,
                     retry_intact_sentence_indices=retry_targets,
+                    cpu_budget=cpu_budget,
                 )
                 edl, ass_path, wav_path = _build_edl_and_audio_outputs(tts_res)
+                enforce_combined_r88a_r89_edl_contract(
+                    p_dir,
+                    edl,
+                    float(edl.get("total_duration_sec") or tts_res.get("total_duration_sec") or 0.0),
+                )
         except Exception:  # noqa: BLE001
-            pass
+            logger.warning("Pre-assembly P6 prosody retry failed for %s; retaining initial track", p_dir.name, exc_info=True)
 
     # 4. Single-pass stitchable ASS segment encode in local /tmp scratch + zero-reencode mux (Speed-3)
     from concurrent.futures import ThreadPoolExecutor
@@ -4170,15 +5640,19 @@ def assemble_diorama_project(
     is_v8_edl = is_v8 or is_expressive_v8_plan(visual_plan, edl)
     is_v7_edl = is_v8_edl or is_v7 or int(edl.get("schema") or 6) >= PROMPT_SCHEMA_VERSION_V7
     ceiling_frames = (
-        int(round(SHORTS_HARD_CEILING_SEC * fps))
+        int(round(EXPRESSIVE_V8_HARD_CEILING_SEC * fps))
         if is_v8_edl
         else (SHORTS_HARD_CEILING_FRAMES_V7 if is_v7_edl else SHORTS_HARD_CEILING_FRAMES)
     )
     total_frames = min(ceiling_frames, int(edl["total_frames"]))
     target_crf = 18 if is_v7_edl else 19
-    n_workers = max(1, min(4, os.cpu_count() or 2))
+    n_workers = resolve_assembler_workers(cpu_budget)
+    seg_ff_threads = resolve_ffmpeg_threads_per_worker(n_workers, cpu_budget)
+    xf_workers = resolve_xfade_workers(cpu_budget)
+    xf_ff_threads = resolve_ffmpeg_threads_per_worker(xf_workers, cpu_budget)
+    preview_result: dict[str, Any] | None = None
 
-    with tempfile.TemporaryDirectory(prefix="aab_diorama_asm_") as td:
+    with ram_tempdir(prefix="aab_diorama_asm_") as td:
         td_path = Path(td)
         local_clips: dict[int, Path] = {}
         for idx, cf in enumerate(clip_files, start=1):
@@ -4297,28 +5771,34 @@ def assemble_diorama_project(
             cut_b: dict[str, Any] | None = None,
         ) -> tuple[str, int]:
             tr_n = str(tr_raw or "").strip().lower()
+            allow_alpha = bool((visual_plan or {}).get("allow_alpha_dissolves"))
             if tr_n == "portal_crash_zoom_10f":
                 return "smoothup", int(EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES)
             if tr_n == "whip_pan_blur_8f":
-                return "smoothleft", max(10, int(EXPRESSIVE_V8_WHIP_PAN_FRAMES))
-            if tr_n == "dissolve_8f":
-                return "fade", int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
-            if tr_n == "dissolve_6f":
-                return "fade", int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
+                return "smoothleft", int(EXPRESSIVE_V8_WHIP_PAN_FRAMES)
             if tr_n == "occlusion_wipe":
-                return "smoothright", max(10, int(EXPRESSIVE_V8_WHIP_PAN_FRAMES))
-            if tr_n == "split_screen_wipe":
-                return "fade", int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
-            if tr_n == "match_cut_bridge":
-                return "fade", int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
-            if tr_n == "daisy_chain_bridge":
-                if cut_a is not None and cut_b is not None:
-                    pair_k = (int(cut_a.get("cut_index") or 0), int(cut_b.get("cut_index") or 0))
-                    if pair_k not in daisy_pair_mae_cache:
-                        daisy_pair_mae_cache[pair_k] = _source_daisy_boundary_mae(cut_a, cut_b)
-                    if daisy_pair_mae_cache[pair_k] < 22.0:
-                        return "", 0
-                return "fade", int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+                return "smoothright", int(EXPRESSIVE_V8_WHIP_PAN_FRAMES)
+            if allow_alpha:
+                if tr_n == "dissolve_15f":
+                    return "fade", 15
+                if tr_n == "dissolve_12f":
+                    return "fade", 12
+                if tr_n == "dissolve_8f":
+                    return "fade", int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+                if tr_n == "dissolve_6f":
+                    return "fade", int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
+                if tr_n == "split_screen_wipe":
+                    return "fade", int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+                if tr_n == "match_cut_bridge":
+                    return "fade", int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
+                if tr_n == "daisy_chain_bridge":
+                    if cut_a is not None and cut_b is not None:
+                        pair_k = (int(cut_a.get("cut_index") or 0), int(cut_b.get("cut_index") or 0))
+                        if pair_k not in daisy_pair_mae_cache:
+                            daisy_pair_mae_cache[pair_k] = _source_daisy_boundary_mae(cut_a, cut_b)
+                        if daisy_pair_mae_cache[pair_k] < 22.0:
+                            return "", 0
+                    return "fade", int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
             return "", 0
 
         chains: list[list[tuple[dict[str, Any], Path, int, float]]] = []
@@ -4366,13 +5846,14 @@ def assemble_diorama_project(
                     if prev_tr_k == "portal_crash_zoom_10f":
                         c_mod["_portal_zoom_head_frames"] = int(EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES)
                     if k_ch < len(chain) - 1 and ov_f_k > 0:
+                        req_raw_f = eff_f + ov_f_k + 1
                         if cur_tr_k == "portal_crash_zoom_10f":
                             c_mod["_portal_zoom_tail_start_f"] = max(1, eff_f - 3)
                         if c_mod.get("v8_curve_ramp"):
-                            c_mod["curve_nominal_frames"] = eff_f + ov_f_k
+                            c_mod["curve_nominal_frames"] = req_raw_f
                         else:
-                            c_mod["src_end_sec"] = round(float(c_item["src_end_sec"]) + (ov_f_k / float(fps)), 4)
-                        render_tasks.append((c_mod, raw_p, eff_f + ov_f_k, ""))
+                            c_mod["src_end_sec"] = round(float(c_item["src_end_sec"]) + ((ov_f_k + 1) / float(fps)), 4)
+                        render_tasks.append((c_mod, raw_p, req_raw_f, ""))
                     else:
                         render_tasks.append((c_mod, raw_p, eff_f, ""))
                     grp_inputs.append((raw_p, eff_f, xf_k, ov_f_k))
@@ -4404,7 +5885,12 @@ def assemble_diorama_project(
                 if use_raw_cache
                 else None
             )
-            if cache_p is not None and cache_p.is_file() and cache_p.stat().st_size > 2048:
+            if (
+                cache_p is not None
+                and cache_p.is_file()
+                and cache_p.stat().st_size > 2048
+                and _probe_segment_frame_count(cache_p) >= f_cnt
+            ):
                 out_p.unlink(missing_ok=True)
                 try:
                     os.link(cache_p, out_p)
@@ -4427,6 +5913,7 @@ def assemble_diorama_project(
                 preset=seg_preset,
                 cwd=td_path,
                 override_frames=f_cnt,
+                ffmpeg_threads=seg_ff_threads,
             )
             with cache_stats_lock:
                 cache_stats["misses"] += 1
@@ -4434,10 +5921,17 @@ def assemble_diorama_project(
                 try:
                     _atomic_copy_file(out_p, cache_p)
                 except OSError:
-                    pass
+                    logger.warning("Failed to persist raw cut segment cache %s", cache_p, exc_info=True)
 
-        with ThreadPoolExecutor(max_workers=n_workers) as pool:
-            list(pool.map(_render_task, render_tasks))
+        prev_cv_threads = cv2.getNumThreads()
+        if n_workers > 1 and prev_cv_threads > 1:
+            cv2.setNumThreads(1)
+        try:
+            with ThreadPoolExecutor(max_workers=n_workers) as pool:
+                list(pool.map(_render_task, render_tasks))
+        finally:
+            if n_workers > 1 and prev_cv_threads > 1:
+                cv2.setNumThreads(prev_cv_threads)
         raw_segment_cache_hits = int(cache_stats["hits"])
         raw_segment_cache_misses = int(cache_stats["misses"])
 
@@ -4460,32 +5954,11 @@ def assemble_diorama_project(
             out_path: Path,
             burn_start_sec: float | None = None,
         ) -> None:
-            fc_parts: list[str] = []
-            prev_lbl = "[0:v]"
-            acc_f = 0
-            for m_idx in range(1, len(batch_inputs)):
-                _prev_raw, prev_eff_f, prev_xf_kind, prev_ov_f = batch_inputs[m_idx - 1]
-                acc_f += prev_eff_f
-                nxt_lbl = f"[xf{m_idx}]"
-                off_sec = acc_f / float(fps)
-                ov_sec = prev_ov_f / float(fps)
-                fc_parts.append(
-                    f"{prev_lbl}[{m_idx}:v]xfade=transition={prev_xf_kind}:duration={ov_sec:.6f}:offset={off_sec:.6f}{nxt_lbl}"
-                )
-                prev_lbl = nxt_lbl
             is_final_stage = burn_start_sec is not None
-            if is_final_stage:
-                total_out_f = sum(int(x[1]) for x in batch_inputs)
-                fc_parts.append(
-                    f"{prev_lbl}fps={fps},setpts=PTS+{float(burn_start_sec):.6f}/TB,{ass_filter},setpts=PTS-STARTPTS,format=yuv420p[vout]"
-                )
-                enc_preset = "ultrafast"
-                enc_crf = str(max(14, int(target_crf) - 2))
-                xf_cache_p: Path | None = None
-            else:
-                total_out_f = sum(int(x[1]) for x in batch_inputs) + int(batch_inputs[-1][3])
-                fc_parts.append(f"{prev_lbl}fps={fps},setpts=PTS-STARTPTS,format=yuv420p[vout]")
-                enc_preset = "ultrafast"
+            xf_cache_p: Path | None = None
+            if not is_final_stage:
+                tail_ov_f = int(batch_inputs[-1][3])
+                total_out_f = sum(int(x[1]) for x in batch_inputs) + (tail_ov_f + 1 if tail_ov_f > 0 else 0)
                 enc_crf = str(max(13, int(target_crf) - 3))
                 xf_key = hashlib.sha1(
                     json.dumps(
@@ -4493,43 +5966,37 @@ def assemble_diorama_project(
                             [_file_head_tail_sig(rp), int(ef), str(xk), int(of)]
                             for rp, ef, xk, of in batch_inputs
                         ]
-                        + [int(fps), enc_crf],
+                        + [int(fps), enc_crf, int(total_out_f)],
                         separators=(",", ":"),
                     ).encode("utf-8")
                 ).hexdigest()[:24]
                 xf_cache_p = xfmid_cache_dir / f"{xf_key}.mp4"
-                if xf_cache_p.is_file() and xf_cache_p.stat().st_size > 2048:
+                if (
+                    xf_cache_p.is_file()
+                    and xf_cache_p.stat().st_size > 2048
+                    and _probe_segment_frame_count(xf_cache_p) >= total_out_f
+                ):
                     try:
                         os.link(xf_cache_p, out_path)
                     except OSError:
                         shutil.copy2(xf_cache_p, out_path)
                     return
-            in_args: list[str] = []
-            for raw_p, _, _, _ in batch_inputs:
-                in_args.extend(["-i", raw_p.name])
-            res_xf = subprocess.run(
-                [
-                    ff, "-nostdin", "-hide_banner", "-loglevel", "error", "-y",
-                    *in_args,
-                    "-filter_complex", ";".join(fc_parts),
-                    "-map", "[vout]",
-                    "-frames:v", str(total_out_f), "-r", str(fps),
-                    "-c:v", "libx264", "-preset", enc_preset, "-crf", enc_crf,
-                    "-profile:v", "high", "-level:v", "4.2",
-                    "-x264-params", "stitchable=1",
-                    "-video_track_timescale", str(fps * 1000),
-                    "-pix_fmt", "yuv420p", "-an",
-                    out_path.name,
-                ],
-                cwd=str(td_path), capture_output=True, text=True, check=False, timeout=240, stdin=subprocess.DEVNULL,
+            _execute_xfade_batch_ffmpeg(
+                ff=ff,
+                batch_inputs=batch_inputs,
+                out_path=out_path,
+                fps=fps,
+                target_crf=int(target_crf),
+                ass_filter=ass_filter,
+                burn_start_sec=burn_start_sec,
+                cwd=td_path,
+                ffmpeg_threads=(resolve_ffmpeg_threads_per_worker(1, cpu_budget) if is_final_stage else xf_ff_threads),
             )
-            if res_xf.returncode != 0 or not out_path.exists():
-                raise RuntimeError(f"FFmpeg Track-V1 camera transition xfade failed: {(res_xf.stderr or '')[:300]}")
             if xf_cache_p is not None and out_path.is_file() and out_path.stat().st_size > 2048:
                 try:
                     _atomic_copy_file(out_path, xf_cache_p)
                 except OSError:
-                    pass
+                    logger.warning("Failed to persist xfmid segment cache %s", xf_cache_p, exc_info=True)
 
         for grp_idx, (grp_inputs, grp_out, grp_start_s, _grp_total_f) in enumerate(dissolve_groups):
             cur_stage = list(grp_inputs)
@@ -4548,7 +6015,7 @@ def assemble_diorama_project(
                             (mid_p, sum(int(x[1]) for x in chunk), chunk[-1][2], int(chunk[-1][3]))
                         )
                 if sub_jobs:
-                    with ThreadPoolExecutor(max_workers=min(n_workers, len(sub_jobs))) as xf_pool:
+                    with ThreadPoolExecutor(max_workers=min(xf_workers, len(sub_jobs))) as xf_pool:
                         list(xf_pool.map(lambda jb: _run_xfade_batch(jb[0], jb[1], None), sub_jobs))
                 cur_stage = next_stage
                 stage_round += 1
@@ -4557,13 +6024,84 @@ def assemble_diorama_project(
         concat_txt = td_path / "concat.txt"
         concat_txt.write_text("\n".join(f"file '{nm}'" for nm in concat_names) + "\n", encoding="utf-8")
 
+        active_stamps = [
+            ds
+            for ds in (edl.get("resolved_data_stamps") or [])
+            if isinstance(ds, dict)
+            and (preview_sec is None or float(ds.get("start_sec") or 0.0) < float(preview_sec) - 0.5)
+        ]
+        active_anatomy_callouts = [
+            ac
+            for ac in (edl.get("resolved_anatomy_callouts") or [])
+            if isinstance(ac, dict)
+            and (preview_sec is None or float(ac.get("start_sec") or 0.0) < float(preview_sec) - 0.5)
+        ]
+        if active_stamps or active_anatomy_callouts:
+            pre_ov_mp4 = td_path / "pre_overlay_concat.mp4"
+            res_pre_ov = subprocess.run(
+                [
+                    ff,
+                    "-nostdin",
+                    "-hide_banner",
+                    "-loglevel",
+                    "error",
+                    "-y",
+                    "-f",
+                    "concat",
+                    "-safe",
+                    "0",
+                    "-i",
+                    str(concat_txt.name),
+                    "-c:v",
+                    "copy",
+                    str(pre_ov_mp4.name),
+                ],
+                cwd=str(td_path),
+                capture_output=True,
+                text=True,
+                check=False,
+                timeout=180,
+                stdin=subprocess.DEVNULL,
+            )
+            if res_pre_ov.returncode != 0 or not pre_ov_mp4.is_file():
+                raise RuntimeError(f"Pre-overlay concat failed: {(res_pre_ov.stderr or '')[:300]}")
+            cur_ov_mp4 = pre_ov_mp4
+            if active_stamps:
+                from pipeline.data_stamp_overlay import composite_data_stamps_on_video
+
+                stamped_mp4 = td_path / "stamped_video_stream.mp4"
+                composite_data_stamps_on_video(
+                    cur_ov_mp4,
+                    stamped_mp4,
+                    active_stamps,
+                    fps=fps,
+                    width=VIDEO_WIDTH,
+                    height=VIDEO_HEIGHT,
+                )
+                cur_ov_mp4 = stamped_mp4
+            if active_anatomy_callouts:
+                from pipeline.anatomy_label_overlay import composite_anatomy_labels_on_video
+
+                anat_mp4 = td_path / "anatomy_labeled_video_stream.mp4"
+                composite_anatomy_labels_on_video(
+                    cur_ov_mp4,
+                    anat_mp4,
+                    active_anatomy_callouts,
+                    fps=fps,
+                    width=VIDEO_WIDTH,
+                    height=VIDEO_HEIGHT,
+                )
+                cur_ov_mp4 = anat_mp4
+            concat_txt.write_text(f"file '{cur_ov_mp4.name}'\n", encoding="utf-8")
+
         local_final = td_path / "final_shorts_1080x1920.mp4"
         audio_ch = str(DIORAMA_V7_AUDIO_CHANNELS) if is_v7_edl else "1"
         lim_ceil = "0.812" if is_v7_edl else "0.776"
         # v7: 4x-oversampled (192 kHz) limiter so intersample peaks are caught before AAC; loudness untouched
         lim_chain = (DIORAMA_MUX_TRUE_PEAK_LIMITER if is_v7_edl
                      else f"alimiter=limit={lim_ceil}:attack=5:release=50:level=disabled")
-        exact_dur = min(SHORTS_HARD_CEILING_SEC, cum_frames / float(fps))
+        mux_ceil_sec = EXPRESSIVE_V8_HARD_CEILING_SEC if is_v8_edl else SHORTS_HARD_CEILING_SEC
+        exact_dur = min(mux_ceil_sec, cum_frames / float(fps))
 
         def _run_final_mux(trim_db: float) -> subprocess.CompletedProcess:
             vol = f"volume={trim_db:.2f}dB," if trim_db < 0 else ""
@@ -4613,7 +6151,7 @@ def assemble_diorama_project(
         if preview_sec is not None:
             prev_mp4 = asm_dir / f"preview_0-{int(round(float(preview_sec)))}s.mp4"
             _atomic_copy_file(local_final, prev_mp4, suffix=".mp4.tmp")
-            return {
+            preview_result = {
                 "project_dir": str(p_dir),
                 "preview_mp4": str(prev_mp4),
                 "preview_sec": round(cum_frames / float(fps), 3),
@@ -4621,22 +6159,32 @@ def assemble_diorama_project(
                 "plaque_window_refinements": edl.get("plaque_window_refinements"),
                 "rebuilt": True,
             }
-        if not dissolve_groups:
-            _store_segment_cache(p_dir, seg_jobs, edl, ass_path)
-        _atomic_copy_file(local_final, final_mp4, suffix=".mp4.tmp")
-        register_staged_copy(local_final, final_mp4)
-        from pipeline import thumbnail_studio
+        else:
+            if not dissolve_groups:
+                _store_segment_cache(p_dir, seg_jobs, edl, ass_path)
+            _atomic_copy_file(local_final, final_mp4, suffix=".mp4.tmp")
+            register_staged_copy(local_final, final_mp4)
+            from pipeline import thumbnail_studio
 
-        thumbnail_studio.run(
-            p_dir,
-            force=bool(force_rebuild and not preserve_audio_master),
-            strict=False,
-            local_clips=local_clips,
-            pastel_eq_by_num=pastel_eq_by_num,
-        )
+            thumbnail_studio.run(
+                p_dir,
+                force=bool(force_rebuild and not preserve_audio_master),
+                strict=False,
+                local_clips=local_clips,
+                pastel_eq_by_num=pastel_eq_by_num,
+            )
+
+    if preview_result is not None:
+        enforce_ram_scratch_budget()
+        return preview_result
 
     if fmt_profile in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
-        probe_min_dur, probe_max_dur = shorts_duration_range_for_profile(fmt_profile)
+        probe_min_dur, probe_max_dur = shorts_duration_range_for_profile(
+            fmt_profile,
+            project_id=p_dir.name,
+            plan=visual_plan,
+            script_doc=script_doc,
+        )
     else:
         probe_min_dur = DIORAMA_V7_DURATION_MIN_SEC if is_v7_edl else None
         probe_max_dur = None
@@ -4679,8 +6227,11 @@ def assemble_diorama_project(
         )
         posthoc_summary = {
             "passed": ph_rep["passed"],
+            "cv_passed": ph_rep.get("cv_passed", False),
             "mean_clarity_score": ph_rep["summary"]["mean_clarity_score"],
             "weak_cut_indices": ph_rep["summary"]["weak_cut_indices"],
+            "viewer_sheets": ph_rep.get("viewer_sheets") or [],
+            "semantic_review": ph_rep.get("semantic_review") or {},
         }
 
     if manifest_path.exists():
@@ -4709,7 +6260,391 @@ def assemble_diorama_project(
     }
     if posthoc_summary is not None:
         out_payload["posthoc_qa"] = posthoc_summary
+    enforce_ram_scratch_budget()
     return out_payload
+
+
+def compute_locked_edl_cut_frame_requirements(
+    project_id_or_dir: str | Path,
+    tts_res: dict[str, Any] | None = None,
+    *,
+    safety_pad_frames: int = 6,
+) -> dict[str, Any]:
+    """
+    Guard 4 Virtual Master EDL Frame-Requirement Calculator:
+      - Computes exact `30fps` (or plan-native FPS) EDL cut durations and Track-V1 transition overlaps
+        from `visual_plan.json` + locked TTS timings (`tts_res` or `04_audio/voice_report.json`) even BEFORE
+        `03_visuals/flow_native_clips` or `03_visuals/brain_simulator_clips` exist on disk (`0` MP4 files).
+      - Returns `{"fps", "total_frames", "total_duration_sec", "edl_frame_map", "cuts"}` where each 1-based
+        `clip_index` maps to `req_n_frames = eff_f + ov_f_next + int(safety_pad_frames)` (`max` across cuts).
+    """
+    from pipeline.config import (
+        EXPRESSIVE_V8_DISSOLVE_8_FRAMES,
+        EXPRESSIVE_V8_DISSOLVE_FRAMES,
+        EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES,
+        EXPRESSIVE_V8_WHIP_PAN_FRAMES,
+        PROMPT_SCHEMA_VERSION_V8,
+    )
+
+    p_dir = Path(project_id_or_dir) if Path(str(project_id_or_dir)).exists() else (PROJECTS_DIR / str(project_id_or_dir))
+    vp_path = next(
+        (
+            p
+            for p in (
+                p_dir / "03_visuals" / "visual_plan.json",
+                p_dir / "02_script" / "visual_plan.json",
+                p_dir / "visual_plan.json",
+            )
+            if p.exists()
+        ),
+        None,
+    )
+    if vp_path is None:
+        raise FileNotFoundError(f"visual_plan.json not found in {p_dir}")
+    visual_plan = json.loads(vp_path.read_text(encoding="utf-8"))
+    if isinstance(visual_plan, dict):
+        visual_plan = {**visual_plan, "_visuals_dir": str(p_dir / "03_visuals")}
+
+    try:
+        _sents, script_doc = load_diorama_script_sentences(p_dir)
+    except (FileNotFoundError, ValueError):
+        raw_sc_path = next((p for p in (p_dir / "02_script" / "script.json", p_dir / "script.json") if p.exists()), None)
+        script_doc = json.loads(raw_sc_path.read_text(encoding="utf-8")) if raw_sc_path else {}
+
+    is_v8 = is_expressive_v8_plan(visual_plan, script_doc)
+    is_v7 = is_v8 or is_diorama_v7_plan(visual_plan) or is_diorama_v7_plan(script_doc)
+    if is_v8 and int(script_doc.get("schema") or 0) < PROMPT_SCHEMA_VERSION_V8:
+        script_doc = {
+            **script_doc,
+            "schema": PROMPT_SCHEMA_VERSION_V8,
+            "style_profile": resolve_diorama_v7_style_profile(visual_plan),
+        }
+    elif is_v7 and not is_v8 and int(script_doc.get("schema") or 0) < PROMPT_SCHEMA_VERSION_V7:
+        script_doc = {
+            **script_doc,
+            "schema": PROMPT_SCHEMA_VERSION_V7,
+            "style_profile": resolve_diorama_v7_style_profile(visual_plan),
+        }
+
+    if tts_res is None:
+        vr_path = p_dir / "04_audio" / "voice_report.json"
+        if not vr_path.exists():
+            raise FileNotFoundError(f"voice_report.json not found in {p_dir / '04_audio'}")
+        vr = json.loads(vr_path.read_text(encoding="utf-8"))
+        wav_p = p_dir / "04_audio" / "audio_master.wav"
+        tot_dur = float(vr.get("total_duration_sec") or 0.0)
+        if tot_dur <= 0.0 and wav_p.is_file():
+            tot_dur = float(_clip_duration(wav_p))
+        sentence_spans = list(vr["sentence_spans"])
+        speech_end_sec = float(vr["speech_end_sec"])
+        total_duration_sec = tot_dur
+    else:
+        sentence_spans = list(tts_res["sentence_spans"])
+        speech_end_sec = float(tts_res["speech_end_sec"])
+        total_duration_sec = float(tts_res["total_duration_sec"])
+
+    disk_clips = _resolve_diorama_clip_files(p_dir / "03_visuals")
+    disk_by_num: dict[int, Path] = {}
+    for cf in disk_clips:
+        m_num = re.search(r"(\d+)", cf.stem)
+        if m_num:
+            disk_by_num[int(m_num.group(1))] = cf
+
+    plan_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
+    n_target = max(len(plan_clips), max(disk_by_num.keys(), default=0))
+    if n_target <= 0:
+        raise ValueError(f"visual_plan.json in {p_dir} defines 0 clips")
+
+    clip_files: list[Path] = []
+    for idx_1 in range(1, n_target + 1):
+        if idx_1 in disk_by_num:
+            clip_files.append(disk_by_num[idx_1])
+        else:
+            spec_c = plan_clips[idx_1 - 1] if (idx_1 - 1 < len(plan_clips) and isinstance(plan_clips[idx_1 - 1], dict)) else {}
+            is_sim_clip = (
+                str(spec_c.get("grammar") or "").strip() == "brain_simulator_3d"
+                or str(spec_c.get("render_engine") or "").strip().lower() == "blender_3d_simulator"
+            )
+            sub_d = "brain_simulator_clips" if is_sim_clip else "flow_native_clips"
+            clip_files.append(p_dir / "03_visuals" / sub_d / f"clip_{idx_1:02d}.mp4")
+
+    edl = build_crosscut_edl(
+        visual_plan=visual_plan,
+        sentence_spans=sentence_spans,
+        clip_files=clip_files,
+        speech_end_sec=speech_end_sec,
+        total_duration_sec=total_duration_sec,
+        script_doc=script_doc,
+        virtual_clip_duration_sec=8.0,
+    )
+
+    fps = int(edl["fps"])
+    is_v8_edl = is_v8 or is_expressive_v8_plan(visual_plan, edl)
+    is_v7_edl = is_v8_edl or is_v7 or int(edl.get("schema") or 6) >= PROMPT_SCHEMA_VERSION_V7
+    ceiling_frames = (
+        int(round(EXPRESSIVE_V8_HARD_CEILING_SEC * fps))
+        if is_v8_edl
+        else (SHORTS_HARD_CEILING_FRAMES_V7 if is_v7_edl else SHORTS_HARD_CEILING_FRAMES)
+    )
+    total_frames = min(ceiling_frames, int(edl["total_frames"]))
+    allow_alpha = bool((visual_plan or {}).get("allow_alpha_dissolves"))
+
+    def _transition_overlap_frames(tr_raw: str) -> int:
+        tr_n = str(tr_raw or "").strip().lower()
+        if tr_n == "portal_crash_zoom_10f":
+            return int(EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES)
+        if tr_n in ("whip_pan_blur_8f", "occlusion_wipe"):
+            return int(EXPRESSIVE_V8_WHIP_PAN_FRAMES)
+        if allow_alpha:
+            if tr_n == "dissolve_15f":
+                return 15
+            if tr_n == "dissolve_12f":
+                return 12
+            if tr_n in ("dissolve_8f", "split_screen_wipe", "daisy_chain_bridge"):
+                return int(EXPRESSIVE_V8_DISSOLVE_8_FRAMES)
+            if tr_n in ("dissolve_6f", "match_cut_bridge"):
+                return int(EXPRESSIVE_V8_DISSOLVE_FRAMES)
+        return 0
+
+    clamped_cuts: list[tuple[dict[str, Any], int]] = []
+    cum_f = 0
+    for cut in edl["cuts"]:
+        rem = total_frames - cum_f
+        if rem <= 0:
+            break
+        eff_f = min(rem, int(cut["frames"]))
+        clamped_cuts.append((cut, eff_f))
+        cum_f += eff_f
+
+    pad_f = max(0, int(safety_pad_frames))
+    edl_frame_map: dict[int, int] = {}
+    for idx_c, (cut_cur, eff_f) in enumerate(clamped_cuts):
+        ov_f_next = 0
+        if is_v8_edl and idx_c < len(clamped_cuts) - 1:
+            cut_nxt, eff_f_nxt = clamped_cuts[idx_c + 1]
+            cand_ov = _transition_overlap_frames(str(cut_cur.get("transition_out") or ""))
+            if (
+                cand_ov > 0
+                and cut_cur.get("mode") == "single"
+                and cut_nxt.get("mode") == "single"
+                and eff_f >= cand_ov + 4
+                and eff_f_nxt >= cand_ov + 4
+            ):
+                ov_f_next = cand_ov
+        req_n_frames = int(eff_f) + int(ov_f_next) + pad_f
+        c_idx = int(cut_cur["clip_index"])
+        edl_frame_map[c_idx] = max(edl_frame_map.get(c_idx, 0), req_n_frames)
+        if cut_cur.get("secondary_clip_index") is not None:
+            sec_idx = int(cut_cur["secondary_clip_index"])
+            edl_frame_map[sec_idx] = max(edl_frame_map.get(sec_idx, 0), req_n_frames)
+
+    total_dur = round(cum_f / float(fps), 3) if cum_f > 0 else round(total_frames / float(fps), 3)
+    return {
+        "fps": int(fps),
+        "total_frames": int(cum_f if cum_f > 0 else total_frames),
+        "total_duration_sec": float(total_dur),
+        "edl_frame_map": dict(sorted(edl_frame_map.items())),
+        "cuts": edl["cuts"],
+    }
+
+
+def lock_audio_durations_onto_visual_plan(
+    visual_plan: dict[str, Any],
+    sentence_spans: list[tuple[float, float]],
+    *,
+    enable_extended_durations: bool | None = None,
+) -> dict[str, Any]:
+    """
+    Audio-Before-Flow (`M3`):
+      1. Computes exact spoken duration `[t0, t1]` for each clip's `sentence_index .. end_sentence_index`.
+      2. Snaps `render_sec` to `FLOW_OMNI_EXTENDED_DURATION_CHOICES` (`3..15s`) when `enable_extended_durations`
+         is True (`max(3, min(15, ceil(spoken_dur + 0.6)))`), or `8s` otherwise.
+      3. Marks `forbid_slowmo_stretch = True` (`0%` slow-motion stretch) when `render_sec >= spoken_dur`.
+    """
+    from pipeline.config import (
+        DIORAMA_CLIP_RENDER_SEC,
+        EXPRESSIVE_V8_FORBID_SLOWMO_STRETCH,
+        FLOW_OMNI_ENABLE_EXTENDED_DURATIONS,
+        FLOW_OMNI_EXTENDED_DURATION_CHOICES,
+    )
+
+    ext_ok = FLOW_OMNI_ENABLE_EXTENDED_DURATIONS if enable_extended_durations is None else bool(enable_extended_durations)
+    out_plan = dict(visual_plan)
+    out_clips: list[dict[str, Any]] = []
+    n_sents = len(sentence_spans)
+    for idx, c in enumerate(visual_plan.get("clips") or [], start=1):
+        if not isinstance(c, dict):
+            continue
+        spec = dict(c)
+        s0_i = int(spec.get("sentence_index") or min(idx, max(1, n_sents)))
+        s1_i = int(spec.get("end_sentence_index") or s0_i)
+        s0_clamped = max(1, min(n_sents, s0_i))
+        s1_clamped = max(s0_clamped, min(n_sents, s1_i))
+        if n_sents > 0:
+            t_start = float(sentence_spans[s0_clamped - 1][0])
+            t_end = float(sentence_spans[s1_clamped - 1][1])
+            spoken_dur = max(0.35, t_end - t_start)
+        else:
+            spoken_dur = 3.5
+        if ext_ok:
+            needed = int(math.ceil(spoken_dur + 0.6))
+            snapped = min(
+                FLOW_OMNI_EXTENDED_DURATION_CHOICES,
+                key=lambda d: (0 if d >= needed else 1, abs(d - needed)),
+            )
+            spec["render_sec"] = int(snapped)
+        else:
+            spec["render_sec"] = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
+        spec["locked_spoken_duration_sec"] = round(spoken_dur, 3)
+        spec["forbid_slowmo_stretch"] = bool(
+            EXPRESSIVE_V8_FORBID_SLOWMO_STRETCH and float(spec["render_sec"]) >= spoken_dur
+        )
+        out_clips.append(spec)
+    out_plan["clips"] = out_clips
+    out_plan["audio_before_flow_locked"] = True
+    return out_plan
+
+
+_KEYWORD_BEAT_SPLIT_RE = re.compile(
+    r"(?:,\s+|\s+(?:—|--|-)\s+|\s+(?=(?:but|yet|while|until|because|forcing|driving|triggering|revealing|cutting|dropping|spiking)\b))",
+    flags=re.IGNORECASE,
+)
+
+
+def split_sentences_at_keyword_beats(
+    sentence_spans: list[tuple[float, float]],
+    sentences: list[str],
+    *,
+    target_beat_sec: float | None = None,
+) -> list[dict[str, Any]]:
+    """
+    Sub-Sentence Keyword Impact Cutter (`M6` / `R58-K`):
+    Splits any spoken sentence span longer than `target_beat_sec * 1.45` at natural clause/keyword pivots
+    so visual cuts land every `~2.0s` (`1.6–2.4s`) on spoken action verbs, numbers, or contrast pivots.
+    """
+    from pipeline.config import EXPRESSIVE_V8_KEYWORD_BEAT_TARGET_SEC
+
+    beat_target = float(target_beat_sec or EXPRESSIVE_V8_KEYWORD_BEAT_TARGET_SEC)
+    beats: list[dict[str, Any]] = []
+    for s_idx, ((t0, t1), text) in enumerate(zip(sentence_spans, sentences), start=1):
+        dur = max(0.20, float(t1) - float(t0))
+        clean_txt = str(text or "").strip()
+        if dur <= beat_target * 1.45:
+            beats.append(
+                {
+                    "sentence_index": s_idx,
+                    "sub_beat_index": 1,
+                    "start_sec": round(float(t0), 4),
+                    "end_sec": round(float(t1), 4),
+                    "duration_sec": round(dur, 4),
+                    "text": clean_txt,
+                }
+            )
+            continue
+        raw_clauses = [p.strip() for p in _KEYWORD_BEAT_SPLIT_RE.split(clean_txt) if p and p.strip()]
+        n_target = max(2, int(round(dur / max(1.2, beat_target))))
+        if len(raw_clauses) < 2:
+            words = clean_txt.split()
+            chunk_sz = max(2, int(math.ceil(len(words) / float(n_target))))
+            raw_clauses = [" ".join(words[i : i + chunk_sz]) for i in range(0, len(words), chunk_sz)]
+        elif len(raw_clauses) > n_target:
+            merged: list[str] = []
+            for cl in raw_clauses:
+                if merged and len(merged[-1].split()) < 4:
+                    merged[-1] = f"{merged[-1]}, {cl}"
+                else:
+                    merged.append(cl)
+            raw_clauses = merged
+        word_counts = [max(1, len(c.split())) for c in raw_clauses]
+        total_w = float(sum(word_counts))
+        cur_t = float(t0)
+        for b_i, (cl_txt, wc) in enumerate(zip(raw_clauses, word_counts), start=1):
+            b_dur = (float(t1) - cur_t) if b_i == len(raw_clauses) else dur * (wc / total_w)
+            nxt_t = cur_t + max(0.20, b_dur)
+            beats.append(
+                {
+                    "sentence_index": s_idx,
+                    "sub_beat_index": b_i,
+                    "start_sec": round(cur_t, 4),
+                    "end_sec": round(nxt_t, 4),
+                    "duration_sec": round(nxt_t - cur_t, 4),
+                    "text": cl_txt,
+                }
+            )
+            cur_t = nxt_t
+    return beats
+
+
+def build_dual_harvest_edl_windows(clip_dur_sec: float = 8.0) -> tuple[tuple[float, float], tuple[float, float]]:
+    """
+    Returns non-overlapping early (`A₁`) and late (`A₂`) NLE harvest windows inside a single 8s source clip (`M6`),
+    allowing `A₁ -> B -> A₂` cross-cutting without frame reuse.
+    """
+    from pipeline.config import EXPRESSIVE_V8_DUAL_HARVEST_WINDOWS_SEC
+
+    (a0, a1), (b0, b1) = EXPRESSIVE_V8_DUAL_HARVEST_WINDOWS_SEC
+    safe_eof = max(2.5, float(clip_dur_sec) - 0.15)
+    w1 = (round(min(a0, safe_eof - 0.5), 3), round(min(a1, safe_eof - 0.25), 3))
+    w2_start = max(w1[1] + 0.60, min(b0, safe_eof - 1.20))
+    w2_end = max(w2_start + 0.50, min(b1, safe_eof))
+    return w1, (round(w2_start, 3), round(w2_end, 3))
+
+
+def verify_state_swap_hist_corr(frame_a_bgr: np.ndarray, frame_b_bgr: np.ndarray) -> dict[str, Any]:
+    """
+    Verifies background color/lighting continuity (`hist_corr >= EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR` = `0.90`)
+    across a `T2` Same-Framing State-Swap Jump Cut (`M8`).
+    """
+    from pipeline.config import EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR
+
+    if frame_a_bgr is None or frame_b_bgr is None or frame_a_bgr.size == 0 or frame_b_bgr.size == 0:
+        return {"passed": False, "hist_corr": 0.0, "threshold": EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR}
+    hsv_a = cv2.cvtColor(frame_a_bgr, cv2.COLOR_BGR2HSV)
+    hsv_b = cv2.cvtColor(frame_b_bgr, cv2.COLOR_BGR2HSV)
+    hist_a = cv2.calcHist([hsv_a], [0, 1], None, [24, 24], [0, 180, 0, 256])
+    hist_b = cv2.calcHist([hsv_b], [0, 1], None, [24, 24], [0, 180, 0, 256])
+    cv2.normalize(hist_a, hist_a, 0, 1, cv2.NORM_MINMAX)
+    cv2.normalize(hist_b, hist_b, 0, 1, cv2.NORM_MINMAX)
+    corr = float(cv2.compareHist(hist_a, hist_b, cv2.HISTCMP_CORREL))
+    return {
+        "passed": corr >= float(EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR),
+        "hist_corr": round(corr, 4),
+        "threshold": float(EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR),
+    }
+
+
+def resolve_spatial_metric_stamps(
+    script_doc: dict[str, Any] | None,
+    sentence_spans: list[tuple[float, float]],
+) -> list[dict[str, Any]]:
+    """
+    Resolves up to 3 post-composite 3D-tracked diegetic metric stamps (`M9`, e.g., `15 MIN`, `4X LONGER`, `88%`)
+    aligned to their spoken `sentence_index` window without injecting AI text into Google Flow.
+    """
+    raw_stamps = (script_doc or {}).get("spatial_metric_stamps") or []
+    resolved: list[dict[str, Any]] = []
+    n_sents = len(sentence_spans)
+    for item in raw_stamps[:3]:
+        if not isinstance(item, dict):
+            continue
+        label = str(item.get("label") or item.get("text") or "").strip().upper()
+        if not label:
+            continue
+        s_idx = int(item.get("sentence_index") or 1)
+        if 1 <= s_idx <= n_sents:
+            t0, t1 = sentence_spans[s_idx - 1]
+        else:
+            t0, t1 = float(item.get("start_sec") or 0.0), float(item.get("end_sec") or 2.0)
+        resolved.append(
+            {
+                "label": label[:18],
+                "sentence_index": s_idx,
+                "start_sec": round(float(t0), 3),
+                "end_sec": round(float(t1), 3),
+                "anchor_xy_norm": tuple(item.get("anchor_xy_norm") or (0.50, 0.26)),
+            }
+        )
+    return resolved
 
 
 assemble_diorama_episode = assemble_diorama_project
@@ -4718,10 +6653,16 @@ __all__ = [
     "assemble_diorama_episode",
     "assemble_diorama_project",
     "build_crosscut_edl",
+    "build_dual_harvest_edl_windows",
     "build_one_to_one_edl",
     "build_v7_dynamic_edl",
+    "compute_locked_edl_cut_frame_requirements",
     "ensure_bundled_condensed_font",
     "generate_diorama_ass_subtitles",
     "generate_diorama_audio_master",
     "load_diorama_script_sentences",
+    "lock_audio_durations_onto_visual_plan",
+    "resolve_spatial_metric_stamps",
+    "split_sentences_at_keyword_beats",
+    "verify_state_swap_hist_corr",
 ]

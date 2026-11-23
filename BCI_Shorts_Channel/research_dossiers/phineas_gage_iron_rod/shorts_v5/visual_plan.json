@@ -1,0 +1,211 @@
+{
+  "schema": 5,
+  "visual_mode": "NEURO_BIOLOGY",
+  "dossier": "phineas_gage_iron_rod",
+  "real_environment": "an 1848 Vermont granite railroad cut in bright daylight",
+  "environment_props": [
+    "long tapered iron tamping bar",
+    "wooden black-powder keg",
+    "six-horse wooden stagecoach"
+  ],
+  "cast": {
+    "subject": "twenty-five-year-old railroad foreman",
+    "others": [
+      "Cavendish physician",
+      "railroad workmen"
+    ],
+    "animals": [
+      "six porcelain carriage horses"
+    ],
+    "wardrobe": {
+      "foreman_1848": "rolled-up white linen shirtsleeves, dark buttoned waistcoat, canvas trousers, broad-brimmed felt hat",
+      "foreman_1850_chile": "tailored dark waistcoat, crisp white shirt and cravat, closed left eyelid, wide-brimmed stagecoach hat",
+      "physician": "1840s dark wool frock coat, high collar, black leather medical bag",
+      "neuroscientist": "crisp white museum curator coat, slate-grey trousers"
+    }
+  },
+  "must_have_scenes": [
+    {
+      "id": "S1",
+      "title": "The 1848 Cavendish Railroad Rock-Cut Blast",
+      "iconic": true,
+      "recognition_hook": "A 1840s railroad foreman tamping black powder into a granite hole with a 3-foot-7-inch iron rod turns his head, sparks the rock, and the rod blasts straight up through his left cheek and skull.",
+      "era": "September 13, 1848, 4:30 p.m., Rutland and Burlington Railroad rock cut near Cavendish, Vermont",
+      "key_visual": {
+        "description": "the tamping iron shoots straight up through the porcelain foreman's left cheek below the eye and out the top of his frosted-glass cranium, clean white porcelain chips scattering",
+        "must_show": [
+          "iron|rod|bar",
+          "cheek",
+          "cranium|skull|head"
+        ],
+        "source": "dossier S1 props[Tamping iron].physical_behavior; Harlow 1868"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Sitting Upright in the Ox Cart and Greeting Dr. Harlow",
+      "iconic": false,
+      "recognition_hook": "Minutes after the iron bar pierced his skull, Phineas Gage sits upright in an ox cart, climbs the hotel stairs, and calmly tells Dr. Harlow how the iron passed through his head.",
+      "era": "September 13, 1848, 5:00-6:00 p.m., dirt road and Joseph Adams's hotel porch in Cavendish, Vermont"
+    },
+    {
+      "id": "S3",
+      "title": "Impulsive Outburst in a Cavendish Tavern and Refusal of the Foreman Job",
+      "iconic": false,
+      "recognition_hook": "Friends and bosses say he is 'no longer Gage' as the once-calm foreman slams a tavern table in a sudden burst of temper and loses his old job.",
+      "era": "Spring 1849, Cavendish, Vermont tavern and railroad contractor office"
+    },
+    {
+      "id": "S4",
+      "title": "Driving a Six-Horse Stagecoach in Chile and the 1850 Daguerreotype Pose",
+      "iconic": false,
+      "recognition_hook": "Far from the textbook myth of a ruined drifter, a well-dressed Phineas Gage drives a six-horse stagecoach in Chile and poses proudly with the iron bar that pierced his skull.",
+      "era": "1850-1859, Boston daguerreotype studio and the Valparaiso-to-Santiago mountain road in Chile"
+    },
+    {
+      "id": "S5",
+      "title": "Harvard Warren Anatomical Museum Skull, Tamping Iron, and CT Connectome Mapping",
+      "iconic": false,
+      "recognition_hook": "At Harvard's Warren Museum, Gage's actual skull and 3-foot-7-inch tamping iron sit side by side, allowing modern CT and connectome scans to map the exact left-frontal wiring the rod severed.",
+      "era": "1868 to 2012, Warren Anatomical Museum at Harvard Medical School and modern neuroimaging lab"
+    }
+  ],
+  "target_region": "ventromedial prefrontal cortex",
+  "crisis_region": "ventromedial prefrontal cortex",
+  "crisis_lesion": "severed",
+  "compensatory_region": "prefrontal cortex",
+  "signal_path": [
+    "amygdala",
+    "white-matter tract",
+    "ventromedial prefrontal cortex",
+    "prefrontal cortex"
+  ],
+  "anatomy_descriptors": {
+    "ventromedial prefrontal cortex": "lower front fold behind the left eye",
+    "amygdala": "small almond-shaped hub",
+    "prefrontal cortex": "intact upper frontal folds"
+  },
+  "brain_link": {
+    "crisis": {
+      "role": "crisis",
+      "region": "ventromedial prefrontal cortex",
+      "plain": "judgment center",
+      "function": "linking emotion to decisions and applying the social brake before impulsive actions",
+      "scene_id": "S3",
+      "narration_bridge": "Connects Gage's tavern outbursts and lost foreman job to the rod tearing through the judgment center behind his left eye."
+    },
+    "step1": {
+      "role": "step1",
+      "region": "ventromedial prefrontal cortex",
+      "plain": "judgment center",
+      "function": "tagging everyday choices with a rapid gut warning before you say or do something reckless",
+      "scene_id": "S3",
+      "narration_bridge": "Shows how the intact judgment center behind your eyes normally lights up to weigh choices before an impulse turns into action."
+    },
+    "step2": {
+      "role": "step2",
+      "region": "amygdala",
+      "plain": "emotional alarm",
+      "function": "firing fast emotional signals along white-matter wiring to the front judgment center",
+      "scene_id": "S1",
+      "narration_bridge": "Shows the emotional alarm deep in the brain sending warning signals along white-matter wiring that the iron rod severed on Gage's left side."
+    },
+    "step3": {
+      "role": "step3",
+      "region": "prefrontal cortex",
+      "plain": "the front of the brain",
+      "function": "planning, holding structured routines, and compensating through intact right-side frontal pathways",
+      "scene_id": "S4",
+      "narration_bridge": "Links the spared pathways in the front of the brain to the strict daily stagecoach routine in Chile that helped Gage relearn control."
+    }
+  },
+  "shots": {
+    "setup": {
+      "scene_id": "S1",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Wide establishing shot on an 1848 Vermont granite railroad cut in bright sunlight as the camera smoothly tracks forward",
+      "action": "A matte-white porcelain railroad foreman mannequin in white shirtsleeves and a dark vest kneels over a drilled granite hole, glances back toward two workman mannequins, and tamps a long tapered iron bar down",
+      "prop_change": "A spark flashes and the iron shoots up through his left cheek and out the top of his frosted-glass cranium, porcelain chips scattering",
+      "reaction": "He falls back onto the granite as the workmen duck"
+    },
+    "symptom": {
+      "scene_id": "S2",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Medium tracking shot along a sunlit 1848 Cavendish dirt road beside a wooden hotel porch as the camera glides beside an ox cart",
+      "action": "The porcelain foreman mannequin in a singed shirt and head bandage grips the wooden cart rail, steps down onto the road, and walks up the porch stairs toward a physician mannequin in a dark wool coat",
+      "prop_change": "The spoked wooden cart wheel creaks to a stop and the physician snaps open the brass clasp of his black leather bag",
+      "reaction": "The foreman mannequin touches his left cheekbone while the physician freezes with raised hands"
+    },
+    "failure": {
+      "scene_id": "S3",
+      "setting": "real_env",
+      "shot_type": "track",
+      "camera": "Smooth lateral tracking shot across a sunlit 1849 Vermont tavern and contractor room with heavy oak tables",
+      "action": "The porcelain foreman mannequin in a wool vest with a closed left eyelid slams his fist onto the oak table and shoves a wooden chair back as a boss mannequin pulls away a work ledger",
+      "prop_change": "A pewter mug topples and clatters across the oak tabletop, spilling amber liquid as the leather roster ledger slams shut",
+      "reaction": "Two crewman mannequins recoil a step backward and fold their arms as the foreman snatches his steel rod and strides out"
+    },
+    "crisis": {
+      "scene_id": "S3",
+      "setting": "drill_down",
+      "shot_type": "dive",
+      "camera": "Dive through the frosted-glass cranium, glide over the gyri and sulci, zoom into the left ventromedial prefrontal cortex"
+    },
+    "pivot": {
+      "scene_id": "S4",
+      "setting": "real_env",
+      "shot_type": "wide",
+      "camera": "Dynamic low-angle tracking shot along a sunlit 1850s mountain coach road between Valparaiso and Santiago in Chile",
+      "action": "The porcelain foreman mannequin in a tailored dark vest, cravat, and wide-brimmed hat climbs onto the high wooden stagecoach box, grips the leather reins of six porcelain horses, and flicks the reins",
+      "prop_change": "The leather reins snap taut, the wooden coach wheels roll forward kicking up golden dust, and the brass coach lamps sway",
+      "reaction": "The driver mannequin braces his shoulders with steady hands while passenger mannequins nod inside the rolling coach"
+    },
+    "step1": {
+      "scene_id": "S3",
+      "setting": "brain_void",
+      "shot_type": "macro",
+      "camera": "Macro tracking along the signal path into the ventromedial prefrontal cortex"
+    },
+    "step2": {
+      "scene_id": "S1",
+      "setting": "brain_void",
+      "shot_type": "macro",
+      "camera": "Macro tracking along the severed white-matter tract from the amygdala to the ventromedial prefrontal cortex"
+    },
+    "step3": {
+      "scene_id": "S4",
+      "setting": "brain_void",
+      "shot_type": "orbit",
+      "camera": "Macro tracking along the signal path, then pull back to the full prefrontal cortex circuit"
+    },
+    "breakthrough": {
+      "scene_id": "S5",
+      "setting": "real_env",
+      "shot_type": "medium",
+      "camera": "Smooth push-in across a bright gallery at Harvard's Warren Anatomical Museum in crisp daylight",
+      "action": "A porcelain neuroscientist mannequin in a white curator coat lifts the long tapered surveyor rod from a brass cradle and aligns it beside the left cheekbone of a matte-white porcelain cranial display model on a turntable",
+      "prop_change": "The brass turntable rotates smoothly and a glass display case door swings open beside the 1850 plaster life cast",
+      "reaction": "Two researcher mannequins lean forward and grip the table edge in amazement as the left-sided path lines up",
+      "cast": [
+        "neuroscientist"
+      ]
+    },
+    "conclusion": {
+      "scene_id": "S4",
+      "setting": "real_env",
+      "shot_type": "pullout",
+      "camera": "Slow pull-back rising to an elevated wide shot inside a sunlit 1850s daguerreotype studio and coach courtyard",
+      "action": "The well-dressed porcelain foreman mannequin in a tailored waistcoat and cravat grips his long tapered iron bar upright against his shoulder and steps beside the six-horse stagecoach team",
+      "prop_change": "A brass studio plate holder slides into place with a crisp click while sunlight glints along the polished iron bar and leather harness",
+      "reaction": "The foreman mannequin squares his shoulders with his left eyelid closed and holds the bar steady in quiet dignity"
+    }
+  },
+  "scenes": {
+    "crisis": "Three-quarter profile of a smooth matte-white porcelain mannequin head in a bright white studio gallery with an architectural translucent cutaway cranium revealing the realistic matte-white 3D porcelain brain with visible gyri and sulci inside the skull. The camera glides into the ventromedial prefrontal cortex behind the left eye, where the separated pathway shows a muted crimson-red lesion margin as the soft warm-ivory internal light pulse halts cleanly and dims quietly to stillness.",
+    "step1": "Three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with an architectural translucent cutaway cranium revealing the matte-white 3D brain inside. A soft warm-ivory light pulse glides inside the white-matter fiber tracts into the ventromedial prefrontal cortex just above the eye socket, lighting the intact judgment center in subtle warm amber-gold as it weighs a choice and sends a calming pulse backward while the rest of the porcelain brain and head stay pure matte white.",
+    "step2": "Close three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with its architectural cutaway cranium revealing the matte-white 3D brain inside. The almond-shaped amygdala deep in the left temporal lobe glows subtle warm amber-gold and sends a soft warm-ivory light pulse inside the uncinate white-matter tract toward the ventromedial prefrontal cortex. At the muted crimson-red gap behind the left eye, the separated fiber bundle ends abruptly and the internal light pulse halts cleanly and dims quietly to stillness.",
+    "step3": "Three-quarter profile of the smooth matte-white porcelain mannequin head in bright studio daylight with its architectural translucent cutaway cranium revealing the matte-white 3D brain inside. While the lower left lesion behind the eye stays dimmed crimson-red, intact pathways across the surrounding prefrontal cortex glow subtle warm amber-gold, guiding a soft warm-ivory light pulse inside intact tracts across the front of the brain while the porcelain head and brain remain crisp and minimalist."
+  }
+}

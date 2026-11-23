@@ -1,0 +1,3467 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "v8_3_mode": true,
+  "single_start_frame_default": true,
+  "auto_previs": true,
+  "hybrid_previs_v8": true,
+  "enable_dual_keyframe_parallax": true,
+  "auto_scene_anchors": true,
+  "daisy_chain_keyframes": false,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "camera_profile": "expressive_dynamic_v8",
+  "core_reveal_sentence_index": 15,
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "project_id": "v8_ep06_bedtime_todo_list_sleep",
+  "dossier": "scullin_bedtime_todo_list_sleep",
+  "dossier_slug": "scullin_bedtime_todo_list_sleep",
+  "pillar": "brain_basics",
+  "everyday_domain": "sleep",
+  "title": "How Trying to Fall Asleep Backfires",
+  "doi": "10.1037/xge0000374",
+  "secondary_doi": "10.1016/0005-7967(96)00031-9",
+  "mechanism_doi": "10.1523/JNEUROSCI.1326-21.2022",
+  "omit_experiment_nicknames": [],
+  "default_location_id": "baylor_sleep_lab",
+  "real_environment": "warmly lit Baylor University sleep laboratory bedroom with white pillow, EEG headband wires, wooden nightstand, and an unmarked cream paper notepad",
+  "thumbnail": {
+    "profile": "in_skull_cutaway_split_v4",
+    "thumbnail_profile": "dark_void_paradox_v4",
+    "top_split_label": "5M PAPER LIST",
+    "bottom_split_label": "25M WIDE AWAKE!",
+    "top_human_action": "peaceful young woman resting her head calmly on a white pillow beside a small paper notepad and pen against a pure pitch-black #000000 bedroom void",
+    "bottom_human_action": "same young woman staring wide-eyed in midnight frustration gripping her hair beside a glowing bedside clock against a pure pitch-black #000000 bedroom void",
+    "target_anatomy": "hippocampus and prefrontal cortex",
+    "render_micro_labels": false,
+    "cover_sentence_index": 1,
+    "hook_text": "25M WIDE AWAKE!",
+    "in_skull_split_prompt": "Vertical 9:16 50/50 horizontal split-screen 3D medical-editorial visualization in bright high-key studio daylight (mean luminance >= 110) with a crisp white horizontal center divider line, featuring the same real expressive adult human volunteer with natural skin in both halves, real expressive human face, never a white mannequin or featureless doll. TOP HALF: calm deadpan face showing zero reaction during expected stimulus for neuroscience paradox, in-skull surgical 3D glass cutaway window revealing a dormant cool-grey brain, upper-left zone positioned 10 percent below the top border (shelf-safe y >= 176px, never touching top edge) clean bold white condensed sans-serif text \"NO REACTION\" with crisp black outline and no box. BOTTOM HALF: visceral shock reaction to the paradox trigger, volumetric 3D bright-red directional arrow pointing to the trigger, in-skull surgical 3D glass cutaway window exploding in fiery crimson-red and electric-cyan neural activation, upper-left corner just below center divider clean bold white condensed sans-serif text \"1 TRIGGER: SHOCK!\" with crisp black outline and no box, bottom 22 percent strictly clear of any text or labels."
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "end_sentence_index": 1,
+      "act": 1,
+      "scene_id": "S01",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "dolly_zoom_vertigo",
+      "location_id": "virginia_sleep_bedroom",
+      "environment": "cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones",
+      "cast": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat and a tired volunteer in navy pajamas lying on the bed",
+      "action": "places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette player",
+      "consequence": "startled 2D charcoal-black ink eyes pop wide as lively brass rhythms vibrate the headphone cups",
+      "expression_id": "double_blink_shock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.8265,
+            1.1546
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9546
+          ],
+          "fov_deg": 52.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -1.8997,
+            1.1326
+          ],
+          "look_at": [
+            0.0,
+            0.154,
+            0.9546
+          ],
+          "fov_deg": 62.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+            "pos_start": [
+              -0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              -0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 16.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "protagonist",
+            "label": "a tired volunteer in navy pajamas lying on the bed",
+            "pos_start": [
+              0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": -16.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+            "entity_kind": "actor"
+          },
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "a tired volunteer in navy pajamas lying on the bed",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_01_virginia_sleep_bedro_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_01_virginia_sleep_bedro_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.59,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "end_sentence_index": 2,
+      "act": 1,
+      "scene_id": "S02",
+      "grammar": "expressive_split_contrast",
+      "camera_move": "gentle_push_in",
+      "location_id": "virginia_sleep_bedroom",
+      "environment": "two side-by-side dim bedroom test alcoves lit by soft warm bedside lamps",
+      "cast": "one volunteer in navy pajamas gripping the quilt tightly while a second volunteer in olive pajamas rests loosely on a pillow",
+      "action": "grips the quilt edges tightly on the left bed while the second sleeper exhales and relaxes both hands on the right bed",
+      "consequence": "tense 2D charcoal-black ink brows contrast sharply with calm half-closed lids",
+      "expression_id": "frustrated_brow_furrow",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0,
+            -1.8438,
+            1.0779
+          ],
+          "look_at": [
+            0.0,
+            0.2099,
+            0.8999
+          ],
+          "fov_deg": 62.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "one volunteer in navy pajamas gripping the quilt tightly while a second volunteer in olive pajamas rests loosely on a pillow",
+            "pos_start": [
+              0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "one volunteer in navy pajamas gripping the quilt tightly while a second volunteer in olive pajamas rests loosely on a pillow",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 1
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_virginia_sleep_bedroom_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 5.23,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "end_sentence_index": 3,
+      "act": 1,
+      "scene_id": "S03",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "virginia_sleep_bedroom",
+      "environment": "warm amber-lit sleep laboratory doorway beside the wooden bed",
+      "cast": "female sleep psychologist as a clothed 2.5D matte cream-white vinyl researcher in a crisp white lab coat",
+      "action": "taps a small brass pocket timer once and gestures calmly toward the pillow",
+      "consequence": "focused 2D charcoal-black ink eyes deliver crisp experimental instructions",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0825,
+            -2.2402,
+            1.3993
+          ],
+          "look_at": [
+            0.0091,
+            0.2099,
+            1.2232
+          ],
+          "fov_deg": 45.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.118,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "female sleep psychologist as a clothed 2.5D matte cream-white vinyl researcher in a crisp white lab coat",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "female sleep psychologist as a clothed 2.5D matte cream-white vinyl researcher in a crisp white lab coat",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 2
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_virginia_sleep_bedroom_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 4.34,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 4,
+      "end_sentence_index": 4,
+      "act": 1,
+      "scene_id": "S04",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "virginia_sleep_bedroom",
+      "environment": "moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow",
+      "cast": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+      "action": "pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room",
+      "consequence": "exhausted 2D charcoal-black ink eyes blink rapidly in wide-awake frustration",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "dissolve_8f",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.2051,
+            -2.3183,
+            1.1424
+          ],
+          "look_at": [
+            0.0091,
+            0.2099,
+            0.9937
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1343,
+            -2.2352,
+            1.372
+          ],
+          "look_at": [
+            0.026,
+            0.0665,
+            0.8846
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 3
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_04_virginia_sleep_bedro_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_04_virginia_sleep_bedro_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 5.02,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 5,
+      "end_sentence_index": 5,
+      "act": 2,
+      "scene_id": "S05",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "home_night_bedroom",
+      "environment": "quiet dark bedroom pillow lit by cool blue moonlight through sheer curtains",
+      "cast": "clothed 2.5D matte cream-white vinyl sleeper in a burgundy pajama top resting on a white pillow",
+      "action": "squeezes both hands into tight fists on the pillow while pressing eyelids shut with effort",
+      "consequence": "strained 2D charcoal-black ink eyebrows scrunch inward in tense effort",
+      "expression_id": "frustrated_brow_furrow",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.36,
+            -2.3765,
+            1.4984
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            1.2784
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.17,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl sleeper in a burgundy pajama top resting on a white pillow",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl sleeper in a burgundy pajama top resting on a white pillow",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_home_night_bedroom_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.77,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 6,
+      "end_sentence_index": 6,
+      "act": 2,
+      "scene_id": "S06",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "gentle_push_in",
+      "location_id": "home_night_bedroom",
+      "environment": "moonlit bedroom nightstand beside the white pillow and warm brass lamp",
+      "cast": "sleeper in burgundy pajamas popping one eye open on the pillow",
+      "action": "lifts the head abruptly off the pillow and peeks sideways across the dark bedroom",
+      "consequence": "wide 2D charcoal-black ink eyes snap open in sudden self-checking alertness",
+      "expression_id": "double_blink_shock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.2231,
+            -2.3166,
+            1.1423
+          ],
+          "look_at": [
+            0.0091,
+            0.2099,
+            0.9937
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "sleeper in burgundy pajamas popping one eye open on the pillow",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "sleeper in burgundy pajamas popping one eye open on the pillow",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 5
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_home_night_bedroom_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 6.33,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 7,
+      "end_sentence_index": 7,
+      "act": 2,
+      "scene_id": "S07",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "home_night_bedroom",
+      "environment": "wooden nightstand holding a ticking round brass analog alarm dial with unmarked hands",
+      "cast": "sleeper in burgundy pajamas reaching one four-fingered hand toward the nightstand",
+      "action": "turns the unmarked brass bedside dial face-away on the wooden nightstand then sighs heavily",
+      "consequence": "weary 2D charcoal-black ink eyebrows droop under midnight pressure",
+      "expression_id": "squint_suspicion_lean",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0504,
+            -2.2118,
+            1.8504
+          ],
+          "look_at": [
+            0.0091,
+            0.0842,
+            0.9752
+          ],
+          "fov_deg": 45.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "sleeper in burgundy pajamas reaching one four-fingered hand toward the nightstand",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "sleeper in burgundy pajamas reaching one four-fingered hand toward the nightstand",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 6
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_home_night_bedroom_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 5,
+      "locked_spoken_duration_sec": 4.37,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 8,
+      "end_sentence_index": 8,
+      "act": 3,
+      "scene_id": "S08",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "baylor_sleep_lab",
+      "environment": "warmly lit Baylor University sleep suite with an unmarked cream paper notepad and wooden pen",
+      "cast": "sleep researcher in a crisp white lab coat holding up an unmarked cream paper pad and wooden pen",
+      "action": "lifts the unmarked cream paper pad and taps the wooden pen tip briskly against it",
+      "consequence": "curious 2D charcoal-black ink eyebrows perk upward with a clever question",
+      "expression_id": "curious_head_tilt_perk",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.36,
+            -2.3765,
+            1.4984
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            1.2784
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.17,
+            -1.546,
+            1.3896
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "sleep researcher in a crisp white lab coat holding up an unmarked cream paper pad and wooden pen",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "sleep researcher in a crisp white lab coat holding up an unmarked cream paper pad and wooden pen",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_baylor_sleep_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 5.1,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 9,
+      "end_sentence_index": 9,
+      "act": 3,
+      "scene_id": "S09",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "baylor_sleep_lab",
+      "environment": "clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp",
+      "cast": "sleep scientist in a white lab coat standing beside a seated young adult volunteer in a sage sweater",
+      "action": "lifts and places a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer",
+      "consequence": "calm attentive 2D charcoal-black ink eyes nod in quiet readiness",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.2745,
+            -2.9619,
+            1.1191
+          ],
+          "look_at": [
+            0.0091,
+            0.1709,
+            0.9349
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            1.0927,
+            -2.6168,
+            1.1409
+          ],
+          "look_at": [
+            0.0,
+            0.115,
+            0.9546
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "sleep scientist in a white lab coat standing",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              -0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 16.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "protagonist",
+            "label": "a seated young adult volunteer in a sage sweater",
+            "pos_start": [
+              0.34,
+              0.12,
+              0.0
+            ],
+            "pos_end": [
+              0.30000000000000004,
+              0.09,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "reaching",
+            "yaw_deg": -16.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "sleep scientist in a white lab coat standing",
+            "entity_kind": "actor"
+          },
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "a seated young adult volunteer in a sage sweater",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 8
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_09_baylor_sleep_lab_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_09_baylor_sleep_lab_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.46,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 10,
+      "end_sentence_index": 10,
+      "act": 3,
+      "scene_id": "S10",
+      "grammar": "expressive_cameo_world",
+      "cameo_easter_egg": true,
+      "cameo_placement": "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly beside the warm brass lamp on the wooden nightstand",
+      "camera_move": "gentle_push_in",
+      "location_id": "baylor_sleep_lab",
+      "environment": "warm wooden nightstand in the Baylor sleep suite with an unmarked cream paper pad, brass pen, and warm lamp",
+      "cast": "volunteer in sage pajama sweater seated on the bed edge writing on an unmarked cream paper pad",
+      "action": "writes neat pen strokes down the unmarked cream notepad beside a tiny 4cm Mini-Cortex figurine on the nightstand",
+      "consequence": "focused 2D charcoal-black ink eyes follow the smooth pen tip calmly",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            1.0927,
+            -2.6136,
+            0.9685
+          ],
+          "look_at": [
+            0.0,
+            0.1182,
+            0.7822
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0915,
+            -2.1116,
+            1.0025
+          ],
+          "look_at": [
+            0.026,
+            0.076,
+            0.8453
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer in sage pajama sweater seated on the bed edge writing on an unmarked cream paper pad",
+            "pos_start": [
+              0.30000000000000004,
+              0.09,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.09,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          },
+          {
+            "role_id": "mini_cortex",
+            "label": "mini_cortex",
+            "pos_start": [
+              1.45,
+              1.78,
+              1.22
+            ],
+            "pos_end": [
+              1.45,
+              1.78,
+              1.22
+            ],
+            "height_m": 0.22,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": -20.0,
+            "color_hex": "#8F2D75",
+            "color_name": "Plum Magenta"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer in sage pajama sweater seated on the bed edge writing on an unmarked cream paper pad",
+            "entity_kind": "actor"
+          },
+          "mini_cortex": {
+            "color_name": "Plum Magenta",
+            "color_hex": "#8F2D75",
+            "target_label": "mini_cortex",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 9
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "reference_image": "03_visuals/reference_images/ref_cameo_9x16.png",
+      "secondary_reference_image": "03_visuals/reference_images/cameo_opt3_sheet.png",
+      "reference_images": [
+        "03_visuals/reference_images/ref_cameo_9x16.png",
+        "03_visuals/reference_images/cameo_opt3_sheet.png"
+      ],
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.96,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 11,
+      "end_sentence_index": 11,
+      "act": 3,
+      "scene_id": "S11",
+      "grammar": "expressive_reaction_closeup",
+      "camera_move": "locked_tripod",
+      "location_id": "baylor_sleep_lab",
+      "environment": "observation corridor window looking into the warm Baylor sleep room",
+      "cast": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats watching through the glass",
+      "action": "leans forward toward the observation glass and shakes the head slightly in skeptical suspense",
+      "consequence": "skeptical 2D charcoal-black ink brow arches high at the bedtime writing test",
+      "expression_id": "asymmetric_skeptical_brow",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.1464,
+            -2.005,
+            1.3475
+          ],
+          "look_at": [
+            -0.2119,
+            0.1826,
+            1.1903
+          ],
+          "fov_deg": 45.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.03,
+            -1.794,
+            1.4042
+          ],
+          "look_at": [
+            -0.195,
+            0.154,
+            1.2896
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "researcher",
+            "label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#1)",
+            "pos_start": [
+              -0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              -0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "leaning",
+            "yaw_deg": 16.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher_2",
+            "label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#2)",
+            "pos_start": [
+              0.34,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.30000000000000004,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "leaning",
+            "yaw_deg": -16.0,
+            "color_hex": "#2B3A67",
+            "color_name": "Deep Indigo"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "researcher": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#1)",
+            "entity_kind": "actor"
+          },
+          "researcher_2": {
+            "color_name": "Deep Indigo",
+            "color_hex": "#2B3A67",
+            "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#2)",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 10
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_11_baylor_sleep_lab_pv_start_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.63,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 12,
+      "end_sentence_index": 12,
+      "act": 3,
+      "scene_id": "S12",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "gentle_push_in",
+      "location_id": "baylor_sleep_lab",
+      "environment": "dim tranquil Baylor sleep room after lights-out with the closed cream notepad resting on the nightstand",
+      "cast": "volunteer in sage pajama sweater lying peacefully asleep on the white pillow with soft sensor wires",
+      "action": "sets the wooden pen onto the closed notepad and sinks smoothly onto the soft pillow in deep calm sleep",
+      "consequence": "peaceful 2D charcoal-black ink eyelids rest completely closed in quiet relief",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.1464,
+            -2.3241,
+            1.1428
+          ],
+          "look_at": [
+            -0.0682,
+            0.2099,
+            0.9937
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer in sage pajama sweater lying peacefully asleep on the white pillow with soft sensor wires",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer in sage pajama sweater lying peacefully asleep on the white pillow with soft sensor wires",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 11
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_baylor_sleep_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 8,
+      "locked_spoken_duration_sec": 6.99,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 13,
+      "end_sentence_index": 13,
+      "act": 3,
+      "scene_id": "S13",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "pan_right",
+      "location_id": "baylor_sleep_lab",
+      "environment": "warm amber bedside tabletop close-up on an unmarked cream paper notepad and brass pen",
+      "cast": "volunteer's four-fingered matte-white hand holding the brass pen over the cream notepad",
+      "action": "draws three crisp checkmark bullets down the unmarked page then clicks the brass pen shut",
+      "consequence": "relaxed four-fingered hand sets the pen neatly beside the closed pad",
+      "expression_id": "confident_half_smile_lock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.0504,
+            -2.2118,
+            1.8504
+          ],
+          "look_at": [
+            0.0091,
+            0.0842,
+            0.9752
+          ],
+          "fov_deg": 45.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1074,
+            -1.6055,
+            1.5789
+          ],
+          "look_at": [
+            0.0173,
+            -0.0667,
+            0.9408
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "volunteer's four-fingered matte-white hand holding the brass pen over the cream notepad",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "reaching",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "volunteer's four-fingered matte-white hand holding the brass pen over the cream notepad",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 12
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_baylor_sleep_lab_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 5.16,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 14,
+      "end_sentence_index": 14,
+      "act": 4,
+      "scene_id": "S14",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "watchman_lantern_battlement",
+      "environment": "miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg",
+      "analogy_object": "a glowing brass night-watchman lantern and unmarked wooden clipboard hanging on a stone wall peg",
+      "cast": "a clothed 2.5D matte cream-white vinyl night watchman in a dark wool coat carrying a glowing brass lantern",
+      "action": "paces briskly along the moonlit stone wall holding the glowing brass lantern and tapping an unmarked clipboard",
+      "consequence": "vigilant 2D charcoal-black ink eyes scan the dark horizon without resting",
+      "expression_id": "pinpoint_alarm_sweat",
+      "transition_to_next": "portal_crash_zoom_10f",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.2,
+            -2.8175,
+            1.3767
+          ],
+          "look_at": [
+            0.0,
+            -0.0675,
+            0.8767
+          ],
+          "fov_deg": 56.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1339,
+            -2.4815,
+            1.3351
+          ],
+          "look_at": [
+            0.0227,
+            -0.1188,
+            0.8347
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "a clothed 2.5D matte cream-white vinyl night watchman in a dark wool coat carrying a glowing brass lantern",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "prop_diary_book",
+            "label": "experiment diary notebook",
+            "shape": "box",
+            "pos_start": [
+              0.0,
+              -0.34,
+              0.72
+            ],
+            "pos_end": [
+              0.03,
+              -0.36000000000000004,
+              0.72
+            ],
+            "size_xyz": [
+              0.2,
+              0.26,
+              0.04
+            ],
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "a clothed 2.5D matte cream-white vinyl night watchman in a dark wool coat carrying a glowing brass lantern",
+            "entity_kind": "actor"
+          },
+          "prop_diary_book": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "experiment diary notebook",
+            "entity_kind": "prop"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_14_watchman_lantern_bat_pv_start_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.88,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 15,
+      "end_sentence_index": 15,
+      "act": 4,
+      "scene_id": "S15",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": false,
+      "brain_region": "hippocampus",
+      "camera_move": "gentle_push_in",
+      "location_id": "xray_brain_observatory",
+      "environment": "deep midnight-navy studio void showcasing an isolated semi-transparent frosted-glass 3D human brain",
+      "cast": "standalone isolated semi-transparent frosted-glass 3D human brain with deep temporal lobes and curved hippocampus",
+      "action": "warm amber-gold reminder pulses circle repeatedly around the curved deep hippocampus ridge",
+      "consequence": "repeating amber-gold memory arcs glow inside the deep temporal arch",
+      "transition_to_next": "action_impact_cut",
+      "single_start_frame_lock": true,
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.2803,
+            -1.5485,
+            1.4538
+          ],
+          "look_at": [
+            0.0,
+            0.184,
+            1.3774
+          ],
+          "fov_deg": 42.0
+        },
+        "camera_end": {
+          "pos": [
+            0.3869,
+            -1.8403,
+            1.4231
+          ],
+          "look_at": [
+            0.026,
+            0.1645,
+            1.383
+          ],
+          "fov_deg": 38.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "standalone isolated semi-transparent frosted-glass 3D human brain with deep temporal lobes and curved hippocampus",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#808690"
+          },
+          {
+            "block_id": "curved_backdrop",
+            "pos": [
+              0.0,
+              2.25,
+              1.6
+            ],
+            "size_xyz": [
+              4.6,
+              0.18,
+              3.2
+            ],
+            "color_hex": "#9298A2"
+          },
+          {
+            "block_id": "pedestal_plinth",
+            "pos": [
+              0.0,
+              0.05,
+              0.35
+            ],
+            "size_xyz": [
+              0.9,
+              0.9,
+              0.7
+            ],
+            "color_hex": "#767C87"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "standalone isolated semi-transparent frosted-glass 3D human brain with deep temporal lobes and curved hippocampus",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png",
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.64,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 16,
+      "end_sentence_index": 16,
+      "act": 4,
+      "scene_id": "S16",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": false,
+      "brain_region": "prefrontal cortex",
+      "camera_move": "gentle_push_in",
+      "location_id": "xray_brain_observatory",
+      "environment": "deep midnight-navy studio void showcasing the isolated semi-transparent frosted-glass 3D human brain in three-quarter profile",
+      "cast": "standalone isolated semi-transparent frosted-glass 3D human brain highlighting the front prefrontal cortex",
+      "action": "calm pearl-aqua and clear cyan-blue waves sweep smoothly across the front prefrontal cortex as bright loops dim",
+      "consequence": "the front prefrontal cortex settles into a tranquil cool pearl-aqua glow",
+      "transition_to_next": "dissolve_8f",
+      "single_start_frame_lock": true,
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.37,
+            -1.7912,
+            1.3809
+          ],
+          "look_at": [
+            0.0091,
+            0.2136,
+            1.3408
+          ],
+          "fov_deg": 38.0
+        },
+        "camera_end": {
+          "pos": [
+            0.3869,
+            -1.8403,
+            1.4231
+          ],
+          "look_at": [
+            0.026,
+            0.1645,
+            1.383
+          ],
+          "fov_deg": 38.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "standalone isolated semi-transparent frosted-glass 3D human brain highlighting the front prefrontal cortex",
+            "pos_start": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#808690"
+          },
+          {
+            "block_id": "curved_backdrop",
+            "pos": [
+              0.0,
+              2.25,
+              1.6
+            ],
+            "size_xyz": [
+              4.6,
+              0.18,
+              3.2
+            ],
+            "color_hex": "#9298A2"
+          },
+          {
+            "block_id": "pedestal_plinth",
+            "pos": [
+              0.0,
+              0.05,
+              0.35
+            ],
+            "size_xyz": [
+              0.9,
+              0.9,
+              0.7
+            ],
+            "color_hex": "#767C87"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "standalone isolated semi-transparent frosted-glass 3D human brain highlighting the front prefrontal cortex",
+            "entity_kind": "actor"
+          }
+        },
+        "continuity_chained_from_cut": 15
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png",
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.69,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 17,
+      "end_sentence_index": 17,
+      "act": 5,
+      "scene_id": "S17",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "gentle_push_in",
+      "location_id": "living_room_sofa",
+      "environment": "warm evening living room with a plush oatmeal sofa, knit throw blanket, and soft floor lamp",
+      "cast": "clothed 2.5D matte cream-white vinyl young adult in a mustard cardigan curled up on the sofa",
+      "action": "rests one cheek against the sofa cushion and lets a hardcover book slip gently onto the lap in effortless drowsiness",
+      "consequence": "relaxed 2D charcoal-black ink eyelids droop peacefully without effort",
+      "expression_id": "deadpan_blink_pause",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.12,
+            -2.3265,
+            1.1718
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9518
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0994,
+            -2.2961,
+            1.1391
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.963
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "clothed 2.5D matte cream-white vinyl young adult in a mustard cardigan curled up on the sofa",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "clothed 2.5D matte cream-white vinyl young adult in a mustard cardigan curled up on the sofa",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_loc_living_room_sofa_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 6,
+      "locked_spoken_duration_sec": 4.86,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 18,
+      "end_sentence_index": 18,
+      "act": 5,
+      "scene_id": "S18",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "home_night_bedroom",
+      "environment": "quiet dark bedroom lit by cool window moonlight over the white duvet",
+      "cast": "same young adult now in navy pajamas lying flat on the bed staring upward",
+      "action": "turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark",
+      "consequence": "alert 2D charcoal-black ink eyes stay wide open in the quiet room",
+      "expression_id": "wide_eureka_realization",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.92,
+            -2.0265,
+            1.1446
+          ],
+          "look_at": [
+            0.0,
+            0.1735,
+            0.9546
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.9591,
+            -2.1788,
+            1.1136
+          ],
+          "look_at": [
+            0.026,
+            0.154,
+            0.9546
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+            "entity_kind": "actor"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_18_home_night_bedroom_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_18_home_night_bedroom_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.72,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 19,
+      "sentence_index": 19,
+      "end_sentence_index": 19,
+      "act": 6,
+      "scene_id": "S19",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "gentle_push_in",
+      "location_id": "watchman_lantern_battlement",
+      "environment": "warmly lit miniature stone guardhouse doorway with a brass wall hook",
+      "analogy_object": "the night watchman hanging his brass lantern and unmarked wooden clipboard onto the wall hook",
+      "cast": "the clothed 2.5D matte cream-white vinyl night watchman in the dark wool coat",
+      "action": "hangs the brass lantern and wooden clipboard onto the wall hook and tips his cap in gentle relief",
+      "consequence": "warm 2D charcoal-black ink eyes soften into a kind relieved smile",
+      "expression_id": "confident_half_smile_lock",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            0.12,
+            -2.515,
+            1.1219
+          ],
+          "look_at": [
+            0.0,
+            -0.015,
+            0.9019
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0863,
+            -2.1536,
+            1.0656
+          ],
+          "look_at": [
+            0.0227,
+            -0.0313,
+            0.9131
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "protagonist",
+            "label": "the clothed 2.5D matte cream-white vinyl night watchman in the dark wool coat",
+            "pos_start": [
+              0.0,
+              0.24,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.21,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "standing",
+            "pose_end": "standing",
+            "yaw_deg": 0.0,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "prop_diary_book",
+            "label": "experiment diary notebook",
+            "shape": "box",
+            "pos_start": [
+              0.0,
+              -0.34,
+              0.72
+            ],
+            "pos_end": [
+              0.03,
+              -0.36000000000000004,
+              0.72
+            ],
+            "size_xyz": [
+              0.2,
+              0.26,
+              0.04
+            ],
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "protagonist": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "the clothed 2.5D matte cream-white vinyl night watchman in the dark wool coat",
+            "entity_kind": "actor"
+          },
+          "prop_diary_book": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "experiment diary notebook",
+            "entity_kind": "prop"
+          }
+        }
+      },
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_19_watchman_lantern_bat_pv_start_9x16.png",
+      "single_start_frame_lock": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.49,
+      "forbid_slowmo_stretch": true
+    },
+    {
+      "clip_number": 20,
+      "sentence_index": 20,
+      "end_sentence_index": 20,
+      "act": 6,
+      "scene_id": "S20",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "home_night_bedroom",
+      "environment": "cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch",
+      "cast": "sleeper in navy pajamas seated beside the warm nightstand",
+      "action": "sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch",
+      "consequence": "serene 2D charcoal-black ink eyes close peacefully as the room dims",
+      "expression_id": "calm_focused_nod",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "auto_frame": true,
+        "camera_start": {
+          "pos": [
+            -0.1297,
+            -1.3855,
+            1.4174
+          ],
+          "look_at": [
+            0.0,
+            -0.1485,
+            0.9032
+          ],
+          "fov_deg": 44.0
+        },
+        "camera_end": {
+          "pos": [
+            0.1048,
+            -1.5731,
+            1.4786
+          ],
+          "look_at": [
+            0.0228,
+            -0.1717,
+            0.8976
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "actor_1",
+            "label": "sleeper in navy pajamas seated and the warm nightstand",
+            "pos_start": [
+              0.0,
+              0.12,
+              0.0
+            ],
+            "pos_end": [
+              0.04,
+              0.09,
+              0.0
+            ],
+            "height_m": 1.72,
+            "pose_start": "seated",
+            "pose_end": "seated",
+            "yaw_deg": 0.0,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "prop_toggle_switch",
+            "label": "heavy toggle switch",
+            "shape": "box",
+            "pos_start": [
+              0.0,
+              -0.34,
+              0.72
+            ],
+            "pos_end": [
+              0.03,
+              -0.36000000000000004,
+              0.72
+            ],
+            "size_xyz": [
+              0.22,
+              0.16,
+              0.16
+            ],
+            "yaw_deg": 0.0,
+            "compound_type": "toggle_switch",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.6,
+              4.6,
+              0.12
+            ],
+            "color_hex": "#8B9098"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.2,
+              1.55
+            ],
+            "size_xyz": [
+              4.6,
+              0.14,
+              3.1
+            ],
+            "color_hex": "#9EA3AC"
+          },
+          {
+            "block_id": "surface_block",
+            "pos": [
+              0.0,
+              -0.38,
+              0.36
+            ],
+            "size_xyz": [
+              1.3,
+              0.68,
+              0.72
+            ],
+            "color_hex": "#7C828D"
+          }
+        ],
+        "color_role_legend": {
+          "actor_1": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+            "entity_kind": "actor"
+          },
+          "prop_toggle_switch": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "heavy toggle switch",
+            "entity_kind": "prop"
+          }
+        }
+      },
+      "dual_keyframe_parallax": true,
+      "flow_input_mode": "VIDEO_FRAMES",
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_20_home_night_bedroom_pv_start_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_20_home_night_bedroom_pv_end_9x16.png",
+      "single_start_frame_lock": false,
+      "full_trajectory_span": true,
+      "render_sec": 7,
+      "locked_spoken_duration_sec": 5.78,
+      "forbid_slowmo_stretch": true
+    }
+  ],
+  "require_signature_hooks": true,
+  "us_anti_clone_v7": true,
+  "reenactment_track": "track_b",
+  "environment_props": [
+    "a tactile brushed-metal experimental instrument on a wooden desk"
+  ],
+  "cast": {
+    "subject": "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire",
+    "foil": "2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire"
+  },
+  "previs_role_color_registry": {
+    "protagonist": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "patient": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "patient_sm": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "child_subject": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "subject": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    },
+    "neurologist": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "neurologist_1": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "neurologist_2": {
+      "color_name": "Deep Indigo",
+      "color_hex": "#2B3A67"
+    },
+    "researcher": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "researcher_1": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "researcher_2": {
+      "color_name": "Deep Indigo",
+      "color_hex": "#2B3A67"
+    },
+    "professor": {
+      "color_name": "Slate Petrol",
+      "color_hex": "#4F6D7A"
+    },
+    "monster_actor": {
+      "color_name": "Saddle Ochre",
+      "color_hex": "#8C5A2B"
+    },
+    "foil": {
+      "color_name": "Saddle Ochre",
+      "color_hex": "#8C5A2B"
+    },
+    "assistant": {
+      "color_name": "Deep Indigo",
+      "color_hex": "#2B3A67"
+    },
+    "mini_cortex": {
+      "color_name": "Plum Magenta",
+      "color_hex": "#8F2D75"
+    },
+    "actor_1": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "prop_diary_book": {
+      "color_name": "Royal Violet",
+      "color_hex": "#7B2CBF"
+    },
+    "prop_toggle_switch": {
+      "color_name": "Forest Olive",
+      "color_hex": "#386641"
+    }
+  },
+  "reference_anchors": [
+    {
+      "ref_id": "ref_loc_virginia_sleep_bedroom_9x16",
+      "filename": "ref_loc_virginia_sleep_bedroom_9x16.png",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_home_night_bedroom_9x16",
+      "filename": "ref_loc_home_night_bedroom_9x16.png",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of quiet dark bedroom pillow lit by cool blue moonlight through sheer curtains with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_baylor_sleep_lab_9x16",
+      "filename": "ref_loc_baylor_sleep_lab_9x16.png",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warmly lit Baylor University sleep suite with an unmarked cream paper notepad and wooden pen with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_watchman_lantern_battlement_9x16",
+      "filename": "ref_loc_watchman_lantern_battlement_9x16.png",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_loc_living_room_sofa_9x16",
+      "filename": "ref_loc_living_room_sofa_9x16.png",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "location_master",
+      "setting": "real_env",
+      "location_id": "living_room_sofa",
+      "generation_order": 2,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm evening living room with a plush oatmeal sofa, knit throw blanket, and soft floor lamp with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "kf_01_virginia_sleep_bedro_pv_start_9x16",
+      "filename": "kf_01_virginia_sleep_bedro_pv_start_9x16.png",
+      "clip_number": 1,
+      "scene_id": "S01",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones staging places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a tired volunteer in navy pajamas lying on the bed",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_01_virginia_sleep_bedro_pv_end_9x16",
+      "filename": "kf_01_virginia_sleep_bedro_pv_end_9x16.png",
+      "clip_number": 1,
+      "scene_id": "S01",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of cozy dim bedroom test suite with a wooden headboard, warm amber nightstand lamp, and wired over-ear headphones staging places wired over-ear headphones gently onto the volunteer's head and presses play on a brushed-metal cassette with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "a clothed 2.5D matte cream-white vinyl psychologist in a white lab coat",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a tired volunteer in navy pajamas lying on the bed",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_04_virginia_sleep_bedro_pv_start_9x16",
+      "filename": "kf_04_virginia_sleep_bedro_pv_start_9x16.png",
+      "clip_number": 4,
+      "scene_id": "S04",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "camera_angle_tag": "three_quarter_orbit_right",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow staging pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_04_virginia_sleep_bedro_pv_end_9x16",
+      "filename": "kf_04_virginia_sleep_bedro_pv_end_9x16.png",
+      "clip_number": 4,
+      "scene_id": "S04",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "virginia_sleep_bedroom",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_virginia_sleep_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of moonlit bedroom bed with rumpled navy quilt and soft amber nightstand glow staging pulls the navy quilt up to the chin then sits halfway up staring wide-awake into the dark room with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the volunteer in navy pajamas tossing onto their back wearing the wired headphones",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_09_baylor_sleep_lab_pv_start_9x16",
+      "filename": "kf_09_baylor_sleep_lab_pv_start_9x16.png",
+      "clip_number": 9,
+      "scene_id": "S09",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp staging lifts and places a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleep scientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated young adult volunteer in a sage sweater",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_09_baylor_sleep_lab_pv_end_9x16",
+      "filename": "kf_09_baylor_sleep_lab_pv_end_9x16.png",
+      "clip_number": 9,
+      "scene_id": "S09",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of clean Baylor polysomnography bedroom with soft headboard, EEG sensor ribbon, and warm bedside lamp staging lifts and places a neat soft headband of thin sleep-sensor wires gently onto the seated volunteer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleep scientist in a white lab coat standing",
+          "entity_kind": "actor"
+        },
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a seated young adult volunteer in a sage sweater",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_11_baylor_sleep_lab_pv_start_9x16",
+      "filename": "kf_11_baylor_sleep_lab_pv_start_9x16.png",
+      "clip_number": 11,
+      "scene_id": "S11",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "camera_angle_tag": "three_quarter_orbit_left",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_baylor_sleep_lab_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of observation corridor window looking into the warm Baylor sleep room staging leans forward toward the observation glass and shakes the head slightly in skeptical suspense with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "researcher": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#1)",
+          "entity_kind": "actor"
+        },
+        "researcher_2": {
+          "color_name": "Deep Indigo",
+          "color_hex": "#2B3A67",
+          "target_label": "two clothed 2.5D matte cream-white vinyl sleep researchers in white lab coats and through the glass (#2)",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_14_watchman_lantern_bat_pv_start_9x16",
+      "filename": "kf_14_watchman_lantern_bat_pv_start_9x16.png",
+      "clip_number": 14,
+      "scene_id": "S14",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_watchman_lantern_battlement_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of miniature moonlit stone parapet diorama with a warm brass lantern post and wooden peg staging paces briskly along the moonlit stone wall holding the glowing brass lantern and tapping an unmarked clipboard with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "a clothed 2.5D matte cream-white vinyl night watchman in a dark wool coat carrying a glowing brass lantern",
+          "entity_kind": "actor"
+        },
+        "prop_diary_book": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "experiment diary notebook",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_18_home_night_bedroom_pv_start_9x16",
+      "filename": "kf_18_home_night_bedroom_pv_start_9x16.png",
+      "clip_number": 18,
+      "scene_id": "S18",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "camera_angle_tag": "fpv_aperture_wide",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (28mm f/8 deep-focus probe lens composition looking cleanly through a foreground aperture across the room) of quiet dark bedroom lit by cool window moonlight over the white duvet staging turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_18_home_night_bedroom_pv_end_9x16",
+      "filename": "kf_18_home_night_bedroom_pv_end_9x16.png",
+      "clip_number": 18,
+      "scene_id": "S18",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "camera_angle_tag": "three_quarter_orbit_left",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of quiet dark bedroom lit by cool window moonlight over the white duvet staging turns onto the back and counts three invisible errands on raised four-fingered fingertips in the dark with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "same young adult now in navy pajamas lying flat on the bed staring upward",
+          "entity_kind": "actor"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_19_watchman_lantern_bat_pv_start_9x16",
+      "filename": "kf_19_watchman_lantern_bat_pv_start_9x16.png",
+      "clip_number": 19,
+      "scene_id": "S19",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "watchman_lantern_battlement",
+      "camera_angle_tag": "three_quarter_orbit_left",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_watchman_lantern_battlement_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 35-degree f/8 deep-focus three-quarter left orbit composition with tack-sharp room depth) of warmly lit miniature stone guardhouse doorway with a brass wall hook staging hangs the brass lantern and wooden clipboard onto the wall hook and tips his cap in gentle relief with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "protagonist": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "the clothed 2.5D matte cream-white vinyl night watchman in the dark wool coat",
+          "entity_kind": "actor"
+        },
+        "prop_diary_book": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "experiment diary notebook",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_20_home_night_bedroom_pv_start_9x16",
+      "filename": "kf_20_home_night_bedroom_pv_start_9x16.png",
+      "clip_number": 20,
+      "scene_id": "S20",
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "camera_angle_tag": "three_quarter_orbit_right",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 35-degree f/8 deep-focus three-quarter right orbit composition showing tack-sharp spatial depth) of cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch staging sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+          "entity_kind": "actor"
+        },
+        "prop_toggle_switch": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "heavy toggle switch",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_20_home_night_bedroom_pv_end_9x16",
+      "filename": "kf_20_home_night_bedroom_pv_end_9x16.png",
+      "clip_number": 20,
+      "scene_id": "S20",
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "home_night_bedroom",
+      "camera_angle_tag": "eye_level_medium",
+      "is_hybrid_previs_anchor": true,
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "ref_loc_home_night_bedroom_9x16"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm f/8 deep-focus cinema composition facing the foreground action) of cozy wooden nightstand with an unmarked cream paper pad, brass pen, and warm bedside lamp switch staging sets the brass pen onto the finished paper pad and clicks off the warm bedside lamp switch with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "actor_1": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "sleeper in navy pajamas seated and the warm nightstand",
+          "entity_kind": "actor"
+        },
+        "prop_toggle_switch": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "heavy toggle switch",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "filename": "ref_cameo_9x16.png",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "setting": "real_env",
+      "location_id": "baylor_sleep_lab",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene of warm wooden nightstand in the Baylor sleep suite with an unmarked cream paper pad, brass pen, and warm lamp featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched quietly beside the warm brass lamp on the wooden nightstand, cinema key-and-rim lighting, zero floating captions."
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "filename": "ref_xray_brain_9x16.png",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "setting": "brain_studio",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master"
+      ],
+      "prompt": "Single full-bleed vertical 9:16 medical-grade 3D neuroanatomy scene in a deep midnight-navy studio void (#050811): an isolated semi-transparent frosted-glass 3D human brain (folded cerebral cortex gyri and sulci, cerebellum, brainstem) with glowing internal subcortical hubs (crimson-red, electric cyan-blue, warm amber-gold), zero mannequin head, zero face, zero bell jar, zero text."
+    }
+  ],
+  "audio_before_flow_locked": true
+}

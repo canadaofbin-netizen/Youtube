@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "clark_doll_experiment_bias",
   "topic": "Kenneth & Mamie Phipps Clark (1940–1950): The Four-Doll Experiment That Helped End Legal School Segregation",
   "pillar": "bci_ethics",
@@ -48,11 +48,42 @@
     },
     {
       "fact": "• Requests 5–7 proved **Children KNEW exact racial categories** (ruling out confusion!): **94% identified the white doll**, **93% identified the colored doll**. Then came heart-wrenching **Request 8**: ***'Give me the doll that looks like YOU.'***",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Racial Category Accuracy",
+        "percent": 94.0,
+        "unit": "%",
+        "doi": "10.2307/2966491",
+        "source_citation": "Clark & Clark (1950, J. Negro Educ.)"
+      }
     },
     {
       "fact": "The numbers shocked America's conscience: **67% preferred to play with the white doll**, **59% called the white doll the 'nice doll'**, and **59% pointed to the brown doll as the doll that 'looks bad'** — moments BEFORE having to point to that exact same doll on Request 8 (*'looks like you'*), where several 5-to-7-year-olds burst into tears or ran out of the room.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Clark Doll Choices (1950)",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Play: White Doll",
+            "value": 67.0,
+            "unit": "%"
+          },
+          {
+            "label": "Nice: White Doll",
+            "value": 59.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.2307/2966491",
+        "source_citation": "Clark & Clark (1950, J. Negro Educ.)"
+      }
     },
     {
       "fact": "On **May 17, 1954**, Chief Justice Earl Warren read the unanimous **9–0 U.S. Supreme Court ruling in *Brown v. Board of Education*** declaring *'separate educational facilities are inherently unequal'* — citing Kenneth & Mamie Clark directly at the top of **Footnote 11**, the first time empirical psychological data helped overturn a U.S. constitutional precedent (*Plessy v. Ferguson*).",
@@ -120,5 +151,38 @@
   ],
   "shorts_projects": [
     "diorama_26_clark_doll_experiment_bias"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.2307/2966491",
+  "three_layer_formula": {
+    "everyday_problem": "Walking down a bookstore or toy aisle and realizing how powerfully children aged 3–6 read 'who gets to be the hero on the cover'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.2307/2966491",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.2307/2966491"
+      ],
+      "summary": "Kenneth B. Clark, Mamie P. Clark (1950). Emotional Factors in Racial Identification and Preference in Negro Children. The Journal of Negro Education."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.21615/cesp.13.2.3",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.21615/cesp.13.2.3"
+      ],
+      "summary": "Dione do Nascimento Camilo, Giovanna Barroca De Moura, Carlos Eduardo Pimentel, José Angel Vera Noriega et al. (2020). Prejuicio racial entre niños de la educación infantil: revisitando Clark & Clark (1947). Revista CES Psicología."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Four-year-olds are completely 'color-blind' and never notice social status cues.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

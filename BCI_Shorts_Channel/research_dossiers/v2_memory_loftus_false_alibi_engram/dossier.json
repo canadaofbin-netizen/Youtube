@@ -52,27 +52,23 @@
       "source_id": "loftus_1995",
       "doi": "10.3928/0048-5713-19951201-07",
       "source_ids": [
-        "loftus_1995",
-        "loftus_1974"
+        "loftus_1995"
       ],
       "dois": [
-        "10.3928/0048-5713-19951201-07",
-        "10.1016/S0022-5371(74)80011-3"
+        "10.3928/0048-5713-19951201-07"
       ],
-      "summary": "Loftus & Palmer (1974) shifted eyewitness car-speed estimates by 9 mph and planted nonexistent broken glass with a single verb ('smashed'), and Loftus & Pickrell (1995) planted an entire fake childhood shopping-mall disappearance in 25% of adults."
+      "summary": "The Formation of False Memories"
     },
     "neuroscience_mechanism": {
       "source_id": "chadwick_2016",
       "doi": "10.1073/pnas.1610686113",
       "source_ids": [
-        "chadwick_2016",
-        "carpenter_2018"
+        "chadwick_2016"
       ],
       "dois": [
-        "10.1073/pnas.1610686113",
-        "10.1037/xge0000391"
+        "10.1073/pnas.1610686113"
       ],
-      "summary": "Chadwick et al. (2016, PNAS) fMRI decoded anterior temporal semantic overlap predicting false memories, and Carpenter & Schacter (2018) proved hippocampal flexible retrieval splices real fragments into convincing new scenes."
+      "summary": "Semantic representations in the temporal pole predict false memories"
     }
   },
   "debate_ignition": {
@@ -83,7 +79,28 @@
   "core_facts": [
     {
       "fact": "In 1974, Elizabeth Loftus and John Palmer showed 45 students films of two cars colliding and changed one verb: 'smashed' yielded 40.8 mph estimates versus 31.8 mph for 'contacted'.",
-      "source_id": "loftus_1974"
+      "source_id": "loftus_1974",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Verb-Biased Speed Estimate",
+        "unit": "mph",
+        "bars": [
+          {
+            "label": "\"Smashed\" Verb",
+            "value": 40.8,
+            "unit": "mph"
+          },
+          {
+            "label": "\"Contacted\" Verb",
+            "value": 31.8,
+            "unit": "mph"
+          }
+        ],
+        "doi": "10.1016/S0022-5371(74)80011-3",
+        "source_citation": "Loftus & Palmer (1974)"
+      }
     },
     {
       "fact": "One week later, 32 percent of the 'smashed' group swore they saw broken glass on the road compared with 14 percent of the 'hit' group, even though zero broken glass existed in the film.",
@@ -95,7 +112,17 @@
     },
     {
       "fact": "Six of the 24 adults — 25 percent — claimed to remember the fake shopping-mall event, and several invented extra details like an elderly rescuer's flannel shirt.",
-      "source_id": "loftus_1995"
+      "source_id": "loftus_1995",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "False Mall Memory Recall",
+        "highlighted_k": 6,
+        "total_n": 24,
+        "doi": "10.3928/0048-5713-19951201-07",
+        "source_citation": "Loftus & Pickrell (1995)"
+      }
     },
     {
       "fact": "In 2016, human fMRI pattern decoding proved the anterior temporal lobe's semantic similarity code predicts which related lure concepts a person will falsely remember.",

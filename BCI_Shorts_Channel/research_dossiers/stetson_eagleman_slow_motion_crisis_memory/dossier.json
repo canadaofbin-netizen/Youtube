@@ -1,0 +1,206 @@
+{
+  "schema_version": 2,
+  "slug": "stetson_eagleman_slow_motion_crisis_memory",
+  "topic": "Why Car Crashes Feel Like Slow Motion — Even Though Your Eyes Never Speed Up",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "anxiety",
+  "created_at": "2026-11-16T03:49:49+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Combines the sunlit outdoor 150-foot Dallas SCAD free-fall tower and rapid-flashing LED wrist chronometer with 3D brain cutaways contrasting normal-frame-rate primary visual cortex against hyper-dense amygdala-hippocampal memory recording.",
+  "setup_18w": "Volunteers fell backward a hundred and fifty feet off a tower while reading a flashing wrist number.",
+  "primary_doi": "10.1371/journal.pone.0001295",
+  "three_layer_formula": {
+    "everyday_problem": "Hitting a patch of highway black ice or catching a falling glass at age 45 and swearing the three-second crisis unfolded in crystal-clear Hollywood slow motion.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1371/journal.pone.0001295",
+      "source_ids": [
+        "SRC1",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1371/journal.pone.0001295",
+        "10.1016/j.conb.2008.06.002"
+      ],
+      "summary": "Stetson, Fiesta & Eagleman (2007, PLoS ONE) 150-foot (31-meter) SCAD tower free-fall experiment with a wrist-mounted flickering LED perceptual chronometer."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1002/hipo.23074",
+      "year": 2019,
+      "source_ids": [
+        "SRC4",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1002/hipo.23074",
+        "10.3758/s13423-017-1313-9"
+      ],
+      "summary": "Clewett, DuBrow & Davachi (2019, Hippocampus) and Bowen, Kark & Kensinger (2018, Psychonomic Bulletin & Review) mapping how emotional arousal and amygdala-hippocampal encoding density expand retrospective duration judgments."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1371/journal.pone.0001295",
+        "year": 2007,
+        "summary": "150-foot backward free-fall tower test proving 36% retrospective duration expansion with zero gain in visual flicker resolution."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.3389/fpsyg.2012.00196",
+        "year": 2012,
+        "summary": "Theoretical analysis of attentional speed vs retrospective memory density in real-world accidents."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC4",
+        "doi": "10.1002/hipo.23074",
+        "year": 2019,
+        "summary": "Hippocampal-prefrontal event-boundary and memory-density mechanisms governing subjective elapsed time."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.3758/s13423-017-1313-9",
+        "year": 2018,
+        "summary": "Amygdala-driven sensory recapitulation showing negative emotional events pack richer sensory detail into memory traces."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "David Eagleman & Chess Stetson's 2007 150-Foot Free-Fall Tower Perceptual Chronometer Test",
+    "year": 2007,
+    "place": "Zero Gravity Thrill Park (150-Foot SCAD Tower, Dallas, Texas) & Baylor College of Medicine / Caltech, USA",
+    "summary": "To test whether human vision genuinely speeds up like a high-speed camera during mortal terror, Chess Stetson, Matthew Fiesta, and David Eagleman strapped a rapid-flickering LED wrist chronometer onto volunteers and dropped them 150 feet backward into a net — proving eyes gain 0% extra speed while amygdala-charged memory stretches remembered time by 36%.",
+    "people": [
+      {
+        "name": "David M. Eagleman, Chess Stetson & Matthew P. Fiesta",
+        "role": "Baylor College of Medicine & Caltech neuroscientists who built the wrist perceptual chronometer (PLoS ONE, 2007)",
+        "source_id": "SRC1",
+        "bio": "Designed a decisive physical test separating live visual frame-rate acceleration from retrospective memory packing."
+      },
+      {
+        "name": "Dallas 150-Foot SCAD Free-Fall Volunteers",
+        "role": "Healthy adults released backward unattached down a 31-meter vertical drop into a suspended catch net",
+        "source_id": "SRC1",
+        "bio": "Stared at a flickering LED wrist display during ~2.5 seconds of 70-mph free fall after calibrating their ground-level visual fusion threshold."
+      },
+      {
+        "name": "Lila Davachi, David Clewett & Elizabeth A. Kensinger",
+        "role": "Modern memory neuroscientists mapping hippocampal event density (2019) and negative-valence recapitulation (2018)",
+        "source_id": "SRC4",
+        "bio": "Showed how high-arousal boundaries pack extra sensory snapshots into hippocampal memory, making short crises read back as long."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Nearly everyone who survives a highway spinout, ladder slip, or sudden crisis swears time physically slowed down while it happened — prompting Stetson, Fiesta & Eagleman (2007 PLoS ONE) to test whether the brain's visual camera actually speeds up its frame rate.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Eagleman's team engineered a custom wrist-mounted 'perceptual chronometer' whose LED segments alternated a two-digit number with its exact negative inverse just slightly faster than each person's ground-level flicker threshold — so on solid ground it blurred into a uniform square, and ONLY a real-time speedup in visual temporal resolution could make the digits readable.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Volunteers were hoisted 150 feet (roughly 31 meters) up a Dallas Suspended Catch Air Device (SCAD) tower, hung backward from a release hook with zero bungee cord, and dropped into ~2.5 seconds of pure free fall reaching ~70 mph before landing safely in an air-cushioned net.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Although every volunteer's actual 150-foot backward free fall lasted roughly 2.5 seconds (watching others fall served as the 100 percent reference), jumpers retrospectively estimated their own terrifying fall lasted 36 percent longer — 136 percent of a watched fall — despite 0 percent improvement in reading the flashing wrist chronometer.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Perceived Crisis Duration",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Watching Others",
+            "value": 100.0,
+            "unit": "%"
+          },
+          {
+            "label": "Own Free Fall",
+            "value": 136.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1371/journal.pone.0001295",
+        "source_citation": "Stetson et al. (2007)"
+      }
+    },
+    {
+      "fact": "During the 150-foot plunge, volunteers' accuracy at reading the fast-alternating wrist LED digits did not beat normal ground-level vision at all — ruling out Hollywood 'bullet-time' eye acceleration.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Eagleman (2008 Current Opinion in Neurobiology) explained the paradox: you do not SEE in slow motion during the crisis; instead, your terrified amygdala forces memory circuits to record a second, ultra-detailed sensory track.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Dirnberger et al. (2012 NeuroImage) confirmed on human fMRI that emotionally arousing stimuli simultaneously distort subjective duration and strengthen subsequent memory encoding via amygdala and insular recruitment.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Bowen, Kark & Kensinger (2018) and Clewett, DuBrow & Davachi (2019 Hippocampus) proved that negative arousal and sharp event boundaries pack denser sensory snapshots into hippocampal traces — so when your brain replays a dense 2.5-second file later, it assumes more clock time must have passed.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Falling 150 feet backward at 70 mph stretched volunteers' remembered fall duration by 36 percent — yet gave them zero extra speed at reading a flashing LED watch strapped right in front of their eyes.",
+      "why_surprising": "Shatters the lifelong intuition that human eyes enter 'super-speed' slow motion during emergencies.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Slow-motion crisis perception is written AFTER the danger starts: your amygdala switches on high-density hippocampal recording, and your brain misreads the larger memory file size as longer elapsed time.",
+      "why_surprising": "What feels like a live perceptual superpower is actually an instant retrospective memory illusion.",
+      "source_id": "SRC6",
+      "rank": 2
+    },
+    {
+      "fact": "This exact same hippocampal memory-density rule explains why childhood summers packed with first-time experiences feel endless in hindsight, whereas repetitive adult commute decades blur past in a blink (Clewett, DuBrow & Davachi, 2019).",
+      "why_surprising": "Unites 2.5-second highway emergencies and 10-year adult aging perception under one single brain rule.",
+      "source_id": "SRC4",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Adrenaline speeds up your visual cortex frame rate so you see danger in real-time Matrix slow motion.",
+      "truth": "Stetson, Fiesta & Eagleman's (2007) flashing wrist chronometer proved visual temporal resolution does not speed up during a 150-foot free fall.",
+      "reality": "Stetson, Fiesta & Eagleman's (2007) flashing wrist chronometer proved visual temporal resolution does not speed up during a 150-foot free fall.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "People who report slow-motion car skids are exaggerating or making stories up.",
+      "truth": "The 36% time-stretch is completely real to the survivor because amygdala-charged hippocampal traces store far more sensory detail per second than calm moments.",
+      "reality": "The 36% time-stretch is completely real to the survivor because amygdala-charged hippocampal traces store far more sensory detail per second than calm moments.",
+      "source_id": "SRC4"
+    },
+    {
+      "myth": "Years inevitably feel faster after 40 because an aging biological clock ticks slower.",
+      "truth": "Routine autopilot starves the hippocampus of fresh event boundaries, shrinking memory file size so routine years compress on look-back.",
+      "reality": "Routine autopilot starves the hippocampus of fresh event boundaries, shrinking memory file size so routine years compress on look-back.",
+      "source_id": "SRC4"
+    }
+  ],
+  "everyday_hooks": [
+    "Hitting highway gravel or catching a tumbling coffee mug at 50 and remembering every airborne droplet as if five full seconds passed.",
+    "Wondering why a three-second fender-bender feels longer in your memory than an entire monotonous month of identical Tuesday commutes.",
+    "Using fresh weekend routes and novel experiences after 40 to pack denser hippocampal landmarks so your years stop flying by."
+  ],
+  "offcenter_creator_bet": "My bet: slow-motion is a memory replay — our eyes run at normal speed while memory records overtime. Did time stretch live for you or only after?",
+  "debate_ignition": {
+    "prebunk_myth": "Movies and intuition tell us adrenaline speeds up our eyes like a high-frame-rate camera during an emergency.",
+    "open_verdict_question": "In your sharpest real-life close call, did it feel like your eyes genuinely sped up live or did your memory pack ten times more detail?",
+    "offcenter_creator_bet": "My bet: slow-motion is a memory replay — our eyes run at normal speed while memory records overtime. Did time stretch live for you or only after?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

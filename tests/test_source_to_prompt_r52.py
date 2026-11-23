@@ -140,7 +140,7 @@ def test_omni_only_and_render_ceilings() -> None:
     from pipeline.config import ALLOWED_FLOW_MODELS, FLOW_ACTIVE_VIDEO_MODEL
     from pipeline.scene_blueprint import render_ceiling_sec
 
-    assert FLOW_ACTIVE_VIDEO_MODEL == "Omni 1.1 Flash" and FLOW_ACTIVE_VIDEO_MODEL in ALLOWED_FLOW_MODELS
+    assert FLOW_ACTIVE_VIDEO_MODEL == "Omni 1.2 Flash" and FLOW_ACTIVE_VIDEO_MODEL in ALLOWED_FLOW_MODELS
     assert FLOW_ALLOWED_DURATION_TARGETS == ("4s", "6s", "8s", "10s") and CLIP_MAX_RENDER_SEC == 10
     assert render_ceiling_sec("flow", has_reference=False) == 10
     assert render_ceiling_sec("flow", has_reference=True) == 8 and render_ceiling_sec("gemini_app") == 8

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "olds_milner_pleasure_center",
   "topic": "James Olds & Peter Milner (1954): Accidental Septal-Mesolimbic Brain Stimulation & 7,500 Lever Presses",
   "pillar": "bci_tech",
@@ -56,11 +56,33 @@
     },
     {
       "fact": "Electrodes implanted in control regions such as the caudate nucleus or corpus callosum produced neutral response rates near 4 to 10 percent of session time, while tegmental electrodes triggered active avoidance.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Control Region Pressing",
+        "percent": 10.0,
+        "unit": "%",
+        "doi": "10.1037/h0058775",
+        "source_citation": "Olds & Milner (1954)"
+      }
     },
     {
       "fact": "The moment Olds switched off the stimulator current, lever pressing dropped sharply toward baseline, then surged back within seconds when current was restored.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "exp_decay",
+        "title": "Post-Current Extinction Drop",
+        "concept": "Rapid Extinction After Stimulation Off",
+        "x_label": "Time After Current Off",
+        "y_label": "Lever Press Rate",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Decades later, Kent Berridge and Terry Robinson demonstrated that mesolimbic dopamine fibers running through Olds and Milner's stimulation zone mediate compulsive 'wanting' (incentive motivation) rather than sensory 'liking'.",
@@ -137,5 +159,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hard take: dopamine is wanting, not joy — Rat 34 pressed a lever thousands of times chasing anticipation over food. Which app hook feels closest to that endless lever today?"
+  "offcenter_creator_bet": "Hard take: dopamine is wanting, not joy — Rat 34 pressed a lever thousands of times chasing anticipation over food. Which app hook feels closest to that endless lever today?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0058775",
+  "three_layer_formula": {
+    "everyday_problem": "Doom-scrolling short videos at 1:30 a.m. when you aren't even enjoying them anymore — pure 'wanting' lever-pressing with zero 'liking'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0058775",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0058775"
+      ],
+      "summary": "James Olds, Peter Milner (1954). Positive reinforcement produced by electrical stimulation of septal area and other regions of rat brain. Journal of Comparative and Physiological Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1016/j.neuron.2015.02.018",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1016/j.neuron.2015.02.018"
+      ],
+      "summary": "Kent C. Berridge, Morten L. Kringelbach (2015). Pleasure Systems in the Brain. Neuron."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Olds and Milner discovered a single pure 'pleasure center' that floods the brain with serene happiness.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hard take: dopamine is wanting, not joy — Rat 34 pressed a lever thousands of times chasing anticipation over food. Which app hook feels closest to that endless lever today?"
+  }
 }

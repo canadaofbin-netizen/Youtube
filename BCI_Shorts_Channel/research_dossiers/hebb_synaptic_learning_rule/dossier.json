@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "hebb_synaptic_learning_rule",
   "topic": "Donald Hebb (1949) & Bliss and Lømo (1973): 'Cells That Fire Together, Wire Together' — From Bold Guess to LTP Proof",
   "pillar": "brain_basics",
@@ -44,7 +44,19 @@
     },
     {
       "fact": "For **24 years**, Hebb's page-62 rule was pure theoretical genius waiting for physiological proof — until **Terje Lømo (1966)** in Oslo and **Tim Bliss & Terje Lømo (1973 *Journal of Physiology*, SRC2, SRC3)** stimulated the perforant pathway into the **hippocampus** with brief high-frequency bursts and watched the postsynaptic response **jump up by 200%+ and stay elevated for hours, days, and weeks**: **Long-Term Potentiation (LTP)**.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "sigmoid",
+        "title": "Hebbian LTP Coincidence Curve",
+        "concept": "Hebbian Coincidence Potentiation",
+        "x_label": "Coincident Firing",
+        "y_label": "Synaptic Weight",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "In the 1980s (Collingridge; Nicoll; Malenka), molecular neuroscientists found **nature's exact microscopic 'Hebb Coincidence Lock'**: the **NMDA glutamate receptor**. A magnesium ion (**Mg2+**) plugs the NMDA channel like a champagne cork — **ONLY when Presynaptic Cell A releases glutamate AT THE EXACT SAME MILLISECOND that Postsynaptic Cell B is already depolarized ('firing!') does the Mg2+ cork pop out**, letting calcium rush in to strengthen the synapse.",
@@ -118,5 +130,37 @@
     "diorama_66_hebb_synaptic_learning_rule"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "sleep",
+  "primary_doi": "10.4324/9781410612403",
+  "three_layer_formula": {
+    "everyday_problem": "Smelling cinnamon or rain and having an entire childhood kitchen or summer song pop into your head in 100 milliseconds — an entire **Hebbian Cell Assembly** igniting from one shared node.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.4324/9781410612403",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.4324/9781410612403"
+      ],
+      "summary": "D.O. Hebb (2005). The Organization of Behavior."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.7244/cmj.2016.02.002",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.7244/cmj.2016.02.002"
+      ],
+      "summary": "Jungwoo Kang (2016). Historical figures in neuroscience: Donald Hebb. Cambridge Medicine Journal."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Donald Hebb literally wrote the slogan 'Cells that fire together, wire together' in 1949.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

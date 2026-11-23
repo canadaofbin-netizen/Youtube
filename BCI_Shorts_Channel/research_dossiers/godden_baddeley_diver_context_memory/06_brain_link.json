@@ -1,4 +1,32 @@
 {
-  "visual_mode": "BEHAVIORAL_PSYCH",
-  "links": []
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "step1",
+      "region": "hippocampus",
+      "plain": "memory hub stapling surrounding room sights and sounds onto new words",
+      "function": "binds environmental context cues (dry rocky shore vs 20-foot underwater dive) directly to newly encoded word traces",
+      "scene_id": "S1",
+      "narration_bridge": "Explains why matched Dry-Dry (13.5) and Wet-Wet (11.4) runs unlocked stored word lists in Godden & Baddeley (1975, SRC1) and Murre (2021, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "temporal lobe",
+      "plain": "side memory lobe losing its environmental cue match on dry land after an underwater dive",
+      "function": "fails to supply ambient background cues when retrieval surroundings mismatch encoding surroundings",
+      "scene_id": "S1",
+      "narration_bridge": "Drives the drop to 8.6 and 8.4 words on mismatched land-water switches (SRC1).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "frontal planner rebuilding the original room in imagination to unlock blank-page search",
+      "function": "steers deliberate mental context reinstatement during uncued free recall while recognition bypasses background cues",
+      "scene_id": "S3",
+      "narration_bridge": "Bridges Godden & Baddeley's 1980 recognition boundary (SRC2) with mental room reinstatement (SRC3).",
+      "r78_circuit_state": "active"
+    }
+  ]
 }

@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "slug": "burns_2024_2025_night_light_circadian_mental_risk",
+  "topic": "86,000-Person Study: Why Bedroom Night Light Disrupts Mood Even If You Sleep",
+  "pillar": "brain_news",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T03:43:55+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "NEURO_BIOLOGY visualizes photons leaking through closed eyelids onto the retina and firing straight into the #27D8FF 3D hypothalamus and amygdala mood circuits across 86,772 adults.",
+  "setup_18w": "Scientists put wrist light sensors on eighty-six thousand adults to compare dark nights and bright days.",
+  "primary_doi": "10.1038/s44220-023-00135-8",
+  "three_layer_formula": {
+    "everyday_problem": "Falling asleep with a bedroom TV, hallway sconce, or streetlight glow leaking across the bed and wondering why your mood and energy feel flat despite sleeping seven hours.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/s44220-023-00135-8",
+      "source_ids": [
+        "SRC1",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1038/s44220-023-00135-8",
+        "10.1073/pnas.1418490112"
+      ],
+      "summary": "Burns et al. (2023, Nature Mental Health) tracked 86,772 midlife/older adults with wrist light sensors, showing nighttime bedroom light raises depression risk by 30% while bright daytime light lowers it by 20%, independent of sleep duration."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1073/pnas.2113290119",
+      "year": 2022,
+      "source_ids": [
+        "SRC2",
+        "SRC3",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1073/pnas.2405924121",
+        "10.1073/pnas.2113290119",
+        "10.1038/s41593-020-0640-8"
+      ],
+      "summary": "Mason & Zee (2022, PNAS) proved 1 night at 100 lux vs <3 lux elevates overnight sympathetic heart rate and morning insulin resistance, while An et al. (2020, Nature Neuroscience) and Windred et al. (2024, PNAS) mapped circadian-gated retinal-to-mood pathways and 8-year survival."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1038/s44220-023-00135-8",
+        "year": 2023,
+        "summary": "Objective 7-day wrist light-sensor study across 86,772 adults (mean age 62.4) linking night light to psychiatric risk."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1073/pnas.1418490112",
+        "year": 2015,
+        "summary": "Harvard inpatient crossover trial comparing evening backlit eReaders against printed books."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1073/pnas.2405924121",
+        "year": 2024,
+        "summary": "Prospective 8-year follow-up in 88,905 sensor-tracked adults modeling circadian amplitude and survival."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1073/pnas.2113290119",
+        "year": 2022,
+        "summary": "Inpatient polysomnography trial comparing 100 lux bedroom light vs <3 lux dim darkness."
+      },
+      {
+        "source_id": "SRC4",
+        "doi": "10.1038/s41593-020-0640-8",
+        "year": 2020,
+        "summary": "Discovery of circadian-gated retinal melanopsin pathway driving nighttime-light depressive behaviors."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "86,772-Adult Wrist Light-Sensor Study & Northwestern's 100-Lux Closed-Eyelid Sleep Trial",
+    "year": 2024,
+    "place": "Monash University / Harvard Medical School / UK Biobank & Northwestern University Feinberg School of Medicine, USA",
+    "people": [
+      {
+        "name": "Angus C. Burns, Daniel P. Windred, Sean W. Cain & Andrew J. K. Phillips",
+        "role": "Circadian researchers who analyzed 7-day wrist light-sensor profiles across 86,772 and 88,905 adults aged 62 on average",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Ivy C. Mason, Daniela Grimaldi & Phyllis C. Zee",
+        "role": "Northwestern sleep physiologists who tested sleeping 1 night under 100-lux room light versus <3-lux darkness",
+        "source_id": "SRC3"
+      },
+      {
+        "name": "Anne-Marie Chang & Charles A. Czeisler",
+        "role": "Harvard Medical School sleep investigators who compared evening light-emitting readers against printed paper books",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Burns et al. analyzed objective 7-day wrist light-sensor recordings across 86,772 adults (average age 62.4 years, 57 percent women) in the largest personal light and mental-health study ever conducted.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Adults in the brightest quartile of nighttime light exposure faced a 30 percent higher risk of major depression, whereas adults in the brightest daytime light quartile had a 20 percent lower depression risk.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Depression Risk Shift",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Bright Night Risk",
+            "value": 30.0,
+            "unit": "%"
+          },
+          {
+            "label": "Bright Day Drop",
+            "value": 20.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1038/s44220-023-00135-8",
+        "source_citation": "Burns et al. (2023)"
+      }
+    },
+    {
+      "fact": "Greater nighttime light exposure also independently predicted higher rates of generalized anxiety disorder, PTSD, bipolar disorder, and psychosis even after adjusting for total sleep duration, physical activity, and shift work.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Windred and Burns's 8-year prospective follow-up of 88,905 adults (3,750 deaths tracked), sleeping in the brightest 10 percent of bedrooms increased all-cause mortality risk by 21 to 34 percent, while bright daytime light lowered mortality risk by 17 to 34 percent.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In Mason and Zee's controlled inpatient trial, sleeping just 1 night under moderate 100 lux room light versus a dim 3 lux bedroom raised nighttime heart rate, lowered heart-rate variability, and spiked next-morning insulin resistance.",
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Sleep Lab Room Brightness",
+        "unit": "lux",
+        "bars": [
+          {
+            "label": "Dim Hallway Glow",
+            "value": 100.0,
+            "unit": "lux"
+          },
+          {
+            "label": "Dark Sleep Suite",
+            "value": 3.0,
+            "unit": "lux"
+          }
+        ],
+        "doi": "10.1073/pnas.2113290119",
+        "source_citation": "Mason et al. (2022)"
+      }
+    },
+    {
+      "fact": "Kai An et al. mapped a circadian-gated neural wire from melanopsin cells in the retina through subcortical relays into mood and reward hubs—active specifically when light hits the eye at night, even without breaking total sleep time.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "The hypothalamic suprachiasmatic nucleus relies on high amplitude between bright solar days and dark nights to synchronize hormone, temperature, and mood cycles.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Across 1,508 surveyed Americans, 90 percent used electronics within 1 hour of bedtime; in Harvard's crossover trial, evening light-emitting eReaders suppressed melatonin, delayed circadian timing, and reduced next-morning alertness compared with printed books.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Daytime outdoor light and nighttime bedroom darkness operate independently—meaning morning sunlight helps protect mood even while you tighten bedroom blackout habits.",
+      "source_id": "SRC1"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Across 86,772 wrist-tracked adults, bedroom light at night raised major depression risk by 30 percent even when total hours of sleep stayed the same.",
+      "why_surprising": "Proves closed eyelids do not block circadian mood disruption.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Just one single night asleep under 100-lux room light—the glow of a dim hallway or muted TV—kept overnight heart rate elevated and spiked morning insulin resistance.",
+      "why_surprising": "Your autonomic nervous system stays in daytime alert mode while you think you are sleeping.",
+      "source_id": "SRC3",
+      "rank": 2
+    },
+    {
+      "fact": "Getting into the brightest quartile of daytime light cut depression risk by 20 percent and lowered 8-year mortality hazard by up to 34 percent.",
+      "why_surprising": "Morning outdoor sky acts like a free daily antidepressant and circadian anchor.",
+      "source_id": "SRC2",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "I fall right asleep with the bedroom TV or lamp on, so light at night doesn't bother my brain.",
+      "truth": "Five to ten percent of room light penetrates closed eyelids, triggering retinal melanopsin sensors that raise heart rate and flatten circadian mood amplitude.",
+      "source_id": "SRC3"
+    },
+    {
+      "myth": "Avoiding night light is the whole story—indoor office light is plenty during the day.",
+      "truth": "Dim indoor bulbs starve the hypothalamic clock; high daytime outdoor light independently reduced depression risk by 20 percent across 86,772 adults.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Falling asleep at 10:30 PM with a bedroom TV flickering across closed eyelids and waking up wired yet emotionally flat.",
+    "Doing the 12-inch bedtime palm check: if you can clearly see your hand in the dark, your room is above 3 lux.",
+    "Stepping onto your porch or sidewalk for 15 minutes of morning sky while drawing full blackout curtains at night."
+  ],
+  "offcenter_creator_bet": "My bet: even dim bedroom TV hurts mood — do you sleep in pitch darkness or keep a night light on?",
+  "debate_ignition": {
+    "prebunk_myth": "Many adults think bedroom light is harmless once their eyes close, not realizing closed eyelids still leak photons straight to the brain's clock.",
+    "open_verdict_question": "At bedtime in your house, do you lock the room into pitch-black darkness or fall asleep with a TV or hallway glow on?",
+    "offcenter_creator_bet": "My bet: even dim bedroom TV hurts mood — do you sleep in pitch darkness or keep a night light on?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

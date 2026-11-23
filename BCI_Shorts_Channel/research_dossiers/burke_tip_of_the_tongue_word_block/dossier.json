@@ -1,0 +1,211 @@
+{
+  "schema_version": 2,
+  "slug": "burke_tip_of_the_tongue_word_block",
+  "topic": "Why Known Names Freeze on the Tip of Your Tongue — And Why Forcing Fails",
+  "pillar": "brain_basics",
+  "everyday_domain": "memory",
+  "created_at": "2026-11-16T03:47:28+00:00",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Deborah Burke's 1991 4-week tip-of-the-tongue diary experiment and Warriner & Humphreys' 2008 10s-vs-30s error-learning trial pair instantly relatable adult dinner-party name freezes with modern fMRI/DTI mapping of the broken sound-bridge between temporal meaning hubs, insula, and Broca's speech center.",
+  "setup_18w": "Younger and older adults kept diaries of every blocked name and tested whether guessing helped or hurt.",
+  "three_layer_formula": {
+    "everyday_problem": "Spotting a longtime neighbor or favorite actor at age 48, picturing their face, job, and first initial crystal-clear — while their actual name freezes solid on the tip of your tongue.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/0749-596x(91)90026-g",
+      "source_ids": [
+        "SRC1",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1016/0749-596x(91)90026-g",
+        "10.1080/17470210701728867"
+      ],
+      "summary": "Deborah M. Burke, Donald G. MacKay, Joanna S. Worthley, Elizabeth Wade (1991). On the tip of the tongue: What causes word finding failures in young and older adults? Journal of Memory and Language."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1016/j.neuroimage.2016.05.072",
+      "year": 2016,
+      "source_ids": [
+        "SRC4",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1016/j.neuroimage.2016.05.072",
+        "10.1515/tnsci-2016-0014"
+      ],
+      "summary": "Laurie S. Glezer, Guinevere Eden et al. (2016). Uncovering phonological and orthographic selectivity across the reading network using fMRI-RA. NeuroImage."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1016/0749-596x(91)90026-g",
+        "year": 1991
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.1080/17470210701728867",
+        "year": 2008
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.3758/s13421-010-0066-8",
+        "year": 2011
+      },
+      {
+        "source_id": "SRC7",
+        "doi": "10.1037/0033-2909.109.2.204",
+        "year": 1991
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC4",
+        "doi": "10.1016/j.neuroimage.2016.05.072",
+        "year": 2016
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1515/tnsci-2016-0014",
+        "year": 2016
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1016/s0896-6273(01)00396-8",
+        "year": 2001
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "Deborah M. Burke's 1991 Pomona College 4-Week Tip-of-the-Tongue Diary Study & Warriner's 2008 Straining Trap",
+    "year": 1991,
+    "place": "Department of Psychology, Pomona College, Claremont, California",
+    "people": [
+      {
+        "name": "Deborah M. Burke, Donald G. MacKay, Joanna S. Worthley & Elizabeth Wade",
+        "role": "Cognitive aging psycholinguists who tracked 4-week word-block diaries across young, middle-aged, and older adults and formulated the Transmission Deficit Hypothesis",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Young, Middle-Aged & Older Adult Diary Reporters (Ages 18 to 80+)",
+        "role": "Everyday adults logging real-world name freezes over 28 days — showing proper names of acquaintances not seen recently dominate midlife and older word blocks",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Amy Beth Warriner & Karin R. Humphreys (2008) + Anat Maril, Laurie Glezer & Vanja Kljajevic",
+        "role": "Behavioral and neuroimaging teams proving 30 seconds of straining stamps the block deeper and mapping the insula, anterior cingulate, Broca's, and temporal-frontal white-matter pathways",
+        "source_id": "SRC2"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Across Burke, MacKay, Worthley, and Wade's 4-week everyday diary study (1991), young adults averaged 3.92 tip-of-the-tongue blocks, middle-aged adults averaged 5.4, and older adults averaged 6.56 — with proper names of acquaintances topping every single age group.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "4-Week Blocked Words by Age",
+        "unit": "blocks",
+        "bars": [
+          {
+            "label": "Young Adults",
+            "value": 3.92,
+            "unit": "blocks"
+          },
+          {
+            "label": "Middle-Aged",
+            "value": 5.4,
+            "unit": "blocks"
+          },
+          {
+            "label": "Older Adults",
+            "value": 6.56,
+            "unit": "blocks"
+          }
+        ],
+        "doi": "10.1016/0749-596x(91)90026-g",
+        "source_citation": "Burke et al. (1991)"
+      }
+    },
+    {
+      "fact": "Burke's Transmission Deficit Hypothesis explained why proper names freeze first: common nouns like 'baker' carry rich meaning links (bread, oven, apron), whereas 'Mr. Baker' is a single arbitrary label — if one thin bridge from meaning to sound weakens from disuse, the syllables stall.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even during a total block, volunteers frequently knew the exact first letter, syllable count, or stress rhythm of the missing name (Alan Brown, 1991), proving the memory itself was never erased.",
+      "source_id": "SRC7"
+    },
+    {
+      "fact": "Why does 'forcing it' backfire? In 2008, Amy Beth Warriner and Karin Humphreys randomly held stuck volunteers in a tip-of-the-tongue state for either 10 seconds or 30 seconds before revealing the word — and those who strained for 30 seconds were significantly MORE likely to block on that exact same word again 48 hours later.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Warriner and Humphreys called this 'learning to fail': every extra second spent stewing in the wrong retrieval state strengthens the faulty pathway via implicit error learning.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Inside an fMRI scanner, Anat Maril, Anthony Wagner, and Daniel Schacter (2001) caught the anterior cingulate conflict detector and right prefrontal cortex lighting up intensely strictly during tip-of-the-tongue blocks — broadcasting that you KNOW the word even while sound output stalls.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "High-precision fMRI-RA imaging by Laurie Glezer et al. (2016) proved left inferior frontal / Broca's and ventral temporal nodes separate meaning-spelling representations from spoken sound patterns.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Crucially for adults worried about aging, Burke (1991), Schwartz & Metcalfe (2011), and Kljajevic et al.'s 2016 DTI study (comparing 28 mild Alzheimer's patients against 26 matched healthy adults) confirm normal proper-name blocks reflect healthy phonology bottlenecks rather than dementia — and most resolve spontaneously once you stop straining.",
+      "source_id": "SRC6"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Straining for 30 seconds to force a stuck word out makes you significantly MORE likely to freeze on that exact same word 48 hours later compared with stopping after 10 seconds.",
+      "why_surprising": "Grinding your mental gears literally trains your brain to repeat the block.",
+      "source_id": "SRC2",
+      "rank": 1
+    },
+    {
+      "fact": "Proper names of acquaintances freeze hardest past age 40 because 'Mr. Miller' has only one fragile wire to its sound, whereas 'a miller' has dozens of backup meaning wires.",
+      "why_surprising": "Bigger adult vocabularies and decades of names create normal sound-wire bottlenecks, not memory loss.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "Even while a name is 100% muted, people routinely guess its first letter and exact syllable beat above chance — while the anterior cingulate conflict alarm blares 'It's right in here!'",
+      "why_surprising": "Meaning and sound live in separate brain rooms connected by a single bridge.",
+      "source_id": "SRC5",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Forgetting an actor's or neighbor's name mid-sentence at age 50 means early dementia is starting.",
+      "truth": "Burke (1991) and Schwartz & Metcalfe (2011) show proper-name blocks rise in healthy aging because meaning stays intact while single-route sound links dip from infrequent recent use.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Refusing to look a name up on your phone 'exercises' your memory muscle.",
+      "truth": "Warriner & Humphreys (2008) proved stewing in a block for 30 seconds stamps the failure deeper; looking the name up quickly and saying it aloud repairs the sound wire.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Freezing mid-introduction at a backyard cookout when a longtime colleague walks up and their first name vanishes.",
+    "Knowing the movie, the plot, the actor's face, and that their last name starts with 'S' and has three syllables — while a wrong cousin name keeps blocking the exit.",
+    "Walking into the kitchen ten minutes after dropping the struggle and having the exact name pop up effortlessly."
+  ],
+  "linked_projects": [],
+  "shorts_projects": [],
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "primary_doi": "10.1016/0749-596x(91)90026-g",
+  "offcenter_creator_bet": "My bet: forcing a name locks it tighter — when a name freezes, do you keep straining or look it up fast?",
+  "debate_ignition": {
+    "prebunk_myth": "Refusing to look up a forgotten actor's name 'exercises' your memory instead of hurting it.",
+    "open_verdict_question": "When a familiar name freezes on the tip of your tongue, do you stubbornly refuse to Google it or look it up right away?",
+    "offcenter_creator_bet": "My bet: forcing a name locks it tighter — when a name freezes, do you keep straining or look it up fast?"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "mischel_marshmallow_self_control",
   "topic": "Walter Mischel (1970-1972): Stanford Bing Nursery Marshmallow Test, 'Cool' Attention Shift & the Trust Replication",
   "pillar": "brain_basics",
@@ -60,11 +60,51 @@
     },
     {
       "fact": "Crucial modern twist: Celeste Kidd (2013) proved children placed with an UNRELIABLE adult who broke a prior crayon promise ate the marshmallow after ~3 minutes vs ~12 minutes with a reliable adult, and Tyler Watts's 2018 900-child replication showed family socioeconomic stability accounts for the bulk of later teenage test-score correlations.",
-      "source_id": "SRC4"
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Adult Reliability Effect",
+        "unit": "min",
+        "series": [
+          {
+            "label": "Mean Wait Time",
+            "values": [
+              3.0,
+              12.0
+            ],
+            "unit": "min"
+          }
+        ],
+        "doi": "10.1177/0956797618761661",
+        "source_citation": "Kidd et al. (2013)"
+      }
     },
     {
       "fact": "In Mischel and Ebbesen's (1970) visibility manipulations, children staring directly at exposed treats waited roughly 1 minute (62 seconds), whereas occluding the reward extended mean delay times roughly 10-fold (10x, past 11 minutes).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Wait Time by Reward Cover",
+        "unit": "min",
+        "bars": [
+          {
+            "label": "Exposed Treat",
+            "value": 1.0,
+            "unit": "min"
+          },
+          {
+            "label": "Covered Treat",
+            "value": 11.0,
+            "unit": "min"
+          }
+        ],
+        "doi": "10.1037/h0029815",
+        "source_citation": "Mischel & Ebbesen (1970)"
+      }
     }
   ],
   "wow_facts": [
@@ -129,5 +169,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hard take: raw willpower is overrated — kids who lasted fifteen minutes hid the treat instead of staring it down. Do you resist snacks by grit or by keeping them out of sight?"
+  "offcenter_creator_bet": "Hard take: raw willpower is overrated — kids who lasted fifteen minutes hid the treat instead of staring it down. Do you resist snacks by grit or by keeping them out of sight?",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1037/h0029815",
+  "three_layer_formula": {
+    "everyday_problem": "Keeping the cookie jar in a high opaque pantry bin (11-minute mode) instead of a clear glass bowl on your desk (1-minute mode).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0029815",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0029815"
+      ],
+      "summary": "Walter Mischel, Ebbe B. Ebbesen (1970). Attention in delay of gratification. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1177/0956797618761661",
+      "source_ids": [
+        "SRC4"
+      ],
+      "dois": [
+        "10.1177/0956797618761661"
+      ],
+      "summary": "Tyler W. Watts, Greg J. Duncan, Haonan Quan (2018). Revisiting the Marshmallow Test: A Conceptual Replication Investigating Links Between Early Delay of Gratification and Later Outcomes. Psychological Science."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "The Marshmallow Test measures a fixed genetic 'willpower destiny' locked in at age four.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hard take: raw willpower is overrated — kids who lasted fifteen minutes hid the treat instead of staring it down. Do you resist snacks by grit or by keeping them out of sight?"
+  }
 }

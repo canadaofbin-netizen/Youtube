@@ -1,4 +1,29 @@
 {
   "visual_mode": "NEURO_BIOLOGY",
-  "links": []
+  "links": [
+    {
+      "role": "symptom",
+      "region": "amygdala",
+      "plain": "right amygdala 30–110 Hz gamma-burst depression alarm sensor",
+      "function": "detecting impending depressive symptom spikes with 87% accuracy and triggering the closed-loop pacemaker",
+      "scene_id": "S1",
+      "narration_bridge": "Scangos et al. 2021 Nature Medicine (SRC1)."
+    },
+    {
+      "role": "pivot",
+      "region": "ventral striatum",
+      "plain": "ventral capsule / ventral striatum (VC/VS) 6-second stimulation target",
+      "function": "firing a 6-second 100 Hz pulse (~300 times/day) that quiets amygdala gamma hyperactivity and restores reward motivation",
+      "scene_id": "S1",
+      "narration_bridge": "Closed-loop stimulation lead in Scangos et al. 2021."
+    },
+    {
+      "role": "step1",
+      "region": "anterior cingulate cortex",
+      "plain": "subgenual and dorsal cingulate mood network normalization",
+      "function": "shifting the broader limbic-prefrontal network from rigid depressive rumination into sustained remission (MADRS 36 -> 10)",
+      "scene_id": "S2",
+      "narration_bridge": "Mayberg 2005 & Alagapan 2023 Nature."
+    }
+  ]
 }

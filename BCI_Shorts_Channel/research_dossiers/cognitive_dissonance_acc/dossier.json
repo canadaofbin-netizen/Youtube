@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "cognitive_dissonance_acc",
   "topic": "Vincent van Veen, Cameron Carter & Festinger Paradigm (2009): Dorsal Anterior Cingulate Conflict & Cognitive Dissonance in fMRI",
   "pillar": "bci_ethics",
@@ -65,7 +65,25 @@
     },
     {
       "fact": "Critically, individual-by-individual peak activation in the dorsal anterior cingulate cortex and left anterior insula while lying directly predicted (`r > 0.55`) how much each volunteer shifted their post-scan rating to genuinely like the scanner more.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "dACC Conflict Attitude Shift",
+        "concept": "Dorsal ACC Conflict Resolution",
+        "fn": "sigmoid",
+        "x_label": "dACC & Insula Firing",
+        "y_label": "Post-Scan Attitude Shift",
+        "markers": [
+          {
+            "x": 5.0,
+            "y": 50.0,
+            "label": "Belief Update"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Because attitude shifts could already be predicted during the statement itself — before any post-scan questionnaire — the brain was resolving real-time conflict + visceral discomfort rather than passively inferring attitudes later.",
@@ -140,5 +158,38 @@
   ],
   "linked_projects": [
     "psych_10_cognitive_dissonance_acc"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1038/nn.2413",
+  "three_layer_formula": {
+    "everyday_problem": "Waiting 90 minutes in line for an overpriced restaurant and catching yourself insisting to friends that 'the atmosphere made it totally worth it.'",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1038/nn.2413",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1038/nn.2413"
+      ],
+      "summary": "Vincent van Veen, Marie K Krug, Jonathan W Schooler, Cameron S Carter (2009). Neural activity predicts attitude change in cognitive dissonance. Nature Neuroscience."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1037/0000135-011",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1037/0000135-011"
+      ],
+      "summary": "Keise Izuma, Kou Murayama (2019). Neural basis of cognitive dissonance. Cognitive dissonance: Reexamining a pivotal theory in psychology (2nd ed.)."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Cognitive dissonance just means holding any two complicated ideas in mind.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

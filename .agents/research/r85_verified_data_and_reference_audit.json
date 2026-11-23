@@ -1,0 +1,830 @@
+{
+  "schema": "r85_verified_data_and_reference_audit_v1",
+  "generated_at": "2026-11-18T01:47:00Z",
+  "author": "@Research (ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c)",
+  "part_1_primary_paper_numeric_verification": {
+    "ep09_maguire_london_taxi": {
+      "project_ids": [
+        "v8_ep09_maguire_london_taxi_hippocampus",
+        "v8_ep09_maguire_london_taxi_hippocampus_r82"
+      ],
+      "verified_metrics": [
+        {
+          "metric_id": "ep09_stamp_1_trainees_qualified",
+          "paper": "Woollett & Maguire (2011), Current Biology, 21(24), 2109-2114",
+          "doi": "10.1016/j.cub.2011.11.018",
+          "pmcid": "PMC3268356",
+          "exact_source_location": "Results and Discussion, p. 2110, paragraph 4 & Table 1 ('Qualified (n = 39)')",
+          "verbatim_quote": "We therefore conducted a longitudinal study examining 79 male trainee London taxi drivers at the start of their training (T1, time 1)... Of the 79 trainees, 39 went on to qualify as licensed London taxi drivers, while 20 did not qualify (ceased training or failed their appearances) but agreed to return for testing at T2.",
+          "note_on_non_returners": "Of the 20 non-returning trainees at T2, 2 had also qualified (making overall PCO pass rate 41/79 = 51.9%), while 39 of 79 completed T2 MRI as the Qualified MRI cohort.",
+          "unrounded_values": {
+            "qualified_mri_cohort_k": 39,
+            "initial_trainee_cohort_n": 79,
+            "controls_n": 31
+          },
+          "r70_chart_verdict": "EXACT_MATCH_PASS",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "dot_array",
+            "highlighted_k": 39,
+            "total_n": 79,
+            "unit": "trainees",
+            "doi": "10.1016/j.cub.2011.11.018",
+            "source_citation": "Woollett & Maguire (2011)"
+          }
+        },
+        {
+          "metric_id": "ep09_stamp_2_rey_figure_tradeoff",
+          "paper": "Maguire, Woollett & Spiers (2006), Hippocampus, 16(12), 1091-1101",
+          "doi": "10.1002/hipo.20233",
+          "pmid": "17024677",
+          "exact_source_location": "Results — Neuropsychological Battery Table / Delayed Recall of Rey-Osterrieth Complex Figure (30-min delay; F(1,33) = 6.08, p = 0.02)",
+          "unrounded_values": {
+            "bus_drivers_n": 17,
+            "taxi_drivers_n": 18,
+            "bus_drivers_delayed_recall_pts": 21.3,
+            "taxi_drivers_delayed_recall_pts": 17.3,
+            "max_scale_pts": 36.0
+          },
+          "r70_chart_verdict": "EXACT_MATCH_PASS",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "bar_compare",
+            "bars": [
+              {
+                "label": "Bus Drivers",
+                "value": 21.3,
+                "unit": "pts"
+              },
+              {
+                "label": "Taxi Cabbies",
+                "value": 17.3,
+                "unit": "pts"
+              }
+            ],
+            "doi": "10.1002/hipo.20233",
+            "source_citation": "Maguire, Woollett & Spiers (2006)"
+          }
+        },
+        {
+          "metric_id": "ep09_narration_2000_cohort",
+          "paper": "Maguire et al. (2000), PNAS, 97(8), 4398-4403",
+          "doi": "10.1073/pnas.070039597",
+          "pmcid": "PMC18253",
+          "exact_source_location": "Methods / Subjects (16 right-handed male licensed London taxi drivers vs 50 healthy right-handed male controls)",
+          "unrounded_values": {
+            "taxi_drivers_n": 16,
+            "controls_n": 50
+          },
+          "r70_chart_verdict": "NARRATION_EXACT_PASS"
+        }
+      ]
+    },
+    "ep10_hauglund_sleep_pill": {
+      "project_ids": [
+        "v8_ep10_sleep_pill_brain_wash"
+      ],
+      "root_cause_of_prior_defect": "In v8_ep10_sleep_pill_brain_wash/02_script/visual_plan.json, Stamp 1 (sentence_index 13: 100% vs 50%) was mistakenly set to mode='illustrative' without doi/source_citation. That caused the R70-M renderer to print a 'Concept' badge AND apply synthetic illustrative jitter (99.2% / 49.5%), violating R70-M / R85.",
+      "verified_metrics": [
+        {
+          "metric_id": "ep10_stamp_1_zolpidem_ne_suppression",
+          "paper": "Hauglund, Andersen, Tokarska, Radovanovic, Kjaerby, Sørensen, Bojarowska, Untiet, Ballestero, Kolmos, Weikop, Hirase, Nedergaard et al. (2025), Cell, 188(3), 606-622.e17",
+          "doi": "10.1016/j.cell.2024.11.027",
+          "pmcid": "PMC12340670",
+          "exact_source_location": "Results (\"suppression of the infraslow NE oscillation magnitude in NREM sleep (figure 6C)\") & Figure 6C insert (average NREM NE oscillation amplitude pre- vs post-zolpidem in mice, n=4, paired t-test P=0.0006, effect size=0.99; ~50% lower oscillation wave peaks) + concurrent Figure 6D (PFC microdialysis baseline NE decreased by ~50%, n=7, effect size=0.91)",
+          "verbatim_quote": "Administration of 5 mg/kg zolpidem in mice expressing GRAB_NE2m in the dorsal cortex resulted in ... a suppression of the infraslow NE oscillation magnitude in NREM sleep (figure 6C). Insert shows the average NE signal amplitude during NREM sleep in mice before and after zolpidem treatment (n=4, paired t-test P=0.0006, effect size=0.99).",
+          "unrounded_values": {
+            "vehicle_natural_sleep_reference_pct": 100.0,
+            "zolpidem_5mg_kg_ne_level_pct": 50.0,
+            "qualifier": "approximately 50% (~50% reduction in prefrontal baseline NE in Fig. 6D and ~50% lower NREM NE peak wave magnitude in Fig. 6C)"
+          },
+          "r70_chart_verdict": "MUST_SWITCH_TO_MODE_STUDY_EXACT_100_VS_50",
+          "rounding_verdict": "Narration S11-S12 (\"cut those slow pump waves in half / cut pump waves to fifty percent\") maps directly to NREM infraslow NE oscillation wave amplitude (Fig. 6C insert, ~50% lower peaks) driving arterial vasomotion (Fig. 6F), NOT tonic baseline alone. Stamp title MUST say \"Slow NE Pump Waves (Mice)\" (NOT \"NE Level\"), mode=\"study\", 100% vs 50%.",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "bar_compare",
+            "title": "Slow NE Pump Waves (Mice)",
+            "bars": [
+              {
+                "label": "Natural Sleep",
+                "value": 100.0,
+                "unit": "%"
+              },
+              {
+                "label": "Zolpidem",
+                "value": 50.0,
+                "unit": "%"
+              }
+            ],
+            "doi": "10.1016/j.cell.2024.11.027",
+            "source_citation": "Hauglund et al. (2025, Cell - Mice)"
+          }
+        },
+        {
+          "metric_id": "ep10_stamp_2_zolpidem_csf_tracer_drop",
+          "paper": "Hauglund et al. (2025), Cell",
+          "doi": "10.1016/j.cell.2024.11.027",
+          "pmcid": "PMC12340670",
+          "exact_source_location": "Results & Figure 6G-J (3 kDa FITC/TMR-dextran cisterna magna CSF tracer influx over 30 min across rostro-caudal brain slices, vehicle vs 5 mg/kg zolpidem, n=6-7; Fig. 6I two-way ANOVA with Sidak's test; Fig. 6J mean % reduction vs vehicle) + University of Copenhagen / Rochester official author summary ('more than 30%' / '~30%')",
+          "unrounded_values": {
+            "csf_tracer_influx_reduction_pct": 30.0,
+            "qualifier": ">30% (~31-32% mean tracer influx drop across brain slices in Fig. 6I-J; reported by authors in public summary as 'more than 30%' / '30%')"
+          },
+          "r70_chart_verdict": "STUDY_MODE_30_PCT_FAITHFUL_WITH_APPROX_OR_GT_NOTE",
+          "rounding_verdict": "30% is scientifically faithful as conservative rounding of '>30%' (Fig. 6I-J); chart title or subtitle may display '~30%' or '30%+' (value: 30.0, mode: 'study', zero jitter).",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "arc_gauge",
+            "title": "Brain Fluid Wash Drop (Mice)",
+            "percent": 30.0,
+            "unit": "%",
+            "doi": "10.1016/j.cell.2024.11.027",
+            "source_citation": "Hauglund et al. (2025, Cell - Mice)"
+          }
+        },
+        {
+          "metric_id": "ep10_narration_eide_human_cohort",
+          "paper": "Eide, Vinje, Pripp, Mardal & Ringstad (2021), Brain, 144(3), 863-874",
+          "doi": "10.1093/brain/awaa443",
+          "pmid": "33829232",
+          "exact_source_location": "Abstract & Methods (n=24 total: n=7 total sleep deprivation group vs n=17 free-sleeping control group, quantified across 85 FreeSurfer brain regions over 48 h)",
+          "unrounded_values": {
+            "total_adults": 24,
+            "sleep_controls": 17,
+            "sleep_deprived": 7,
+            "brain_regions": 85
+          },
+          "r70_chart_verdict": "NARRATION_EXACT_PASS"
+        }
+      ],
+      "r1_species_and_dual_study_audit": {
+        "eighty_five_brain_zones_source": {
+          "paper": "Eide, Vinje, Pripp, Mardal & Ringstad (2021), Brain, 144(3), 863-874",
+          "doi": "10.1093/brain/awaa443",
+          "pmid": "33829232",
+          "verbatim_abstract_quote": "Using FreeSurfer software, we quantified tracer enrichment within 85 brain regions... one cohort (n = 7) underwent total sleep deprivation... while an age and gender-matched control group (n = 17; sleep group) was allowed free sleep",
+          "r1_vs_r44_status": "Eide 2021 is registered as secondary_doi / R44 Layer-1 human empirical study (explicitly attributed in S03: \"Earlier, doctors in Oslo scanned twenty-four adults\"). C05-C08 human MRI scenes strictly depict this Oslo human study.",
+          "impaired_scope_in_paper": "Paper segmented 85 FreeSurfer brain regions and states verbatim: \"impaired clearance of the tracer substance from most brain regions, including the cerebral cortex, white matter and limbic structures\" (not all 85 individually, e.g. cerebellar/brainstem reference areas differ).",
+          "recommended_s04_us_english": "Missing one night of sleep stalled waste cleanup across most of the eighty-five brain zones. (15 words, natural US English with mandatory article \"the\", 100% faithful to Eide 2021)."
+        },
+        "hauglund_2025_mouse_vs_subjects_verdict": {
+          "species_in_paper": "Adult wildtype mice (5 mg/kg IP zolpidem, GRAB_NE2m fiber photometry & cisterna magna 3 kDa dextran tracer)",
+          "visual_cut_check": "C16-C22 (S10-S15) contain ZERO human volunteer pill-taking cuts (C16-C17 are Oxford campus/3D arrows; C18-C22 are 3D brain cuts).",
+          "r1_conflation_risk": "HIGH_VERBAL_AMBIGUITY: Calling mice \"subjects\" in S12 (\"zolpidem knocked subjects out fast\") after S03 mentioned \"twenty-four adults\" risks misleading viewers into thinking zolpidem glymphatic suppression was measured in humans.",
+          "remediation_options": {
+            "option_a_zero_tts_change": "Explicitly label both R70-M stamps with \"(Mice)\" (\"Slow NE Pump Waves (Mice)\", \"Brain Fluid Wash Drop (Mice)\") + source_citation \"Hauglund et al. (2025, Cell - Mice)\" + R35 pinned comment separating Human MRI (Eide 2021) vs Mouse Mechanism (Hauglund 2025).",
+            "option_b_strict_r1_1line_tts": "Replace 1 word in S12 (\"subjects\" -> \"lab mice\", identical 2-syllable cadence) + keep \"(Mice)\" on both R70-M stamps."
+          }
+        }
+      }
+    },
+    "ep11_kaptchuk_carvalho_open_placebo": {
+      "project_ids": [
+        "v8_ep11_open_label_placebo_pain"
+      ],
+      "root_cause_of_prior_defect": "Narration S12 says 'ninety-seven adults with back pain took open fake pills and cut pain thirty percent', while an earlier chart draft mixed Carvalho's 29% disability reduction (or composite ~28%) with 30% usual/maximum pain reduction.",
+      "verified_metrics": [
+        {
+          "metric_id": "ep11_stamp_1_ibs_adequate_relief",
+          "paper": "Kaptchuk, Friedlander, Kelley, Sanchez, Kokkotou, Singer, Kowalczykowski, Miller, Kirsch & Lembo (2010), PLoS ONE, 5(12), e15591",
+          "doi": "10.1371/journal.pone.0015591",
+          "pmcid": "PMC3008733",
+          "exact_source_location": "Results — Table 2 ('Treatment Outcomes — Endpoint (3 Weeks) — Adequate Relief (IBS-AR) – no. (%): No Treatment (N=43): 15 (35%), Open Placebo (N=37): 22 (59%), p = .03') & Discussion p. 5 ('59% on IBS-AR')",
+          "verbatim_quote": "Adequate Relief (IBS-AR) – no. (%): No Treatment (N=43) 15 (35) | Open Placebo (N=37) 22 (59) | p-value .03",
+          "unrounded_values": {
+            "total_randomized_n": 80,
+            "open_placebo_arm_n": 37,
+            "open_placebo_relief_k": 22,
+            "open_placebo_exact_pct": 59.46,
+            "open_placebo_published_table2_pct": 59.0,
+            "no_treatment_arm_n": 43,
+            "no_treatment_relief_k": 15,
+            "no_treatment_exact_pct": 34.88,
+            "no_treatment_published_table2_pct": 35.0
+          },
+          "r70_chart_verdict": "EXACT_TABLE2_MATCH_PASS",
+          "rounding_verdict": "59% vs 35% are the exact integers printed in Kaptchuk et al. (2010) Table 2 (22/37 = 59.46% -> 59%; 15/43 = 34.88% -> 35%).",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "bar_compare",
+            "title": "Honest Placebo Symptom Relief",
+            "bars": [
+              {
+                "label": "Open Placebo Pills",
+                "value": 59.0,
+                "unit": "%"
+              },
+              {
+                "label": "No-Pill Control",
+                "value": 35.0,
+                "unit": "%"
+              }
+            ],
+            "doi": "10.1371/journal.pone.0015591",
+            "source_citation": "Kaptchuk et al. (2010)"
+          }
+        },
+        {
+          "metric_id": "ep11_stamp_2_chronic_low_back_pain",
+          "paper": "Carvalho, Caetano, Cunha, Rebouta, Kaptchuk & Kirsch (2016), PAIN, 157(12), 2766-2772",
+          "doi": "10.1097/j.pain.0000000000000700",
+          "pmcid": "PMC5113234",
+          "exact_source_location": "Abstract, Results Section 3 & 3.1 ('Outcomes at 3 weeks'), Table 2, Figure 2, and Discussion paragraph 1",
+          "verbatim_quote": "There was a clinically significant 30% reduction in both usual and maximum pain in the placebo group compared to reductions of 9% and 16% in usual and maximum pain, respectively, in the continued usual treatment group. Open-label placebo reduced minimum pain by 16% compared to an increase in pain of 25% with TAU. There was also a 29% reduction in pain-related disability in placebo group compared to 0.02% in the TAU arm. ... [Discussion:] The amount of additional pain reduction produced by OLP was approximately 30% of baseline pain and disability ratings.",
+          "unrounded_values": {
+            "randomized_n": 97,
+            "eligible_analyzed_n": 83,
+            "composite_pain_drop_olp_pts": 1.5,
+            "composite_pain_drop_tau_pts": 0.2,
+            "usual_pain_drop_olp_pct": 30.0,
+            "maximum_pain_drop_olp_pct": 30.0,
+            "minimum_pain_drop_olp_pct": 16.0,
+            "composite_pain_drop_olp_approx_pct": 28.0,
+            "rmdq_disability_drop_olp_pts": 2.9,
+            "rmdq_disability_drop_olp_pct": 29.0
+          },
+          "r70_chart_verdict": "EXACT_30_PCT_PASS_WHEN_TITLED_USUAL_MAX_OR_PAIN_DROP",
+          "rounding_verdict": "30% is VERBATIM in Results Section 3.1 for both Usual Pain (30%) and Maximum Pain (30%) and in Discussion ('approximately 30% of baseline pain and disability ratings'), whereas 29% is the RMDQ disability reduction (-2.9 pts) and -1.5 vs -0.2 pts (~28%) is the 3-scale composite NRS score (which averages usual 30%, max 30%, and min 16%). Because Siren's existing recorded audio S12 says 'ninety-seven adults with back pain took open fake pills and cut pain thirty percent', locking the R70-M stamp to percent=30.0% (mode='study', title='Usual & Max Back Pain Drop' or 'Chronic Back Pain Drop') — OR bar_compare 1.5 vs 0.2 NRS pts if preferred — is 100% faithful to Results 3.1 without re-recording audio!",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "arc_gauge",
+            "title": "Usual & Max Back Pain Drop",
+            "percent": 30.0,
+            "unit": "%",
+            "doi": "10.1097/j.pain.0000000000000700",
+            "source_citation": "Carvalho et al. (2016)"
+          }
+        }
+      ]
+    },
+    "ep12_radvansky_doorway_effect": {
+      "project_ids": [
+        "v8_ep12_doorway_effect_memory"
+      ],
+      "root_cause_of_prior_defect": "In v8_ep12_doorway_effect_memory/02_script/visual_plan.json, Stamp 2 (sentence_index 15: 11% / 14% / 16%) was mistakenly tagged mode='illustrative' without doi/source_citation despite being the exact empirical positive-probe error rates from Radvansky et al. (2011) Experiment 3 Table 3!",
+      "verified_metrics": [
+        {
+          "metric_id": "ep12_stamp_1_real_room_exp2",
+          "paper": "Radvansky, Krawietz & Tamplin (2011), Quarterly Journal of Experimental Psychology, 64(8), 1632-1645",
+          "doi": "10.1080/17470218.2011.571267",
+          "pmid": "21563019",
+          "exact_source_location": "Experiment 2 (Actual Real-World Environment, N=60), Results & Table 2 (Positive Probe Error Rates: No-Shift = .23 vs Shift = .28)",
+          "unrounded_values": {
+            "participants_n": 60,
+            "no_shift_same_room_error_proportion": 0.23,
+            "shift_doorway_error_proportion": 0.28,
+            "no_shift_pct": 23.0,
+            "shift_pct": 28.0
+          },
+          "r70_chart_verdict": "EXACT_MATCH_PASS",
+          "rounding_verdict": "Paper reports error proportions to two decimal places (.23 and .28), which equal 23% and 28% with zero rounding distortion.",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "bar_compare",
+            "title": "Object Memory Error Rate",
+            "bars": [
+              {
+                "label": "Same Room Walk",
+                "value": 23.0,
+                "unit": "%"
+              },
+              {
+                "label": "Through Doorway",
+                "value": 28.0,
+                "unit": "%"
+              }
+            ],
+            "doi": "10.1080/17470218.2011.571267",
+            "source_citation": "Radvansky et al. (2011)"
+          }
+        },
+        {
+          "metric_id": "ep12_stamp_2_return_to_room_exp3",
+          "paper": "Radvansky, Krawietz & Tamplin (2011), Quarterly Journal of Experimental Psychology, 64(8), 1632-1645",
+          "doi": "10.1080/17470218.2011.571267",
+          "pmid": "21563019",
+          "exact_source_location": "Experiment 3 (Encoding Context Reinstatement / Return to Original Room), Results & Table 3 (Positive Probe Error Rates across 4 conditions: No-Shift = .11, Single Shift = .14, Return to Original Room = .16, Double Shift to 3rd Room = .20)",
+          "unrounded_values": {
+            "no_shift_error_proportion": 0.11,
+            "single_shift_error_proportion": 0.14,
+            "return_room_error_proportion": 0.16,
+            "double_shift_error_proportion": 0.2
+          },
+          "r70_chart_verdict": "MUST_SWITCH_TO_MODE_STUDY_EXACT_11_14_16",
+          "rounding_verdict": "11%, 14%, and 16% (plus 20% for 2nd-new-room Double Shift) are exact two-decimal error proportions (.11, .14, .16, .20) from Experiment 3 Table 3. Switching mode from 'illustrative' to 'study' with doi='10.1080/17470218.2011.571267' removes the 'Concept' badge and prevents illustrative jitter.",
+          "required_chart_spec": {
+            "mode": "study",
+            "preset": "bar_compare",
+            "title": "Exp. 3 Memory Error Rate",
+            "bars": [
+              {
+                "label": "Stay Room",
+                "value": 11.0,
+                "unit": "%"
+              },
+              {
+                "label": "1 Doorway",
+                "value": 14.0,
+                "unit": "%"
+              },
+              {
+                "label": "Return Room",
+                "value": 16.0,
+                "unit": "%"
+              }
+            ],
+            "doi": "10.1080/17470218.2011.571267",
+            "source_citation": "Radvansky et al. (2011)"
+          }
+        }
+      ]
+    }
+  },
+  "part_2_r85_neuroanatomy_cutaway_map": {
+    "hippocampus": {
+      "required_view": "Inferolateral medial-temporal cutaway OR coronal cross-section (strictly separating ventral medial-temporal Hippocampus from dorsal midline Corpus Callosum)",
+      "forbidden_view": "Midsagittal view labeling dorsal Corpus Callosum arch as Hippocampus",
+      "verified_plates": [
+        {
+          "rank": 1,
+          "commons_title": "File:Hippocampus image.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Hippocampus_image.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "800x455",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "3D semi-transparent glass-brain inferolateral-oblique + anterior pair highlighting the exact bilateral ventral temporal C-curve of the Hippocampus in red, unmistakably far below the dorsal midline."
+        },
+        {
+          "rank": 2,
+          "commons_title": "File:202102 Frontal plane of the brain hippocampus.svg",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:202102_Frontal_plane_of_the_brain_hippocampus.svg",
+          "license": "CC BY 4.0",
+          "resolution": "512x512 (infinite scalable SVG)",
+          "source_collection": "DBCLS TogoTV",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Clean label-free coronal cross-section showing the dorsal Corpus Callosum bridge at top-center and the bilateral coiled Hippocampi tucked deep inside the ventral medial temporal lobes."
+        },
+        {
+          "rank": 3,
+          "commons_title": "File:Human brain frontal (coronal) section.JPG",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Human_brain_frontal_(coronal)_section.JPG",
+          "license": "CC BY 2.5",
+          "resolution": "702x487",
+          "source_collection": "jensflorian / Wikimedia Commons (unannotated coronal brain photograph)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Unlabeled real human coronal section showing true gray/white cortical ribbon, dorsal Corpus Callosum, central Thalamus, and bilateral ventral Hippocampal formations."
+        }
+      ]
+    },
+    "thalamus_brainstem_csf": {
+      "required_view": "Midsagittal cutaway / medial translucent 3D plane exposing midline Thalamus, Brainstem (midbrain, pons/locus coeruleus, medulla), and cerebral ventricles / CSF aqueduct",
+      "forbidden_view": "Closed exterior dorsal/lateral cortex hiding deep diencephalon and brainstem",
+      "verified_plates": [
+        {
+          "rank": 1,
+          "commons_title": "File:Thalamus.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Thalamus.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "600x600",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Clean medial/oblique translucent brain plate pinpointing the exact central diencephalic Thalamus perched directly atop the brainstem."
+        },
+        {
+          "rank": 2,
+          "commons_title": "File:Brainstem.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Brainstem.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "800x455",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Zero-text 3D translucent brain plate isolating the full Brainstem column (midbrain, dorsal pons / locus coeruleus zone, medulla oblongata) beneath the cerebral hemispheres."
+        },
+        {
+          "rank": 3,
+          "commons_title": "File:Human ventricular system -- left side view.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Human_ventricular_system_--_left_side_view.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "1200x1200",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "High-resolution 1200x1200 zero-text sagittal/lateral 3D geometry of the complete CSF ventricular system (lateral ventricles, interventricular foramen, third ventricle surrounding thalamus, cerebral aqueduct, fourth ventricle)."
+        }
+      ]
+    },
+    "insula": {
+      "required_view": "Lateral hemisphere view with frontal/parietal/temporal opercula retracted or windowed open along the Sylvian (lateral) sulcus",
+      "forbidden_view": "Midsagittal view (anatomically impossible to see Insula on a midline cut!)",
+      "verified_plates": [
+        {
+          "rank": 1,
+          "commons_title": "File:Brain lobes - insular lobe.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Brain_lobes_-_insular_lobe.png",
+          "license": "CC BY 2.5",
+          "resolution": "642x482",
+          "source_collection": " University of Washington / Wikimedia Commons",
+          "in_image_text": "ZERO_TEXT (single clean white pointer line, zero words/numbers)",
+          "selection_rationale": "Lateral left-hemisphere dissection with the Sylvian operculum windowed open and the buried Insular cortex highlighted in vivid red against real lateral gyri."
+        },
+        {
+          "rank": 2,
+          "commons_title": "File:Human brain view on transverse temporal and insular gyri.JPG",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Human_brain_view_on_transverse_temporal_and_insular_gyri.JPG",
+          "license": "CC BY 2.5",
+          "resolution": "470x326",
+          "source_collection": "jensflorian / Wikimedia Commons (unannotated original)",
+          "in_image_text": "ZERO_TEXT (0 numbers, 0 callouts)",
+          "selection_rationale": "Completely unannotated real lateral human hemisphere with the superior/frontal operculum removed to expose the short and long insular gyri."
+        },
+        {
+          "rank": 3,
+          "commons_title": "File:Gray731.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Gray731.png",
+          "license": "Public domain",
+          "resolution": "600x342",
+          "source_collection": "Gray's Anatomy (1918), Fig. 731",
+          "in_image_text": "MINIMAL_INTERNAL_CURSIVE_ONLY (zero exterior callout clutter)",
+          "selection_rationale": "Canonical anatomical plate of the left Insula exposed by excising the frontoparietal and temporal opercula, clearly depicting the circular sulcus, gyri breves, and gyrus longus."
+        }
+      ]
+    },
+    "prefrontal_cortex": {
+      "required_view": "Three-quarter (3/4) anterolateral view / paired anterior + lateral 3D reference of rostral frontal pole & dorsolateral prefrontal gyri",
+      "forbidden_view": "Posterior/occipital view or unlabeled generic axial slice",
+      "verified_plates": [
+        {
+          "rank": 1,
+          "commons_title": "File:Prefrontal cortex (left) - lateral view.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Prefrontal_cortex_(left)_-_lateral_view.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "1600x1600",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Ultra-clean 1600x1600 zero-text lateral 3D render inside translucent cranium showing exact rostral boundary of the Prefrontal Cortex anterior to premotor cortex."
+        },
+        {
+          "rank": 2,
+          "commons_title": "File:Prefrontal cortex (left) - anterior view.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Prefrontal_cortex_(left)_-_anterior_view.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "1600x1600",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Ultra-clean 1600x1600 zero-text frontal/anterior 3D render inside translucent cranium; when paired with lateral view (or prompted at 3/4 anterolateral camera angle), locks exact rostral frontal-pole & DLPFC extent behind the forehead."
+        },
+        {
+          "rank": 3,
+          "commons_title": "File:Cerebrum - frontal lobe - anterior view.png",
+          "commons_url": "https://commons.wikimedia.org/wiki/File:Cerebrum_-_frontal_lobe_-_anterior_view.png",
+          "license": "CC BY-SA 2.1 jp",
+          "resolution": "900x900",
+          "source_collection": "BodyParts3D / Anatomography (DBCLS)",
+          "in_image_text": "ZERO_TEXT",
+          "selection_rationale": "Isolated bilateral frontal/prefrontal gyral geometry (900x900, zero skull/text) ideal for Mode 2 close-up cortical gyri framing."
+        }
+      ]
+    }
+  },
+  "part_3_real_world_refs_manifest_audit": {
+    "summary": {
+      "total_target_slots_audited": 28,
+      "unique_commons_files_audited": 21,
+      "hard_reject_count": 8,
+      "recommended_upgrade_count": 3,
+      "clean_pass_count": 10
+    },
+    "recommended_global_blocklist_tokens": [
+      "fema",
+      "hurricane",
+      "katrina",
+      "tornado",
+      "flood",
+      "earthquake",
+      "disaster",
+      "damage",
+      "destroyed",
+      "ruin",
+      "abandoned",
+      "wreck",
+      "demolition",
+      "waarschuwing",
+      "warning",
+      "caution",
+      "danger",
+      "hazard",
+      "poster",
+      "signage",
+      "plaque",
+      "anno domini",
+      "ndc ",
+      "mg bottle",
+      "tablets",
+      "rx only",
+      "zydus",
+      "pfizer",
+      "novartis",
+      "sandoz",
+      "truvada",
+      "adderall",
+      "ibuprofen",
+      "alphabet",
+      "letter blocks",
+      "digifoto",
+      "postcard",
+      "xylografi",
+      "1850",
+      "1900"
+    ],
+    "per_file_audit_and_replacements": [
+      {
+        "episodes": [
+          "Ep09",
+          "Ep09_r82"
+        ],
+        "target_id": "structural_mri_scanner_bore",
+        "current_commons_title": "File:20151214 Waarschuwingstekst MRI-scanner UMCG Groningen NL.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "WARNING_SIGN_TEXT",
+          "ZERO_APPARATUS"
+        ],
+        "visual_finding": "Close-up photograph of a Dutch hazard wall sign ('WAARSCHUWING sterk magnetisch veld') with red prohibition icons; contains zero MRI scanner gantry.",
+        "verified_replacement_commons_title": "File:3TMRI.jpg",
+        "verified_replacement_backup": "File:Modern 3T MRI.JPG",
+        "replacement_license": "CC BY-SA 3.0",
+        "replacement_resolution": "4000x3000"
+      },
+      {
+        "episodes": [
+          "Ep09",
+          "Ep09_r82"
+        ],
+        "target_id": "ucl_wilkins_portico",
+        "current_commons_title": "File:The Wilkins Building, UCL, in the Snow 371199372.jpg",
+        "verdict": "UPGRADE_RECOMMENDED",
+        "risk_flags": [
+          "WEATHER_MISMATCH_SNOW"
+        ],
+        "visual_finding": "Wintry snow-covered courtyard conflicts with prompt 'sunlit gravel Main Quad courtyard'.",
+        "verified_replacement_commons_title": "File:London - Gower Street - University College London 1827 William Wilkins.jpg",
+        "replacement_license": "CC BY-SA 4.0",
+        "replacement_resolution": "3915x2592"
+      },
+      {
+        "episodes": [
+          "Ep09",
+          "Ep09_r82"
+        ],
+        "target_id": "mit_great_dome",
+        "current_commons_title": "File:2017 Maclaurin Buildings (MIT Building 10) and Great Dome.jpg",
+        "verdict": "UPGRADE_RECOMMENDED",
+        "risk_flags": [
+          "FOREGROUND_HUMAN_CROWD"
+        ],
+        "visual_finding": "7-8 real pedestrians walking across foreground lawn (only 2 faces masked), plus MIT is off-institution for UCL Ep09.",
+        "verified_replacement_commons_title": "File:MIT Killian Court.jpg",
+        "replacement_license": "CC BY-SA 3.0",
+        "replacement_resolution": "3879x2581"
+      },
+      {
+        "episodes": [
+          "Ep09_r82"
+        ],
+        "target_id": "london_red_bus_stop_roundel",
+        "current_commons_title": "File:D3 bus at Leamouth Orchard Place.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "GRIM_HIGHWAY_UNDERPASS",
+          "LED_ROUTE_TEXT"
+        ],
+        "visual_finding": "Dark concrete highway overpass underbelly at Leamouth with 'D3 Bethnal Green' LED text and speed sign instead of sunlit Portland-stone London avenue.",
+        "verified_replacement_commons_title": "File:Kingston-upon-Thames - London Buses (geograph 7672593).jpg",
+        "replacement_license": "CC BY-SA 2.0",
+        "replacement_resolution": "5152x3864"
+      },
+      {
+        "episodes": [
+          "Ep09",
+          "Ep09_r82"
+        ],
+        "target_id": "charing_cross_black_cabs",
+        "current_commons_title": "File:Black cab and a Mercedes beside the Trafalgar Square lions, London (Tripyana).jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Clean Trafalgar Square Nelson's Column, lions, and black London cab; zero close faces or large text."
+      },
+      {
+        "episodes": [
+          "Ep09_r82"
+        ],
+        "target_id": "london_eye_thames_wheel",
+        "current_commons_title": "File:Embankment Pier and London Eye.jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Clean wide sunlit Thames & London Eye architectural view."
+      },
+      {
+        "episodes": [
+          "Ep09",
+          "Ep09_r82",
+          "Ep10"
+        ],
+        "target_id": "clinical_3t_mri_scanner",
+        "current_commons_title": "File:An MRI scanner.JPG",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Clean empty clinical 3T MRI gantry and patient table; zero humans, zero warning posters."
+      },
+      {
+        "episodes": [
+          "Ep10"
+        ],
+        "target_id": "oslo_hospital_glass_entrance",
+        "current_commons_title": "File:9282 Oslo. Rikshospitalet - no-nb digifoto 20151204 00004 bldsa PK09682.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "ANTIQUE_BW_POSTCARD",
+          "EMBEDDED_CAPTION_TEXT"
+        ],
+        "visual_finding": "Early-1900s monochrome sepia/B&W archival postcard with printed caption 'Oslo. Rikshospitalet' and '9282' at bottom corners — completely mismatches modern Nordic glass-and-granite hospital prompt.",
+        "verified_replacement_commons_title": "File:Oslo University Hospital, Rikshospitalet - Oslo, Norway 2020-09-25.jpg",
+        "verified_replacement_backup": "File:Oslo University Hospital, Rikshospitalet - Oslo, Norway 2020-10-09.jpg",
+        "replacement_license": "CC BY-SA 4.0",
+        "replacement_resolution": "4560x2565"
+      },
+      {
+        "episodes": [
+          "Ep10"
+        ],
+        "target_id": "structural_mri_scanner_bore",
+        "current_commons_title": "File:Siemens Magnetom Aera MRI scanner.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "REAL_HUMAN_STAFF_AND_PATIENT"
+        ],
+        "visual_finding": "Real dark-haired technician in white coat leaning over a real patient inside the MRI bore (faces_masked=0 because turned 3/4) — direct flesh/hair leak hazard.",
+        "verified_replacement_commons_title": "File:3TMRI.jpg",
+        "verified_replacement_backup": "File:Modern 3T MRI.JPG",
+        "replacement_license": "CC BY-SA 3.0",
+        "replacement_resolution": "4000x3000"
+      },
+      {
+        "episodes": [
+          "Ep10"
+        ],
+        "target_id": "copenhagen_park_tree_path",
+        "current_commons_title": "File:Autumn in Copenhagen's King's Garden, Denmark Efterår i Københavns Kongens Have, Danmark (30177773054).jpg",
+        "verdict": "UPGRADE_RECOMMENDED",
+        "risk_flags": [
+          "CENTER_FRAME_REAL_PEDESTRIANS"
+        ],
+        "visual_finding": "Two real pedestrians in coats/hats walking dead-center down the avenue (faces_masked=0 from rear).",
+        "verified_replacement_commons_title": "File:Kongens Have - avenue.jpg",
+        "replacement_license": "CC BY 2.0",
+        "replacement_resolution": "3402x2736"
+      },
+      {
+        "episodes": [
+          "Ep10"
+        ],
+        "target_id": "copenhagen_university_courtyard",
+        "current_commons_title": "File:Bispegården - Copenhagen University.jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Clean sunlit Danish red-brick University of Copenhagen courtyard."
+      },
+      {
+        "episodes": [
+          "Ep10"
+        ],
+        "target_id": "oxford_radcliffe_quad / oxford_radcliffe_camera",
+        "current_commons_title": "File:Radcliffe Camera, Oxford.jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Crisp sunlit Bath-stone Radcliffe Camera rotunda; zero humans, zero signs."
+      },
+      {
+        "episodes": [
+          "Ep10"
+        ],
+        "target_id": "harvard_yard_courtyard_steps",
+        "current_commons_title": "File:H. H. Richardson - Cambridge, MA - Sever Hall, Harvard University (A).jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Clean sunlit red-brick academic facade; zero humans, zero signs."
+      },
+      {
+        "episodes": [
+          "Ep11"
+        ],
+        "target_id": "harvard_hms_quad",
+        "current_commons_title": "File:Anno Domini Harvard Medical School MDCCCCIIII.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "GIANT_CHISELED_TEXT_CROP",
+          "ZERO_QUAD_LAWN"
+        ],
+        "visual_finding": "Tight upward architectural crop of stone frieze lettering 'HARVARD MEDICAL SCHOOL' with zero quadrangle lawn or staircase.",
+        "verified_replacement_commons_title": "File:Gordon Hall Harvard Medical School Quadrangle.jpg",
+        "verified_replacement_backup": "File:Gordon Hall at Harvard, May 2023 (53928486519).jpg",
+        "replacement_license": "CC BY-SA 4.0",
+        "replacement_resolution": "4000x3000"
+      },
+      {
+        "episodes": [
+          "Ep11"
+        ],
+        "target_id": "bidmc_clinical_suite",
+        "current_commons_title": "File:Beth Israel Deaconess Medical Center (BIDMC) (54953356537).jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "EMERGENCY_RED_TEXT_BANNER",
+          "STREET_TRAFFIC"
+        ],
+        "visual_finding": "Busy street drive-through showing prominent red 'EMERGENCY' banner and 'ONE WAY' road sign.",
+        "verified_replacement_commons_title": "File:Beth Israel Deaconess Medical Center East Campus.jpg",
+        "replacement_license": "CC BY 3.0",
+        "replacement_resolution": "3008x2000"
+      },
+      {
+        "episodes": [
+          "Ep11"
+        ],
+        "target_id": "clinical_pharmacy_apparatus",
+        "current_commons_title": "File:Nateglinide 60 mg bottle, Zydus, front view.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "BRANDED_RX_DRUG_LABEL",
+          "DIEGETIC_TEXT"
+        ],
+        "visual_finding": "Full-frame pharmaceutical bottle printed with 'NDC 68382-721-16 / Nateglinide Tablets, USP / 60 mg / Zydus / Rx only' — contradicts open-label inert unmarked/placebo capsule setup and leaks Rx branding.",
+        "verified_replacement_commons_title": "File:Antique Amber Medicine Bottle (42378014251).jpg",
+        "replacement_license": "CC BY 2.0",
+        "replacement_resolution": "3398x5097"
+      },
+      {
+        "episodes": [
+          "Ep11"
+        ],
+        "target_id": "boston_back_bay_rowhouses",
+        "current_commons_title": "File:20180527 - 02 - Boston, MA (Back Bay).jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Intact sunlit Boston Back Bay red-brick townhouses; zero humans, zero signs."
+      },
+      {
+        "episodes": [
+          "Ep11"
+        ],
+        "target_id": "harvard_memorial_yard",
+        "current_commons_title": "File:Harvard University Memorial Hall side.jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Clean sunlit Harvard Memorial Hall & green lawn; zero humans, zero signs."
+      },
+      {
+        "episodes": [
+          "Ep12"
+        ],
+        "target_id": "midwestern_brick_front_porch",
+        "current_commons_title": "File:FEMA - 33940 - \"Old Brick House\" Biloxi, Miss..jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "FEMA_HURRICANE_DISASTER_RUIN"
+        ],
+        "visual_finding": "FEMA Hurricane Katrina storm-devastated brick ruin in Biloxi, MS with collapsed porch roof and gutted dark window openings — direct root cause of the C19 brick ruin defect!",
+        "verified_replacement_commons_title": "File:1110SewardEvanstonIL.jpg",
+        "verified_replacement_backup": "File:1304 Hillcrest (8413546053).jpg",
+        "replacement_license": "CC BY-SA 3.0",
+        "replacement_resolution": "3376x1914"
+      },
+      {
+        "episodes": [
+          "Ep12"
+        ],
+        "target_id": "two_room_shoebox_testing_rig",
+        "current_commons_title": "File:A pile of alphabet wooden blocks.jpg",
+        "verdict": "HARD_REJECT",
+        "risk_flags": [
+          "DIEGETIC_ALPHABET_LETTERS"
+        ],
+        "visual_finding": "Stack of wooden toy blocks covered on every face with giant painted alphabet letters (A, U, E, M, O, D, Y, N, G), violating R56 zero-text hygiene.",
+        "verified_replacement_commons_title": "File:Two sets of wooden unit blocks.jpeg",
+        "verified_replacement_backup": "File:Bausteine Marke palau 2013 (Alter Fritz) 01.JPG",
+        "replacement_license": "CC BY-SA 3.0",
+        "replacement_resolution": "2448x3264"
+      },
+      {
+        "episodes": [
+          "Ep12"
+        ],
+        "target_id": "notre_dame_golden_dome",
+        "current_commons_title": "File:Golden Dome frontal.jpg",
+        "verdict": "PASS",
+        "risk_flags": [],
+        "visual_finding": "Crisp sunlit University of Notre Dame Main Building Golden Dome & green trees; zero humans, zero signs."
+      }
+    ]
+  }
+}

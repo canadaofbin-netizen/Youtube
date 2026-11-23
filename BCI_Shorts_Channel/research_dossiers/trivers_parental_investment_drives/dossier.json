@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "trivers_parental_investment_drives",
   "topic": "Robert Trivers (1971–1974): Parental Investment & Reciprocal Altruism — Why Pipefish Dads Flip Courtship Upside Down!",
   "pillar": "brain_basics",
@@ -56,7 +56,28 @@
     },
     {
       "fact": "In **1974 (SRC2)**, Trivers dropped his third bombshell — **Parent-Offspring Conflict**: a mother shares **50% of her genes equally** with Current Child AND Future Sibling (wanting to wean when Benefit/Cost drops to **1:1**), whereas Current Child shares **100% with itself** vs only **50% with a full sibling** (pushing to keep nursing until Benefit/Cost drops to **1:2**) — explaining universal toddler weaning tantrums and sibling rivalry.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Offspring Genetic Overlap",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Self Relatedness",
+            "value": 100.0,
+            "unit": "%"
+          },
+          {
+            "label": "Full Sibling",
+            "value": 50.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1093/icb/14.1.249",
+        "source_citation": "Trivers (1974)"
+      }
     },
     {
       "fact": "Crucial modern synthesis (**Sarah Blaffer Hrdy; Eagly & Wood biosocial critique**): (1) Hrdy corrected early narrow readings that painted females as 'passive,' showing active female agency across primates; and (2) cross-nationally, as **modern societies increase women's economic and political equality**, human sex differences in mate-resource preferences **shrink substantially**, proving evolved dispositions flex dynamically with culture.",
@@ -112,5 +133,37 @@
     "diorama_87_trivers_parental_investment_drives"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1086/406755",
+  "three_layer_formula": {
+    "everyday_problem": "Laughing in relief when your two kids argue over attention at dinner — realizing Trivers proved **100%-vs-50% genetic math** makes mild sibling tugs-of-war universal across nature.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1086/406755",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1086/406755"
+      ],
+      "summary": "Robert L. Trivers (1971). The Evolution of Reciprocal Altruism. The Quarterly Review of Biology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2018",
+      "doi": "10.1038/s41586-018-0027-0",
+      "source_ids": [
+        "SRC_NEURO_2018"
+      ],
+      "dois": [
+        "10.1038/s41586-018-0027-0"
+      ],
+      "summary": "J. Kohl, B. M. Babayan, N. D. Rubinstein, A. E. Autry et al. (2018). Functional circuit architecture underlying parental behaviour. Nature."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Trivers claimed males are biologically hardwired to be promiscuous and uninvolved in every species and every human society.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

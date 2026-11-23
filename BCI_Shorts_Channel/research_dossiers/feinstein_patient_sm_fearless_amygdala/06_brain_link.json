@@ -1,4 +1,29 @@
 {
   "visual_mode": "HYBRID",
-  "links": []
+  "links": [
+    {
+      "role": "symptom",
+      "region": "amygdala",
+      "plain": "external threat detector calcified bilaterally by Urbach-Wiethe disease",
+      "function": "erasing fear of snakes, spiders, horror films, and haunted-house monsters (0/10 fear)",
+      "scene_id": "S1",
+      "narration_bridge": "Feinstein et al. 2011 Current Biology (SRC1)."
+    },
+    {
+      "role": "pivot",
+      "region": "brainstem",
+      "plain": "medullary and parabrachial CO2/acid chemoreceptor suffocation alarm",
+      "function": "bypassing the missing amygdala entirely to ignite 9.5/10 panic within 8 seconds of a single 35% CO2 breath",
+      "scene_id": "S2",
+      "narration_bridge": "Feinstein et al. 2013 Nature Neuroscience (SRC2)."
+    },
+    {
+      "role": "step1",
+      "region": "insula",
+      "plain": "interoceptive body-alarm cortex translating air hunger into conscious terror",
+      "function": "driving 100% panic incidence in amygdala-lesion patients vs 25% in healthy controls",
+      "scene_id": "S2",
+      "narration_bridge": "Feinstein et al. 2013 & LeDoux/Pine 2016."
+    }
+  ]
 }

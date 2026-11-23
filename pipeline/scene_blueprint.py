@@ -617,7 +617,7 @@ def build_generation_packets(
 
 
 def render_ceiling_sec(backend: str, has_reference: bool = True) -> int:
-    """Gemini app: 8 s. Flow Omni 1.1 Flash: 10 s, but locked to 8 s once a reference image is attached."""
+    """Gemini app: 8 s. Flow Omni 1.2 Flash: 10 s (Frames/no-ref), 8 s default with ingredient (extended 3-15s Ingredients)."""
     from pipeline.config import CLIP_MAX_RENDER_SEC_WITH_REFERENCE, GEMINI_APP_MAX_RENDER_SEC
 
     if backend != "flow":

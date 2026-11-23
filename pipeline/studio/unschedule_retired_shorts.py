@@ -25,6 +25,7 @@ from pipeline.studio.config import (
     SHORT_LINK_GRAPH_FILE,
     STAGING_QUEUE_FILE,
     STUDIO_CONTENT_URL,
+    validate_visibility_transition,
 )
 from pipeline.studio.short_linker import write_studio_publish_receipt
 from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS, WhaleSessionController
@@ -71,9 +72,19 @@ PROTECTED_PUBLIC_VIDEO_IDS: frozenset[str] = frozenset(
         "u5mQNZWNjiw",  # diorama_02
         "PK1opKmokwY",  # diorama_03
         "wUAD5xIpaww",  # diorama_04
-        "JJkBqo-hTS8",  # diorama_05
-        "ZbjKX8CBt8A",  # diorama_06
-        "t8Z_Q8oB9MY",  # diorama_07
+        "JJkBqo-hTS8",  # diorama_05 (frozen Unlisted)
+        "ZbjKX8CBt8A",  # diorama_06 (frozen Unlisted)
+        "t8Z_Q8oB9MY",  # diorama_07 (frozen Unlisted)
+        "soUNqH7UyKw",  # v8_pilot_03
+        "7W8zIOMKPrQ",  # v8_ep04
+    }
+)
+
+FROZEN_UNLISTED_VIDEO_IDS: frozenset[str] = frozenset(
+    {
+        "JJkBqo-hTS8",
+        "ZbjKX8CBt8A",
+        "t8Z_Q8oB9MY",
     }
 )
 
@@ -432,26 +443,162 @@ async def _switch_single_scheduled_to_private(
     *,
     project_id: str,
     video_id: str,
+    current_visibility: str = "scheduled",
+    allow_emergency_demote: bool = False,
 ) -> dict[str, Any]:
-    if video_id in PROTECTED_PUBLIC_VIDEO_IDS:
-        raise RuntimeError(f"Refusing to touch protected Public video '{video_id}'")
+    if video_id in PROTECTED_PUBLIC_VIDEO_IDS or video_id in FROZEN_UNLISTED_VIDEO_IDS:
+        raise RuntimeError(f"Refusing to touch protected/frozen video '{video_id}'")
+    validate_visibility_transition(
+        current_visibility,
+        "private",
+        allow_emergency_demote=allow_emergency_demote,
+    )
     edit_url = f"https://studio.youtube.com/video/{video_id}/edit"
     await client.send("Page.navigate", {"url": edit_url})
     ready = await client.wait_for_element(["ytcp-video-metadata-editor"], timeout_sec=20.0)
     if not ready:
         return {"project_id": project_id, "video_id": video_id, "switched_private": False, "error": "edit_page_timeout"}
-    await asyncio.sleep(1.2)
+    await asyncio.sleep(1.8)
     from pipeline.cdp_tab_lease import enable_background_focus_emulation
 
     await enable_background_focus_emulation(client)
-    await client.click(["ytcp-video-metadata-visibility #select-button", "ytcp-video-metadata-visibility ytcp-button", "#visibility-button"])
+    await client.send(
+        "Page.setDeviceMetricsOverride",
+        {"width": 1680, "height": 1150, "deviceScaleFactor": 1, "mobile": False},
+    )
+    await asyncio.sleep(0.4)
+
+    async def _trusted_click_pt(pt: Any) -> bool:
+        if not isinstance(pt, dict) or "x" not in pt or "y" not in pt:
+            return False
+        x, y = float(pt["x"]), float(pt["y"])
+        if x <= 0 or y <= 0:
+            return False
+        await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": x, "y": y})
+        await asyncio.sleep(0.05)
+        await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": x, "y": y, "button": "left", "clickCount": 1})
+        await asyncio.sleep(0.06)
+        await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": x, "y": y, "button": "left", "clickCount": 1})
+        return True
+
+    # 1. Open ytcp-video-metadata-visibility popup
+    vis_trigger_pt = await client.eval(
+        rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const sels = [
+                'ytcp-video-metadata-visibility #select-button',
+                'ytcp-video-metadata-visibility #container',
+                'ytcp-video-metadata-visibility',
+            ];
+            for (const s of sels) {{
+                const el = __queryAllDeep(s).find(x => x.getBoundingClientRect().width > 10 && x.getBoundingClientRect().height > 10);
+                if (el) {{
+                    el.scrollIntoView({{block: 'center'}});
+                    const r = el.getBoundingClientRect();
+                    return {{x: r.left + r.width / 2, y: r.top + r.height / 2, matched: s}};
+                }}
+            }}
+            return null;
+        }})()"""
+    )
+    await _trusted_click_pt(vis_trigger_pt)
+    await asyncio.sleep(1.2)
+
+    # 2. If 'Save or publish' accordion (#first-container) is collapsed (<dom-if> unmounted while Scheduled is expanded), expand it first
+    expand_pt = await client.eval(
+        rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const priv = __queryAllDeep('tp-yt-paper-radio-button[name="PRIVATE"], #private-radio-button')
+                .find(x => x.getBoundingClientRect().width > 5 && x.getBoundingClientRect().height > 5);
+            if (priv) return {{already_visible: true}};
+            const btn = __queryAllDeep(
+                'ytcp-video-visibility-select #first-container-expand-button, '
+                + '#first-container-expand-button, '
+                + 'ytcp-video-visibility-select #first-container'
+            ).find(x => x.getBoundingClientRect().width > 5 && x.getBoundingClientRect().height > 5);
+            if (!btn) return null;
+            const inner = btn.querySelector('button') || (btn.shadowRoot && btn.shadowRoot.querySelector('button')) || btn;
+            try {{ inner.click(); }} catch (e) {{}}
+            const r = btn.getBoundingClientRect();
+            return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+        }})()"""
+    )
+    if isinstance(expand_pt, dict) and not expand_pt.get("already_visible"):
+        await _trusted_click_pt(expand_pt)
+        await asyncio.sleep(0.9)
+
+    # 3. Click PRIVATE radio button inside ytcp-video-visibility-select
+    priv_pt = await client.eval(
+        rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const priv = __queryAllDeep(
+                'ytcp-video-visibility-select tp-yt-paper-radio-button[name="PRIVATE"], '
+                + 'tp-yt-paper-radio-button[name="PRIVATE"], '
+                + '#private-radio-button'
+            ).find(x => x.getBoundingClientRect().width > 5 && x.getBoundingClientRect().height > 5);
+            if (!priv) return null;
+            priv.scrollIntoView({{block: 'center'}});
+            try {{ priv.click(); }} catch (e) {{}}
+            const r = priv.getBoundingClientRect();
+            return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+        }})()"""
+    )
+    await _trusted_click_pt(priv_pt)
     await asyncio.sleep(0.8)
-    await client.click(["tp-yt-paper-radio-button[name='PRIVATE']"])
-    await asyncio.sleep(0.6)
-    await client.click(["ytcp-video-visibility-select #save-button", "ytcp-button#done-button", "#save-button"])
-    await asyncio.sleep(0.8)
-    saved = await client.click(["ytcp-video-metadata-editor #save", "ytcp-button#save", "#save"])
-    await asyncio.sleep(2.5)
+
+    # 4. Click Done (#save-button) inside ytcp-video-metadata-visibility-popup (sibling of ytcp-video-visibility-select)
+    done_vis_pt = await client.eval(
+        rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const btn = __queryAllDeep(
+                'ytcp-video-metadata-visibility-popup #save-button, '
+                + 'tp-yt-paper-dialog #save-button, '
+                + 'ytcp-button#save-button'
+            ).find(x => x.getBoundingClientRect().width > 5 && x.getBoundingClientRect().height > 5);
+            if (!btn) return null;
+            const inner = btn.querySelector('button') || (btn.shadowRoot && btn.shadowRoot.querySelector('button')) || btn;
+            try {{ inner.click(); }} catch (e) {{}}
+            const r = btn.getBoundingClientRect();
+            return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+        }})()"""
+    )
+    await _trusted_click_pt(done_vis_pt)
+    await asyncio.sleep(1.2)
+
+    # 5. Click top-right Save (ytcp-video-metadata-editor #save) and wait until disabled (Changes saved)
+    save_meta_pt = await client.eval(
+        rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const b = __queryAllDeep('ytcp-video-metadata-editor #save, ytcp-button#save').find(
+                x => x.getBoundingClientRect().width > 5 && !x.hasAttribute('disabled') && x.getAttribute('aria-disabled') !== 'true'
+            );
+            if (!b) return null;
+            const inner = b.querySelector('button') || (b.shadowRoot && b.shadowRoot.querySelector('button')) || b;
+            try {{ inner.click(); }} catch (e) {{}}
+            const r = b.getBoundingClientRect();
+            return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+        }})()"""
+    )
+    saved = await _trusted_click_pt(save_meta_pt)
+    if not saved:
+        saved = await client.click(["ytcp-video-metadata-editor #save", "ytcp-button#save", "#save"])
+    for _ in range(18):
+        await asyncio.sleep(1.0)
+        save_done = bool(
+            await client.eval(
+                rf"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const b = __queryAllDeep('ytcp-video-metadata-editor #save, ytcp-button#save').find(
+                        x => x.getBoundingClientRect().width > 5
+                    );
+                    return Boolean(b && (b.hasAttribute('disabled') || b.getAttribute('aria-disabled') === 'true'));
+                }})()"""
+            )
+        )
+        if save_done:
+            saved = True
+            break
+    await asyncio.sleep(1.2)
     await client.send("Page.navigate", {"url": STUDIO_CONTENT_URL})
     await _wait_for_shorts_table(client, timeout_sec=20.0)
     return {"project_id": project_id, "video_id": video_id, "switched_private": bool(saved)}

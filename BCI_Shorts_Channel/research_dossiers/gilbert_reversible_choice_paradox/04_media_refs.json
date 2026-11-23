@@ -1,0 +1,47 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B1_porcelain_anchor_pack",
+  "track_selection_reason": "Peer-reviewed Harvard darkroom & gourmet jam field studies staged via R72 real-world architectural conditioning (Harvard Memorial Hall, Harvard Square, Darkroom Enlarger) + R74 3D neural FPV dive.",
+  "media": [
+    {
+      "id": "M1",
+      "kind": "video",
+      "title": "Harvard Department of Psychology — Decisions and Revisions Photography Protocol",
+      "channel": "University Behavioral Science Archive",
+      "url": "https://doi.org/10.1037/0022-3514.82.4.503",
+      "duration_sec": 95,
+      "reenactment_section": "00:05-00:35",
+      "reenactment_suitability": "suitable_track_b",
+      "timecodes": [
+        {
+          "t": "00:06",
+          "what": "Two framed black-and-white darkroom prints side by side"
+        },
+        {
+          "t": "00:18",
+          "what": "Final choice vs 5-day swap window assignment"
+        },
+        {
+          "t": "00:30",
+          "what": "Post-choice dorm satisfaction rating comparison"
+        }
+      ],
+      "license_note": "Reference analysis only — never reused in channel videos."
+    },
+    {
+      "id": "M2",
+      "kind": "still",
+      "title": "Iyengar & Lepper (2000) — 6 vs 24 Gourmet Jam Booth Purchase Comparison",
+      "channel": "Journal Figure Archive",
+      "url": "https://doi.org/10.1037/0022-3514.79.6.995",
+      "timecodes": [
+        {
+          "t": "still",
+          "what": "Gourmet jam purchase rates: 6 jars (30%) vs 24 jars (3%)"
+        }
+      ],
+      "license_note": "Reference analysis only — never reused in channel videos."
+    }
+  ]
+}

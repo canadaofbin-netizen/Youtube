@@ -1,0 +1,719 @@
+{
+  "schema_version": 2,
+  "plan_date": "2026-11-17",
+  "generated_at": {
+    "utc": "2026-11-17 08:00 UTC",
+    "et": "2026-11-17 03:00 EST",
+    "kst": "2026-11-17 17:00 KST",
+    "iso_utc": "2026-11-17T08:00:14.482777+00:00"
+  },
+  "overall_decision": "GO",
+  "daily_report_summary": {
+    "report_date": "2026-11-17",
+    "report_age_hours": 1.0,
+    "data_source_mode": "LIVE_CDP_DOM",
+    "partial_dom_scrape_anomaly": false,
+    "subscribers_total": 61,
+    "instagram_followers": 0,
+    "views_24h": 8857,
+    "realtime_48h_views": 170,
+    "realtime_60m_views": 32,
+    "watch_hours_24h": 133.8,
+    "viewed_pct": 74.9,
+    "apv_pct": 69.1,
+    "us_share_pct": 67.4,
+    "tier1_share_pct": 69.2,
+    "shorts_feed_pct": 90.6,
+    "related_ring_complete": true
+  },
+  "platforms": {
+    "youtube": {
+      "platform": "youtube",
+      "handle": "@AllAboutBrainOfficial",
+      "verdict": "GO",
+      "regime": "under_10k_seed_protection",
+      "optimal_cadence": "1 Short / Day @ Slot 4 (19:30 ET) | Longform 16:9: HOLD",
+      "longform_verdict": "HOLD (<10K subs & 3s Hook <70%)",
+      "scheduled_runway_days": 0,
+      "scheduled_videos": [],
+      "next_optimal_slot": {
+        "utc": "2026-11-18 00:30 UTC",
+        "et": "2026-11-17 19:30 EST",
+        "kst": "2026-11-18 09:30 KST",
+        "iso_utc": "2026-11-18T00:30:00+00:00"
+      },
+      "watchdog_tasks": {
+        "due_for_public_transition": [
+          "v8_ep09_maguire_london_taxi_hippocampus"
+        ],
+        "missing_r35_pins_eligible": [
+          "v8_ep08_capgras_imposter_delusion_r77"
+        ],
+        "missing_r35b_links_unlocked": [],
+        "active_freeze_protected": [
+          "v8_ep09_maguire_london_taxi_hippocampus"
+        ]
+      },
+      "ready_candidates": [
+        {
+          "project_id": "v8_ep11_open_label_placebo_pain",
+          "duration_sec": 79.97,
+          "bundle_ready": true,
+          "note": "ok (80.0s <= 88s)"
+        }
+      ],
+      "blocked_candidates": [
+        {
+          "project_id": "v8_ep10_sleep_pill_brain_wash",
+          "reasons": [
+            "prosody_qa_not_passed"
+          ]
+        },
+        {
+          "project_id": "v8_ep12_doorway_effect_memory",
+          "reasons": [
+            "prosody_qa_not_passed"
+          ]
+        }
+      ],
+      "penalty_audit": [
+        {
+          "id": "YT-REPORT-FRESH",
+          "status": "PASS",
+          "detail": "Daily Report 2026-11-17 (1.0h old)"
+        },
+        {
+          "id": "YT-DOM-MODE",
+          "status": "PASS",
+          "detail": "LIVE_CDP_DOM clean"
+        },
+        {
+          "id": "YT-NO-SIMULTANEOUS",
+          "status": "PASS",
+          "detail": "0 simultaneous releases"
+        },
+        {
+          "id": "YT-ZERO-QUARANTINE",
+          "status": "PASS",
+          "detail": "0 quarantined episodes"
+        },
+        {
+          "id": "YT-R75-PLAYLIST-BAN",
+          "status": "PASS",
+          "detail": "0 playlists verified (R75)"
+        },
+        {
+          "id": "YT-R75-TAG-HYGIENE",
+          "status": "PASS",
+          "detail": "0 banned off-topic tech tags across active episodes"
+        },
+        {
+          "id": "YT-US-AUDIENCE",
+          "status": "PASS",
+          "detail": "US 67.4% (>= 45%), Tier-1 69.2%"
+        },
+        {
+          "id": "YT-SHORTS-FEED",
+          "status": "PASS",
+          "detail": "Shorts Feed 90.6% (>= 70%)"
+        },
+        {
+          "id": "YT-3S-HOOK",
+          "status": "PASS",
+          "detail": "3s Hook 74.9% (>= 70%)"
+        },
+        {
+          "id": "YT-APV",
+          "status": "PASS",
+          "detail": "APV 69.1% (gate >= 60%)"
+        },
+        {
+          "id": "YT-R35B-SCHEDULED-LINK",
+          "status": "PASS",
+          "detail": "All unlocked Scheduled Shorts linked to clean Public Anchor"
+        }
+      ],
+      "block_reasons": [],
+      "warn_reasons": []
+    },
+    "instagram": {
+      "platform": "instagram",
+      "handle": "@allaboutbrain.official",
+      "verdict": "GO",
+      "regime": "warmup",
+      "followers_total": 0,
+      "trial_reels_eligible": false,
+      "reel_distribution_mode": "Standard Reel (Warmup 0/1000 followers)",
+      "total_uploaded_reels": 3,
+      "carousels_last_7d": 0,
+      "hours_since_last_upload": 28.2,
+      "optimal_cadence": "1 Reel / Day (warmup 3/10) @ 13:30 ET or 18:15 ET; Carousels 2-3/wk (>=18h Reel gap)",
+      "next_optimal_slot": {
+        "utc": "2026-11-17 18:30 UTC",
+        "et": "2026-11-17 13:30 EST",
+        "kst": "2026-11-18 03:30 KST",
+        "iso_utc": "2026-11-17T18:30:00+00:00"
+      },
+      "next_carousel_slot": {
+        "utc": "2026-11-18 18:30 UTC",
+        "et": "2026-11-18 13:30 EST",
+        "kst": "2026-11-19 03:30 KST",
+        "iso_utc": "2026-11-18T18:30:00+00:00"
+      },
+      "ready_reel_candidates": [
+        {
+          "project_id": "v8_ep06_bedtime_todo_list_sleep",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-14T00:30:00+00:00",
+          "duration_sec": 114.27,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-15T00:30:00+00:00",
+          "duration_sec": 78.47,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion_r77",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-16T00:30:00+00:00",
+          "duration_sec": 76.87,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep09_maguire_london_taxi_hippocampus",
+          "youtube_visibility": "public",
+          "youtube_scheduled_at_utc": "2026-11-17T00:30:00+00:00",
+          "duration_sec": 83.1,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "youtube_visibility": "private",
+          "youtube_scheduled_at_utc": "2026-11-16T00:30:00+00:00",
+          "duration_sec": 75.87,
+          "priority": 2
+        },
+        {
+          "project_id": "v8_ep11_open_label_placebo_pain",
+          "youtube_visibility": "none",
+          "youtube_scheduled_at_utc": null,
+          "duration_sec": 79.97,
+          "priority": 2
+        }
+      ],
+      "ready_card_carousels": [],
+      "ready_project_carousels": [
+        "v8_ep08_capgras_imposter_delusion_r77",
+        "v8_ep09_maguire_london_taxi_hippocampus",
+        "v8_ep10_sleep_pill_brain_wash",
+        "v8_ep11_open_label_placebo_pain",
+        "v8_ep12_doorway_effect_memory"
+      ],
+      "needs_bundle_export": [
+        "diorama_02_ramachandran_phantom_mirror",
+        "diorama_03_alien_hand_syndrome",
+        "diorama_04_milgram_obedience_switch",
+        "diorama_05_hippocampal_memory_prosthesis",
+        "diorama_06_clive_wearing_seven_second_mind",
+        "diorama_07_invisible_gorilla_attention",
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "penalty_audit": [
+        {
+          "id": "IG-COOLDOWN",
+          "status": "PASS",
+          "detail": "28.2h since last Reel (>= 18h)"
+        },
+        {
+          "id": "IG-INVENTORY",
+          "status": "PASS",
+          "detail": "6 Reel(s) + 5 4:5 Carousel(s) ready"
+        },
+        {
+          "id": "IG-CAROUSEL-CAP",
+          "status": "PASS",
+          "detail": "0/3 Carousels in 7d; locked 4:5 (1080x1350), >=18h Reel gap"
+        },
+        {
+          "id": "IG-ANTI-SPAM-SPEC",
+          "status": "PASS",
+          "detail": "Clean 1080x1920 bundle (0 watermark), <=90ch Line-1 hook, AI label ON, Standard Reel (Warmup 0/1000 followers)"
+        }
+      ],
+      "block_reasons": [],
+      "warn_reasons": []
+    },
+    "tiktok": {
+      "platform": "tiktok",
+      "handle": "@allaboutbrain_official",
+      "verdict": "GO",
+      "regime": "warmup",
+      "total_uploaded_videos": 3,
+      "hours_since_last_upload": 28.16,
+      "optimal_cadence": "1 Video / Day (warmup 3/14) @ 15:30 ET or 20:45 ET",
+      "next_optimal_slot": {
+        "utc": "2026-11-17 20:30 UTC",
+        "et": "2026-11-17 15:30 EST",
+        "kst": "2026-11-18 05:30 KST",
+        "iso_utc": "2026-11-17T20:30:00+00:00"
+      },
+      "ready_candidates": [
+        {
+          "project_id": "v8_ep06_bedtime_todo_list_sleep",
+          "youtube_visibility": "public",
+          "duration_sec": 114.27,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep07_harvard_reversible_choice_paradox",
+          "youtube_visibility": "public",
+          "duration_sec": 78.47,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion_r77",
+          "youtube_visibility": "public",
+          "duration_sec": 76.87,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep09_maguire_london_taxi_hippocampus",
+          "youtube_visibility": "public",
+          "duration_sec": 83.1,
+          "priority": 0
+        },
+        {
+          "project_id": "v8_ep08_capgras_imposter_delusion",
+          "youtube_visibility": "private",
+          "duration_sec": 75.87,
+          "priority": 2
+        },
+        {
+          "project_id": "v8_ep11_open_label_placebo_pain",
+          "youtube_visibility": "none",
+          "duration_sec": 79.97,
+          "priority": 2
+        }
+      ],
+      "rejected_under_60s": [],
+      "needs_bundle_export": [
+        "diorama_02_ramachandran_phantom_mirror",
+        "diorama_03_alien_hand_syndrome",
+        "diorama_04_milgram_obedience_switch",
+        "diorama_05_hippocampal_memory_prosthesis",
+        "diorama_06_clive_wearing_seven_second_mind",
+        "diorama_07_invisible_gorilla_attention",
+        "reenact_01_ainsworth_strange_situation"
+      ],
+      "penalty_audit": [
+        {
+          "id": "TT-COOLDOWN",
+          "status": "PASS",
+          "detail": "28.2h since last post (>= 20h)"
+        },
+        {
+          "id": "TT-CREATOR-REWARDS-60S",
+          "status": "PASS",
+          "detail": "6 candidate(s) >= 61.5s with clean bundle"
+        },
+        {
+          "id": "TT-SECURITY-AIGC",
+          "status": "PASS",
+          "detail": "NO VPN, AIGC disclosure ON, 4-5 niche tags (0 #fyp/#viral), halt cleanly on CAPTCHA"
+        }
+      ],
+      "block_reasons": [],
+      "warn_reasons": []
+    }
+  },
+  "ecosystem_slots": {
+    "active": true,
+    "anchor_episode": {
+      "project_id": "v8_ep11_open_label_placebo_pain",
+      "video_id": null,
+      "source": "ready_candidate",
+      "youtube_slot": {
+        "utc": "2026-11-18 00:30 UTC",
+        "et": "2026-11-17 19:30 EST",
+        "kst": "2026-11-18 09:30 KST",
+        "iso_utc": "2026-11-18T00:30:00+00:00"
+      }
+    },
+    "assets": {
+      "yt_community_quiz": {
+        "asset": "YouTube Community Quiz Post",
+        "project_id": "v8_ep11_open_label_placebo_pain",
+        "video_id": null,
+        "offset_from_youtube": "-3.5h (D-Day pre-heat)",
+        "window": {
+          "utc": "2026-11-17 21:00 UTC",
+          "et": "2026-11-17 16:00 EST",
+          "kst": "2026-11-18 06:00 KST",
+          "iso_utc": "2026-11-17T21:00:00+00:00"
+        },
+        "status": "ACTION_REQUIRED",
+        "detail": "ACTION_REQUIRED: main.py studio-quiz --project v8_ep11_open_label_placebo_pain",
+        "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-quiz --project v8_ep11_open_label_placebo_pain"
+      },
+      "youtube_short": {
+        "asset": "YouTube Short",
+        "project_id": "v8_ep11_open_label_placebo_pain",
+        "video_id": null,
+        "window": {
+          "utc": "2026-11-18 00:30 UTC",
+          "et": "2026-11-17 19:30 EST",
+          "kst": "2026-11-18 09:30 KST",
+          "iso_utc": "2026-11-18T00:30:00+00:00"
+        },
+        "status": "GO",
+        "warmup_hours": 16.5,
+        "playlists_count": 0,
+        "detail": "YouTube verdict=GO"
+      },
+      "tiktok_video": {
+        "asset": "TikTok >61.5s Original-Audio Video",
+        "project_id": "v8_ep11_open_label_placebo_pain",
+        "active_queue_target": "v8_ep06_bedtime_todo_list_sleep",
+        "duration_sec": 79.97,
+        "original_audio_only": true,
+        "aigc_disclosure_on": true,
+        "bundle_ready": true,
+        "window": {
+          "utc": "2026-11-18 01:45 UTC",
+          "et": "2026-11-17 20:45 EST",
+          "kst": "2026-11-18 10:45 KST",
+          "iso_utc": "2026-11-18T01:45:00+00:00"
+        },
+        "next_safe_queue_window": {
+          "utc": "2026-11-17 20:30 UTC",
+          "et": "2026-11-17 15:30 EST",
+          "kst": "2026-11-18 05:30 KST",
+          "iso_utc": "2026-11-17T20:30:00+00:00"
+        },
+        "status": "GO",
+        "detail": "Anchor v8_ep11_open_label_placebo_pain (80.0s >= 61.5s, Original Audio, AIGC ON); Queue ready: v8_ep06_bedtime_todo_list_sleep",
+        "command": "# Run upload_tiktok_video_cdp for v8_ep06_bedtime_todo_list_sleep at 2026-11-17 20:45 EST"
+      },
+      "instagram_reel": {
+        "asset": "Instagram Clean Reel",
+        "project_id": "v8_ep11_open_label_placebo_pain",
+        "active_queue_target": "v8_ep06_bedtime_todo_list_sleep",
+        "offset_from_youtube": ">= +18h",
+        "window": {
+          "utc": "2026-11-18 18:30 UTC",
+          "et": "2026-11-18 13:30 EST",
+          "kst": "2026-11-19 03:30 KST",
+          "iso_utc": "2026-11-18T18:30:00+00:00"
+        },
+        "active_queue_window": {
+          "utc": "2026-11-17 18:30 UTC",
+          "et": "2026-11-17 13:30 EST",
+          "kst": "2026-11-18 03:30 KST",
+          "iso_utc": "2026-11-17T18:30:00+00:00"
+        },
+        "trial_reels_eligible": false,
+        "distribution_mode": "Standard Reel (Warmup 0/1000 followers)",
+        "bundle_ready": true,
+        "status": "GO",
+        "detail": "Standard Reel (Warmup 0/1000 followers); D+1 stagger >= +18h post-YT (2026-11-18 13:30 EST); Queue ready now/next slot: v8_ep06_bedtime_todo_list_sleep"
+      },
+      "instagram_carousel": {
+        "asset": "Instagram 4:5 (1080x1350) 6-Slide Carousel",
+        "project_id": "v8_ep11_open_label_placebo_pain",
+        "aspect_ratio_locked": "4:5 (1080x1350)",
+        "slide_count": 6,
+        "min_gap_from_reel_hours": 18.0,
+        "weekly_usage": "0/3",
+        "window": {
+          "utc": "2026-11-19 18:30 UTC",
+          "et": "2026-11-19 13:30 EST",
+          "kst": "2026-11-20 03:30 KST",
+          "iso_utc": "2026-11-19T18:30:00+00:00"
+        },
+        "status": "GO",
+        "receipt_tracked": "instagram_carousel_receipt.json",
+        "detail": "Locked 4:5 (1080x1350) (6 slides, center 3:4 safe zone), non-Reel day >= +24h post-Reel (0/3 in 7d)"
+      },
+      "daily_studio_inbox_check": {
+        "asset": "Daily Zero-Bounce Studio Inbox Check",
+        "window": {
+          "utc": "2026-11-17 14:00 UTC",
+          "et": "2026-11-17 09:00 EST",
+          "kst": "2026-11-17 23:00 KST",
+          "iso_utc": "2026-11-17T14:00:00+00:00"
+        },
+        "status": "ACTION_REQUIRED",
+        "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-inbox --scan-only",
+        "detail": "Studio comments/inbox zero-playback heart & reply routine (0 self-bounce)"
+      }
+    }
+  },
+  "guardrails": {
+    "youtube_srt_cc_upload_banned": true,
+    "youtube_auto_dubbing_burned_ass_off": true,
+    "tiktok_commercial_sound_over_60s_banned": true,
+    "instagram_carousel_aspect_ratio_locked": "4:5 (1080x1350)",
+    "instagram_notes_deprecated_excluded": true,
+    "on_hold_excluded_features": [
+      "instagram_manychat_comment_dm",
+      "instagram_story_highlights"
+    ],
+    "status": "PASS",
+    "passed": true,
+    "block_violations": [],
+    "warnings": [],
+    "checks": [
+      {
+        "rule": "youtube_srt_cc_upload_banned",
+        "status": "PASS",
+        "platform": "youtube",
+        "detail": "0 external SRT/VTT CC uploads (102pt burned-in ASS protected from double captions)"
+      },
+      {
+        "rule": "youtube_auto_dubbing_burned_ass_off",
+        "status": "PASS",
+        "platform": "youtube",
+        "detail": "Auto-Dubbing OFF lock verified for burned-in English ASS Shorts"
+      },
+      {
+        "rule": "tiktok_commercial_sound_over_60s_banned",
+        "status": "PASS",
+        "platform": "tiktok",
+        "detail": "Original Audio only for >60s Creator Rewards videos (0 commercial music risk)"
+      },
+      {
+        "rule": "instagram_carousel_aspect_ratio_locked",
+        "status": "PASS",
+        "platform": "instagram",
+        "detail": "Locked to 4:5 (1080x1350) with center 3:4 safe zone"
+      },
+      {
+        "rule": "instagram_notes_deprecated_excluded",
+        "status": "PASS",
+        "platform": "instagram",
+        "detail": "Instagram Notes excluded (deprecated Apr 2025, 0 non-follower reach)"
+      },
+      {
+        "rule": "on_hold_excluded_features",
+        "status": "PASS",
+        "platform": "instagram",
+        "detail": "On-hold features excluded: instagram_manychat_comment_dm, instagram_story_highlights"
+      }
+    ]
+  },
+  "execution_plan": [
+    {
+      "order_ts": "2026-11-17T08:00:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:00 UTC",
+        "et": "2026-11-17 03:00 EST",
+        "kst": "2026-11-17 17:00 KST",
+        "iso_utc": "2026-11-17T08:00:14.482777+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "WATCHDOG_SYNC",
+      "verdict": "GO",
+      "target": "v8_ep08_capgras_imposter_delusion_r77, v8_ep09_maguire_london_taxi_hippocampus",
+      "reason": "Promote 1 elapsed Scheduled->Public, backfill 1 eligible R35 pins (>=12h/100v), link 0 unlocked R35-B Related videos",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-watchdog --apply"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "diorama_02_ramachandran_phantom_mirror",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project diorama_02_ramachandran_phantom_mirror"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "diorama_03_alien_hand_syndrome",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project diorama_03_alien_hand_syndrome"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "diorama_04_milgram_obedience_switch",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project diorama_04_milgram_obedience_switch"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "diorama_05_hippocampal_memory_prosthesis",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project diorama_05_hippocampal_memory_prosthesis"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "diorama_06_clive_wearing_seven_second_mind",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project diorama_06_clive_wearing_seven_second_mind"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "diorama_07_invisible_gorilla_attention",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project diorama_07_invisible_gorilla_attention"
+    },
+    {
+      "order_ts": "2026-11-17T08:05:14.482777+00:00",
+      "window": {
+        "utc": "2026-11-17 08:05 UTC",
+        "et": "2026-11-17 03:05 EST",
+        "kst": "2026-11-17 17:05 KST",
+        "iso_utc": "2026-11-17T08:05:14.482777+00:00"
+      },
+      "platform": "multi_platform",
+      "action_type": "PREPARE_BUNDLE",
+      "verdict": "GO",
+      "target": "reenact_01_ainsworth_strange_situation",
+      "reason": "Export clean 9:16 multi_platform_bundle (zero YT hashtag mutation)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py multi-bundle --project reenact_01_ainsworth_strange_situation"
+    },
+    {
+      "order_ts": "2026-11-17T14:00:00+00:00",
+      "window": {
+        "utc": "2026-11-17 14:00 UTC",
+        "et": "2026-11-17 09:00 EST",
+        "kst": "2026-11-17 23:00 KST",
+        "iso_utc": "2026-11-17T14:00:00+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "STUDIO_INBOX_CHECK",
+      "verdict": "GO",
+      "target": "studio_comments_inbox",
+      "reason": "Studio comments/inbox zero-playback heart & reply routine (0 self-bounce)",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-inbox --scan-only"
+    },
+    {
+      "order_ts": "2026-11-17T18:30:00+00:00",
+      "window": {
+        "utc": "2026-11-17 18:30 UTC",
+        "et": "2026-11-17 13:30 EST",
+        "kst": "2026-11-18 03:30 KST",
+        "iso_utc": "2026-11-17T18:30:00+00:00"
+      },
+      "platform": "instagram",
+      "action_type": "UPLOAD_IG_REEL",
+      "verdict": "GO",
+      "target": "v8_ep06_bedtime_todo_list_sleep",
+      "reason": "Staggered US prime Reel (Standard Reel (Warmup 0/1000 followers)); YT state=public",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 -c \"import asyncio; from pathlib import Path; from pipeline.studio.instagram_uploader import upload_instagram_reel_cdp; p=Path('BCI_Shorts_Channel/projects/v8_ep06_bedtime_todo_list_sleep/06_publish/multi_platform_bundle'); print(asyncio.run(upload_instagram_reel_cdp(video_path=p/'video_clean.mp4', cover_path=p/'cover_9x16.png', caption=(p/'reels_caption.txt').read_text(encoding='utf-8'), handle='allaboutbrain.official', receipt_path=p.parent/'instagram_upload_receipt.json')))\""
+    },
+    {
+      "order_ts": "2026-11-17T20:30:00+00:00",
+      "window": {
+        "utc": "2026-11-17 20:30 UTC",
+        "et": "2026-11-17 15:30 EST",
+        "kst": "2026-11-18 05:30 KST",
+        "iso_utc": "2026-11-17T20:30:00+00:00"
+      },
+      "platform": "tiktok",
+      "action_type": "UPLOAD_TIKTOK",
+      "verdict": "GO",
+      "target": "v8_ep06_bedtime_todo_list_sleep",
+      "reason": "Creator Rewards >=61.5s (114.3s), Original Audio, NO VPN, AIGC ON, staggered after YT",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 -c \"import asyncio; from pathlib import Path; from pipeline.studio.tiktok_uploader import upload_tiktok_video_cdp; p=Path('BCI_Shorts_Channel/projects/v8_ep06_bedtime_todo_list_sleep/06_publish/multi_platform_bundle'); print(asyncio.run(upload_tiktok_video_cdp(video_path=p/'video_clean.mp4', cover_path=p/'cover_9x16.png', caption=(p/'tiktok_caption.txt').read_text(encoding='utf-8'), receipt_path=p.parent/'tiktok_upload_receipt.json')))\""
+    },
+    {
+      "order_ts": "2026-11-17T21:00:00+00:00",
+      "window": {
+        "utc": "2026-11-17 21:00 UTC",
+        "et": "2026-11-17 16:00 EST",
+        "kst": "2026-11-18 06:00 KST",
+        "iso_utc": "2026-11-17T21:00:00+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "YT_COMMUNITY_QUIZ",
+      "verdict": "GO",
+      "target": "v8_ep11_open_label_placebo_pain",
+      "reason": "ACTION_REQUIRED: main.py studio-quiz --project v8_ep11_open_label_placebo_pain",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-quiz --project v8_ep11_open_label_placebo_pain"
+    },
+    {
+      "order_ts": "2026-11-18T00:30:00+00:00",
+      "window": {
+        "utc": "2026-11-18 00:30 UTC",
+        "et": "2026-11-17 19:30 EST",
+        "kst": "2026-11-18 09:30 KST",
+        "iso_utc": "2026-11-18T00:30:00+00:00"
+      },
+      "platform": "youtube",
+      "action_type": "UPLOAD_YT_SCHEDULED",
+      "verdict": "GO",
+      "target": "v8_ep11_open_label_placebo_pain",
+      "reason": "Stage into next vacant Slot 4 (19:30 ET) >=3h warmup; extend runway beyond 0d",
+      "command": "/home/canadaofbin/hermes-venv/bin/python -X utf8 main.py studio-upload --project v8_ep11_open_label_placebo_pain --visibility scheduled --slot 4 --date 2026-11-17"
+    },
+    {
+      "order_ts": "2026-11-18T18:30:00+00:00",
+      "window": {
+        "utc": "2026-11-18 18:30 UTC",
+        "et": "2026-11-18 13:30 EST",
+        "kst": "2026-11-19 03:30 KST",
+        "iso_utc": "2026-11-18T18:30:00+00:00"
+      },
+      "platform": "instagram",
+      "action_type": "PUBLISH_IG_CARDS",
+      "verdict": "CONDITIONAL_GO",
+      "target": "v8_ep08_capgras_imposter_delusion_r77",
+      "reason": "4:5 (1080x1350) 6-Slide Carousel ready (non-Reel day >=+24h post-Reel, >=18h gap; 0/3 in 7d)",
+      "command": "# Publish 4:5 (1080x1350) 6-slide carousel in BCI_Shorts_Channel/projects/v8_ep08_capgras_imposter_delusion_r77/06_publish/ig_carousel/"
+    }
+  ]
+}

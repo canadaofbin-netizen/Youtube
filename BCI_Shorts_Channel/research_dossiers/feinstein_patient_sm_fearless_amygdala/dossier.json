@@ -1,21 +1,176 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "feinstein_patient_sm_fearless_amygdala",
   "topic": "Feinstein, Adolphs & Damasio (2011/2013): Patient S.M. — Fearless to Snakes & Haunted Houses Until One Breath of 35% CO2",
   "pillar": "brain_mysteries",
-  "created_at": "2026-11-02T11:25:53+00:00",
-  "status": "draft",
+  "everyday_domain": "anxiety",
   "visual_mode": "HYBRID",
-  "visual_mode_reason": "",
+  "visual_mode_reason": "Combines the iconic University of Iowa exotic-pet-store snake/tarantula encounter, Waverly Hills Haunted House, and 35% CO2 inhalation mask test with a 3D Brain cutaway contrasting bilateral amygdala calcification against brainstem chemoreceptor panic circuits.",
+  "primary_doi": "10.1016/j.cub.2010.11.042",
   "primary_case": {
-    "title": "",
-    "year": null,
-    "place": "",
-    "people": []
+    "year": 2011,
+    "place": "Department of Neurology, University of Iowa Carver College of Medicine",
+    "summary": "Justin Feinstein, Ralph Adolphs, Antonio Damasio, and Daniel Tranel (Current Biology 2011; Nature Neuroscience 2013) studied Patient S.M., a 44-year-old woman with complete bilateral amygdala destruction from Urbach-Wiethe disease who showed 0 out of 10 fear toward live snakes, tarantulas, and haunted-house monsters — until a single breath of 35% CO2 triggered her first panic attack in decades!",
+    "people": [
+      {
+        "name": "Justin S. Feinstein, Ralph Adolphs & Antonio Damasio",
+        "role": "University of Iowa & Caltech lesion neuroscientists (Current Biology 2011; Nature Neuroscience 2013)",
+        "bio": "Tested Patient S.M. across snakes, spiders, horror films, and 35% CO2 inhalation, proving the amygdala is required for external threat fear but NOT for interoceptive CO2 suffocation panic."
+      },
+      {
+        "name": "Patient S.M. (44-year-old woman with Urbach-Wiethe disease)",
+        "role": "Focal bilateral amygdala lesion participant studied for 20+ years at University of Iowa",
+        "bio": "Handled live king snakes, reached toward a tarantula, and startled monsters at Waverly Hills Sanatorium with 0/10 fear — then experienced instant 9.5/10 panic within 8 seconds of inhaling 35% CO2."
+      }
+    ]
   },
-  "core_facts": [],
-  "wow_facts": [],
-  "misconceptions": [],
-  "everyday_hooks": [],
-  "linked_projects": []
+  "people": [
+    {
+      "name": "Justin S. Feinstein, Ralph Adolphs & Antonio Damasio",
+      "role": "University of Iowa & Caltech lesion neuroscientists (Current Biology 2011; Nature Neuroscience 2013)",
+      "bio": "Tested Patient S.M. across snakes, spiders, horror films, and 35% CO2 inhalation, proving the amygdala is required for external threat fear but NOT for interoceptive CO2 suffocation panic."
+    },
+    {
+      "name": "Patient S.M. (44-year-old woman with Urbach-Wiethe disease)",
+      "role": "Focal bilateral amygdala lesion participant studied for 20+ years at University of Iowa",
+      "bio": "Handled live king snakes, reached toward a tarantula, and startled monsters at Waverly Hills Sanatorium with 0/10 fear — then experienced instant 9.5/10 panic within 8 seconds of inhaling 35% CO2."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "People believe the amygdala is the single master switch for every kind of fear and panic in the human brain.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/j.cub.2010.11.042",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/j.cub.2010.11.042"
+      ],
+      "summary": "J. S. Feinstein, R. Adolphs, A. Damasio, D. Tranel (2011). The human amygdala and the induction and experience of fear. Current Biology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.1038/nrn3945",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.1038/nrn3945"
+      ],
+      "summary": "C. Tovote, J. P. Fadok, A. Lüthi (2015). Neuronal circuits for fear and anxiety. Nature Reviews Neuroscience."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "People believe the amygdala is the single master switch for every kind of fear and panic in the human brain.",
+    "open_verdict_question": "If you had to choose, would you rather lose external fear of snakes and monsters or lose internal panic when air runs short?",
+    "offcenter_creator_bet": "My bet: external fear is a lifesaver — Patient S.M. proved internal CO2 panic still hits 100% without an amygdala. Keep external fear or erase it?"
+  },
+  "core_facts": [
+    {
+      "fact": "In Feinstein, Adolphs, Damasio & Tranel (2011 Current Biology), Patient S.M. — whose bilateral amygdalae were completely calcified by Urbach-Wiethe disease — rated her fear at 0 out of 10 while holding a live snake for 3 minutes, walking through Waverly Hills Haunted House, and watching 10 horror film clips.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across 3 months of computerized ecological momentary diary entries (272 random prompts) and 8 standardized fear questionnaires, Patient S.M. reported zero instances of real-world fear despite experiencing normal joy, sadness, anger, and disgust.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "At Waverly Hills Sanatorium Haunted House, S.M. walked at the front of the group of 5 women, never hesitated around dark corners, laughed and poked a costumed monster in the head — startling the actor instead of feeling afraid.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Feinstein et al. (2013 Nature Neuroscience), inhaling a single vital-capacity breath of 35 percent carbon dioxide (CO2) triggered immediate, full-blown panic attacks in 3 out of 3 bilateral amygdala lesion patients (100 percent) compared with only 3 out of 12 healthy controls (25 percent).",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "35% CO2 Panic Attack Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Healthy Controls",
+            "value": 25.0,
+            "unit": "%"
+          },
+          {
+            "label": "Amygdala Lesion",
+            "value": 100.0,
+            "unit": "%"
+          }
+        ],
+        "multiplier_badge": "4×",
+        "doi": "10.1038/nn.3323",
+        "source_citation": "Feinstein et al. (2013)"
+      }
+    },
+    {
+      "fact": "Within 8 to 15 seconds of inhaling 35 percent CO2, Patient S.M.'s visual-analog fear and panic scores jumped from 0 to 9.5 out of 10 as she gasped for air and tore at the breathing mask, calling it the first fear she had felt since childhood.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Patient S.M. CO2 Panic Surge",
+        "unit": "/10",
+        "series": [
+          {
+            "label": "35% CO2 Breath",
+            "start_label": "External Threats",
+            "values": [
+              0.0,
+              9.5
+            ],
+            "unit": "/10"
+          }
+        ],
+        "doi": "10.1038/nn.3323",
+        "source_citation": "Feinstein et al. (2013)"
+      }
+    },
+    {
+      "fact": "Adolphs et al. (2005 Nature) proved with eye-tracking that S.M.'s deficit in recognizing fearful facial expressions stems from failing to direct gaze naturally to the widened whites of the eyes unless explicitly instructed.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "Tovote, Fadok & Lüthi (2015 Nature Reviews Neuroscience) showed that while visual and auditory threats require the basolateral and central amygdala, internal blood-acidification (CO2/H+) activates brainstem retrotrapezoid/parabrachial chemoreceptors and the insula directly.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Because intact amygdala circuitry normally inhibits or regulates downstream brainstem panic generators during mild interoceptive challenges, bilateral amygdala loss left S.M. hyper-vulnerable (100 percent vs 25 percent) to CO2 suffocation panic.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "In Feinstein, Adolphs, Damasio & Tranel (2011 Current Biology), Patient S.M. — whose bilateral amygdalae were completely calcified by Urbach-Wiethe disease — rated her fear at 0 out of 10 while holding a live snake for 3 minutes, walking through Waverly Hills Haunted House, and watching 10 horror film clips.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Across 3 months of computerized ecological momentary diary entries (272 random prompts) and 8 standardized fear questionnaires, Patient S.M. reported zero instances of real-world fear despite experiencing normal joy, sadness, anger, and disgust.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "At Waverly Hills Sanatorium Haunted House, S.M. walked at the front of the group of 5 women, never hesitated around dark corners, laughed and poked a costumed monster in the head — startling the actor instead of feeling afraid.",
+      "source_id": "SRC1"
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "People believe the amygdala is the single master switch for every kind of fear and panic in the human brain.",
+      "reality": "In Feinstein, Adolphs, Damasio & Tranel (2011 Current Biology), Patient S.M. — whose bilateral amygdalae were completely calcified by Urbach-Wiethe disease — rated her fear at 0 out of 10 while holding a live snake for 3 minutes, walking through Waverly Hills Haunted House, and watching 10 horror film clips.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "People believe the amygdala is the single master switch for every kind of fear and panic in the human brain.",
+    "In Feinstein, Adolphs, Damasio & Tranel (2011 Current Biology), Patient S.M. — whose bilateral amygdalae were completely",
+    "At Waverly Hills Sanatorium Haunted House, S.M. walked at the front of the group of 5 women, never hesitated around dark"
+  ],
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B1_porcelain_anchor_pack",
+  "shorts_projects": [
+    "v8_ep04_patient_sm_fearless_amygdala"
+  ]
 }

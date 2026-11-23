@@ -1,0 +1,106 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "andrew_v8",
+  "foil_voice_preset": "foil_v8",
+  "foil_sentence_indices": [
+    4,
+    8,
+    12
+  ],
+  "project_id": "v8_pilot_02_sleep_night_watch_cam3d",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "dossier": "v2_sleep_first_night_hemisphere_watch",
+  "language": "en-US",
+  "title": "Why Strange Beds Wake Half Your Brain",
+  "doi": "10.1016/j.cub.2016.02.063",
+  "secondary_doi": "10.1111/j.1469-8986.1966.tb02650.x",
+  "omit_experiment_nicknames": [
+    "first-night effect",
+    "first night effect"
+  ],
+  "debate_question": "On night one in a strange hotel room, do you bring a pillowcase from home to calm that guard or let half your brain keep watch?",
+  "acts": [
+    {
+      "act": 1,
+      "name": "Pitch-Dark Hotel Jolt & Night Guard Pre-Bunk",
+      "sentences": [
+        "Three hours into your first hotel night, your eyes fly wide open in the dark!",
+        "But back in your own warm bed, loud sirens outside never wake you up.",
+        "Quit blaming scratchy hotel sheets — your skull just flipped on a night patrol!"
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Front-Desk Espresso Foil & Sasaki Two-Night Scan",
+      "sentences": [
+        "The front clerk grins and blames late coffee or jet lag for your bad night.",
+        "Yuka Sasaki scanned thirty-five sleepers over two straight nights, like a side-by-side bed test.",
+        "On night one, brain waves on the right side showed deep, quiet rest."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Left-Half Twist, Lab Foil & Fast Right-Ear Test",
+      "sentences": [
+        "Wait, what happened inside the left half of the head?",
+        "A lab helper bets both sides of your brain shut off once you snore.",
+        "Wrong — left waves stayed light, waking people three times faster, like a tripwire!"
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Sea Guard Cameo, Tossed Lab Charts & Hallway Step",
+      "sentences": [
+        "Sea whales and wild birds sleep with one half awake so sharks cannot sneak up.",
+        "Sleep labs even trash night-one charts since new rooms twist every wave trace.",
+        "Wait, your travel friend asks, cannot foam plugs and dark curtains trick that alarm?",
+        "Except one soft step outside your door still jolts that guard wide awake!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Crystal X-Ray Brain Reveal: Daydream Guard & Sound Center",
+      "sentences": [
+        "You see, your default mode network, your daydream network, stays clocked in.",
+        "Bright red sparks hold the left side ready while your auditory cortex, your sound center, scans."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Night-Two Calm, Home Pillowcase Debate & Loop Cut",
+      "sentences": [
+        "Once night two hits in that same room, the guard stands down and both halves rest.",
+        "Do you pack a home pillowcase to calm that guard, or let it watch?",
+        "Sleep in a new bed tonight — half your head dreams while half keeps watch!"
+      ]
+    }
+  ],
+  "sentences": [
+    "Three hours into your first hotel night, your eyes fly wide open in the dark!",
+    "But back in your own warm bed, loud sirens outside never wake you up.",
+    "Quit blaming scratchy hotel sheets — your skull just flipped on a night patrol!",
+    "The front clerk grins and blames late coffee or jet lag for your bad night.",
+    "Yuka Sasaki scanned thirty-five sleepers over two straight nights, like a side-by-side bed test.",
+    "On night one, brain waves on the right side showed deep, quiet rest.",
+    "Wait, what happened inside the left half of the head?",
+    "A lab helper bets both sides of your brain shut off once you snore.",
+    "Wrong — left waves stayed light, waking people three times faster, like a tripwire!",
+    "Sea whales and wild birds sleep with one half awake so sharks cannot sneak up.",
+    "Sleep labs even trash night-one charts since new rooms twist every wave trace.",
+    "Wait, your travel friend asks, cannot foam plugs and dark curtains trick that alarm?",
+    "Except one soft step outside your door still jolts that guard wide awake!",
+    "You see, your default mode network, your daydream network, stays clocked in.",
+    "Bright red sparks hold the left side ready while your auditory cortex, your sound center, scans.",
+    "Once night two hits in that same room, the guard stands down and both halves rest.",
+    "Do you pack a home pillowcase to calm that guard, or let it watch?",
+    "Sleep in a new bed tonight — half your head dreams while half keeps watch!"
+  ],
+  "us_anti_clone_v7": true
+}

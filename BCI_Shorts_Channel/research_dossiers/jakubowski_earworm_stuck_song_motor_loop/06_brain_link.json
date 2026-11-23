@@ -1,0 +1,32 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "setup",
+      "region": "auditory cortex",
+      "plain": "sound center",
+      "function": "replaying the crisp pitch contour and timbre of a 10-second chorus above the ears",
+      "scene_id": "S1",
+      "narration_bridge": "Anchors Farrugia & Jakubowski's 2015 Heschl's gyrus cortical structure finding (SRC3).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "premotor cortex",
+      "plain": "action planner",
+      "function": "locking onto ~124-bpm walking tempo and feeding rhythmic timing back into the sound center",
+      "scene_id": "S2",
+      "narration_bridge": "Explains Jakubowski et al.'s 2017 motor-tempo earworm trigger (SRC2).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "Broca's area",
+      "plain": "speech center",
+      "function": "silently rehearsing the lyrics in the left inferior frontal gyrus — until chewing gum occupies jaw-motor planning and silences the vocal loop",
+      "scene_id": "S1",
+      "narration_bridge": "Directly stages Beaman et al.'s 2015 chewing-gum vs finger-tapping proof (SRC1, SRC3).",
+      "r78_circuit_state": "silenced"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "csikszentmihalyi_flow_hypofrontality",
   "topic": "Mihaly Csikszentmihalyi (1975-1990) & Arne Dietrich (2004): The Flow Channel & Transient Hypofrontality",
   "pillar": "brain_health",
@@ -44,7 +44,25 @@
     },
     {
       "fact": "Too much challenge above current skill triggered anxiety; too much skill above a trivial task triggered boredom; matching them locked action and awareness together while time distortion and self-consciousness vanished.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Challenge-Skill Flow Zone",
+        "concept": "Transient Hypofrontality Sweet Spot",
+        "fn": "inverted_u",
+        "x_label": "Challenge vs Skill Ratio",
+        "y_label": "Flow Absorption",
+        "markers": [
+          {
+            "x": 5.0,
+            "y": 100.0,
+            "label": "Flow Corridor"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Surprise #1 from Csikszentmihalyi's pager data: workers actually hit flow ~3x MORE OFTEN during structured challenging work than during passive couch leisure (like watching TV), yet kept choosing passive TV out of activation-energy inertia ('Paradox of Work').",
@@ -64,7 +82,27 @@
     },
     {
       "fact": "Applied flow protocols typically structure uninterrupted 45-minute deep-practice blocks with immediate performance feedback and task challenge calibrated roughly 4% to 10% above baseline skill.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Optimal Challenge Stretch",
+        "unit": "%",
+        "series": [
+          {
+            "start_label": "Min Stretch",
+            "label": "Max Stretch",
+            "values": [
+              4.0,
+              10.0
+            ],
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1016/j.concog.2004.07.002",
+        "source_citation": "Dietrich (2004); Csikszentmihalyi (1990)"
+      }
     }
   ],
   "wow_facts": [
@@ -129,5 +167,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hot take: overthinking ruins peak skill — flow only clicks once your inner critic powers down mid-task. Which activity makes hours vanish fastest for you?"
+  "offcenter_creator_bet": "Hot take: overthinking ruins peak skill — flow only clicks once your inner critic powers down mid-task. Which activity makes hours vanish fastest for you?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/j.concog.2004.07.002",
+  "three_layer_formula": {
+    "everyday_problem": "Sitting down to code, paint, or edit music at 8 p.m., looking up 'ten minutes later,' and seeing midnight on the clock.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/j.concog.2004.07.002",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/j.concog.2004.07.002"
+      ],
+      "summary": "Arne Dietrich (2004). Neurocognitive mechanisms underlying the experience of flow. Consciousness and Cognition."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.5007/1677-2954.2025.e100953",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.5007/1677-2954.2025.e100953"
+      ],
+      "summary": "Gabriel Almeida Assumpção, Daniel Rodrigues da Costa (2025). Sentido em Mihaly Csikszentmihalyi e Vittorio Hösle. ethic@ - An international Journal for Moral Philosophy."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Flow means 'unlocking 100% of your brain's neurons firing at max wattage'.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hot take: overthinking ruins peak skill — flow only clicks once your inner critic powers down mid-task. Which activity makes hours vanish fastest for you?"
+  }
 }

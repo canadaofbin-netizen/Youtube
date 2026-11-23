@@ -165,7 +165,15 @@ def _seed_diorama_v7_thumb_project(tmp_path: Path) -> Path:
 
 def test_r65_ssot_constants_and_docs_parity() -> None:
     constants_md = (ROOT / ".agents" / "rules" / "production_constants.md").read_text(encoding="utf-8")
-    diorama_md = (ROOT / ".agents" / "rules" / "neuro_diorama_rules.md").read_text(encoding="utf-8")
+    diorama_md = "\n".join(
+        (ROOT / ".agents" / "rules" / fn).read_text(encoding="utf-8")
+        for fn in (
+            "thumbnail_r65_rules.md",
+            "diorama_assembly_subtitles_rules.md",
+            "episode_qa_triage_rules.md",
+            "_archive/retired_rules_2026-11-18.md",
+        )
+    )
     studio_md = (ROOT / ".agents" / "rules" / "youtube_studio_operations.md").read_text(encoding="utf-8")
     agents_md = (ROOT / ".agents" / "AGENTS.md").read_text(encoding="utf-8")
 
@@ -197,7 +205,7 @@ def test_r65_ssot_constants_and_docs_parity() -> None:
         assert name in constants_md, f"Missing {name} in production_constants.md"
     assert "## R65 — Thumbnail Studio" in diorama_md
     assert "not_applicable_shorts" in studio_md
-    assert "| R65 |" in agents_md
+    assert "R65" in agents_md
 
 
 def test_thumbnail_studio_candidate_scoring_distinctness_and_qa(tmp_path: Path) -> None:
@@ -410,3 +418,58 @@ def test_shorts_ab_tester_retire_and_uploader_cover_receipt(tmp_path: Path) -> N
     qa_soft = verify_publish_ready_qa_bundle(p_dir)
     assert qa_soft["passed"] is True
     assert qa_soft["warnings"]
+
+
+def test_r65_v4_baked_top_label_shelf_nudge_and_plan_r85_mode_propagation() -> None:
+    bgr = np.full((cfg.VIDEO_HEIGHT, cfg.VIDEO_WIDTH, 3), (14, 16, 18), dtype=np.uint8)
+    bgr[958:963, :, :] = (255, 255, 255)
+    # Neutral matte figure structure in top panel vs vivid crimson-red brain glow in bottom panel (>= 0.012 edge density each)
+    for k in range(18):
+        y_top = 340 + k * 28
+        cv2.line(bgr, (500, y_top), (960, y_top), (145, 160, 175), 4)
+        y_bot = 1040 + k * 24
+        cv2.line(bgr, (500, y_bot), (960, y_bot), (25, 35, 245), 4)
+    cv2.circle(bgr, (740, 1280), 170, (25, 35, 245), -1)
+    # Baked top micro-label slightly above y=150 shelf safe line, plus bottom micro-label
+    cv2.putText(bgr, "0 LB", (60, 168), cv2.FONT_HERSHEY_DUPLEX, 1.8, (8, 8, 8), 16, cv2.LINE_AA)
+    cv2.putText(bgr, "0 LB", (60, 168), cv2.FONT_HERSHEY_DUPLEX, 1.8, (255, 255, 255), 5, cv2.LINE_AA)
+    cv2.putText(bgr, "REWIRED?!", (60, 1080), cv2.FONT_HERSHEY_DUPLEX, 1.8, (8, 8, 8), 16, cv2.LINE_AA)
+    cv2.putText(bgr, "REWIRED?!", (60, 1080), cv2.FONT_HERSHEY_DUPLEX, 1.8, (255, 255, 255), 5, cv2.LINE_AA)
+
+    spec = {
+        "profile": "dark_void_paradox_v4",
+        "top_split_label": "0 LB GAINED",
+        "bottom_split_label": "BRAIN REWIRED?!",
+        "labels_baked_in_keyart": True,
+        "render_micro_labels": False,
+        "dark_void_paradox": True,
+        "r85_mode": True,
+    }
+    pil_out, ov_meta = ts.render_overlay_with_meta(bgr, "BRAIN REWIRED?!", thumb_spec=spec)
+    assert ov_meta["text_bbox"][1] >= cfg.THUMB_SHORTS_SHELF_CROP_Y[0]
+    rendered_bgr = cv2.cvtColor(np.array(pil_out, dtype=np.uint8), cv2.COLOR_RGB2BGR)
+    assert float(rendered_bgr[958:963].mean()) > 240.0
+    assert np.array_equal(rendered_bgr[1000:], bgr[1000:])
+
+    vars_map = {}
+    for k in ("A", "B", "C"):
+        vars_map[k] = {
+            "cut_index": 902 if k == "A" else 901,
+            "raw_metrics": {"sharpness": 900.0, "contrast": 55.0, "luma_mean": 50.0, "center_salience": 1.8},
+            "text_contrast_wcag": float(ov_meta["wcag_contrast"]),
+            "text_bbox": list(ov_meta["text_bbox"]),
+            "top_chunk_bbox": ov_meta["top_chunk_bbox"],
+            "bottom_chunk_bbox": ov_meta["bottom_chunk_bbox"],
+            "pointer_bbox": None,
+            "v4_split_metrics": ov_meta["v4_split_metrics"],
+            "rendered_bgr": rendered_bgr,
+            "clean_bgr": bgr,
+            "file_bytes": 400000,
+            "dimensions": [cfg.VIDEO_WIDTH, cfg.VIDEO_HEIGHT],
+            "grammar": "r65_v4_in_skull_split_keyart",
+        }
+    qa_res = ts.run_thumbnail_qa(vars_map, hook="BRAIN REWIRED?!", title="Test Title", thumb_spec=spec)
+    assert "TQ5_pairwise_distinct" not in qa_res["gates"]
+    assert qa_res["gates"]["TQ4_safe_zone_geometry"]["passed"] is True
+    assert qa_res["passed"] is True
+

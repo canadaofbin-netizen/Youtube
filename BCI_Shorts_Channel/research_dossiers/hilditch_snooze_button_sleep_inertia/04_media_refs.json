@@ -1,0 +1,80 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern neuroimaging/sleep-lab topic staged from R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Morning Medical | Sleep Study for Sleep Disorders",
+      "url": "https://www.youtube.com/watch?v=DjhMDGBBr9c",
+      "channel": "Salina Regional Health Center",
+      "source_id": "SRC_M1",
+      "duration_sec": 176,
+      "timecodes": [
+        {
+          "t": "00:08-00:22",
+          "what": "Clinical sleep-suite bedside framing showing overnight polysomnography scalp leads and morning wake monitoring apparatus relevant to Balkin (2002) and Sundelin (2024)."
+        },
+        {
+          "t": "00:24-00:44",
+          "what": "Medium shot of sleep-study bedroom posture and morning awakening assessment illustrating sleep-stage transition monitoring."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05-00:50) from Salina Regional Health Center's \"Morning Medical | Sleep Study for Sleep Disorders\".",
+          "Analyzed strictly for apparatus layout, lighting contrast, and pacing; zero video frames or audio reused in channel productions."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate4_talking_head_monologue(ratio=0.75,wps=0.0)",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.2521,
+        "median_gray_sat_ratio": 0.0886,
+        "median_p90_sat": 208.5,
+        "max_p90_sat": 231.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.2687,
+        "median_motion_diff": 14.471,
+        "talking_head_ratio": 0.75,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false,
+        "gate_failed": 4
+      }
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Five-Minute Snooze Scam: Why Hitting Snooze Makes You MORE Tired",
+      "url": "https://www.youtube.com/watch?v=KslzA_FNWJU",
+      "channel": "True Pivot",
+      "source_id": "SRC_M2",
+      "duration_sec": 113,
+      "timecodes": [
+        {
+          "t": "00:10-00:25",
+          "what": "Morning bedside alarm snooze sequence contrasting repeated intermittent alarm chimes against abrupt deep-sleep awakening."
+        },
+        {
+          "t": "00:28-00:45",
+          "what": "Visual breakdown of morning prefrontal grogginess and prolonged sleep inertia across the first 30 minutes awake."
+        }
+      ],
+      "license_note": "Complementary video reference logged for visual blocking context only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "no_verified_archival_or_experiment_footage_for_track_a",
+      "reenactment_suitability_metrics": {
+        "duration_sec": 113.0
+      }
+    }
+  ]
+}

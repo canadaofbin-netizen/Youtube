@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "penfield_cortical_homunculus",
   "topic": "Wilder Penfield (1937) & Gordon (2023): Awake Cortical Mapping, the Giant-Handed Homunculus & Its Modern Plot Twist",
   "pillar": "brain_history",
@@ -48,7 +48,17 @@
     },
     {
       "fact": "Why do human hands and lips hog more than HALF of our sensorimotor cortex while our whole back gets a sliver? Cortical real estate scales with **nerve-receptor density and fine motor precision** (toolmaking thumbs + 100-muscle human speech!), NOT physical weight.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Hand & Lip Cortex Share",
+        "percent": 50.0,
+        "unit": "%",
+        "doi": "10.1093/brain/60.4.389",
+        "source_citation": "Penfield & Boldrey (1937)"
+      }
     },
     {
       "fact": "Even Penfield himself warned against taking the cartoon Homunculus too literally. In his 1937 raw dot charts (re-highlighted by Schieber & modern historians, SRC2), finger, wrist, and face points actually **overlapped in rich mosaics** rather than sitting behind razor-sharp borders, and plastic boundaries expand with violin or Braille training.",
@@ -64,7 +74,28 @@
     },
     {
       "fact": "Two-point tactile discrimination thresholds (~2 mm on the index fingertip versus ~30–40 mm across the upper back) mirror Penfield's disproportionately enlarged hand-and-lip somatosensory homunculus.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Two-Point Touch Threshold",
+        "unit": "mm",
+        "bars": [
+          {
+            "label": "Index Fingertip",
+            "value": 2.0,
+            "unit": "mm"
+          },
+          {
+            "label": "Upper Back Skin",
+            "value": 40.0,
+            "unit": "mm"
+          }
+        ],
+        "doi": "10.1093/brain/60.4.389",
+        "source_citation": "Penfield & Boldrey (1937)"
+      }
     }
   ],
   "wow_facts": [
@@ -120,5 +151,38 @@
   ],
   "shorts_projects": [
     "diorama_12_penfield_cortical_homunculus"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1093/brain/60.4.389",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling why a tiny 1-millimetre splinter in your thumb or tongue feels HUGE compared with a 2-centimetre scratch on your shoulder.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/brain/60.4.389",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1093/brain/60.4.389"
+      ],
+      "summary": "Wilder Penfield, Edwin Boldrey (1937). SOMATIC MOTOR AND SENSORY REPRESENTATION IN THE CEREBRAL CORTEX OF MAN AS STUDIED BY ELECTRICAL STIMULATION. Brain."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1038/s41586-023-05964-2",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1038/s41586-023-05964-2"
+      ],
+      "summary": "Evan M. Gordon, Roselyne J. Chauvin, Andrew N. Van, Aishwarya Rajesh, Ashley Nielsen et al. (2023). A somato-cognitive action network alternates with effector regions in motor cortex. Nature."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Brain surgery hurts the brain tissue itself.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

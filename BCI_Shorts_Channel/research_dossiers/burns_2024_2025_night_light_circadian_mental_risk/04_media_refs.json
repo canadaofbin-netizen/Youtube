@@ -1,0 +1,81 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern neuroimaging/sleep-lab topic staged from R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Sleeping with even a little bit of light isn't good for your health",
+      "url": "https://www.youtube.com/watch?v=sZPOzzfMBHc",
+      "channel": "Break News",
+      "source_id": "SRC_M1",
+      "duration_sec": 194,
+      "timecodes": [
+        {
+          "t": "00:08-00:24",
+          "what": "Northwestern sleep-study bedroom lighting demonstration contrasting dim <3 lux sleep against 100 lux ambient room light (Mason et al., 2022)."
+        },
+        {
+          "t": "00:26-00:46",
+          "what": "Overnight heart-rate and morning metabolic comparison showing physiological arousal through closed eyelids."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05-00:50) from Break News's \"Sleeping with even a little bit of light isn't good for your health\".",
+          "Analyzed strictly for apparatus layout, lighting contrast, and pacing; zero video frames or audio reused in channel productions."
+        ]
+      },
+      "reenactment_suitability": "needs_section_window",
+      "reenactment_suitability_reason": "gate4_mixed_commentary_or_unwindowed_long_video",
+      "reenactment_suitability_metrics": {
+        "keyframe_count": 12,
+        "median_dark_ratio": 0.361,
+        "median_gray_sat_ratio": 0.2329,
+        "median_p90_sat": 169.5,
+        "max_p90_sat": 197.0,
+        "is_bw_archival": false,
+        "is_mixed_bw_and_color": false,
+        "median_flat_patch_ratio": 0.3052,
+        "median_motion_diff": 28.686,
+        "talking_head_ratio": 0.0,
+        "words_per_sec": 0.0,
+        "has_strong_archival_cue": false
+      },
+      "recommended_section": "00:25-00:48",
+      "reenactment_section": "00:25-00:48"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "DISCOVERY OF CIRCADIAN BLUE LIGHT: Key Research Findings",
+      "url": "https://www.youtube.com/watch?v=t8wlUa-J8wA",
+      "channel": "CIRCADIAN ZircLight Inc.",
+      "source_id": "SRC_M2",
+      "duration_sec": 393,
+      "timecodes": [
+        {
+          "t": "00:10-00:26",
+          "what": "Retinal melanopsin blue-light pathway projecting directly into the hypothalamic circadian clock."
+        },
+        {
+          "t": "00:28-00:48",
+          "what": "Contrast between bright daytime natural light exposure and artificial nighttime bedroom illumination."
+        }
+      ],
+      "license_note": "Complementary video reference logged for visual blocking context only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "no_verified_archival_or_experiment_footage_for_track_a",
+      "reenactment_suitability_metrics": {
+        "duration_sec": 393.0
+      }
+    }
+  ]
+}

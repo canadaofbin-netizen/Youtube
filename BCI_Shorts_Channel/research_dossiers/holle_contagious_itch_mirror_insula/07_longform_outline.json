@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Watch a silent 5-second clip of a stranger scratching an arm, and 64% of healthy adults start scratching their own clean skin — and it has ZERO to do with empathy.",
+    "core_experiment": "Holle, Seth, Critchley & Ward (2012 PNAS, N=51 behavioral / N=18 fMRI, scratching vs tapping) + Mochizuki & Yosipovitch (2017) + Yu & Chen (2017 Science) mouse circuit.",
+    "twist": "Trait stress vigilance (neuroticism), not empathy, drives the insula-premotor-somatosensory itch alarm — an ancient parasite-defense radar you can calm with cool pressure."
+  },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "42-year-old adult wide-eyed catching their own hand mid-scratch on a clean forearm while watching someone scratch",
+    "right_cyan_brain": "3D translucent glass brain with glowing #27D8FF premotor mirror strip, insula body-feeling hub, and somatosensory touch map active",
+    "badge_text": "ZERO BUGS ON SKIN"
+  },
+  "r75_clean_seed_tags": [
+    "contagious itch",
+    "why itching is contagious",
+    "insula brain",
+    "body illusions",
+    "sensory neuroscience",
+    "itch scratch cycle",
+    "psychology experiments",
+    "human brain facts",
+    "habit loop",
+    "shorts"
+  ],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 5-Second Silent Screen Test (Sussex 2012)",
+      "beats": [
+        "Scratching clips vs matched finger-tapping control clips",
+        "64% of free-moving adults scratch untouched skin (outpacing 47% laughter contagion)"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "cropped forearm scratch vs tap monitor & 0-to-7 pad"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Inside the Scanner: Lighting Up the Itch Matrix Without Histamine",
+      "beats": [
+        "18 motionless fMRI volunteers forbidden from scratching",
+        "Premotor mirror simulation -> anterior insula -> somatosensory touch map"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "3D glass brain insula + somatosensory relay"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Myth Busted: Why Stress Vigilance Beats Empathy",
+      "beats": [
+        "Zero correlation with standard empathy scales",
+        "Neuroticism + Yu & Chen (2017 Science) mouse parasite-defense proof"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "outdoor park patio scratch chain reaction"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "When Chronic Itch Hijacks the Habit Engine (2011–2017)",
+      "beats": [
+        "Papoiu & Yosipovitch 3.8x body-wide eczema spread under saline control",
+        "Mochizuki (2017) basal ganglia striatal itch-scratch loop"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "step2"
+      ],
+      "new_shots_needed": [
+        "saline dropper & body-map spread chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 10-Second Cool-Palm Reset",
+      "beats": [
+        "Naming the false parasite drill lowers insula gain",
+        "Pressing a cool palm or cold glass beats fingernail raking"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "pressing cool iced water glass calmly on forearm"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "spatial map spotting the wall and doorway frame shift",
+      "function": "registers the geometric transition from one enclosed room layout into a new space",
+      "scene_id": "S1",
+      "narration_bridge": "Detects cortical scene-structure shifts at boundaries in Baldassano et al. (2017, Neuron, SRC2).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "hippocampus",
+      "plain": "memory hub firing boundary cells to archive the old room chapter",
+      "function": "triggers a rapid boundary-cell pulse that files the finished room episode into long-term memory",
+      "scene_id": "S1",
+      "narration_bridge": "Directly recorded in human hippocampal boundary neurons by Zheng et al. (2022, Nature Neuroscience, SRC3).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "prefrontal cortex",
+      "plain": "front working-memory desk flushing the old errand on the threshold",
+      "function": "clears prior-room working-memory items to free capacity for the new room, dropping overloaded errands",
+      "scene_id": "S2",
+      "narration_bridge": "Explains Radvansky et al.'s (2011, SRC1) 28% vs 23% doorway error spike and McFadyen et al.'s (2021, SRC5) load interaction.",
+      "r78_circuit_state": "silenced"
+    }
+  ]
+}

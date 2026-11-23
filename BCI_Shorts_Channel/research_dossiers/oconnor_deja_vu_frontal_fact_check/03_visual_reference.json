@@ -1,0 +1,178 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "St Andrews fMRI Control Suite: Triggering Artificial Déjà Vu in 16 of 21 Scanned Adults as Frontal Fact-Checkers Ignite",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "2018–2021, School of Psychology and Neuroscience fMRI Suite, University of St Andrews, Scotland",
+      "layout": {
+        "description": "Crisp sunlit-glass fMRI control room overlooking a white cylindrical 3T MRI scanner bore: inside the bore a volunteer grips a fiber-optic two-button response grip beneath an overhead angled mirror, while Akira O'Connor and Josephine Urquhart watch frontal cingulate-prefrontal activation light up on dual workstation monitors.",
+        "positions": [
+          {
+            "who": "Akira O'Connor & Josephine Urquhart (researchers in smart Scottish knitwear and lab ID lanyards)",
+            "where": "standing at the glass observation console pointing to the glowing frontal-cortex slice while the hippocampal slice stays dark",
+            "facing": "looking from the fMRI workstation through the observation glass toward the scanner bore"
+          },
+          {
+            "who": "44-year-old volunteer inside the 3T fMRI bore",
+            "where": "lying on the cushioned MRI table looking up into the periscope mirror and pressing the right-hand 'New + Déjà Vu' button grip",
+            "facing": "upward toward the overhead word-projection mirror"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "fiber-optic MRI button-response grip and overhead mirror display",
+          "period_detail": "non-magnetic clinical fMRI ergonomic response pad wired to control-room timing rack",
+          "physical_behavior": "State-A thumb rests neutral on button pad while missing-theme cues finish -> State-B thumb presses decisively down on the déjà vu trigger button as frontal scan slice lights up"
+        },
+        {
+          "name": "dual-monitor fMRI brain-slice console contrasting frontal cortex vs silent hippocampus",
+          "period_detail": "St Andrews neuroimaging workstation beside printed word-list protocol clipboard",
+          "physical_behavior": "State-A baseline grey brain cross-section on screen -> State-B anterior cingulate and prefrontal regions flare bright cyan while researcher taps clipboard"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Scanned volunteer",
+          "verb_sequence": "listens through padded scanner headphones -> spots the unpresented theme word in the overhead mirror and presses the déjà vu response button firmly"
+        },
+        {
+          "who": "Akira O'Connor",
+          "verb_sequence": "leans toward the workstation monitor, traces from the dark hippocampus up to the bright frontal lobe, and logs trial 16 of 21"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Akira O'Connor & Josephine Urquhart",
+          "reaction": "exchange a surprised grin seeing frontal conflict-checkers—not memory storage—driving the scan"
+        },
+        {
+          "who": "Scanned volunteer",
+          "reaction": "widens eyes in unmistakable recognition-without-recall wonder inside the bore"
+        }
+      ],
+      "wardrobe": "Modern UK university attire: charcoal merino cardigan over collared shirt; soft cotton MRI-safe scrub top on volunteer.",
+      "lighting": "Clean bright clinical daylight balanced with cool sapphire monitor glow.",
+      "recognition_hook": "Trigger déjà vu live inside an MRI scanner, and the memory center stays dark while your forehead's fact-checker blazes to life.",
+      "sources": [
+        "SRC1",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a neuroimaging control room overlooking a white fMRI scanner where researchers point to bright frontal-lobe activation while a volunteer inside presses a handheld déjà vu response button",
+        "must_show": [
+          "mri|scanner",
+          "monitor|brain|frontal",
+          "button|console"
+        ],
+        "source": "M1@00:30-00:50; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Sunlit Cobblestone Travel Courtyard: Stopping Mid-Stride at a Twin Geometric Layout",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern sunlit morning European/coastal stone courtyard cafe",
+      "layout": {
+        "description": "Open-air sunlit stone plaza with a round fountain at center, striped awning cafe tables on the left, and an arched stone passageway on the right—matching the exact 3D spacing of a forgotten hometown garden.",
+        "positions": [
+          {
+            "who": "50-year-old traveler carrying a leather weekend bag and folded paper city map",
+            "where": "stopping dead in the middle of the sunlit stone courtyard, lowering sunglasses to scan the fountain-to-archway triangle",
+            "facing": "looking across the open outdoor courtyard"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "folded paper city map and leather weekend shoulder bag",
+          "period_detail": "first-time visitor travel gear proving the traveler just arrived in town",
+          "physical_behavior": "State-A traveler walks briskly unfolding crisp new city map -> State-B freezes mid-stride lowering map slowly as uncanny courtyard familiarity strikes"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Traveler",
+          "verb_sequence": "steps into the sunlit plaza unfolding a crisp map -> halts mid-step, lowers the map to waist height, and turns head left-to-right checking the fountain and cafe arch"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Traveler",
+          "reaction": "touches temple with a fascinated smile as the frontal fact-check vetoes the false familiarity"
+        }
+      ],
+      "wardrobe": "Linen travel jacket over navy polo shirt and chinos.",
+      "lighting": "Warm golden morning outdoor courtyard sunlight with crisp shadows.",
+      "recognition_hook": "A brand-new town square shares the invisible floorplan of a forgotten place—your temporal lobe yells 'familiar!' and your forehead yells 'impossible!'",
+      "sources": [
+        "SRC2",
+        "SRC3",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Fact-Checked Déjà Vu vs Unchecked False Memory: Vetoing the Illusion",
+      "iconic": false,
+      "shorts_priority": 2,
+      "setting_type": "indoor",
+      "era": "Modern bright home living room morning coffee table",
+      "layout": {
+        "description": "Sunlit morning breakfast table with two ceramic coffee mugs and an open morning newspaper.",
+        "positions": [
+          {
+            "who": "52-year-old spouse",
+            "where": "pausing mid-pour with the coffee carafe as a dinner-table phrase triggers a 2-second déjà vu flash, then smiling and setting the carafe down calmly",
+            "facing": "across the sunlit breakfast table"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "glass pour-over coffee carafe and ceramic mug",
+          "period_detail": "everyday morning kitchen table prop",
+          "physical_behavior": "State-A hand tilts carafe to pour morning coffee -> State-B pauses two seconds mid-air during déjà vu flash, then finishes pouring smoothly and sets carafe down"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Spouse",
+          "verb_sequence": "pauses pouring coffee for two seconds as déjà vu strikes -> chuckles, finishes pouring cleanly, and sets the glass carafe onto the coaster"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Spouse",
+          "reaction": "relaxed reassurance knowing the 2-second chill proved sharp frontal quality control"
+        }
+      ],
+      "wardrobe": "Casual morning knit pullover.",
+      "lighting": "Bright morning kitchen window sunlight.",
+      "recognition_hook": "That weird two-second shiver isn't your memory breaking—it's your brain refusing to buy a fake memory.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Brand-new stone courtyard matching the geometric layout of an older forgotten plaza",
+    "landmark_or_object_b": "Frontal reality-check checkpoint catching the false-familiarity overlap",
+    "arrow_3d_mode": "split_hemisphere_watch",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep skimming St Andrews stone quad arches ascending into vertical bird's-eye view",
+    "cut_b_topdown_3d_arrow": "90-degree top-down twin courtyard grid with parallel cyan and #FF2525 3D arrows revealing identical spatial geometry",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

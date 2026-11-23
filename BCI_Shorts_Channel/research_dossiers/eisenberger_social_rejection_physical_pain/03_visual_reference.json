@@ -1,0 +1,180 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2003 UCLA Cyberball fMRI Scanner Suite: 7 Throws Included -> 45 Throws Frozen Out",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2003, Ahmanson-Lovelace Brain Mapping Center, UCLA, Los Angeles",
+      "layout": {
+        "description": "Bright high-key UCLA clinical neuroimaging suite split by a clean observation window: in the scanner bay, an adult volunteer in a slate sweater lies on the padded MRI table holding a two-button response box beneath an angled mirror showing three minimalist ball-tossing figures; in the control bay, Naomi Eisenberger stands beside an unmarked brain-slice monitor.",
+        "positions": [
+          {
+            "who": "Adult Cyberball participant (clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and crisp 2D charcoal-black ink eyes, eyebrows, and mouth in slate-blue cotton sweater and dark slacks)",
+            "where": "reclining on the white MRI scanner bed with right thumb poised over the handheld two-button throw controller",
+            "facing": "looking upward into the angled overhead mirror toward the three-player ball game"
+          },
+          {
+            "who": "Lead UCLA neuroscientist (clothed 2.5D matte cream-white vinyl character in tailored navy blazer and crisp white lab coat)",
+            "where": "standing at the glass control desk beside a clean text-free sagittal brain monitor",
+            "facing": "angled toward the scanner window and glowing cingulate brain display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "handheld fiber-optic two-button throw controller and overhead mirror screen",
+          "period_detail": "authentic 2003 UCLA fMRI button box wired to a three-avatar ball-toss display with zero text labels",
+          "physical_behavior": "State-A: participant's thumb presses briskly to toss the ball back -> State-B: top two avatars pass exclusively left-to-right 45 times while the participant's hand slowly drops the idle controller onto their chest"
+        },
+        {
+          "name": "unmarked high-contrast clinical fMRI console monitor",
+          "period_detail": "clean glass laboratory screen displaying a sagittal brain outline without text or numbers",
+          "physical_behavior": "State-A: calm cool baseline glow during fair catches -> State-B: bright crimson-amber flare surges along the midline anterior cingulate arch the moment the player is frozen out"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult Cyberball participant",
+          "verb_sequence": "presses the right button eagerly to return the seventh ball toss -> pauses mid-reach as the two upper avatars pass strictly between themselves -> lowers the unpressed controller slowly onto chest"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult Cyberball participant",
+          "reaction": "2D charcoal-black ink eyebrows angle upward in quiet sting as shoulders sink against the scanner cushion"
+        },
+        {
+          "who": "Lead UCLA neuroscientist",
+          "reaction": "leans forward pointing from the idle button box toward the blazing midline cingulate flare on the monitor"
+        }
+      ],
+      "wardrobe": "45-year-old adult volunteer in slate-blue crew sweater and charcoal trousers; researcher in navy blouse and crisp white clinical lab coat.",
+      "lighting": "Clean high-key clinical daylight balanced with cool cyan-blue monitor rim light.",
+      "recognition_hook": "Seven friendly catches, then 45 straight throws right past your empty hands — and the MRI catches your physical pain alarm blazing!",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "an adult volunteer on a bright white MRI scanner bed lowering an idle two-button controller while two avatars toss a ball overhead and a clinical monitor flares crimson along the midline cingulate",
+        "must_show": [
+          "scanner|mri|bed",
+          "button|controller|ball",
+          "monitor|brain"
+        ],
+        "source": "M1@00:25-00:48; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Sunlit Neighborhood Park & Patio Exclusion: Kipling Williams' Real-World Frisbee Snub (Outdoor)",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit neighborhood green park lawn & outdoor stone patio",
+      "layout": {
+        "description": "Open-world sunlit green neighborhood park lawn bordered by mature oak trees and an outdoor patio table: three clothed 40s-50s adults stand in a triangle tossing a white flying disc; two players turn 45 degrees inward to pass exclusively back and forth while the third stands two paces out with open empty hands.",
+        "positions": [
+          {
+            "who": "Excluded middle-aged neighbor (2.5D matte cream-white vinyl adult in olive linen overshirt and khaki chinos)",
+            "where": "standing on the sunlit grass lawn at the lower vertex of the three-person triangle",
+            "facing": "facing the two other adults with raised open hands that slowly lower to sides"
+          },
+          {
+            "who": "Two passing adults (2.5D matte cream-white vinyl adults in tan cardigan and chambray shirt)",
+            "where": "standing across the sunlit lawn six meters apart",
+            "facing": "angled strictly toward each other, tossing the white disc rapidly back and forth"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "crisp white flying disc on sunlit park grass",
+          "period_detail": "recreates Kipling Williams' real outdoor park frisbee exclusion moment documented in Golden Rule Films archival footage",
+          "physical_behavior": "State-A: arcs once into the third player's hands and back -> State-B: zips horizontally back and forth exclusively between the other two while the third player lowers empty hands"
+        },
+        {
+          "name": "unmarked ceramic coffee mug on outdoor patio table",
+          "period_detail": "everyday adult weekend gathering prop",
+          "physical_behavior": "excluded adult picks up the mug quietly and steps back half a pace as chest posture tightens"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Excluded middle-aged neighbor",
+          "verb_sequence": "raises both hands ready to catch the white disc -> watches it zip past between the other two -> lowers arms slowly to sides on the sunlit grass"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Excluded middle-aged neighbor",
+          "reaction": "presses one hand briefly over sternum in sudden visceral recognition"
+        }
+      ],
+      "wardrobe": "Smart-casual 40s-50s weekend attire: olive linen overshirt, tan knit cardigan, chambray button-down.",
+      "lighting": "Warm golden afternoon outdoor sunlight casting crisp natural tree shadows across green grass.",
+      "recognition_hook": "Out in open daylight on a park lawn, being silently skipped in a 30-second toss hits your chest before your rational mind can shrug it off.",
+      "sources": [
+        "SRC1",
+        "SRC_M1"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "2010 Three-Week Capsule Counterpoint & Prefrontal Reality-Checker Reappraisal",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2010 University of Kentucky / UCLA Behavioral Pharmacology Suite & Modern Kitchen Counter",
+      "layout": {
+        "description": "Sunlit minimalist kitchen/clinic counter with two identical unprinted white daily pill organizers side by side next to a clean glass of water and an unmarked daily check-in notepad.",
+        "positions": [
+          {
+            "who": "Adult study volunteer (2.5D matte cream-white vinyl figure in burgundy knit pullover)",
+            "where": "standing beside the sunlit counter holding a plain glass of water and closing a daily logbook",
+            "facing": "three-quarter view toward camera"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unmarked white 21-slot capsule organizer and clear water glass",
+          "period_detail": "represents DeWall et al. (2010) 3-week double-blind placebo vs acetaminophen proof-of-concept study without brand text",
+          "physical_behavior": "State-A: volunteer sets down the water glass -> State-B: calmly closes the hardcover daily diary as tense shoulders relax"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult study volunteer",
+          "verb_sequence": "sets clear water tumbler cleanly on oak counter -> closes the unprinted hardcover diary with a calm exhale"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult study volunteer",
+          "reaction": "calm composed expression as ventral prefrontal reality-checker dampens the sting"
+        }
+      ],
+      "wardrobe": "Burgundy knit pullover and dark trousers.",
+      "lighting": "Warm morning window light.",
+      "recognition_hook": "Blunting central physical pain pathways for three weeks measurably quieted daily hurt feelings in the scanner — proving shared brain alarm hardware.",
+      "sources": [
+        "SRC2",
+        "SRC3",
+        "SRC7"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Three-person triangle ball-toss inclusion loop",
+    "landmark_or_object_b": "Two-person closed back-and-forth line shutting the third player out",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep over UCLA Royce Hall brick arcades ascending above an outdoor courtyard table",
+    "cut_b_topdown_3d_arrow": "90-degree top-down courtyard triangle where the #FF2525 3D pass arrow severs away from the excluded third figure",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

@@ -4,26 +4,38 @@
     {
       "role": "symptom",
       "region": "cochlea",
-      "plain": "pure 'BA' acoustic signal",
-      "function": "transmitting an unambiguous bilabial 'BA-BA' sound wave from the loudspeaker on every single repetition",
+      "plain": "inner-ear sound sensor",
+      "function": "sending an unchanged, crystal-clear 'BA-BA' sound signal from the loudspeaker on every single replay",
       "scene_id": "S1",
-      "narration_bridge": "Proves the physical ear input never changes."
+      "narration_bridge": "Proves the raw ear input never changes when the white paddle slides across the screen.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step1",
+      "region": "primary visual cortex",
+      "plain": "vision center at the back of the head",
+      "function": "capturing open-mouth 'GA' lip geometry 100 milliseconds before vocal sound finishes arriving",
+      "scene_id": "S1",
+      "narration_bridge": "Sends the early visual lip preview forward when eyes are open — and goes silent the instant eyes shut.",
+      "r78_circuit_state": "active"
     },
     {
       "role": "pivot",
       "region": "temporal lobe",
-      "plain": "pSTS sight-plus-sound fusion hub",
-      "function": "merging visual 'GA' open-lip motion from visual cortex with 'BA' audio from auditory cortex into the compromise percept 'DA'",
+      "plain": "side-lobe sight-and-sound mixer",
+      "function": "fusing visual 'GA' lips with acoustic 'BA' sound in the superior temporal sulcus into the compromise syllable 'DA'",
       "scene_id": "S1",
-      "narration_bridge": "Matches Beauchamp et al. (2010) causal TMS localization in posterior Superior Temporal Sulcus."
+      "narration_bridge": "Matches Nath & Beauchamp (2012) and Meijer & Noppeney (2023) audiovisual speech integration.",
+      "r78_circuit_state": "active"
     },
     {
-      "role": "step1",
+      "role": "step2",
       "region": "auditory cortex",
-      "plain": "rewritten conscious phoneme",
-      "function": "delivering a crisp conscious experience of 'DA-DA' with eyes open that flips instantly back to 'BA-BA' the millisecond eyelids close",
-      "scene_id": "S1",
-      "narration_bridge": "Explains why subjects swear the loudspeaker itself changed."
+      "plain": "hearing center",
+      "function": "delivering a vivid conscious perception of 'DA-DA' with eyes open that snaps back to 'BA-BA' when visual lip input is blocked",
+      "scene_id": "S2",
+      "narration_bridge": "Explains why 98% of adults swear the loudspeaker itself switched words.",
+      "r78_circuit_state": "active"
     }
   ]
 }

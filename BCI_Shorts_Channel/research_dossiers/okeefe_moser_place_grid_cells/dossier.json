@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "okeefe_moser_place_grid_cells",
   "topic": "O'Keefe (1971) & May-Britt and Edvard Moser (2005): Place Cells, Hexagonal Grid Cells & Your Brain's Inner GPS",
   "pillar": "brain_basics",
@@ -36,7 +36,19 @@
     },
     {
       "fact": "O'Keefe discovered **8 neurons** unlike anything ever recorded: Cell 1 ignored food, water, grooming, and sound anywhere else, firing **exclusively whenever the animal walked through the NORTH-WEST corner**; Cell 2 fired strictly by the **SOUTH edge**; Cell 3 strictly at **CENTER** — **'Place Cells'** whose ensemble literally spelled out *'Where am I right now?'*.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "inverted_u",
+        "title": "Hippocampal Place Field Peak",
+        "concept": "CA1 Spatial Place-Field Tuning",
+        "x_label": "Arena Position",
+        "y_label": "CA1 Firing Rate",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Even in total darkness after landmarks are switched off, Place Cells keep firing in the right spot using self-motion step integration — and if you rotate the room's visual cue card by 90 degrees, the entire hippocampal map rotates 90 degrees with it.",
@@ -122,5 +134,37 @@
     "diorama_76_okeefe_moser_place_grid_cells"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1016/0006-8993(71)90358-1",
+  "three_layer_formula": {
+    "everyday_problem": "Using the ancient 'Memory Palace' (*Method of Loci*) — placing grocery items or speech points along rooms of your childhood house — and realizing why it works like magic: you are stapling facts directly onto hippocampal **Place Cells**.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/0006-8993(71)90358-1",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/0006-8993(71)90358-1"
+      ],
+      "summary": "J. O'Keefe, J. Dostrovsky (1971). The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat. Brain Research."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1126/science.aaf0941",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1126/science.aaf0941"
+      ],
+      "summary": "Alexandra O. Constantinescu, Jill X. O'Reilly, Timothy E. J. Behrens (2016). Organizing conceptual knowledge in humans with a gridlike code. Science."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Your hippocampus only cares about memorizing vocabulary lists and birthdays.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

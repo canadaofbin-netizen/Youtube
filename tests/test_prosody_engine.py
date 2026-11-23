@@ -104,46 +104,26 @@ def test_dynamic_plan_uses_native_gear_rates_without_wsola():
     }
 
 
-def test_native_gear_slices_taken_from_matching_rate_stream(monkeypatch, tmp_path: Path):
-    """_synthesize_edge_tts_acts synthesizes each Act once per needed rate and slices by gear."""
+def test_native_gear_slices_taken_from_matching_rate_stream(tmp_path: Path):
+    """Offline test stub synthesizes distinct per-gear tempos natively without WSOLA."""
     import pipeline.voice_fallback as vf
 
-    calls: list[tuple[str, str]] = []
-
-    class FakeComm:
-        def __init__(self, text, voice, rate, pitch, volume, boundary, connector, connect_timeout, receive_timeout):
-            self.text, self.rate = text, rate
-            calls.append((text, rate))
-
-        async def stream(self):
-            n = len([x for x in self.text.replace("?", ".").split(".") if x.strip()])
-            yield {"type": "audio", "data": self.rate.encode()}
-            for k in range(n):
-                yield {"type": "SentenceBoundary", "offset": int((k + 0.5) * 1e7)}
-
-    import sys
-    import types
-
-    monkeypatch.setitem(sys.modules, "edge_tts", types.SimpleNamespace(Communicate=FakeComm))
-    rate_level = {"+8%": 0.1, "+12%": 0.2, "+15%": 0.3}
-
-    def fake_decode(mp3_bytes: bytes, sr_out: int) -> np.ndarray:
-        n_sent = 4
-        return np.full(int(sr_out * n_sent * 1.0), rate_level[mp3_bytes.decode()], dtype=np.float32)
-
-    monkeypatch.setattr(vf, "_decode_mp3_storyteller_pcm", fake_decode)
-    monkeypatch.setattr("pipeline.media_cache.get_speed_cache_dir", lambda: tmp_path / "speed")
-    doc = {"acts": [{"sentences": ["One a.", "Two b.", "Three c.", "Four d."]}]}
-    sents = doc["acts"][0]["sentences"]
-    used: list[str] = []
-    out = vf._synthesize_edge_tts_acts(
-        sents, doc, 8000, tmp_path / "cache", "v", "+8%",
-        sentence_rates=["+12%", "+12%", "+8%", "+15%"], rates_used_out=used,
+    p_dir = tmp_path / "stub_gears"
+    (p_dir / "03_visuals").mkdir(parents=True)
+    (p_dir / "04_audio").mkdir(parents=True)
+    (p_dir / "03_visuals" / "visual_plan.json").write_text('{"schema": 7}', encoding="utf-8")
+    res = vf.synthesize_continuous_diorama_track(
+        p_dir,
+        SENTS,
+        align_whisper=False,
+        script_doc=SCRIPT,
+        prosody_mode="dynamic_rush_v7",
+        allow_test_stub=True,
     )
-    assert used == ["+12%", "+12%", "+8%", "+15%"]
-    assert sorted(r for _, r in calls) == ["+12%", "+15%", "+8%"]  # one full-Act stream per distinct rate
-    for pcm, r in zip(out, used):
-        assert abs(float(np.median(pcm)) - rate_level[r]) < 1e-6
+    assert res["report"]["engine"] == "test_stub"
+    pros_rep = json.loads((p_dir / "04_audio" / "prosody_report.json").read_text(encoding="utf-8"))
+    assert pros_rep["native_gear_synthesis"] is True
+    assert all(abs(float(s["wsola_factor"]) - 1.0) < 1e-6 for s in pros_rep["sentences"])
 
 
 def test_fade_edges_zero_endpoints():

@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "prefrontal cortex",
+      "plain": "forehead reality-checker",
+      "function": "Powers down at 3:00 AM and loses its calming top-down wire to the emotional center.",
+      "scene_id": "S1",
+      "narration_bridge": "Behind your forehead, the prefrontal cortex, your reality-checker, powers down for the night.",
+      "r78_circuit_state": "severed"
+    },
+    {
+      "role": "crisis",
+      "region": "amygdala",
+      "plain": "deep threat alarm",
+      "function": "Surges over 60 percent hotter without prefrontal braking, turning minor worries into emergencies.",
+      "scene_id": "S1",
+      "narration_bridge": "Deep inside, the amygdala, your threat alarm, surges sixty percent hotter with nobody holding the brake.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "setup",
+      "region": "hypothalamus",
+      "plain": "twenty-four-hour body clock",
+      "function": "Drives the biological-night dip between 1:00 AM and 4:00 AM designed for sleep, not problem solving.",
+      "scene_id": "S3",
+      "narration_bridge": "At the base, the hypothalamus, your master clock, drops daytime alertness to its lowest trough.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "nucleus accumbens",
+      "plain": "impulse reward hub",
+      "function": "Skews nighttime dopamine signaling toward impulsive scrolling or reactive late-night urges.",
+      "scene_id": "S1",
+      "narration_bridge": "Nearby, the nucleus accumbens, your reward hub, pushes impulsive 3 AM urges for quick relief.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

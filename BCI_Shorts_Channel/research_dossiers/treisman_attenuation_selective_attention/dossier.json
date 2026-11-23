@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "treisman_attenuation_selective_attention",
   "topic": "Anne Treisman (1960/1964): Attenuation Theory — Why Your Ignored Ear Suddenly Hijacks Your Mouth When the Story Jumps Ears!",
   "pillar": "brain_basics",
@@ -55,7 +55,28 @@
     },
     {
       "fact": "When rivals Deutsch & Deutsch (1963) swung to the opposite extreme claiming *everything* is 100% analyzed ('Late Selection'), **Treisman & Geffen (1967, SRC3)** crushed that myth too: asking listeners to tap a ruler whenever a target word appeared yielded **86.5% hits in the attended ear vs just 8.7% in the unattended ear** — proving the dimmer knob really DOES turn unattended speech way down without shutting it to 0.0%.",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Target Word Tap Detection",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Attended Ear",
+            "value": 86.5,
+            "unit": "%"
+          },
+          {
+            "label": "Unattended Ear",
+            "value": 8.7,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1080/14640746708400062",
+        "source_citation": "Treisman & Geffen (1967)"
+      }
     },
     {
       "fact": "Three decades (30 years) after Treisman's 1960–1964 attenuation model, human magnetoencephalography and auditory-cortex ERP studies confirmed graded gain modulation rather than complete peripheral channel shutoff.",
@@ -117,5 +138,37 @@
     "diorama_86_treisman_attenuation_selective_attention"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/s0022-5371(64)80015-3",
+  "three_layer_formula": {
+    "everyday_problem": "Hearing your own first name — or the exact project code you've been stressing over all week! — pop out crystal-clear from three tables away in a noisy coffee shop.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/s0022-5371(64)80015-3",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/s0022-5371(64)80015-3"
+      ],
+      "summary": "Anne Treisman (1964). Monitoring and storage of irrelevant messages in selective attention. Journal of Verbal Learning and Verbal Behavior."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1037/amp0000605",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1037/amp0000605"
+      ],
+      "summary": "Barbara Tversky (2020). Anne Marie Treisman (1937–2018). American Psychologist."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Unattended sounds are 100% deleted at the eardrum before reaching word meaning ('strict early block').",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

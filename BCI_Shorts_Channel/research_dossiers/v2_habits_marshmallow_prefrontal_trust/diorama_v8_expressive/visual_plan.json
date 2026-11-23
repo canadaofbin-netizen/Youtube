@@ -1,0 +1,3457 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "camera_profile": "expressive_dynamic_v8",
+  "daisy_chain_keyframes": true,
+  "core_reveal_sentence_index": 15,
+  "visual_mode": "HYBRID",
+  "zero_clip_reuse": true,
+  "project_id": "v8_pilot_03_marshmallow_trust_previs",
+  "dossier": "v2_habits_marshmallow_prefrontal_trust",
+  "dossier_slug": "v2_habits_marshmallow_prefrontal_trust",
+  "pillar": "brain_basics",
+  "everyday_domain": "habits",
+  "title": "Why Broken Promises Crash Your Self-Control",
+  "doi": "10.1016/j.cognition.2012.08.004",
+  "secondary_doi": "10.7554/elife.65661",
+  "omit_experiment_nicknames": [],
+  "default_location_id": "playroom_oak_table",
+  "real_environment": "sunlit developmental testing room with warm plaster walls, oak table, and open wooden door",
+  "thumbnail": {
+    "hook_text": "BROKEN TRUST",
+    "cover_sentence_index": 1,
+    "cover_brief": "Startled petite 2.5D matte-white vinyl figure in mustard-yellow sweater staring at snapped crayon stubs and empty adult palms"
+  },
+  "clips": [
+    {
+      "clip_number": 1,
+      "sentence_index": 1,
+      "act": 1,
+      "scene_id": "S01",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "dolly_zoom_vertigo",
+      "location_id": "playroom_oak_table",
+      "environment": "sunlit developmental testing room with warm plaster walls, oak table, and open wooden door",
+      "cast": "a clothed 2.5D matte cream-white vinyl researcher in a white lab coat over slate-blue shirt and a petite seated vinyl figure in a mustard-yellow knit sweater",
+      "action": "swings open the oak door and spreads two empty four-fingered matte-white palms above the bare table",
+      "consequence": "the seated figure's charcoal-black 2D ink eyebrows drop in startled disappointment",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.55,
+            1.62
+          ],
+          "look_at": [
+            0.0,
+            0.15,
+            1.02
+          ],
+          "fov_deg": 52.0
+        },
+        "camera_end": {
+          "pos": [
+            0.28,
+            -1.72,
+            1.28
+          ],
+          "look_at": [
+            -0.05,
+            0.1,
+            0.96
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "seated_subject",
+            "label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+            "pos_start": [
+              -0.32,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              -0.32,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher",
+            "label": "Lab-coat researcher spreading empty hands",
+            "pos_start": [
+              0.42,
+              0.25,
+              0.0
+            ],
+            "pos_end": [
+              0.34,
+              0.16,
+              0.0
+            ],
+            "height_m": 1.7,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "crayon_tin",
+            "label": "Small open tin of worn crayon stubs",
+            "pos_start": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "pos_end": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "size_xyz": [
+              0.18,
+              0.14,
+              0.1
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#6E737B"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#8A8F98"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "seated_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Lab-coat researcher spreading empty hands",
+            "entity_kind": "actor"
+          },
+          "crayon_tin": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "Small open tin of worn crayon stubs",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S01_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S01_end_previs.png"
+      },
+      "end_sentence_index": 1,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_01_playroom_oak_table_eye_level_medium_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_02_playroom_oak_table_high_angle_3q_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 2,
+      "sentence_index": 2,
+      "act": 1,
+      "scene_id": "S02",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "crane_swoop_dive",
+      "location_id": "playroom_oak_table",
+      "environment": "sunlit developmental testing room with warm plaster walls, oak table, and open wooden door",
+      "cast": "a petite seated 2.5D matte cream-white vinyl figure in a mustard-yellow knit sweater",
+      "action": "nudges two tiny snapped wax crayon stubs rolling across the oak tabletop with one four-fingered hand",
+      "consequence": "2D charcoal-black ink mouth curves downward at the broken stubs",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.28,
+            -1.72,
+            1.28
+          ],
+          "look_at": [
+            -0.05,
+            0.1,
+            0.96
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.05,
+            -1.18,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            -0.02,
+            0.76
+          ],
+          "fov_deg": 42.0
+        },
+        "actors": [
+          {
+            "role_id": "seated_subject",
+            "label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+            "pos_start": [
+              -0.32,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              -0.28,
+              0.14,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher",
+            "label": "Lab-coat researcher stepping beside oak table",
+            "pos_start": [
+              0.34,
+              0.16,
+              0.0
+            ],
+            "pos_end": [
+              0.48,
+              0.3,
+              0.0
+            ],
+            "height_m": 1.7,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "crayon_tin",
+            "label": "Two snapped wax crayon stubs rolling out of tin",
+            "pos_start": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "pos_end": [
+              -0.06,
+              -0.08,
+              0.74
+            ],
+            "size_xyz": [
+              0.18,
+              0.14,
+              0.1
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#6E737B"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#8A8F98"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "seated_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Lab-coat researcher stepping beside oak table",
+            "entity_kind": "actor"
+          },
+          "crayon_tin": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "Two snapped wax crayon stubs rolling out of tin",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 1,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S02_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S02_end_previs.png"
+      },
+      "end_sentence_index": 2,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_02_playroom_oak_table_high_angle_3q_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_03_playroom_oak_table_object_portal_macro_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 3,
+      "sentence_index": 3,
+      "act": 1,
+      "scene_id": "S03",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "playroom_oak_table",
+      "environment": "sunlit developmental testing room with warm plaster walls, oak table, and open wooden door",
+      "cast": "the white-coated 2.5D vinyl researcher and the petite seated figure in a mustard-yellow knit sweater",
+      "action": "sets down a crisp white porcelain saucer holding one plump white marshmallow right on the center oak tabletop",
+      "consequence": "wide 2D charcoal-black ink eyes lock straight onto the plump marshmallow",
+      "transition_to_next": "occlusion_wipe",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.05,
+            -1.18,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            -0.02,
+            0.76
+          ],
+          "fov_deg": 42.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.42,
+            -1.55,
+            1.18
+          ],
+          "look_at": [
+            -0.05,
+            0.05,
+            0.86
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "seated_subject",
+            "label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+            "pos_start": [
+              -0.28,
+              0.14,
+              0.0
+            ],
+            "pos_end": [
+              -0.26,
+              0.12,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher",
+            "label": "Lab-coat researcher placing marshmallow plate",
+            "pos_start": [
+              0.48,
+              0.3,
+              0.0
+            ],
+            "pos_end": [
+              0.36,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.7,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "marshmallow_plate",
+            "label": "White porcelain saucer holding one plump marshmallow",
+            "pos_start": [
+              0.08,
+              0.0,
+              0.74
+            ],
+            "pos_end": [
+              -0.02,
+              0.0,
+              0.74
+            ],
+            "size_xyz": [
+              0.22,
+              0.22,
+              0.12
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#6E737B"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#8A8F98"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "seated_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Lab-coat researcher placing marshmallow plate",
+            "entity_kind": "actor"
+          },
+          "marshmallow_plate": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "White porcelain saucer holding one plump marshmallow",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 2,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S03_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S03_end_previs.png"
+      },
+      "end_sentence_index": 4,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_03_playroom_oak_table_object_portal_macro_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_04_playroom_oak_table_over_shoulder_orbit_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 4,
+      "sentence_index": 5,
+      "act": 2,
+      "scene_id": "S04",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "pan_right",
+      "location_id": "bookstore_lecture_podium",
+      "environment": "warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp",
+      "analogy_object": "a glossy stack of unmarked hardcover books balanced beside a cracked porcelain Dumbbell trophy",
+      "cast": "a confident 2.5D matte cream-white vinyl speaker in a charcoal blazer",
+      "action": "taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop",
+      "consequence": "smug arched 2D charcoal-black ink eyebrows frame a lecturing grin",
+      "transition_to_next": "whip_pan_blur_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.55,
+            -2.1,
+            1.4
+          ],
+          "look_at": [
+            -0.1,
+            0.1,
+            1.15
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.45,
+            -1.95,
+            1.36
+          ],
+          "look_at": [
+            0.1,
+            0.1,
+            1.12
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "guru_speaker",
+            "label": "Speaker in charcoal blazer",
+            "pos_start": [
+              0.0,
+              0.25,
+              0.0
+            ],
+            "pos_end": [
+              0.08,
+              0.22,
+              0.0
+            ],
+            "height_m": 1.74,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "book_stack",
+            "label": "Stack of unmarked hardcover books on lectern",
+            "pos_start": [
+              -0.22,
+              -0.05,
+              0.78
+            ],
+            "pos_end": [
+              -0.22,
+              -0.05,
+              0.78
+            ],
+            "size_xyz": [
+              0.28,
+              0.22,
+              0.24
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#5E554C"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#7A6F64"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "guru_speaker": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Speaker in charcoal blazer",
+            "entity_kind": "actor"
+          },
+          "book_stack": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Stack of unmarked hardcover books on lectern",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S05_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S05_end_previs.png"
+      },
+      "end_sentence_index": 5,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_05_bookstore_lecture_podi_eye_level_medium_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_05_bookstore_lecture_podi_end_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 5,
+      "sentence_index": 6,
+      "act": 2,
+      "scene_id": "S05",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "playroom_oak_table",
+      "environment": "amber-lit testing room oak tabletop with the empty broken-crayon tin beside the white saucer",
+      "cast": "the petite 2.5D matte cream-white vinyl figure in a mustard-yellow knit sweater",
+      "action": "lunges forward across the oak table and snatches the plump white marshmallow off the saucer",
+      "consequence": "determined 2D ink brows narrow as four-fingered vinyl fingers close around the treat",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.15,
+            1.52
+          ],
+          "look_at": [
+            0.0,
+            0.0,
+            0.85
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            0.12,
+            -1.15,
+            1.04
+          ],
+          "look_at": [
+            -0.08,
+            0.05,
+            0.88
+          ],
+          "fov_deg": 42.0
+        },
+        "actors": [
+          {
+            "role_id": "seated_subject",
+            "label": "Petite vinyl figure lunging forward in mustard-yellow sweater",
+            "pos_start": [
+              -0.24,
+              0.16,
+              0.0
+            ],
+            "pos_end": [
+              -0.12,
+              0.04,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "marshmallow_plate",
+            "label": "White porcelain saucer as marshmallow is snatched",
+            "pos_start": [
+              0.0,
+              0.0,
+              0.74
+            ],
+            "pos_end": [
+              0.0,
+              0.0,
+              0.74
+            ],
+            "size_xyz": [
+              0.22,
+              0.22,
+              0.12
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#6E737B"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#8A8F98"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "seated_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite vinyl figure lunging forward in mustard-yellow sweater",
+            "entity_kind": "actor"
+          },
+          "marshmallow_plate": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "White porcelain saucer as marshmallow is snatched",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S06_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S06_end_previs.png"
+      },
+      "end_sentence_index": 6,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_06_playroom_oak_table_high_angle_3q_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_07_playroom_oak_table_object_portal_macro_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 6,
+      "sentence_index": 7,
+      "act": 2,
+      "scene_id": "S06",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "gentle_push_in",
+      "location_id": "playroom_oak_table",
+      "environment": "amber-lit testing room oak tabletop with an empty white porcelain saucer",
+      "cast": "the petite 2.5D matte cream-white vinyl figure in a mustard-yellow knit sweater",
+      "action": "takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below",
+      "consequence": "2D charcoal-black ink cheeks puff out in unapologetic satisfaction",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.12,
+            -1.15,
+            1.04
+          ],
+          "look_at": [
+            -0.08,
+            0.05,
+            0.88
+          ],
+          "fov_deg": 42.0
+        },
+        "camera_end": {
+          "pos": [
+            0.02,
+            -0.98,
+            1.0
+          ],
+          "look_at": [
+            -0.1,
+            0.04,
+            0.92
+          ],
+          "fov_deg": 40.0
+        },
+        "actors": [
+          {
+            "role_id": "seated_subject",
+            "label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+            "pos_start": [
+              -0.12,
+              0.04,
+              0.0
+            ],
+            "pos_end": [
+              -0.1,
+              0.04,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "marshmallow_plate",
+            "label": "Empty white porcelain saucer on oak table",
+            "pos_start": [
+              0.0,
+              0.0,
+              0.74
+            ],
+            "pos_end": [
+              0.0,
+              0.0,
+              0.74
+            ],
+            "size_xyz": [
+              0.22,
+              0.22,
+              0.08
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#6E737B"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#8A8F98"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "seated_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+            "entity_kind": "actor"
+          },
+          "marshmallow_plate": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "Empty white porcelain saucer on oak table",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 6,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S07_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S07_end_previs.png"
+      },
+      "end_sentence_index": 7,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_07_playroom_oak_table_object_portal_macro_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_07_playroom_oak_table_end_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 7,
+      "sentence_index": 8,
+      "act": 2,
+      "scene_id": "S07",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "pan_left",
+      "location_id": "observation_glass_booth",
+      "environment": "dim slate-teal observation gallery with a wide glass viewing window and wooden console ledge",
+      "cast": "two skeptical 2.5D matte cream-white vinyl observers in tweed jackets holding wooden clipboards",
+      "action": "shake their smooth oval heads and tap wooden clipboards firmly against the console ledge",
+      "consequence": "furrowed 2D charcoal-black ink brows frown through the observation glass",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.48,
+            -2.05,
+            1.44
+          ],
+          "look_at": [
+            0.05,
+            0.15,
+            1.22
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.32,
+            -1.82,
+            1.38
+          ],
+          "look_at": [
+            -0.08,
+            0.15,
+            1.22
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "critic_observer",
+            "label": "Skeptical observer in tweed jacket with clipboard",
+            "pos_start": [
+              -0.2,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              -0.16,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher",
+            "label": "Lead researcher watching quietly beside glass",
+            "pos_start": [
+              0.35,
+              0.28,
+              0.0
+            ],
+            "pos_end": [
+              0.3,
+              0.22,
+              0.0
+            ],
+            "height_m": 1.7,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "clipboard_prop",
+            "label": "Unmarked wooden clipboard on console ledge",
+            "pos_start": [
+              -0.18,
+              -0.05,
+              0.92
+            ],
+            "pos_end": [
+              -0.15,
+              -0.05,
+              0.92
+            ],
+            "size_xyz": [
+              0.24,
+              0.32,
+              0.06
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#46535A"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#5C6B73"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "critic_observer": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Skeptical observer in tweed jacket with clipboard",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Lead researcher watching quietly beside glass",
+            "entity_kind": "actor"
+          },
+          "clipboard_prop": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "Unmarked wooden clipboard on console ledge",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S08_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S08_end_previs.png"
+      },
+      "end_sentence_index": 8,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_08_observation_glass_boot_over_shoulder_orbit_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_09_observation_glass_boot_eye_level_medium_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 8,
+      "sentence_index": 9,
+      "act": 3,
+      "scene_id": "S08",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "whip_pan_occlusion",
+      "location_id": "observation_glass_booth",
+      "environment": "dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray",
+      "cast": "the white-coated 2.5D matte cream-white vinyl researcher lifting a wooden organizer tray",
+      "action": "turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door",
+      "consequence": "2D charcoal-black ink eyes widen with sudden curiosity",
+      "transition_to_next": "whip_pan_blur_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.32,
+            -1.82,
+            1.38
+          ],
+          "look_at": [
+            -0.08,
+            0.15,
+            1.22
+          ],
+          "fov_deg": 46.0
+        },
+        "camera_end": {
+          "pos": [
+            0.52,
+            -1.52,
+            1.32
+          ],
+          "look_at": [
+            0.28,
+            0.2,
+            1.18
+          ],
+          "fov_deg": 45.0
+        },
+        "actors": [
+          {
+            "role_id": "critic_observer",
+            "label": "Skeptical observer pausing with clipboard",
+            "pos_start": [
+              -0.16,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              -0.22,
+              0.22,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher",
+            "label": "Lead researcher lifting wooden marker tray",
+            "pos_start": [
+              0.3,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.42,
+              0.15,
+              0.0
+            ],
+            "height_m": 1.7,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "marker_tray",
+            "label": "Compartmentalized wooden tray of fresh colored markers",
+            "pos_start": [
+              0.32,
+              0.02,
+              0.96
+            ],
+            "pos_end": [
+              0.4,
+              0.0,
+              1.02
+            ],
+            "size_xyz": [
+              0.34,
+              0.24,
+              0.14
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#46535A"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#5C6B73"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "critic_observer": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Skeptical observer pausing with clipboard",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Lead researcher lifting wooden marker tray",
+            "entity_kind": "actor"
+          },
+          "marker_tray": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "Compartmentalized wooden tray of fresh colored markers",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 8,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S09_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S09_end_previs.png"
+      },
+      "end_sentence_index": 9,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_09_observation_glass_boot_eye_level_medium_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_09_observation_glass_boot_end_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 9,
+      "sentence_index": 10,
+      "act": 3,
+      "scene_id": "S09",
+      "grammar": "expressive_cameo_world",
+      "cameo_easter_egg": true,
+      "cameo_placement": "a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched on the oak craft shelf right behind a full wooden tray of colorful markers",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "sunlit_art_craft_room",
+      "environment": "bright sunlit wooden craft room with warm birch shelves, drawing paper, and golden daylight",
+      "cast": "the white-coated 2.5D vinyl researcher, a petite seated vinyl figure in a teal cardigan, and the tiny 4cm glowing 4-color Mini-Cortex figurine on the shelf",
+      "action": "slides a full compartmentalized wooden tray of fresh colorful markers smoothly across the oak table while Mini-Cortex gleams on the shelf behind",
+      "consequence": "the seated figure's 2D charcoal-black ink eyes light up with delighted trust",
+      "transition_to_next": "dissolve_8f",
+      "end_sentence_index": 10,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "reference_image": "03_visuals/reference_images/ref_cameo_9x16.png",
+      "secondary_reference_image": "03_visuals/reference_images/cameo_opt3_sheet.png",
+      "reference_images": [
+        "03_visuals/reference_images/ref_cameo_9x16.png",
+        "03_visuals/reference_images/cameo_opt3_sheet.png"
+      ]
+    },
+    {
+      "clip_number": 10,
+      "sentence_index": 11,
+      "act": 3,
+      "scene_id": "S10",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "gentle_push_in",
+      "location_id": "sunlit_art_craft_room",
+      "environment": "bright sunlit wooden craft room with fresh colored markers spread across clean drawing paper",
+      "cast": "a happy petite 2.5D matte cream-white vinyl figure in a teal knit cardigan",
+      "action": "draws bold colorful spirals across white drawing paper using a fresh bright-blue marker",
+      "consequence": "relaxed 2D ink eyes curve warmly as trust settles in",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.35,
+            -1.78,
+            1.32
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            0.88
+          ],
+          "fov_deg": 47.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -1.32,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            0.02,
+            0.84
+          ],
+          "fov_deg": 43.0
+        },
+        "actors": [
+          {
+            "role_id": "trusted_subject",
+            "label": "Petite vinyl figure in teal cardigan coloring calmly",
+            "pos_start": [
+              0.0,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.0,
+              0.16,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "marker_tray",
+            "label": "Full wooden tray of fresh colored markers",
+            "pos_start": [
+              0.24,
+              -0.04,
+              0.74
+            ],
+            "pos_end": [
+              0.24,
+              -0.04,
+              0.74
+            ],
+            "size_xyz": [
+              0.34,
+              0.24,
+              0.14
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#7A7267"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#9BA399"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "trusted_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite vinyl figure in teal cardigan coloring calmly",
+            "entity_kind": "actor"
+          },
+          "marker_tray": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "Full wooden tray of fresh colored markers",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S11_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S11_end_previs.png"
+      },
+      "end_sentence_index": 11,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_11_sunlit_art_craft_room_object_portal_macro_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 11,
+      "sentence_index": 12,
+      "act": 3,
+      "scene_id": "S11",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "crane_swoop_dive",
+      "location_id": "sunlit_art_craft_room",
+      "environment": "bright sunlit wooden craft room as the white porcelain marshmallow saucer arrives at center table",
+      "cast": "the white-coated 2.5D vinyl researcher and the petite seated vinyl figure in a teal knit cardigan",
+      "action": "places the crisp white porcelain saucer with one plump marshmallow at center table and steps calmly toward the hallway",
+      "consequence": "the seated figure folds both matte-white hands neatly in their lap",
+      "transition_to_next": "match_cut_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -1.32,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            0.02,
+            0.84
+          ],
+          "fov_deg": 43.0
+        },
+        "camera_end": {
+          "pos": [
+            0.32,
+            -1.85,
+            1.48
+          ],
+          "look_at": [
+            0.0,
+            0.08,
+            0.9
+          ],
+          "fov_deg": 48.0
+        },
+        "actors": [
+          {
+            "role_id": "trusted_subject",
+            "label": "Petite vinyl figure in teal cardigan folding hands calmly",
+            "pos_start": [
+              0.0,
+              0.16,
+              0.0
+            ],
+            "pos_end": [
+              0.0,
+              0.16,
+              0.0
+            ],
+            "height_m": 1.15,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          },
+          {
+            "role_id": "researcher",
+            "label": "Researcher placing marshmallow saucer",
+            "pos_start": [
+              0.42,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.68,
+              0.45,
+              0.0
+            ],
+            "height_m": 1.7,
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "marshmallow_plate",
+            "label": "White porcelain saucer holding one plump marshmallow",
+            "pos_start": [
+              0.0,
+              -0.02,
+              0.74
+            ],
+            "pos_end": [
+              0.0,
+              -0.02,
+              0.74
+            ],
+            "size_xyz": [
+              0.22,
+              0.22,
+              0.12
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#8C5A2B",
+            "color_name": "Saddle Ochre"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#7A7267"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#9BA399"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "trusted_subject": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Petite vinyl figure in teal cardigan folding hands calmly",
+            "entity_kind": "actor"
+          },
+          "researcher": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Researcher placing marshmallow saucer",
+            "entity_kind": "actor"
+          },
+          "marshmallow_plate": {
+            "color_name": "Saddle Ochre",
+            "color_hex": "#8C5A2B",
+            "target_label": "White porcelain saucer holding one plump marshmallow",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 11,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S12_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S12_end_previs.png"
+      },
+      "end_sentence_index": 13,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_13_sunlit_art_craft_room_eye_level_medium_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 12,
+      "sentence_index": 14,
+      "act": 4,
+      "scene_id": "S12",
+      "grammar": "expressive_literal_analogy",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "nursery_courtyard_exterior",
+      "environment": "sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale",
+      "analogy_object": "a polished brass two-pan balance scale weighing one white marshmallow against two marshmallows",
+      "cast": "a thoughtful 2.5D matte cream-white vinyl young adult in an olive jacket seated on the sunlit courtyard bench",
+      "action": "tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead",
+      "consequence": "focused 2D charcoal-black ink eyes lock forward in crisp realization",
+      "transition_to_next": "portal_crash_zoom_10f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.75,
+            1.72
+          ],
+          "look_at": [
+            0.0,
+            0.1,
+            1.05
+          ],
+          "fov_deg": 54.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -1.22,
+            1.38
+          ],
+          "look_at": [
+            0.0,
+            0.15,
+            1.42
+          ],
+          "fov_deg": 42.0
+        },
+        "actors": [
+          {
+            "role_id": "adult_protagonist",
+            "label": "Young adult in olive jacket on courtyard bench",
+            "pos_start": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "brass_scale",
+            "label": "Polished brass two-pan balance scale",
+            "pos_start": [
+              0.0,
+              -0.15,
+              0.8
+            ],
+            "pos_end": [
+              0.0,
+              -0.15,
+              0.8
+            ],
+            "size_xyz": [
+              0.32,
+              0.18,
+              0.28
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#8C857B"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#7E8D74"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "adult_protagonist": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Young adult in olive jacket on courtyard bench",
+            "entity_kind": "actor"
+          },
+          "brass_scale": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Polished brass two-pan balance scale",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S14_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S14_end_previs.png"
+      },
+      "end_sentence_index": 14,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_14_nursery_courtyard_exte_high_angle_3q_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_14_nursery_courtyard_exte_end_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 13,
+      "sentence_index": 15,
+      "act": 4,
+      "scene_id": "S13",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "portal_to_brain": true,
+      "brain_region": "nucleus accumbens",
+      "camera_move": "portal_dive_flight",
+      "location_id": "xray_brain_observatory",
+      "environment": "warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring",
+      "cast": "a clothed 2.5D matte cream-white vinyl figure with gold cranial seam opening a crystal-clear glass dome over the 4-color 3D brain",
+      "action": "inside the crystal glass dome, a deep crimson-red pulse fires brightly in the deep central nucleus accumbens hub",
+      "consequence": "crimson reward arcs ripple forward toward the front lobes inside the bounded crystal dome",
+      "transition_to_next": "dissolve_8f",
+      "end_sentence_index": 15,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_15_xray_brain_observatory_object_portal_macro_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 14,
+      "sentence_index": 16,
+      "act": 4,
+      "scene_id": "S14",
+      "grammar": "expressive_xray_brain",
+      "brain_clip": true,
+      "brain_region": "ventromedial prefrontal cortex and dorsolateral prefrontal cortex",
+      "camera_move": "orbital_3d_arc_sweep",
+      "location_id": "xray_brain_observatory",
+      "environment": "warm studio lighting around the crystal-dome cranium exposing glowing frontal valuation pathways",
+      "cast": "the clothed 2.5D matte cream-white vinyl figure with gleaming gold ring and crystal-clear cranial glass dome",
+      "action": "warm amber-gold and electric cyan-blue light streams smoothly across the front prefrontal lobes calming the deep crimson glow",
+      "consequence": "balanced cyan-amber pathways lock steady inside the crystal dome",
+      "transition_to_next": "dissolve_12f",
+      "end_sentence_index": 16,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/ref_xray_brain_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/ref_xray_brain_2_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 15,
+      "sentence_index": 17,
+      "act": 5,
+      "scene_id": "S15",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "crane_swoop_dive",
+      "location_id": "midnight_fridge_kitchen",
+      "environment": "cozy apartment kitchen at night lit by warm pendant glow and cool blue open-refrigerator light",
+      "cast": "an exhausted 2.5D matte cream-white vinyl adult in a soft grey hoodie standing before an open refrigerator",
+      "action": "slumps shoulders beside a pile of unopened envelopes on the counter and pulls open the bright refrigerator door",
+      "consequence": "tired 2D charcoal-black ink eyes stare at a frosted cake plate on the middle shelf",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.45,
+            -2.45,
+            1.68
+          ],
+          "look_at": [
+            0.05,
+            0.2,
+            1.18
+          ],
+          "fov_deg": 50.0
+        },
+        "camera_end": {
+          "pos": [
+            -0.22,
+            -2.05,
+            1.38
+          ],
+          "look_at": [
+            0.1,
+            0.22,
+            1.18
+          ],
+          "fov_deg": 48.0
+        },
+        "actors": [
+          {
+            "role_id": "adult_protagonist",
+            "label": "Tired adult in grey hoodie at open fridge",
+            "pos_start": [
+              -0.22,
+              0.15,
+              0.0
+            ],
+            "pos_end": [
+              -0.18,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "fridge_box",
+            "label": "Open kitchen refrigerator glowing cool blue",
+            "pos_start": [
+              0.42,
+              0.35,
+              0.85
+            ],
+            "pos_end": [
+              0.42,
+              0.35,
+              0.85
+            ],
+            "size_xyz": [
+              0.72,
+              0.65,
+              1.7
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#4A4E57"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#5A6270"
+          }
+        ],
+        "color_role_legend": {
+          "adult_protagonist": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Tired adult in grey hoodie at open fridge",
+            "entity_kind": "actor"
+          },
+          "fridge_box": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Open kitchen refrigerator glowing cool blue",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S17_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S17_end_previs.png"
+      },
+      "end_sentence_index": 17,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_17_midnight_fridge_kitche_eye_level_medium_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_18_midnight_fridge_kitche_high_angle_3q_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 16,
+      "sentence_index": 18,
+      "act": 5,
+      "scene_id": "S16",
+      "grammar": "expressive_pov_hands",
+      "camera_move": "pan_left",
+      "location_id": "midnight_fridge_kitchen",
+      "environment": "cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light",
+      "cast": "the tired 2.5D matte cream-white vinyl adult in a soft grey hoodie",
+      "action": "reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator",
+      "consequence": "frazzled 2D ink brows soften in recognition as the hand pauses mid-air",
+      "transition_to_next": "dissolve_8f",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            -0.22,
+            -2.05,
+            1.38
+          ],
+          "look_at": [
+            0.1,
+            0.22,
+            1.18
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.02,
+            -1.78,
+            1.28
+          ],
+          "look_at": [
+            0.18,
+            0.25,
+            1.14
+          ],
+          "fov_deg": 46.0
+        },
+        "actors": [
+          {
+            "role_id": "adult_protagonist",
+            "label": "Adult reaching hand toward fridge shelf",
+            "pos_start": [
+              -0.18,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              -0.08,
+              0.2,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "fridge_box",
+            "label": "Open kitchen refrigerator shelf with snack plate",
+            "pos_start": [
+              0.42,
+              0.35,
+              0.85
+            ],
+            "pos_end": [
+              0.42,
+              0.35,
+              0.85
+            ],
+            "size_xyz": [
+              0.72,
+              0.65,
+              1.7
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#4A4E57"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#5A6270"
+          }
+        ],
+        "color_role_legend": {
+          "adult_protagonist": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Adult reaching hand toward fridge shelf",
+            "entity_kind": "actor"
+          },
+          "fridge_box": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Open kitchen refrigerator shelf with snack plate",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 17,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S18_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S18_end_previs.png"
+      },
+      "end_sentence_index": 18,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_18_midnight_fridge_kitche_high_angle_3q_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_18_midnight_fridge_kitche_end_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 17,
+      "sentence_index": 19,
+      "act": 6,
+      "scene_id": "S17",
+      "grammar": "expressive_hands_closeup",
+      "camera_move": "fpv_3d_flight",
+      "location_id": "morning_sunlit_desk",
+      "environment": "warm sunlit oak morning desk beside a bright window with a linen notebook and ceramic mug",
+      "cast": "the refreshed 2.5D matte cream-white vinyl adult in a clean olive overshirt",
+      "action": "draws one crisp bold checkmark inside an unmarked linen notebook square with a brass pen",
+      "consequence": "determined 2D charcoal-black ink eyes brighten with calm self-trust",
+      "transition_to_next": "daisy_chain_bridge",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.0,
+            -2.05,
+            1.48
+          ],
+          "look_at": [
+            0.0,
+            0.05,
+            0.92
+          ],
+          "fov_deg": 48.0
+        },
+        "camera_end": {
+          "pos": [
+            0.18,
+            -1.28,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            0.02,
+            0.82
+          ],
+          "fov_deg": 42.0
+        },
+        "actors": [
+          {
+            "role_id": "adult_protagonist",
+            "label": "Refreshed adult in olive overshirt at morning desk",
+            "pos_start": [
+              0.0,
+              0.22,
+              0.0
+            ],
+            "pos_end": [
+              0.0,
+              0.18,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "linen_notebook",
+            "label": "Open unmarked linen notebook and ceramic mug",
+            "pos_start": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "pos_end": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "size_xyz": [
+              0.28,
+              0.22,
+              0.08
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#7B7164"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#9AA392"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "adult_protagonist": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Refreshed adult in olive overshirt at morning desk",
+            "entity_kind": "actor"
+          },
+          "linen_notebook": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Open unmarked linen notebook and ceramic mug",
+            "entity_kind": "prop"
+          }
+        },
+        "start_previs_png": "/tmp/pilot03_previs_guides/S19_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S19_end_previs.png"
+      },
+      "end_sentence_index": 19,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_19_morning_sunlit_desk_object_portal_macro_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16.png",
+      "full_trajectory_span": true
+    },
+    {
+      "clip_number": 18,
+      "sentence_index": 20,
+      "act": 6,
+      "scene_id": "S18",
+      "grammar": "expressive_vinyl_world",
+      "camera_move": "clean_pullback_reveal",
+      "location_id": "morning_sunlit_desk",
+      "environment": "warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug",
+      "cast": "the calm 2.5D matte cream-white vinyl adult in a clean olive overshirt",
+      "action": "closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun",
+      "consequence": "confident 2D charcoal-black ink smile holds steady in crisp morning light",
+      "transition_to_next": "action_impact_cut",
+      "previs": {
+        "camera_start": {
+          "pos": [
+            0.18,
+            -1.28,
+            1.12
+          ],
+          "look_at": [
+            0.0,
+            0.02,
+            0.82
+          ],
+          "fov_deg": 42.0
+        },
+        "camera_end": {
+          "pos": [
+            0.0,
+            -2.25,
+            1.46
+          ],
+          "look_at": [
+            0.0,
+            0.1,
+            1.02
+          ],
+          "fov_deg": 50.0
+        },
+        "actors": [
+          {
+            "role_id": "adult_protagonist",
+            "label": "Calm adult lifting ceramic mug in golden morning light",
+            "pos_start": [
+              0.0,
+              0.18,
+              0.0
+            ],
+            "pos_end": [
+              0.0,
+              0.2,
+              0.0
+            ],
+            "height_m": 1.72,
+            "color_hex": "#7B2CBF",
+            "color_name": "Royal Violet"
+          }
+        ],
+        "props": [
+          {
+            "prop_id": "linen_notebook",
+            "label": "Closed linen notebook and warm ceramic mug",
+            "pos_start": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "pos_end": [
+              0.0,
+              -0.05,
+              0.74
+            ],
+            "size_xyz": [
+              0.28,
+              0.22,
+              0.1
+            ],
+            "back_color_hex": "#2B3A67",
+            "color_hex": "#386641",
+            "color_name": "Forest Olive"
+          }
+        ],
+        "room_blocks": [
+          {
+            "block_id": "floor",
+            "pos": [
+              0.0,
+              0.2,
+              -0.06
+            ],
+            "size_xyz": [
+              4.2,
+              4.2,
+              0.12
+            ],
+            "color_hex": "#7B7164"
+          },
+          {
+            "block_id": "back_wall",
+            "pos": [
+              0.0,
+              2.0,
+              1.5
+            ],
+            "size_xyz": [
+              4.2,
+              0.14,
+              3.0
+            ],
+            "color_hex": "#9AA392"
+          },
+          {
+            "block_id": "oak_table",
+            "pos": [
+              0.0,
+              0.0,
+              0.34
+            ],
+            "size_xyz": [
+              1.05,
+              0.68,
+              0.68
+            ],
+            "color_hex": "#7D7468"
+          }
+        ],
+        "color_role_legend": {
+          "adult_protagonist": {
+            "color_name": "Royal Violet",
+            "color_hex": "#7B2CBF",
+            "target_label": "Calm adult lifting ceramic mug in golden morning light",
+            "entity_kind": "actor"
+          },
+          "linen_notebook": {
+            "color_name": "Forest Olive",
+            "color_hex": "#386641",
+            "target_label": "Closed linen notebook and warm ceramic mug",
+            "entity_kind": "prop"
+          }
+        },
+        "continuity_chained_from_cut": 19,
+        "start_previs_png": "/tmp/pilot03_previs_guides/S20_start_previs.png",
+        "end_previs_png": "/tmp/pilot03_previs_guides/S20_end_previs.png"
+      },
+      "end_sentence_index": 20,
+      "style_profile": "expressive_25d_v8",
+      "schema_version": 8,
+      "context_split": true,
+      "cameo_easter_egg": false,
+      "reference_image": "03_visuals/reference_images/kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16.png",
+      "end_reference_image": "03_visuals/reference_images/kf_20_morning_sunlit_desk_end_9x16.png",
+      "full_trajectory_span": true
+    }
+  ],
+  "reenactment_track": "track_b",
+  "environment_props": [
+    "a tactile brushed-metal experimental instrument on a wooden desk"
+  ],
+  "cast": {
+    "subject": "2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, wearing tailored 3D woven everyday attire",
+    "foil": "2.5D matte cream-white vinyl foil character with skeptical raised charcoal-black 2D ink eyebrow and smirk, wearing crisp 3D structured jacket attire"
+  },
+  "reference_anchors": [
+    {
+      "ref_id": "kf_01_playroom_oak_table_eye_level_medium_9x16",
+      "filename": "kf_01_playroom_oak_table_eye_level_medium_9x16.png",
+      "clip_number": 1,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm cinema composition facing the foreground action) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging swings open the oak door and spreads two empty four-fingered matte-white palms above the bare table with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S01_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher spreading empty hands",
+          "entity_kind": "actor"
+        },
+        "crayon_tin": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Small open tin of worn crayon stubs",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_02_playroom_oak_table_high_angle_3q_9x16",
+      "filename": "kf_02_playroom_oak_table_high_angle_3q_9x16.png",
+      "clip_number": 2,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging nudges two tiny snapped wax crayon stubs rolling across the oak tabletop with one four-fingered hand with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S02_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher stepping beside oak table",
+          "entity_kind": "actor"
+        },
+        "crayon_tin": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Two snapped wax crayon stubs rolling out of tin",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_03_playroom_oak_table_object_portal_macro_9x16",
+      "filename": "kf_03_playroom_oak_table_object_portal_macro_9x16.png",
+      "clip_number": 3,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of sunlit developmental testing room with warm plaster walls, oak table, and open wooden door staging sets down a crisp white porcelain saucer holding one plump white marshmallow right on the center oak tabletop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S03_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow knit sweater",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher placing marshmallow plate",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_04_playroom_oak_table_over_shoulder_orbit_9x16",
+      "filename": "kf_04_playroom_oak_table_over_shoulder_orbit_9x16.png",
+      "clip_number": 4,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "over_shoulder_orbit",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of bright sunlit testing room with crisp cool-white plaster walls, frosted glass hallway doorway, and pale birch table staging holds up two matte-white fingers in a cheerful two-treat promise before stepping toward the bright frosted-gla with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S04_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow sweater at oak table",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher holding up two fingers at doorway",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_04_playroom_oak_table_end_9x16",
+      "filename": "kf_04_playroom_oak_table_end_9x16.png",
+      "clip_number": 4,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S04_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm cinema composition facing the foreground action) of bright sunlit testing room with crisp cool-white plaster walls, frosted glass hallway doorway, and pale birch table staging holds up two matte-white fingers in a cheerful two-treat promise before stepping toward the bright frosted-gla with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite seated vinyl figure in mustard-yellow sweater at oak table",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lab-coat researcher holding up two fingers at doorway",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_05_bookstore_lecture_podi_eye_level_medium_9x16",
+      "filename": "kf_05_bookstore_lecture_podi_eye_level_medium_9x16.png",
+      "clip_number": 5,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "bookstore_lecture_podium",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm cinema composition facing the foreground action) of warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp staging taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S05_start_previs.png",
+      "color_role_legend": {
+        "guru_speaker": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Speaker in charcoal blazer",
+          "entity_kind": "actor"
+        },
+        "book_stack": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Stack of unmarked hardcover books on lectern",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_05_bookstore_lecture_podi_end_9x16",
+      "filename": "kf_05_bookstore_lecture_podi_end_9x16.png",
+      "clip_number": 5,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "bookstore_lecture_podium",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S05_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of warm walnut bookstore stage with tall wooden bookshelves and a brass spotlight lamp staging taps a stack of unmarked hardcover books and lifts a cracked white porcelain dumbbell prop with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "guru_speaker": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Speaker in charcoal blazer",
+          "entity_kind": "actor"
+        },
+        "book_stack": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Stack of unmarked hardcover books on lectern",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_06_playroom_oak_table_high_angle_3q_9x16",
+      "filename": "kf_06_playroom_oak_table_high_angle_3q_9x16.png",
+      "clip_number": 6,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of amber-lit testing room oak tabletop with the empty broken-crayon tin beside the white saucer staging lunges forward across the oak table and snatches the plump white marshmallow off the saucer with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S06_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure lunging forward in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer as marshmallow is snatched",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_07_playroom_oak_table_object_portal_macro_9x16",
+      "filename": "kf_07_playroom_oak_table_object_portal_macro_9x16.png",
+      "clip_number": 7,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of amber-lit testing room oak tabletop with an empty white porcelain saucer staging takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S07_start_previs.png",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Empty white porcelain saucer on oak table",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_07_playroom_oak_table_end_9x16",
+      "filename": "kf_07_playroom_oak_table_end_9x16.png",
+      "clip_number": 7,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "playroom_oak_table",
+      "camera_angle_tag": "over_shoulder_orbit",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S07_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of amber-lit testing room oak tabletop with an empty white porcelain saucer staging takes an immediate bite of the white marshmallow while the empty porcelain saucer gleams below with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "seated_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure tasting marshmallow in mustard-yellow sweater",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Empty white porcelain saucer on oak table",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_08_observation_glass_boot_over_shoulder_orbit_9x16",
+      "filename": "kf_08_observation_glass_boot_over_shoulder_orbit_9x16.png",
+      "clip_number": 8,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "camera_angle_tag": "over_shoulder_orbit",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of dim slate-teal observation gallery with a wide glass viewing window and wooden console ledge staging shake their smooth oval heads and tap wooden clipboards firmly against the console ledge with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S08_start_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer in tweed jacket with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher watching quietly beside glass",
+          "entity_kind": "actor"
+        },
+        "clipboard_prop": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Unmarked wooden clipboard on console ledge",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_09_observation_glass_boot_eye_level_medium_9x16",
+      "filename": "kf_09_observation_glass_boot_eye_level_medium_9x16.png",
+      "clip_number": 9,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm cinema composition facing the foreground action) of dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray staging turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S09_start_previs.png",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer pausing with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher lifting wooden marker tray",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Compartmentalized wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_09_observation_glass_boot_end_9x16",
+      "filename": "kf_09_observation_glass_boot_end_9x16.png",
+      "clip_number": 9,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "observation_glass_booth",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S09_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of dim slate-teal observation gallery turning toward a sunlit doorway holding a colorful craft tray staging turns briskly away from the skeptics and lifts a brimming wooden art-supply tray toward the bright door with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "critic_observer": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Skeptical observer pausing with clipboard",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Lead researcher lifting wooden marker tray",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Compartmentalized wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "ref_cameo_9x16",
+      "filename": "ref_cameo_9x16.png",
+      "clip_number": 10,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "cameo_anchor",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet",
+        "cameo_opt3_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of bright sunlit wooden craft room with warm birch shelves, drawing paper, and golden daylight featuring a tiny 4cm glowing 4-color translucent vinyl Mini-Cortex brain figurine with small charcoal-black 2D ink eyes perched on the oak craft shelf right behind a full wooden tray of colorful markers, cinema key-and-rim lighting, zero floating captions."
+    },
+    {
+      "ref_id": "kf_11_sunlit_art_craft_room_object_portal_macro_9x16",
+      "filename": "kf_11_sunlit_art_craft_room_object_portal_macro_9x16.png",
+      "clip_number": 11,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of bright sunlit wooden craft room with fresh colored markers spread across clean drawing paper staging draws bold colorful spirals across white drawing paper using a fresh bright-blue marker with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S11_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure in teal cardigan coloring calmly",
+          "entity_kind": "actor"
+        },
+        "marker_tray": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Full wooden tray of fresh colored markers",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16",
+      "filename": "kf_12_sunlit_art_craft_room_over_shoulder_orbit_9x16.png",
+      "clip_number": 12,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "camera_angle_tag": "over_shoulder_orbit",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of bright sunlit wooden craft room as the white porcelain marshmallow saucer arrives at center table staging places the crisp white porcelain saucer with one plump marshmallow at center table and steps calmly toward the with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S12_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure in teal cardigan folding hands calmly",
+          "entity_kind": "actor"
+        },
+        "researcher": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Researcher placing marshmallow saucer",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "White porcelain saucer holding one plump marshmallow",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_13_sunlit_art_craft_room_eye_level_medium_9x16",
+      "filename": "kf_13_sunlit_art_craft_room_eye_level_medium_9x16.png",
+      "clip_number": 13,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm cinema composition facing the foreground action) of bright sunlit craft room with crisp cool slate-white walls, pale birch table, and the untouched marshmallow saucer staging leans back comfortably in the oak chair drumming relaxed fingers gently on knee beside the untouched marshmall with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S13_start_previs.png",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure leaning back calmly in teal cardigan",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Untouched white porcelain marshmallow saucer",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_13_sunlit_art_craft_room_end_9x16",
+      "filename": "kf_13_sunlit_art_craft_room_end_9x16.png",
+      "clip_number": 13,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "sunlit_art_craft_room",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S13_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of bright sunlit craft room with crisp cool slate-white walls, pale birch table, and the untouched marshmallow saucer staging leans back comfortably in the oak chair drumming relaxed fingers gently on knee beside the untouched marshmall with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "trusted_subject": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Petite vinyl figure leaning back calmly in teal cardigan",
+          "entity_kind": "actor"
+        },
+        "marshmallow_plate": {
+          "color_name": "Saddle Ochre",
+          "color_hex": "#8C5A2B",
+          "target_label": "Untouched white porcelain marshmallow saucer",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_14_nursery_courtyard_exte_high_angle_3q_9x16",
+      "filename": "kf_14_nursery_courtyard_exte_high_angle_3q_9x16.png",
+      "clip_number": 14,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "nursery_courtyard_exterior",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale staging tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S14_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Young adult in olive jacket on courtyard bench",
+          "entity_kind": "actor"
+        },
+        "brass_scale": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Polished brass two-pan balance scale",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_14_nursery_courtyard_exte_end_9x16",
+      "filename": "kf_14_nursery_courtyard_exte_end_9x16.png",
+      "clip_number": 14,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "nursery_courtyard_exterior",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S14_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of sunlit open-air brick garden courtyard with green trees, stone bench, and a gleaming brass balance scale staging tips a gleaming brass two-pan balance scale on the garden table as the camera flies toward their forehead with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Young adult in olive jacket on courtyard bench",
+          "entity_kind": "actor"
+        },
+        "brass_scale": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Polished brass two-pan balance scale",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_15_xray_brain_observatory_object_portal_macro_9x16",
+      "filename": "kf_15_xray_brain_observatory_object_portal_macro_9x16.png",
+      "clip_number": 15,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "xray_brain_observatory",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring staging inside the crystal glass dome, a deep crimson-red pulse fires brightly in the deep central nucleus accumbens h with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text."
+    },
+    {
+      "ref_id": "ref_xray_brain_9x16",
+      "filename": "ref_xray_brain_9x16.png",
+      "clip_number": 15,
+      "frame": "end",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "setting": "brain_studio",
+      "camera_angle_tag": "xray_dome_closeup",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master",
+        "species_opt1_sheet"
+      ],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) inside warm studio lighting around a crystal-dome cranium parted by a gleaming gold metallic ring: a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text."
+    },
+    {
+      "ref_id": "ref_xray_brain_2_9x16",
+      "filename": "ref_xray_brain_2_9x16.png",
+      "clip_number": 16,
+      "frame": "start",
+      "category": "brain_anchor",
+      "role": "brain_mechanism",
+      "setting": "brain_studio",
+      "camera_angle_tag": "over_shoulder_orbit",
+      "generation_order": 3,
+      "conditioned_on": [
+        "xray_brain75_master",
+        "species_opt1_sheet"
+      ],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) inside warm studio lighting around the crystal-dome cranium exposing glowing frontal valuation pathways: a clothed 2.5D matte cream-white vinyl character with smooth earless noseless oval head, charcoal-black 2D ink eyes, and a gleaming golden metallic ring parting the upper head into a crystal-clear glass dome exposing the bounded 4-color glowing 3D brain (crimson-red, amber-gold, cyan-blue, deep indigo), zero text."
+    },
+    {
+      "ref_id": "kf_17_midnight_fridge_kitche_eye_level_medium_9x16",
+      "filename": "kf_17_midnight_fridge_kitche_eye_level_medium_9x16.png",
+      "clip_number": 17,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (eye-level medium 35mm cinema composition facing the foreground action) of cozy apartment kitchen at night lit by warm pendant glow and cool blue open-refrigerator light staging slumps shoulders beside a pile of unopened envelopes on the counter and pulls open the bright refrigerator doo with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S17_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Tired adult in grey hoodie at open fridge",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator glowing cool blue",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_18_midnight_fridge_kitche_high_angle_3q_9x16",
+      "filename": "kf_18_midnight_fridge_kitche_high_angle_3q_9x16.png",
+      "clip_number": 18,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "camera_angle_tag": "high_angle_3q",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (elevated 40-degree bird's-eye three-quarter diorama angle looking down across the room geometry) of cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light staging reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S18_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Adult reaching hand toward fridge shelf",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator shelf with snack plate",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_18_midnight_fridge_kitche_end_9x16",
+      "filename": "kf_18_midnight_fridge_kitche_end_9x16.png",
+      "clip_number": 18,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "midnight_fridge_kitchen",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S18_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of cozy apartment kitchen at night lit by cool refrigerator glow and warm amber counter light staging reaches a four-fingered matte-white hand swiftly toward the frosted snack plate inside the open refrigerator with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Adult reaching hand toward fridge shelf",
+          "entity_kind": "actor"
+        },
+        "fridge_box": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open kitchen refrigerator shelf with snack plate",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_19_morning_sunlit_desk_object_portal_macro_9x16",
+      "filename": "kf_19_morning_sunlit_desk_object_portal_macro_9x16.png",
+      "clip_number": 19,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "camera_angle_tag": "object_portal_macro",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (tactile foreground object-portal macro composition framing the key physical prop with deep background room depth) of warm sunlit oak morning desk beside a bright window with a linen notebook and ceramic mug staging draws one crisp bold checkmark inside an unmarked linen notebook square with a brass pen with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S19_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Refreshed adult in olive overshirt at morning desk",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Open unmarked linen notebook and ceramic mug",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16",
+      "filename": "kf_20_morning_sunlit_desk_over_shoulder_orbit_9x16.png",
+      "clip_number": 20,
+      "frame": "start",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "camera_angle_tag": "over_shoulder_orbit",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama scene (reverse 180-degree over-the-shoulder three-quarter orbit composition showing spatial depth across the room) of warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug staging closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S20_start_previs.png",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Calm adult lifting ceramic mug in golden morning light",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Closed linen notebook and warm ceramic mug",
+          "entity_kind": "prop"
+        }
+      }
+    },
+    {
+      "ref_id": "kf_20_morning_sunlit_desk_end_9x16",
+      "filename": "kf_20_morning_sunlit_desk_end_9x16.png",
+      "clip_number": 20,
+      "frame": "end",
+      "category": "clip_keyframe_anchor",
+      "role": "reenactment",
+      "setting": "real_env",
+      "location_id": "morning_sunlit_desk",
+      "camera_angle_tag": "eye_level_medium",
+      "generation_order": 3,
+      "conditioned_on": [
+        "species_opt1_sheet"
+      ],
+      "diegetic_text_allowlist": [],
+      "previs_guide_png": "/tmp/pilot03_previs_guides/S20_end_previs.png",
+      "prompt": "Single full-bleed vertical 9:16 3D miniature diorama closing keyframe (eye-level medium 35mm cinema composition facing the foreground action) of warm sunlit oak morning desk overlooking bright greenery with a closed linen notebook and steaming mug staging closes the linen notebook crisply with both hands and lifts a warm white ceramic mug in golden morning sun with a clothed 2.5D matte cream-white vinyl character with smooth earless noseless hairless oval head and bold charcoal-black 2D cartoon ink eyes, eyebrows, and mouth, cinema key-and-rim lighting, zero text.",
+      "color_role_legend": {
+        "adult_protagonist": {
+          "color_name": "Royal Violet",
+          "color_hex": "#7B2CBF",
+          "target_label": "Calm adult lifting ceramic mug in golden morning light",
+          "entity_kind": "actor"
+        },
+        "linen_notebook": {
+          "color_name": "Forest Olive",
+          "color_hex": "#386641",
+          "target_label": "Closed linen notebook and warm ceramic mug",
+          "entity_kind": "prop"
+        }
+      }
+    }
+  ],
+  "require_signature_hooks": true,
+  "us_anti_clone_v7": true
+}

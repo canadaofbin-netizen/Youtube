@@ -1,0 +1,170 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Sunlit Morning Clinical Bedroom: Awake Eyes, Flat Muscle-Brake Trace -> Calm Toe-Flex Release (Zero Horror)",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2021 Clinical Sleep Suite & Peaceful Sunlit Morning Oak Bedroom",
+      "layout": {
+        "description": "Clean, bright, peaceful morning bedroom flooded with warm golden sunrise light through sheer cream linen curtains (zero dark shadows, zero scary figures): a 45-year-old adult in light sage-blue cotton pajamas lies supine on crisp white sheets beside an oak nightstand holding a clear glass of water and a sleek unmarked dual-trace sleep monitor, attended by a calm sleep clinician near the doorway console.",
+        "positions": [
+          {
+            "who": "Awake morning sleeper (clothed 2.5D matte cream-white vinyl adult with smooth earless noseless hairless oval head and wide-open calm 2D charcoal-black ink eyes in sage-blue cotton pajamas)",
+            "where": "lying flat on their back in a sunlit oak bed with arms resting peacefully atop a crisp white linen duvet",
+            "facing": "looking calmly toward the sunlit window and clear bedside water glass"
+          },
+          {
+            "who": "Sleep neurologist (clothed 2.5D matte cream-white vinyl adult in crisp white lab coat over navy shirt)",
+            "where": "standing quietly beside the unmarked dual-channel sleep waveform display",
+            "facing": "observing the upper awake wave and lower flat motor-brake line transitioning cleanly"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unmarked dual-channel bedside polysomnography screen",
+          "period_detail": "text-free clinical display showing a brisk cyan-blue upper brainwave and a flat amber-gold lower muscle-tone line (93.8% atonia)",
+          "physical_behavior": "State-A: upper cortical trace ripples briskly while lower muscle line stays flat -> State-B: sleeper gently flexes toes/fingers and the lower muscle trace springs smoothly into active waves"
+        },
+        {
+          "name": "crisp white linen bedsheet and clear glass of morning water on oak nightstand",
+          "period_detail": "peaceful everyday morning bedroom setting with zero horror or dark elements",
+          "physical_behavior": "State-A: sleeper's hands rest completely still on the white sheet -> State-B: fingertips curl gently, sleeper sits upright in warm sunlight, and lifts the clear water glass smoothly"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Awake morning sleeper",
+          "verb_sequence": "lies completely still in bright morning sunlight with wide-awake ink eyes -> flexes fingers gently against the white sheet as the monitor's lower line wakes up -> sits upright smoothly and lifts the bedside water glass"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Awake morning sleeper",
+          "reaction": "relaxes 2D ink eyebrows with a calm relieved smile once the protective dream brake clicks off"
+        },
+        {
+          "who": "Sleep neurologist",
+          "reaction": "nods reassuringly pointing to the clean synchronized handoff on the unmarked waveform screen"
+        }
+      ],
+      "wardrobe": "45-year-old sleeper in tailored sage-blue cotton pajama top and trousers; clinician in navy collar and white coat.",
+      "lighting": "Bright, warm, peaceful golden-hour morning sunlight streaming across white linen — strictly high-key and reassuring.",
+      "recognition_hook": "Your eyes are wide open in bright morning sunlight while your body's protective dream brake takes ten extra seconds to hand back the keys!",
+      "sources": [
+        "SRC1",
+        "SRC6",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "a peaceful sunlit morning bedroom where an awake adult in sage pajamas flexes fingers on crisp white sheets beside an unmarked dual-wave sleep monitor and lifts a clear water glass",
+        "must_show": [
+          "bed|sheet|sunlight",
+          "monitor|wave",
+          "glass|water|hand"
+        ],
+        "source": "M1@00:12-00:44; SRC1; SRC6"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "2012 University of Toronto Dual-Brake Bench: GABA + Glycine Triple-Switch Lock",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2012, University of Toronto Sleep Neurobiology Laboratory (Brooks & Peever)",
+      "layout": {
+        "description": "Bright high-key Toronto laboratory bench featuring a physical three-latch brass-and-ceramic safety clutch demonstration model paired with a translucent 3D brainstem-to-motor model.",
+        "positions": [
+          {
+            "who": "Toronto sleep researcher (2.5D matte cream-white vinyl figure in white lab coat)",
+            "where": "standing behind the sunlit laboratory table operating the three-latch mechanical clutch model",
+            "facing": "facing camera across the clean workbench"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unmarked three-latch mechanical safety brake model",
+          "period_detail": "visualizes Brooks & Peever's (2012) GABAA + GABAB + glycine cooperative lock with zero text labels",
+          "physical_behavior": "State-A: flipping one latch alone leaves the bar locked -> State-B: flipping all three latches together slides the bar smoothly open"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Toronto sleep researcher",
+          "verb_sequence": "lifts one single brass latch while the bar stays locked -> lifts all three latches in unison to slide the safety bar open"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Toronto sleep researcher",
+          "reaction": "attentive Eureka expression confirming why single-drug tests missed the dual lock"
+        }
+      ],
+      "wardrobe": "Crisp white laboratory coat over charcoal knit shirt.",
+      "lighting": "Clean high-key clinical daylight.",
+      "recognition_hook": "Evolution built a triple-latch safety lock so vivid dreams never throw you out of bed — all three latches must click off to move.",
+      "sources": [
+        "SRC1",
+        "SRC5",
+        "SRC_M2"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Sunlit Morning Park Walkway: Resetting the Circadian Wake-REM Clock (Outdoor)",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern sunlit morning neighborhood park path",
+      "layout": {
+        "description": "Open-world sunlit morning park path lined with green maples where the rested 45-year-old adult in a navy cardigan walks briskly holding a ceramic travel mug in crisp morning sunlight.",
+        "positions": [
+          {
+            "who": "Rested adult walker (2.5D matte cream-white vinyl character in navy cardigan and chinos)",
+            "where": "walking briskly along the sunlit park path",
+            "facing": "forward into warm morning sunshine"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "unmarked cream ceramic travel mug in morning sunlight",
+          "period_detail": "anchors consistent morning circadian light exposure recommended in sleep hygiene reviews",
+          "physical_behavior": "State-A: walker steps onto sunlit park gravel -> State-B: lifts warm mug with effortless fluid arm motion"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Rested adult walker",
+          "verb_sequence": "strides smoothly onto the sunlit park path -> raises travel mug comfortably in full morning light"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Rested adult walker",
+          "reaction": "calm, energized morning posture"
+        }
+      ],
+      "wardrobe": "Navy knit cardigan over white tee and khaki chinos.",
+      "lighting": "Crisp golden morning outdoor sunlight.",
+      "recognition_hook": "Regular morning sunlight and side-sleeping keep your wake switch and dream brake synchronized.",
+      "sources": [
+        "SRC3",
+        "SRC4"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Wide-awake morning eyes while brainstem motor gate sever-locks the arms",
+    "landmark_or_object_b": "Single gentle toe-wiggle side path clicking the safety lock open",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit Toronto stone facade rising over a bright morning bedroom skylight",
+    "cut_b_topdown_3d_arrow": "90-degree top-down bedroom cutaway where a thick #FF2525 3D motor command arrow halts cleanly at the brainstem safety gate",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

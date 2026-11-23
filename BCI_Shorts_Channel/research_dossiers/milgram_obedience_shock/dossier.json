@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "milgram_obedience_shock",
   "topic": "Stanley Milgram's obedience experiment (Yale University, 1961-1962; published 1963)",
   "pillar": "bci_ethics",
@@ -81,7 +81,17 @@
     },
     {
       "fact": "26 of 40 men (65 percent) went to the 450-volt maximum; 14 stopped, the earliest at 300 volts.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Obeyed to 450V Maximum",
+        "highlighted_k": 26,
+        "total_n": 40,
+        "doi": "10.1037/h0040525",
+        "source_citation": "Milgram (1963)"
+      }
     },
     {
       "fact": "Fourteen Yale psychology seniors predicted that 0 to 3 out of 100 people would go to 450 volts; their mean estimate was 1.2 percent.",
@@ -93,7 +103,28 @@
     },
     {
       "fact": "With the learner in the same room obedience fell to 40 percent; when the teacher had to force the learner's hand onto a shock plate it fell to 30 percent.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Obedience by Proximity (%)",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Same Room",
+            "value": 40.0,
+            "unit": "%"
+          },
+          {
+            "label": "Touch Plate",
+            "value": 30.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1177/001872676501800105",
+        "source_citation": "Milgram (1965)"
+      }
     },
     {
       "fact": "In a modest Bridgeport office run as 'Research Associates of Bridgeport', with no visible Yale link, obedience was 47.5 percent.",
@@ -183,5 +214,38 @@
   ],
   "shorts_projects": [
     "diorama_04_milgram_obedience_switch"
-  ]
+  ],
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1037/h0040525",
+  "three_layer_formula": {
+    "everyday_problem": "A boss says 'it's company policy' when you are asked to do something that feels wrong.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0040525",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0040525"
+      ],
+      "summary": "Milgram, S. (1963). Behavioral study of obedience. The Journal of Abnormal and Social Psychology, 67(4), 371-378."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1016/j.cub.2015.12.067",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1016/j.cub.2015.12.067"
+      ],
+      "summary": "E. A. Caspar, J. F. Christensen, A. Cleeremans, P. Haggard (2016). Coercion changes the sense of agency in the human brain. Current Biology."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Milgram proved that two out of three people will always obey orders to hurt someone.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

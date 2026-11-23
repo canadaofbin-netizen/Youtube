@@ -89,6 +89,16 @@
       "year": null,
       "verified": true,
       "notes": "Verified archival image (1600x1067 px) stored locally in media/M3/still.jpg for reference analysis only (never reused raw). A cap holds electrodes in place while recording an EEG."
+    },
+    {
+      "id": "SRC_NEURO_2016",
+      "type": "follow_up",
+      "citation": "M. Schultze-Kraft, D. Birman, M. Rusconi, C. Allefeld, K. Görgen, S. Dähne, B. Blankertz, J.-D. Haynes (2016). The point of no return in vetoing self-initiated movements. Proceedings of the National Academy of Sciences.",
+      "doi": "10.1073/pnas.1513569112",
+      "url": "https://doi.org/10.1073/pnas.1513569112",
+      "year": 2016,
+      "verified": true,
+      "notes": "Real-time BCI EEG study proving humans can veto movements after readiness potential onset up to -200 ms before execution."
     }
   ]
 }

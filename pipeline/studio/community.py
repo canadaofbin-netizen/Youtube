@@ -25,11 +25,29 @@ from pipeline.config import (
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
     COMMUNITY_SELECTORS,
+    DAILY_REPORTS_DIR,
     DEFAULT_CDP_PORT,
+    MIN_HOURS_AFTER_PUBLIC_BEFORE_PIN,
+    MIN_ORGANIC_VIEWS_BEFORE_PIN,
+    SHORT_LINK_GRAPH_FILE,
     YOUTUBE_WATCH_BASE_URL,
 )
-from pipeline.studio.short_linker import write_studio_publish_receipt
+from pipeline.studio.short_linker import normalize_visibility, write_studio_publish_receipt
 from pipeline.studio.whale_session import WhaleSessionController
+
+PRE_DOCUMENT_AUTOPLAY_KILL_JS: str = """(() => {
+    try {
+        HTMLMediaElement.prototype.play = function() {
+            try { this.muted = true; this.pause(); } catch (e) {}
+            return Promise.resolve();
+        };
+        Object.defineProperty(HTMLMediaElement.prototype, 'autoplay', {
+            get() { return false; },
+            set(_) {},
+            configurable: true,
+        });
+    } catch (e) {}
+})();"""
 
 _EMOJI_STRIP_RE = re.compile(
     "["
@@ -757,6 +775,60 @@ class CommunityManager:
         if not doi:
             doi = "10.1038/s41586-024-07387-4"
 
+        from pipeline.config import PRE_R68H_FROZEN_V8_PROJECTS, is_expressive_v8_plan
+        from pipeline.publish import build_expressive_v8_pinned_comment
+
+        if is_expressive_v8_plan(script_doc, metadata, manifest) and str(project_id or "") not in PRE_R68H_FROZEN_V8_PROJECTS:
+            raw_q = str(
+                script_doc.get("debate_question")
+                or metadata.get("debate_question")
+                or metadata.get("pinned_comment")
+                or ""
+            ).strip()
+            if not raw_q:
+                raw_q = "Have you ever noticed your brain doing this in everyday life?"
+            opt_cameo = (
+                str(script_doc.get("cameo_prompt") or "")
+                if script_doc.get("include_cameo_in_pinned_comment")
+                else ""
+            )
+            r68d_comment = build_expressive_v8_pinned_comment(
+                doi=doi,
+                debate_question=raw_q,
+                cameo_prompt=opt_cameo,
+                include_doi=False,
+            )
+            r68d_comment = _sanitize_comment_violence_tokens(r68d_comment).strip()
+            v8_issues: list[str] = []
+            if not r68d_comment:
+                v8_issues.append("[r68d_comment] empty pinned comment")
+            if not r68d_comment.split("\n")[0].strip().endswith("?"):
+                v8_issues.append("[r68d_comment] pinned comment question must end with '?'")
+            if "—" in r68d_comment or " -- " in r68d_comment:
+                v8_issues.append("[r68d_comment] em-dash ('—' / ' -- ') forbidden in R68-D pinned comment")
+            if _DOI_URL_RE.search(r68d_comment) or re.search(r"\b10\.\d{4,9}/\S+", r68d_comment):
+                v8_issues.append("[r68d_comment] raw DOI forbidden in R68-D pinned comment")
+            if "#" in r68d_comment:
+                v8_issues.append("[r68d_comment] hashtags forbidden in R68-D pinned comment")
+            hit_v_tokens = [tok for tok, pat in _VIOLENCE_TOKEN_PATTERNS if pat.search(r68d_comment)]
+            if hit_v_tokens:
+                v8_issues.append(f"[r68d_comment] banned YouTube hold-filter token(s) found: {hit_v_tokens}")
+            doi_clean_v8 = doi.strip()
+            doi_link_v8 = doi_clean_v8 if doi_clean_v8.startswith("http") else f"https://doi.org/{doi_clean_v8}"
+            first_line_v8 = r68d_comment.splitlines()[0].strip() if r68d_comment else ""
+            return {
+                "project_id": project_id,
+                "headline": "",
+                "doi": doi,
+                "doi_link": doi_link_v8,
+                "dissonance_trigger": first_line_v8,
+                "social_comment_trigger": first_line_v8,
+                "line1_valid": len(v8_issues) == 0,
+                "validation_issues": v8_issues,
+                "word_count": len(r68d_comment.split()),
+                "comment_text": r68d_comment,
+            }
+
         # 2. Resolve 5-Paragraph Editorial Case Commentary (Rule R35)
         _GENERIC_PLACEHOLDERS = {
             "physical body is paralyzed, but digital agency is restored without moving a muscle.",
@@ -1085,7 +1157,9 @@ class CommunityManager:
             storage.save_json("06_publish", "community_receipt.json", receipt)
             return receipt
 
-        client, temp_tab_id = self.session.open_temp_direct_client(watch_url)
+        # R75: Open about:blank first and register Page.addScriptToEvaluateOnNewDocument BEFORE
+        # navigating to watch?v= so HTMLMediaElement.prototype.play is blocked before frame 0 (zero AVD=0.0s self-bounce).
+        client, temp_tab_id = self.session.open_temp_direct_client("about:blank")
         pinned_ok = False
         deleted_prev = 0
         try:
@@ -1095,12 +1169,16 @@ class CommunityManager:
                 await client.send("Page.enable")
                 await client.send("Runtime.enable")
                 await enable_background_focus_emulation(client)
+                await client.send(
+                    "Page.addScriptToEvaluateOnNewDocument",
+                    {"source": PRE_DOCUMENT_AUTOPLAY_KILL_JS},
+                )
+                await client.send("Page.navigate", {"url": watch_url})
                 await client.wait_for_element(["ytd-watch-metadata", "#above-the-fold"], timeout_sec=15.0)
-                await asyncio.sleep(2.0)
                 await client.eval(
                     """(() => {
                         const v = document.querySelector('video');
-                        if (v) v.pause();
+                        if (v) { v.muted = true; v.pause(); }
                     })()"""
                 )
 
@@ -1338,20 +1416,128 @@ class CommunityManager:
             write_studio_publish_receipt(project_id, projects_dir=eff_projects_dir)
         return receipt
 
+    def _resolve_organic_views_and_elapsed_hours(
+        self,
+        project_id: str,
+        video_id: str | None,
+        upload_rec: dict[str, Any] | None,
+        *,
+        known_organic_views: int | None = None,
+        now_utc: datetime | None = None,
+    ) -> tuple[int, float | None]:
+        """Resolves measured organic views and elapsed hours since Public go-live without opening watch?v=."""
+        from zoneinfo import ZoneInfo
+
+        ref_now = now_utc or datetime.now(timezone.utc)
+        if ref_now.tzinfo is None:
+            ref_now = ref_now.replace(tzinfo=timezone.utc)
+
+        rec = upload_rec if isinstance(upload_rec, dict) else {}
+        if known_organic_views is not None:
+            views_val = max(0, int(known_organic_views))
+        else:
+            view_candidates: list[int] = []
+            for k in ("views", "organic_views", "measured_views"):
+                raw_v = rec.get(k)
+                if raw_v is not None and not isinstance(raw_v, bool):
+                    try:
+                        view_candidates.append(int(raw_v))
+                    except (TypeError, ValueError):
+                        pass
+
+            # Only consult global channel snapshots when operating on the real PROJECTS_DIR
+            is_global = self.projects_dir is None or Path(self.projects_dir) == (CHANNEL_ROOT / "projects")
+            if is_global and SHORT_LINK_GRAPH_FILE.exists():
+                try:
+                    g_doc = json.loads(SHORT_LINK_GRAPH_FILE.read_text(encoding="utf-8"))
+                    for n in g_doc.get("nodes") or []:
+                        if isinstance(n, dict) and (
+                            n.get("project_id") == project_id or (video_id and n.get("video_id") == video_id)
+                        ):
+                            for vk in ("views", "view_count", "organic_views"):
+                                raw_v = n.get(vk)
+                                if raw_v is not None and not isinstance(raw_v, bool):
+                                    try:
+                                        view_candidates.append(int(raw_v))
+                                    except (TypeError, ValueError):
+                                        pass
+                except Exception:
+                    pass
+            if is_global and DAILY_REPORTS_DIR.exists():
+                try:
+                    snaps = sorted(DAILY_REPORTS_DIR.glob("*_studio_metrics.json"))
+                    if snaps:
+                        s_doc = json.loads(snaps[-1].read_text(encoding="utf-8"))
+                        for list_key in ("per_video_records", "videos"):
+                            rows = s_doc.get(list_key)
+                            if not isinstance(rows, list):
+                                continue
+                            for v_row in rows:
+                                if isinstance(v_row, dict) and (
+                                    v_row.get("project_id") == project_id
+                                    or (video_id and v_row.get("video_id") == video_id)
+                                ):
+                                    for vk in ("views", "view_count", "organic_views"):
+                                        raw_v = v_row.get(vk)
+                                        if raw_v is not None and not isinstance(raw_v, bool):
+                                            try:
+                                                view_candidates.append(int(raw_v))
+                                            except (TypeError, ValueError):
+                                                pass
+                except Exception:
+                    pass
+
+            views_val = max(view_candidates) if view_candidates else 0
+
+        elapsed_hours: float | None = None
+        for ts_key in ("published_at_utc", "published_at", "scheduled_at_utc", "scheduled_time_et", "uploaded_at"):
+            raw_ts = str(rec.get(ts_key) or "").strip()
+            if not raw_ts:
+                continue
+            dt_parsed: datetime | None = None
+            try:
+                dt_parsed = datetime.fromisoformat(raw_ts.replace("Z", "+00:00"))
+                if dt_parsed.tzinfo is None:
+                    dt_parsed = dt_parsed.replace(tzinfo=timezone.utc)
+                else:
+                    dt_parsed = dt_parsed.astimezone(timezone.utc)
+            except ValueError:
+                cleaned_et = raw_ts.replace("ET", "").strip()
+                m_et = re.match(r"^(\d{4}-\d{2}-\d{2})\s+(\d{1,2}:\d{2})", cleaned_et)
+                if m_et:
+                    dt_parsed = datetime.strptime(
+                        f"{m_et.group(1)} {m_et.group(2)}", "%Y-%m-%d %H:%M"
+                    ).replace(tzinfo=ZoneInfo("America/New_York")).astimezone(timezone.utc)
+            if dt_parsed is not None and dt_parsed <= ref_now:
+                elapsed_hours = round((ref_now - dt_parsed).total_seconds() / 3600.0, 3)
+                break
+
+        return max(0, int(views_val or 0)), elapsed_hours
+
     def post_and_pin_comment(
         self,
         project_id: str,
         video_id: str | None = None,
         dry_run: bool = False,
         replace_existing: bool = False,
+        *,
+        force_immediate_pin: bool = False,
+        known_organic_views: int | None = None,
+        now_utc: datetime | None = None,
     ) -> dict[str, Any]:
-        """Synchronous wrapper to post and pin DOI comment."""
+        """
+        Synchronous wrapper to post and pin DOI comment.
+        Enforces Rule R75:
+          1. Hard-blocks any non-Public (`scheduled`, `unlisted`, `private`, `draft`) video BEFORE opening any tab.
+          2. Defers pinning (`DEFERRED_SEED_PROTECT`) until `>= 100` organic views OR `>= 12.0h` elapsed since Public
+             go-live unless `force_immediate_pin=True`.
+        """
         eff_projects_dir = self._resolve_projects_dir(project_id)
         storage = ProjectStorage(project_id, projects_dir=eff_projects_dir)
+        upload_rec = storage.load_json("06_publish", "upload_receipt.json")
         if not video_id:
-            receipt = storage.load_json("06_publish", "upload_receipt.json")
-            if receipt and receipt.get("video_id") and receipt["video_id"] != "unknown":
-                video_id = receipt["video_id"]
+            if upload_rec and upload_rec.get("video_id") and upload_rec["video_id"] != "unknown":
+                video_id = str(upload_rec["video_id"]).strip()
             else:
                 video_id = f"sim_{project_id[:11]}"
 
@@ -1360,6 +1546,80 @@ class CommunityManager:
             raise ValueError(
                 f"Refusing to post R35 comment for {project_id} with validation issues: {payload['validation_issues']}"
             )
+
+        now_iso = (now_utc or datetime.now(timezone.utc)).isoformat()
+        shorts_url = f"{YOUTUBE_WATCH_BASE_URL}{video_id}"
+        comment_text = payload["comment_text"]
+
+        # Always stage prepared_comment.json locally without touching any browser tab
+        storage.save_json(
+            "06_publish",
+            "prepared_comment.json",
+            {**payload, "staged_at": now_iso},
+        )
+
+        # R75 Guard 1: Hard-block non-Public videos BEFORE opening any tab
+        if isinstance(upload_rec, dict) and upload_rec:
+            vis = normalize_visibility(upload_rec)
+            if vis != "public":
+                return {
+                    "project_id": project_id,
+                    "video_id": video_id,
+                    "shorts_url": shorts_url,
+                    "comment_text": comment_text,
+                    "doi_included": "doi.org/" in comment_text,
+                    "pinned": False,
+                    "deleted_previous_count": 0,
+                    "posted_at": now_iso,
+                    "status": "BLOCKED_NON_PUBLIC",
+                    "visibility": vis,
+                    "reason": f"R75: refusing to open watch?v= on non-public video (visibility={vis})",
+                }
+        elif not dry_run:
+            return {
+                "project_id": project_id,
+                "video_id": video_id,
+                "shorts_url": shorts_url,
+                "comment_text": comment_text,
+                "doi_included": "doi.org/" in comment_text,
+                "pinned": False,
+                "deleted_previous_count": 0,
+                "posted_at": now_iso,
+                "status": "BLOCKED_NON_PUBLIC",
+                "visibility": "missing_receipt",
+                "reason": "R75: upload_receipt.json missing or video not confirmed Public",
+            }
+
+        # R75 Guard 2: Seed-protection deferral (< 100 views AND < 12.0h after Public go-live) BEFORE opening any tab
+        if isinstance(upload_rec, dict) and upload_rec and not force_immediate_pin:
+            organic_views, elapsed_hours = self._resolve_organic_views_and_elapsed_hours(
+                project_id,
+                video_id,
+                upload_rec,
+                known_organic_views=known_organic_views,
+                now_utc=now_utc,
+            )
+            views_ok = organic_views >= MIN_ORGANIC_VIEWS_BEFORE_PIN
+            hours_ok = elapsed_hours is not None and elapsed_hours >= MIN_HOURS_AFTER_PUBLIC_BEFORE_PIN
+            if not (views_ok or hours_ok):
+                return {
+                    "project_id": project_id,
+                    "video_id": video_id,
+                    "shorts_url": shorts_url,
+                    "comment_text": comment_text,
+                    "doi_included": "doi.org/" in comment_text,
+                    "pinned": False,
+                    "deleted_previous_count": 0,
+                    "posted_at": now_iso,
+                    "status": "DEFERRED_SEED_PROTECT",
+                    "organic_views": organic_views,
+                    "elapsed_hours": elapsed_hours,
+                    "reason": (
+                        f"R75 seed protection: organic_views={organic_views} (<{MIN_ORGANIC_VIEWS_BEFORE_PIN}) "
+                        f"and elapsed_hours={elapsed_hours} (<{MIN_HOURS_AFTER_PUBLIC_BEFORE_PIN}h)"
+                    ),
+                }
+
         return asyncio.run(
             self._async_post_and_pin(
                 video_id,
@@ -1374,6 +1634,9 @@ class CommunityManager:
         dry_run: bool = False,
         replace_existing: bool = False,
         project_filter: set[str] | None = None,
+        *,
+        force_immediate_pin: bool = False,
+        now_utc: datetime | None = None,
     ) -> dict[str, Any]:
         """
         Stages 06_publish/prepared_comment.json across projects and posts+pins R35 comments
@@ -1445,6 +1708,8 @@ class CommunityManager:
                 video_id=vid,
                 dry_run=dry_run,
                 replace_existing=replace_existing,
+                force_immediate_pin=force_immediate_pin,
+                now_utc=now_utc,
             )
             results.append(
                 {

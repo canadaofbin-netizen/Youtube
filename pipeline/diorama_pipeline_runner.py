@@ -20,19 +20,25 @@ import time
 from pathlib import Path
 from typing import Any
 
+from pipeline.brain_simulator_blender import render_project_brain_simulator_clips_parallel
 from pipeline.config import FLOW_MAX_PARALLEL_BATCH_SIZE, PROJECTS_DIR
 from pipeline.diorama_batch_orchestrator import (
     BATCH_STATUS_PATH,
-    DIORAMA_BATCH_20_SPECS,
     DIORAMA_DAILY_30_SPECS,
     _collect_auto_heal_plan,
     _is_already_completed,
     _save_batch_status,
+    _unlink_sim_clips_for_regen,
     finalize_and_verify_diorama_project,
+    has_pending_human_flow_clips,
+    lock_episode_audio_and_edl_frames,
+    partition_project_clips_by_engine,
     precheck_diorama_project,
+    sync_project_from_dossier_diorama,
 )
 from pipeline.flow_browser import FlowCircuitBreakerError
 from pipeline.flow_diorama_sharded_worker import run_sharded_diorama_flow_generation
+from pipeline.hardware_profile import resolve_cpu_budget
 from pipeline.research_dossier import resolve_dossier_for_project
 
 
@@ -106,46 +112,74 @@ def _assembly_worker_entry(
     project_id: str,
     voice_preset: str | None = None,
     prosody_mode: str | None = None,
+    cpu_budget: int = 6,
+    preserve_audio_master: bool = False,
 ) -> dict[str, Any]:
     """
-    Subprocess entrypoint for CPU-bound Assembly + 5-Gate QA.
-    Caps OpenMP/OpenCV threads to 2 on a 4-core host so Whale/Flow on the main process stays responsive.
+    Subprocess entrypoint for CPU-bound Assembly + 5-Gate QA (Guard 3).
+    Pins per-library inner threads (`OMP`/`MKL`/`OPENBLAS`/`cv2`) to 1 to prevent nested thread
+    explosion in a reused worker process, while propagating explicit `cpu_budget` (`6` overlapped
+    or `8` standalone) to downstream FFmpeg / CV worker pools.
     """
-    os.environ.setdefault("OMP_NUM_THREADS", "2")
-    os.environ.setdefault("MKL_NUM_THREADS", "2")
-    os.environ.setdefault("OPENBLAS_NUM_THREADS", "2")
+    os.environ["OMP_NUM_THREADS"] = "1"
+    os.environ["MKL_NUM_THREADS"] = "1"
+    os.environ["OPENBLAS_NUM_THREADS"] = "1"
     try:
         import cv2
 
-        cv2.setNumThreads(2)
+        cv2.setNumThreads(1)
     except Exception:  # noqa: BLE001
         pass
 
     try:
-        fin_kwargs: dict[str, Any] = {}
+        fin_kwargs: dict[str, Any] = {
+            "cpu_budget": int(cpu_budget),
+            "preserve_audio_master": bool(preserve_audio_master),
+        }
         if voice_preset:
             fin_kwargs["voice_preset"] = voice_preset
         if prosody_mode:
             fin_kwargs["prosody_mode"] = prosody_mode
+        fin_sig = inspect.signature(finalize_and_verify_diorama_project)
+        fin_has_varkw = any(p.kind == inspect.Parameter.VAR_KEYWORD for p in fin_sig.parameters.values())
+        if not fin_has_varkw:
+            fin_kwargs = {k: v for k, v in fin_kwargs.items() if k in fin_sig.parameters}
         fin = finalize_and_verify_diorama_project(project_id, **fin_kwargs)
-        return {"ok": True, "project_id": project_id, "result": fin}
+        return {
+            "ok": True,
+            "project_id": project_id,
+            "cpu_budget": int(cpu_budget),
+            "preserve_audio_master": bool(preserve_audio_master),
+            "result": fin,
+        }
     except Exception as exc:  # noqa: BLE001
         heal_plan = _collect_auto_heal_plan(project_id)
         return {
             "ok": False,
             "project_id": project_id,
+            "cpu_budget": int(cpu_budget),
+            "preserve_audio_master": bool(preserve_audio_master),
             "error": str(exc),
             "heal_plan": heal_plan,
         }
 
 
 def _unlink_clips_for_regen(project_id: str, clip_indices: list[int]) -> None:
-    clips_dir = Path(PROJECTS_DIR) / project_id / "03_visuals" / "flow_native_clips"
+    p_dir = Path(PROJECTS_DIR) / project_id
+    _, sim_idxs = partition_project_clips_by_engine(p_dir)
+    sim_set = set(sim_idxs)
+    clips_dir = p_dir / "03_visuals" / "flow_native_clips"
+    sim_regen: list[int] = []
     for c_idx in clip_indices:
+        if int(c_idx) in sim_set:
+            sim_regen.append(int(c_idx))
+            continue
         for pat in (f"clip_{c_idx:02d}.mp4", f"clip_{c_idx}.mp4"):
             fp = clips_dir / pat
             if fp.exists():
                 fp.unlink()
+    if sim_regen:
+        _unlink_sim_clips_for_regen(p_dir, sim_regen)
 
 
 def run_diorama_pipeline(
@@ -243,10 +277,16 @@ def run_diorama_pipeline(
             "projects": prechecks,
         }
 
+    for sp in ready_specs:
+        sync_project_from_dossier_diorama(sp, write_back_dossier=True)
+
     flow_sig = inspect.signature(run_sharded_diorama_flow_generation)
+    flow_has_varkw = any(p.kind == inspect.Parameter.VAR_KEYWORD for p in flow_sig.parameters.values())
     extra_flow_kwargs: dict[str, Any] = {}
-    if engine_mode is not None and "engine_mode" in flow_sig.parameters:
+    if engine_mode is not None and (flow_has_varkw or "engine_mode" in flow_sig.parameters):
         extra_flow_kwargs["engine_mode"] = engine_mode
+    if flow_has_varkw or "include_brain_simulator_clips" in flow_sig.parameters:
+        extra_flow_kwargs["include_brain_simulator_clips"] = False
 
     flow_queue: collections.deque[dict[str, Any]] = collections.deque(
         {
@@ -256,6 +296,8 @@ def run_diorama_pipeline(
             "clean_existing": bool(force_regenerate),
             "heal_round": 0,
             "started_at": time.time(),
+            "edl_frame_map": {},
+            "preserve_audio_master": False,
         }
         for sp in ready_specs
     )
@@ -269,8 +311,13 @@ def run_diorama_pipeline(
             pid_sub = str(task_meta["project_id"])
             vp_sub = (task_meta.get("spec") or {}).get("voice_preset") or voice_preset
             pm_sub = (task_meta.get("spec") or {}).get("prosody_mode") or prosody_mode
-            print(f"[DioramaPipeline][AssemblyQueue] Queued background assembly+QA for {pid_sub} (heal_round={task_meta['heal_round']})")
-            fut = asm_pool.submit(_assembly_worker_entry, pid_sub, vp_sub, pm_sub)
+            eff_budget = resolve_cpu_budget(overlapped=bool(flow_queue))
+            preserve_aud = bool(task_meta.get("preserve_audio_master", False))
+            print(
+                f"[DioramaPipeline][AssemblyQueue] Queued background assembly+QA for {pid_sub} "
+                f"(heal_round={task_meta['heal_round']}, cpu_budget={eff_budget}, preserve_audio={preserve_aud})"
+            )
+            fut = asm_pool.submit(_assembly_worker_entry, pid_sub, vp_sub, pm_sub, eff_budget, preserve_aud)
             in_flight.append((task_meta, fut))
 
         def _harvest_done_assemblies() -> None:
@@ -308,15 +355,24 @@ def run_diorama_pipeline(
                 heal_plan = w_res.get("heal_plan") or {}
                 if h_round < max_heal_rounds and not heal_plan.get("script_fix_required"):
                     if heal_plan.get("rebuild_only"):
+                        eff_budget_heal = resolve_cpu_budget(overlapped=bool(flow_queue))
+                        preserve_aud_heal = bool(t_meta.get("preserve_audio_master", False))
                         print(
                             f"[DioramaPipeline][AutoHeal {h_round + 1}/{max_heal_rounds}] {pid_done} needs EDL-only "
-                            f"rebuild on cuts {heal_plan.get('edl_only_cuts')}; re-queueing assembly..."
+                            f"rebuild on cuts {heal_plan.get('edl_only_cuts')} (cpu_budget={eff_budget_heal}); re-queueing assembly..."
                         )
                         nxt = dict(t_meta)
                         nxt["heal_round"] = h_round + 1
                         vp_done = (t_meta.get("spec") or {}).get("voice_preset") or voice_preset
                         pm_done = (t_meta.get("spec") or {}).get("prosody_mode") or prosody_mode
-                        fut2 = asm_pool.submit(_assembly_worker_entry, pid_done, vp_done, pm_done)
+                        fut2 = asm_pool.submit(
+                            _assembly_worker_entry,
+                            pid_done,
+                            vp_done,
+                            pm_done,
+                            eff_budget_heal,
+                            preserve_aud_heal,
+                        )
                         still_running.append((nxt, fut2))
                         continue
                     regen_clips = list(heal_plan.get("regenerate_clips") or [])
@@ -395,16 +451,121 @@ def run_diorama_pipeline(
                                     f"Reference pack failed pre_generation_ready for {pid}: "
                                     f"regenerate={ref_res.get('regenerate_image_ids')} score={ref_res.get('reference_qa_score')}"
                                 )
-                    asyncio.run(
-                        run_sharded_diorama_flow_generation(
-                            project_id=pid,
-                            clean_existing=bool(f_task["clean_existing"]),
-                            only_clips=only_clips,
-                            max_parallel_tabs=eff_tabs,
-                            cdp_port=cdp_port,
-                            **extra_flow_kwargs,
+
+                    # Step 1 (Guard 4): Lock TTS + P6 + Master EDL frame budget BEFORE Fork
+                    if int(f_task["heal_round"]) == 0 or not f_task.get("preserve_audio_master"):
+                        vp_flow = (f_task.get("spec") or {}).get("voice_preset") or voice_preset
+                        pm_flow = (f_task.get("spec") or {}).get("prosody_mode") or prosody_mode
+                        lock_info = lock_episode_audio_and_edl_frames(
+                            p_dir_flow,
+                            voice_preset=vp_flow,
+                            prosody_mode=pm_flow,
                         )
+                        f_task["edl_frame_map"] = dict(lock_info["edl_frame_map"])
+                        f_task["preserve_audio_master"] = True
+
+                    edl_frame_map_flow = dict(f_task.get("edl_frame_map") or {})
+                    human_clip_nums, sim_clip_nums = partition_project_clips_by_engine(p_dir_flow)
+                    sim_set_flow = set(sim_clip_nums)
+                    sim_needed = (
+                        bool(sim_clip_nums)
+                        if not only_clips
+                        else any(int(c) in sim_set_flow for c in only_clips)
                     )
+                    only_human_clips = (
+                        [int(c) for c in only_clips if int(c) not in sim_set_flow]
+                        if only_clips
+                        else None
+                    )
+                    flow_needed = bool(human_clip_nums) if not only_clips else bool(only_human_clips)
+                    pending_flow, _ = (
+                        has_pending_human_flow_clips(
+                            p_dir_flow,
+                            only_clips=only_human_clips,
+                            clean_existing=bool(f_task["clean_existing"]),
+                        )
+                        if flow_needed
+                        else (False, 0)
+                    )
+                    eff_tabs_human = (
+                        min(int(tabs), FLOW_MAX_PARALLEL_BATCH_SIZE, max(1, len(only_human_clips)))
+                        if only_human_clips
+                        else eff_tabs
+                    )
+                    prior_asm_futs = [fut for _, fut in in_flight if not fut.done()]
+
+                    # Step 2 (Guard 4): Concurrent Fork (Google Flow <=5 tabs + R76 Blender 3x2 / 4x2)
+                    if sim_needed and pending_flow:
+                        def _run_overlapped_sim(
+                            _p_dir: Path = p_dir_flow,
+                            _fmap: dict[int, int] = edl_frame_map_flow,
+                            _force: bool = bool(f_task["clean_existing"] and not only_clips),
+                            _wait_futs: list[concurrent.futures.Future[dict[str, Any]]] = prior_asm_futs,
+                        ) -> dict[str, Any]:
+                            if _wait_futs:
+                                concurrent.futures.wait(_wait_futs)
+                            return render_project_brain_simulator_clips_parallel(
+                                _p_dir,
+                                edl_frame_map=_fmap,
+                                overlapped=True,
+                                force=_force,
+                            )
+
+                        with concurrent.futures.ThreadPoolExecutor(max_workers=1) as fork_pool:
+                            sim_fut = fork_pool.submit(_run_overlapped_sim)
+                            try:
+                                asyncio.run(
+                                    run_sharded_diorama_flow_generation(
+                                        project_id=pid,
+                                        clean_existing=bool(f_task["clean_existing"]),
+                                        only_clips=only_human_clips,
+                                        max_parallel_tabs=eff_tabs_human,
+                                        cdp_port=cdp_port,
+                                        **extra_flow_kwargs,
+                                    )
+                                )
+                            finally:
+                                sim_res = sim_fut.result()
+                        if not sim_res.get("all_passed", True):
+                            raise RuntimeError(
+                                f"R76 Brain Simulator QA failed during overlapped fork for {pid}: {sim_res}"
+                            )
+                    elif sim_needed:
+                        if flow_needed:
+                            asyncio.run(
+                                run_sharded_diorama_flow_generation(
+                                    project_id=pid,
+                                    clean_existing=bool(f_task["clean_existing"]),
+                                    only_clips=only_human_clips,
+                                    max_parallel_tabs=eff_tabs_human,
+                                    cdp_port=cdp_port,
+                                    **extra_flow_kwargs,
+                                )
+                            )
+                        if prior_asm_futs:
+                            concurrent.futures.wait(prior_asm_futs)
+                        sim_res = render_project_brain_simulator_clips_parallel(
+                            p_dir_flow,
+                            edl_frame_map=edl_frame_map_flow,
+                            cpu_budget=resolve_cpu_budget(overlapped=False),
+                            overlapped=False,
+                            force=bool(f_task["clean_existing"] and not only_clips),
+                        )
+                        if not sim_res.get("all_passed", True):
+                            raise RuntimeError(f"R76 Brain Simulator QA failed for {pid}: {sim_res}")
+                    elif flow_needed:
+                        asyncio.run(
+                            run_sharded_diorama_flow_generation(
+                                project_id=pid,
+                                clean_existing=bool(f_task["clean_existing"]),
+                                only_clips=only_human_clips,
+                                max_parallel_tabs=eff_tabs_human,
+                                cdp_port=cdp_port,
+                                **extra_flow_kwargs,
+                            )
+                        )
+
+                    _harvest_done_assemblies()
                     state["in_progress"] = None
                     _save_batch_status(state)
                     _submit_assembly(f_task)

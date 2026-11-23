@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "pivot",
+      "region": "thalamus",
+      "plain": "central spindle pacemaker",
+      "function": "Fires brief refreshing rhythms during a 10-minute light nap without locking sensory gates shut.",
+      "scene_id": "S1",
+      "narration_bridge": "In the center, the thalamus, your relay hub, fires quick refreshing bursts during a ten-minute nap.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "forehead focus desk",
+      "function": "Snaps immediately back to crisp working speed after 10 minutes, yet stalls in delta fog after 30 minutes.",
+      "scene_id": "S1",
+      "narration_bridge": "Up front, the prefrontal cortex, your focus desk, wakes up crisp at ten minutes instead of stalling at thirty.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "setup",
+      "region": "hippocampus",
+      "plain": "memory vault",
+      "function": "Clears temporary afternoon clutter so new facts stick again for the next 155 minutes.",
+      "scene_id": "S2",
+      "narration_bridge": "Deep on the side, the hippocampus, your memory hub, clears afternoon clutter in minutes.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "symptom",
+      "region": "default mode network",
+      "plain": "twilight idea network",
+      "function": "Links loose ideas in light N1 sleep to triple creative breakthroughs before deep sleep shuts it down.",
+      "scene_id": "S1",
+      "narration_bridge": "Across the midline, the default mode network, your idea connector, sparks three times more breakthroughs in light sleep.",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

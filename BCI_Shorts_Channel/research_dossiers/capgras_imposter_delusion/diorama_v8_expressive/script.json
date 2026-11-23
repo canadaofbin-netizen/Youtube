@@ -1,0 +1,204 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "production_profile": "shorts_expressive_v8",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "topic_focus": "neuroscience",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "r72_mode": true,
+  "r73_mode": true,
+  "r74_mode": true,
+  "r74b_mode": true,
+  "opening_mode": "myth_flip_claim",
+  "previous_opening_mode": "paradox_question",
+  "ending_mode": "mic_drop",
+  "post_hook_pause_sec": 0.42,
+  "core_reveal_sentence_index": 10,
+  "sentence_beats": [
+    "myth_flip_claim",
+    "university_bridge",
+    "conflict",
+    "evidence",
+    "conflict",
+    "evidence",
+    "escalation",
+    "evidence",
+    "setback",
+    "core",
+    "hook_promise",
+    "payoff",
+    "payoff",
+    "evidence",
+    "evidence",
+    "mic_drop"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "stamp",
+    "rush",
+    "brisk",
+    "stamp",
+    "stamp",
+    "brisk",
+    "stamp"
+  ],
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "project_id": "v8_ep08_capgras_imposter_delusion",
+  "pillar": "brain_history",
+  "everyday_domain": "relationships",
+  "dossier": "capgras_imposter_delusion",
+  "dossier_slug": "capgras_imposter_delusion",
+  "language": "en-US",
+  "title": "When Your Own Parents Look Like Impostors",
+  "doi": "10.1098/rspb.1997.0062",
+  "secondary_doi": "10.1098/rspb.1997.0150",
+  "mechanism_doi": "10.1093/brain/aww288",
+  "omit_experiment_nicknames": [],
+  "viewer_description": "At UC San Diego in 1997, neurologists examined a thirty-year-old man who survived a car crash and insisted his own mother and father had been replaced by identical impostors. When electrodes on his fingertips measured his automatic sweat response to family photos, the line stayed completely flat, just like a stranger's photo.\n\nYet the moment his mother telephoned him from the next room, he recognized her voice right away with genuine warmth. Brain lesion mapping later showed that impostor delusions combine a severed visual-to-emotional link with damage to frontal belief-checking circuits.\n\nResearch: Hirstein and Ramachandran, UC San Diego (1997).",
+  "debate_question": "Has a familiar person, word, or room ever suddenly felt weirdly foreign to you for a split second?",
+  "offcenter_creator_bet": "My bet: voice beats face every time when gut warmth drops out — has jamais vu ever hit you?",
+  "cameo_prompt": "",
+  "us_anti_clone_v7": true,
+  "acts": [
+    {
+      "act": 1,
+      "name": "UC San Diego Clinic Hook & The Impostor Parents",
+      "sentences": [
+        "Seeing a loved one's face clearly doesn't prove your brain trusts it's them!",
+        "After a car crash, a young man entered a San Diego neurology clinic.",
+        "He stared straight at his parents and called them clever impostors!"
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Fingertip Sweat Sensors & The Flatline Paradox",
+      "sentences": [
+        "To see why, neurologists clipped tiny sweat sensors onto his fingertips.",
+        "Most people assume vision sparks recognition, yet his sweat line stayed dead flat!",
+        "To his gut, Mom felt just like a random stranger."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Pivot & Severed Fusiform-to-Amygdala Wire",
+      "sentences": [
+        "Wait, what? How did his eyes know her while his gut froze?",
+        "Inside his skull, his brain's face detector — the fusiform — matched every feature.",
+        "Yet the crash cut the wire to his emotional alarm — the amygdala!",
+        "Seeing Mom without that warm jolt screamed one verdict: impostor!"
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Hallway Telephone Twist & Intact Auditory Shortcut",
+      "sentences": [
+        "Step next door and call him on the hallway phone.",
+        "The second Mom spoke, he greeted his real mother with warm relief!",
+        "That's because his hearing center kept a live shortcut into that emotional alarm!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "16-of-17 Lesion Network & Silenced Frontal Planner",
+      "sentences": [
+        "Brain maps show sixteen of seventeen impostor injuries also hit your brain's planner!",
+        "With that planner silenced, your mind can't override the eerie stranger feeling."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Mic-Drop Dual-Stream Recognition Close",
+      "sentences": [
+        "Real recognition needs sharp eyes and a warm gut firing as one."
+      ]
+    }
+  ],
+  "sentences": [
+    "Seeing a loved one's face clearly doesn't prove your brain trusts it's them!",
+    "After a car crash, a young man entered a San Diego neurology clinic.",
+    "He stared straight at his parents and called them clever impostors!",
+    "To see why, neurologists clipped tiny sweat sensors onto his fingertips.",
+    "Most people assume vision sparks recognition, yet his sweat line stayed dead flat!",
+    "To his gut, Mom felt just like a random stranger.",
+    "Wait, what? How did his eyes know her while his gut froze?",
+    "Inside his skull, his brain's face detector — the fusiform — matched every feature.",
+    "Yet the crash cut the wire to his emotional alarm — the amygdala!",
+    "Seeing Mom without that warm jolt screamed one verdict: impostor!",
+    "Step next door and call him on the hallway phone.",
+    "The second Mom spoke, he greeted his real mother with warm relief!",
+    "That's because his hearing center kept a live shortcut into that emotional alarm!",
+    "Brain maps show sixteen of seventeen impostor injuries also hit your brain's planner!",
+    "With that planner silenced, your mind can't override the eerie stranger feeling.",
+    "Real recognition needs sharp eyes and a warm gut firing as one."
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 5,
+      "mode": "illustrative",
+      "preset": "curve_marker",
+      "chart": "curve_marker",
+      "style": "ink_pen",
+      "format": "illustrative_curve",
+      "title": "Familiarity Sweat Signal",
+      "concept": "Face-to-Emotion Disconnect",
+      "fn": "exp_decay",
+      "x_label": "Severed Brain Link",
+      "y_label": "Fingertip Sweat Jolt",
+      "markers": [
+        {
+          "x": 1.0,
+          "y": 65.5,
+          "label": "Flatline!"
+        }
+      ],
+      "doi": ""
+    },
+    {
+      "sentence_index": 14,
+      "mode": "study",
+      "preset": "dot_array",
+      "chart": "dot_array",
+      "style": "ink_pen",
+      "format": "count_ratio",
+      "title": "Belief-Checker Damage",
+      "highlighted_k": 16,
+      "total_n": 17,
+      "unit": "cases",
+      "duration_sec": 3.65,
+      "doi": "10.1093/brain/aww288",
+      "source_citation": "Darby et al. (2017)"
+    }
+  ]
+}

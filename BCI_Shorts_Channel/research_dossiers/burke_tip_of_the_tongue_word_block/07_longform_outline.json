@@ -1,0 +1,117 @@
+{
+  "target_minutes": 10,
+  "shorts_extract": {
+    "hook": "You can picture their face, their job, and even the first letter — so why does their name freeze solid on the tip of your tongue?",
+    "core_experiment": "Deborah Burke's 1991 4-week word-block diary study (3.92 vs 5.4 vs 6.56 blocks) + Warriner & Humphreys' 2008 10s-vs-30s straining trap.",
+    "twist": "Why refusing to Google a stuck name trains your brain to freeze again 48 hours later — and why looking it up in 10 seconds fixes the wire."
+  },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "52-year-old adult snapping fingers mid-sentence with a frozen 'S___?' speech tag on a sunlit patio",
+    "right_cyan_brain": "Translucent #27D8FF cyan 3D brain showing active temporal meaning hub and silenced Broca's speech bridge",
+    "badge_text": "NAME FROZEN?"
+  },
+  "r75_clean_seed_tags": [
+    "tip of the tongue",
+    "forgetting names",
+    "word retrieval",
+    "memory after 40",
+    "healthy brain aging",
+    "deborah burke",
+    "psychology of memory",
+    "brain science",
+    "speech and memory",
+    "everyday brain glitches"
+  ],
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Patio Freeze: Knowing Everything Except the Name",
+      "beats": [
+        "Why first letters and syllable beats survive while the word goes mute",
+        "Burke et al. (1991): 4-week diaries across young (3.92), middle-aged (5.4), and older (6.56) adults"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "patio name freeze & 4-week diary desk"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Why 'Mr. Baker' Freezes While 'a Baker' Never Does",
+      "beats": [
+        "Transmission Deficit Hypothesis: single arbitrary proper-name wire vs rich noun web",
+        "Why decades of accumulated acquaintances create normal midlife bottlenecks"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "proper name vs common noun wire contrast"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Scanner: Meaning Room Awake, Speech Room Waiting",
+      "beats": [
+        "Maril, Wagner & Schacter (2001): anterior cingulate conflict alarm",
+        "Glezer et al. (2016) & Kljajevic et al. (2016): Broca's, insula, and temporal pathways"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D brain temporal-to-Broca gap"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Warriner & Humphreys (2008): The 30-Second Straining Trap",
+      "beats": [
+        "10-second vs 30-second wait: why grinding stamps 'learning to fail' 48 hours later",
+        "Why wrong blocker names hog the exit lane"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "30-second red stopwatch trap"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 10-Second Repair Rule for Everyday Adult Memory",
+      "beats": [
+        "Why normal proper-name blocks are NOT Alzheimer's loss of meaning",
+        "Look it up fast, say it aloud in context, or step away cleanly"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "kitchen 10-second lookup and spoken reset"
+      ]
+    }
+  ]
+}

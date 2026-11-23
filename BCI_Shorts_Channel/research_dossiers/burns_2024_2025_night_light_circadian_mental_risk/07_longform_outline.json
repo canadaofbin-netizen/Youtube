@@ -1,0 +1,119 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Why sleeping seven hours with a bedroom TV or hallway light on still disrupts your mood and heart rate through closed eyelids.",
+    "core_experiment": "Burns et al. (2023/2024) 86,772-adult wrist light-sensor study + Mason & Zee (2022) 100-lux inpatient sleep trial.",
+    "twist": "Night light raised depression risk 30% independent of sleep hours—while bright outdoor daytime light cut risk 20%."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The Closed-Eyelid Illusion in Modern Bedrooms",
+      "beats": [
+        "Why 90% of homes glow before and during sleep",
+        "Why 5–10% of room light passes right through closed eyelids"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook",
+        "setup"
+      ],
+      "new_shots_needed": [
+        "100-lux window glare across closed eyes"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "86,772 Wrist Light Sensors: +30% Night Risk, -20% Day Protection",
+      "beats": [
+        "Burns et al. (Nature Mental Health 2023)",
+        "Windred et al. (PNAS 2024) 88,905-person 8-year survival proof"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "core_experiment",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "+30% vs -20% depression shift chart"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside Northwestern's Lab: One Night at 100 Lux vs <3 Lux",
+      "beats": [
+        "Overnight heart-rate elevation & sympathetic fight-or-flight",
+        "Next-morning insulin resistance spike"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "pillow lux meter 100 vs 3 lux"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "The Hidden Retinal-to-Mood Wire That Only Opens at Night",
+      "beats": [
+        "Melanopsin cells -> hypothalamus & subcortical mood relay (Nature Neuroscience 2020)",
+        "Why eReaders beat up melatonin vs paper books"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3D #27D8FF retina-to-hypothalamus-amygdala relay"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 12-Inch Palm Check & 15-Minute Morning Sky Habit",
+      "beats": [
+        "Blackout drapes, charger tape, TV off",
+        "15 minutes of outdoor morning sky before 10 AM"
+      ],
+      "scene_ids": [
+        "S1",
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "blackout curtain sweep & sunlit morning garden walk"
+      ]
+    }
+  ],
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Sleeping 60-year-old adult bathed in bluish bedroom TV/window light glare across closed eyelids",
+    "right_cyan_brain": "Glowing #27D8FF 3D brain showing optic light beam firing from retina straight into crimson hypothalamus and amygdala",
+    "badge_text": "EYELIDS LEAK"
+  },
+  "r75_clean_seed_tags": [
+    "night light sleep",
+    "circadian rhythm",
+    "sleep in the dark",
+    "sleep science",
+    "morning sunlight",
+    "mental health",
+    "melatonin",
+    "brain health",
+    "bedroom light"
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "opening_mode": "case_stamp",
+  "core_reveal_sentence_index": 15,
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "sentence_beats": [
+    "case_stamp",
+    "setup",
+    "promise",
+    "rehook",
+    "myth",
+    "evidence",
+    "conflict",
+    "rehook",
+    "evidence",
+    "escalation",
+    "evidence",
+    "evidence",
+    "evidence",
+    "rehook",
+    "core",
+    "mechanism",
+    "payoff",
+    "payoff",
+    "payoff",
+    "climax_cut"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "rush",
+    "stamp",
+    "rush",
+    "brisk",
+    "brisk",
+    "stamp",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp"
+  ],
+  "project_id": "v8_ep04_patient_sm_fearless_amygdala",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "anxiety",
+  "dossier": "feinstein_patient_sm_fearless_amygdala",
+  "language": "en-US",
+  "title": "Why One Breath Terrified a Fearless Woman",
+  "doi": "10.1016/j.cub.2010.11.042",
+  "secondary_doi": "10.1038/nn.3323",
+  "mechanism_doi": "10.1038/nrn3945",
+  "omit_experiment_nicknames": [],
+  "viewer_description": "Patient S.M. lived for decades with rare damage to both sides of her amygdala, the part of the brain usually linked to fear. Doctors at the University of Iowa took her to exotic pet stores, handed her live snakes, showed her horror movies, and walked her through a haunted house. She stayed curious the whole time and never once felt scared.\n\nThat changed in a breathing lab. One harmless breath of 35% carbon dioxide gave her a full panic attack in seconds, the first fear she had felt since childhood. Outside threats go through the amygdala, while suffocation alarms sit much deeper in the brainstem, which explains why sudden panic can hit your body even when the room around you looks completely safe.\n\nResearch: Feinstein et al., University of Iowa (2011, 2013).",
+  "debate_question": "Have you ever had your heart start pounding out of nowhere when nothing scary was going on around you?",
+  "offcenter_creator_bet": "",
+  "cameo_prompt": "",
+  "us_anti_clone_v7": true,
+  "acts": [
+    {
+      "act": 1,
+      "name": "Iowa Snake Tank & Haunted House Zero-Fear Test",
+      "sentences": [
+        "In twenty eleven at the University of Iowa, neurologists handed live snakes to Patient S.M., a woman without fear!",
+        "In a pet shop, she held a coiled snake and reached toward a tarantula.",
+        "Rate your fear from zero to ten right now — step back immediately if your heart starts racing.",
+        "Even inside dark Waverly Hills Haunted House, why did she laugh and poke a costumed monster?"
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Calcified Danger Switch & Textbook Fearless Myth",
+      "sentences": [
+        "Textbooks claimed losing that outer threat switch erases all human fear.",
+        "Across three months of daily diaries and ten horror films, Patient S.M. recorded zero moments of fear.",
+        "Doctors watching wondered if any safe test could ever scare her."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Breath Pivot & Carbon Dioxide Fourfold Panic Reversal",
+      "sentences": [
+        "Hold on! If her outer threat switch was gone, how did one single lab breath trigger total terror?",
+        "When Iowa doctors gave her one safe breath of carbon dioxide, her panic score jumped from zero to nine point five!",
+        "Within eight seconds, she gasped and grabbed the mask in sudden terror.",
+        "Next, researchers tested two more rare patients missing that exact same switch.",
+        "Both gasped and panicked right on the chair within seconds.",
+        "Across that rare patient group, panic attacks hit one hundred percent — four times higher than twenty-five percent in healthy adults!"
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Two Fear Systems: Amygdala Emotional Alarm vs Brainstem Reflex Center",
+      "sentences": [
+        "Wait — why would losing a threat switch make internal panic four times stronger?",
+        "Your amygdala acts as an emotional alarm for outside threats like snakes.",
+        "When blood carbon dioxide rises, sensors in your brainstem — your deep reflex center — fire a direct suffocation alarm!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Everyday Sudden Panic Mirror",
+      "sentences": [
+        "That is why daytime panic can feel like suffocating inside a safe room.",
+        "Shallow breathing shifts carbon dioxide and trips that ancient alarm."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Slow Exhale Reset",
+      "sentences": [
+        "Next time your chest tightens, slow your exhale so blood chemistry settles.",
+        "Your body carries two separate fear alarms, and calm steady breathing speaks directly to the deepest one."
+      ]
+    }
+  ],
+  "sentences": [
+    "In twenty eleven at the University of Iowa, neurologists handed live snakes to Patient S.M., a woman without fear!",
+    "In a pet shop, she held a coiled snake and reached toward a tarantula.",
+    "Rate your fear from zero to ten right now — step back immediately if your heart starts racing.",
+    "Even inside dark Waverly Hills Haunted House, why did she laugh and poke a costumed monster?",
+    "Textbooks claimed losing that outer threat switch erases all human fear.",
+    "Across three months of daily diaries and ten horror films, Patient S.M. recorded zero moments of fear.",
+    "Doctors watching wondered if any safe test could ever scare her.",
+    "Hold on! If her outer threat switch was gone, how did one single lab breath trigger total terror?",
+    "When Iowa doctors gave her one safe breath of carbon dioxide, her panic score jumped from zero to nine point five!",
+    "Within eight seconds, she gasped and grabbed the mask in sudden terror.",
+    "Next, researchers tested two more rare patients missing that exact same switch.",
+    "Both gasped and panicked right on the chair within seconds.",
+    "Across that rare patient group, panic attacks hit one hundred percent — four times higher than twenty-five percent in healthy adults!",
+    "Wait — why would losing a threat switch make internal panic four times stronger?",
+    "Your amygdala acts as an emotional alarm for outside threats like snakes.",
+    "When blood carbon dioxide rises, sensors in your brainstem — your deep reflex center — fire a direct suffocation alarm!",
+    "That is why daytime panic can feel like suffocating inside a safe room.",
+    "Shallow breathing shifts carbon dioxide and trips that ancient alarm.",
+    "Next time your chest tightens, slow your exhale so blood chemistry settles.",
+    "Your body carries two separate fear alarms, and calm steady breathing speaks directly to the deepest one."
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 9,
+      "mode": "study",
+      "preset": "line",
+      "chart": "line",
+      "style": "ink_pen",
+      "title": "Patient S.M. CO2 Panic Surge",
+      "unit": "/10",
+      "series": [
+        {
+          "label": "35% CO2 Breath",
+          "start_label": "External Threats",
+          "values": [
+            0.0,
+            9.5
+          ],
+          "unit": "/10"
+        }
+      ],
+      "doi": "10.1038/nn.3323",
+      "source_citation": "Feinstein et al. (2013)"
+    },
+    {
+      "sentence_index": 13,
+      "mode": "study",
+      "preset": "bar_compare",
+      "chart": "bar_compare",
+      "style": "ink_pen",
+      "title": "35% CO2 Panic Attack Rate",
+      "unit": "%",
+      "bars": [
+        {
+          "label": "Healthy Controls",
+          "value": 25.0,
+          "unit": "%"
+        },
+        {
+          "label": "Patient Group",
+          "value": 100.0,
+          "unit": "%"
+        }
+      ],
+      "multiplier_badge": "4×",
+      "doi": "10.1038/nn.3323",
+      "source_citation": "Feinstein et al. (2013)"
+    }
+  ]
+}

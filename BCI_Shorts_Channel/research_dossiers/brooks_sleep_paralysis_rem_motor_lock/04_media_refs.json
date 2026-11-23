@@ -1,0 +1,67 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern neuroimaging/clinical study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Reading Sleep Study Results: Identifying Sleep Apnea",
+      "url": "https://www.youtube.com/watch?v=ohTE--PgBkY",
+      "channel": "uvahealth",
+      "source_id": "SRC_M1",
+      "duration_sec": 111,
+      "section": "00:05-00:50",
+      "timecodes": [
+        {
+          "t": "00:06-00:18",
+          "what": "Clinical sleep-study monitor showing stacked EEG brainwave channels and lower muscle-tone EMG traces (`kf_001..kf_004`)."
+        },
+        {
+          "t": "00:20-00:35",
+          "what": "Sleep specialist pointing across epoch transitions on a bright clinical polysomnography display (`kf_005..kf_008`)."
+        },
+        {
+          "t": "00:36-00:49",
+          "what": "Close view of multi-channel sleep staging waveforms across consecutive epochs (`kf_009..kf_012`)."
+        }
+      ],
+      "license_note": "Clinical sleep-lab video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 keyframes across 00:05-00:50 from UVA Health clinical polysomnography walkthrough.",
+          "Used strictly for authentic multi-trace sleep monitor geometry; zero pixels or audio reused."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "routed_to_track_b_sunlit_morning_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "034. The Mysterious World of Rapid Eye Movement (REM) Sleep (with Professor John Peever)",
+      "url": "https://www.youtube.com/watch?v=3ihtXL0uHew",
+      "channel": "humanOS.me",
+      "source_id": "SRC_M2",
+      "duration_sec": 1720,
+      "timecodes": [
+        {
+          "t": "04:10-06:30",
+          "what": "Co-author Prof. John H. Peever explains why REM sleep requires active brainstem motor paralysis to prevent acting out vivid dreams."
+        },
+        {
+          "t": "11:15-14:00",
+          "what": "Discussion of dual GABA and glycine receptor mechanisms (Brooks & Peever 2012) and clinical links to sleep paralysis and RBD."
+        }
+      ],
+      "license_note": "Researcher interview consulted for scientific context only; never reused.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "podcast_interview_track_b_only"
+    }
+  ]
+}

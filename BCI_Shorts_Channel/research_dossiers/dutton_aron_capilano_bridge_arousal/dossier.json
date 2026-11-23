@@ -1,117 +1,195 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "dutton_aron_capilano_bridge_arousal",
-  "topic": "Dutton & Aron (1974): The 230-Foot Swaying Capilano Canyon Bridge — Mistaking Fear Adrenaline for Romantic Spark!",
+  "topic": "Why Crossing a 230-Foot Swaying Bridge Made Strangers Mistake Fear for Chemistry",
   "pillar": "brain_basics",
-  "created_at": "2026-10-25T22:49:37+00:00",
+  "everyday_domain": "relationships",
+  "created_at": "2026-11-16T09:44:00+00:00",
   "status": "ready",
   "visual_mode": "HYBRID",
-  "visual_mode_reason": "Donald Dutton and Arthur Aron's 1974 Vancouver field experiment on the swaying 450-foot-long, 230-foot-high Capilano Canyon suspension bridge — where men whose hearts raced from cliffside fear called the female interviewer 4x more often (50% vs 12.5%) than men on a sturdy 10-foot cedar bridge! — links dramatic real-world staging directly to amygdala/insula autonomic arousal misattributed by prefrontal cortex.",
+  "visual_mode_reason": "Pairs North Vancouver's outdoor 230-foot swaying Capilano Suspension Bridge versus the 10-foot solid cedar bridge (R72/R79-M physical cable-grip & tear-off phone slip action) with 3D cyan MNI152 amygdala-insula heartbeat surge mislabeled by ventromedial prefrontal cortex (R78).",
+  "setup_18w": "Researchers interviewed travelers crossing either a high swaying canyon bridge or a low sturdy cedar bridge.",
+  "primary_doi": "10.1037/h0037031",
   "primary_case": {
-    "title": "Donald G. Dutton & Arthur P. Aron's 1974 Capilano Canyon Suspension Bridge 'Misattribution of Arousal' Field & Lab Studies",
+    "title": "Donald G. Dutton & Arthur P. Aron's 1974 Capilano Canyon Suspension Bridge Misattribution-of-Arousal Studies",
     "year": 1974,
     "place": "Capilano Canyon Suspension Bridge, North Vancouver, British Columbia, Canada",
+    "summary": "In 1974 (Journal of Personality and Social Psychology), UBC psychologists Donald Dutton and Arthur Aron stationed interviewers on a swaying 230-foot canyon suspension bridge and a solid 10-foot upstream cedar bridge—showing a racing heartbeat quadrupled follow-up phone calls (50.0% vs 12.5%) until waiting 10 minutes on a park bench cut the effect in half.",
     "people": [
       {
         "name": "Donald G. Dutton & Arthur P. Aron",
-        "role": "University of British Columbia social psychologists who tested Schachter-Singer emotion theory over a 230-foot rocky gorge and launched modern romantic-attraction neuroscience",
+        "role": "University of British Columbia social psychologists (JPSP, 1974) who tested misattribution of autonomic arousal across two canyon bridges and park-bench cooldown controls",
         "source_id": "SRC1"
       },
       {
-        "name": "Unaccompanied Male Bridge Crossers (ages 18–35)",
-        "role": "85 men crossing either the swaying, wire-handrail 230-foot-high Capilano suspension bridge or the solid 10-foot-high upstream cedar bridge — plus male-interviewer and Wait-10-Minutes controls.",
-        "source_id": "SRC1"
+        "name": "Hugo D. Critchley, Sarah N. Garfinkel & Lisa Feldman Barrett Team",
+        "role": "Modern human interoception neuroscientists (Current Opinion in Psychology, 2017; Nature Human Behaviour, 2017) who mapped how the insula and prefrontal cortex interpret unlabelled visceral heartbeat signals",
+        "source_id": "SRC4"
       },
       {
-        "name": "Female & Male Student Interviewers",
-        "role": "Experimenters blind to the hypothesis who administered Thematic Apperception Test (TAT) picture stories and offered a tear-off phone number slip 'in case you want study details later'",
-        "source_id": "SRC1"
+        "name": "Cindy M. Meston, Craig A. Foster & Douglas T. Kenrick",
+        "role": "Replication, meta-analysis, and boundary-condition researchers (1979–2003) clarifying when residual arousal amplifies attraction versus irritation",
+        "source_id": "SRC5"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Mistaking coffee jitters, turbulent travel, or work-deadline adrenaline for sudden interpersonal sparks—or picking an evening argument with your spouse simply because traffic left your pulse racing.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0037031",
+      "source_ids": [
+        "SRC1",
+        "SRC5"
+      ],
+      "dois": [
+        "10.1037/h0037031",
+        "10.1037//0022-3514.74.1.86"
+      ],
+      "summary": "Dutton & Aron (1974, JPSP) interviewed unaccompanied men crossing a swaying 230-foot suspension bridge versus a solid 10-foot cedar bridge, finding 50.0% (9/18) vs 12.5% (2/16) called the female interviewer afterward—and waiting 10 minutes past the bridge cut calls from 65% to 30%."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC4",
+      "doi": "10.1038/s41562-017-0069",
+      "year": 2017,
+      "source_ids": [
+        "SRC3",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1016/j.copsyc.2017.04.020",
+        "10.1038/s41562-017-0069"
+      ],
+      "summary": "Kleckner, Barrett et al. (2017, Nature Human Behaviour) and Critchley & Garfinkel (2017) demonstrated that large-scale human interoceptive networks (amygdala, anterior insula, and ventromedial prefrontal cortex) receive raw visceral heartbeat and sweat signals without a built-in cause tag, constructing emotional meaning from the nearest salient social cue."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1037/h0037031",
+        "year": 1974,
+        "summary": "Dutton & Aron (1974, JPSP) Capilano high-swaying vs low-cedar bridge and Study 2 10-minute park-bench cooldown experiments."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1037//0022-3514.74.1.86",
+        "year": 1998,
+        "summary": "Foster, Witcher, Campbell & Green (1998, JPSP) quantitative synthesis of arousal-and-attraction experiments."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC4",
+        "doi": "10.1038/s41562-017-0069",
+        "year": 2017,
+        "summary": "Kleckner et al. (2017, Nature Human Behaviour) human neuroimaging discovery of the large-scale insular-visceromotor interoception network."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1016/j.copsyc.2017.04.020",
+        "year": 2017,
+        "summary": "Critchley & Garfinkel (2017, Current Opinion in Psychology) neural model of cardiac interoception shaping social emotion."
       }
     ]
   },
   "core_facts": [
     {
-      "fact": "In **1974 (*Journal of Personality and Social Psychology*)**, UBC psychologists **Donald Dutton and Arthur Aron** found nature's ultimate adrenaline laboratory in North Vancouver: the **Capilano Canyon Suspension Bridge** — a **5-foot-wide, 450-foot-long plank bridge** that **tilts, sways, and wobbles** between low wire handrails **230 feet above churning rapids and jagged canyon boulders**.",
+      "fact": "In 1974 (Journal of Personality and Social Psychology), University of British Columbia psychologists Donald Dutton and Arthur Aron compared two bridges spanning North Vancouver's Capilano River: a 450-foot-long plank suspension bridge swaying 230 feet above rocky rapids versus a solid, non-swaying cedar bridge just 10 feet above a calm stream.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Just upstream spanned the perfect **Low-Fear Control Bridge**: a **heavy, solid, non-swaying cedar-wood bridge** sitting a calm **10 feet** above a shallow, quiet stream.",
+      "fact": "As unaccompanied men crossed either bridge, a female interviewer asked them to write a brief story about an ambiguous picture card and tore off the corner of a sheet with her name and phone number in case they wanted study details later (Dutton & Aron, 1974).",
       "source_id": "SRC1"
     },
     {
-      "fact": "As unaccompanied men (ages 18–35) crossed either bridge, an **attractive female interviewer** approached them, asked them to write a brief dramatic story about an ambiguous picture (**Thematic Apperception Test / TAT**), and tore the corner off a sheet with her name (**'Gloria'**) and phone number in case they wanted to call for study results.",
+      "fact": "In Study 1 of Dutton and Aron (1974), 50.0% of travelers interviewed mid-span on the swaying 230-foot canyon bridge phoned the female interviewer afterward, compared with just 12.5% on the sturdy 10-foot cedar bridge—four times the callback rate!",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Post-Bridge Callback Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "10ft Solid Bridge",
+            "value": 12.5,
+            "unit": "%"
+          },
+          {
+            "label": "230ft Sway Bridge",
+            "value": 50.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/h0037031",
+        "source_citation": "Dutton & Aron (1974)"
+      }
+    },
+    {
+      "fact": "When a male interviewer ran the exact same script on both bridges in Study 1 of Dutton and Aron (1974), callbacks stayed near floor on both spans (2 of 23 vs 1 of 22), proving cliffside fear did not simply make travelers eager to chat about psychology.",
       "source_id": "SRC1"
     },
     {
-      "fact": "The canyon gap was electric: **50% (9 out of 18)** of men interviewed on the **230-foot swaying suspension bridge** phoned Gloria afterward — **FOUR TIMES the rate** of men on the solid 10-foot bridge (**12.5%, 2 out of 16**, *p* <.02) — AND their TAT stories packed **significantly higher romantic/sexual imagery** (**2.47 vs 1.41**).",
+      "fact": "To rule out the loophole that thrill-seekers naturally flock to high bridges, Study 2 of Dutton and Aron (1974) tested men who ALL crossed the scary 230-foot bridge: 65% phoned when interviewed right on the swaying span, versus 30% when interviewed 10 minutes after crossing on a calm park bench once their pulse slowed.",
       "source_id": "SRC1"
     },
     {
-      "fact": "Critics immediately asked: *'Wait — what if thrill-seeking daredevils just choose the scary bridge, while shy men pick the low wooden bridge?!'* Dutton & Aron plugged BOTH loopholes right inside the same 1974 paper.",
-      "source_id": "SRC1"
+      "fact": "Cindy Meston and Penny Frohlich (2003, Archives of Sexual Behavior) replicated excitation transfer at a real amusement park, finding unpartnered adults exiting a thrilling roller coaster rated photos of strangers significantly more attractive than riders waiting in line.",
+      "source_id": "SRC2"
     },
     {
-      "fact": "First (**Male-Interviewer Control, Study 1, SRC1**): when a **MALE interviewer ('John')** ran the exact same test on both bridges, romantic TAT imagery dropped flat (0.80 vs 0.61) and almost nobody phoned (2 of 23 vs 1 of 22) — proving fear didn't just make men chatty.",
-      "source_id": "SRC1"
+      "fact": "Douglas Kenrick, Robert Cialdini, and Darwyn Linder (1979, PSPB) and Craig Foster et al. (1998, JPSP) clarified a vital boundary: when people stay acutely locked onto an obvious source of fear—or when the person in front of them is unpleasant—arousal does not turn into attraction and can amplify irritation instead.",
+      "source_id": "SRC6"
     },
     {
-      "fact": "Second (**Study 2 on the SAME High Bridge + Study 3 Lab Shock Test, SRC1**): to eliminate thrill-seeker self-selection completely, Dutton & Aron tested men who **ALL crossed the scary 230-foot bridge** — interviewing half **ON the swaying span** (high adrenaline — **65% called**!) vs interviewing the other half **10+ minutes AFTER crossing on calm park benches** once their pulse had cooled (**30% called**). Plus in **Study 3** in the UBC lab, randomly anticipating strong vs weak mild electric stimulation raised attraction ratings for a female co-participant.",
-      "source_id": "SRC1"
-    },
-    {
-      "fact": "Modern affective neuroscience & **Dolf Zillmann's Excitation-Transfer Theory** (SRC3) explain why: **sympathetic arousal** signaled by the **amygdala and anterior insula** (racing pulse, sweaty palms) lingers chemically for minutes without a neat text label — so **prefrontal cortex** partially attributes that lingering buzz to the captivating person standing right in front of you.",
-      "source_id": "SRC1"
+      "fact": "Human neuroimaging by Kleckner, Barrett, and colleagues (2017, Nature Human Behaviour) and Critchley and Garfinkel (2017) proved the anterior insula and amygdala deliver intense heartbeat signals without a printed return address—leaving ventromedial prefrontal networks to infer why your heart is pounding from surrounding social context.",
+      "source_id": "SRC4"
     }
   ],
   "wow_facts": [
     {
-      "fact": "Same interviewer, same questionnaire, same tear-off phone slip: **12.5% of men called** after meeting her on a solid 10-foot creek bridge — **50.0% called** after meeting her **230 feet above Capilano Gorge** on swaying planks.",
-      "why_surprising": "A 4x surge in romantic follow-up driven by canyon altitude.",
+      "fact": "Same person, same clipboard, same torn paper phone slip: 12.5% called after meeting on a sturdy 10-foot creek bridge, while 50.0% called after meeting 230 feet above Capilano Gorge.",
+      "why_surprising": "Your heartbeat carries no nametag—your brain guesses why your chest is thumping by looking at whoever is standing in front of you.",
       "source_id": "SRC1",
       "rank": 1
     },
     {
-      "fact": "To smash the *'maybe daredevils are just Smooth Talkers'* critique, Dutton & Aron waited **10 minutes on a park bench at the far end of the SAME scary bridge** until crossers' heart rates settled — and phone calls **dropped in half (65% on-bridge to 30% cooled-down)**.",
-      "why_surprising": "Same men, same bridge, 10 minutes apart — proving live bodily adrenaline did the work.",
+      "fact": "In Study 2, simply waiting 10 minutes on a cedar park bench after crossing the scary bridge cut phone calls in half (from 65% down to 30%).",
+      "why_surprising": "Proves daredevil personality wasn't the secret—ten minutes of pulse recovery changed romantic judgment in the exact same travelers.",
       "source_id": "SRC1",
       "rank": 2
     },
     {
-      "fact": "Run the exact same 230-foot canyon experiment with a **male interviewer**, and calls sit near zero on BOTH bridges (9% vs 5%).",
-      "why_surprising": "Adrenaline only turns into 'attraction' when an appealing target cue is present to absorb the attribution.",
-      "source_id": "SRC1",
+      "fact": "Adrenaline is an amplifier, not a blind love potion: Foster et al. (1998) showed leftover physical arousal makes warm people seem magnetic AND makes irritating situations feel twice as aggravating.",
+      "why_surprising": "Explains both why adventure travel rekindles 20-year marriages and why rush-hour traffic sparks kitchen arguments at 6 PM.",
+      "source_id": "SRC5",
       "rank": 3
     }
   ],
   "misconceptions": [
     {
-      "myth": "Fear or exercise makes you attracted to *anybody*, even someone unpleasant.",
-      "truth": "Follow-up excitation-transfer studies (Foster et al. 1998; Zillmann, SRC3) proved **arousal is a volume amplifier, not a valence inverter**: physiological arousal makes an *attractive* person seem **more attractive**, and makes an *unattractive or obnoxious* person seem **even MORE annoying**.",
-      "source_id": "SRC3"
-    },
-    {
-      "myth": "Dutton & Aron never controlled for different personality types choosing the high bridge vs the low bridge.",
-      "truth": "Studies 2 and 3 in the original 1974 paper specifically defeated self-selection — comparing On-Bridge vs Cooled-Off-After-Crossing on the exact same Capilano bridge AND randomizing lab arousal.",
+      "myth": "Only reckless thrill-seekers walk onto high suspension bridges, so personality—not brain misattribution—caused the 4x surge.",
+      "truth": "Dutton and Aron's Study 2 tested travelers who ALL crossed the 230-foot bridge; letting their pulse cool for 10 minutes on a bench past the exit halved callbacks from 65% to 30%.",
       "source_id": "SRC1"
     },
     {
-      "myth": "Your brain always knows the exact chemical source of a racing heart.",
-      "truth": "Whether from three espressos, a roller coaster, turbulence, or a scary movie, unlabelled sympathetic arousal routinely bleeds into social, romantic, and anger judgments.",
-      "source_id": "SRC1"
+      "myth": "Any scary situation automatically makes people fall for anyone nearby.",
+      "truth": "Kenrick, Cialdini, and Linder (1979) and Foster et al. (1998) showed misattribution works strongest during lingering, ambiguous arousal paired with a pleasant person—and backfires if the target is annoying.",
+      "source_id": "SRC6"
     }
   ],
   "everyday_hooks": [
-    "Realizing why roller coasters, horror movies, kayaking, or salsa classes make far more memorable first dates than sitting stiffly across a quiet fluorescent café table.",
-    "Pausing before picking an argument when you're actually just **over-caffeinated, sleep-deprived, or rattled by highway traffic** (excitation transfer in reverse!).",
-    "Naming your physical state out loud (*'My heart is racing from that double espresso!'*) to stop your prefrontal cortex from mislabeling raw adrenaline."
+    "Walking through the front door after tense highway traffic with your pulse still high—and snapping over an unwashed coffee mug because your brain misreads lingering road adrenaline as domestic frustration.",
+    "Discovering why trying a slightly nerve-racking new hike, kayak paddle, or dance class together rekindles warmth in a 25-year marriage better than another quiet dinner.",
+    "Taking ten slow minutes to let coffee or work adrenaline settle before making a big personal call or relationship judgment."
   ],
-  "linked_projects": [
-    "psych_90_dutton_aron_capilano_bridge_arousal"
-  ],
-  "shorts_projects": [
-    "diorama_20_dutton_aron_capilano_bridge"
-  ],
+  "debate_ignition": {
+    "prebunk_myth": "We trust a racing heartbeat as pure gut intuition about a person—forgetting our brain can't tell canyon adrenaline apart from real chemistry.",
+    "open_verdict_question": "For a lasting relationship spark, does sharing an exciting new adventure beat a calm quiet dinner or just mask real compatibility?",
+    "offcenter_creator_bet": "My bet: shared thrills beat candlelit dinners — for real spark, do you pick adventure or calm?"
+  },
+  "offcenter_creator_bet": "My bet: shared thrills beat candlelit dinners — for real spark, do you pick adventure or calm?",
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Hot take: shaky knees fake romance — high-bridge adrenaline tricked men into mistaking fear for instant chemistry. Have high-stakes moments ever fooled your heart?"
+  "linked_projects": []
 }

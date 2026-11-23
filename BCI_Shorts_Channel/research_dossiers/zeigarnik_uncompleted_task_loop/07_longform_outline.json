@@ -1,37 +1,56 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "50-year-old adult wide awake at night staring as an unfinished wooden puzzle piece hovers beside a closed desk drawer",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing hyper-active dorsolateral prefrontal cortex and anterior cingulate open-loop alarm",
+    "badge_text": "1.9X OPEN LOOP"
+  },
+  "r75_clean_seed_tags": [
+    "zeigarnik effect",
+    "unfinished tasks memory",
+    "working memory",
+    "brain science",
+    "cognitive psychology",
+    "neuroscience",
+    "prefrontal cortex",
+    "why i wake up at 3am",
+    "everyday psychology",
+    "memory habits",
+    "shorts"
+  ],
   "shorts_extract": {
-    "hook": "From a Berlin cafe waiter's instant amnesia after payment to 164 interrupted puzzles: why open loops haunt your mind 90% stronger — and how a 60-second plan closes them.",
-    "core_experiment": "Zeigarnik (1927 Psychologische Forschung): 18-22 hands-on tasks, RU/RC = 1.9 recall advantage for interrupted goals regardless of clock time.",
-    "twist": "Why ego-threat flips the effect, why 25 open tabs drain IQ, and Masicampo & Baumeister's (2011) 'When + Where' shutdown cure."
+    "hook": "Why you forget twelve finished chores yet wake up at 3 AM replaying one unreturned message—traced to a 1920s Berlin cafe waiter and 164 interrupted puzzles.",
+    "core_experiment": "Bluma Zeigarnik (1927, University of Berlin): sweeping half of 18–22 hands-on tasks into a drawer mid-stream boosted free recall 1.9x over finished tasks regardless of clock time.",
+    "twist": "Once paid or written into a concrete tomorrow-morning calendar slot, your frontal scratchpad silences the open loop in 60 seconds."
   },
   "chapters": [
     {
       "n": 1,
-      "title": "The Berlin Waiter Who Forgot in 30 Seconds",
+      "title": "The Berlin Cafe Waiter Who Forgot in 30 Seconds",
       "beats": [
-        "Flawless memory before payment, total blank after 'Paid!'",
-        "Kurt Lewin's tension hypothesis & Bluma Zeigarnik's 1927 test"
+        "Kurt Lewin watches a waiter hold unpaid orders for hours without paper",
+        "Total memory wipe 30 seconds after the bill is paid"
       ],
       "scene_ids": [
-        "S2",
-        "S1"
+        "S2"
       ],
       "reuse_shorts_roles": [
         "setup",
         "symptom"
       ],
       "new_shots_needed": [
-        "cafe billfold & 1927 puzzle table"
+        "outdoor Berlin garden cafe terrace and closed billfold"
       ]
     },
     {
       "n": 2,
-      "title": "Sweeping the Jigsaw Into the Drawer: 1.9-to-1",
+      "title": "164 Volunteers & The Oak Drawer Sweep (Berlin, 1927)",
       "beats": [
-        "164 adults and children across 18-22 tactile tasks",
-        "Why clock time lost to goal tension",
-        "Children begging to glue the final piece"
+        "Bluma Zeigarnik assigns 18 to 22 tactile puzzles and clay tasks",
+        "Sweeping unfinished puzzles out of sight yields a 1.9x recall jump"
       ],
       "scene_ids": [
         "S1"
@@ -41,60 +60,59 @@
         "step1"
       ],
       "new_shots_needed": [
-        "unfinished jigsaw vs completed star"
+        "workbench jigsaw sweep and cloth ledger"
       ]
     },
     {
       "n": 3,
-      "title": "When Open Loops Backfire: Ego Threat & Tab Overload",
+      "title": "Inside the Open Loop: Prefrontal Scratchpad & Conflict Alarm",
       "beats": [
-        "Why humiliating IQ-test interruptions don't replicate",
-        "Cliffhangers vs 20 half-written emails pinging working memory"
+        "Why clock minutes lost to unresolved goal tension",
+        "Dorsolateral prefrontal maintenance and anterior cingulate pings"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 prefrontal + cingulate loop"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "When Open Loops Backfire: 20 Browser Tabs & Ego Threat",
+      "beats": [
+        "Why humiliating test interruptions flip the Zeigarnik ratio",
+        "How twenty unclosed work tabs drain midlife focus"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
-        "failure",
-        "crisis"
+        "failure"
       ],
       "new_shots_needed": [
-        "20 cluttered open-task notes"
-      ]
-    },
-    {
-      "n": 4,
-      "title": "2011 Breakthrough: 'Consider It Done!'",
-      "beats": [
-        "Masicampo & Baumeister's concrete plan experiment",
-        "Why your brain stops nagging once it trusts a calendar slot"
-      ],
-      "scene_ids": [
-        "S4"
-      ],
-      "reuse_shorts_roles": [
-        "step2",
-        "breakthrough"
-      ],
-      "new_shots_needed": [
-        "When-and-Where shutdown card"
+        "cluttered work monitor vs single focus card"
       ]
     },
     {
       "n": 5,
-      "title": "Hemingway's Morning Hook + Your 5:30 PM Shutdown",
+      "title": "The 60-Second 5:30 PM Shutdown Receipt",
       "beats": [
-        "Leaving one intentional thread for creative flow",
-        "Closing every other tab before dinner"
+        "Writing a concrete When + Where slot powers down frontal nagging",
+        "Saving one intentional Hemingway cliffhanger for morning flow"
       ],
       "scene_ids": [
-        "S4"
+        "S3"
       ],
       "reuse_shorts_roles": [
+        "breakthrough",
         "conclusion"
       ],
       "new_shots_needed": [
-        "closed planner & calm evening"
+        "written planner slot and calm laptop close"
       ]
     }
   ]

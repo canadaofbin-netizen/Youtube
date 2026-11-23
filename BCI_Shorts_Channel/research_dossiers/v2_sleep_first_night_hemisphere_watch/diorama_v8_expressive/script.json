@@ -1,0 +1,132 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "emma_v7",
+  "foil_voice_preset": "foil_v8",
+  "foil_sentence_indices": [],
+  "opening_mode": "question",
+  "core_reveal_sentence_index": 4,
+  "sentence_beats": [
+    "question",
+    "empathy",
+    "aggro",
+    "core",
+    "evidence",
+    "evidence",
+    "evidence",
+    "evidence",
+    "evidence",
+    "mechanism",
+    "mechanism",
+    "payoff",
+    "payoff",
+    "cta_question",
+    "loop"
+  ],
+  "prosody_gears": [
+    "stamp",
+    "brisk",
+    "rush",
+    "stamp",
+    "brisk",
+    "brisk",
+    "stamp",
+    "rush",
+    "brisk",
+    "brisk",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp",
+    "rush"
+  ],
+  "project_id": "v8_pilot_02_sleep_night_watch_cam3d",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "dossier": "v2_sleep_first_night_hemisphere_watch",
+  "language": "en-US",
+  "title": "Why Strange Beds Wake Half Your Brain",
+  "doi": "10.1016/j.cub.2016.02.063",
+  "secondary_doi": "10.1111/j.1469-8986.1966.tb02650.x",
+  "omit_experiment_nicknames": [
+    "first-night effect",
+    "first night effect"
+  ],
+  "debate_question": "On your next trip, would you pack your own pillowcase from home — or let the guard keep watch?",
+  "acts": [
+    {
+      "act": 1,
+      "name": "3-Beat Opening: Relatable Hotel Question, Empathy Flip & Early Brain Guard",
+      "sentences": [
+        "Ever sleep terribly your first night in a hotel?",
+        "You're not alone.",
+        "And no, it's not the bed.",
+        "Half of your brain stayed awake on purpose all night — standing quiet guard."
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Sasaki 35-Sleeper Lab Scan & Right-Side Deep Sleep",
+      "sentences": [
+        "Neuroscientist Yuka Sasaki scanned thirty-five healthy sleepers across their first two nights in a quiet university sleep lab.",
+        "On night one, the right side of every sleeper's brain sank into deep, steady sleep."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Left-Side Night Sentry, 3x Tripwire Test & Dolphin Cameo",
+      "sentences": [
+        "But the left side? It stayed light and alert, watching the dark room like a night guard.",
+        "Play one strange beep into the right ear, and that left side woke sleepers three times faster — like a tripwire!",
+        "Dolphins, whales, and migrating birds use that exact trick, resting one half of the brain while the other watches."
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Left Network Duty & Sound-Center Scanning Mechanism",
+      "sentences": [
+        "You see, inside your head, a daytime network on your left side stays on duty in strange rooms.",
+        "Linked straight to your sound center, it keeps scanning every creak in the hallway until morning light arrives."
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Night-Two Stand-Down & Lab First-Night Data Toss",
+      "sentences": [
+        "By night two in that exact same bed, the guard finally stands down, and both halves sleep deeply.",
+        "That's why sleep labs often toss out the first night's data."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Pillowcase Trip Question & Answer-Loop Back to S1",
+      "sentences": [
+        "So on your next trip, would you pack your own pillowcase from home — or let the guard keep watch?",
+        "Because that restless first night? That's half of your brain staying up to keep you safe."
+      ]
+    }
+  ],
+  "sentences": [
+    "Ever sleep terribly your first night in a hotel?",
+    "You're not alone.",
+    "And no, it's not the bed.",
+    "Half of your brain stayed awake on purpose all night — standing quiet guard.",
+    "Neuroscientist Yuka Sasaki scanned thirty-five healthy sleepers across their first two nights in a quiet university sleep lab.",
+    "On night one, the right side of every sleeper's brain sank into deep, steady sleep.",
+    "But the left side? It stayed light and alert, watching the dark room like a night guard.",
+    "Play one strange beep into the right ear, and that left side woke sleepers three times faster — like a tripwire!",
+    "Dolphins, whales, and migrating birds use that exact trick, resting one half of the brain while the other watches.",
+    "You see, inside your head, a daytime network on your left side stays on duty in strange rooms.",
+    "Linked straight to your sound center, it keeps scanning every creak in the hallway until morning light arrives.",
+    "By night two in that exact same bed, the guard finally stands down, and both halves sleep deeply.",
+    "That's why sleep labs often toss out the first night's data.",
+    "So on your next trip, would you pack your own pillowcase from home — or let the guard keep watch?",
+    "Because that restless first night? That's half of your brain staying up to keep you safe."
+  ],
+  "us_anti_clone_v7": true
+}

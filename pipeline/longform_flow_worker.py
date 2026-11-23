@@ -435,7 +435,7 @@ async def _configure_longform_video_16x9_tab(
     cred_chk = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
     if not use_zero and bool(cred_chk.get("exhausted")):
         if norm_mode == "omni":
-            raise RuntimeError(f"Omni 1.1 Flash credits exhausted in longform-flow: {cred_chk}")
+            raise RuntimeError(f"{FLOW_PRIMARY_VIDEO_MODEL} credits exhausted in longform-flow: {cred_chk}")
         if credit_exhausted_event is not None:
             credit_exhausted_event.set()
         use_zero = True

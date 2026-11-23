@@ -1,0 +1,243 @@
+{
+  "schema": "aab_previs_location_registry_v2",
+  "description": "Reusable 3D architectural room & R72 28m x 32m open-sky outdoor/landmark/cutaway blockouts by location_id.",
+  "locations": {
+    "default_studio": {
+      "outdoor": false,
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.60, 4.60, 0.12], "color_hex": "#8B9098"},
+        {"block_id": "back_wall", "pos": [0.0, 2.20, 1.55], "size_xyz": [4.60, 0.14, 3.10], "color_hex": "#9EA3AC"},
+        {"block_id": "surface_block", "pos": [0.0, -0.38, 0.36], "size_xyz": [1.30, 0.68, 0.72], "color_hex": "#7C828D"}
+      ],
+      "surface_top_z": 0.72
+    },
+    "university_playroom": {
+      "outdoor": false,
+      "aliases": ["playroom", "experiment_room", "marshmallow_playroom", "nursery_playroom", "testing_room"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.25, -0.06], "size_xyz": [4.80, 4.60, 0.12], "color_hex": "#8B9098"},
+        {"block_id": "back_wall", "pos": [0.0, 2.25, 1.55], "size_xyz": [4.80, 0.14, 3.10], "color_hex": "#9EA3AC"},
+        {"block_id": "oak_door", "pos": [-1.45, 2.15, 1.05], "size_xyz": [0.92, 0.10, 2.10], "color_hex": "#737984"},
+        {"block_id": "observation_window", "pos": [1.10, 2.16, 1.38], "size_xyz": [1.45, 0.08, 1.05], "color_hex": "#B4B9C2"},
+        {"block_id": "shelf_ledge", "pos": [1.55, 1.85, 1.18], "size_xyz": [0.85, 0.32, 0.08], "color_hex": "#7C828D"},
+        {"block_id": "surface_block", "pos": [0.0, -0.32, 0.31], "size_xyz": [1.18, 0.66, 0.62], "color_hex": "#7C828D"}
+      ],
+      "surface_top_z": 0.62
+    },
+    "observation_corridor": {
+      "outdoor": false,
+      "aliases": ["observation_booth", "behind_glass", "control_booth", "observation_room"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.80, 4.20, 0.12], "color_hex": "#838890"},
+        {"block_id": "back_wall", "pos": [0.0, 2.10, 1.55], "size_xyz": [4.80, 0.14, 3.10], "color_hex": "#969BA4"},
+        {"block_id": "observation_glass_frame", "pos": [0.0, -0.55, 1.35], "size_xyz": [2.40, 0.08, 1.15], "color_hex": "#B4B9C2"},
+        {"block_id": "surface_block", "pos": [0.0, -0.45, 0.42], "size_xyz": [2.40, 0.55, 0.84], "color_hex": "#757B86"}
+      ],
+      "surface_top_z": 0.84
+    },
+    "lecture_desk": {
+      "outdoor": false,
+      "aliases": ["psychology_study", "textbook_desk", "academic_office", "study_desk", "seminar_room"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.40, 4.20, 0.12], "color_hex": "#8B9098"},
+        {"block_id": "back_wall", "pos": [0.0, 2.10, 1.55], "size_xyz": [4.40, 0.14, 3.10], "color_hex": "#9EA3AC"},
+        {"block_id": "bookshelf_block", "pos": [-1.35, 1.85, 1.15], "size_xyz": [1.10, 0.36, 2.30], "color_hex": "#777D88"},
+        {"block_id": "surface_block", "pos": [0.0, -0.38, 0.38], "size_xyz": [1.45, 0.72, 0.76], "color_hex": "#7C828D"}
+      ],
+      "surface_top_z": 0.76
+    },
+    "nursery_courtyard": {
+      "outdoor": true,
+      "aliases": ["courtyard", "garden_table", "nursery_courtyard_exterior", "outdoor_patio"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.30, -0.06], "size_xyz": [5.60, 5.60, 0.12], "color_hex": "#91979F"},
+        {"block_id": "garden_low_wall", "pos": [0.0, 2.45, 0.55], "size_xyz": [5.40, 0.24, 1.10], "color_hex": "#A4A9B2"},
+        {"block_id": "surface_block", "pos": [0.0, -0.35, 0.37], "size_xyz": [1.20, 0.70, 0.74], "color_hex": "#7C828D"}
+      ],
+      "surface_top_z": 0.74
+    },
+    "xray_brain_observatory": {
+      "outdoor": false,
+      "aliases": ["brain_observatory", "xray_chamber", "neural_dome_studio"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.60, 4.60, 0.12], "color_hex": "#808690"},
+        {"block_id": "curved_backdrop", "pos": [0.0, 2.25, 1.60], "size_xyz": [4.60, 0.18, 3.20], "color_hex": "#9298A2"},
+        {"block_id": "pedestal_plinth", "pos": [0.0, 0.05, 0.35], "size_xyz": [0.90, 0.90, 0.70], "color_hex": "#767C87"}
+      ],
+      "surface_top_z": 0.70
+    },
+    "midnight_fridge_kitchen": {
+      "outdoor": false,
+      "aliases": ["kitchen_night", "midnight_kitchen", "refrigerator_kitchen", "kitchen"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.60, 4.40, 0.12], "color_hex": "#858B94"},
+        {"block_id": "back_wall", "pos": [0.0, 2.15, 1.55], "size_xyz": [4.60, 0.14, 3.10], "color_hex": "#989EA8"},
+        {"block_id": "refrigerator_body", "pos": [0.85, 1.15, 0.95], "size_xyz": [0.88, 0.78, 1.90], "color_hex": "#ADB3BD"},
+        {"block_id": "surface_block", "pos": [-0.55, 0.35, 0.44], "size_xyz": [1.55, 0.68, 0.88], "color_hex": "#7A808B"}
+      ],
+      "surface_top_z": 0.88
+    },
+    "morning_sunlit_desk": {
+      "outdoor": false,
+      "aliases": ["morning_desk", "sunlit_study", "bedroom_desk_morning", "home_desk", "dorm_desk"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.40, 4.20, 0.12], "color_hex": "#8E939C"},
+        {"block_id": "back_wall", "pos": [0.0, 2.10, 1.55], "size_xyz": [4.40, 0.14, 3.10], "color_hex": "#A3A8B1"},
+        {"block_id": "sunlit_window", "pos": [1.15, 2.02, 1.45], "size_xyz": [1.25, 0.08, 1.30], "color_hex": "#BAC0C9"},
+        {"block_id": "surface_block", "pos": [0.0, -0.36, 0.38], "size_xyz": [1.35, 0.70, 0.76], "color_hex": "#7C828D"}
+      ],
+      "surface_top_z": 0.76
+    },
+    "campus_portico_quad": {
+      "outdoor": true,
+      "aliases": ["ucl_portico", "ucl_wilkins_quad", "university_portico_quad", "campus_aerial_quad", "classical_dome_quad"],
+      "room_blocks": [
+        {"block_id": "quad_ground", "pos": [0.0, -4.0, -0.10], "size_xyz": [28.0, 32.0, 0.20], "color_hex": "#7E858E"},
+        {"block_id": "central_walkway", "pos": [0.0, -8.5, 0.01], "size_xyz": [3.20, 18.0, 0.04], "color_hex": "#969CA6"},
+        {"block_id": "portico_steps", "pos": [0.0, 2.20, 0.35], "size_xyz": [9.60, 2.40, 0.70], "color_hex": "#9DA3AD"},
+        {"block_id": "main_hall_facade", "pos": [0.0, 6.20, 3.60], "size_xyz": [16.0, 5.20, 7.20], "color_hex": "#8F96A0"},
+        {"block_id": "central_dome_drum", "shape": "cylinder", "pos": [0.0, 6.20, 8.20], "size_xyz": [4.60, 4.60, 2.20], "color_hex": "#838A94"},
+        {"block_id": "central_dome_cap", "shape": "sphere", "pos": [0.0, 6.20, 9.40], "radius": 2.30, "size_xyz": [4.60, 4.60, 4.60], "color_hex": "#757D87"},
+        {"block_id": "col_left_outer", "shape": "cylinder", "pos": [-3.60, 3.30, 3.10], "size_xyz": [0.58, 0.58, 5.20], "color_hex": "#A8AEB8"},
+        {"block_id": "col_left_inner", "shape": "cylinder", "pos": [-1.80, 3.30, 3.10], "size_xyz": [0.58, 0.58, 5.20], "color_hex": "#A8AEB8"},
+        {"block_id": "col_right_inner", "shape": "cylinder", "pos": [1.80, 3.30, 3.10], "size_xyz": [0.58, 0.58, 5.20], "color_hex": "#A8AEB8"},
+        {"block_id": "col_right_outer", "shape": "cylinder", "pos": [3.60, 3.30, 3.10], "size_xyz": [0.58, 0.58, 5.20], "color_hex": "#A8AEB8"},
+        {"block_id": "fg_tree_left", "shape": "sphere", "pos": [-4.80, -8.50, 3.40], "radius": 1.65, "size_xyz": [3.30, 3.30, 3.30], "color_hex": "#68726E"},
+        {"block_id": "fg_tree_right", "shape": "sphere", "pos": [4.80, -9.20, 3.60], "radius": 1.75, "size_xyz": [3.50, 3.50, 3.50], "color_hex": "#68726E"}
+      ],
+      "surface_top_z": 0.72
+    },
+    "harvard_brick_courtyard": {
+      "outdoor": true,
+      "aliases": ["harvard_yard", "harvard_memorial_hall", "harvard_sever_hall", "brick_ivy_courtyard", "campus_courtyard_steps", "harvard_exterior"],
+      "room_blocks": [
+        {"block_id": "yard_lawn_ground", "pos": [0.0, -4.0, -0.10], "size_xyz": [28.0, 32.0, 0.20], "color_hex": "#78827C"},
+        {"block_id": "brick_quad_path", "pos": [0.0, -8.0, 0.02], "size_xyz": [2.80, 19.0, 0.04], "color_hex": "#8D7F7D"},
+        {"block_id": "granite_entry_steps", "pos": [0.0, 2.30, 0.32], "size_xyz": [6.40, 2.10, 0.64], "color_hex": "#9EA4AE"},
+        {"block_id": "harvard_brick_hall", "pos": [0.0, 6.00, 3.80], "size_xyz": [15.4, 5.40, 7.60], "color_hex": "#8A7A78"},
+        {"block_id": "gothic_gable_tower", "pos": [0.0, 5.80, 8.80], "size_xyz": [4.40, 4.20, 3.20], "color_hex": "#797E88"},
+        {"block_id": "tall_arched_window", "pos": [0.0, 3.26, 2.65], "size_xyz": [2.40, 0.12, 3.10], "color_hex": "#B2BCC8", "alpha": 0.22},
+        {"block_id": "elm_trunk_left", "shape": "cylinder", "pos": [-4.20, -6.80, 1.60], "size_xyz": [0.46, 0.46, 3.20], "color_hex": "#6E6A66"},
+        {"block_id": "elm_canopy_left", "shape": "sphere", "pos": [-4.20, -6.80, 4.10], "radius": 1.85, "size_xyz": [3.70, 3.70, 3.70], "color_hex": "#66736C"},
+        {"block_id": "elm_trunk_right", "shape": "cylinder", "pos": [4.40, -8.40, 1.70], "size_xyz": [0.48, 0.48, 3.40], "color_hex": "#6E6A66"},
+        {"block_id": "elm_canopy_right", "shape": "sphere", "pos": [4.40, -8.40, 4.30], "radius": 1.95, "size_xyz": [3.90, 3.90, 3.90], "color_hex": "#66736C"}
+      ],
+      "surface_top_z": 0.68
+    },
+    "building_cutaway_portal": {
+      "outdoor": true,
+      "aliases": ["architectural_cutaway", "facade_cutaway_lab", "harvard_cutaway_portal", "ucl_cutaway_portal", "window_portal_lab"],
+      "room_blocks": [
+        {"block_id": "campus_exterior_ground", "pos": [0.0, -4.5, -0.10], "size_xyz": [24.0, 26.0, 0.20], "color_hex": "#7D838C"},
+        {"block_id": "interior_lab_floor", "pos": [0.0, 0.60, 0.02], "size_xyz": [5.60, 4.80, 0.06], "color_hex": "#8E949E"},
+        {"block_id": "interior_back_wall", "pos": [0.0, 2.95, 1.85], "size_xyz": [5.60, 0.16, 3.70], "color_hex": "#9BA1AB"},
+        {"block_id": "facade_left_pier", "pos": [-2.65, -1.85, 2.20], "size_xyz": [1.50, 0.42, 4.40], "color_hex": "#8A7D7B"},
+        {"block_id": "facade_right_pier", "pos": [2.65, -1.85, 2.20], "size_xyz": [1.50, 0.42, 4.40], "color_hex": "#8A7D7B"},
+        {"block_id": "facade_upper_lintel", "pos": [0.0, -1.85, 4.10], "size_xyz": [6.80, 0.42, 0.90], "color_hex": "#8A7D7B"},
+        {"block_id": "cutaway_window_portal", "pos": [0.0, -1.85, 1.95], "size_xyz": [3.70, 0.08, 3.30], "color_hex": "#B4C0CE", "alpha": 0.22},
+        {"block_id": "surface_block", "pos": [0.0, -0.25, 0.40], "size_xyz": [1.55, 0.72, 0.80], "color_hex": "#787E89"}
+      ],
+      "surface_top_z": 0.80
+    },
+    "urban_avenue_crosswalk": {
+      "outdoor": true,
+      "aliases": ["harvard_square", "harvard_square_crosswalk", "city_crosswalk", "street_plaza", "urban_street"],
+      "room_blocks": [
+        {"block_id": "avenue_asphalt", "pos": [0.0, -2.0, -0.08], "size_xyz": [26.0, 30.0, 0.16], "color_hex": "#707680"},
+        {"block_id": "crosswalk_stripe_1", "pos": [-1.20, -0.50, 0.02], "size_xyz": [0.55, 2.60, 0.02], "color_hex": "#AEB4BE"},
+        {"block_id": "crosswalk_stripe_2", "pos": [0.0, -0.50, 0.02], "size_xyz": [0.55, 2.60, 0.02], "color_hex": "#AEB4BE"},
+        {"block_id": "crosswalk_stripe_3", "pos": [1.20, -0.50, 0.02], "size_xyz": [0.55, 2.60, 0.02], "color_hex": "#AEB4BE"},
+        {"block_id": "storefront_left", "pos": [-5.20, 4.50, 2.80], "size_xyz": [4.20, 10.0, 5.60], "color_hex": "#8C7D7A"},
+        {"block_id": "storefront_right", "pos": [5.20, 4.50, 2.60], "size_xyz": [4.20, 10.0, 5.20], "color_hex": "#878D97"},
+        {"block_id": "plaza_kiosk", "shape": "cylinder", "pos": [0.0, 5.60, 1.75], "size_xyz": [3.20, 3.20, 3.50], "color_hex": "#848A94"},
+        {"block_id": "street_tree_left", "shape": "sphere", "pos": [-3.10, -3.60, 3.10], "radius": 1.35, "size_xyz": [2.70, 2.70, 2.70], "color_hex": "#68746D"}
+      ],
+      "surface_top_z": 0.75
+    },
+    "transit_station_platform": {
+      "outdoor": true,
+      "aliases": ["subway_platform", "london_underground", "commuter_platform", "train_station"],
+      "room_blocks": [
+        {"block_id": "platform_deck", "pos": [-0.80, 0.0, -0.06], "size_xyz": [6.40, 24.0, 0.14], "color_hex": "#838993"},
+        {"block_id": "safety_edge_strip", "pos": [2.10, 0.0, 0.02], "size_xyz": [0.28, 24.0, 0.03], "color_hex": "#A9AFB9"},
+        {"block_id": "curved_tunnel_wall", "pos": [-3.60, 0.0, 2.10], "size_xyz": [0.35, 24.0, 4.20], "color_hex": "#979EA8"},
+        {"block_id": "commuter_train_car", "pos": [3.70, 2.20, 1.55], "size_xyz": [2.40, 16.0, 3.10], "color_hex": "#79818C"}
+      ],
+      "surface_top_z": 0.74
+    },
+    "bridge_river_span": {
+      "outdoor": true,
+      "aliases": ["charles_river_bridge", "weeks_footbridge", "millennium_bridge", "river_footbridge", "pedestrian_bridge"],
+      "room_blocks": [
+        {"block_id": "river_water_plane", "pos": [0.0, 0.0, -0.85], "size_xyz": [30.0, 34.0, 0.12], "color_hex": "#6C7C8C"},
+        {"block_id": "bridge_deck_span", "pos": [0.0, 0.0, -0.05], "size_xyz": [4.20, 24.0, 0.18], "color_hex": "#8E8380"},
+        {"block_id": "balustrade_left", "pos": [-1.95, 0.0, 0.52], "size_xyz": [0.24, 24.0, 0.96], "color_hex": "#A4AAB4"},
+        {"block_id": "balustrade_right", "pos": [1.95, 0.0, 0.52], "size_xyz": [0.24, 24.0, 0.96], "color_hex": "#A4AAB4"},
+        {"block_id": "distant_campus_tower", "pos": [1.80, 13.5, 4.60], "size_xyz": [3.40, 3.40, 9.20], "color_hex": "#888E98"}
+      ],
+      "surface_top_z": 0.92
+    },
+    "park_tree_walkway": {
+      "outdoor": true,
+      "aliases": ["park_walkway", "campus_walkway", "central_park", "tree_lined_path", "outdoor_park"],
+      "room_blocks": [
+        {"block_id": "park_lawn", "pos": [0.0, -2.0, -0.08], "size_xyz": [28.0, 30.0, 0.16], "color_hex": "#76827A"},
+        {"block_id": "stone_promenade", "pos": [0.0, 0.0, 0.02], "size_xyz": [3.40, 24.0, 0.04], "color_hex": "#979DA6"},
+        {"block_id": "park_bench", "pos": [1.25, 0.25, 0.28], "size_xyz": [0.62, 1.55, 0.56], "color_hex": "#7A746E"},
+        {"block_id": "tree_left_1", "shape": "sphere", "pos": [-2.90, -2.80, 3.20], "radius": 1.45, "size_xyz": [2.90, 2.90, 2.90], "color_hex": "#66746B"},
+        {"block_id": "tree_right_1", "shape": "sphere", "pos": [2.90, -2.40, 3.30], "radius": 1.45, "size_xyz": [2.90, 2.90, 2.90], "color_hex": "#66746B"},
+        {"block_id": "tree_left_2", "shape": "sphere", "pos": [-2.90, 3.40, 3.40], "radius": 1.55, "size_xyz": [3.10, 3.10, 3.10], "color_hex": "#66746B"},
+        {"block_id": "tree_right_2", "shape": "sphere", "pos": [2.90, 3.80, 3.40], "radius": 1.55, "size_xyz": [3.10, 3.10, 3.10], "color_hex": "#66746B"}
+      ],
+      "surface_top_z": 0.58
+    },
+    "stadium_bleachers_open": {
+      "outdoor": true,
+      "aliases": ["stadium_bowl", "campus_stadium", "bleachers", "athletic_track"],
+      "room_blocks": [
+        {"block_id": "field_turf", "pos": [0.0, -3.0, -0.08], "size_xyz": [28.0, 28.0, 0.16], "color_hex": "#728076"},
+        {"block_id": "bleacher_tier_1", "pos": [0.0, 3.20, 0.45], "size_xyz": [14.0, 1.40, 0.90], "color_hex": "#9298A2"},
+        {"block_id": "bleacher_tier_2", "pos": [0.0, 4.60, 1.25], "size_xyz": [14.0, 1.40, 1.70], "color_hex": "#898F99"},
+        {"block_id": "bleacher_tier_3", "pos": [0.0, 6.00, 2.05], "size_xyz": [14.0, 1.40, 2.50], "color_hex": "#808690"}
+      ],
+      "surface_top_z": 0.90
+    },
+    "rooftop_city_terrace": {
+      "outdoor": true,
+      "aliases": ["rooftop_terrace", "skyline_terrace", "campus_rooftop", "balcony_overlook"],
+      "room_blocks": [
+        {"block_id": "terrace_deck", "pos": [0.0, 0.0, -0.08], "size_xyz": [12.0, 10.0, 0.16], "color_hex": "#888E98"},
+        {"block_id": "glass_parapet", "pos": [0.0, 3.40, 0.58], "size_xyz": [11.6, 0.10, 1.12], "color_hex": "#B0BCC9", "alpha": 0.22},
+        {"block_id": "skyline_tower_left", "pos": [-4.80, 14.0, 5.20], "size_xyz": [3.80, 3.80, 10.4], "color_hex": "#7C838E"},
+        {"block_id": "skyline_tower_right", "pos": [4.40, 15.5, 6.00], "size_xyz": [4.20, 4.20, 12.0], "color_hex": "#767D88"},
+        {"block_id": "surface_block", "pos": [0.0, -0.30, 0.38], "size_xyz": [1.30, 0.70, 0.76], "color_hex": "#7A808B"}
+      ],
+      "surface_top_z": 0.76
+    },
+    "gourmet_market_pavilion": {
+      "outdoor": true,
+      "aliases": ["outdoor_farmers_market", "jam_tasting_booth", "outdoor_tasting_pavilion", "farmers_market_stall", "gourmet_jam_market"],
+      "room_blocks": [
+        {"block_id": "market_promenade", "pos": [0.0, -2.0, -0.08], "size_xyz": [24.0, 26.0, 0.16], "color_hex": "#8B8580"},
+        {"block_id": "pavilion_canopy_roof", "pos": [0.0, 0.40, 2.95], "size_xyz": [4.80, 3.40, 0.18], "color_hex": "#A4A9B2"},
+        {"block_id": "post_left", "shape": "cylinder", "pos": [-2.10, -1.05, 1.45], "size_xyz": [0.16, 0.16, 2.90], "color_hex": "#78726C"},
+        {"block_id": "post_right", "shape": "cylinder", "pos": [2.10, -1.05, 1.45], "size_xyz": [0.16, 0.16, 2.90], "color_hex": "#78726C"},
+        {"block_id": "surface_block", "pos": [0.0, -0.32, 0.43], "size_xyz": [2.10, 0.78, 0.86], "color_hex": "#7D7770"},
+        {"block_id": "market_tree_bg", "shape": "sphere", "pos": [3.80, 4.60, 3.20], "radius": 1.55, "size_xyz": [3.10, 3.10, 3.10], "color_hex": "#68756C"}
+      ],
+      "surface_top_z": 0.86
+    },
+    "harvard_photo_darkroom": {
+      "outdoor": false,
+      "aliases": ["photo_darkroom", "photography_darkroom", "harvard_darkroom", "enlarger_lab", "print_room"],
+      "room_blocks": [
+        {"block_id": "floor", "pos": [0.0, 0.20, -0.06], "size_xyz": [4.80, 4.40, 0.12], "color_hex": "#80858E"},
+        {"block_id": "back_wall", "pos": [0.0, 2.15, 1.55], "size_xyz": [4.80, 0.14, 3.10], "color_hex": "#9197A1"},
+        {"block_id": "print_drying_rail", "pos": [0.0, 1.65, 1.92], "size_xyz": [2.80, 0.05, 0.05], "color_hex": "#757B86"},
+        {"block_id": "enlarger_mast", "pos": [-0.68, -0.30, 1.18], "size_xyz": [0.14, 0.18, 0.72], "color_hex": "#737984"},
+        {"block_id": "surface_block", "pos": [0.0, -0.34, 0.41], "size_xyz": [1.85, 0.74, 0.82], "color_hex": "#787E89"}
+      ],
+      "surface_top_z": 0.82
+    }
+  }
+}

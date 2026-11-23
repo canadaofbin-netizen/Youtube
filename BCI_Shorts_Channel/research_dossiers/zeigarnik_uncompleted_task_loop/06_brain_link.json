@@ -1,4 +1,41 @@
 {
-  "visual_mode": "BEHAVIORAL_PSYCH",
-  "links": []
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "dorsolateral prefrontal cortex",
+      "plain": "working-memory scratchpad keeping interrupted goals pinned online",
+      "function": "actively sustains uncompleted task plans in foreground working awareness until closure occurs",
+      "scene_id": "S1",
+      "narration_bridge": "Sustains the 1.9x unfinished-task accessibility observed in Zeigarnik (1927) and reviewed by MacLeod (2020, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "crisis",
+      "region": "anterior cingulate cortex",
+      "plain": "conflict alarm pinging unresolved obligations at night",
+      "function": "flags the gap between an accepted commitment and an interrupted unfinished state",
+      "scene_id": "S1",
+      "narration_bridge": "Drives recurring intrusive reminders while a task remains unscheduled (SRC3, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "frontal planner powering down once payment or a written tomorrow plan locks in",
+      "function": "releases active goal-monitoring tension the instant a bill is paid or a concrete next-day slot is logged",
+      "scene_id": "S2",
+      "narration_bridge": "Explains both the Berlin waiter's 30-second post-payment wipe (SRC1) and end-of-day written closure (SRC3).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "step1",
+      "region": "hippocampus",
+      "plain": "memory hub tagging where and when to resume tomorrow morning",
+      "function": "binds the written next-morning desk cue to the deferred action so frontal loops can rest overnight",
+      "scene_id": "S3",
+      "narration_bridge": "Links contextual cues to deferred retrieval in MacLeod (2020, SRC6).",
+      "r78_circuit_state": "active"
+    }
+  ]
 }

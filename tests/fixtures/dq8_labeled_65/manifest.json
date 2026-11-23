@@ -1,0 +1,3187 @@
+[
+  {
+    "id": "ep09_c01_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 1,
+    "ts_sec": 1.33,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl + tweed flat cap",
+    "crop_relpath": "crops/ep09_c01_b0.png",
+    "crop_origin_xy": [
+      549,
+      321
+    ],
+    "bbox_in_roi": [
+      653,
+      487,
+      299,
+      371
+    ],
+    "bbox_in_crop": [
+      104,
+      166,
+      299,
+      371
+    ],
+    "score": 0.8327,
+    "landmarks_in_crop": [
+      [
+        154.5,
+        317.4
+      ],
+      [
+        215.4,
+        322.7
+      ],
+      [
+        131.0,
+        368.8
+      ],
+      [
+        161.8,
+        425.6
+      ],
+      [
+        211.4,
+        427.3
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c02_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 2,
+    "ts_sec": 2.313,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl + tweed flat cap in cab",
+    "crop_relpath": "crops/ep09_c02_b0.png",
+    "crop_origin_xy": [
+      148,
+      628
+    ],
+    "bbox_in_roi": [
+      195,
+      700,
+      136,
+      161
+    ],
+    "bbox_in_crop": [
+      47,
+      72,
+      136,
+      161
+    ],
+    "score": 0.8438,
+    "landmarks_in_crop": [
+      [
+        76.9,
+        124.0
+      ],
+      [
+        130.3,
+        121.9
+      ],
+      [
+        100.9,
+        152.3
+      ],
+      [
+        90.9,
+        186.5
+      ],
+      [
+        134.9,
+        183.9
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c04_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 4,
+    "ts_sec": 10.83,
+    "cls": "defect",
+    "note": "sculpted white bob hair",
+    "crop_relpath": "crops/ep09_c04_b0.png",
+    "crop_origin_xy": [
+      861,
+      780
+    ],
+    "bbox_in_roi": [
+      908,
+      865,
+      137,
+      190
+    ],
+    "bbox_in_crop": [
+      47,
+      85,
+      137,
+      190
+    ],
+    "score": 0.7933,
+    "landmarks_in_crop": [
+      [
+        70.0,
+        168.2
+      ],
+      [
+        120.2,
+        169.6
+      ],
+      [
+        81.3,
+        205.3
+      ],
+      [
+        76.8,
+        234.4
+      ],
+      [
+        114.8,
+        234.6
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c05_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 5,
+    "ts_sec": 11.347,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl on moped",
+    "crop_relpath": "crops/ep09_c05_b0.png",
+    "crop_origin_xy": [
+      424,
+      728
+    ],
+    "bbox_in_roi": [
+      467,
+      793,
+      123,
+      146
+    ],
+    "bbox_in_crop": [
+      43,
+      65,
+      123,
+      146
+    ],
+    "score": 0.8578,
+    "landmarks_in_crop": [
+      [
+        72.9,
+        120.8
+      ],
+      [
+        129.0,
+        121.4
+      ],
+      [
+        97.2,
+        150.9
+      ],
+      [
+        75.6,
+        176.1
+      ],
+      [
+        118.7,
+        173.9
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c05_b1",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 5,
+    "ts_sec": 12.847,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl profile on moped",
+    "crop_relpath": "crops/ep09_c05_b1.png",
+    "crop_origin_xy": [
+      458,
+      612
+    ],
+    "bbox_in_roi": [
+      489,
+      675,
+      89,
+      141
+    ],
+    "bbox_in_crop": [
+      31,
+      63,
+      89,
+      141
+    ],
+    "score": 0.8184,
+    "landmarks_in_crop": [
+      [
+        94.5,
+        120.3
+      ],
+      [
+        96.9,
+        117.9
+      ],
+      [
+        113.6,
+        141.0
+      ],
+      [
+        98.4,
+        168.4
+      ],
+      [
+        97.1,
+        166.9
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c06_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 6,
+    "ts_sec": 14.563,
+    "cls": "clean_vinyl",
+    "note": "warm-lit bald vinyl at map desk",
+    "crop_relpath": "crops/ep09_c06_b0.png",
+    "crop_origin_xy": [
+      726,
+      468
+    ],
+    "bbox_in_roi": [
+      779,
+      555,
+      154,
+      195
+    ],
+    "bbox_in_crop": [
+      53,
+      87,
+      154,
+      195
+    ],
+    "score": 0.8726,
+    "landmarks_in_crop": [
+      [
+        76.2,
+        170.5
+      ],
+      [
+        127.0,
+        171.6
+      ],
+      [
+        81.9,
+        211.1
+      ],
+      [
+        79.8,
+        235.7
+      ],
+      [
+        119.8,
+        238.9
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c06_b1",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 6,
+    "ts_sec": 15.813,
+    "cls": "clean_vinyl",
+    "note": "warm-lit bald vinyl leaning at map",
+    "crop_relpath": "crops/ep09_c06_b1.png",
+    "crop_origin_xy": [
+      139,
+      432
+    ],
+    "bbox_in_roi": [
+      209,
+      550,
+      201,
+      264
+    ],
+    "bbox_in_crop": [
+      70,
+      118,
+      201,
+      264
+    ],
+    "score": 0.7242,
+    "landmarks_in_crop": [
+      [
+        151.5,
+        237.2
+      ],
+      [
+        239.2,
+        240.7
+      ],
+      [
+        205.4,
+        292.2
+      ],
+      [
+        150.6,
+        322.4
+      ],
+      [
+        209.9,
+        330.7
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c07_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 7,
+    "ts_sec": 18.793,
+    "cls": "defect",
+    "note": "sculpted grey hair + pink lips + wrinkles",
+    "crop_relpath": "crops/ep09_c07_b0.png",
+    "crop_origin_xy": [
+      467,
+      512
+    ],
+    "bbox_in_roi": [
+      553,
+      642,
+      248,
+      290
+    ],
+    "bbox_in_crop": [
+      86,
+      130,
+      248,
+      290
+    ],
+    "score": 0.8787,
+    "landmarks_in_crop": [
+      [
+        162.6,
+        261.1
+      ],
+      [
+        273.7,
+        259.4
+      ],
+      [
+        226.8,
+        323.8
+      ],
+      [
+        179.6,
+        351.9
+      ],
+      [
+        264.8,
+        360.8
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c08_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 8,
+    "ts_sec": 21.163,
+    "cls": "defect",
+    "note": "photorealistic bald human man profile",
+    "crop_relpath": "crops/ep09_c08_b0.png",
+    "crop_origin_xy": [
+      634,
+      512
+    ],
+    "bbox_in_roi": [
+      693,
+      634,
+      171,
+      272
+    ],
+    "bbox_in_crop": [
+      59,
+      122,
+      171,
+      272
+    ],
+    "score": 0.8895,
+    "landmarks_in_crop": [
+      [
+        81.8,
+        236.8
+      ],
+      [
+        112.3,
+        239.8
+      ],
+      [
+        61.3,
+        288.7
+      ],
+      [
+        89.3,
+        326.5
+      ],
+      [
+        111.7,
+        332.0
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c08_b1",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 8,
+    "ts_sec": 20.913,
+    "cls": "defect",
+    "note": "photorealistic bald human profile right",
+    "crop_relpath": "crops/ep09_c08_b1.png",
+    "crop_origin_xy": [
+      43,
+      643
+    ],
+    "bbox_in_roi": [
+      99,
+      745,
+      162,
+      227
+    ],
+    "bbox_in_crop": [
+      56,
+      102,
+      162,
+      227
+    ],
+    "score": 0.8881,
+    "landmarks_in_crop": [
+      [
+        170.9,
+        185.5
+      ],
+      [
+        192.2,
+        181.4
+      ],
+      [
+        214.7,
+        222.3
+      ],
+      [
+        169.2,
+        271.8
+      ],
+      [
+        184.3,
+        269.3
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c16_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 16,
+    "ts_sec": 50.763,
+    "cls": "non_human",
+    "note": "tiny brass coat hook pareidolia",
+    "crop_relpath": "crops/ep09_c16_b0.png",
+    "crop_origin_xy": [
+      788,
+      602
+    ],
+    "bbox_in_roi": [
+      797,
+      616,
+      28,
+      33
+    ],
+    "bbox_in_crop": [
+      9,
+      14,
+      28,
+      33
+    ],
+    "score": 0.6297,
+    "landmarks_in_crop": [
+      [
+        14.1,
+        27.0
+      ],
+      [
+        29.0,
+        26.3
+      ],
+      [
+        21.2,
+        32.5
+      ],
+      [
+        16.4,
+        36.2
+      ],
+      [
+        28.9,
+        39.3
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c19_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 19,
+    "ts_sec": 65.58,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl scientist at steps",
+    "crop_relpath": "crops/ep09_c19_b0.png",
+    "crop_origin_xy": [
+      0,
+      486
+    ],
+    "bbox_in_roi": [
+      45,
+      641,
+      324,
+      346
+    ],
+    "bbox_in_crop": [
+      45,
+      155,
+      324,
+      346
+    ],
+    "score": 0.8499,
+    "landmarks_in_crop": [
+      [
+        210.9,
+        269.8
+      ],
+      [
+        319.3,
+        276.4
+      ],
+      [
+        305.6,
+        325.7
+      ],
+      [
+        213.4,
+        396.1
+      ],
+      [
+        302.7,
+        399.9
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c19_b1",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 19,
+    "ts_sec": 65.33,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl trainee at steps",
+    "crop_relpath": "crops/ep09_c19_b1.png",
+    "crop_origin_xy": [
+      535,
+      496
+    ],
+    "bbox_in_roi": [
+      650,
+      667,
+      329,
+      382
+    ],
+    "bbox_in_crop": [
+      115,
+      171,
+      329,
+      382
+    ],
+    "score": 0.7048,
+    "landmarks_in_crop": [
+      [
+        182.6,
+        323.4
+      ],
+      [
+        290.1,
+        314.7
+      ],
+      [
+        202.7,
+        372.5
+      ],
+      [
+        206.5,
+        435.6
+      ],
+      [
+        298.2,
+        426.9
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c22_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 22,
+    "ts_sec": 79.78,
+    "cls": "defect",
+    "note": "dark brown sculpted hair + peach 3D face",
+    "crop_relpath": "crops/ep09_c22_b0.png",
+    "crop_origin_xy": [
+      0,
+      94
+    ],
+    "bbox_in_roi": [
+      22,
+      287,
+      342,
+      431
+    ],
+    "bbox_in_crop": [
+      22,
+      193,
+      342,
+      431
+    ],
+    "score": 0.9046,
+    "landmarks_in_crop": [
+      [
+        158.3,
+        378.7
+      ],
+      [
+        309.2,
+        393.8
+      ],
+      [
+        258.4,
+        479.3
+      ],
+      [
+        144.5,
+        530.8
+      ],
+      [
+        268.6,
+        543.7
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c22_b1",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 22,
+    "ts_sec": 77.53,
+    "cls": "defect",
+    "note": "dark brown sculpted hair + peach 3D face",
+    "crop_relpath": "crops/ep09_c22_b1.png",
+    "crop_origin_xy": [
+      573,
+      374
+    ],
+    "bbox_in_roi": [
+      673,
+      545,
+      287,
+      380
+    ],
+    "bbox_in_crop": [
+      100,
+      171,
+      287,
+      380
+    ],
+    "score": 0.8824,
+    "landmarks_in_crop": [
+      [
+        155.5,
+        335.0
+      ],
+      [
+        286.6,
+        334.2
+      ],
+      [
+        206.4,
+        409.7
+      ],
+      [
+        174.3,
+        457.6
+      ],
+      [
+        284.7,
+        457.2
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c23_b0",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 23,
+    "ts_sec": 84.513,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl + tweed flat cap",
+    "crop_relpath": "crops/ep09_c23_b0.png",
+    "crop_origin_xy": [
+      639,
+      636
+    ],
+    "bbox_in_roi": [
+      724,
+      759,
+      245,
+      274
+    ],
+    "bbox_in_crop": [
+      85,
+      123,
+      245,
+      274
+    ],
+    "score": 0.9076,
+    "landmarks_in_crop": [
+      [
+        185.5,
+        222.6
+      ],
+      [
+        278.3,
+        228.3
+      ],
+      [
+        238.7,
+        282.0
+      ],
+      [
+        178.9,
+        314.6
+      ],
+      [
+        257.7,
+        329.6
+      ]
+    ]
+  },
+  {
+    "id": "ep09_c23_b1",
+    "ep": "ep09",
+    "project_id": "v8_ep09_maguire_london_taxi_hippocampus_r82",
+    "cut_index": 23,
+    "ts_sec": 81.513,
+    "cls": "defect",
+    "note": "blurred dark hair cap behind stamp",
+    "crop_relpath": "crops/ep09_c23_b1.png",
+    "crop_origin_xy": [
+      99,
+      892
+    ],
+    "bbox_in_roi": [
+      164,
+      1007,
+      188,
+      257
+    ],
+    "bbox_in_crop": [
+      65,
+      115,
+      188,
+      257
+    ],
+    "score": 0.8955,
+    "landmarks_in_crop": [
+      [
+        132.9,
+        211.2
+      ],
+      [
+        212.7,
+        209.1
+      ],
+      [
+        184.3,
+        258.5
+      ],
+      [
+        142.8,
+        298.5
+      ],
+      [
+        208.3,
+        300.9
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c01_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 1,
+    "ts_sec": 0.58,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl in dim bedroom",
+    "crop_relpath": "crops/ep10_c01_b0.png",
+    "crop_origin_xy": [
+      345,
+      467
+    ],
+    "bbox_in_roi": [
+      427,
+      595,
+      237,
+      285
+    ],
+    "bbox_in_crop": [
+      82,
+      128,
+      237,
+      285
+    ],
+    "score": 0.8724,
+    "landmarks_in_crop": [
+      [
+        175.4,
+        238.8
+      ],
+      [
+        264.6,
+        238.7
+      ],
+      [
+        234.8,
+        295.8
+      ],
+      [
+        188.7,
+        335.7
+      ],
+      [
+        257.6,
+        345.0
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c02_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 2,
+    "ts_sec": 2.23,
+    "cls": "clean_vinyl",
+    "note": "warm-lit bald vinyl closed eyes",
+    "crop_relpath": "crops/ep10_c02_b0.png",
+    "crop_origin_xy": [
+      200,
+      547
+    ],
+    "bbox_in_roi": [
+      328,
+      742,
+      367,
+      435
+    ],
+    "bbox_in_crop": [
+      128,
+      195,
+      367,
+      435
+    ],
+    "score": 0.8758,
+    "landmarks_in_crop": [
+      [
+        301.7,
+        376.3
+      ],
+      [
+        433.2,
+        375.5
+      ],
+      [
+        406.1,
+        459.2
+      ],
+      [
+        302.2,
+        517.7
+      ],
+      [
+        414.3,
+        518.8
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c04_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 4,
+    "ts_sec": 8.313,
+    "cls": "defect",
+    "note": "3D CGI peach human skin + realistic irises/lips",
+    "crop_relpath": "crops/ep10_c04_b0.png",
+    "crop_origin_xy": [
+      617,
+      906
+    ],
+    "bbox_in_roi": [
+      660,
+      976,
+      123,
+      157
+    ],
+    "bbox_in_crop": [
+      43,
+      70,
+      123,
+      157
+    ],
+    "score": 0.8998,
+    "landmarks_in_crop": [
+      [
+        60.3,
+        127.5
+      ],
+      [
+        108.5,
+        127.9
+      ],
+      [
+        71.1,
+        159.7
+      ],
+      [
+        68.9,
+        192.1
+      ],
+      [
+        104.8,
+        185.5
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c04_b1",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 4,
+    "ts_sec": 8.313,
+    "cls": "defect",
+    "note": "dark-haired 3D CGI human profile",
+    "crop_relpath": "crops/ep10_c04_b1.png",
+    "crop_origin_xy": [
+      899,
+      876
+    ],
+    "bbox_in_roi": [
+      936,
+      948,
+      108,
+      161
+    ],
+    "bbox_in_crop": [
+      37,
+      72,
+      108,
+      161
+    ],
+    "score": 0.8646,
+    "landmarks_in_crop": [
+      [
+        54.2,
+        135.9
+      ],
+      [
+        77.6,
+        135.3
+      ],
+      [
+        48.6,
+        166.3
+      ],
+      [
+        62.9,
+        198.6
+      ],
+      [
+        79.8,
+        197.5
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c05_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 5,
+    "ts_sec": 10.697,
+    "cls": "defect",
+    "note": "dark brown bob hair",
+    "crop_relpath": "crops/ep10_c05_b0.png",
+    "crop_origin_xy": [
+      317,
+      903
+    ],
+    "bbox_in_roi": [
+      342,
+      949,
+      73,
+      103
+    ],
+    "bbox_in_crop": [
+      25,
+      46,
+      73,
+      103
+    ],
+    "score": 0.9079,
+    "landmarks_in_crop": [
+      [
+        72.6,
+        81.8
+      ],
+      [
+        89.7,
+        83.4
+      ],
+      [
+        95.0,
+        103.4
+      ],
+      [
+        72.2,
+        122.2
+      ],
+      [
+        83.8,
+        125.1
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c05_b1",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 5,
+    "ts_sec": 10.447,
+    "cls": "defect",
+    "note": "dark brown bob hair profile",
+    "crop_relpath": "crops/ep10_c05_b1.png",
+    "crop_origin_xy": [
+      263,
+      954
+    ],
+    "bbox_in_roi": [
+      287,
+      996,
+      70,
+      94
+    ],
+    "bbox_in_crop": [
+      24,
+      42,
+      70,
+      94
+    ],
+    "score": 0.8908,
+    "landmarks_in_crop": [
+      [
+        65.3,
+        77.7
+      ],
+      [
+        83.8,
+        75.9
+      ],
+      [
+        88.5,
+        94.5
+      ],
+      [
+        69.9,
+        112.3
+      ],
+      [
+        82.1,
+        110.8
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c06_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 6,
+    "ts_sec": 12.163,
+    "cls": "defect",
+    "note": "dark brown bob hair",
+    "crop_relpath": "crops/ep10_c06_b0.png",
+    "crop_origin_xy": [
+      75,
+      893
+    ],
+    "bbox_in_roi": [
+      135,
+      981,
+      174,
+      197
+    ],
+    "bbox_in_crop": [
+      60,
+      88,
+      174,
+      197
+    ],
+    "score": 0.8318,
+    "landmarks_in_crop": [
+      [
+        138.6,
+        166.8
+      ],
+      [
+        193.6,
+        167.6
+      ],
+      [
+        179.6,
+        210.2
+      ],
+      [
+        141.1,
+        237.1
+      ],
+      [
+        173.2,
+        247.8
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c07_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 7,
+    "ts_sec": 15.33,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl clean",
+    "crop_relpath": "crops/ep10_c07_b0.png",
+    "crop_origin_xy": [
+      0,
+      254
+    ],
+    "bbox_in_roi": [
+      30,
+      486,
+      331,
+      517
+    ],
+    "bbox_in_crop": [
+      30,
+      232,
+      331,
+      517
+    ],
+    "score": 0.8845,
+    "landmarks_in_crop": [
+      [
+        228.1,
+        418.2
+      ],
+      [
+        305.7,
+        405.0
+      ],
+      [
+        331.4,
+        486.4
+      ],
+      [
+        250.5,
+        615.7
+      ],
+      [
+        294.3,
+        605.5
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c08_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 8,
+    "ts_sec": 18.48,
+    "cls": "defect",
+    "note": "photorealistic Caucasian man with hair & stubble",
+    "crop_relpath": "crops/ep10_c08_b0.png",
+    "crop_origin_xy": [
+      530,
+      275
+    ],
+    "bbox_in_roi": [
+      660,
+      505,
+      373,
+      512
+    ],
+    "bbox_in_crop": [
+      130,
+      230,
+      373,
+      512
+    ],
+    "score": 0.946,
+    "landmarks_in_crop": [
+      [
+        177.3,
+        437.7
+      ],
+      [
+        319.2,
+        433.5
+      ],
+      [
+        199.5,
+        523.7
+      ],
+      [
+        199.9,
+        618.1
+      ],
+      [
+        308.9,
+        613.7
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c08_b1",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 8,
+    "ts_sec": 16.48,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl minimal dot eyes",
+    "crop_relpath": "crops/ep10_c08_b1.png",
+    "crop_origin_xy": [
+      54,
+      542
+    ],
+    "bbox_in_roi": [
+      125,
+      665,
+      203,
+      275
+    ],
+    "bbox_in_crop": [
+      71,
+      123,
+      203,
+      275
+    ],
+    "score": 0.8604,
+    "landmarks_in_crop": [
+      [
+        172.5,
+        225.6
+      ],
+      [
+        226.8,
+        223.7
+      ],
+      [
+        218.4,
+        276.8
+      ],
+      [
+        173.3,
+        326.8
+      ],
+      [
+        218.0,
+        325.3
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c12_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 12,
+    "ts_sec": 33.48,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl lab coat",
+    "crop_relpath": "crops/ep10_c12_b0.png",
+    "crop_origin_xy": [
+      320,
+      224
+    ],
+    "bbox_in_roi": [
+      400,
+      342,
+      229,
+      263
+    ],
+    "bbox_in_crop": [
+      80,
+      118,
+      229,
+      263
+    ],
+    "score": 0.8703,
+    "landmarks_in_crop": [
+      [
+        145.7,
+        234.9
+      ],
+      [
+        235.3,
+        233.8
+      ],
+      [
+        191.8,
+        291.1
+      ],
+      [
+        158.5,
+        323.6
+      ],
+      [
+        230.1,
+        321.4
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c12_b1",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 12,
+    "ts_sec": 35.73,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl lab coat side",
+    "crop_relpath": "crops/ep10_c12_b1.png",
+    "crop_origin_xy": [
+      52,
+      73
+    ],
+    "bbox_in_roi": [
+      134,
+      230,
+      236,
+      349
+    ],
+    "bbox_in_crop": [
+      82,
+      157,
+      236,
+      349
+    ],
+    "score": 0.7907,
+    "landmarks_in_crop": [
+      [
+        224.5,
+        296.9
+      ],
+      [
+        261.3,
+        301.5
+      ],
+      [
+        263.2,
+        357.4
+      ],
+      [
+        212.6,
+        417.2
+      ],
+      [
+        236.7,
+        412.8
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c14_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 14,
+    "ts_sec": 39.43,
+    "cls": "non_human",
+    "note": "night hospital window pareidolia",
+    "crop_relpath": "crops/ep10_c14_b0.png",
+    "crop_origin_xy": [
+      255,
+      590
+    ],
+    "bbox_in_roi": [
+      264,
+      604,
+      26,
+      32
+    ],
+    "bbox_in_crop": [
+      9,
+      14,
+      26,
+      32
+    ],
+    "score": 0.7455,
+    "landmarks_in_crop": [
+      [
+        15.3,
+        27.3
+      ],
+      [
+        29.6,
+        27.7
+      ],
+      [
+        20.8,
+        33.5
+      ],
+      [
+        15.4,
+        36.4
+      ],
+      [
+        28.0,
+        38.3
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c14_b1",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 14,
+    "ts_sec": 39.18,
+    "cls": "non_human",
+    "note": "night hospital window pareidolia",
+    "crop_relpath": "crops/ep10_c14_b1.png",
+    "crop_origin_xy": [
+      323,
+      635
+    ],
+    "bbox_in_roi": [
+      331,
+      648,
+      25,
+      31
+    ],
+    "bbox_in_crop": [
+      8,
+      13,
+      25,
+      31
+    ],
+    "score": 0.7114,
+    "landmarks_in_crop": [
+      [
+        15.8,
+        25.3
+      ],
+      [
+        30.4,
+        25.6
+      ],
+      [
+        22.4,
+        32.0
+      ],
+      [
+        16.3,
+        34.3
+      ],
+      [
+        28.9,
+        36.4
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c15_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 15,
+    "ts_sec": 42.33,
+    "cls": "non_human",
+    "note": "red arrow / dark doorway pareidolia",
+    "crop_relpath": "crops/ep10_c15_b0.png",
+    "crop_origin_xy": [
+      660,
+      851
+    ],
+    "bbox_in_roi": [
+      671,
+      868,
+      32,
+      39
+    ],
+    "bbox_in_crop": [
+      11,
+      17,
+      32,
+      39
+    ],
+    "score": 0.6642,
+    "landmarks_in_crop": [
+      [
+        17.9,
+        32.2
+      ],
+      [
+        30.9,
+        32.6
+      ],
+      [
+        21.6,
+        41.3
+      ],
+      [
+        18.3,
+        45.2
+      ],
+      [
+        28.1,
+        48.6
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c23_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 23,
+    "ts_sec": 75.113,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl + 2D ink eyes (Tier-2 allowed)",
+    "crop_relpath": "crops/ep10_c23_b0.png",
+    "crop_origin_xy": [
+      747,
+      535
+    ],
+    "bbox_in_roi": [
+      812,
+      641,
+      188,
+      236
+    ],
+    "bbox_in_crop": [
+      65,
+      106,
+      188,
+      236
+    ],
+    "score": 0.8883,
+    "landmarks_in_crop": [
+      [
+        88.8,
+        201.8
+      ],
+      [
+        155.0,
+        204.3
+      ],
+      [
+        95.0,
+        249.1
+      ],
+      [
+        92.5,
+        281.1
+      ],
+      [
+        142.5,
+        286.8
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c23_b1",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 23,
+    "ts_sec": 75.363,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl closed ink eyes",
+    "crop_relpath": "crops/ep10_c23_b1.png",
+    "crop_origin_xy": [
+      75,
+      543
+    ],
+    "bbox_in_roi": [
+      156,
+      664,
+      232,
+      270
+    ],
+    "bbox_in_crop": [
+      81,
+      121,
+      232,
+      270
+    ],
+    "score": 0.8581,
+    "landmarks_in_crop": [
+      [
+        186.6,
+        234.5
+      ],
+      [
+        266.4,
+        232.4
+      ],
+      [
+        249.3,
+        290.5
+      ],
+      [
+        195.3,
+        327.4
+      ],
+      [
+        261.8,
+        332.9
+      ]
+    ]
+  },
+  {
+    "id": "ep10_c24_b0",
+    "ep": "ep10",
+    "project_id": "v8_ep10_sleep_pill_brain_wash",
+    "cut_index": 24,
+    "ts_sec": 79.563,
+    "cls": "clean_vinyl",
+    "note": "sunlit bald vinyl outdoors",
+    "crop_relpath": "crops/ep10_c24_b0.png",
+    "crop_origin_xy": [
+      262,
+      217
+    ],
+    "bbox_in_roi": [
+      368,
+      388,
+      305,
+      381
+    ],
+    "bbox_in_crop": [
+      106,
+      171,
+      305,
+      381
+    ],
+    "score": 0.8968,
+    "landmarks_in_crop": [
+      [
+        233.1,
+        297.4
+      ],
+      [
+        366.2,
+        295.5
+      ],
+      [
+        328.2,
+        360.4
+      ],
+      [
+        248.3,
+        434.1
+      ],
+      [
+        362.8,
+        431.5
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c01_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 1,
+    "ts_sec": 1.83,
+    "cls": "defect",
+    "note": "jagged brown beard/skin patch glitch on jaw",
+    "crop_relpath": "crops/ep11_c01_b0.png",
+    "crop_origin_xy": [
+      0,
+      390
+    ],
+    "bbox_in_roi": [
+      63,
+      522,
+      197,
+      295
+    ],
+    "bbox_in_crop": [
+      63,
+      132,
+      197,
+      295
+    ],
+    "score": 0.7773,
+    "landmarks_in_crop": [
+      [
+        169.1,
+        244.7
+      ],
+      [
+        207.8,
+        242.3
+      ],
+      [
+        210.0,
+        289.3
+      ],
+      [
+        172.1,
+        343.7
+      ],
+      [
+        203.3,
+        340.5
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c01_b1",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 1,
+    "ts_sec": 1.33,
+    "cls": "defect",
+    "note": "jagged brown beard/skin patch glitch on jaw",
+    "crop_relpath": "crops/ep11_c01_b1.png",
+    "crop_origin_xy": [
+      631,
+      472
+    ],
+    "bbox_in_roi": [
+      705,
+      599,
+      214,
+      283
+    ],
+    "bbox_in_crop": [
+      74,
+      127,
+      214,
+      283
+    ],
+    "score": 0.7574,
+    "landmarks_in_crop": [
+      [
+        121.6,
+        239.0
+      ],
+      [
+        169.3,
+        240.4
+      ],
+      [
+        121.1,
+        292.9
+      ],
+      [
+        126.3,
+        323.0
+      ],
+      [
+        165.3,
+        341.8
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c04_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 4,
+    "ts_sec": 9.06,
+    "cls": "defect",
+    "note": "dark brown bob hair",
+    "crop_relpath": "crops/ep11_c04_b0.png",
+    "crop_origin_xy": [
+      567,
+      761
+    ],
+    "bbox_in_roi": [
+      612,
+      834,
+      131,
+      163
+    ],
+    "bbox_in_crop": [
+      45,
+      73,
+      131,
+      163
+    ],
+    "score": 0.8885,
+    "landmarks_in_crop": [
+      [
+        66.2,
+        141.1
+      ],
+      [
+        105.3,
+        140.2
+      ],
+      [
+        71.0,
+        170.3
+      ],
+      [
+        73.2,
+        193.0
+      ],
+      [
+        103.1,
+        197.5
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c04_b1",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 4,
+    "ts_sec": 8.38,
+    "cls": "defect",
+    "note": "dark brown bob hair",
+    "crop_relpath": "crops/ep11_c04_b1.png",
+    "crop_origin_xy": [
+      495,
+      864
+    ],
+    "bbox_in_roi": [
+      523,
+      909,
+      81,
+      101
+    ],
+    "bbox_in_crop": [
+      28,
+      45,
+      81,
+      101
+    ],
+    "score": 0.8368,
+    "landmarks_in_crop": [
+      [
+        42.7,
+        83.9
+      ],
+      [
+        62.3,
+        84.2
+      ],
+      [
+        40.5,
+        101.3
+      ],
+      [
+        42.5,
+        117.2
+      ],
+      [
+        57.6,
+        119.3
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c05_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 5,
+    "ts_sec": 10.43,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl profile",
+    "crop_relpath": "crops/ep11_c05_b0.png",
+    "crop_origin_xy": [
+      659,
+      700
+    ],
+    "bbox_in_roi": [
+      726,
+      818,
+      193,
+      263
+    ],
+    "bbox_in_crop": [
+      67,
+      118,
+      193,
+      263
+    ],
+    "score": 0.7137,
+    "landmarks_in_crop": [
+      [
+        106.8,
+        215.3
+      ],
+      [
+        147.2,
+        219.9
+      ],
+      [
+        105.2,
+        266.8
+      ],
+      [
+        108.6,
+        309.9
+      ],
+      [
+        133.9,
+        321.7
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c06_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 6,
+    "ts_sec": 11.613,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl dot eyes",
+    "crop_relpath": "crops/ep11_c06_b0.png",
+    "crop_origin_xy": [
+      491,
+      569
+    ],
+    "bbox_in_roi": [
+      563,
+      684,
+      206,
+      257
+    ],
+    "bbox_in_crop": [
+      72,
+      115,
+      206,
+      257
+    ],
+    "score": 0.8353,
+    "landmarks_in_crop": [
+      [
+        121.7,
+        210.6
+      ],
+      [
+        195.4,
+        212.8
+      ],
+      [
+        150.0,
+        267.0
+      ],
+      [
+        128.4,
+        304.6
+      ],
+      [
+        189.5,
+        309.6
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c08_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 8,
+    "ts_sec": 17.93,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl expressive 2D ink scowl",
+    "crop_relpath": "crops/ep11_c08_b0.png",
+    "crop_origin_xy": [
+      224,
+      262
+    ],
+    "bbox_in_roi": [
+      375,
+      503,
+      432,
+      536
+    ],
+    "bbox_in_crop": [
+      151,
+      241,
+      432,
+      536
+    ],
+    "score": 0.8571,
+    "landmarks_in_crop": [
+      [
+        300.3,
+        436.2
+      ],
+      [
+        489.6,
+        451.6
+      ],
+      [
+        400.2,
+        549.8
+      ],
+      [
+        290.7,
+        612.3
+      ],
+      [
+        446.3,
+        630.0
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c16_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 16,
+    "ts_sec": 48.197,
+    "cls": "non_human",
+    "note": "brick building windows pareidolia",
+    "crop_relpath": "crops/ep11_c16_b0.png",
+    "crop_origin_xy": [
+      22,
+      0
+    ],
+    "bbox_in_roi": [
+      51,
+      12,
+      85,
+      105
+    ],
+    "bbox_in_crop": [
+      29,
+      12,
+      85,
+      105
+    ],
+    "score": 0.7781,
+    "landmarks_in_crop": [
+      [
+        62.5,
+        40.8
+      ],
+      [
+        102.5,
+        42.7
+      ],
+      [
+        91.2,
+        62.1
+      ],
+      [
+        69.1,
+        82.2
+      ],
+      [
+        97.9,
+        84.2
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c19_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 19,
+    "ts_sec": 61.847,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl behind 30% stamp",
+    "crop_relpath": "crops/ep11_c19_b0.png",
+    "crop_origin_xy": [
+      176,
+      243
+    ],
+    "bbox_in_roi": [
+      309,
+      432,
+      382,
+      421
+    ],
+    "bbox_in_crop": [
+      133,
+      189,
+      382,
+      421
+    ],
+    "score": 0.8453,
+    "landmarks_in_crop": [
+      [
+        195.7,
+        358.3
+      ],
+      [
+        325.7,
+        324.9
+      ],
+      [
+        235.0,
+        435.2
+      ],
+      [
+        255.7,
+        508.4
+      ],
+      [
+        354.3,
+        482.1
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c19_b1",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 19,
+    "ts_sec": 61.097,
+    "cls": "non_human",
+    "note": "canvas tote bag + subtitle pareidolia",
+    "crop_relpath": "crops/ep11_c19_b1.png",
+    "crop_origin_xy": [
+      110,
+      627
+    ],
+    "bbox_in_roi": [
+      280,
+      907,
+      488,
+      623
+    ],
+    "bbox_in_crop": [
+      170,
+      280,
+      488,
+      623
+    ],
+    "score": 0.8381,
+    "landmarks_in_crop": [
+      [
+        259.5,
+        525.7
+      ],
+      [
+        467.7,
+        492.4
+      ],
+      [
+        345.2,
+        630.1
+      ],
+      [
+        316.7,
+        747.9
+      ],
+      [
+        495.4,
+        716.1
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c20_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 20,
+    "ts_sec": 62.863,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl",
+    "crop_relpath": "crops/ep11_c20_b0.png",
+    "crop_origin_xy": [
+      631,
+      484
+    ],
+    "bbox_in_roi": [
+      688,
+      584,
+      164,
+      223
+    ],
+    "bbox_in_crop": [
+      57,
+      100,
+      164,
+      223
+    ],
+    "score": 0.8789,
+    "landmarks_in_crop": [
+      [
+        72.1,
+        187.9
+      ],
+      [
+        125.1,
+        187.8
+      ],
+      [
+        73.2,
+        226.7
+      ],
+      [
+        81.3,
+        262.8
+      ],
+      [
+        120.7,
+        267.4
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c20_b1",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 20,
+    "ts_sec": 62.363,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl",
+    "crop_relpath": "crops/ep11_c20_b1.png",
+    "crop_origin_xy": [
+      289,
+      500
+    ],
+    "bbox_in_roi": [
+      345,
+      590,
+      161,
+      202
+    ],
+    "bbox_in_crop": [
+      56,
+      90,
+      161,
+      202
+    ],
+    "score": 0.8474,
+    "landmarks_in_crop": [
+      [
+        100.4,
+        170.8
+      ],
+      [
+        159.5,
+        171.0
+      ],
+      [
+        129.3,
+        211.3
+      ],
+      [
+        108.4,
+        237.6
+      ],
+      [
+        153.2,
+        245.7
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c23_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 23,
+    "ts_sec": 76.313,
+    "cls": "clean_vinyl",
+    "note": "sunlit bald vinyl happy ink eyes",
+    "crop_relpath": "crops/ep11_c23_b0.png",
+    "crop_origin_xy": [
+      345,
+      465
+    ],
+    "bbox_in_roi": [
+      435,
+      617,
+      259,
+      339
+    ],
+    "bbox_in_crop": [
+      90,
+      152,
+      259,
+      339
+    ],
+    "score": 0.8027,
+    "landmarks_in_crop": [
+      [
+        200.5,
+        280.9
+      ],
+      [
+        287.4,
+        280.0
+      ],
+      [
+        251.4,
+        338.6
+      ],
+      [
+        194.3,
+        382.8
+      ],
+      [
+        272.8,
+        389.8
+      ]
+    ]
+  },
+  {
+    "id": "ep11_c24_b0",
+    "ep": "ep11",
+    "project_id": "v8_ep11_open_label_placebo_pain",
+    "cut_index": 24,
+    "ts_sec": 78.33,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl + minor vinyl nose/ear (Tier-2 allowed)",
+    "crop_relpath": "crops/ep11_c24_b0.png",
+    "crop_origin_xy": [
+      284,
+      259
+    ],
+    "bbox_in_roi": [
+      399,
+      440,
+      331,
+      403
+    ],
+    "bbox_in_crop": [
+      115,
+      181,
+      331,
+      403
+    ],
+    "score": 0.895,
+    "landmarks_in_crop": [
+      [
+        204.7,
+        340.9
+      ],
+      [
+        356.0,
+        362.4
+      ],
+      [
+        256.8,
+        432.5
+      ],
+      [
+        202.5,
+        485.7
+      ],
+      [
+        311.1,
+        504.7
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c01_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 1,
+    "ts_sec": 1.33,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl + ink brows/eyes",
+    "crop_relpath": "crops/ep12_c01_b0.png",
+    "crop_origin_xy": [
+      313,
+      224
+    ],
+    "bbox_in_roi": [
+      427,
+      408,
+      326,
+      409
+    ],
+    "bbox_in_crop": [
+      114,
+      184,
+      326,
+      409
+    ],
+    "score": 0.8924,
+    "landmarks_in_crop": [
+      [
+        236.9,
+        336.0
+      ],
+      [
+        385.3,
+        334.3
+      ],
+      [
+        337.2,
+        405.2
+      ],
+      [
+        256.0,
+        481.4
+      ],
+      [
+        371.6,
+        479.0
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c02_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 2,
+    "ts_sec": 5.06,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl kitchen",
+    "crop_relpath": "crops/ep12_c02_b0.png",
+    "crop_origin_xy": [
+      347,
+      453
+    ],
+    "bbox_in_roi": [
+      418,
+      574,
+      203,
+      270
+    ],
+    "bbox_in_crop": [
+      71,
+      121,
+      203,
+      270
+    ],
+    "score": 0.8876,
+    "landmarks_in_crop": [
+      [
+        162.9,
+        224.5
+      ],
+      [
+        234.0,
+        224.5
+      ],
+      [
+        211.8,
+        274.7
+      ],
+      [
+        159.8,
+        313.4
+      ],
+      [
+        220.2,
+        322.3
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c03_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 3,
+    "ts_sec": 7.43,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl campus",
+    "crop_relpath": "crops/ep12_c03_b0.png",
+    "crop_origin_xy": [
+      676,
+      932
+    ],
+    "bbox_in_roi": [
+      708,
+      983,
+      92,
+      114
+    ],
+    "bbox_in_crop": [
+      32,
+      51,
+      92,
+      114
+    ],
+    "score": 0.9,
+    "landmarks_in_crop": [
+      [
+        54.5,
+        94.4
+      ],
+      [
+        99.2,
+        94.9
+      ],
+      [
+        74.1,
+        117.4
+      ],
+      [
+        55.8,
+        141.4
+      ],
+      [
+        91.7,
+        135.7
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c03_b1",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 3,
+    "ts_sec": 5.93,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl campus",
+    "crop_relpath": "crops/ep12_c03_b1.png",
+    "crop_origin_xy": [
+      409,
+      879
+    ],
+    "bbox_in_roi": [
+      448,
+      943,
+      113,
+      143
+    ],
+    "bbox_in_crop": [
+      39,
+      64,
+      113,
+      143
+    ],
+    "score": 0.8934,
+    "landmarks_in_crop": [
+      [
+        52.2,
+        120.9
+      ],
+      [
+        105.0,
+        122.9
+      ],
+      [
+        61.4,
+        148.1
+      ],
+      [
+        55.1,
+        172.8
+      ],
+      [
+        94.1,
+        172.2
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c04_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 4,
+    "ts_sec": 8.663,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl window arch",
+    "crop_relpath": "crops/ep12_c04_b0.png",
+    "crop_origin_xy": [
+      375,
+      576
+    ],
+    "bbox_in_roi": [
+      442,
+      682,
+      192,
+      237
+    ],
+    "bbox_in_crop": [
+      67,
+      106,
+      192,
+      237
+    ],
+    "score": 0.8757,
+    "landmarks_in_crop": [
+      [
+        114.8,
+        203.5
+      ],
+      [
+        177.3,
+        204.6
+      ],
+      [
+        140.0,
+        252.1
+      ],
+      [
+        122.2,
+        282.0
+      ],
+      [
+        169.0,
+        292.1
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c05_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 5,
+    "ts_sec": 12.03,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl bench",
+    "crop_relpath": "crops/ep12_c05_b0.png",
+    "crop_origin_xy": [
+      254,
+      353
+    ],
+    "bbox_in_roi": [
+      363,
+      522,
+      313,
+      376
+    ],
+    "bbox_in_crop": [
+      109,
+      169,
+      313,
+      376
+    ],
+    "score": 0.8862,
+    "landmarks_in_crop": [
+      [
+        213.8,
+        322.7
+      ],
+      [
+        352.8,
+        319.0
+      ],
+      [
+        302.2,
+        384.2
+      ],
+      [
+        241.8,
+        450.4
+      ],
+      [
+        345.1,
+        444.2
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c06_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 6,
+    "ts_sec": 16.697,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl desk bell",
+    "crop_relpath": "crops/ep12_c06_b0.png",
+    "crop_origin_xy": [
+      0,
+      0
+    ],
+    "bbox_in_roi": [
+      100,
+      17,
+      599,
+      508
+    ],
+    "bbox_in_crop": [
+      100,
+      17,
+      599,
+      508
+    ],
+    "score": 0.857,
+    "landmarks_in_crop": [
+      [
+        400.4,
+        103.3
+      ],
+      [
+        606.5,
+        143.2
+      ],
+      [
+        550.5,
+        234.7
+      ],
+      [
+        374.3,
+        322.8
+      ],
+      [
+        545.0,
+        353.9
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c06_b1",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 6,
+    "ts_sec": 14.447,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl desk bell",
+    "crop_relpath": "crops/ep12_c06_b1.png",
+    "crop_origin_xy": [
+      196,
+      247
+    ],
+    "bbox_in_roi": [
+      314,
+      426,
+      340,
+      398
+    ],
+    "bbox_in_crop": [
+      118,
+      179,
+      340,
+      398
+    ],
+    "score": 0.8161,
+    "landmarks_in_crop": [
+      [
+        241.8,
+        370.2
+      ],
+      [
+        386.1,
+        356.9
+      ],
+      [
+        346.8,
+        448.0
+      ],
+      [
+        271.0,
+        492.9
+      ],
+      [
+        391.2,
+        478.8
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c07_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 7,
+    "ts_sec": 17.13,
+    "cls": "clean_vinyl",
+    "note": "warm bald vinyl carrying box",
+    "crop_relpath": "crops/ep12_c07_b0.png",
+    "crop_origin_xy": [
+      334,
+      518
+    ],
+    "bbox_in_roi": [
+      412,
+      632,
+      223,
+      255
+    ],
+    "bbox_in_crop": [
+      78,
+      114,
+      223,
+      255
+    ],
+    "score": 0.7868,
+    "landmarks_in_crop": [
+      [
+        170.6,
+        210.2
+      ],
+      [
+        256.2,
+        206.3
+      ],
+      [
+        239.2,
+        257.2
+      ],
+      [
+        192.8,
+        289.1
+      ],
+      [
+        263.2,
+        299.6
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c12_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 12,
+    "ts_sec": 41.013,
+    "cls": "non_human",
+    "note": "aerial gothic window pareidolia",
+    "crop_relpath": "crops/ep12_c12_b0.png",
+    "crop_origin_xy": [
+      789,
+      133
+    ],
+    "bbox_in_roi": [
+      810,
+      169,
+      61,
+      80
+    ],
+    "bbox_in_crop": [
+      21,
+      36,
+      61,
+      80
+    ],
+    "score": 0.7038,
+    "landmarks_in_crop": [
+      [
+        38.6,
+        71.5
+      ],
+      [
+        67.9,
+        70.0
+      ],
+      [
+        54.9,
+        86.6
+      ],
+      [
+        44.5,
+        99.2
+      ],
+      [
+        67.1,
+        99.7
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c12_b1",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 12,
+    "ts_sec": 41.513,
+    "cls": "non_human",
+    "note": "aerial gothic window pareidolia",
+    "crop_relpath": "crops/ep12_c12_b1.png",
+    "crop_origin_xy": [
+      802,
+      280
+    ],
+    "bbox_in_roi": [
+      823,
+      313,
+      60,
+      75
+    ],
+    "bbox_in_crop": [
+      21,
+      33,
+      60,
+      75
+    ],
+    "score": 0.6359,
+    "landmarks_in_crop": [
+      [
+        36.4,
+        62.1
+      ],
+      [
+        66.0,
+        61.9
+      ],
+      [
+        53.0,
+        79.7
+      ],
+      [
+        43.1,
+        89.0
+      ],
+      [
+        62.2,
+        91.5
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c18_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 18,
+    "ts_sec": 59.597,
+    "cls": "clean_vinyl",
+    "note": "porch bald vinyl",
+    "crop_relpath": "crops/ep12_c18_b0.png",
+    "crop_origin_xy": [
+      439,
+      112
+    ],
+    "bbox_in_roi": [
+      525,
+      265,
+      248,
+      340
+    ],
+    "bbox_in_crop": [
+      86,
+      153,
+      248,
+      340
+    ],
+    "score": 0.7037,
+    "landmarks_in_crop": [
+      [
+        160.4,
+        273.4
+      ],
+      [
+        239.8,
+        274.8
+      ],
+      [
+        198.6,
+        339.1
+      ],
+      [
+        167.7,
+        397.5
+      ],
+      [
+        222.2,
+        397.3
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c19_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 19,
+    "ts_sec": 62.347,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl in room",
+    "crop_relpath": "crops/ep12_c19_b0.png",
+    "crop_origin_xy": [
+      227,
+      625
+    ],
+    "bbox_in_roi": [
+      287,
+      717,
+      172,
+      206
+    ],
+    "bbox_in_crop": [
+      60,
+      92,
+      172,
+      206
+    ],
+    "score": 0.8879,
+    "landmarks_in_crop": [
+      [
+        139.5,
+        176.5
+      ],
+      [
+        200.1,
+        175.5
+      ],
+      [
+        188.5,
+        220.6
+      ],
+      [
+        142.9,
+        248.4
+      ],
+      [
+        189.8,
+        252.8
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c19_b1",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 19,
+    "ts_sec": 61.347,
+    "cls": "clean_vinyl",
+    "note": "bald vinyl in room",
+    "crop_relpath": "crops/ep12_c19_b1.png",
+    "crop_origin_xy": [
+      389,
+      677
+    ],
+    "bbox_in_roi": [
+      433,
+      752,
+      128,
+      168
+    ],
+    "bbox_in_crop": [
+      44,
+      75,
+      128,
+      168
+    ],
+    "score": 0.8157,
+    "landmarks_in_crop": [
+      [
+        102.1,
+        146.1
+      ],
+      [
+        150.5,
+        144.3
+      ],
+      [
+        140.1,
+        183.1
+      ],
+      [
+        109.2,
+        208.5
+      ],
+      [
+        146.8,
+        206.1
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c22_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 22,
+    "ts_sec": 73.597,
+    "cls": "clean_vinyl",
+    "note": "warm kitchen bald vinyl",
+    "crop_relpath": "crops/ep12_c22_b0.png",
+    "crop_origin_xy": [
+      355,
+      230
+    ],
+    "bbox_in_roi": [
+      470,
+      414,
+      330,
+      411
+    ],
+    "bbox_in_crop": [
+      115,
+      184,
+      330,
+      411
+    ],
+    "score": 0.865,
+    "landmarks_in_crop": [
+      [
+        180.2,
+        395.2
+      ],
+      [
+        294.7,
+        391.8
+      ],
+      [
+        210.4,
+        473.6
+      ],
+      [
+        208.4,
+        522.6
+      ],
+      [
+        286.6,
+        521.3
+      ]
+    ]
+  },
+  {
+    "id": "ep12_c23_b0",
+    "ep": "ep12",
+    "project_id": "v8_ep12_doorway_effect_memory",
+    "cut_index": 23,
+    "ts_sec": 76.197,
+    "cls": "clean_vinyl",
+    "note": "warm kitchen bald vinyl profile",
+    "crop_relpath": "crops/ep12_c23_b0.png",
+    "crop_origin_xy": [
+      309,
+      294
+    ],
+    "bbox_in_roi": [
+      409,
+      494,
+      288,
+      446
+    ],
+    "bbox_in_crop": [
+      100,
+      200,
+      288,
+      446
+    ],
+    "score": 0.8163,
+    "landmarks_in_crop": [
+      [
+        295.5,
+        373.4
+      ],
+      [
+        350.8,
+        408.3
+      ],
+      [
+        343.9,
+        463.9
+      ],
+      [
+        255.8,
+        528.4
+      ],
+      [
+        294.1,
+        556.3
+      ]
+    ]
+  }
+]

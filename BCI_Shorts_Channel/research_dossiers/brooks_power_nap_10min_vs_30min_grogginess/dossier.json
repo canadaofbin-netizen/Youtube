@@ -1,0 +1,213 @@
+{
+  "schema_version": 2,
+  "slug": "brooks_power_nap_10min_vs_30min_grogginess",
+  "topic": "Why a 10-Minute Nap Sharpens Your Brain Better Than a 30-Minute Nap",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T03:43:55+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "NEURO_BIOLOGY contrasts crisp 10-minute versus 30-minute afternoon nap behaviors (including Edison's falling brass-ball N1 test) with Blender 3D MNI152 #27D8FF thalamic spindle refresh vs slow-wave delta lock.",
+  "setup_18w": "Sleep researchers tested naps lasting five, ten, twenty, or thirty minutes and tracked alertness for three hours.",
+  "primary_doi": "10.1093/sleep/29.6.831",
+  "three_layer_formula": {
+    "everyday_problem": "Lying down for a 30-minute afternoon nap after a short night, only to wake up feeling twice as heavy and foggy for the rest of the afternoon.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/sleep/29.6.831",
+      "source_ids": [
+        "SRC1",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1093/sleep/29.6.831",
+        "10.1093/sleep/24.3.293"
+      ],
+      "summary": "Brooks & Lack (2006, Sleep) tested 24 sleep-restricted adults across 0, 5, 10, 20, and 30-minute EEG-verified afternoon naps, proving 10 minutes delivers immediate alertness for 155 minutes while 30 minutes triggers groggy sleep inertia."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1126/sciadv.abj5866",
+      "year": 2021,
+      "source_ids": [
+        "SRC2",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1126/sciadv.abj5866",
+        "10.1016/j.sleh.2023.05.002"
+      ],
+      "summary": "Lacaux et al. (2021, Science Advances) showed light N1 sleep onset triples creative insight (83% vs 30%) before deeper slow-wave stages erase the boost, while Paz et al. (2023, Sleep Health) linked daytime napping in 378,932 midlife adults to 15.8 cm3 larger brain volume."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1093/sleep/29.6.831",
+        "year": 2006,
+        "summary": "Precision 5-condition afternoon nap trial (0, 5, 10, 20, 30 min) tracking alertness for 155 minutes."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1126/sciadv.abj5866",
+        "year": 2021,
+        "summary": "EEG N1 twilight-zone nap study in 103 adults showing 83% vs 30% creative rule discovery."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1016/j.sleh.2023.05.002",
+        "year": 2023,
+        "summary": "UK Biobank Mendelian randomization MRI study (n=378,932, mean age 57) linking habitual napping to larger total brain volume."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "Flinders University's 5-Duration Afternoon Nap Trial & Paris Brain Institute's Light-Sleep Sweet Spot",
+    "year": 2006,
+    "place": "Flinders University Sleep Laboratory, Adelaide, Australia & Paris Brain Institute, France",
+    "people": [
+      {
+        "name": "Amber Brooks & Leon C. Lack",
+        "role": "Flinders University sleep scientists who timed exact 5, 10, 20, and 30-minute EEG naps across 24 sleep-restricted adults",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Célia Lacaux, Thomas Andrillon & Delphine Oudiette",
+        "role": "Paris Brain Institute neuroscientists who tested 103 adults holding a falling object at N1 sleep onset to capture the creative sweet spot",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Valentina Paz, Hassan S. Dashti & Victoria Garfield",
+        "role": "UCL and Harvard investigators who analyzed brain MRI volume and daytime napping across 378,932 adults aged 57 on average",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Brooks and Lack restricted 24 healthy adults to 5 hours of overnight sleep, then tested 5 exact EEG-timed afternoon conditions at 3:00 PM: 0, 5, 10, 20, and 30 minutes of actual sleep.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The 10-minute nap produced immediate gains in alertness, vigor, and cognitive speed within 5 minutes of waking that lasted 155 minutes, outperforming the 20-minute nap's 125 minutes of delayed benefit.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Sustained Post-Nap Sharpness",
+        "unit": "min",
+        "bars": [
+          {
+            "label": "10-Min Power Nap",
+            "value": 155.0,
+            "unit": "min"
+          },
+          {
+            "label": "20-Min Nap Window",
+            "value": 125.0,
+            "unit": "min"
+          }
+        ],
+        "doi": "10.1093/sleep/29.6.831",
+        "source_citation": "Brooks & Lack (2006)"
+      }
+    },
+    {
+      "fact": "The 5-minute nap was too short, yielding almost zero measurable alertness or cognitive advantage over the no-nap control.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "The 30-minute nap backfired right after waking—causing impaired alertness and cognitive performance until 35 minutes post-nap because sleepers entered deep slow-wave sleep.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Tietzel and Lack's earlier crossover trial after 4.7 hours of sleep across 12 sleepers, a 10-minute nap boosted cognitive performance immediately at 5 minutes while a 30-minute nap initially worsened scores.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In Paris Brain Institute's study of 103 adults holding an object at rest, spending at least 15 seconds in light Stage N1 sleep boosted hidden-rule insight discovery to 83 percent versus 30 percent in awake controls.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Problem-Solving Insight Rate",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Brief N1 Nap",
+            "value": 83.0,
+            "unit": "%"
+          },
+          {
+            "label": "Awake Rest",
+            "value": 30.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1126/sciadv.abj5866",
+        "source_citation": "Lacaux et al. (2021)"
+      }
+    },
+    {
+      "fact": "When Paris Brain Institute sleepers drifted past light N1 into deeper sleep stages, that 3-fold creative insight advantage vanished.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Across 378,932 UK Biobank adults (mean age 57 years), Mendelian randomization linked habitual daytime napping to 15.8 cubic centimeters larger total brain volume.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Controlled memory nap studies show brief afternoon naps consolidate declarative memory in both habitual and non-habitual adult nappers when timed in the early afternoon.",
+      "source_id": "SRC3"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Just 10 minutes of verified light afternoon sleep sharpens cognitive speed immediately and holds that edge for 155 minutes—over two and a half hours.",
+      "why_surprising": "Beats a 30-minute nap three times its length across the crucial first half hour back at work.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Drifting into light Stage N1 twilight sleep for as little as 15 seconds nearly tripled hidden-rule breakthroughs (83 percent vs 30 percent)—until deeper sleep wiped the bonus out.",
+      "why_surprising": "Validates Edison's falling-ball micro-nap trick with modern scalp EEG.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Across 378,932 midlife and older adults (mean age 57), genetic tendency toward brief daytime napping paired with 15.8 cubic centimeters larger total brain volume.",
+      "why_surprising": "Reframes brief afternoon napping as healthy adult brain maintenance rather than laziness.",
+      "source_id": "SRC6",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "If I only have 15 minutes between afternoon meetings, napping is useless.",
+      "truth": "Allowing ~4 minutes to fall asleep plus 10 minutes of light N1/N2 sleep delivers immediate cognitive clarity lasting 155 minutes with zero sleep inertia.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "A 30-minute nap is three times more refreshing than a 10-minute nap.",
+      "truth": "Crossing the 20-to-30-minute mark drops a tired brain into deep slow-wave delta sleep, triggering a 35-minute hangover upon waking.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Hitting the 2:30 PM afternoon wall in your home office after five hours of sleep and debating whether to lie down.",
+    "Waking up from a 35-minute Sunday couch nap not knowing what year it is—versus snapping up crisp from a 14-minute timer.",
+    "Holding a keyring or brass ball in your hand over a saucer like Edison so clattering metal wakes you before deep delta fog hits."
+  ],
+  "offcenter_creator_bet": "My bet: ten minutes beats thirty flat — do you set a short afternoon timer or skip naps completely?",
+  "debate_ignition": {
+    "prebunk_myth": "People swear they hate napping because a 30-minute couch crash leaves them groggy—never realizing 30 minutes is the exact wrong length.",
+    "open_verdict_question": "When afternoon fatigue hits at 2:30 PM, do you take a strict 10-minute power nap or push through with more coffee?",
+    "offcenter_creator_bet": "My bet: ten minutes beats thirty flat — do you set a short afternoon timer or skip naps completely?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

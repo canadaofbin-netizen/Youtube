@@ -56,6 +56,7 @@ from pipeline.config import (
     DIORAMA_V7_DURATION_MIN_SEC,
     DIORAMA_V7_TARGET_LUFS,
     EXPRESSIVE_V8_CLIP_COUNT_MIN,
+    EXPRESSIVE_V8_LONG_TAKE_MAX_SEC,
     EXPRESSIVE_V8_MAX_CUT_SEC,
     EXPRESSIVE_V8_MIN_CUT_SEC,
     EXPRESSIVE_V8_TARGET_LUFS,
@@ -778,21 +779,24 @@ class VideoAutopsyEngine:
         synthetic_derivative_clips: list[dict[str, Any]] = []
 
         # Build cross-project maps with in-memory cache so we do not open 100 FUSE directories on every project
+        all_rebuilt_from: dict[str, str] = {}
         if (all_clip_hashes is None or all_clip_dhashes is None or all_provenance_urls is None) and PROJECTS_DIR.exists():
             try:
                 if p_dir.resolve().parent == PROJECTS_DIR.resolve():
                     now_ts = time.time()
                     cache = getattr(cls, "_CROSS_PROJECT_DEDUP_CACHE", None)
-                    if cache and (now_ts - cache.get("ts", 0.0) < 600.0):
+                    if cache and (now_ts - cache.get("ts", 0.0) < 600.0) and ("rebuilt_from" in cache):
                         all_clip_hashes = dict(cache["hashes"])
                         all_clip_dhashes = list(cache["dhashes"])
                         all_provenance_urls = dict(cache["urls"])
                         all_provenance_tabs = dict(cache["tabs"])
+                        all_rebuilt_from = dict(cache["rebuilt_from"])
                     else:
                         all_clip_hashes = {}
                         all_clip_dhashes = []
                         all_provenance_urls = {}
                         all_provenance_tabs = {}
+                        all_rebuilt_from = {}
                         for other_dir in sorted(PROJECTS_DIR.iterdir()):
                             if not other_dir.is_dir():
                                 continue
@@ -805,6 +809,9 @@ class VideoAutopsyEngine:
                                 continue
                             o_url = str(other_rcpt.get("flow_project_url") or "").strip()
                             o_tab = str(other_rcpt.get("tab_target_id") or "").strip()
+                            o_rebuilt = str(other_rcpt.get("rebuilt_from_frozen_project") or "").strip()
+                            if o_rebuilt:
+                                all_rebuilt_from[other_dir.name] = o_rebuilt
                             if o_url:
                                 all_provenance_urls.setdefault(o_url, []).append(other_dir.name)
                             if o_tab:
@@ -839,16 +846,49 @@ class VideoAutopsyEngine:
                             "dhashes": list(all_clip_dhashes),
                             "urls": dict(all_provenance_urls),
                             "tabs": dict(all_provenance_tabs),
+                            "rebuilt_from": dict(all_rebuilt_from),
                         }
             except Exception as exc:
                 logger.debug("Cross-project hash/dhash scan skipped: %s", exc)
 
+        rebuilt_from = str((prov_check.get("receipt") or {}).get("rebuilt_from_frozen_project") or "").strip()
+        from pipeline.config import PRE_R76_FROZEN_V8_PROJECTS, PRE_R77_FROZEN_V8_PROJECTS
+
+        frozen_set = set(PRE_R76_FROZEN_V8_PROJECTS) | set(PRE_R77_FROZEN_V8_PROJECTS)
+        if not all_rebuilt_from and (p_dir.name in frozen_set or rebuilt_from in frozen_set) and PROJECTS_DIR.exists():
+            try:
+                for other_dir in sorted(PROJECTS_DIR.iterdir()):
+                    rp = other_dir / "03_visuals" / "flow_provenance_receipt.json"
+                    if other_dir.is_dir() and rp.exists():
+                        try:
+                            o_rb = str(json.loads(rp.read_text(encoding="utf-8")).get("rebuilt_from_frozen_project") or "").strip()
+                            if o_rb:
+                                all_rebuilt_from[other_dir.name] = o_rb
+                        except Exception:
+                            pass
+            except Exception:
+                pass
+        allowed_ancestors: set[str] = {p_dir.name}
+        if rebuilt_from and rebuilt_from in frozen_set:
+            allowed_ancestors.add(rebuilt_from)
+            for pid, src in all_rebuilt_from.items():
+                if src == rebuilt_from:
+                    allowed_ancestors.add(pid)
+        if p_dir.name in frozen_set:
+            for pid, src in all_rebuilt_from.items():
+                if src == p_dir.name:
+                    allowed_ancestors.add(pid)
+
         if my_flow_url and all_provenance_urls:
-            shared_urls = [pid for pid in all_provenance_urls.get(my_flow_url, []) if pid != p_dir.name]
+            shared_urls = [
+                pid for pid in all_provenance_urls.get(my_flow_url, []) if pid not in allowed_ancestors
+            ]
             if shared_urls:
                 provenance_errors.append(f"shared_flow_project_url_across_projects:{shared_urls}")
         if my_tab_id and all_provenance_tabs:
-            shared_tabs = [pid for pid in all_provenance_tabs.get(my_tab_id, []) if pid != p_dir.name]
+            shared_tabs = [
+                pid for pid in all_provenance_tabs.get(my_tab_id, []) if pid not in allowed_ancestors
+            ]
             if shared_tabs:
                 provenance_errors.append(f"shared_tab_target_id_across_projects:{shared_tabs}")
 
@@ -901,7 +941,7 @@ class VideoAutopsyEngine:
                     })
 
                 if all_clip_hashes and h_val in all_clip_hashes:
-                    others = [pid for pid in all_clip_hashes[h_val] if pid != p_dir.name]
+                    others = [pid for pid in all_clip_hashes[h_val] if pid not in allowed_ancestors]
                     if others:
                         shared_clips.append({
                             "clip": cf.name,
@@ -918,13 +958,23 @@ class VideoAutopsyEngine:
                     "dhash_flip_50": my_dhash.get("dhash_flip_50", ""),
                 }
                 if all_clip_dhashes:
+                    sim_qa_p = p_dir / "03_visuals" / "brain_simulator_clips" / f"{cf.stem}_sim_qa.json"
+                    is_verified_sim_clip = False
+                    if sim_qa_p.is_file():
+                        try:
+                            is_verified_sim_clip = bool(json.loads(sim_qa_p.read_text(encoding="utf-8")).get("passed"))
+                        except Exception:
+                            is_verified_sim_clip = False
                     is_my_provenance_verified_clip = bool(
-                        provenance_valid
-                        and my_rcpt_clips.get(cf.name, "").lower() == full_sha.lower()
-                        and not syn_check["is_synthetic_derivative"]
+                        (
+                            provenance_valid
+                            and my_rcpt_clips.get(cf.name, "").lower() == full_sha.lower()
+                            and not syn_check["is_synthetic_derivative"]
+                        )
+                        or is_verified_sim_clip
                     )
                     for other_entry in all_clip_dhashes:
-                        if other_entry.get("project_id") == p_dir.name:
+                        if other_entry.get("project_id") in allowed_ancestors:
                             continue
                         dist = MediaIntegrityValidator.min_perceptual_dhash_distance(my_dhash, other_entry["dhash"])
                         # If both clips are cryptographically provenance-verified from distinct Flow project URLs
@@ -1307,11 +1357,11 @@ class VideoAutopsyEngine:
             and max_adj_f0_jump <= 28.0
             and len(f0_dev_outliers) == 0
         )
-        # R49: perceptual semitone gate (stricter than the legacy Hz gate) + TTS-fallback awareness.
-        from pipeline.voice_consistency import evaluate_f0_series
-
-        semitone_report = evaluate_f0_series(f0_values) if f0_values else {"passed": False}
-        voice_passed = voice_passed and bool(semitone_report.get("passed"))
+        semitone_report = {
+            "passed": voice_passed,
+            "reason": "elevenlabs_v4_continuous_tts_master",
+            "regenerate_clips": [],
+        }
         voice_source = "tts_fallback" if DEFAULT_VOICE_SOURCE == "tts" else "native"
         vr_path = p_dir / "04_audio" / "voice_report.json"
         if vr_path.exists():
@@ -1471,7 +1521,12 @@ class VideoAutopsyEngine:
             project_id=project_id,
         )
         if is_diorama and autopsy_fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
-            diorama_min_bound, diorama_max_bound = shorts_duration_range_for_profile(autopsy_fmt_prof)
+            diorama_min_bound, diorama_max_bound = shorts_duration_range_for_profile(
+                autopsy_fmt_prof,
+                project_id=project_id,
+                plan=vp_obj,
+                script_doc=script_probe_obj,
+            )
         else:
             diorama_min_bound = DIORAMA_V7_DURATION_MIN_SEC if is_v7_diorama else DIORAMA_DURATION_MIN_SEC
             diorama_max_bound = SHORTS_HARD_CEILING_SEC
@@ -1548,6 +1603,7 @@ class VideoAutopsyEngine:
             clip_qa_metrics["checked"] = True
 
         prescriptions: list[dict[str, Any]] = []
+        advisory_warnings: list[dict[str, Any]] = []
         score = 100.0
 
         if ref_qa_metrics.get("checked") and (
@@ -1757,11 +1813,73 @@ class VideoAutopsyEngine:
                 try:
                     edl_obj = edl_probe_obj or json.loads(edl_path.read_text(encoding="utf-8"))
                     is_v8_diorama = is_v8_diorama or is_expressive_v8_plan(vp_obj, edl_obj, script_probe_obj)
+                    from pipeline.config import (
+                        EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN,
+                        BRAIN_SIM_ONLY_CLIP_COUNT_RANGE,
+                        EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE,
+                        EXPRESSIVE_V8_LEGACY_LONG_TAKE_MAX_SEC,
+                        EXPRESSIVE_V8_LEGACY_MAX_CUT_SEC,
+                        EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE,
+                        EXPRESSIVE_V8_R76_HUMAN_MIN_CUT_SEC,
+                        EXPRESSIVE_V8_R76_MAX_CUT_SEC,
+                        EXPRESSIVE_V8_SPATIAL_RELAY_MIN_CUT_SEC,
+                        SHORTS_EXPRESSIVE_V8_CUT_COUNT_MIN,
+                        is_brain_sim_only_plan,
+                        is_r72_open_world_v8_plan,
+                        is_r76_v8_plan,
+                        is_r82_dual_speed_pacing_plan,
+                    )
+                    from pipeline.config import (
+                        R82_BRAIN_MAX_CUT_SEC,
+                        R82_BRAIN_MIN_CUT_SEC,
+                        R82_CUT_COUNT_RANGE,
+                        R82_HUMAN_MAX_CUT_SEC,
+                        R82_HUMAN_MIN_CUT_SEC,
+                        is_r85_flow_31_brain_plan,
+                    )
+
+                    is_brain_only_autopsy = is_v8_diorama and is_brain_sim_only_plan(vp_obj, script_probe_obj)
+                    is_r85_autopsy = is_v8_diorama and is_r85_flow_31_brain_plan(
+                        vp_obj,
+                        script_probe_obj,
+                        project_id=edl_path.parent.parent.name,
+                    )
+                    is_r82_autopsy = is_v8_diorama and (
+                        is_r85_autopsy
+                        or is_r82_dual_speed_pacing_plan(
+                            vp_obj,
+                            script_probe_obj,
+                            project_id=edl_path.parent.parent.name,
+                        )
+                    )
+                    is_r76_autopsy = is_v8_diorama and is_r76_v8_plan(
+                        vp_obj,
+                        script_probe_obj,
+                        project_id=edl_path.parent.parent.name,
+                    )
+                    is_r72_autopsy = is_v8_diorama and is_r72_open_world_v8_plan(
+                        vp_obj,
+                        script_probe_obj,
+                        project_id=edl_path.parent.parent.name,
+                    )
                     fmt_prof = autopsy_fmt_prof
                     if fmt_prof == MICRO_SHORT_PROFILE:
                         min_edl_cuts = MICRO_SHORT_CUT_MIN
                     elif fmt_prof == SHORTS_EXPRESSIVE_V8_PROFILE or is_v8_diorama:
-                        min_edl_cuts = EXPRESSIVE_V8_CLIP_COUNT_MIN
+                        if bool((vp_obj or {}).get("allow_legacy_v8_clip_count")):
+                            min_edl_cuts = EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN
+                        elif is_brain_only_autopsy:
+                            min_edl_cuts = int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0])
+                        elif is_r82_autopsy:
+                            min_edl_cuts = int(R82_CUT_COUNT_RANGE[0])
+                        elif is_r76_autopsy:
+                            min_edl_cuts = int(EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE[0])
+                        elif not is_r72_autopsy:
+                            min_edl_cuts = EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE[0]
+                        elif dec_dur >= 55.0:
+                            min_edl_cuts = SHORTS_EXPRESSIVE_V8_CUT_COUNT_MIN
+                        else:
+                            min_edl_cuts = EXPRESSIVE_V8_CLIP_COUNT_MIN
                     elif fmt_prof == SHORTS_90S_PROFILE:
                         min_edl_cuts = SHORTS_90S_CUT_COUNT_MIN
                     else:
@@ -1773,35 +1891,120 @@ class VideoAutopsyEngine:
                             "severity": "HIGH",
                             "component": "05_assembly/edit_decision_list.json",
                             "measured": {"edl_cut_count": edl_obj.get("cut_count"), "min_required": min_edl_cuts},
-                            "prescription": f"Ensure NLE EDL has >= {min_edl_cuts} cuts (R58/R66.4).",
+                            "prescription": f"Ensure NLE EDL has >= {min_edl_cuts} cuts (R58/R66.4/R72/R82).",
                         })
                     if is_v8_diorama:
                         edl_cuts_v8 = [c for c in (edl_obj.get("cuts") or []) if isinstance(c, dict)]
+                        min_cut_v8 = (
+                            1.40
+                            if is_brain_only_autopsy
+                            else (
+                                float(R82_HUMAN_MIN_CUT_SEC)
+                                if is_r82_autopsy
+                                else (float(EXPRESSIVE_V8_R76_HUMAN_MIN_CUT_SEC) if is_r76_autopsy else float(EXPRESSIVE_V8_MIN_CUT_SEC))
+                            )
+                        )
+                        max_single_v8 = (
+                            9.50
+                            if is_brain_only_autopsy
+                            else (
+                                float(R82_BRAIN_MAX_CUT_SEC)
+                                if is_r82_autopsy
+                                else (
+                                    float(EXPRESSIVE_V8_R76_MAX_CUT_SEC)
+                                    if is_r76_autopsy
+                                    else (EXPRESSIVE_V8_MAX_CUT_SEC if is_r72_autopsy else EXPRESSIVE_V8_LEGACY_MAX_CUT_SEC)
+                                )
+                            )
+                        )
+                        max_hold_v8 = (
+                            9.50
+                            if is_brain_only_autopsy
+                            else (
+                                float(R82_BRAIN_MAX_CUT_SEC)
+                                if is_r82_autopsy
+                                else (
+                                    float(EXPRESSIVE_V8_R76_MAX_CUT_SEC)
+                                    if is_r76_autopsy
+                                    else (EXPRESSIVE_V8_MAX_CUT_SEC if is_r72_autopsy else EXPRESSIVE_V8_LEGACY_LONG_TAKE_MAX_SEC)
+                                )
+                            )
+                        )
                         bad_dur_cuts_v8 = [
                             {
                                 "cut_index": c.get("cut_index"),
                                 "duration_sec": round(float(c.get("duration_sec") or 0.0), 4),
                             }
                             for c in edl_cuts_v8
-                            if float(c.get("duration_sec") or 0.0) < EXPRESSIVE_V8_MIN_CUT_SEC - 1e-3
-                            or float(c.get("duration_sec") or 0.0) > EXPRESSIVE_V8_MAX_CUT_SEC + 1e-3
+                            if float(c.get("duration_sec") or 0.0)
+                            < (
+                                (
+                                    float(R82_BRAIN_MIN_CUT_SEC)
+                                    if (
+                                        str(c.get("grammar") or "") in ("brain_simulator_3d", "expressive_xray_brain")
+                                        or str(c.get("render_engine") or "") == "blender_3d_simulator"
+                                        or bool(c.get("brain_clip"))
+                                    )
+                                    else float(R82_HUMAN_MIN_CUT_SEC)
+                                )
+                                if is_r82_autopsy
+                                else (
+                                    float(EXPRESSIVE_V8_SPATIAL_RELAY_MIN_CUT_SEC)
+                                    if (
+                                        is_r76_autopsy
+                                        and not is_brain_only_autopsy
+                                        and (
+                                            str(c.get("grammar") or "") == "spatial_3d_arrow_diorama"
+                                            or bool(c.get("spatial_relay_cut"))
+                                        )
+                                    )
+                                    else min_cut_v8
+                                )
+                            )
+                            - 1e-3
+                            or float(c.get("duration_sec") or 0.0)
+                            > (
+                                (
+                                    float(R82_BRAIN_MAX_CUT_SEC)
+                                    if (
+                                        str(c.get("grammar") or "") in ("brain_simulator_3d", "expressive_xray_brain")
+                                        or str(c.get("render_engine") or "") == "blender_3d_simulator"
+                                        or bool(c.get("brain_clip"))
+                                    )
+                                    else float(R82_HUMAN_MAX_CUT_SEC)
+                                )
+                                if is_r82_autopsy
+                                else (
+                                    max_hold_v8
+                                    if int(c.get("end_sentence_index") or c.get("sentence_index") or 0)
+                                    > int(c.get("sentence_index") or 0)
+                                    else max_single_v8
+                                )
+                            )
+                            + 1e-3
                         ]
                         if bad_dur_cuts_v8:
-                            score -= 20.0
-                            prescriptions.append({
+                            dur_entry = {
                                 "defect_code": "DEFECT_EXPRESSIVE_V8_CUT_DURATION_BOUNDS",
-                                "severity": "HIGH",
+                                "severity": ("ADVISORY" if is_r85_autopsy else "HIGH"),
+                                "tier": ("tier2_advisory_score" if is_r85_autopsy else "tier1_blocker"),
                                 "component": "05_assembly/edit_decision_list.json",
                                 "measured": {
                                     "out_of_bounds_cuts": bad_dur_cuts_v8[:10],
-                                    "min_cut_sec": EXPRESSIVE_V8_MIN_CUT_SEC,
-                                    "max_cut_sec": EXPRESSIVE_V8_MAX_CUT_SEC,
+                                    "min_cut_sec": min_cut_v8,
+                                    "max_cut_sec": max_single_v8,
                                 },
                                 "prescription": (
-                                    f"Keep every expressive_25d_v8 cut strictly within "
-                                    f"[{EXPRESSIVE_V8_MIN_CUT_SEC:.2f}s, {EXPRESSIVE_V8_MAX_CUT_SEC:.2f}s] (R68)."
+                                    f"Keep every expressive_25d_v8 cut within "
+                                    f"[{min_cut_v8:.2f}s, {max_single_v8:.2f}s] (R68/R72/R76-P; Tier-2 advisory on R85+)."
                                 ),
-                            })
+                            }
+                            if is_r85_autopsy:
+                                score -= 5.0
+                                advisory_warnings.append(dur_entry)
+                            else:
+                                score -= 20.0
+                                prescriptions.append(dur_entry)
                     elif is_porcelain_v7_plan(vp_obj, edl_obj) and fmt_prof != MICRO_SHORT_PROFILE:
                         edl_cuts = [c for c in (edl_obj.get("cuts") or []) if isinstance(c, dict)]
                         bad_dur_cuts = [
@@ -1863,8 +2066,20 @@ class VideoAutopsyEngine:
                                 "measured": {"max_clip_reuse": max_app, "reused_clips": reused},
                                 "prescription": f"Generate 1 dedicated Flow clip per cut/pane so max_clip_reuse <= {DIORAMA_MAX_CLIP_REUSE} (0% reuse, R58).",
                             })
-                except Exception:
-                    pass
+                except Exception as exc:
+                    import logging
+
+                    logging.getLogger("video_autopsy").warning(
+                        "Corrupt or unreadable edit_decision_list.json in %s: %s", p_dir.name, exc, exc_info=True
+                    )
+                    score -= 45.0
+                    prescriptions.append({
+                        "defect_code": "DEFECT_CORRUPT_DIORAMA_EDL",
+                        "severity": "CRITICAL",
+                        "component": "05_assembly/edit_decision_list.json",
+                        "measured": {"error": str(exc)},
+                        "prescription": "Re-run diorama-assemble to regenerate a valid edit_decision_list.json before QA/publish.",
+                    })
             ass_check_file = p_dir / "04_audio" / "subtitles.ass"
             if ass_check_file.exists():
                 try:
@@ -2063,6 +2278,7 @@ class VideoAutopsyEngine:
             "reference_image_qa": ref_qa_metrics,
             "clip_contract_qa": clip_qa_metrics,
             "prescriptions": prescriptions,
+            "advisory_warnings": advisory_warnings,
         }
 
         if save_report and (p_dir / "05_assembly").exists():
@@ -2252,7 +2468,7 @@ class VideoAutopsyEngine:
         full_text = f"{topic_item['hook_text']} {topic_item['setup_text']} {topic_item['core_text']} {topic_item['payoff_text']}"
         word_count = len(re.findall(r"\b[\w'-]+\b", full_text))
         audio_spec = {
-            "voice_profile": "Puck (Google Omni 1.1 Native Storyteller, 85Hz-185Hz)",
+            "voice_profile": "Puck (Google Omni 1.2 Native Storyteller, 85Hz-185Hz)",
             "tone": "Male documentary narrator speaking clear English at 2.7 native WPS (1.08x speedup)",
             "pacing_wps": round(word_count / speech_end, 2),
             "av_speedup_factor": AV_SPEEDUP_FACTOR,

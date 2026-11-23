@@ -1,0 +1,176 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2015 University of Reading Lab: Chewing Gum Beats Finger-Tapping at Silencing Keypress Earworms",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2015, School of Psychology laboratory, University of Reading, UK",
+      "layout": {
+        "description": "Sunlit British cognitive lab bench with studio headphones, a mechanical computer keyboard logging earworm intrusions, and a side-by-side comparison of unwrapping a foil stick of gum versus rhythmic finger-tapping.",
+        "positions": [
+          {
+            "who": "46-year-old adult participant in smart knit crewneck and collared shirt",
+            "where": "lifting studio headphones off ears, unwrapping a silver foil stick of gum, and chewing briskly while right hand rests calmly off the spacebar",
+            "facing": "facing the desktop keypress counter"
+          },
+          {
+            "who": "Philip Beaman in crisp tweed blazer holding Experiment 1–3 comparison clipboard",
+            "where": "standing beside the testing desk pointing to the 33% drop in earworm keypresses during gum chewing vs finger-tapping",
+            "facing": "observing the gum-chewing participant and monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "silver foil pack of plain chewing gum beside studio headphones",
+          "period_detail": "exact articulatory motor-interference prop from Beaman, Powell & Rapley (2015)",
+          "physical_behavior": "State-A participant pulls headphones off ears and unwraps foil gum stick -> State-B rhythmic jaw chewing silences sub-vocal chorus loop"
+        },
+        {
+          "name": "desktop mechanical spacebar counter logging 3-minute earworm intrusions",
+          "period_detail": "3-minute Experiment 1 & Experiment 3 keypress tally rig",
+          "physical_behavior": "State-A finger taps spacebar repeatedly during no-gum chorus intrusions -> State-B hand rests relaxed beside keyboard as count drops by 33%"
+        }
+      ],
+      "actions": [
+        {
+          "who": "46-year-old participant",
+          "verb_sequence": "pulls off studio headphones after a catchy 124-bpm chorus -> winces tapping spacebar on looping replays -> unwraps a stick of gum and chews steadily -> spacebar taps drop by a third"
+        },
+        {
+          "who": "Philip Beaman",
+          "verb_sequence": "compares gum-chewing vs finger-tapping keypress logs on clipboard"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "46-year-old participant",
+          "reaction": "raises eyebrows amazed that busy jaw muscles switched off a song inside the head"
+        },
+        {
+          "who": "Philip Beaman",
+          "reaction": "confirms inner speech-motor planning keeps earworms alive"
+        }
+      ],
+      "wardrobe": "Charcoal merino crewneck over white shirt; researcher in British academic navy blazer.",
+      "lighting": "Clean high-key Reading laboratory window daylight.",
+      "recognition_hook": "Tapping your fingers barely dents a stuck song — yet chewing a stick of plain gum jams your inner vocal loop and cuts earworm replays by a third!",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC3",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a sunlit University of Reading lab where an adult removes studio headphones, unwraps a foil stick of gum, and chews while earworm keypresses drop on a desktop tally counter",
+        "must_show": [
+          "headphones",
+          "gum|foil",
+          "keyboard|counter"
+        ],
+        "source": "M1@00:07-00:24; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Morning Sidewalk Walk: How 124-BPM Songs Lock Onto Human Walking Tempo",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit city sidewalk outside a corner cafe (Outdoor)",
+      "layout": {
+        "description": "Crisp sunlit morning street outside a corner bakery where a 50-year-old commuter steps onto the sidewalk carrying coffee as an upbeat 124-bpm cafe radio chorus locks right onto their brisk walking stride.",
+        "positions": [
+          {
+            "who": "50-year-old commuter in trench jacket holding takeaway coffee cup",
+            "where": "striding briskly down a sunlit tree-lined sidewalk in exact 124-bpm rhythm",
+            "facing": "walking forward along sunlit outdoor sidewalk"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "takeaway coffee cup and pocket mint-gum pack",
+          "period_detail": "everyday morning commute props",
+          "physical_behavior": "State-A steps briskly in rhythm with cafe speaker -> State-B pulls gum pack from coat pocket to break the loop"
+        }
+      ],
+      "actions": [
+        {
+          "who": "50-year-old commuter",
+          "verb_sequence": "exits cafe door at brisk walking tempo -> catches self humming the same 10-second hook -> reaches for pocket gum"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "50-year-old commuter",
+          "reaction": "chuckles catching the third repeat of the exact same chorus line"
+        }
+      ],
+      "wardrobe": "Tailored tan walking coat, navy scarf, leather shoes.",
+      "lighting": "Bright outdoor morning street sunlight.",
+      "recognition_hook": "Songs near 124 beats per minute hijack your brain because they match the natural cadence of human walking.",
+      "sources": [
+        "SRC2",
+        "SRC4"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Evening Kitchen Dish-Washing Loop & Spoken Crossword Reset",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern warm home kitchen",
+      "layout": {
+        "description": "Warm home kitchen sink where rinsing dinner plates on autopilot triggers a stuck tune, promptly cleared by chewing gum or reading clues aloud.",
+        "positions": [
+          {
+            "who": "52-year-old homeowner at kitchen counter",
+            "where": "drying hands with a dish towel and reading a short newspaper anagram aloud to engage Broca's speech loop",
+            "facing": "facing kitchen island"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "dish towel, mint gum tin, and folded evening crossword",
+          "period_detail": "everyday adult evening wind-down props",
+          "physical_behavior": "State-A sets rinsed plate in rack -> State-B pops one mint gum piece and reads clue aloud"
+        }
+      ],
+      "actions": [
+        {
+          "who": "52-year-old homeowner",
+          "verb_sequence": "finishes rinsing plate -> chews mint gum for two minutes to clear the mental jukebox before bed"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "52-year-old homeowner",
+          "reaction": "enjoys quiet mental stillness"
+        }
+      ],
+      "wardrobe": "Soft gray henley shirt.",
+      "lighting": "Warm evening kitchen pendant light.",
+      "recognition_hook": "Occupy your silent vocal muscles for two minutes and the mental jukebox lets go.",
+      "sources": [
+        "SRC1",
+        "SRC4",
+        "SRC5"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Grocery-aisle pop chorus trapping speech-motor pathways in a repetitive zigzag loop",
+    "landmark_or_object_b": "Plain chewing-gum jaw rhythm severing the silent vocal rehearsal loop",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past Durham stone courtyard and high-street shops ascending skyward",
+    "cut_b_topdown_3d_arrow": "90-degree top-down walkway where a looping #FF2525 3D song-track arrow breaks cleanly apart the moment jaw motion starts",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 2,
+  "slug": "tubbs_mind_after_midnight_3am_spiral",
+  "topic": "Why Every Small Worry Feels 10 Times Worse When You Wake Up at 3 AM",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T03:43:55+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "NEURO_BIOLOGY exposes the dramatic R78 circuit contrast at 3:00 AM inside the #27D8FF 3D brain—a severed/silenced prefrontal brake paired with a +60% hyperactive crimson amygdala threat alarm.",
+  "setup_18w": "Scientists tracked mood, impulse brakes, and threat alarms hour by hour across the twenty-four-hour biological clock.",
+  "primary_doi": "10.3389/fnetp.2021.830338",
+  "three_layer_formula": {
+    "everyday_problem": "Waking up at 3:00 AM in a dark bedroom and feeling an ordinary daytime work or family worry balloon into an unsolvable catastrophe.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.3389/fnetp.2021.830338",
+      "source_ids": [
+        "SRC1",
+        "SRC6"
+      ],
+      "dois": [
+        "10.3389/fnetp.2021.830338",
+        "10.1038/s41598-020-75245-9"
+      ],
+      "summary": "Tubbs, Fernandez, Grandner, Perlis & Klerman (2022, Frontiers in Network Physiology) and Chellappa & Scheer (2020, Scientific Reports) proved nocturnal wakefulness during the circadian night systematically distorts mood, threat bias, and impulse control."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1038/s41562-020-01016-1",
+      "year": 2020,
+      "source_ids": [
+        "SRC2",
+        "SRC4",
+        "SRC3"
+      ],
+      "dois": [
+        "10.1038/s41562-020-01016-1",
+        "10.1016/j.smrv.2015.12.006",
+        "10.1016/j.cub.2007.08.007"
+      ],
+      "summary": "Ben Simon & Walker (2020, Nature Human Behaviour) and Yoo & Walker (2007, Current Biology) demonstrated via fMRI that losing overnight deep sleep disconnects medial prefrontal braking, driving a 60% amygdala threat surge and a 30% anxiety spike."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.3389/fnetp.2021.830338",
+        "year": 2022,
+        "summary": "24-hour Mind After Midnight framework mapping peak negative affect and disinhibition at 2–3 AM."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1038/s41598-020-75245-9",
+        "year": 2020,
+        "summary": "Randomized crossover lab trial proving 4 days of circadian misalignment directly lowers adult mood."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1038/s41562-020-01016-1",
+        "year": 2020,
+        "summary": "Human fMRI and polysomnography showing 30% anxiety rise without sleep and prefrontal restoration via NREM slow waves."
+      },
+      {
+        "source_id": "SRC4",
+        "doi": "10.1016/j.smrv.2015.12.006",
+        "year": 2017,
+        "summary": "Integrative review of prefrontal-limbic emotion regulation failure under disrupted sleep."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "The Mind After Midnight Hypothesis & Prefrontal-Amygdala Nocturnal Disconnect",
+    "year": 2022,
+    "place": "University of Arizona, University of Pennsylvania, Harvard Medical School & UC Berkeley, USA",
+    "people": [
+      {
+        "name": "Andrew S. Tubbs, Michael L. Perlis & Elizabeth B. Klerman",
+        "role": "Sleep and circadian investigators who mapped hour-by-hour prefrontal disinhibition and negative threat bias across the biological night",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Seung-Schik Yoo, Eti Ben Simon & Matthew P. Walker",
+        "role": "Human fMRI neuroscientists who measured the 60% amygdala reactivity surge and 30% anxiety jump when prefrontal brakes disconnect",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Sarah L. Chellappa & Frank A. J. L. Scheer",
+        "role": "Brigham and Women's Hospital circadian physiologists who isolated biological-night mood vulnerability in controlled crossover trials",
+        "source_id": "SRC6"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Tubbs, Perlis, Klerman, and colleagues showed human brains awake between 1:00 AM and 4:00 AM enter a distinct 'Mind After Midnight' state combining powered-down prefrontal inhibition with heightened negative threat focus.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In human fMRI scans by Yoo and Walker, overnight sleep loss triggered a 60 percent surge in amygdala threat reactivity compared with 0 percent excess surge in well-rested controls, while severing top-down medial prefrontal connectivity.",
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Amygdala Threat Surge",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Underslept Brain",
+            "value": 60.0,
+            "unit": "%"
+          },
+          {
+            "label": "Rested Baseline",
+            "value": 0.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1016/j.cub.2007.08.007",
+        "source_citation": "Yoo et al. (2007)"
+      }
+    },
+    {
+      "fact": "In Ben Simon and Walker's human neuroimaging experiments, sleeplessness drove up to a 30 percent spike in anxiety levels versus 0 percent rise after restorative non-REM slow-wave sleep.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Next-Day Anxiety Spike",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "No Deep Sleep",
+            "value": 30.0,
+            "unit": "%"
+          },
+          {
+            "label": "Deep-Sleep Reset",
+            "value": 0.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1038/s41562-020-01016-1",
+        "source_citation": "Ben Simon et al. (2020)"
+      }
+    },
+    {
+      "fact": "Goldstein and Walker's fMRI anticipation trials proved sleep loss amplifies preemptive threat firing in the amygdala and anterior insula even before an unpleasant event happens.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "In Chellappa and Scheer's randomized crossover inpatient study, just 4 days of circadian misalignment (being awake during the biological night) significantly reduced mood and well-being even under identical meals and room conditions.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Across the 24-hour clock, maladaptive impulsive behaviors spike 3-fold to 4-fold between 2:00 AM and 3:00 AM when hypothalamic alertness bottoms out.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Nocturnal wakefulness simultaneously alters dopamine signaling in the nucleus accumbens, biasing tired adults toward impulsive late-night scrolling, spending, or reactive messages.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Evolutionarily, diurnal humans evolved nocturnal hypervigilance to detect physical predators in the dark—a circuit that misfires onto abstract career or financial worries in modern bedrooms.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Non-REM slow-wave delta oscillations act as a natural overnight anxiety reset by reconnecting medial prefrontal calming brakes by morning.",
+      "source_id": "SRC2"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Without overnight sleep's prefrontal brake, your amygdala threat detector fires over 60 percent hotter while its calming wire from behind your forehead disconnects.",
+      "why_surprising": "Explains physically why a minor Tuesday email feels like a life crisis at 3:15 AM.",
+      "source_id": "SRC3",
+      "rank": 1
+    },
+    {
+      "fact": "Simply being awake during your body's biological night—even in a controlled Harvard suite—erodes mood across 4 days via circadian misalignment alone.",
+      "why_surprising": "Proves the 24-hour hypothalamic clock itself gates emotional resilience.",
+      "source_id": "SRC6",
+      "rank": 2
+    },
+    {
+      "fact": "Getting deep non-REM slow-wave sleep reboots medial prefrontal braking overnight, reversing the 30 percent anxiety surge by morning coffee.",
+      "why_surprising": "Shows morning relief is a physical neural reconnection, not wishful thinking.",
+      "source_id": "SRC2",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "If a problem wakes me up at 3:00 AM, thinking it through in bed is the fastest way to settle down.",
+      "truth": "At 3:00 AM your prefrontal cortex executive brake is offline while your amygdala runs hot—guaranteeing distorted, catastrophic conclusions.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Checking my phone or drafting a quick reply at 3:00 AM helps clear my head.",
+      "truth": "Nocturnal prefrontal disinhibition plus altered nucleus accumbens reward sensitivity makes 3:00 AM the peak hour for regretful messages and doomscrolling.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Waking up at 3:12 AM convinced a routine tax form, roof repair, or work presentation is about to ruin your year—then laughing at it over 8:00 AM coffee.",
+    "Catching yourself reaching for your phone in the dark at 2:45 AM and parking the thought on a paper notepad instead.",
+    "Adopting the household rule: zero life decisions and zero sent messages between midnight and 6:00 AM."
+  ],
+  "offcenter_creator_bet": "My bet: never trust a 3 AM thought — when you wake at night, do you jot it on paper or lie there spiraling?",
+  "debate_ignition": {
+    "prebunk_myth": "We treat 3 AM worries like deep truths bubbling up in the quiet, when our rational forehead brake is literally powered down for the night.",
+    "open_verdict_question": "When a worry wakes you up at 3 AM, do you park it on a bedside notepad or lie in the dark trying to solve it?",
+    "offcenter_creator_bet": "My bet: never trust a 3 AM thought — when you wake at night, do you jot it on paper or lie there spiraling?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

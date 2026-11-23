@@ -16,7 +16,9 @@ from pipeline.prompt_quality_v5 import validate_production_v5
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
     DEFAULT_CDP_PORT,
+    DEFAULT_FALLBACK_PILLAR,
     STAGING_QUEUE_FILE,
+    STUDIO_PLAYLISTS_ENABLED,
     get_pillar_default_slot,
     get_slot_info,
 )
@@ -201,7 +203,7 @@ class StagingQueueManager:
             except Exception:
                 continue
 
-            pillar = (metadata or {}).get("pillar") or manifest.get("pillar", "bci_tech")
+            pillar = (metadata or {}).get("pillar") or manifest.get("pillar", DEFAULT_FALLBACK_PILLAR)
             title = metadata.get("title") if metadata else manifest.get("title", p_dir.name)
 
             ready_projects.append({
@@ -223,14 +225,63 @@ class StagingQueueManager:
 
         return ready_projects
 
+    def _queue_lock_path(self) -> Path:
+        import hashlib
+        from pipeline.cdp_tab_lease import get_aab_locks_dir
+
+        digest = hashlib.sha1(str(self.queue_file.resolve()).encode("utf-8")).hexdigest()[:16]
+        return get_aab_locks_dir() / f"staging_queue_{digest}.lock"
+
     def load_queue(self) -> dict[str, Any]:
-        """Loads staging_queue.json or initializes empty schema."""
-        if self.queue_file.exists():
-            try:
-                with open(self.queue_file, "r", encoding="utf-8") as f:
-                    return json.load(f)
-            except Exception:
-                pass
+        """Loads staging_queue.json safely; refuses to reset a non-empty file to `{}` on transient/corrupt read."""
+        import os
+        import time
+        from pipeline.cdp_tab_lease import acquire_shared_flock
+
+        try:
+            import fcntl as _fcntl
+        except ImportError:  # pragma: no cover
+            _fcntl = None  # type: ignore[assignment]
+
+        fh = acquire_shared_flock(self._queue_lock_path())
+        try:
+            if self.queue_file.exists():
+                fsize = 0
+                try:
+                    fsize = self.queue_file.stat().st_size
+                except OSError as exc:
+                    raise RuntimeError(f"Failed to stat staging_queue.json ({self.queue_file}): {exc}") from exc
+                if fsize > 0:
+                    last_err: Exception | None = None
+                    for attempt in range(3):
+                        try:
+                            raw_txt = self.queue_file.read_text(encoding="utf-8")
+                            if not raw_txt.strip():
+                                break
+                            loaded = json.loads(raw_txt)
+                            if not isinstance(loaded, dict):
+                                raise ValueError("staging_queue.json root must be a JSON object")
+                            return loaded
+                        except Exception as exc:  # noqa: BLE001
+                            last_err = exc
+                            if attempt < 2:
+                                time.sleep(0.04 * (attempt + 1))
+                    if last_err is not None:
+                        raise RuntimeError(
+                            f"Refusing to reset non-empty staging_queue.json ({self.queue_file}, {fsize} bytes) "
+                            f"after corrupt/transient read: {last_err}"
+                        ) from last_err
+        finally:
+            if fh is not None and _fcntl is not None:
+                try:
+                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
+                except OSError:
+                    pass
+            if fh is not None:
+                try:
+                    fh.close()
+                except OSError:
+                    pass
 
         now_iso = datetime.now(timezone.utc).isoformat()
         return {
@@ -243,11 +294,41 @@ class StagingQueueManager:
         }
 
     def save_queue(self, queue_data: dict[str, Any]):
-        """Saves staging_queue.json atomically."""
+        """Saves staging_queue.json atomically under shared flock (`temp + os.replace`)."""
+        import os
+        import threading
+        import time
+        from pipeline.cdp_tab_lease import acquire_shared_flock
+
+        try:
+            import fcntl as _fcntl
+        except ImportError:  # pragma: no cover
+            _fcntl = None  # type: ignore[assignment]
+
         queue_data["updated_at"] = datetime.now(timezone.utc).isoformat()
         self.queue_file.parent.mkdir(parents=True, exist_ok=True)
-        with open(self.queue_file, "w", encoding="utf-8") as f:
-            json.dump(queue_data, f, indent=2, ensure_ascii=False)
+        fh = acquire_shared_flock(self._queue_lock_path())
+        tmp_path = (
+            self.queue_file.parent
+            / f".tmp_{os.getpid()}_{threading.get_ident()}_{time.time_ns()}_{self.queue_file.name}"
+        )
+        try:
+            tmp_path.write_text(json.dumps(queue_data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            os.replace(tmp_path, self.queue_file)
+        except BaseException:
+            tmp_path.unlink(missing_ok=True)
+            raise
+        finally:
+            if fh is not None and _fcntl is not None:
+                try:
+                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
+                except OSError:
+                    pass
+            if fh is not None:
+                try:
+                    fh.close()
+                except OSError:
+                    pass
 
     def _collect_live_project_ids_and_archive_history(
         self,
@@ -595,12 +676,13 @@ class StagingQueueManager:
         project_ids: list[str] | None = None,
         allow_legacy_v4: bool = False,
         auto_link: bool = True,
-        assign_playlist: bool = True,
+        assign_playlist: bool = False,
     ) -> dict[str, Any]:
         """
         Uploads all planned unuploaded v5 projects to the YouTube Studio Staging Buffer
         as Unlisted or Scheduled. Never re-uploads already-live videos (R34).
         """
+        assign_playlist = bool(assign_playlist and STUDIO_PLAYLISTS_ENABLED)
         queue_data = self.load_queue()
         items = queue_data.get("scheduled_items", [])
         if not items:

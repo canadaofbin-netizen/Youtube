@@ -1,0 +1,195 @@
+{
+  "schema_version": 2,
+  "slug": "janata_music_nostalgia_alzheimers_spared_hub",
+  "topic": "Why You Forget a New Name in 5 Seconds Yet Sing Every Word From 1985",
+  "pillar": "brain_history",
+  "everyday_domain": "memory",
+  "created_at": "2026-11-16T03:30:00+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Pairs Petr Janata's 2009 UC Davis Billboard-song fMRI discovery and Jacobsen et al.'s 2015 7-Tesla Alzheimer's spared-cortex discovery—contrasting silenced/atrophied hippocampal recent-name memory against active medial-prefrontal and cingulate musical-memory hubs (R78) alongside outdoor car-drive & care-garden headphone scenes (R72/R79-M).",
+  "setup_18w": "Scanners played random billboard songs from decades past to watch which brain hub lit up on nostalgia.",
+  "primary_doi": "10.1093/cercor/bhp008",
+  "primary_case": {
+    "title": "Petr Janata's 2009 UC Davis Billboard-Song fMRI Discovery & Jacobsen et al.'s 2015 7T Alzheimer's Spared Musical-Hub Study",
+    "year": 2009,
+    "place": "Center for Mind and Brain, University of California, Davis, USA (paired with Max Planck Institute, Leipzig, 2015)",
+    "summary": "UC Davis neuroscientist Petr Janata played random 30-second Top-100 Billboard songs from volunteers' childhood and teen years inside an fMRI scanner—finding 42.3% sparked vivid life memories tracked note-by-note inside the medial prefrontal cortex—before Jacobsen et al. (2015, Brain) proved 7-Tesla musical-memory hubs sit in a sheltered cortical island last touched by Alzheimer's atrophy.",
+    "people": [
+      {
+        "name": "Petr Janata",
+        "role": "UC Davis cognitive neuroscientist (Cerebral Cortex, 2009) who mapped how popular songs from ages 7 to 19 track tonal movement and autobiographical nostalgia inside the medial prefrontal cortex",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Jörn-Henrik Jacobsen, Johannes Stelzer & Robert Turner",
+        "role": "Max Planck & Caen neuroscientists (Brain, 2015) who combined 7-Tesla human fMRI in 32 healthy adults with PET/MRI biomarkers in 20 Alzheimer's patients to reveal why musical memory survives dementia",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Amy M. Belfi, Daniel Tranel & Jace B. King",
+        "role": "University of Iowa memory researchers (2016) proving songs beat famous faces for vividness, and University of Utah fMRI clinicians (2019) scanning 17 Alzheimer's patients listening to favored songs",
+        "source_id": "SRC3"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Forgetting the name of someone introduced at a party five seconds ago—yet effortlessly singing every single lyric, chorus, and guitar break when a 1985 radio song comes on in the car.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/cercor/bhp008",
+      "source_ids": [
+        "SRC1",
+        "SRC3"
+      ],
+      "dois": [
+        "10.1093/cercor/bhp008",
+        "10.1080/09658211.2015.1061012"
+      ],
+      "summary": "Janata (2009, Cerebral Cortex) played 30 random 30-second Billboard chart excerpts from ages 7–19 to 13 scanned adults (56.2% familiar; 42.3% evoking autobiographical memories), and Belfi, Karlan & Tranel (2016, Memory) proved 30 songs evoke significantly more vivid sensory life details than 30 famous faces."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1093/brain/awv135",
+      "year": 2015,
+      "source_ids": [
+        "SRC2",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1093/brain/awv135",
+        "10.14283/jpad.2018.19"
+      ],
+      "summary": "Jacobsen et al. (2015, Brain) used ultra-high-field 7T fMRI and Alzheimer's FDG-PET/MRI biomarkers to show long-known songs are stored in caudal anterior cingulate and ventral pre-SMA/medial-frontal hubs showing minimal cortical atrophy and glucose loss in Alzheimer's disease, while King et al. (2019) showed favored songs boost whole-brain functional connectivity."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1093/cercor/bhp008",
+        "year": 2009,
+        "summary": "Janata (2009, Cerebral Cortex) Billboard youth-song autobiographical salience paradigm."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1080/09658211.2015.1061012",
+        "year": 2016,
+        "summary": "Belfi, Karlan & Tranel (2016, Memory) head-to-head comparison of 30 Billboard songs vs 30 famous faces."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1093/brain/awv135",
+        "year": 2015,
+        "summary": "Jacobsen et al. (2015, Brain) 7T fMRI + Alzheimer's PET/MRI biomarker discovery of spared musical-memory cortex."
+      },
+      {
+        "source_id": "SRC4",
+        "doi": "10.14283/jpad.2018.19",
+        "year": 2019,
+        "summary": "King et al. (2019, JPAD) fMRI study of 17 Alzheimer's patients showing favored music synchronizes brain-wide networks."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "At the University of California, Davis, neuroscientist Petr Janata (2009, Cerebral Cortex) slid 13 healthy adults into an fMRI scanner and played 30 random 30-second Apple iTunes previews pulled from Top-100 Billboard charts when each listener was 7 to 19 years old.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Petr Janata's (2009) UC Davis fMRI experiment, 13 healthy adults heard 30 random 30-second Billboard chart excerpts from their youth: 56.2% of those random old songs were recognized as familiar, and 42.3% spontaneously unlocked vivid autobiographical memories.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Random Youth Songs Triggered",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Familiar Tunes",
+            "value": 56.2,
+            "unit": "%"
+          },
+          {
+            "label": "Vivid Life Memories",
+            "value": 42.3,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1093/cercor/bhp008",
+        "source_citation": "Janata (2009)"
+      }
+    },
+    {
+      "fact": "Janata (2009) discovered that the medial prefrontal cortex simultaneously tracked the real-time chord-by-chord tonal movement of a song AND scaled straight up with how strongly that song brought back a specific person, car ride, or teenage summer.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Why don't old songs vanish when the hippocampus shrinks? In 2015 (Brain), Jörn-Henrik Jacobsen, Robert Turner, and colleagues scanned 32 adults in a 7-Tesla MRI hearing unknown, 1-hour-old, and long-known songs, pinpointing long-term song storage in the caudal anterior cingulate and ventral pre-supplementary motor cortex.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Comparing those exact musical-memory coordinates against PET and structural MRI scans from 20 Alzheimer's patients (mean age 68.9) and 34 healthy older controls (mean age 68.1), Jacobsen et al. (2015) proved the musical-memory hub suffers among the lowest cortical atrophy and lowest glucose-metabolism loss in the entire Alzheimer's brain.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Even though amyloid-beta plaques were already present inside that musical hub in Alzheimer's patients, the tissue had not yet progressed to metabolic shutdown or cell shrinkage—explaining why late-stage patients who forget family names can still sing youth songs word for word (Jacobsen et al. 2015; Cuddy et al. 2015).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "At the University of Iowa, Amy Belfi, Brett Karlan, and Daniel Tranel (2016, Memory) tested 30 Billboard hits head-to-head against 30 famous faces from the same years, proving music evokes memories packed with richer perceptual and emotional detail than visual faces.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "In 2019, Jace King and University of Utah clinicians scanned 17 adults with Alzheimer's dementia before and after a personalized favorite-music program, showing beloved youth songs wake up motor-musical hubs and temporarily re-synchronize corticocortical brain connectivity.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Play completely random Billboard chart songs from ages 7 to 19—not even handpicked favorites—and 42.3% spontaneously transport listeners back into a vivid personal memory inside the scanner.",
+      "why_surprising": "Nearly half of random background radio hits from youth are permanently wired to personal life episodes.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "7-Tesla brain mapping + Alzheimer's PET scans (Jacobsen et al., 2015) proved long-loved songs aren't stored in the fragile name-learning hippocampus—they live in a midline frontal-cingulate island that stays metabolically alive even in advanced Alzheimer's.",
+      "why_surprising": "Reveals why forgetting a new name in 5 seconds and belting out a 40-year-old chorus use two completely separate brain vaults.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "In 17 scanned Alzheimer's patients (King et al., 2019), putting on headphones with personally loved youth songs measurably boosted synchronized communication across widespread brain networks afterward.",
+      "why_surprising": "A playlist built from ages 12–25 acts as a zero-side-effect neural bridge for aging parents and grandparents.",
+      "source_id": "SRC4",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Remembering 1980s song lyrics while forgetting a new neighbor's name means you just aren't paying attention to people.",
+      "truth": "Brand-new names depend on single-pass hippocampal encoding, whereas 40-year-old songs are braided across auditory, basal-ganglia motor-rhythm, cingulate, and medial-prefrontal hubs rehearsed hundreds of times (Janata 2009; Koelsch 2014).",
+      "source_id": "SRC6"
+    },
+    {
+      "myth": "Alzheimer's disease erases all memories evenly from back to front across the entire cortex.",
+      "truth": "Jacobsen et al. (2015, Brain) showed that while hippocampal and temporal episodic hubs atrophy early, the midline caudal anterior cingulate / pre-motor musical hub remains a remarkably spared metabolic sanctuary.",
+      "source_id": "SRC2"
+    }
+  ],
+  "everyday_hooks": [
+    "Forgetting a new acquaintance's name five seconds after shaking hands—then getting in your car and singing every single verse and bridge of a 1985 radio track you haven't heard in ten years.",
+    "Hearing the opening three chords of a song from high school in a grocery store aisle and instantly smelling a specific summer dashboard or basement rec room.",
+    "Building a 20-song 'Age 15-to-25 Playlist' for an aging parent or for your own high-stress afternoons to tap the brain's most resilient memory sanctuary."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "People joke that remembering 1985 lyrics while forgetting new names means selective laziness, when brain scans prove songs and names live in two completely different vaults.",
+    "open_verdict_question": "When an old song from your teens comes on unexpectedly, does it bring back a specific place first or the exact person you were with?",
+    "offcenter_creator_bet": "My bet: teenage songs outlast every password — do old hits bring back places or people first?"
+  },
+  "offcenter_creator_bet": "My bet: teenage songs outlast every password — do old hits bring back places or people first?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

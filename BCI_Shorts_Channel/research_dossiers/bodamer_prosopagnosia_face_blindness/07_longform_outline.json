@@ -1,100 +1,118 @@
 {
-  "target_minutes": 11,
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
   "shorts_extract": {
-    "hook": "20/20 eyesight yet a stranger in the mirror: how Bodamer's 1947 discovery of Prosopagnosia revealed two hidden wires for human identity.",
-    "core_experiment": "Bodamer (1947) Patient S. dissociation (intact print, objects & voices vs lost face ID) + Tranel & Damasio (1985) covert sweat recognition.",
-    "twist": "The Capgras mirror-twin double dissociation, Oliver Sacks's mirror apology, and why 1 in 50 adults quietly live with developmental face blindness."
+    "hook": "He could read the tiniest print on a newspaper — yet stared into a mirror at himself and straight at his own mother seeing total strangers, until she spoke one word.",
+    "core_experiment": "Bodamer (1947) Patient S. (0% silent face ID vs 100% voice ID) + Tranel & Damasio (1985 Science) covert palm-sweat spikes + Akdoğan et al. (2026) & Rossion (2014).",
+    "twist": "Why palm sweat knows Mom when conscious speech doesn't, the Capgras mirror-twin proof, and why 1 in 50 adults around you live with developmental face blindness."
   },
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "46-year-old adult staring puzzled into a brass-framed mirror with 20/20 sharp eyes",
+    "right_cyan_brain": "3D translucent glass brain with severed crimson X on fusiform face area alongside active #27D8FF visual cortex, auditory cortex, and amygdala",
+    "badge_text": "STRANGER IN MIRROR"
+  },
+  "r75_clean_seed_tags": [
+    "prosopagnosia",
+    "face blindness",
+    "fusiform face area",
+    "joachim bodamer",
+    "antonio damasio",
+    "brain mysteries",
+    "visual neuroscience",
+    "neurology cases",
+    "psychology facts",
+    "shorts"
+  ],
   "chapters": [
     {
       "n": 1,
-      "title": "1947 Winnenden: Sharp Eyes, Blank Mirror, Instant Voice",
+      "title": "Winnenden 1947: 20/20 Eyesight, Blank Mirror, Instant Voice",
       "beats": [
-        "Patient S. reads tiny print yet walks past his silent mother",
-        "One spoken syllable unlocks full memory: coining 'Prosopagnosia'"
+        "Patient S. reads tiny print yet misses his own reflection and silent mother",
+        "0% silent face ID vs 100% voice rescue: coining 'Prosopagnosia'"
       ],
       "scene_ids": [
         "S1"
       ],
       "reuse_shorts_roles": [
         "setup",
-        "symptom",
-        "pivot"
+        "symptom"
       ],
       "new_shots_needed": [
-        "eye card, tabletop mirror & portraits"
+        "clinic desk eye card, tabletop mirror & doorway greeting"
       ]
     },
     {
       "n": 2,
-      "title": "When Sweat Glands Remember Who Words Forgot (1985)",
+      "title": "Severing the Fusiform Face Patch (Rossion 2014; Akdoğan 2026)",
       "beats": [
-        "Tranel & Damasio's electrodermal family-photo test",
-        "Mirror-image twin of Capgras impostor delusion"
+        "Why general object vision cannot read whole faces",
+        "Right occipitotemporal holistic face integration breakdown"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3D severed fusiform face patch vs intact V1"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Iowa 1985: When Sweat Glands Remember Who Words Forgot",
+      "beats": [
+        "Tranel & Damasio's family-vs-stranger skin-conductance test",
+        "Ellis & Young (1990): exact mirror twin of Capgras impostor delusion"
       ],
       "scene_ids": [
         "S2"
       ],
       "reuse_shorts_roles": [
         "step1",
-        "crisis"
+        "crisis",
+        "step2"
       ],
       "new_shots_needed": [
-        "palmar conductance spike chart"
-      ]
-    },
-    {
-      "n": 3,
-      "title": "Oliver Sacks & The 1-in-50 Hidden Trait",
-      "beats": [
-        "Tipping a hat to your own reflection",
-        "~2% congenital face blindness: surviving by haircuts, shoes & voices"
-      ],
-      "scene_ids": [
-        "S4",
-        "S3"
-      ],
-      "reuse_shorts_roles": [
-        "failure",
-        "step2",
-        "breakthrough"
-      ],
-      "new_shots_needed": [
-        "bookshop mirror & office context shift"
+        "photo deck & jumping polygraph sweat pen"
       ]
     },
     {
       "n": 4,
-      "title": "Inside the Ventral Fusiform-Temporal Bridge",
+      "title": "1 in 50 Adults: Living With Hidden Developmental Face Blindness",
       "beats": [
-        "Apperceptive FFA assembly vs associative temporal memory link",
-        "Why eyes draw gaze even when identity fails"
-      ],
-      "scene_ids": [
-        "S1"
-      ],
-      "reuse_shorts_roles": [
-        "step1"
-      ],
-      "new_shots_needed": [
-        "fusiform-to-temporal diagram"
-      ]
-    },
-    {
-      "n": 5,
-      "title": "Five Kind Words That Help 2% of Every Room",
-      "beats": [
-        "Why out-of-context encounters trip face-blind colleagues",
-        "Saying your name warmly out of context"
+        "~2% lifelong prevalence without stroke or brain injury",
+        "Navigating offices by desk context, glasses, gait, and voice"
       ],
       "scene_ids": [
         "S3"
       ],
       "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "outdoor weekend farmers' market hat/context slip"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 5-Word Kindness That Bridges Every Room",
+      "beats": [
+        "Why grocery-aisle walk-pasts aren't rudeness",
+        "Saying your name aloud when greeting colleagues out of context"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
         "conclusion"
       ],
       "new_shots_needed": [
-        "warm named greeting"
+        "warm named handshake on sunlit market sidewalk"
       ]
     }
   ]

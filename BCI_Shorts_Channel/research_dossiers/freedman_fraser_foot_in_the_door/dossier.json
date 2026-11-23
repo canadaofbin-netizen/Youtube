@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "freedman_fraser_foot_in_the_door",
   "topic": "Freedman & Fraser (1966): 'Foot-in-the-Door' — How a Tiny 3-Inch Window Sticker Made 76% Put a Monster Billboard on Their Lawn!",
   "pillar": "brain_basics",
@@ -40,7 +40,29 @@
     },
     {
       "fact": "Two weeks later, when the second stranger knocks with the photo of the **giant ugly front-lawn billboard**, compliance among the 3-inch-sticker houses **explodes more than FOURFOLD — from 16.7% all the way up to 76.0%**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Giant Lawn-Sign Compliance",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Cold Request Only",
+            "value": 16.7,
+            "unit": "%"
+          },
+          {
+            "label": "After Tiny Sticker",
+            "value": 76.0,
+            "unit": "%"
+          }
+        ],
+        "multiplier_badge": "4.5×",
+        "doi": "10.1037/h0023552",
+        "source_citation": "Freedman & Fraser (1966)"
+      }
     },
     {
       "fact": "Wait — maybe they just cared extra about 'safe driving'? Freedman & Fraser tested **THREE MORE groups** two weeks earlier using **completely unrelated topics/actions** (like signing a petition to **'Keep California Beautiful'** — different person, different issue, different task!): even when Topic 1 was **littering** and Request 2 was the **giant driving billboard**, **47.4% STILL said YES** ( nearly **3x** the 16.7% control).",
@@ -52,7 +74,27 @@
     },
     {
       "fact": "Even in Study 1 (conducted entirely by telephone!), asking Palo Alto homemakers 8 quick 2-minute survey questions about what brand of kitchen soap they used **more than DOUBLED** their willingness three days later (**52.8% vs 22.2%**) to let **5 or 6 strange men come rummage through every cupboard and closet in their house for two hours** counting household products.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Home-Inventory Compliance",
+        "unit": "%",
+        "series": [
+          {
+            "label": "After Soap Survey",
+            "start_label": "Cold Call Only",
+            "values": [
+              22.2,
+              52.8
+            ],
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/h0023552",
+        "source_citation": "Freedman & Fraser (1966)"
+      }
     },
     {
       "fact": "Follow-up experiments (SRC3) delivered smoking-gun proof of the **Self-Perception identity mechanism**: if you **PAY** homeowners $5 for putting up the tiny 3-inch sticker first, the 76% lawn-sign jump **COLLAPSES** — because cash steals the identity shift (*'I only put that sticker up for five bucks, not because I'm a civic activist'*).",
@@ -122,5 +164,37 @@
     "diorama_64_freedman_fraser_foot_in_the_door"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0023552",
+  "three_layer_formula": {
+    "everyday_problem": "Stopping on a street corner to answer *'Just ONE quick question — do you care about clean water?'* and realizing five minutes later why that innocent yes made walking away from a monthly signup clipboard feel twice as hard.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0023552",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0023552"
+      ],
+      "summary": "Jonathan L. Freedman, Scott C. Fraser (1966). Compliance without pressure: The foot-in-the-door technique. Journal of Personality and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1177/0033294119872208",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1177/0033294119872208"
+      ],
+      "summary": "Malgorzata Gamian-Wilk, Dariusz Dolinski (2020). The Foot-in-the-Door Phenomenon 40 and 50 Years Later: A Direct Replication of the Original Freedman and Fraser Study in Poland and in Ukraine. Psychological Reports."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Foot-in-the-Door only works when the same salesperson comes back asking for the exact same product.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

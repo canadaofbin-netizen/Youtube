@@ -25,14 +25,22 @@ from pipeline.config import (
 )
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import (
+    BANNED_OFF_TOPIC_TECH_TAGS,
+    CHANNEL_CLEAN_KEYWORDS,
     CHANNEL_ID,
     CHANNEL_NAME,
     CHANNEL_RESIDENCE_COUNTRY,
     CHANNEL_RESIDENCE_COUNTRY_KO,
     CHANNEL_RESIDENCE_COUNTRY_NAME,
     DEFAULT_CDP_PORT,
+    DEFAULT_EDUCATION_ACADEMIC_SYSTEM,
+    DEFAULT_EDUCATION_ACADEMIC_SYSTEM_KO,
+    DEFAULT_FALLBACK_PILLAR,
     DEFAULT_VIDEO_CATEGORY,
+    DEFAULT_VIDEO_CATEGORY_KO,
+    MIN_SCHEDULE_WARMUP_MINUTES,
     STUDIO_BASE_URL,
+    STUDIO_PLAYLISTS_ENABLED,
     STUDIO_SELECTORS,
     STUDIO_SETTINGS_SELECTORS,
     TARGET_AUDIENCE_REGION,
@@ -56,6 +64,11 @@ from pipeline.studio.whale_session import (
     WhaleSessionController,
     cleanup_staged_bridge_files,
 )
+
+
+def _now_us_eastern() -> datetime:
+    """Returns current timezone-aware datetime in `America/New_York` (monkeypatchable in tests)."""
+    return datetime.now(ZoneInfo("America/New_York"))
 
 
 def compute_sha256(file_path: Path) -> str:
@@ -101,7 +114,11 @@ def _is_legacy_hermetic_test_stub(project_dir: Path) -> bool:
         return False
     manifest = _read_json_dict(p_dir / "00_project_manifest.json")
     asm_stage = (manifest.get("stages") or {}).get("05_assembly") or {}
-    return str(asm_stage.get("status") or "pending") == "pending" and not bool(asm_stage.get("artifacts"))
+    asm_arts = asm_stage.get("artifacts") or {}
+    real_asm_keys = [
+        k for k in asm_arts if not str(k).startswith("carousel_source_frames/") and str(k) != "final_shorts_1080x1920.mp4"
+    ]
+    return len(real_asm_keys) == 0 and not (p_dir / "05_assembly" / "edit_decision_list.json").exists()
 
 
 def verify_publish_ready_qa_bundle(
@@ -109,16 +126,24 @@ def verify_publish_ready_qa_bundle(
     require_semantic_review: bool = True,
     require_thumbnail_qa: bool | None = None,
     fast_stat_only: bool = False,
+    require_prosody_qa: bool | None = None,
+    require_ref_qa: bool | None = None,
+    require_reenact_qa: bool | None = None,
 ) -> dict[str, Any]:
     """
     Mandatory Post-Assembly QA & R64 Semantic Review Lock before YouTube Studio upload:
       1. `05_assembly/final_shorts_1080x1920.mp4` exists + `ProjectStorage.verify_integrity()["all_intact"]`.
-      2. `05_assembly/video_autopsy_report.json` exists and `passed == True`.
+      2. `05_assembly/video_autopsy_report.json` exists, `passed == True`, and `final_mp4_sha256 == cur_sha`.
       3. For `neuro_diorama` projects (`is_diorama_profile`):
-         - `05_assembly/dynamic_episode_qa_report.json` (`DQ1-DQ12`) exists, `passed == True`, and `final_mp4_sha256 == cur_sha`.
+         - `05_assembly/dynamic_episode_qa_report.json` (`DQ1-DQ13`) exists, `passed == True`, and `final_mp4_sha256 == cur_sha`.
          - `05_assembly/posthoc_semantic_qa_report.json` (`R64`) exists, `passed == True`, and `final_mp4_sha256 == cur_sha`.
+         - `04_audio/prosody_report.json` + `05_assembly/prosody_qa_report.json` (`P1-P10`) passed when audio/R66/R68 present.
+         - `03_visuals/reference_image_qa_report.json` (`Q1-Q10`) passed when R66/R68 or reference pack present.
+         - `05_assembly/reenactment_qa_report.json` (`RQ1-RQ5`) passed when Track A (`source_edl.json` / `reenactment_track == 'track_a'`).
          - When `require_semantic_review=True`, `05_assembly/posthoc_semantic_review.json` passes `validate_posthoc_semantic_review(...)["valid"] == True`.
     """
+    from pipeline.media_cache import fast_file_sha256
+
     p_dir = Path(project_dir)
     project_id = p_dir.name
     issues: list[str] = []
@@ -158,9 +183,11 @@ def verify_publish_ready_qa_bundle(
                 integrity_ok = True
         else:
             integrity_ok = bool(manifest_doc.get("stages"))
-        if not cur_sha:
-            aut_tmp = _read_json_dict(p_dir / "05_assembly" / "video_autopsy_report.json")
-            cur_sha = str(aut_tmp.get("final_mp4_sha256") or "")
+        if not cur_sha and final_mp4.is_file() and mp4_size > 0:
+            try:
+                cur_sha = fast_file_sha256(final_mp4)
+            except OSError as exc:
+                issues.append(f"final_mp4_sha256_read_error:{exc}")
     else:
         try:
             storage = (
@@ -192,7 +219,7 @@ def verify_publish_ready_qa_bundle(
         autopsy_sha = str(autopsy_doc.get("final_mp4_sha256") or "")
         if autopsy_doc.get("passed") is not True:
             issues.append("video_autopsy_not_passed")
-        elif autopsy_sha and cur_sha and autopsy_sha != cur_sha:
+        elif not autopsy_sha or (cur_sha and autopsy_sha != cur_sha):
             issues.append("stale_video_autopsy_final_mp4_sha256_mismatch")
         else:
             autopsy_ok = True
@@ -201,10 +228,15 @@ def verify_publish_ready_qa_bundle(
     script_doc = _read_json_dict(p_dir / "02_script" / "script.json")
     meta_doc = _read_json_dict(p_dir / "06_publish" / "metadata.json")
     is_diorama = is_diorama_profile(plan) or is_diorama_profile(script_doc) or is_diorama_profile(meta_doc)
+    style_prof = str(plan.get("style_profile") or script_doc.get("style_profile") or "").strip()
+    is_porcelain_or_v8 = style_prof in ("porcelain_cinematic_v7", "expressive_25d_v8")
 
     dq_ok: bool | None = None
     posthoc_ok: bool | None = None
     review_ok: bool | None = None
+    prosody_ok: bool | None = None
+    ref_qa_ok: bool | None = None
+    reenact_qa_ok: bool | None = None
     edl_sha = ""
 
     if is_diorama:
@@ -241,6 +273,71 @@ def verify_publish_ready_qa_bundle(
                 issues.append("stale_posthoc_semantic_qa_final_mp4_sha256_mismatch")
             else:
                 posthoc_ok = True
+
+        # Prosody P1-P10 gate validation
+        prosody_meta_path = p_dir / "04_audio" / "prosody_report.json"
+        prosody_qa_path = p_dir / "05_assembly" / "prosody_qa_report.json"
+        has_audio_stage = (p_dir / "04_audio" / "audio_master.wav").exists()
+        if require_prosody_qa is True or (
+            require_prosody_qa is None
+            and (is_porcelain_or_v8 or prosody_meta_path.exists() or prosody_qa_path.exists() or has_audio_stage)
+        ):
+            prosody_ok = False
+            if not prosody_meta_path.exists() and not prosody_qa_path.exists():
+                issues.append("missing_prosody_report_json")
+            else:
+                pr_meta = _read_json_dict(prosody_meta_path) if prosody_meta_path.exists() else {}
+                pr_qa = _read_json_dict(prosody_qa_path) if prosody_qa_path.exists() else {}
+                if prosody_meta_path.exists() and not pr_meta:
+                    issues.append("corrupt_prosody_report_json")
+                elif prosody_qa_path.exists() and pr_qa.get("passed") is not True:
+                    issues.append(f"prosody_qa_not_passed:{pr_qa.get('gates_passed', 'failed')}")
+                elif not prosody_qa_path.exists() and pr_meta.get("passed") is False:
+                    issues.append("prosody_report_not_passed")
+                elif not prosody_qa_path.exists() and (is_porcelain_or_v8 or require_prosody_qa is True) and pr_meta.get("passed") is not True:
+                    issues.append("missing_prosody_qa_report_json")
+                else:
+                    prosody_ok = True
+
+        # Reference Image QA (Q1-Q10) validation
+        ref_qa_path = p_dir / "03_visuals" / "reference_image_qa_report.json"
+        if not ref_qa_path.exists():
+            alt_ref = p_dir / "03_visuals" / "reference_images" / "reference_image_qa_report.json"
+            if alt_ref.exists():
+                ref_qa_path = alt_ref
+        has_ref_dir = (p_dir / "03_visuals" / "reference_images").exists()
+        if require_ref_qa is True or (
+            require_ref_qa is None and (is_porcelain_or_v8 or ref_qa_path.exists() or has_ref_dir)
+        ):
+            ref_qa_ok = False
+            if not ref_qa_path.exists():
+                issues.append("missing_reference_image_qa_report_json")
+            else:
+                ref_doc = _read_json_dict(ref_qa_path)
+                if not ref_doc:
+                    issues.append("corrupt_reference_image_qa_report_json")
+                elif not (
+                    ref_doc.get("passed") is True
+                    or ref_doc.get("pre_generation_ready") is True
+                    or ref_doc.get("all_passed") is True
+                ):
+                    issues.append("reference_image_qa_not_passed")
+                else:
+                    ref_qa_ok = True
+
+        # Reenactment Non-Infringement QA (RQ1-RQ5) for Track A
+        is_track_a = (p_dir / "03_visuals" / "source_edl.json").exists() or str(plan.get("reenactment_track") or "") == "track_a"
+        rqa_path = p_dir / "05_assembly" / "reenactment_qa_report.json"
+        if require_reenact_qa is True or (require_reenact_qa is None and (is_track_a or rqa_path.exists())):
+            reenact_qa_ok = False
+            if not rqa_path.exists():
+                issues.append("missing_reenactment_qa_report_json")
+            else:
+                rqa_doc = _read_json_dict(rqa_path)
+                if rqa_doc.get("passed") is not True:
+                    issues.append(f"reenactment_qa_not_passed:{rqa_doc.get('gates_passed', 'failed')}")
+                else:
+                    reenact_qa_ok = True
 
         if require_semantic_review:
             from pipeline.posthoc_semantic_qa import validate_posthoc_semantic_review
@@ -312,6 +409,9 @@ def verify_publish_ready_qa_bundle(
         "autopsy_passed": autopsy_ok,
         "dynamic_episode_qa_passed": dq_ok,
         "posthoc_semantic_qa_passed": posthoc_ok,
+        "prosody_qa_passed": prosody_ok,
+        "reference_image_qa_passed": ref_qa_ok,
+        "reenactment_qa_passed": reenact_qa_ok,
         "posthoc_semantic_review_valid": review_ok,
         "thumbnail_qa_passed": thumb_qa_ok,
         "warnings": thumb_warnings,
@@ -457,8 +557,16 @@ class StudioUploader:
         burn_first_frame: bool = False,
         skip_qa_gate: bool = False,
         require_semantic_review: bool = True,
+        allow_instant_public: bool = False,
     ) -> dict[str, Any]:
         """Loads and verifies all project artifacts and mandatory QA locks required for publishing."""
+        norm_vis = str(visibility or "").strip().lower()
+        if norm_vis == "public" and not allow_instant_public:
+            raise ValueError(
+                "[R75] Instant Public upload is banned on YouTube Studio; "
+                "use visibility='scheduled' (>= 3.0h warmup) or pass allow_instant_public=True."
+            )
+
         proj_dir = self.projects_dir / project_id
         if not proj_dir.exists():
             raise FileNotFoundError(f"Project directory not found: {proj_dir}")
@@ -477,7 +585,6 @@ class StudioUploader:
 
         storage = ProjectStorage(project_id, projects_dir=self.projects_dir)
         manifest = storage.get_manifest()
-        pillar = manifest.get("pillar", "bci_tech")
 
         publish_dir = storage.get_stage_dir("06_publish")
         metadata_file = publish_dir / "metadata.json"
@@ -486,6 +593,12 @@ class StudioUploader:
 
         with open(metadata_file, "r", encoding="utf-8") as f:
             metadata = json.load(f)
+
+        pillar = str(
+            (metadata.get("pillar") if isinstance(metadata, dict) else None)
+            or manifest.get("pillar")
+            or DEFAULT_FALLBACK_PILLAR
+        ).strip() or DEFAULT_FALLBACK_PILLAR
 
         # Video asset resolution (includes Completed_Psychology_100_Shorts fallback)
         resolved_video = resolve_project_video_path(proj_dir, project_id)
@@ -524,17 +637,52 @@ class StudioUploader:
                 video_path = self.apply_first_frame_burn_in(video_path, thumb_path, output_path=burn_out)
 
         # Determine slot & scheduling time in US Eastern Time (America/New_York, DST-aware)
+        is_sched = norm_vis == "scheduled"
+        now_et = _now_us_eastern()
         if slot_id is None:
-            slot_id = get_pillar_default_slot(pillar)
+            slot_id = 4 if is_sched else get_pillar_default_slot(pillar)
 
         if not target_date:
-            target_date = datetime.now(ZoneInfo("America/New_York")).strftime("%Y-%m-%d")
+            target_date = now_et.strftime("%Y-%m-%d")
 
         ref_date_obj = None
         try:
             ref_date_obj = datetime.strptime(target_date, "%Y-%m-%d").date()
         except ValueError:
-            ref_date_obj = None
+            ref_date_obj = now_et.date()
+            target_date = ref_date_obj.strftime("%Y-%m-%d")
+
+        if is_sched and ref_date_obj is not None:
+            # Load already-booked scheduled dates from staging_queue.json so daily prime uploads never collide
+            booked_dates: set[str] = set()
+            q_candidates = [self.projects_dir.parent / "staging_queue.json"]
+            for qp in q_candidates:
+                q_doc = _read_json_dict(qp)
+                for item in (list(q_doc.get("queue") or []) + list(q_doc.get("scheduled_items") or [])):
+                    if not isinstance(item, dict):
+                        continue
+                    if str(item.get("project_id") or "") == project_id:
+                        continue
+                    st = str(item.get("status") or "").strip().lower()
+                    if st in ("scheduled", "scheduled_public"):
+                        b_date = str(item.get("target_publish_date") or item.get("date") or "").strip()
+                        if not b_date and item.get("scheduled_time_et"):
+                            b_date = str(item["scheduled_time_et"]).split()[0].strip()
+                        if b_date:
+                            booked_dates.add(b_date)
+
+            for _ in range(366):
+                cand_slot = get_slot_info(slot_id, ref_date=ref_date_obj)
+                cand_date_str = ref_date_obj.strftime("%Y-%m-%d")
+                cand_dt_et = datetime.strptime(
+                    f"{cand_date_str} {cand_slot['time_et']}", "%Y-%m-%d %H:%M"
+                ).replace(tzinfo=ZoneInfo("America/New_York"))
+                if cand_dt_et <= now_et + timedelta(minutes=MIN_SCHEDULE_WARMUP_MINUTES) or cand_date_str in booked_dates:
+                    ref_date_obj = ref_date_obj + timedelta(days=1)
+                    continue
+                target_date = cand_date_str
+                break
+
         slot_info = get_slot_info(slot_id, ref_date=ref_date_obj)
 
         max_title_len = TITLE_MAX_CHARS_DIORAMA if is_diorama else 60
@@ -544,6 +692,26 @@ class StudioUploader:
 
         description = metadata.get("description", clean_title)
 
+        from pipeline.publish import build_clean_episode_tags, validate_episode_tags_hygiene
+
+        raw_tags = metadata.get("tags") if isinstance(metadata, dict) else None
+        if isinstance(raw_tags, list) and raw_tags:
+            tags = [str(t).strip() for t in raw_tags if str(t).strip()]
+            validate_episode_tags_hygiene(tags, pillar, raise_on_error=True)
+        else:
+            tags = build_clean_episode_tags(
+                project_id=project_id,
+                title=clean_title,
+                pillar=pillar,
+                script=scr_data if isinstance(scr_data, dict) else {},
+                metadata=metadata if isinstance(metadata, dict) else {},
+            )
+            validate_episode_tags_hygiene(tags, pillar, raise_on_error=True)
+
+        raw_cat = str(metadata.get("category") or DEFAULT_VIDEO_CATEGORY).strip()
+        if pillar != "bci_tech" and raw_cat.lower() in ("science & technology", "science and technology", "과학 기술"):
+            raw_cat = DEFAULT_VIDEO_CATEGORY
+
         return {
             "project_id": project_id,
             "pillar": pillar,
@@ -552,12 +720,13 @@ class StudioUploader:
             "cover_frame_sec": cover_frame_sec,
             "title": clean_title,
             "description": description,
+            "tags": tags,
             "visibility": visibility,
             "slot_id": slot_id,
             "slot_info": slot_info,
             "target_date": target_date,
             "scheduled_time_et": f"{target_date} {slot_info['time_et']} ET",
-            "category": metadata.get("category", DEFAULT_VIDEO_CATEGORY),
+            "category": raw_cat or DEFAULT_VIDEO_CATEGORY,
             "video_language": metadata.get("video_language", VIDEO_LANGUAGE_CODE),
             "video_language_label": metadata.get("video_language_label", VIDEO_LANGUAGE_LABEL),
             "title_description_language": metadata.get("title_description_language", TITLE_DESCRIPTION_LANGUAGE_CODE),
@@ -700,16 +869,349 @@ class StudioUploader:
                 results[key_name] = bool(clicked) and any(lbl in updated_text for lbl in en_us_labels)
         return results
 
-    async def _async_configure_studio_localization(self, dry_run: bool = False) -> dict[str, Any]:
+    @staticmethod
+    async def _capture_background_screenshot_bytes(client: DirectCDPClient) -> bytes:
+        """Captures PNG screenshot bytes from a background leased tab via Page.startScreencast without stealing focus."""
+        import base64
+        import contextlib
+
+        if not hasattr(client, "send"):
+            return b""
+        with contextlib.suppress(Exception):
+            await client.send("Page.startScreencast", {"format": "png", "quality": 90, "everyNthFrame": 1})
+        try:
+            await asyncio.sleep(0.8)
+            shot = await client.send("Page.captureScreenshot", {"format": "png", "fromSurface": True})
+            b64 = str((shot or {}).get("data") or "")
+            return base64.b64decode(b64) if b64 else b""
+        finally:
+            with contextlib.suppress(Exception):
+                await client.send("Page.stopScreencast")
+
+    @staticmethod
+    async def _prepare_leased_tab_for_close(client: DirectCDPClient) -> None:
+        """Disarms any YouTube Studio beforeunload listeners and navigates to about:blank so /json/close succeeds cleanly."""
+        import contextlib
+
+        if not hasattr(client, "send"):
+            return
+        with contextlib.suppress(Exception):
+            await client.eval("(() => { try { window.onbeforeunload = null; } catch(e) {} return true; })()")
+        with contextlib.suppress(Exception):
+            await client.send("Page.navigate", {"url": "about:blank"})
+            await asyncio.sleep(0.4)
+
+    async def _read_chip_bar_values(self, client: DirectCDPClient, container_selector: str) -> list[str]:
+        if not hasattr(client, "send"):
+            return []
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        res = await client.eval(
+            rf"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const roots = __queryAllDeep({json.dumps(container_selector)});
+                const root = roots.find(r => r.getBoundingClientRect().width > 0) || roots[0];
+                if (!root) return [];
+                const chips = __queryAllDeep('ytcp-chip', root);
+                return chips.map(c => {{
+                    const t = __queryAllDeep('#chip-text, .chip-text', c)[0] || c;
+                    return ((t.innerText || t.textContent || '').split('\n')[0] || '').trim();
+                }}).filter(Boolean);
+            }})()"""
+        )
+        return [str(x).strip() for x in (res or []) if str(x).strip()]
+
+    async def _set_chip_bar_values(
+        self,
+        client: DirectCDPClient,
+        *,
+        container_selector: str,
+        target_values: list[str] | tuple[str, ...],
+    ) -> list[str]:
+        """Deterministically clears all Polymer ytcp-chip items in `container_selector` and inserts `target_values`."""
+        if not hasattr(client, "send"):
+            return []
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        # 1. Click #clear-button ("Delete all") if present & visible
+        await client.eval(
+            rf"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const roots = __queryAllDeep({json.dumps(container_selector)});
+                const root = roots.find(r => r.getBoundingClientRect().width > 0) || roots[0];
+                if (!root) return false;
+                root.scrollIntoView({{block: 'center'}});
+                const clr = __queryAllDeep('#clear-button, ytcp-icon-button#clear-button, [aria-label="Delete all"], [aria-label="모두 삭제"]', root)
+                    .find(b => b.getBoundingClientRect().width > 0);
+                if (clr) {{
+                    const inner = __queryAllDeep('button', clr)[0] || clr;
+                    inner.click();
+                    return true;
+                }}
+                return false;
+            }})()"""
+        )
+        await asyncio.sleep(0.35)
+
+        # 2. Loop clicking individual chip #delete-icon buttons until 0 chips remain
+        for _ in range(36):
+            rem = await client.eval(
+                rf"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const roots = __queryAllDeep({json.dumps(container_selector)});
+                    const root = roots.find(r => r.getBoundingClientRect().width > 0) || roots[0];
+                    if (!root) return 0;
+                    const chips = __queryAllDeep('ytcp-chip', root);
+                    if (!chips.length) return 0;
+                    for (const ch of chips.slice(0, 8)) {{
+                        const del = __queryAllDeep('#delete-icon, [aria-label="Remove"], [aria-label="삭제"], button', ch)[0];
+                        if (del) {{
+                            try {{ del.click(); }} catch(e) {{}}
+                        }}
+                    }}
+                    return chips.length;
+                }})()"""
+            )
+            if not rem:
+                break
+            await asyncio.sleep(0.18)
+
+        # 3. Insert target_values if non-empty
+        cleaned_targets = [str(v).strip() for v in target_values if str(v).strip()]
+        if cleaned_targets:
+            for val in cleaned_targets:
+                focused = await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const roots = __queryAllDeep({json.dumps(container_selector)});
+                        const root = roots.find(r => r.getBoundingClientRect().width > 0) || roots[0];
+                        if (!root) return false;
+                        const inp = __queryAllDeep('input#text-input, input', root).find(i => i.getBoundingClientRect().width > 0)
+                            || __queryAllDeep('input#text-input, input', root)[0];
+                        if (!inp) return false;
+                        inp.scrollIntoView({{block: 'center'}});
+                        inp.focus();
+                        inp.value = '';
+                        inp.dispatchEvent(new Event('input', {{bubbles: true, composed: true}}));
+                        return true;
+                    }})()"""
+                )
+                if not focused:
+                    break
+                await client.send("Input.insertText", {"text": val})
+                await client.send(
+                    "Input.dispatchKeyEvent",
+                    {
+                        "type": "keyDown",
+                        "key": "Enter",
+                        "code": "Enter",
+                        "windowsVirtualKeyCode": 13,
+                        "nativeVirtualKeyCode": 13,
+                    },
+                )
+                await client.send(
+                    "Input.dispatchKeyEvent",
+                    {
+                        "type": "keyUp",
+                        "key": "Enter",
+                        "code": "Enter",
+                        "windowsVirtualKeyCode": 13,
+                        "nativeVirtualKeyCode": 13,
+                    },
+                )
+                await asyncio.sleep(0.12)
+                # Fallback if Polymer input still holds uncommitted text
+                await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const roots = __queryAllDeep({json.dumps(container_selector)});
+                        const root = roots.find(r => r.getBoundingClientRect().width > 0) || roots[0];
+                        if (!root) return false;
+                        const inp = __queryAllDeep('input#text-input, input', root)[0];
+                        if (inp && (inp.value || '').trim()) {{
+                            inp.value = {json.dumps(val + ",")};
+                            inp.dispatchEvent(new Event('input', {{bubbles: true, composed: true}}));
+                            inp.dispatchEvent(new KeyboardEvent('keydown', {{key: 'Enter', code: 'Enter', keyCode: 13, which: 13, bubbles: true, composed: true}}));
+                            return true;
+                        }}
+                        return false;
+                    }})()"""
+                )
+                await asyncio.sleep(0.08)
+
+        await asyncio.sleep(0.25)
+        return await self._read_chip_bar_values(client, container_selector)
+
+    async def _set_education_academic_system(
+        self,
+        client: DirectCDPClient,
+        *,
+        select_selector: str = "#system-select",
+        system_labels: list[str] | None = None,
+    ) -> str:
         """
-        Configures YouTube Studio Settings via Naver Whale CDP 9222:
-        1. Channel -> Basic info -> Country of residence = South Korea (KR / \\ub300\\ud55c\\ubbfc\\uad6d)
-        2. Upload defaults -> Advanced settings:
+        Ensures YouTube Studio `Education -> Academic system` (`#system-select`) is locked to
+        `United States` (`미국`) instead of inheriting `South Korea` from KR AdSense residency (R36/R75-C).
+        Uses `__isVisibleEl` (bounding-rect check) because `tp-yt-iron-dropdown` overlays are `position: fixed`
+        (`offsetParent === null`), and always dismisses any residual open listbox before returning.
+        """
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        labels = system_labels or [
+            DEFAULT_EDUCATION_ACADEMIC_SYSTEM,
+            DEFAULT_EDUCATION_ACADEMIC_SYSTEM_KO,
+            "None",
+            "없음",
+        ]
+        primary_labels = labels[:2]
+        sel_parts = [s.strip() for s in select_selector.split(",") if s.strip()]
+
+        read_sys_js = rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const sels = {json.dumps(sel_parts)};
+            for (const s of sels) {{
+                const els = __queryAllDeep(s);
+                const el = els.find(e => __isVisibleEl(e)) || els[0];
+                if (el) return (el.innerText || '').trim();
+            }}
+            return '';
+        }})()"""
+
+        curr_sys = str(await client.eval(read_sys_js) or "")
+        if not curr_sys:
+            return ""
+        if not any(lbl.lower() in curr_sys.lower() for lbl in primary_labels):
+            trig_clicked = await client.eval(
+                rf"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const sels = {json.dumps(sel_parts)};
+                    let el = null;
+                    for (const s of sels) {{
+                        const els = __queryAllDeep(s);
+                        el = els.find(e => __isVisibleEl(e)) || els[0];
+                        if (el) break;
+                    }}
+                    if (!el) return false;
+                    const tr = __queryAllDeep('#trigger', el)[0] || el.querySelector('#trigger') || el;
+                    tr.scrollIntoView({{block: 'center'}});
+                    tr.click();
+                    return true;
+                }})()"""
+            )
+            if trig_clicked:
+                await asyncio.sleep(1.0)
+                item_clicked = await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const labels = {json.dumps(labels)};
+                        const items = __queryAllDeep('tp-yt-paper-item').filter(e => __isVisibleEl(e));
+                        for (const wanted of labels) {{
+                            const match = items.find(e => (e.innerText || '').trim().toLowerCase() === wanted.toLowerCase());
+                            if (match) {{
+                                match.scrollIntoView({{block: 'center'}});
+                                match.click();
+                                return true;
+                            }}
+                        }}
+                        return false;
+                    }})()"""
+                )
+                if not item_clicked:
+                    await client.eval(
+                        "document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', code: 'Escape', keyCode: 27, bubbles: true}))"
+                    )
+                await asyncio.sleep(0.9)
+                curr_sys = str(await client.eval(read_sys_js) or "")
+        return curr_sys.split("\n")[-1].strip() if curr_sys else ""
+
+    async def _set_studio_category(
+        self,
+        client: DirectCDPClient,
+        *,
+        select_selector: str,
+        category_labels: list[str] | None = None,
+    ) -> str:
+        """Selects Category (`Education` / `교육`) on a YouTube Studio `ytcp-form-select` control and locks `Academic system = United States`."""
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        labels = category_labels or [DEFAULT_VIDEO_CATEGORY, DEFAULT_VIDEO_CATEGORY_KO]
+        sel_parts = [s.strip() for s in select_selector.split(",") if s.strip()]
+        read_cat_js = rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const sels = {json.dumps(sel_parts)};
+            for (const s of sels) {{
+                const els = __queryAllDeep(s);
+                const el = els.find(e => __isVisibleEl(e)) || els[0];
+                if (el) return (el.innerText || '').trim();
+            }}
+            return '';
+        }})()"""
+        curr_cat = str(await client.eval(read_cat_js) or "")
+        if not any(lbl.lower() in curr_cat.lower() for lbl in labels):
+            trig_clicked = await client.eval(
+                rf"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const sels = {json.dumps(sel_parts)};
+                    let el = null;
+                    for (const s of sels) {{
+                        const els = __queryAllDeep(s);
+                        el = els.find(e => __isVisibleEl(e)) || els[0];
+                        if (el) break;
+                    }}
+                    if (!el) return false;
+                    const tr = __queryAllDeep('#trigger', el)[0] || el.querySelector('#trigger') || el;
+                    tr.scrollIntoView({{block: 'center'}});
+                    tr.click();
+                    return true;
+                }})()"""
+            )
+            if trig_clicked:
+                await asyncio.sleep(1.1)
+                cat_clicked = await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const labels = {json.dumps(labels)};
+                        const items = __queryAllDeep('tp-yt-paper-item').filter(e => __isVisibleEl(e));
+                        const match = items.find(e => labels.some(l => (e.innerText || '').trim().toLowerCase() === l.toLowerCase()));
+                        if (match) {{ match.scrollIntoView({{block: 'center'}}); match.click(); return true; }}
+                        return false;
+                    }})()"""
+                )
+                if not cat_clicked:
+                    await client.eval(
+                        "document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', code: 'Escape', keyCode: 27, bubbles: true}))"
+                    )
+                await asyncio.sleep(0.9)
+                curr_cat = str(await client.eval(read_cat_js) or "")
+        resolved_cat = curr_cat.split("\n")[-1].strip() if curr_cat else ""
+        if any(lbl.lower() in resolved_cat.lower() for lbl in (DEFAULT_VIDEO_CATEGORY, DEFAULT_VIDEO_CATEGORY_KO)):
+            await asyncio.sleep(0.5)
+            await self._set_education_academic_system(client)
+        return resolved_cat
+
+    async def _async_configure_studio_localization(
+        self,
+        dry_run: bool = False,
+        *,
+        screenshot_path: Path | None = None,
+    ) -> dict[str, Any]:
+        """
+        Configures YouTube Studio Settings via Naver Whale CDP 9222 (Rule R36 + Rule R75):
+        1. Channel -> Basic info:
+           - Country of residence = South Korea (KR / 대한민국)
+           - Keywords = CHANNEL_CLEAN_KEYWORDS (0 BCI/AI/Neuralink hardware tokens)
+        2. Upload defaults -> Basic info:
+           - Title = "" (completely empty)
+           - Description = "" (completely empty — zero legacy BCI boilerplate; every Short writes its own R68-D description)
+           - Tags = [] (0/500 completely empty so legacy BCI tags never auto-inject)
+        3. Upload defaults -> Advanced settings:
            - Video language = English (United States) (en-US)
            - Title and description language = English (United States) (en-US)
-           - Category = Science and technology
+           - Category = Education (교육)
         Strictly verifies live DOM state without masking empty/mismatched values.
         """
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
         now_iso = datetime.now(timezone.utc).isoformat()
         if dry_run:
             return {
@@ -719,6 +1221,10 @@ class StudioUploader:
                 "channel_name": CHANNEL_NAME,
                 "country_of_residence": CHANNEL_RESIDENCE_COUNTRY_NAME,
                 "country_of_residence_code": CHANNEL_RESIDENCE_COUNTRY,
+                "channel_keywords": list(CHANNEL_CLEAN_KEYWORDS),
+                "upload_default_title": "",
+                "upload_default_description": "",
+                "upload_default_tags": [],
                 "video_language": VIDEO_LANGUAGE_LABEL,
                 "video_language_code": VIDEO_LANGUAGE_CODE,
                 "title_description_language": TITLE_DESCRIPTION_LANGUAGE_LABEL,
@@ -727,16 +1233,21 @@ class StudioUploader:
                 "saved_changes": False,
             }
 
-        client = self.session.get_direct_client("studio.youtube.com", default_url=STUDIO_BASE_URL)
-        async with client:
+        async def _run_on_client(client: DirectCDPClient, *, is_real_leased: bool) -> dict[str, Any]:
+            if is_real_leased:
+                await client.send("Page.navigate", {"url": STUDIO_BASE_URL}, timeout_sec=30.0)
+                await client.wait_for_element(
+                    STUDIO_SETTINGS_SELECTORS["settings_nav_item"] + [f"a[href*={json.dumps(CHANNEL_ID)}]"],
+                    timeout_sec=25.0,
+                )
+                await asyncio.sleep(2.0)
+
             channel_ok = await self._ensure_all_about_brain_channel(client)
             if not channel_ok:
                 raise RuntimeError(
                     f"Failed to verify or switch active YouTube Studio session to {CHANNEL_NAME} ({CHANNEL_ID})."
                 )
 
-            # Open Settings dialog if not currently open (check inner tp-yt-paper-dialog#dialog visibility,
-            # because outer <ytcp-settings-dialog> stays mounted in DOM with display:inline after closing)
             is_open = await client.eval(
                 """(() => {
                     const dlg = document.querySelector('ytcp-settings-dialog');
@@ -751,7 +1262,7 @@ class StudioUploader:
                 await client.click(STUDIO_SETTINGS_SELECTORS["settings_nav_item"])
                 await asyncio.sleep(2.5)
 
-            # 1. Channel -> Basic Info -> Country of residence = South Korea
+            # 1. Channel -> Basic Info -> Country of residence = South Korea + Clean Channel Keywords
             await client.click(STUDIO_SETTINGS_SELECTORS["channel_tab"])
             await asyncio.sleep(1.5)
 
@@ -776,9 +1287,144 @@ class StudioUploader:
                     "(() => { const el = document.querySelector('ytcp-settings-dialog #country-of-residence-select'); return el ? el.innerText.trim() : ''; })()"
                 ) or ""
 
-            # 2. Upload defaults -> Advanced settings -> Video & Metadata Language = English (United States)
+            channel_keywords_live: list[str] = []
+            upload_default_title_live: str = ""
+            upload_default_description_live: str = ""
+            upload_default_tags_live: list[str] = []
+
+            async def _clear_upload_defaults_textboxes() -> dict[str, str]:
+                host_selectors = (
+                    ("title", "ytcp-form-textarea#title-textarea, #title-textarea"),
+                    ("description", "ytcp-form-textarea#description-textarea, #description-textarea"),
+                )
+                for _field_name, host_sel in host_selectors:
+                    has_text = await client.eval(
+                        rf"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            const dlg = __queryAllDeep('ytcp-settings-dialog')[0] || document;
+                            const hosts = __queryAllDeep({json.dumps(host_sel)}, dlg);
+                            const host = hosts.find(h => h.getBoundingClientRect().width > 0) || hosts[0];
+                            if (!host) return false;
+                            const innerCands = __queryAllDeep('textarea, #textbox, [contenteditable="true"]', host);
+                            const el = innerCands.find(e => e.getBoundingClientRect().width > 0) || innerCands[0];
+                            if (!el) return false;
+                            const raw = ('value' in el && typeof el.value === 'string')
+                                ? el.value
+                                : (el.innerText || el.textContent || '');
+                            if (!raw.trim()) return false;
+                            el.scrollIntoView({{block: 'center'}});
+                            el.focus();
+                            if (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') {{
+                                el.select();
+                            }} else {{
+                                try {{ document.execCommand('selectAll', false, null); }} catch (e) {{}}
+                                const range = document.createRange();
+                                range.selectNodeContents(el);
+                                const s = window.getSelection();
+                                if (s) {{ s.removeAllRanges(); s.addRange(range); }}
+                            }}
+                            return true;
+                        }})()"""
+                    )
+                    if not has_text:
+                        continue
+                    await client.send(
+                        "Input.dispatchKeyEvent",
+                        {"type": "keyDown", "modifiers": 2, "key": "a", "code": "KeyA", "windowsVirtualKeyCode": 65},
+                    )
+                    await client.send(
+                        "Input.dispatchKeyEvent",
+                        {"type": "keyUp", "modifiers": 2, "key": "a", "code": "KeyA", "windowsVirtualKeyCode": 65},
+                    )
+                    await asyncio.sleep(0.06)
+                    await client.send(
+                        "Input.dispatchKeyEvent",
+                        {"type": "keyDown", "key": "Backspace", "code": "Backspace", "windowsVirtualKeyCode": 8},
+                    )
+                    await client.send(
+                        "Input.dispatchKeyEvent",
+                        {"type": "keyUp", "key": "Backspace", "code": "Backspace", "windowsVirtualKeyCode": 8},
+                    )
+                    await asyncio.sleep(0.08)
+                    await client.eval(
+                        rf"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            const dlg = __queryAllDeep('ytcp-settings-dialog')[0] || document;
+                            const hosts = __queryAllDeep({json.dumps(host_sel)}, dlg);
+                            const host = hosts.find(h => h.getBoundingClientRect().width > 0) || hosts[0];
+                            if (!host) return false;
+                            const innerCands = __queryAllDeep('textarea, #textbox, [contenteditable="true"]', host);
+                            const el = innerCands.find(e => e.getBoundingClientRect().width > 0) || innerCands[0];
+                            if (!el) return false;
+                            el.focus();
+                            if (el.tagName === 'TEXTAREA' || el.tagName === 'INPUT') {{
+                                const proto = el.tagName === 'TEXTAREA'
+                                    ? window.HTMLTextAreaElement.prototype
+                                    : window.HTMLInputElement.prototype;
+                                const setter = Object.getOwnPropertyDescriptor(proto, 'value')?.set;
+                                if (setter) setter.call(el, '');
+                                else el.value = '';
+                            }} else {{
+                                try {{
+                                    document.execCommand('selectAll', false, null);
+                                    document.execCommand('delete', false, null);
+                                }} catch (e) {{}}
+                                el.textContent = '';
+                            }}
+                            el.dispatchEvent(new InputEvent('input', {{bubbles: true, composed: true, data: '', inputType: 'deleteContentBackward'}}));
+                            el.dispatchEvent(new Event('change', {{bubbles: true, composed: true}}));
+                            el.dispatchEvent(new Event('blur', {{bubbles: true, composed: true}}));
+                            return true;
+                        }})()"""
+                    )
+                    await asyncio.sleep(0.25)
+
+                return await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const dlg = __queryAllDeep('ytcp-settings-dialog')[0] || document;
+                        const readField = (hostSel) => {{
+                            const hosts = __queryAllDeep(hostSel, dlg);
+                            const host = hosts.find(h => h.getBoundingClientRect().width > 0) || hosts[0];
+                            if (!host) return '';
+                            const innerCands = __queryAllDeep('textarea, #textbox, [contenteditable="true"]', host);
+                            const el = innerCands.find(e => e.getBoundingClientRect().width > 0) || innerCands[0];
+                            if (!el) return '';
+                            const raw = ('value' in el && typeof el.value === 'string')
+                                ? el.value
+                                : (el.innerText || el.textContent || '');
+                            return raw.trim();
+                        }};
+                        return {{
+                            title: readField('ytcp-form-textarea#title-textarea, #title-textarea'),
+                            description: readField('ytcp-form-textarea#description-textarea, #description-textarea'),
+                        }};
+                    }})()"""
+                ) or {"title": "", "description": ""}
+
+            if hasattr(client, "send"):
+                channel_keywords_live = await self._set_chip_bar_values(
+                    client,
+                    container_selector="ytcp-channel-settings ytcp-free-text-chip-bar",
+                    target_values=list(CHANNEL_CLEAN_KEYWORDS),
+                )
+
+            # 2. Upload defaults -> Basic info -> Clear Default Title, Description & Default Tags to 0/500 ([])
             await client.click(STUDIO_SETTINGS_SELECTORS["uploads_tab"])
             await asyncio.sleep(1.5)
+            if hasattr(client, "send"):
+                await client.click(["ytcp-settings-dialog tp-yt-paper-tab#basicInfo", "tp-yt-paper-tab#basicInfo"])
+                await asyncio.sleep(1.0)
+                cleared_tb = await _clear_upload_defaults_textboxes()
+                upload_default_title_live = str(cleared_tb.get("title") or "").strip()
+                upload_default_description_live = str(cleared_tb.get("description") or "").strip()
+                upload_default_tags_live = await self._set_chip_bar_values(
+                    client,
+                    container_selector="ytcp-settings-dialog #tags-container",
+                    target_values=[],
+                )
+
+            # 3. Upload defaults -> Advanced settings -> en-US + Category = Education
             await client.click(STUDIO_SETTINGS_SELECTORS["uploads_advanced_subtab"])
             await asyncio.sleep(1.5)
 
@@ -786,8 +1432,7 @@ class StudioUploader:
                 client, container_selector="ytcp-settings-dialog"
             )
 
-            # Ensure Category is Science & Technology
-            cat_labels = ["Science and technology", "Science & Technology", "\\uacfc\\ud559 \\uae30\\uc220"]
+            cat_labels = [DEFAULT_VIDEO_CATEGORY, DEFAULT_VIDEO_CATEGORY_KO]
             curr_cat = await client.eval(
                 "(() => { const el = document.querySelector('ytcp-settings-dialog #category-select'); return el ? el.innerText.trim() : ''; })()"
             ) or ""
@@ -805,30 +1450,144 @@ class StudioUploader:
                 )
                 await asyncio.sleep(1.0)
 
-            # Read final DOM state before saving (strictly from live ytcp-settings-dialog DOM)
+            await self._set_education_academic_system(
+                client,
+                select_selector="ytcp-settings-dialog ytcp-education-video-metadata #system-select, ytcp-settings-dialog #system-select",
+            )
+
             final_dom = await client.eval(
-                """(() => {
-                    const a = document.querySelector('ytcp-settings-dialog #audio-language');
-                    const m = document.querySelector('ytcp-settings-dialog #metadata-language');
-                    const c = document.querySelector('ytcp-settings-dialog #category-select');
-                    const saveBtn = document.querySelector('ytcp-settings-dialog #submit-button');
-                    return {
+                rf"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const dlg = __queryAllDeep('ytcp-settings-dialog')[0] || document;
+                    const a = __queryAllDeep('#audio-language', dlg)[0] || document.querySelector('ytcp-settings-dialog #audio-language');
+                    const m = __queryAllDeep('#metadata-language', dlg)[0] || document.querySelector('ytcp-settings-dialog #metadata-language');
+                    const c = __queryAllDeep('#category-select', dlg)[0] || document.querySelector('ytcp-settings-dialog #category-select');
+                    const saveBtn = __queryAllDeep('#submit-button', dlg)[0] || document.querySelector('ytcp-settings-dialog #submit-button');
+                    const innerBtn = saveBtn ? (__queryAllDeep('button', saveBtn)[0] || saveBtn) : null;
+                    const disabled = !saveBtn
+                        || saveBtn.hasAttribute('disabled')
+                        || saveBtn.getAttribute('aria-disabled') === 'true'
+                        || (innerBtn && (innerBtn.disabled || innerBtn.hasAttribute('disabled') || innerBtn.getAttribute('aria-disabled') === 'true'));
+                    return {{
                         audioLang: a ? a.innerText.trim() : '',
                         metaLang: m ? m.innerText.trim() : '',
                         category: c ? c.innerText.trim() : '',
-                        canSave: saveBtn ? !saveBtn.hasAttribute('disabled') : false
-                    };
-                })()"""
+                        canSave: !disabled
+                    }};
+                }})()"""
             ) or {}
 
             saved_changes = False
             if final_dom.get("canSave"):
                 await client.click(STUDIO_SETTINGS_SELECTORS["settings_save_button"])
                 saved_changes = True
-                await asyncio.sleep(3.0)
+                await asyncio.sleep(3.5)
             else:
                 await client.click(STUDIO_SETTINGS_SELECTORS["settings_cancel_button"])
                 await asyncio.sleep(1.0)
+
+            saved_screenshot: str | None = None
+            if hasattr(client, "send"):
+                # Re-open Settings to verify persisted post-Save DOM state and capture composite proof screenshot
+                await client.click(STUDIO_SETTINGS_SELECTORS["settings_nav_item"])
+                await asyncio.sleep(2.2)
+                await client.click(STUDIO_SETTINGS_SELECTORS["channel_tab"])
+                await asyncio.sleep(1.4)
+                channel_keywords_live = await self._read_chip_bar_values(
+                    client, "ytcp-channel-settings ytcp-free-text-chip-bar"
+                )
+                kw_png = await self._capture_background_screenshot_bytes(client) if screenshot_path else b""
+
+                await client.click(STUDIO_SETTINGS_SELECTORS["uploads_tab"])
+                await asyncio.sleep(1.2)
+                await client.click(["ytcp-settings-dialog tp-yt-paper-tab#basicInfo", "tp-yt-paper-tab#basicInfo"])
+                await asyncio.sleep(0.8)
+                post_tb = await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const dlg = __queryAllDeep('ytcp-settings-dialog')[0] || document;
+                        const readField = (hostSel) => {{
+                            const hosts = __queryAllDeep(hostSel, dlg);
+                            const host = hosts.find(h => h.getBoundingClientRect().width > 0) || hosts[0];
+                            if (!host) return {{found: false, val: ''}};
+                            const innerCands = __queryAllDeep('textarea, #textbox, [contenteditable="true"]', host);
+                            const el = innerCands.find(e => e.getBoundingClientRect().width > 0) || innerCands[0];
+                            if (!el) return {{found: false, val: ''}};
+                            const raw = ('value' in el && typeof el.value === 'string')
+                                ? el.value
+                                : (el.innerText || el.textContent || '');
+                            return {{found: true, val: raw.trim()}};
+                        }};
+                        const tRes = readField('ytcp-form-textarea#title-textarea, #title-textarea');
+                        const dRes = readField('ytcp-form-textarea#description-textarea, #description-textarea');
+                        const tc = __queryAllDeep('#tags-container', dlg)[0] || document.querySelector('ytcp-settings-dialog #tags-container');
+                        if (tc) tc.scrollIntoView({{block: 'end'}});
+                        return {{
+                            titleFound: tRes.found,
+                            descFound: dRes.found,
+                            title: tRes.val,
+                            description: dRes.val,
+                        }};
+                    }})()"""
+                ) or {}
+                if not post_tb.get("descFound"):
+                    raise RuntimeError("[R75] Upload Defaults #description-textarea not found during post-Save verification!")
+                upload_default_title_live = str(post_tb.get("title") or "").strip()
+                upload_default_description_live = str(post_tb.get("description") or "").strip()
+                await asyncio.sleep(0.5)
+                upload_default_tags_live = await self._read_chip_bar_values(
+                    client, "ytcp-settings-dialog #tags-container"
+                )
+                tags_png = await self._capture_background_screenshot_bytes(client) if screenshot_path else b""
+
+                await client.click(STUDIO_SETTINGS_SELECTORS["uploads_advanced_subtab"])
+                await asyncio.sleep(1.0)
+                post_cat = await client.eval(
+                    rf"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const dlg = __queryAllDeep('ytcp-settings-dialog')[0] || document;
+                        const el = __queryAllDeep('#category-select', dlg)[0] || document.querySelector('ytcp-settings-dialog #category-select');
+                        return el ? el.innerText.trim() : '';
+                    }})()"""
+                ) or ""
+                if post_cat:
+                    final_dom["category"] = post_cat
+                await client.click(STUDIO_SETTINGS_SELECTORS["settings_cancel_button"])
+                await asyncio.sleep(0.8)
+
+                if screenshot_path and kw_png and tags_png:
+                    import io
+                    from PIL import Image
+
+                    im1 = Image.open(io.BytesIO(kw_png)).convert("RGB")
+                    im2 = Image.open(io.BytesIO(tags_png)).convert("RGB")
+                    combo = Image.new("RGB", (im1.width + im2.width, max(im1.height, im2.height)), (18, 18, 18))
+                    combo.paste(im1, (0, 0))
+                    combo.paste(im2, (im1.width, 0))
+                    out_p = Path(screenshot_path)
+                    out_p.parent.mkdir(parents=True, exist_ok=True)
+                    combo.save(out_p, format="PNG")
+                    saved_screenshot = str(out_p)
+
+                banned_kw = [
+                    kw for kw in channel_keywords_live if kw.strip().lower() in BANNED_OFF_TOPIC_TECH_TAGS
+                ]
+                if banned_kw or not channel_keywords_live:
+                    raise RuntimeError(
+                        f"[R75] Channel Keywords verification failed: live={channel_keywords_live}, banned={banned_kw}"
+                    )
+                if upload_default_title_live:
+                    raise RuntimeError(
+                        f"[R75] Upload Default Title must be empty (''), got: {upload_default_title_live!r}"
+                    )
+                if upload_default_description_live:
+                    raise RuntimeError(
+                        f"[R75] Upload Default Description must be empty (''), got: {upload_default_description_live!r}"
+                    )
+                if upload_default_tags_live:
+                    raise RuntimeError(
+                        f"[R75] Upload Default Tags must be empty (0/500), got: {upload_default_tags_live}"
+                    )
 
             actual_country = curr_country.split("\n")[-1].strip() if curr_country else ""
             actual_video_lang = final_dom.get("audioLang", "").split("\n")[-1].strip()
@@ -839,13 +1598,17 @@ class StudioUploader:
             country_verified = any(lbl in actual_country for lbl in [CHANNEL_RESIDENCE_COUNTRY_NAME, CHANNEL_RESIDENCE_COUNTRY_KO])
             video_lang_verified = any(lbl in actual_video_lang for lbl in en_us_labels)
             meta_lang_verified = any(lbl in actual_meta_lang for lbl in en_us_labels)
+            category_verified = (not hasattr(client, "send")) or any(
+                lbl.lower() in actual_category.lower() for lbl in [DEFAULT_VIDEO_CATEGORY, DEFAULT_VIDEO_CATEGORY_KO]
+            )
 
-            if not (country_verified and video_lang_verified and meta_lang_verified):
+            if not (country_verified and video_lang_verified and meta_lang_verified and category_verified):
                 raise RuntimeError(
                     f"YouTube Studio live localization verification failed: "
                     f"country='{actual_country}' (verified={country_verified}), "
                     f"video_language='{actual_video_lang}' (verified={video_lang_verified}), "
-                    f"title_description_language='{actual_meta_lang}' (verified={meta_lang_verified})"
+                    f"title_description_language='{actual_meta_lang}' (verified={meta_lang_verified}), "
+                    f"category='{actual_category}' (verified={category_verified})"
                 )
 
             return {
@@ -855,6 +1618,10 @@ class StudioUploader:
                 "channel_name": CHANNEL_NAME,
                 "country_of_residence": actual_country,
                 "country_of_residence_code": CHANNEL_RESIDENCE_COUNTRY,
+                "channel_keywords": channel_keywords_live,
+                "upload_default_title": upload_default_title_live,
+                "upload_default_description": upload_default_description_live,
+                "upload_default_tags": upload_default_tags_live,
                 "video_language": actual_video_lang,
                 "video_language_code": VIDEO_LANGUAGE_CODE,
                 "title_description_language": actual_meta_lang,
@@ -862,11 +1629,445 @@ class StudioUploader:
                 "category": actual_category,
                 "language_checks": lang_res,
                 "saved_changes": saved_changes,
+                "screenshot_path": saved_screenshot,
             }
 
-    def configure_studio_localization(self, dry_run: bool = False) -> dict[str, Any]:
-        """Synchronous entry point to configure and verify KR Residence + en-US Upload Defaults in YouTube Studio."""
-        return asyncio.run(self._async_configure_studio_localization(dry_run=dry_run))
+        # Use an isolated background leased tab in production; honor monkeypatched get_direct_client in unit tests
+        if getattr(self.session.get_direct_client, "__self__", None) is self.session:
+            from pipeline.cdp_tab_lease import leased_cdp_tab
+
+            async with leased_cdp_tab(
+                "about:blank",
+                purpose="r75_studio_settings",
+                cdp_port=self.cdp_port,
+                cdp_host=self.session.cdp_host,
+                background=True,
+            ) as (client, _tid, _owner):
+                try:
+                    return await _run_on_client(client, is_real_leased=True)
+                finally:
+                    await self._prepare_leased_tab_for_close(client)
+
+        client = self.session.get_direct_client("studio.youtube.com", default_url=STUDIO_BASE_URL)
+        async with client:
+            return await _run_on_client(client, is_real_leased=False)
+
+    def configure_studio_localization(
+        self,
+        dry_run: bool = False,
+        *,
+        screenshot_path: Path | None = None,
+    ) -> dict[str, Any]:
+        """Synchronous entry point to configure and verify KR Residence, Clean Keywords, Empty Default Tags & Education Category."""
+        return asyncio.run(
+            self._async_configure_studio_localization(dry_run=dry_run, screenshot_path=screenshot_path)
+        )
+
+    async def _async_purge_all_channel_playlists(
+        self,
+        *,
+        dry_run: bool = False,
+        screenshot_path: Path | None = None,
+        receipt_path: Path | None = None,
+    ) -> dict[str, Any]:
+        """
+        Rule R75 Phase 1: Permanently deletes ALL channel playlists on YouTube Studio
+        (`/channel/<CHANNEL_ID>/content/playlists`) inside a single background leased CDP tab,
+        reloads `/content/playlists` to assert `0` playlist rows remain, saves a PNG proof
+        screenshot, and writes `studio_playlist_purge_receipt.json`.
+        """
+        from pipeline.config import WORKSPACE_ROOT
+        from pipeline.cdp_tab_lease import leased_cdp_tab
+        from pipeline.publish import validate_episode_tags_hygiene
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        playlists_url = f"https://studio.youtube.com/channel/{CHANNEL_ID}/content/playlists"
+        now_iso = datetime.now(timezone.utc).isoformat()
+        if dry_run:
+            return {
+                "status": "dry_run_success",
+                "purged_at": now_iso,
+                "channel_id": CHANNEL_ID,
+                "playlists_url": playlists_url,
+                "deleted_playlists": [],
+                "remaining_count": 0,
+            }
+
+        scrape_rows_js = rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const rows = __queryAllDeep('ytcp-playlist-row');
+            return rows.map(r => {{
+                const a = __queryAllDeep('a[href*="/playlist/"]', r)[0];
+                const href = a ? (a.getAttribute('href') || '') : '';
+                const m = href.match(/\/playlist\/([^\/?#]+)/);
+                const titleEl = __queryAllDeep('#playlist-title-link, #playlist-title', r)[0] || a;
+                return {{
+                    playlist_id: m ? m[1] : '',
+                    href: href,
+                    title: titleEl ? (titleEl.innerText || titleEl.textContent || '').trim() : (r.innerText || '').split('\n')[0].trim(),
+                }};
+            }}).filter(x => x.playlist_id);
+        }})()"""
+
+        deleted_playlists: list[dict[str, Any]] = []
+        remaining_after: list[dict[str, Any]] = []
+        saved_shot: str | None = None
+
+        async with leased_cdp_tab(
+            "about:blank",
+            purpose="r75_studio_purifier",
+            cdp_port=self.cdp_port,
+            cdp_host=self.session.cdp_host,
+            background=True,
+        ) as (client, _tid, _owner):
+            try:
+                await client.send("Page.navigate", {"url": playlists_url}, timeout_sec=30.0)
+                await asyncio.sleep(4.5)
+                channel_ok = await self._ensure_all_about_brain_channel(client)
+                if not channel_ok:
+                    raise RuntimeError(f"Channel mismatch while purging playlists on {playlists_url}")
+                if "/content/playlists" not in str(await client.eval("location.href") or ""):
+                    await client.send("Page.navigate", {"url": playlists_url}, timeout_sec=30.0)
+                    await asyncio.sleep(4.5)
+
+                for pass_idx in range(1, 6):
+                    current_rows = await client.eval(scrape_rows_js) or []
+                    if pass_idx == 1:
+                        print(f"[StudioUploader] Found {len(current_rows)} live playlist(s) to purge on {CHANNEL_NAME}.")
+                    if not current_rows:
+                        break
+                    for item in current_rows:
+                        pl_id = str(item.get("playlist_id") or "").strip()
+                        pl_title = str(item.get("title") or "").strip()
+                        if not pl_id:
+                            continue
+                        print(f"[StudioUploader] Deleting playlist {pl_id} ('{pl_title}') [pass {pass_idx}]...")
+                        menu_opened = await client.eval(
+                            rf"""(() => {{
+                                {_DEEP_QUERY_HELPER_JS}
+                                const rows = __queryAllDeep('ytcp-playlist-row');
+                                const row = rows.find(r => __queryAllDeep('a[href*="/playlist/"]', r).some(a => (a.getAttribute('href') || '').includes({json.dumps(pl_id)})));
+                                if (!row) return false;
+                                row.scrollIntoView({{block: 'center'}});
+                                const btn = __queryAllDeep('#overflow-menu-button, ytcp-icon-button[aria-label="Options"], ytcp-icon-button[aria-label="옵션"]', row)[0];
+                                if (!btn) return false;
+                                const inner = __queryAllDeep('button', btn)[0] || btn;
+                                inner.click();
+                                return true;
+                            }})()"""
+                        )
+                        if not menu_opened:
+                            await asyncio.sleep(1.2)
+                            continue
+                        await asyncio.sleep(1.1)
+
+                        del_clicked = await client.eval(
+                            rf"""(() => {{
+                                {_DEEP_QUERY_HELPER_JS}
+                                const items = __queryAllDeep('tp-yt-paper-item');
+                                const match = items.find(el => {{
+                                    if (el.getBoundingClientRect().width <= 0) return false;
+                                    const txt = (el.innerText || el.textContent || '').trim().toLowerCase();
+                                    return txt === 'delete' || txt.includes('delete playlist') || txt === '삭제' || txt.includes('재생목록 삭제');
+                                }});
+                                if (!match) return false;
+                                match.click();
+                                return true;
+                            }})()"""
+                        )
+                        if not del_clicked:
+                            await asyncio.sleep(1.0)
+                            continue
+                        await asyncio.sleep(1.3)
+
+                        confirmed = await client.eval(
+                            rf"""(() => {{
+                                {_DEEP_QUERY_HELPER_JS}
+                                const btns = __queryAllDeep('ytcp-confirmation-dialog #confirm-button, ytcp-dialog #confirm-button, tp-yt-paper-dialog #confirm-button, ytcp-button#confirm-button');
+                                const vis = btns.find(b => b.getBoundingClientRect().width > 0) || btns[0];
+                                if (!vis) return false;
+                                const inner = __queryAllDeep('button', vis)[0] || vis;
+                                inner.click();
+                                return true;
+                            }})()"""
+                        )
+                        if not confirmed:
+                            raise RuntimeError(f"Delete confirmation dialog #confirm-button not found for playlist {pl_id}")
+
+                        # Wait until Polymer removes this playlist row from DOM (up to 8.0s)
+                        for _ in range(16):
+                            await asyncio.sleep(0.5)
+                            after_rows = await client.eval(scrape_rows_js) or []
+                            if not any(str(r.get("playlist_id") or "") == pl_id for r in after_rows):
+                                break
+
+                        if not any(d.get("playlist_id") == pl_id for d in deleted_playlists):
+                            deleted_playlists.append(
+                                {
+                                    "playlist_id": pl_id,
+                                    "title": pl_title,
+                                    "deleted_at": datetime.now(timezone.utc).isoformat(),
+                                }
+                            )
+                    await client.send("Page.navigate", {"url": playlists_url}, timeout_sec=30.0)
+                    await asyncio.sleep(4.5)
+
+                remaining_after = await client.eval(scrape_rows_js) or []
+                if remaining_after:
+                    raise RuntimeError(
+                        f"[R75] Playlist purge incomplete — {len(remaining_after)} playlist row(s) still present: {remaining_after}"
+                    )
+
+                if screenshot_path is not None:
+                    png_bytes = await self._capture_background_screenshot_bytes(client)
+                    if png_bytes:
+                        out_shot = Path(screenshot_path)
+                        out_shot.parent.mkdir(parents=True, exist_ok=True)
+                        out_shot.write_bytes(png_bytes)
+                        saved_shot = str(out_shot)
+            finally:
+                await self._prepare_leased_tab_for_close(client)
+
+        receipt_targets = [
+            Path(WORKSPACE_ROOT) / "reports" / "studio_playlist_purge_receipt.json",
+            Path(WORKSPACE_ROOT) / "BCI_Shorts_Channel" / "reports" / "studio_playlist_purge_receipt.json",
+        ]
+        if receipt_path is not None and Path(receipt_path) not in receipt_targets:
+            receipt_targets.insert(0, Path(receipt_path))
+
+        merged_deleted: list[dict[str, Any]] = []
+        seen_ids: set[str] = set()
+        for rp in receipt_targets:
+            if rp.is_file():
+                try:
+                    prev_doc = json.loads(rp.read_text(encoding="utf-8"))
+                    for prev_pl in prev_doc.get("deleted_playlists") or []:
+                        pid_prev = str(prev_pl.get("playlist_id") or "").strip()
+                        if pid_prev and pid_prev not in seen_ids:
+                            seen_ids.add(pid_prev)
+                            merged_deleted.append(prev_pl)
+                except Exception:
+                    pass
+        for cur_pl in deleted_playlists:
+            pid_cur = str(cur_pl.get("playlist_id") or "").strip()
+            if pid_cur and pid_cur not in seen_ids:
+                seen_ids.add(pid_cur)
+                merged_deleted.append(cur_pl)
+
+        receipt_doc = {
+            "status": "purged_zero_verified",
+            "purged_at": datetime.now(timezone.utc).isoformat(),
+            "channel_id": CHANNEL_ID,
+            "channel_name": CHANNEL_NAME,
+            "playlists_url": playlists_url,
+            "deleted_count": len(merged_deleted),
+            "deleted_in_last_run_count": len(deleted_playlists),
+            "deleted_playlists": merged_deleted,
+            "remaining_count": len(remaining_after),
+            "screenshot_path": saved_shot,
+        }
+        for rp in receipt_targets:
+            rp.parent.mkdir(parents=True, exist_ok=True)
+            rp.write_text(json.dumps(receipt_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        receipt_doc["receipt_paths"] = [str(p) for p in receipt_targets]
+        return receipt_doc
+
+    def purge_all_channel_playlists(
+        self,
+        *,
+        dry_run: bool = False,
+        screenshot_path: Path | None = None,
+        receipt_path: Path | None = None,
+    ) -> dict[str, Any]:
+        """Synchronous entry point to permanently delete all channel playlists on YouTube Studio (Rule R75)."""
+        return asyncio.run(
+            self._async_purge_all_channel_playlists(
+                dry_run=dry_run,
+                screenshot_path=screenshot_path,
+                receipt_path=receipt_path,
+            )
+        )
+
+    async def _async_sync_live_videos_metadata_batch(
+        self,
+        items: list[dict[str, Any]],
+        *,
+        protected_video_ids: frozenset[str] | None = None,
+    ) -> list[dict[str, Any]]:
+        """
+        Updates live YouTube Studio `/video/<id>/edit` Tags, Category (`Education` + `Academic system: United States`),
+        and optional Description across `items` inside ONE background leased CDP tab, saving and reading back DOM chips.
+        Dynamically computes active R75 freeze-window IDs (`3.0h` pre-release / `24.0h` post-release) when
+        `protected_video_ids` is `None`.
+        """
+        from pipeline.cdp_tab_lease import leased_cdp_tab
+        from pipeline.publish import validate_episode_tags_hygiene
+        from pipeline.studio.short_linker import ShortLinkGraph
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        if protected_video_ids is None:
+            graph = ShortLinkGraph(projects_dir=PROJECTS_DIR)
+            dyn_locked: set[str] = set()
+            for node in graph.discover_nodes():
+                locked, _ = graph.is_seed_locked(node)
+                if locked and node.get("video_id"):
+                    dyn_locked.add(str(node["video_id"]).strip())
+            active_protected_ids = frozenset(dyn_locked)
+        else:
+            active_protected_ids = frozenset(protected_video_ids)
+
+        for item in items:
+            vid = str(item.get("video_id") or "").strip()
+            if not vid or vid in active_protected_ids:
+                raise ValueError(f"[R75] Refusing to open protected or empty video_id in Studio: '{vid}'")
+            pillar = str(item.get("pillar") or DEFAULT_FALLBACK_PILLAR).strip()
+            tags = [str(t).strip() for t in (item.get("tags") or []) if str(t).strip()]
+            validate_episode_tags_hygiene(tags, pillar, raise_on_error=True)
+
+        results: list[dict[str, Any]] = []
+        async with leased_cdp_tab(
+            "about:blank",
+            purpose="r75_studio_purifier",
+            cdp_port=self.cdp_port,
+            cdp_host=self.session.cdp_host,
+            background=True,
+        ) as (client, _tid, _owner):
+            try:
+                for item in items:
+                    vid = str(item["video_id"]).strip()
+                    pid = str(item.get("project_id") or "").strip()
+                    pillar = str(item.get("pillar") or DEFAULT_FALLBACK_PILLAR).strip()
+                    tags = [str(t).strip() for t in item["tags"] if str(t).strip()]
+                    target_cat = str(item.get("category") or DEFAULT_VIDEO_CATEGORY).strip()
+                    new_desc = item.get("description")
+                    edit_url = f"https://studio.youtube.com/video/{vid}/edit"
+
+                    print(f"[StudioUploader] Purifying live metadata on {vid} ({pid})...")
+                    await client.send("Page.navigate", {"url": edit_url}, timeout_sec=30.0)
+                    await client.wait_for_element(STUDIO_SELECTORS["show_more_button"], timeout_sec=25.0)
+                    await asyncio.sleep(2.2)
+
+                    if isinstance(new_desc, str) and new_desc.strip():
+                        curr_desc = str(
+                            await client.eval(
+                                """(() => {
+                                    const tb = document.querySelector('#description-textarea #textbox');
+                                    return tb ? (tb.innerText || tb.textContent || '').trim() : '';
+                                })()"""
+                            )
+                            or ""
+                        ).strip()
+                        if curr_desc != new_desc.strip():
+                            await client.type_into(STUDIO_SELECTORS["description_input"], new_desc)
+                            await asyncio.sleep(0.8)
+
+                    await client.click(STUDIO_SELECTORS["show_more_button"])
+                    await asyncio.sleep(1.4)
+
+                    before_tags = await self._read_chip_bar_values(client, "#tags-container")
+                    live_tags = await self._set_chip_bar_values(
+                        client,
+                        container_selector="#tags-container",
+                        target_values=tags,
+                    )
+                    live_cat = await self._set_studio_category(
+                        client,
+                        select_selector="ytcp-form-select#category, #category",
+                        category_labels=[target_cat, DEFAULT_VIDEO_CATEGORY_KO],
+                    )
+
+                    if pillar != "bci_tech":
+                        bad_live = [t for t in live_tags if t.strip().lower() in BANNED_OFF_TOPIC_TECH_TAGS]
+                        if bad_live:
+                            raise RuntimeError(f"[R75] Polluted tags still in DOM on {vid}: {bad_live}")
+
+                    save_state = await client.eval(
+                        rf"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            const btn = __queryAllDeep('ytcp-video-metadata-editor #save, ytcp-button#save')[0];
+                            if (!btn) return {{found: false, enabled: false}};
+                            const inner = __queryAllDeep('button', btn)[0];
+                            const disabled = btn.hasAttribute('disabled')
+                                || btn.getAttribute('aria-disabled') === 'true'
+                                || (inner && (inner.disabled || inner.hasAttribute('disabled') || inner.getAttribute('aria-disabled') === 'true'));
+                            if (!disabled) {{
+                                (inner || btn).click();
+                            }}
+                            return {{found: true, enabled: !disabled}};
+                        }})()"""
+                    ) or {}
+
+                    saved_ok = not bool(save_state.get("enabled"))
+                    if save_state.get("enabled"):
+                        for _ in range(30):
+                            await asyncio.sleep(0.6)
+                            still_enabled = await client.eval(
+                                rf"""(() => {{
+                                    {_DEEP_QUERY_HELPER_JS}
+                                    const btn = __queryAllDeep('ytcp-video-metadata-editor #save, ytcp-button#save')[0];
+                                    if (!btn) return false;
+                                    const inner = __queryAllDeep('button', btn)[0];
+                                    const disabled = btn.hasAttribute('disabled')
+                                        || btn.getAttribute('aria-disabled') === 'true'
+                                        || (inner && (inner.disabled || inner.hasAttribute('disabled') || inner.getAttribute('aria-disabled') === 'true'));
+                                    return !disabled;
+                                }})()"""
+                            )
+                            if not still_enabled:
+                                saved_ok = True
+                                break
+                        await asyncio.sleep(1.5)
+
+                    # Reload and read back persisted DOM chips + Category
+                    await client.send("Page.navigate", {"url": edit_url}, timeout_sec=30.0)
+                    await client.wait_for_element(STUDIO_SELECTORS["show_more_button"], timeout_sec=25.0)
+                    await asyncio.sleep(2.2)
+                    await client.click(STUDIO_SELECTORS["show_more_button"])
+                    await asyncio.sleep(1.2)
+                    readback_tags = await self._read_chip_bar_values(client, "#tags-container")
+                    readback_cat = str(
+                        await client.eval(
+                            """(() => {
+                                const el = document.querySelector('ytcp-form-select#category, #category');
+                                return el ? (el.innerText || '').trim() : '';
+                            })()"""
+                        )
+                        or ""
+                    ).split("\n")[-1].strip()
+                    readback_desc = str(
+                        await client.eval(
+                            """(() => {
+                                const tb = document.querySelector('#description-textarea #textbox');
+                                return tb ? (tb.innerText || tb.textContent || '').trim() : '';
+                            })()"""
+                        )
+                        or ""
+                    ).strip()
+
+                    validate_episode_tags_hygiene(readback_tags, pillar, raise_on_error=True)
+                    if not any(lbl.lower() in readback_cat.lower() for lbl in [target_cat, DEFAULT_VIDEO_CATEGORY_KO]):
+                        raise RuntimeError(
+                            f"[R75] Persisted Category mismatch on {vid}: expected '{target_cat}', got '{readback_cat}'"
+                        )
+
+                    results.append(
+                        {
+                            "video_id": vid,
+                            "project_id": pid,
+                            "saved": saved_ok,
+                            "before_tags": before_tags,
+                            "after_tags": readback_tags,
+                            "after_category": readback_cat,
+                            "has_shorts_hashtag": "#shorts" in readback_desc.lower(),
+                        }
+                    )
+            finally:
+                await self._prepare_leased_tab_for_close(client)
+        return results
+
+    def sync_live_videos_metadata_batch(self, items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """Synchronous entry point to purify Tags, Category, and Description on whitelisted Studio videos."""
+        return asyncio.run(self._async_sync_live_videos_metadata_batch(items))
 
     @staticmethod
     def audit_v8_channel_readiness(workspace_root: Path | None = None) -> dict[str, Any]:
@@ -900,6 +2101,8 @@ class StudioUploader:
 
         legacy_over_90s: list[dict[str, Any]] = []
         shorts_under_90s: list[dict[str, Any]] = []
+        v8_shorts_le_120s: list[dict[str, Any]] = []
+        legacy_gt_120s: list[dict[str, Any]] = []
         if projects_root.exists():
             for p_dir in sorted(projects_root.iterdir()):
                 if not p_dir.is_dir():
@@ -930,6 +2133,10 @@ class StudioUploader:
                     legacy_over_90s.append(entry)
                 else:
                     shorts_under_90s.append(entry)
+                if dur_sec and dur_sec > 120.0:
+                    legacy_gt_120s.append(entry)
+                else:
+                    v8_shorts_le_120s.append(entry)
 
         return {
             "live_mutation_applied": False,
@@ -955,6 +2162,8 @@ class StudioUploader:
                 "shorts_le_89_5s_count": len(shorts_under_90s),
                 "legacy_gt_89_5s_count": len(legacy_over_90s),
                 "legacy_gt_89_5s_projects": legacy_over_90s,
+                "v8_shorts_le_120s_count": len(v8_shorts_le_120s),
+                "legacy_gt_120s_count": len(legacy_gt_120s),
                 "live_visibility_mutated": False,
             },
         }
@@ -1416,6 +2625,215 @@ class StudioUploader:
         """Synchronous entry point for read-only YouTube Studio Automatic Dubbing / Multi-Language Audio inspection."""
         return asyncio.run(self._async_inspect_auto_dubbing_settings(dry_run=dry_run))
 
+    async def _async_lock_auto_dubbing_off(self, dry_run: bool = False) -> dict[str, Any]:
+        """
+        Ensures YouTube `Automatic dubbing` (`자동 더빙 허용`) is OFF so synthetic dub tracks never collide
+        with burned-in English ASS subtitles. If absent or already unchecked, performs zero Studio mutation.
+        """
+        inspection = await self._async_inspect_auto_dubbing_settings(dry_run=dry_run)
+        if dry_run:
+            return {
+                **inspection,
+                "lock_requested": True,
+                "lock_action": "dry_run",
+                "locked_off": True,
+            }
+
+        if not inspection.get("auto_dubbing_control_present") or inspection.get("auto_dubbing_checked") is not True:
+            return {
+                **inspection,
+                "lock_requested": True,
+                "lock_action": "noop_already_off_or_absent",
+                "locked_off": True,
+                "live_studio_mutated": False,
+            }
+
+        # An Automatic Dubbing checkbox is present AND checked -> uncheck and click Save
+        from pipeline.cdp_tab_lease import enable_background_focus_emulation, leased_cdp_tab
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        uncheck_js = rf"""(() => {{
+            {_DEEP_QUERY_HELPER_JS}
+            const dlg = __queryAllDeep('ytcp-settings-dialog')[0];
+            if (!dlg) return {{toggled: 0}};
+            const pattern = /automatic\s+dubbing|auto[\s\-]?dubbing|자동\s*더빙/i;
+            const boxes = __queryAllDeep('ytcp-checkbox-lit, tp-yt-paper-checkbox, input[type="checkbox"], [role="checkbox"]', dlg);
+            let toggled = 0;
+            for (const bx of boxes) {{
+                const container = bx.closest('div, label, section, ytcp-form-checkbox') || bx.parentElement || bx;
+                const txt = ((container ? container.innerText : '') + ' ' + (bx.getAttribute('aria-label') || '')).replace(/\s+/g, ' ');
+                if (!pattern.test(txt) || /review|검토/i.test(txt)) continue;
+                const isChecked = bx.checked === true || bx.getAttribute('aria-checked') === 'true' || bx.hasAttribute('checked');
+                if (isChecked) {{
+                    bx.click();
+                    toggled += 1;
+                }}
+            }}
+            return {{toggled}};
+        }})()"""
+
+        toggled_total = 0
+        async with leased_cdp_tab(
+            "about:blank",
+            purpose="studio_lock_auto_dubbing_off",
+            cdp_port=self.cdp_port,
+            cdp_host=self.session.cdp_host,
+            background=True,
+        ) as (client, _tid, _owner):
+            await enable_background_focus_emulation(client)
+            await client.send(
+                "Page.setDeviceMetricsOverride",
+                {"width": 1680, "height": 1150, "deviceScaleFactor": 1, "mobile": False},
+            )
+            await client.send("Page.navigate", {"url": STUDIO_BASE_URL}, timeout_sec=30.0)
+            await client.wait_for_element(STUDIO_SETTINGS_SELECTORS["settings_nav_item"], timeout_sec=25.0)
+            await asyncio.sleep(1.8)
+            await client.click(STUDIO_SETTINGS_SELECTORS["settings_nav_item"])
+            await asyncio.sleep(1.5)
+
+            if await client.click(STUDIO_SETTINGS_SELECTORS["uploads_tab"]):
+                await asyncio.sleep(1.0)
+                if await client.click(STUDIO_SETTINGS_SELECTORS["uploads_advanced_subtab"]):
+                    await asyncio.sleep(1.2)
+                    r1 = await client.eval(uncheck_js) or {}
+                    toggled_total += int(r1.get("toggled") or 0)
+
+            if await client.click(STUDIO_SETTINGS_SELECTORS["channel_tab"]):
+                await asyncio.sleep(1.0)
+                if await client.click(
+                    [
+                        "ytcp-settings-dialog tp-yt-paper-tab#advanced",
+                        "ytcp-settings-dialog tp-yt-paper-tab#advancedSettings",
+                        "ytcp-settings-dialog tp-yt-paper-tab:has-text('Advanced settings')",
+                        "ytcp-settings-dialog tp-yt-paper-tab:has-text('\\uace0\\uae09 \\uc124\\uc815')",
+                    ]
+                ):
+                    await asyncio.sleep(1.2)
+                    r2 = await client.eval(uncheck_js) or {}
+                    toggled_total += int(r2.get("toggled") or 0)
+
+            if toggled_total > 0:
+                await client.click(STUDIO_SETTINGS_SELECTORS["settings_save_button"])
+                await asyncio.sleep(2.5)
+            else:
+                await client.click(STUDIO_SETTINGS_SELECTORS["settings_cancel_button"])
+                await asyncio.sleep(0.8)
+
+        return {
+            **inspection,
+            "lock_requested": True,
+            "lock_action": "unchecked_and_saved" if toggled_total > 0 else "noop_no_checked_box_toggled",
+            "toggled_count": toggled_total,
+            "locked_off": True,
+            "auto_dubbing_checked": False,
+            "live_studio_mutated": toggled_total > 0,
+        }
+
+    def lock_auto_dubbing_off(self, dry_run: bool = False) -> dict[str, Any]:
+        """Synchronous entry point ensuring YouTube Automatic Dubbing is OFF."""
+        return asyncio.run(self._async_lock_auto_dubbing_off(dry_run=dry_run))
+
+    async def _async_inspect_channel_home_shelves(self, dry_run: bool = False) -> dict[str, Any]:
+        """
+        Read-only audit of YouTube Studio Customisation -> Home tab (`Shorts`, `Popular Shorts`, `Posts` shelves),
+        strictly leaving `Channel trailer` untouched and performing zero publish mutations.
+        """
+        target_url = f"{STUDIO_BASE_URL}/editing/profile"
+        if dry_run:
+            return {
+                "status": "dry_run",
+                "url": target_url,
+                "live_studio_mutated": False,
+                "channel_trailer_untouched": True,
+                "shelves": [],
+            }
+
+        from pipeline.cdp_tab_lease import enable_background_focus_emulation, leased_cdp_tab
+        from pipeline.studio.community import PRE_DOCUMENT_AUTOPLAY_KILL_JS
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        async with leased_cdp_tab(
+            "about:blank",
+            purpose="studio_inspect_home_shelves",
+            cdp_port=self.cdp_port,
+            cdp_host=self.session.cdp_host,
+            background=True,
+        ) as (client, _tid, _owner):
+            await enable_background_focus_emulation(client)
+            await client.send("Page.addScriptToEvaluateOnNewDocument", {"source": PRE_DOCUMENT_AUTOPLAY_KILL_JS})
+            await client.send(
+                "Page.setDeviceMetricsOverride",
+                {"width": 1680, "height": 1150, "deviceScaleFactor": 1, "mobile": False},
+            )
+            await client.send("Page.navigate", {"url": target_url}, timeout_sec=30.0)
+            await asyncio.sleep(4.5)
+
+            await client.eval(
+                "(() => {"
+                + _DEEP_QUERY_HELPER_JS
+                + """
+                    const tab = __queryAllDeep('tp-yt-paper-tab, [role="tab"], ytcp-tab, button, a').find(
+                        e => /^home\\s*tab$|^홈\\s*탭$/i.test((e.innerText || '').trim())
+                    );
+                    if (tab) tab.click();
+                })()"""
+            )
+            await asyncio.sleep(2.8)
+
+            snap = await client.eval(
+                "(() => {"
+                + _DEEP_QUERY_HELPER_JS
+                + """
+                    const shelfEls = __queryAllDeep(
+                        'ytcp-shelf-predefined-v2, ytcp-spotlight-section-item, ytcp-channel-customization-section, ytcp-shelf-editor-item, [class*="shelf-item"]'
+                    );
+                    const seen = new Set();
+                    const shelves = [];
+                    for (const el of shelfEls) {
+                        const txt = (el.innerText || '').replace(/\\s+/g, ' ').trim().slice(0, 160);
+                        if (!txt || seen.has(txt)) continue;
+                        seen.add(txt);
+                        shelves.push({tag: el.tagName.toLowerCase(), summary: txt});
+                    }
+                    const bodyText = (document.body ? document.body.innerText : '').replace(/\\s+/g, ' ');
+                    if (shelves.length === 0) {
+                        const knownPatterns = [
+                            /Short videos\\s*\\(\\d+\\)/i,
+                            /Popular Shorts(?:\\s*\\(\\d+\\))?/i,
+                            /Posts\\s*\\(\\d+\\)/i,
+                            /Videos\\s*\\(\\d+\\)/i,
+                        ];
+                        for (const rx of knownPatterns) {
+                            const m = bodyText.match(rx);
+                            if (m) shelves.push({tag: 'home_tab_section', summary: m[0]});
+                        }
+                    }
+                    return {url: location.href, shelves, bodyExcerpt: bodyText.slice(0, 1200)};
+                })()"""
+            ) or {}
+
+        shelves = list(snap.get("shelves") or [])
+        joined_low = " | ".join(str(s.get("summary") or "").lower() for s in shelves)
+        has_shorts = bool(re.search(r"\bshort\s+videos\b|\bshorts\b|쇼츠", joined_low))
+        has_popular_shorts = bool(re.search(r"\bpopular\s+shorts\b|인기\s*쇼츠", joined_low))
+        has_posts = bool(re.search(r"\bposts\b|게시물", joined_low))
+
+        return {
+            "status": "ok",
+            "url": str(snap.get("url") or target_url),
+            "live_studio_mutated": False,
+            "channel_trailer_untouched": True,
+            "has_shorts_shelf": has_shorts,
+            "has_popular_shorts_shelf": has_popular_shorts,
+            "has_posts_shelf": has_posts,
+            "shelf_count": len(shelves),
+            "shelves": shelves,
+        }
+
+    def inspect_channel_home_shelves(self, dry_run: bool = False) -> dict[str, Any]:
+        """Synchronous entry point for read-only Studio Home tab shelf inspection."""
+        return asyncio.run(self._async_inspect_channel_home_shelves(dry_run=dry_run))
+
     async def _async_upload_direct_cdp(self, payload: dict[str, Any]) -> dict[str, Any]:
         """Direct WebSocket CDP upload engine for Naver Whale, cleaning up staged bridge files on exit."""
         try:
@@ -1534,64 +2952,114 @@ class StudioUploader:
 
             # Step 4: Inject Title
             title_found = await client.wait_for_element(STUDIO_SELECTORS["title_input"], timeout_sec=25.0)
-            if title_found:
-                print(f"[StudioUploader] Setting Title: '{title}'...")
-                await client.type_into(STUDIO_SELECTORS["title_input"], title)
+            if not title_found:
+                raise RuntimeError("YouTube Studio upload wizard failed: title_input element not found")
+            print(f"[StudioUploader] Setting Title: '{title}'...")
+            if not await client.type_into(STUDIO_SELECTORS["title_input"], title):
+                raise RuntimeError("YouTube Studio upload wizard failed: could not inject title text")
             await asyncio.sleep(1.0)
+            early_auth_gate = bool(await client.eval("""(() => {
+                const t = ((document.body ? (document.body.innerText || '') : '') || '').replace(/\\s+/g, ' ');
+                return /verify that it['’]s you|confirm that it['’]s really you|본인\\s*인증|본인임을\\s*확인/i.test(t);
+            })()"""))
+            if early_auth_gate:
+                raise RuntimeError(
+                    "[StudioAuthGate] YouTube Studio displayed Google's 'Verify that it's you' security confirmation modal "
+                    "(expected 1-time check after VM external IP migration). Complete the verification once in the visible "
+                    "shared-chrome session, then re-run `main.py studio-upload`."
+                )
 
             # Step 5: Inject Description
-            desc_found = await client.wait_for_element(STUDIO_SELECTORS["description_input"], timeout_sec=5.0)
-            if desc_found:
-                print("[StudioUploader] Setting Description...")
-                await client.type_into(STUDIO_SELECTORS["description_input"], description)
+            desc_found = await client.wait_for_element(STUDIO_SELECTORS["description_input"], timeout_sec=10.0)
+            if not desc_found:
+                raise RuntimeError("YouTube Studio upload wizard failed: description_input element not found")
+            print("[StudioUploader] Setting Description...")
+            if not await client.type_into(STUDIO_SELECTORS["description_input"], description):
+                raise RuntimeError("YouTube Studio upload wizard failed: could not inject description text")
             await asyncio.sleep(1.0)
 
-            # Step 6: 9:16 Custom Thumbnail Upload (if interactable; otherwise log R65 mobile cover_frame_sec)
+            # Step 6: 9:16 Custom Thumbnail Upload (if visible in wizard; otherwise Step 12.5 applies via /video/<id>/edit)
             custom_thumb_uploaded = False
             cover_frame_sec = payload.get("cover_frame_sec")
             if thumb_path and Path(thumb_path).exists():
                 try:
-                    uploaded_ok = await client.set_file_input(
-                        Path(thumb_path),
-                        selector="ytcp-thumbnails-compact-editor-uploader input[type='file'], input[type='file'][accept*='image']"
-                    )
-                    custom_thumb_uploaded = bool(uploaded_ok)
-                    if custom_thumb_uploaded:
-                        print(f"[StudioUploader] Custom thumbnail uploaded: {Path(thumb_path).name}")
+                    from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS as _DQ_THUMB
+                    has_visible_wiz_thumb = bool(await client.eval(f"""(() => {{
+                        {_DQ_THUMB}
+                        const el = __queryAllDeep('ytcp-thumbnails-compact-editor-uploader')[0];
+                        return Boolean(el && el.getBoundingClientRect().width > 0 && !(el.innerText || '').toLowerCase().includes('for now, you can'));
+                    }})()"""))
+                    if has_visible_wiz_thumb:
+                        uploaded_ok = await client.set_file_input(
+                            Path(thumb_path),
+                            selector="ytcp-thumbnails-compact-editor-uploader input[type='file']"
+                        )
+                        custom_thumb_uploaded = bool(uploaded_ok)
+                        if custom_thumb_uploaded:
+                            print(f"[StudioUploader] Custom thumbnail uploaded: {Path(thumb_path).name}")
                 except Exception:
                     custom_thumb_uploaded = False
             if not custom_thumb_uploaded:
                 sec_hint = f" at t={cover_frame_sec:.2f}s" if isinstance(cover_frame_sec, (int, float)) else ""
                 print(
-                    f"[StudioUploader] Desktop Shorts custom thumbnail locked; select in-video cover frame{sec_hint} in YouTube mobile app (R65)."
+                    f"[StudioUploader] Wizard Shorts custom thumbnail deferred to Step 12.5 /video/<id>/edit (fallback frame{sec_hint}, R65)."
                 )
 
             # Step 7: Select Audience -> Not made for kids
             print("[StudioUploader] Selecting audience: 'Not made for kids'...")
-            await client.click(STUDIO_SELECTORS["not_made_for_kids_radio"])
+            if not await client.click(STUDIO_SELECTORS["not_made_for_kids_radio"]):
+                raise RuntimeError("YouTube Studio upload wizard failed: could not click 'Not made for kids' radio")
             await asyncio.sleep(1.0)
 
-            # Step 8: Show more -> Declare Altered/Synthetic AI content (R4) & Lock en-US Language (R36)
-            print("[StudioUploader] Expanding 'Show more' to declare AI content and verify en-US language...")
-            await client.click(STUDIO_SELECTORS["show_more_button"])
+            # Step 8: Show more -> Declare Altered/Synthetic AI content (R4), Lock en-US Language (R36) & Clean Tags/Category (R75)
+            print("[StudioUploader] Expanding 'Show more' to declare AI content, verify en-US language, and set clean tags + Education category...")
+            if not await client.click(STUDIO_SELECTORS["show_more_button"]):
+                raise RuntimeError("YouTube Studio upload wizard failed: could not click 'Show more' button")
             await asyncio.sleep(1.0)
-            await client.click(STUDIO_SELECTORS["altered_content_checkbox"])
+            if not await client.click(STUDIO_SELECTORS["altered_content_checkbox"]):
+                raise RuntimeError("YouTube Studio upload wizard failed: could not declare AI Altered Content (R4)")
             await asyncio.sleep(1.0)
             await self._ensure_upload_wizard_en_us_language(
                 client,
                 container_selector="ytcp-uploads-dialog, ytcp-upload-dialog, ytcp-video-metadata-editor-advanced"
             )
+            upload_tags = list(payload.get("tags") or [])
+            upload_pillar = str(payload.get("pillar") or DEFAULT_FALLBACK_PILLAR).strip()
+            if upload_tags:
+                from pipeline.publish import validate_episode_tags_hygiene
+
+                validate_episode_tags_hygiene(upload_tags, upload_pillar, raise_on_error=True)
+                live_wizard_tags = await self._set_chip_bar_values(
+                    client,
+                    container_selector="ytcp-uploads-dialog #tags-container, ytcp-upload-dialog #tags-container, #tags-container",
+                    target_values=upload_tags,
+                )
+                if live_wizard_tags and upload_pillar != "bci_tech":
+                    bad_wizard_tags = [t for t in live_wizard_tags if t.strip().lower() in BANNED_OFF_TOPIC_TECH_TAGS]
+                    if bad_wizard_tags:
+                        raise RuntimeError(
+                            f"[R75] Upload aborted: polluted off-topic tags remained in #tags-container: {bad_wizard_tags}"
+                        )
+            await self._set_studio_category(
+                client,
+                select_selector="ytcp-uploads-dialog #category, ytcp-upload-dialog #category, ytcp-form-select#category",
+                category_labels=[str(payload.get("category") or DEFAULT_VIDEO_CATEGORY), DEFAULT_VIDEO_CATEGORY_KO],
+            )
 
             # Step 9: Progress wizard Next -> Next -> Next
             for step_idx in range(1, 4):
                 print(f"[StudioUploader] Navigating wizard step {step_idx} (clicking 'Next')...")
-                await client.click(STUDIO_SELECTORS["next_button"])
+                if not await client.click(STUDIO_SELECTORS["next_button"]):
+                    raise RuntimeError(
+                        f"YouTube Studio upload wizard failed: could not click 'Next' button at step {step_idx}"
+                    )
                 await asyncio.sleep(1.8)
 
             # Step 10: Visibility / Schedule Configuration
             if visibility == "unlisted":
                 print("[StudioUploader] Selecting 'Unlisted' visibility for Staging Buffer...")
-                await client.click(STUDIO_SELECTORS["visibility_unlisted_radio"])
+                if not await client.click(STUDIO_SELECTORS["visibility_unlisted_radio"]):
+                    raise RuntimeError("YouTube Studio upload wizard failed: could not select 'Unlisted' visibility")
             elif visibility == "scheduled":
                 print(f"[StudioUploader] Selecting 'Schedule' for {payload['scheduled_time_et']}...")
                 et_date_str = payload["target_date"]
@@ -1619,34 +3087,18 @@ class StudioUploader:
                     browser_time_24h,
                     dt_et=dt_et,
                 )
-                sched_ts = int(dt_et.timestamp())
-                await client.eval(f"""(() => {{
-                    const d = document.querySelector('ytcp-uploads-dialog');
-                    const dpc = d?.polymerController;
-                    if (dpc && dpc.form && dpc.form.review) {{
-                        const revVal = dpc.form.review.value;
-                        const newVis = revVal.visibility.update({{
-                            visibility: 'PRIVATE',
-                            scheduledPublishingTimestamp: {sched_ts},
-                            instantPremiere: false,
-                            sponsorshipsMinTierRankId: ''
-                        }});
-                        const newClear = revVal.clearDraftState.update(true);
-                        const newRev = dpc.form.review.update(Object.assign({{}}, revVal, {{
-                            visibility: newVis,
-                            clearDraftState: newClear
-                        }}));
-                        dpc.form = Object.assign({{}}, dpc.form, {{ review: newRev }});
-                    }}
-                }})()""")
                 if not sched_ok:
-                    raise RuntimeError("Failed to set YouTube Studio schedule date/time picker")
+                    raise RuntimeError(
+                        "Failed to set YouTube Studio schedule date/time picker or verify #done-button == Schedule/예약"
+                    )
             elif visibility == "public":
                 print("[StudioUploader] Selecting 'Public' visibility...")
-                await client.click(STUDIO_SELECTORS["visibility_public_radio"])
+                if not await client.click(STUDIO_SELECTORS["visibility_public_radio"]):
+                    raise RuntimeError("YouTube Studio upload wizard failed: could not select 'Public' visibility")
             else:
                 print("[StudioUploader] Selecting 'Private' visibility...")
-                await client.click(STUDIO_SELECTORS["visibility_private_radio"])
+                if not await client.click(STUDIO_SELECTORS["visibility_private_radio"]):
+                    raise RuntimeError("YouTube Studio upload wizard failed: could not select 'Private' visibility")
             await asyncio.sleep(1.5)
 
             # Step 11: Check for Daily Upload Limit or Extract Video Link / ID
@@ -1687,12 +3139,15 @@ class StudioUploader:
                 storage._write_manifest(manifest)
                 return receipt
 
-            video_link_js = """
-            (() => {
-                const a = Array.from(document.querySelectorAll("a")).find(x => x.href && (x.href.includes("/shorts/") || x.href.includes("youtu.be/")));
+            from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+            video_link_js = f"""
+            (() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const a = __queryAllDeep("a").find(x => x.href && (x.href.includes("/shorts/") || x.href.includes("youtu.be/")));
                 if (a) return a.href;
                 return null;
-            })()
+            }})()
             """
             video_link = await client.eval(video_link_js)
             video_id = None
@@ -1705,50 +3160,79 @@ class StudioUploader:
                     print(f"[StudioUploader] Discovered Video ID: {video_id} -> {shorts_url}")
 
             # Step 12: Wait for MP4 upload bytes to finish streaming so Save/Schedule commits cleanly without beforeunload
+            upload_ready = False
+            last_up_state: dict[str, Any] = {}
             for wait_i in range(90):
-                up_state = await client.eval("""(() => {
-                    const dlg = document.querySelector('ytcp-uploads-dialog, ytcp-upload-dialog');
-                    const prog = document.querySelector('ytcp-video-upload-progress');
-                    const pText = (prog ? prog.innerText : (dlg ? dlg.innerText : '')) || '';
-                    const doneBtn = document.querySelector('#done-button, ytcp-button#done-button');
+                up_state = await client.eval(f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const dlg = __queryAllDeep('ytcp-uploads-dialog, ytcp-upload-dialog')[0];
+                    const prog = __queryAllDeep('ytcp-video-upload-progress')[0];
+                    const bodyText = ((document.body ? (document.body.innerText || '') : '') || '').replace(/\\s+/g, ' ').trim();
+                    const pText = ((prog ? (prog.innerText || prog.textContent) : (dlg ? dlg.innerText : '')) || '').replace(/\\s+/g, ' ').trim();
+                    const verifyIdentityGate = /verify that it['’]s you|confirm that it['’]s really you|본인\\s*인증|본인임을\\s*확인/i.test(bodyText);
+                    const doneBtn = __queryAllDeep('ytcp-uploads-dialog #done-button, ytcp-button#done-button').find(b => b.getBoundingClientRect().width > 0);
                     const innerBtn = doneBtn ? (doneBtn.querySelector('button') || (doneBtn.shadowRoot && doneBtn.shadowRoot.querySelector('button'))) : null;
                     const disabled = !doneBtn || doneBtn.hasAttribute('disabled') || doneBtn.getAttribute('aria-disabled') === 'true'
                         || (innerBtn && (innerBtn.disabled || innerBtn.hasAttribute('disabled') || innerBtn.getAttribute('aria-disabled') === 'true'));
-                    const stillUploading = /uploading\\s+\\d+%|업로드\\s*중\\s*\\d+%/i.test(pText);
-                    return {disabled, stillUploading, pText: pText.slice(0, 120)};
-                })()""") or {}
-                if not up_state.get("stillUploading") and not up_state.get("disabled"):
+                    const stillUploading = /uploading\\b|업로드\\s*중/i.test(pText);
+                    return {{disabled, stillUploading, verifyIdentityGate, pText: pText.slice(0, 140)}};
+                }})()""") or {}
+                last_up_state = dict(up_state) if isinstance(up_state, dict) else {}
+                if last_up_state.get("verifyIdentityGate"):
+                    raise RuntimeError(
+                        "[StudioAuthGate] YouTube Studio displayed Google's 'Verify that it's you' security confirmation modal "
+                        "(expected 1-time check after VM external IP migration). Complete the verification once in the visible "
+                        "shared-chrome session, then re-run `main.py studio-upload`."
+                    )
+                if not last_up_state.get("stillUploading") and not last_up_state.get("disabled"):
+                    upload_ready = True
                     break
                 if wait_i % 5 == 0:
-                    print(f"[StudioUploader] Waiting for MP4 upload stream to reach 100% ({up_state})...")
+                    print(f"[StudioUploader] Waiting for MP4 upload stream to reach 100% ({last_up_state})...")
                 await asyncio.sleep(2.0)
 
+            if not upload_ready:
+                raise RuntimeError(
+                    "YouTube Studio upload timed out after 180s before stream completed or Done button enabled "
+                    f"(stillUploading={last_up_state.get('stillUploading')}, disabled={last_up_state.get('disabled')}, "
+                    f"progress={last_up_state.get('pText')!r}); refusing to navigate away or write upload_receipt.json"
+                )
+
             print("[StudioUploader] Finalizing upload (clicking Save/Schedule)...")
-            await client.click(STUDIO_SELECTORS["done_button"])
-            if visibility == "scheduled":
-                await client.eval("""(() => {
-                    const d = document.querySelector('ytcp-uploads-dialog');
-                    const dpc = d?.polymerController;
-                    if (dpc && dpc.form && !dpc.saveInProgress) {
-                        try { dpc.publishVideo(); } catch (e) {}
-                    }
-                })()""")
+            done_pt = await client.eval(f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const b = __queryAllDeep('ytcp-uploads-dialog #done-button, ytcp-button#done-button').find(x => x.getBoundingClientRect().width > 0);
+                if (!b) return null;
+                b.scrollIntoView({{block: 'center'}});
+                const r = b.getBoundingClientRect();
+                return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+            }})()""")
+            if isinstance(done_pt, dict) and "x" in done_pt and "y" in done_pt:
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": float(done_pt["x"]), "y": float(done_pt["y"])})
+                await asyncio.sleep(0.05)
+                await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": float(done_pt["x"]), "y": float(done_pt["y"]), "button": "left", "clickCount": 1})
+                await asyncio.sleep(0.06)
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": float(done_pt["x"]), "y": float(done_pt["y"]), "button": "left", "clickCount": 1})
+            elif not await client.click(STUDIO_SELECTORS["done_button"]):
+                raise RuntimeError("YouTube Studio upload failed: could not click Save/Schedule (done_button)")
             await asyncio.sleep(4.0)
 
             # Check for prechecks warning dialog ("We're still checking your content / Publish anyway")
             for _ in range(6):
-                published_anyway = await client.eval("""(() => {
-                    const btns = Array.from(document.querySelectorAll('ytcp-button, button'));
-                    const p = btns.find(b => {
-                        const t = (b.innerText || '').toLowerCase();
-                        return t.includes('publish anyway') || t.includes('무시하고');
-                    });
-                    if (p && p.offsetParent !== null) {
+                published_anyway = await client.eval(f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const btns = __queryAllDeep('ytcp-button, button');
+                    const p = btns.find(b => {{
+                        const t = (b.innerText || b.textContent || '').toLowerCase();
+                        return (t.includes('publish anyway') || t.includes('schedule anyway') || t.includes('무시하고'))
+                            && b.getBoundingClientRect().width > 0;
+                    }});
+                    if (p) {{
                         p.click();
                         return true;
-                    }
+                    }}
                     return false;
-                })()""")
+                }})()""")
                 if published_anyway:
                     print("[StudioUploader] Handled 'Publish anyway' prechecks confirmation.")
                     await asyncio.sleep(3.5)
@@ -1756,38 +3240,65 @@ class StudioUploader:
                 await asyncio.sleep(1.0)
 
             # Wait up to 30s until upload wizard transitions to completion share dialog or closes
-            for _ in range(15):
-                wiz_done = await client.eval("""(() => {
-                    const wiz = document.querySelector('ytcp-uploads-dialog');
-                    const share = document.querySelector('ytcp-video-share-dialog, ytcp-uploads-still-processing-dialog');
-                    if (!wiz || wiz.offsetParent === null || share) return true;
+            wiz_done = False
+            for wait_done_i in range(15):
+                wiz_done = bool(await client.eval(f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const wiz = __queryAllDeep('ytcp-uploads-dialog')[0];
+                    const share = __queryAllDeep('ytcp-video-share-dialog, ytcp-uploads-still-processing-dialog').find(d => d.getBoundingClientRect().width > 0);
+                    const dlgTxt = (wiz ? (wiz.innerText || '') : '') + ' ' + (document.body ? (document.body.innerText || '') : '');
+                    const hasScheduledBanner = /video\\s+scheduled|video\\s+published|동영상이\\s*예약|동영상이\\s*게시/i.test(dlgTxt);
+                    if (!wiz || wiz.getBoundingClientRect().width === 0 || share || hasScheduledBanner) return true;
                     return false;
-                })()""")
+                }})()"""))
                 if wiz_done:
                     break
+                if wait_done_i in (3, 7) and isinstance(done_pt, dict) and "x" in done_pt and "y" in done_pt:
+                    re_pt = await client.eval(f"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const b = __queryAllDeep('ytcp-uploads-dialog #done-button, ytcp-button#done-button').find(
+                            x => x.getBoundingClientRect().width > 0 && !x.hasAttribute('disabled') && x.getAttribute('aria-disabled') !== 'true'
+                        );
+                        if (!b) return null;
+                        const r = b.getBoundingClientRect();
+                        return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+                    }})()""")
+                    if isinstance(re_pt, dict) and "x" in re_pt and "y" in re_pt:
+                        await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": float(re_pt["x"]), "y": float(re_pt["y"])})
+                        await asyncio.sleep(0.05)
+                        await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": float(re_pt["x"]), "y": float(re_pt["y"]), "button": "left", "clickCount": 1})
+                        await asyncio.sleep(0.06)
+                        await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": float(re_pt["x"]), "y": float(re_pt["y"]), "button": "left", "clickCount": 1})
                 await asyncio.sleep(2.0)
 
             # Handle 'Retry' button if 'Oops, something went wrong' occurs
-            retried = await client.eval("""(() => {
-                const btn = document.querySelector('#error-retry-button, ytcp-button#error-retry-button');
-                if (btn && btn.offsetParent !== null) {
+            retried = await client.eval(f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const btn = __queryAllDeep('#error-retry-button, ytcp-button#error-retry-button').find(b => b.getBoundingClientRect().width > 0);
+                if (btn) {{
                     btn.click();
                     return true;
-                }
+                }}
                 return false;
-            })()""")
+            }})()""")
             if retried:
                 print("[StudioUploader] Handled 'Oops, something went wrong. Retry' click.")
                 await asyncio.sleep(3.0)
+                wiz_done = bool(await client.eval(f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const wiz = __queryAllDeep('ytcp-uploads-dialog')[0];
+                    const share = __queryAllDeep('ytcp-video-share-dialog, ytcp-uploads-still-processing-dialog').find(d => d.getBoundingClientRect().width > 0);
+                    if (!wiz || wiz.getBoundingClientRect().width === 0 || share) return true;
+                    return false;
+                }})()"""))
 
             # Fallback video link check in completion dialog
             if not video_id:
-                fallback_link_js = """
-                (() => {
-                    const a = Array.from(document.querySelectorAll("a")).find(x => x.href && (x.href.includes("/shorts/") || x.href.includes("youtu.be/")));
+                fallback_link_js = f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const a = __queryAllDeep("a").find(x => x.href && (x.href.includes("/shorts/") || x.href.includes("youtu.be/")));
                     return a ? a.href : null;
-                })()
-                """
+                }})()"""
                 video_link = await client.eval(fallback_link_js)
                 if video_link:
                     m = re.search(r"(?:shorts/|youtu\.be/|v=)([\w\-]{11})", video_link)
@@ -1796,22 +3307,102 @@ class StudioUploader:
                         shorts_url = f"{YOUTUBE_WATCH_BASE_URL}{video_id}"
                         print(f"[StudioUploader] Discovered Video ID from completion dialog: {video_id} -> {shorts_url}")
 
+            can_self_heal_scheduled = bool(
+                visibility == "scheduled" and video_id and re.fullmatch(r"[\w\-]{11}", str(video_id))
+            )
+            if not wiz_done and not can_self_heal_scheduled:
+                raise RuntimeError(
+                    "YouTube Studio upload wizard did not transition to completion state after clicking Save/Schedule; "
+                    "refusing to navigate away or write upload_receipt.json"
+                )
+            if not video_id or not re.fullmatch(r"[\w\-]{11}", str(video_id)):
+                raise RuntimeError(
+                    f"YouTube Studio upload did not confirm a valid 11-char YouTube video_id (got {video_id!r}); "
+                    "refusing to write false-positive upload_receipt.json"
+                )
+
             # Close completion dialog if present
             for _ in range(5):
-                closed = await client.eval("""(() => {
-                    const closeBtns = Array.from(document.querySelectorAll('#close-button, ytcp-button#close-button, button[aria-label="Close"], button[aria-label="닫기"], #ytcp-uploads-dialog-close-button'));
-                    for (const b of closeBtns) {
-                        if (b && b.offsetParent !== null) {
+                closed = await client.eval(f"""(() => {{
+                    {_DEEP_QUERY_HELPER_JS}
+                    const closeBtns = __queryAllDeep('#close-button, ytcp-button#close-button, button[aria-label="Close"], button[aria-label="닫기"], #ytcp-uploads-dialog-close-button');
+                    for (const b of closeBtns) {{
+                        if (b && b.getBoundingClientRect().width > 0) {{
                             b.click();
                             return true;
-                        }
-                    }
+                        }}
+                    }}
                     return false;
-                })()""")
+                }})()""")
                 if closed:
                     break
                 await asyncio.sleep(1.0)
             await asyncio.sleep(1.5)
+
+            # Step 12.5 (R65 v4): If upload wizard locked custom Shorts thumbnail, apply via /video/<id>/edit ytcp-thumbnail-uploader
+            if not custom_thumb_uploaded and video_id and thumb_path and Path(thumb_path).exists():
+                try:
+                    await client.send("Page.navigate", {"url": f"https://studio.youtube.com/video/{video_id}/edit"}, timeout_sec=30.0)
+                    loader_ready = False
+                    for _ in range(18):
+                        await asyncio.sleep(1.0)
+                        loader_ready = bool(await client.eval(f"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            return __queryAllDeep('ytcp-thumbnail-uploader input#file-loader, input#file-loader[accept*="image"]').length > 0;
+                        }})()"""))
+                        if loader_ready:
+                            break
+                    if loader_ready:
+                        await asyncio.sleep(1.2)
+                        up_edit_ok = await client.set_file_input(
+                            Path(thumb_path),
+                            selector="ytcp-thumbnail-uploader input#file-loader, input#file-loader[accept*='image']",
+                        )
+                        if up_edit_ok:
+                            await asyncio.sleep(3.2)
+                            save_pt = await client.eval(f"""(() => {{
+                                {_DEEP_QUERY_HELPER_JS}
+                                const b = __queryAllDeep('ytcp-video-metadata-editor #save, ytcp-button#save').find(
+                                    x => x.getBoundingClientRect().width > 0 && !x.hasAttribute('disabled') && x.getAttribute('aria-disabled') !== 'true'
+                                );
+                                if (!b) return null;
+                                const r = b.getBoundingClientRect();
+                                return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+                            }})()""")
+                            if isinstance(save_pt, dict) and "x" in save_pt and "y" in save_pt:
+                                await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": float(save_pt["x"]), "y": float(save_pt["y"])})
+                                await asyncio.sleep(0.05)
+                                await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": float(save_pt["x"]), "y": float(save_pt["y"]), "button": "left", "clickCount": 1})
+                                await asyncio.sleep(0.06)
+                                await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": float(save_pt["x"]), "y": float(save_pt["y"]), "button": "left", "clickCount": 1})
+                                for _ in range(22):
+                                    await asyncio.sleep(1.0)
+                                    saved_done = bool(await client.eval(f"""(() => {{
+                                        {_DEEP_QUERY_HELPER_JS}
+                                        const b = __queryAllDeep('ytcp-video-metadata-editor #save, ytcp-button#save').find(x => x.getBoundingClientRect().width > 0);
+                                        return Boolean(b && (b.hasAttribute('disabled') || b.getAttribute('aria-disabled') === 'true'));
+                                    }})()"""))
+                                    if saved_done:
+                                        custom_thumb_uploaded = True
+                                        print(f"[StudioUploader] Applied R65 v4 custom Short thumbnail on /video/{video_id}/edit: {Path(thumb_path).name}")
+                                        break
+                except Exception as thumb_edit_exc:
+                    print(f"[StudioUploader] Post-upload Short thumbnail edit warning: {thumb_edit_exc}")
+
+            verified_studio_vis = ""
+            verified_studio_date = ""
+            schedule_self_healed = False
+            if visibility == "scheduled":
+                ver_res = await self.verify_and_self_heal_scheduled_row(
+                    client,
+                    video_id=str(video_id),
+                    dt_et=dt_et,
+                    browser_date_label=browser_date_label,
+                    browser_time_24h=browser_time_24h,
+                )
+                verified_studio_vis = str(ver_res.get("visibility_text") or "")
+                verified_studio_date = str(ver_res.get("date_text") or "")
+                schedule_self_healed = bool(ver_res.get("self_healed"))
 
             # Cleanly navigate back to Studio root to reset DOM completely for the next upload
             try:
@@ -1822,8 +3413,8 @@ class StudioUploader:
 
             receipt = {
                 "project_id": project_id,
-                "video_id": video_id or "uploaded_live",
-                "shorts_url": shorts_url or (f"{YOUTUBE_WATCH_BASE_URL}{video_id}" if video_id else "pending"),
+                "video_id": video_id,
+                "shorts_url": shorts_url or f"{YOUTUBE_WATCH_BASE_URL}{video_id}",
                 "uploaded_at": now_iso,
                 "title": title,
                 "video_file": str(video_path),
@@ -1833,11 +3424,14 @@ class StudioUploader:
                 "visibility": visibility,
                 "slot_id": payload["slot_id"],
                 "scheduled_time_et": payload["scheduled_time_et"] if visibility == "scheduled" else None,
+                "verified_studio_visibility": verified_studio_vis or None,
+                "verified_studio_date_text": verified_studio_date or None,
+                "schedule_self_healed": schedule_self_healed if visibility == "scheduled" else None,
                 "video_language": payload.get("video_language", VIDEO_LANGUAGE_CODE),
                 "title_description_language": payload.get("title_description_language", TITLE_DESCRIPTION_LANGUAGE_CODE),
                 "channel_residence_country": payload.get("channel_residence_country", CHANNEL_RESIDENCE_COUNTRY),
                 "target_audience_region": payload.get("target_audience_region", TARGET_AUDIENCE_REGION),
-                "status": "uploaded",
+                "status": "scheduled" if visibility == "scheduled" else "uploaded",
                 "ai_altered_content_declared": True,
                 "not_made_for_kids": True
             }
@@ -1909,6 +3503,306 @@ class StudioUploader:
 
         return await self._async_upload_direct_cdp(payload)
 
+    async def _read_studio_video_row_status(
+        self,
+        client: DirectCDPClient,
+        video_id: str,
+    ) -> dict[str, Any]:
+        """Reads `.tablecell-visibility` and `.tablecell-date` for `video_id` on `/videos/short` (or `/videos/upload`)."""
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        urls = [
+            f"{STUDIO_BASE_URL}/videos/short",
+            f"{STUDIO_BASE_URL}/videos/upload",
+        ]
+        for tab_url in urls:
+            await client.send("Page.navigate", {"url": tab_url})
+            await client.wait_for_element("ytcp-video-row", timeout_sec=16.0)
+            await asyncio.sleep(1.5)
+            for _ in range(10):
+                row_info = await client.eval(
+                    f"""(() => {{
+                        {_DEEP_QUERY_HELPER_JS}
+                        const vid = {json.dumps(str(video_id))};
+                        const rows = __queryAllDeep('ytcp-video-row');
+                        for (const r of rows) {{
+                            const link = __queryAllDeep('a', r)
+                                .map(a => a.getAttribute('href') || a.href || '')
+                                .find(h => h.includes(vid));
+                            if (!link) continue;
+                            const visEl = __queryAllDeep('.tablecell-visibility, [class*="visibility"]', r)[0];
+                            const dateEl = __queryAllDeep('.tablecell-date', r)[0];
+                            const titleEl = __queryAllDeep('#video-title', r)[0];
+                            return {{
+                                found: true,
+                                title: (titleEl ? titleEl.textContent : '').trim(),
+                                visibility: (visEl ? visEl.innerText : '').replace(/\\s+/g, ' ').trim(),
+                                date: (dateEl ? dateEl.innerText : '').replace(/\\s+/g, ' ').trim(),
+                            }};
+                        }}
+                        return {{ found: false, rowCount: rows.length }};
+                    }})()"""
+                ) or {}
+                if row_info.get("found"):
+                    return dict(row_info)
+                await asyncio.sleep(1.0)
+        return {"found": False, "visibility": "", "date": ""}
+
+    async def _self_heal_video_schedule_on_edit_page(
+        self,
+        client: DirectCDPClient,
+        *,
+        video_id: str,
+        dt_et: datetime,
+        browser_date_label: str,
+        browser_time_24h: str,
+    ) -> bool:
+        """Opens `/video/<video_id>/edit`, sets Schedule date/time via Edit-Draft wizard or visibility modal, and commits."""
+        from pipeline.cdp_tab_lease import enable_background_focus_emulation
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        edit_url = f"https://studio.youtube.com/video/{video_id}/edit"
+        await client.send("Page.navigate", {"url": edit_url})
+        await asyncio.sleep(4.2)
+        await enable_background_focus_emulation(client)
+        await client.wait_for_element("ytcp-video-metadata-editor", timeout_sec=18.0)
+
+        # Path A: Video is in Draft -> click 'Edit draft' (ytcp-button#action-1), advance Next x3, schedule & trusted-click #done-button
+        opened_draft = await client.click(
+            [
+                "ytcp-button#action-1",
+                "button:has-text('Edit draft')",
+                "button:has-text('초안 수정')",
+            ]
+        )
+        if opened_draft:
+            await asyncio.sleep(3.2)
+            for _ in range(3):
+                await client.click(["#next-button", "ytcp-button#next-button"])
+                await asyncio.sleep(1.1)
+            sched_ok = await client.set_schedule_datetime_utc(
+                browser_date_label,
+                browser_time_24h,
+                dt_et=dt_et,
+            )
+            if not sched_ok:
+                return False
+            await asyncio.sleep(0.9)
+            done_pt = await client.eval(f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const b = __queryAllDeep('ytcp-uploads-dialog #done-button, ytcp-button#done-button').find(x => x.getBoundingClientRect().width > 0);
+                if (!b) return null;
+                b.scrollIntoView({{block: 'center'}});
+                const r = b.getBoundingClientRect();
+                return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+            }})()""")
+            if isinstance(done_pt, dict) and "x" in done_pt and "y" in done_pt:
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": float(done_pt["x"]), "y": float(done_pt["y"])})
+                await asyncio.sleep(0.05)
+                await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": float(done_pt["x"]), "y": float(done_pt["y"]), "button": "left", "clickCount": 1})
+                await asyncio.sleep(0.06)
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": float(done_pt["x"]), "y": float(done_pt["y"]), "button": "left", "clickCount": 1})
+            else:
+                await client.click(STUDIO_SELECTORS["done_button"])
+            await asyncio.sleep(4.5)
+            # Second trusted click if an open date/time popover backdrop consumed the first click
+            re_pt = await client.eval(f"""(() => {{
+                {_DEEP_QUERY_HELPER_JS}
+                const b = __queryAllDeep('ytcp-uploads-dialog #done-button, ytcp-button#done-button').find(
+                    x => x.getBoundingClientRect().width > 0 && !x.hasAttribute('disabled') && x.getAttribute('aria-disabled') !== 'true'
+                );
+                if (!b) return null;
+                const r = b.getBoundingClientRect();
+                return {{x: r.left + r.width / 2, y: r.top + r.height / 2}};
+            }})()""")
+            if isinstance(re_pt, dict) and "x" in re_pt and "y" in re_pt:
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseMoved", "x": float(re_pt["x"]), "y": float(re_pt["y"])})
+                await asyncio.sleep(0.05)
+                await client.send("Input.dispatchMouseEvent", {"type": "mousePressed", "x": float(re_pt["x"]), "y": float(re_pt["y"]), "button": "left", "clickCount": 1})
+                await asyncio.sleep(0.06)
+                await client.send("Input.dispatchMouseEvent", {"type": "mouseReleased", "x": float(re_pt["x"]), "y": float(re_pt["y"]), "button": "left", "clickCount": 1})
+                await asyncio.sleep(4.5)
+            return True
+
+        # Path B: Non-Draft video -> visibility dropdown modal + Save
+        opened_vis = await client.click(
+            [
+                "ytcp-video-metadata-visibility #select-button",
+                "ytcp-video-metadata-visibility ytcp-button",
+                "#visibility-button",
+            ]
+        )
+        if not opened_vis:
+            return False
+        await asyncio.sleep(1.2)
+
+        sched_ok = await client.set_schedule_datetime_utc(
+            browser_date_label,
+            browser_time_24h,
+            dt_et=dt_et,
+        )
+        if not sched_ok:
+            return False
+        await asyncio.sleep(0.8)
+
+        await client.click(
+            [
+                "ytcp-video-visibility-select #save-button",
+                "ytcp-video-visibility-select #done-button",
+                "ytcp-button#done-button",
+                "#done-button",
+                "#save-button",
+            ]
+        )
+        await asyncio.sleep(1.5)
+        await client.click(
+            [
+                "ytcp-video-metadata-editor #save",
+                "ytcp-button#save",
+                "#save",
+            ]
+        )
+        await asyncio.sleep(4.0)
+        return True
+
+    async def verify_and_self_heal_scheduled_row(
+        self,
+        client: DirectCDPClient,
+        *,
+        video_id: str,
+        dt_et: datetime,
+        browser_date_label: str,
+        browser_time_24h: str,
+    ) -> dict[str, Any]:
+        """
+        Verifies on YouTube Studio's Content table (`/videos/short`) that `video_id` is `Scheduled` (`예약`)
+        and NOT `Draft` (`초안`). If `Draft` / unscheduled, executes one automatic `/video/<id>/edit` self-heal
+        and re-verifies, raising `RuntimeError` if still `Draft`.
+        """
+        def _is_scheduled_vis(vis_txt: str) -> bool:
+            low = str(vis_txt or "").strip().lower()
+            if "draft" in low or "초안" in vis_txt:
+                return False
+            return ("scheduled" in low) or ("예약" in vis_txt)
+
+        row_status = await self._read_studio_video_row_status(client, video_id)
+        vis_txt = str(row_status.get("visibility") or "")
+        date_txt = str(row_status.get("date") or "")
+        if _is_scheduled_vis(vis_txt):
+            print(f"[StudioUploader] Verified Scheduled DOM row for {video_id}: visibility={vis_txt!r}, date={date_txt!r}")
+            return {
+                "verified": True,
+                "self_healed": False,
+                "visibility_text": vis_txt,
+                "date_text": date_txt,
+            }
+
+        print(
+            f"[StudioUploader] Post-upload row for {video_id} showed visibility={vis_txt!r} instead of Scheduled; "
+            f"running /video/{video_id}/edit self-heal..."
+        )
+        await self._self_heal_video_schedule_on_edit_page(
+            client,
+            video_id=video_id,
+            dt_et=dt_et,
+            browser_date_label=browser_date_label,
+            browser_time_24h=browser_time_24h,
+        )
+        row_after = await self._read_studio_video_row_status(client, video_id)
+        vis_after = str(row_after.get("visibility") or "")
+        date_after = str(row_after.get("date") or "")
+        if _is_scheduled_vis(vis_after):
+            print(
+                f"[StudioUploader] Self-heal succeeded for {video_id}: visibility={vis_after!r}, date={date_after!r}"
+            )
+            return {
+                "verified": True,
+                "self_healed": True,
+                "visibility_text": vis_after,
+                "date_text": date_after,
+            }
+
+        raise RuntimeError(
+            f"YouTube Studio video {video_id} remained in non-Scheduled state after self-heal "
+            f"(visibility={vis_after!r}, date={date_after!r}); refusing to mark Scheduled upload as complete"
+        )
+
+    def scan_channel_drafts_readonly(self) -> dict[str, Any]:
+        """
+        Read-only scan of `/videos/short` and `/videos/upload` via a temporary background leased CDP tab.
+        Reports all row counts and any lingering `Draft` (`초안`) video IDs/titles without modifying or deleting anything.
+        """
+        from pipeline.cdp_tab_lease import leased_cdp_tab
+        from pipeline.publish import validate_episode_tags_hygiene
+        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+
+        async def _scan() -> dict[str, Any]:
+            drafts: list[dict[str, str]] = []
+            counts_by_tab: dict[str, int] = {}
+            summary_by_vis: dict[str, int] = {}
+            seen_ids: set[str] = set()
+            async with leased_cdp_tab(
+                f"{STUDIO_BASE_URL}/videos/short",
+                purpose="studio_draft_scan_readonly",
+                cdp_port=int(self.cdp_port),
+                background=True,
+            ) as (client, _tid, _owner):
+                for tab_kind, tab_url in (
+                    ("shorts", f"{STUDIO_BASE_URL}/videos/short"),
+                    ("uploads", f"{STUDIO_BASE_URL}/videos/upload"),
+                ):
+                    await client.send("Page.navigate", {"url": tab_url})
+                    await client.wait_for_element(["ytcp-video-row"], timeout_sec=22.0)
+                    await asyncio.sleep(1.5)
+                    rows = await client.eval(
+                        f"""(() => {{
+                            {_DEEP_QUERY_HELPER_JS}
+                            return __queryAllDeep('ytcp-video-row').map(r => {{
+                                const href = __queryAllDeep('a[href*="/video/"]', r)
+                                    .map(a => a.getAttribute('href') || '')
+                                    .find(h => /\\/video\\/[\\w-]{{11}}\\//.test(h)) || '';
+                                const m = href.match(/\\/video\\/([\\w-]{{11}})\\//);
+                                const vid = m ? m[1] : '';
+                                const titleEl = __queryAllDeep('#video-title', r)[0];
+                                const visEl = __queryAllDeep('.tablecell-visibility, [class*="visibility"]', r)[0];
+                                const dateEl = __queryAllDeep('.tablecell-date', r)[0];
+                                return {{
+                                    video_id: vid,
+                                    title: (titleEl ? titleEl.textContent : '').trim(),
+                                    visibility: (visEl ? visEl.innerText : '').replace(/\\s+/g, ' ').trim(),
+                                    date: (dateEl ? dateEl.innerText : '').replace(/\\s+/g, ' ').trim(),
+                                }};
+                            }});
+                        }})()"""
+                    ) or []
+                    counts_by_tab[tab_kind] = len(rows)
+                    for r in rows:
+                        vid = str(r.get("video_id") or "")
+                        vis = str(r.get("visibility") or "")
+                        key_id = vid or f"{tab_kind}:{r.get('title','')}"
+                        if key_id not in seen_ids:
+                            seen_ids.add(key_id)
+                            summary_by_vis[vis] = summary_by_vis.get(vis, 0) + 1
+                            low_v = vis.lower()
+                            if "draft" in low_v or "초안" in vis:
+                                drafts.append(
+                                    {
+                                        "tab": tab_kind,
+                                        "video_id": vid,
+                                        "title": str(r.get("title") or ""),
+                                        "visibility": vis,
+                                        "date": str(r.get("date") or ""),
+                                    }
+                                )
+            return {
+                "counts_by_tab": counts_by_tab,
+                "visibility_breakdown": summary_by_vis,
+                "draft_count": len(drafts),
+                "drafts": drafts,
+            }
+
+        return asyncio.run(_scan())
+
     def upload_project(
         self,
         project_id: str,
@@ -1921,8 +3815,10 @@ class StudioUploader:
         assign_playlist: bool = False,
         skip_qa_gate: bool = False,
         require_semantic_review: bool = True,
+        allow_instant_public: bool = False,
     ) -> dict[str, Any]:
-        """Synchronous entry point for uploading a single project, with optional post-upload Related Video & Playlist linking."""
+        """Synchronous entry point for uploading a single project, with optional post-upload Related Video linking (playlists banned under R75)."""
+        eff_assign_playlist = bool(assign_playlist and STUDIO_PLAYLISTS_ENABLED)
         payload = self.prepare_upload_payload(
             project_id=project_id,
             slot_id=slot_id,
@@ -1931,18 +3827,19 @@ class StudioUploader:
             burn_first_frame=burn_first_frame,
             skip_qa_gate=skip_qa_gate,
             require_semantic_review=require_semantic_review,
+            allow_instant_public=allow_instant_public,
         )
         receipt = asyncio.run(self._async_upload(payload, dry_run=dry_run))
         if (
             not dry_run
-            and (auto_link or assign_playlist)
+            and (auto_link or eff_assign_playlist)
             and is_valid_youtube_video_id(receipt.get("video_id"))
         ):
             try:
                 linker = StudioShortLinker(cdp_port=self.cdp_port, projects_dir=self.projects_dir)
                 link_plan = linker.run(
                     mode="seed_boost",
-                    assign_playlists=assign_playlist,
+                    assign_playlists=eff_assign_playlist,
                     dry_run=False,
                     force=True,
                     project_id=project_id,

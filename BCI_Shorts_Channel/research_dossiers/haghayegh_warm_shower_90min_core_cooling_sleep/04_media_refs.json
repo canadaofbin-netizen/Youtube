@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Meta-analysis and actigraphy thermal sleep studies staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Why a Hot Bath Before Bed Makes You Fall Asleep Faster Than Going Cold",
+      "url": "https://www.youtube.com/watch?v=MYcN-1-ue7k",
+      "channel": "WellWired",
+      "source_id": "SRC_M1",
+      "duration_sec": 398,
+      "timecodes": [
+        {
+          "t": "00:12-00:38",
+          "what": "Paradox of why heating skin with warm water triggers a drop in internal core body temperature."
+        },
+        {
+          "t": "00:39-01:05",
+          "what": "Visual explanation of palm-and-sole vasodilation and the 90-minute pre-bedtime window (Haghayegh et al., 2019)."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-01:05 into media/M1/keyframes/.",
+          "Used strictly to inspect pacing and radiator analogy clarity; staged from scratch via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_thermal_sleep_study_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Why a Hot Bath Before Bed Makes You Fall Asleep Faster — The Science Is Wild",
+      "url": "https://www.youtube.com/watch?v=BoE_fmVy-Ik",
+      "channel": "The Vitality Scoop",
+      "source_id": "SRC_M2",
+      "duration_sec": 429,
+      "timecodes": [
+        {
+          "t": "00:15-00:45",
+          "what": "Contrast between cold showers (vasoconstriction) and warm showers (peripheral heat dumping)."
+        },
+        {
+          "t": "01:05-01:40",
+          "what": "Discussion of UT Austin's 40–42.5 °C temperature window and slow-wave sleep depth."
+        }
+      ],
+      "license_note": "Complementary reference video for public-science framing; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_thermal_sleep_study_track_b_scene_bible"
+    }
+  ]
+}

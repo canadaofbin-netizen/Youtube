@@ -1,0 +1,83 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "ETH Zürich Darkened Sleep Lab & Infrared Eye Tracker",
+      "setting": "Darkened ETH Zürich sleep laboratory room cutaway with acoustic testing speaker and synchronized EEG/pupil telemetry bench",
+      "when": "2025, first 4 hours of overnight sleep study",
+      "era": "2025, Neural Control of Movement Lab, ETH Zürich, Zurich, Switzerland",
+      "iconic": true,
+      "recognition_hook": "An unconscious matte-white miniature sleeper lies beneath a transparent right-eye patch wearing lightweight infrared pupillometry goggles while an infrared lens films live pupil pulses next to stacked EEG Fpz/Cz waveforms.",
+      "layout": {
+        "positions": [
+          {
+            "who": "Matte-white sleeping participant figure",
+            "where": "Left-center laboratory bed beneath heavy navy acoustic blackout blanket",
+            "facing": "Supine facing upward under compact infrared eye-tracking headframe"
+          },
+          {
+            "who": "Bedside researcher monitor & acoustic speaker operator",
+            "where": "Right-rear polysomnography desk behind acoustic baffle screen",
+            "facing": "Angled left toward Fpz/Cz EEG traces and pupil dilation monitor"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Infrared pupillometry goggles & transparent PRO Optha eye bandage",
+          "period_detail": "Matte dark anodized sensor frame fitted over right eye in pitch-dark room with zero visible glare",
+          "physical_behavior": "Fixed infrared diode illuminates cornea without visible light while high-speed 50 Hz sensor tracks iris-pupil ratio"
+        },
+        {
+          "name": "Polysomnography headcap & 45 dB pink-noise speaker",
+          "period_detail": "Compact medical EEG scalp leads (Fpz, Cz, O1, O2) wired to bedside amplifier beside small calibrated speaker",
+          "physical_behavior": "Broadcasts 10 x 50 ms soft acoustic clicks at 1 Hz during Stage N2 while logging real-time spindle/K-complex voltage"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Sleep technician",
+          "verb_sequence": "protects right ocular surface under transparent PRO Optha S shield -> aligns 50 Hz infrared tracker in pitch darkness -> delivers 45 dB acoustic bursts during N2"
+        },
+        {
+          "who": "Sleeping volunteer",
+          "verb_sequence": "remains continuously asleep across Stage N1, N2, N3, and REM while eye-tracker records live autonomic pupil oscillations"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant pupil & brainstem circuit",
+          "reaction": "constricts -11.51% prior to sleep spindles, dilates +13.49% after K-complexes, and surges +35.37% after micro-arousals without conscious waking"
+        }
+      ],
+      "key_visual": {
+        "description": "Overhead diagonal 3D diorama of the ETH Zürich sleep room slicing from campus roof down to the sleeping figure's infrared-lit right pupil pulsing in real time as 45 dB sound waves ripple across the pillow.",
+        "must_show": [
+          "infrared eye-tracker sensor over protected right eye",
+          "Fpz and Cz sleep EEG monitors beside the pillow",
+          "soft acoustic speaker emitting subtle 45 dB sound ripples"
+        ]
+      },
+      "wardrobe": "Soft charcoal ribbed laboratory sleep sweater on participant; crisp white lab coat on matte-white technician",
+      "lighting": "Deep cool obsidian #080C16 midnight ambient room shadows contrasted with warm tungsten EEG console glow and subtle cyan neuro-signal accent",
+      "sources": [
+        "SRC1",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_arrow_eligible": false,
+  "contrast_visual_mode": "non_spatial_prop_and_brain",
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Constricted baseline pupil window (-25.21% vs N2): sensory gate accepts +5.53 uV^2 acoustic spindle boost",
+    "landmark_or_object_b": "Dilated baseline pupil window (+18.54% vs N2): heightened brainstem arousal blocks spindle boost (+0.08 uV^2)",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 4,
+    "cut_a_landmark_drone": "120ft aerial sweep over ETH Zürich Neo-Renaissance Hauptgebäude limestone cupola descending into darkened sleep lab",
+    "cut_b_topdown_3d_arrow": "Non-spatial prop-and-brain contrast comparing constricted quiet eye against dilated micro-arousal pupil state",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

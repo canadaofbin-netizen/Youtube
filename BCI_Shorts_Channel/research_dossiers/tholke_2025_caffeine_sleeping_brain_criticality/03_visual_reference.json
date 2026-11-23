@@ -1,0 +1,132 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2025 University of Montreal Sleep Lab: Unconscious Sleeper Wearing High-Density EEG Cap While Cortical Waves Stay Wired",
+      "iconic": true,
+      "shorts_priority": 1,
+      "setting_type": "indoor",
+      "era": "2025, Center for Advanced Research in Sleep Medicine, University of Montreal",
+      "layout": {
+        "description": "Dimly lit modern Montreal sleep-laboratory suite separated by an observation window: on the bed, a 48-year-old volunteer sleeps peacefully wearing a soft geodesic EEG net, while Philipp Thölke and Karim Jerbi stand at the dual-monitor waveform console comparing smooth placebo slow waves against jagged, high-complexity caffeine NREM traces.",
+        "positions": [
+          {
+            "who": "48-year-old sleeping volunteer (in soft cotton sleep shirt wearing a delicate white EEG sensor cap)",
+            "where": "lying motionless with eyes closed on the crisp sleep-lab bed after swallowing the double-blind capsule",
+            "facing": "resting peacefully on side-angled pillow toward camera"
+          },
+          {
+            "who": "Neuroscientist researcher (in dark knit sweater and lab badge beside observation glass)",
+            "where": "leaning toward the glowing EEG waveform console pointing a stylus from the calm slow wave to the rapid, fragmented caffeine trace",
+            "facing": "angled toward the observation window and waveform display"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "identical twin white capsule blister cup and bedside water tumbler",
+          "period_detail": "2025 Montreal double-blind crossover capsule pairing caffeine against identical placebo",
+          "physical_behavior": "State-A volunteer swallows white capsule with water at bedside -> State-B sleeps motionless while EEG cap cables transmit high-complexity NREM bursts"
+        },
+        {
+          "name": "high-density sleep EEG sensor cap and dual-trace waveform console",
+          "period_detail": "clinical polysomnography net capturing NREM 1/f slope flattening and cortical criticality",
+          "physical_behavior": "State-A smooth rolling deep NREM waves under placebo -> State-B jagged fast-flickering wake-like criticality waves under caffeine"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult volunteer",
+          "verb_sequence": "sets the empty capsule cup on the nightstand, switches off the warm lamp, and drifts quickly to sleep -> remains physically still while cortical sensors pulse rapidly"
+        },
+        {
+          "who": "Sleep neuroscientist",
+          "verb_sequence": "taps the side-by-side EEG monitor trace showing unconscious NREM brainwaves locked in wake-like complexity"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleep neuroscientist",
+          "reaction": "widens eyes slightly seeing waking-style neural complexity inside motionless NREM sleep"
+        },
+        {
+          "who": "Adult volunteer",
+          "reaction": "wakes at 7 AM rubbing temples despite eight full hours in bed"
+        }
+      ],
+      "wardrobe": "Soft heather-gray sleepwear on volunteer; navy cardigan over collared shirt on researcher.",
+      "lighting": "Cool moonlit blue bedroom glow contrasted against warm amber control-room desk light.",
+      "recognition_hook": "Your eyes close and you sleep eight hours—yet 2025 brainwave scans catch afternoon caffeine keeping your unconscious cortex wired like daytime.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC_M1"
+      ],
+      "key_visual": {
+        "description": "a motionless adult sleeping in a soft EEG sensor cap while a sleep researcher behind glass inspects jagged wake-like brainwaves on a monitor",
+        "must_show": [
+          "bed|pillow",
+          "cap|sensors",
+          "monitor|glass"
+        ],
+        "source": "M1@00:10-00:45; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Sunlit 3:00 PM Sidewalk Café Espresso vs 1:00 PM Cutoff Walk",
+      "iconic": false,
+      "shorts_priority": 1,
+      "setting_type": "outdoor",
+      "era": "Modern sunlit afternoon city sidewalk café patio",
+      "layout": {
+        "description": "Sunlit outdoor brick sidewalk café patio under green trees with wrought-iron bistro tables and an awning clock reading mid-afternoon.",
+        "positions": [
+          {
+            "who": "52-year-old professional (in tailored blazer over linen shirt)",
+            "where": "sitting at an outdoor bistro table glancing at a wristwatch at 3:15 PM while lifting a porcelain espresso cup",
+            "facing": "seated outdoors in afternoon sunlight"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "white porcelain afternoon espresso cup and stainless wristwatch",
+          "period_detail": "everyday afternoon pick-me-up inside the 8.8-hour pre-bedtime clearance window",
+          "physical_behavior": "State-A hand lifts steaming 3:15 PM espresso cup -> State-B swaps late espresso for sparkling water with lemon slice after checking watch"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult professional",
+          "verb_sequence": "checks wristwatch on the sunlit patio, pauses over the 3 PM espresso cup, and slides a tall glass of sparkling lemon water forward instead"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult professional",
+          "reaction": "smiles with relaxed afternoon composure protecting tonight's slow-wave recovery"
+        }
+      ],
+      "wardrobe": "Smart-casual taupe blazer, white open-collar shirt, and wristwatch.",
+      "lighting": "Warm late-afternoon golden street sunlight.",
+      "recognition_hook": "A single 107 mg cup of coffee needs nearly nine hours of clearance to leave deep slow-wave sleep untouched.",
+      "sources": [
+        "SRC5",
+        "SRC6"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Sunlit 2:00 PM outdoor sidewalk café table where caffeine enters bloodstream 9 hours before bed",
+    "landmark_or_object_b": "11:00 PM dark bedroom bed where unconscious NREM cortex stays wired in criticality",
+    "arrow_3d_mode": "split_hemisphere_watch",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep from a sunlit Montreal boulevard café awning straight across twilight rooftops into a quiet bedroom cutaway",
+    "cut_b_topdown_3d_arrow": "Top-down architectural timeline floorplan where a glowing #FF2525 3D volumetric arrow bridges 8.8 hours from café cup straight into the sleeping pillow",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.1
+    ]
+  }
+}

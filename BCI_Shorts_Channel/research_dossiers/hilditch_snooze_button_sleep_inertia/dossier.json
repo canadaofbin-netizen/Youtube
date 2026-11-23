@@ -1,0 +1,221 @@
+{
+  "schema_version": 2,
+  "slug": "hilditch_snooze_button_sleep_inertia",
+  "topic": "Why Hitting Snooze Traps Your Forehead Brain in Deep-Sleep Fog for Hours",
+  "pillar": "brain_health",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T03:43:55+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "NEURO_BIOLOGY pairs relatable morning bedside snooze-button motor actions with Blender 3D MNI152 #27D8FF visualization of fast brainstem-thalamic wakefulness versus a 20-to-30-minute silenced prefrontal cortex.",
+  "setup_18w": "Sleep labs measured blood flow and reaction speed right after waking from deep versus light morning sleep.",
+  "primary_doi": "10.1093/brain/awf228",
+  "three_layer_formula": {
+    "everyday_problem": "Slapping the bedside snooze bar three times before work and staggering into the kitchen feeling mentally slower than when you went to bed.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/brain/awf228",
+      "source_ids": [
+        "SRC1",
+        "SRC5"
+      ],
+      "dois": [
+        "10.1093/brain/awf228",
+        "10.1001/jama.295.2.163"
+      ],
+      "summary": "Balkin et al. (2002, Brain) and Wertz et al. (2006, JAMA) proved waking from sleep restores brainstem awareness immediately while cognitive performance drops worse than 26 hours of sleep deprivation as prefrontal blood flow lags 20–30 minutes behind."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1016/j.neuroimage.2018.09.033",
+      "year": 2019,
+      "source_ids": [
+        "SRC2",
+        "SRC3",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1016/j.neuroimage.2018.09.033",
+        "10.1111/jsr.14054",
+        "10.1093/sleep/zsac184"
+      ],
+      "summary": "Vallat et al. (2019, NeuroImage) scanned 34 sleepers with simultaneous EEG-fMRI at 5 and 25 minutes post-wake, showing deep N3 awakenings flood daytime attention networks with delta connectivity, while Mattingly (2022) and Sundelin (2024) quantified snoozing physiology."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1093/brain/awf228",
+        "year": 2002,
+        "summary": "H2(15)O PET study mapping fast brainstem/thalamus vs delayed 20-30 min prefrontal blood-flow recovery upon waking."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1001/jama.295.2.163",
+        "year": 2006,
+        "summary": "JAMA inpatient benchmark showing post-wake sleep inertia impairs cognition worse than 26 hours awake."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.1016/j.neuroimage.2018.09.033",
+        "year": 2019,
+        "summary": "Simultaneous EEG-fMRI in 34 adults showing loss of default-mode vs attention network segregation after deep N3 waking."
+      },
+      {
+        "source_id": "SRC3",
+        "doi": "10.1111/jsr.14054",
+        "year": 2024,
+        "summary": "Stockholm polysomnography trial (n=31) and 1,732-adult survey testing 30 minutes of intermittent snooze alarms."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "Two-Speed Human Awakening: Balkin's PET Blood-Flow Lag & Vallat's EEG-fMRI Deep-Sleep Inertia Studies",
+    "year": 2019,
+    "place": "Walter Reed / NIH Imaging Suite (USA), Lyon Neuroscience Research Center (France) & Stockholm University Sleep Lab (Sweden)",
+    "people": [
+      {
+        "name": "Thomas J. Balkin & Allen R. Braun",
+        "role": "Sleep neuroscientists who used H2(15)O PET imaging to discover that prefrontal cortex blood flow trails brainstem awakening by 20 to 30 minutes",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Raphaël Vallat & Perrine Ruby",
+        "role": "Lyon neuroimaging researchers who scanned 34 waking adults with simultaneous EEG and fMRI to catch deep-sleep delta waves invading daytime networks",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Cassie J. Hilditch, Tina Sundelin & Stephen M. Mattingly",
+        "role": "Circadian and sleep-inertia investigators who tracked 450 wearable users, 1,732 survey adults, and 31 polysomnography snoozers",
+        "source_id": "SRC4"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "Using H2(15)O PET brain scans upon awakening, Balkin et al. proved cerebral blood flow snaps back rapidly in the deep brainstem and thalamus for basic consciousness, yet lags 15 to 30 minutes behind in the anterior prefrontal cortex behind your forehead.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In a landmark JAMA inpatient trial following six nights of full 8-hour sleep, cognitive math accuracy during the first 3 minutes after waking plunged worse than after staying awake for 26 consecutive hours.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Subtle cognitive performance impairments from morning sleep inertia can linger for up to 2 hours after the alarm when prior sleep debt or circadian low points overlap.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In Vallat et al.'s simultaneous EEG-fMRI study of 34 waking adults—comparing 20 sleepers woken from deep N3 sleep against 14 sleepers woken from light N2 sleep—deep N3 awakenings caused the severest subtraction mistakes at 5 minutes post-wake.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "EEG-fMRI Wake Stage Split",
+        "unit": "adults",
+        "bars": [
+          {
+            "label": "Deep N3 Wakers",
+            "value": 20.0,
+            "unit": "adults"
+          },
+          {
+            "label": "Light N2 Wakers",
+            "value": 14.0,
+            "unit": "adults"
+          }
+        ],
+        "doi": "10.1016/j.neuroimage.2018.09.033",
+        "source_citation": "Vallat et al. (2019)"
+      }
+    },
+    {
+      "fact": "Waking out of deep slow-wave sleep collapsed clean network segregation, letting delta-wave connectivity spill across the default mode network and attention circuits at 5 minutes before partially recovering at 25 minutes.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "Across 450 working adults tracked with continuous wearables by Mattingly et al., 57 percent habitually hit the snooze button compared with 43 percent who rose on a single alarm.",
+      "source_id": "SRC6",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Adult Morning Alarm Habits",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Habitual Snoozers",
+            "value": 57.0,
+            "unit": "%"
+          },
+          {
+            "label": "Single-Alarm Risers",
+            "value": 43.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1093/sleep/zsac184",
+        "source_citation": "Mattingly et al. (2022)"
+      }
+    },
+    {
+      "fact": "Wearable heart-rate recordings showed habitual snoozers experienced lighter fragmented pre-wake sleep and repeated sympathetic heart-rate spikes with each alarm.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "In Sundelin et al.'s study of 1,732 respondents and 31 in-lab polysomnography snoozers, 30 minutes of intermittent snoozing cost roughly 6 minutes of total sleep while preventing abrupt awakenings directly out of deep N3 sleep.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Hilditch and McHill showed prior sleep restriction and waking near the circadian body-temperature trough dramatically amplify prefrontal sleep inertia.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "For the first 3 minutes after your morning alarm, your brain's working-memory math accuracy is measurably worse than if you had pulled a 26-hour all-nighter.",
+      "why_surprising": "Even 8 hours of healthy sleep cannot skip the physical reboot lag of frontal brain blood flow.",
+      "source_id": "SRC5",
+      "rank": 1
+    },
+    {
+      "fact": "Your brainstem and thalamus wake up in seconds so you can walk to the kitchen, while your prefrontal cortex behind the forehead takes 20 to 30 minutes to fully come online.",
+      "why_surprising": "Explains why adults can pour coffee on autopilot while making terrible early-morning judgment calls.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "57 percent of tracked working adults hit snooze—triggering repeated stress-system heart-rate jolts across their final half hour in bed.",
+      "why_surprising": "Shows snoozing taxes the autonomic heart-rate system rather than delivering deep extra rest.",
+      "source_id": "SRC6",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Once my eyes are open and my feet hit the bedroom floor, my brain is 100 percent awake.",
+      "truth": "Standing only needs your brainstem and motor strip; PET and fMRI scans show your prefrontal decision hub lags 20 to 30 minutes behind.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Setting five alarms an hour before I need to get up gives me bonus restorative sleep.",
+      "truth": "Repeated alarms fragment late-morning REM and light sleep, cost consolidated sleep minutes, and repeatedly jolt heart rate.",
+      "source_id": "SRC6"
+    }
+  ],
+  "everyday_hooks": [
+    "Slapping a bedside alarm three times between 6:00 and 6:30 AM, then pouring coffee onto the kitchen counter in a thick fog.",
+    "Reading an urgent 6:45 AM work message right after waking and realizing at 9:30 AM you completely misread the numbers.",
+    "Placing your alarm across the bedroom and stepping straight onto a sunlit porch to clear delta waves out of your forehead brain."
+  ],
+  "offcenter_creator_bet": "My bet: snoozing wrecks morning focus — do you set one single alarm or stack three in a row?",
+  "debate_ignition": {
+    "prebunk_myth": "Most adults assume waking up groggy means they slept terribly, when their forehead brain simply reboots 25 minutes slower than their brainstem.",
+    "open_verdict_question": "Tomorrow morning, do you set one single alarm at your real wake time or use a snooze buffer to ease out of bed?",
+    "offcenter_creator_bet": "My bet: snoozing wrecks morning focus — do you set one single alarm or stack three in a row?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

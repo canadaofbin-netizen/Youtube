@@ -1,22 +1,15 @@
-# Camera Choreography Rules (`R14-D`, `R55`)
+---
+trigger: model_decision
+description: "Load when choosing or validating clip camera moves, 120ft aerial campus drone shots, single-move-per-clip discipline, or Mode 1 -> Mode 2 cranium transitions (R66, R68, R72, R82, R85)."
+---
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Prompts: [visual_prompt_spec.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/visual_prompt_spec.md), [neuro_diorama_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/neuro_diorama_rules.md) | Code: [`pipeline/depiction_rules.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/depiction_rules.py)
+# Camera Choreography Rules (`R66`, `R68`, `R72`, `R82`, `R85`)
 
-## Active Schema v7 Camera Rig (`DIORAMA_V7_CAMERA_MOVES` — `R63` / `R66`)
-- **Orthogonal Documentary Rig**: Tripod lock-off floor `>= DIORAMA_V7_LOCKED_CAMERA_MIN_RATIO` (`0.35`, target `~0.40`), zoom/push-pull ceiling `<= DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO` (`0.30`); `PORCELAIN_V7_MIN_CUT_SEC..PORCELAIN_V7_LONG_TAKE_MAX_SEC` same-scene multi-angle coverage (wide room -> hands insert -> POV hands -> cutaway/brain).
-- **One Move Per Clip**: Never chain conflicting moves (`orbit + whip-pan + dolly`) or embed `Camera Angle N` / `Shot N` labels. Anchor brain targets by anatomical name (`temporal lobe`, `ventral surface`), never screen quadrant (`upper-left`).
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Pacing Spec: [hook_pacing_beatcard_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/hook_pacing_beatcard_rules.md) | Motion Spec: [arrows_callouts_motion_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/arrows_callouts_motion_rules.md) | Retired (`R14-D v4, R55`): [retired_rules_2026-11-18.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/_archive/retired_rules_2026-11-18.md)
 
-## R14-D & R55 — Legacy v4/v5 Role Camera Map (`clip.camera_move`)
-| Role | Move (`classic_v5` / brain transitions) |
-|---|---|
-| `setup` | Wide establishing shot smoothly tracking forward toward subject |
-| `symptom` | Close-up slow orbit around head |
-| `failure` | Smooth lateral track between figures |
-| `crisis` (`R55` dive) | Smooth dive through frosted-glass cranium -> glide over gyri/sulci -> zoom into target |
-| `pivot` | Smooth orbit around structures, push in on `amber-gold` compensatory route |
-| `mechanism` / `step1` / `step2` | Macro tracking following contained signal stream along `signal_path` |
-| `step3` | Pull back to reveal full 3D anatomical circuit |
-| `breakthrough` (`R55` exit) | Smooth pull-out from brain through cranium back into room |
-| `conclusion` (`R19`) | Independent slow pull-back rising to elevated wide shot (never loops to Clip 1) |
-
-- **R14-D v5 (`real_env` Reenactment)**: `visual_plan.shots[role].camera` selects 1 action-matched move: iconic blocking (`low-angle tracking`, `overhead wide`), prop physics (`close-up tracking hand on prop`, `insert shot of prop change`), or reaction (`medium push-in`). Note: `locked-off`/`tripod` are banned in legacy v4 (`R14-B`) ONLY; Schema v7 explicitly requires `locked_tripod` (`>= 35%`).
+## Active `v8` / `v7` Camera Discipline & `P1-4` Hero Low-Angle Framing
+- **One Disembodied Move Per Clip**: Never chain conflicting moves (`orbit + whip-pan`), never write `Camera Angle N` labels, and maintain **`0` banned `"dolly"` or camera/drone/gimbal hardware nouns** in Flow prompts (`R77`).
+- **`P1-4` Hero `~35–45%` Low-Angle & `push-in ↔ pull-back` Rhythm**: Hero human character cuts (`2–3` per episode) frame the subject at **`~35–45%` frame occupancy** with `hero_low_angle` subtle upward framing (keeping top `HookTitle` `Y=238–422px` and bottom ASS safe zones clear), alternating **`disembodied push-in ↔ smooth pull-back`** across consecutive cuts to sustain kinetic depth without hardware nouns.
+- **True `120ft` Institution Aerial Drone (`Tier-1 #7`)**: `drone_aerial_approach`, `drone_landmark_ascend`, and `drone_high_orbit_drop` MUST maintain true ~120ft/30m aerial bird's-eye scale (`"120ft altitude, figures read as tiny dots"`), zero eye-level pedestrian walking verbs (`walk, stride, jog`), and `human_action_relay=False`.
+- **Poised Brain Parallax (`R81`, `R82`)**: Brain cuts hold gentle `<= 12°–15°` single-plane parallax or slow push/pull (`0` frantic 90° spins) so `R81` callout leader lines track with zero drift.
+- **Camera Ratio Targets (`Tier-2 Advisory`)**: `locked_tripod >= 15%` (`>= 35%` on `v7`), `orbital_3d_arc_sweep <= 30%`, `fpv_dive_glide <= 25%` are non-blocking design targets.

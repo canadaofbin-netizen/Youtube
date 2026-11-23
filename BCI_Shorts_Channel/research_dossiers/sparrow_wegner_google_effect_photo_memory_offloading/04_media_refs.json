@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern cognitive offloading and fMRI memory studies staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "The Google Effect Explained: Sparrow Study & Digital Amnesia | Why You Can't Remember Phone Numbers?",
+      "url": "https://www.youtube.com/watch?v=8iqbfbKrHdI",
+      "channel": "3-Minute Explanation",
+      "source_id": "SRC_M1",
+      "duration_sec": 459,
+      "timecodes": [
+        {
+          "t": "00:12-00:38",
+          "what": "Everyday adult contrast between knowing childhood landline phone numbers versus blanking on saved smartphone contacts."
+        },
+        {
+          "t": "00:39-01:05",
+          "what": "Step-by-step walkthrough of Sparrow, Liu & Wegner's (2011, Science) 40-statement saved-versus-erased computer experiment."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 extracted keyframes and contact_sheet.jpg); strictly for research analysis only and never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes (kf_001.jpg..kf_012.jpg) across 00:05-01:05 into media/M1/keyframes/.",
+          "Used strictly to inspect pacing and folder-vs-fact visual framing; staged from scratch via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_study_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Technology, Cognition & Bias: The Google Effect, GPS & AI Explained",
+      "url": "https://www.youtube.com/watch?v=eLlue3ow61w",
+      "channel": "TheTeacherKind",
+      "source_id": "SRC_M2",
+      "duration_sec": 725,
+      "timecodes": [
+        {
+          "t": "00:25-01:05",
+          "what": "Overview of transactive memory systems and Risko & Gilbert's (2016) cognitive offloading framework."
+        },
+        {
+          "t": "02:10-02:50",
+          "what": "Comparison of location-pointer encoding ('where to find it') versus deep hippocampal content encoding."
+        }
+      ],
+      "license_note": "Complementary reference video for cognitive-offloading framing; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_cognitive_study_track_b_scene_bible"
+    }
+  ]
+}

@@ -1,22 +1,22 @@
 {
   "scenes": [
     {
-      "id": "dual_eeg_handholding_lab",
-      "title": "Goldstein 2018 Dual-EEG Hyperscanning & Coan 2006 Handholding Lab: two wired skulls locking into 8-12 Hz sync",
+      "id": "S1",
+      "title": "2018 Dual-EEG Hyperscanning & Coan Handholding Lab: Two Wired Brains Locking Into 8–12 Hz Sync",
       "iconic": true,
       "shorts_priority": 1,
       "era": "2018 CU Boulder / Haifa Dual-EEG Lab & 2006 University of Virginia fMRI Suite",
       "layout": {
-        "description": "Bright high-key clinical neurophysiology room with two upholstered wooden-arm chairs side-by-side at center, two clothed matte-white porcelain partners wearing sleek white neural caps clasping hands across the shared armrest while a small smooth forearm thermal pad rests on the left partner's sleeve cuff, backed by an unmarked dual-wave display.",
+        "description": "Bright high-key clinical neurophysiology room with two oak-arm chairs side-by-side at center: two clothed 48-year-old 2.5D matte cream-white vinyl partners wearing sleek white neural sensor caps clasp hands across the shared wooden armrest while a small smooth forearm thermal pad rests on the left partner's cuff in front of an unmarked dual-wave glass monitor.",
         "positions": [
           {
-            "who": "Pain-test participant (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in dusty-rose knit cardigan, dark slacks, and white neural cap)",
-            "where": "seated in the left clinical armchair with a small smooth thermal cuff on left forearm and right porcelain hand extended across the armrest",
-            "facing": "angled slightly toward partner in the right chair"
+            "who": "Pain-test participant (clothed 2.5D matte cream-white vinyl adult with smooth earless noseless hairless oval head and expressive 2D charcoal-black ink eyes, brows, and mouth in dusty-rose knit cardigan, dark slacks, and white neural cap)",
+            "where": "seated in the left oak armchair with a smooth unmarked thermal cuff on left forearm and right hand resting on the shared wooden armrest",
+            "facing": "angled slightly toward trusted partner in the right chair"
           },
           {
-            "who": "Trusted partner (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in charcoal wool sweater, tailored trousers, and matching white neural cap)",
-            "where": "seated in the adjacent right clinical armchair clasping left porcelain hand warmly over the participant's hand",
+            "who": "Trusted spouse (clothed 2.5D matte cream-white vinyl adult in charcoal wool crew sweater, tailored trousers, and matching white neural cap)",
+            "where": "seated in the adjacent right oak armchair reaching left hand across the armrest to clasp the participant's hand",
             "facing": "angled attentively toward the participant"
           }
         ]
@@ -24,131 +24,146 @@
       "props": [
         {
           "name": "two matched white multi-lead neural sensor caps and smooth forearm thermal pad",
-          "period_detail": "clean clinical dual-EEG hyperscanning caps with bundled white leads and unmarked forearm thermode cuff",
-          "physical_behavior": "the instant both porcelain hands clasp across the wooden armrest, two separate jagged wave lines on the rear glass screen lock into one smooth 8–12 Hz wave"
+          "period_detail": "clean clinical dual-EEG hyperscanning caps with bundled white leads and text-free forearm thermode cuff",
+          "physical_behavior": "State-A: hands rest apart while the participant's shoulders tense against forearm heat -> State-B: partner clasps the participant's hand firmly across the oak armrest and tense shoulders drop smoothly"
         },
         {
           "name": "unmarked dual-channel glass waveform console",
-          "period_detail": "text-free laboratory display showing top and bottom brainwave traces",
-          "physical_behavior": "chaotic out-of-phase traces snap into smooth synchronized cyan-blue waves upon skin-to-skin hand clasp"
+          "period_detail": "text-free laboratory display showing upper and lower brainwave traces",
+          "physical_behavior": "State-A: two separate jagged out-of-phase traces -> State-B: both traces snap into smooth synchronized cyan-blue 8–12 Hz waves the instant hands clasp"
         }
       ],
       "actions": [
         {
-          "who": "Trusted partner",
-          "verb_sequence": "reaches across the wooden chair armrest -> clasps smooth matte-white porcelain fingers gently around the participant's tense hand"
+          "who": "Trusted spouse",
+          "verb_sequence": "reaches left hand across the oak chair armrest -> clasps warm fingers firmly over the participant's tense hand -> holds steady as both rear waveform lines lock into sync"
         }
       ],
       "reactions": [
         {
           "who": "Pain-test participant",
-          "reaction": "tense raised shoulders drop smoothly in unison as the two rear screen traces lock into one calm rhythm"
+          "reaction": "2D charcoal-black ink brows soften and raised shoulders drop smoothly as pain drops from 52 down to 25"
+        },
+        {
+          "who": "Trusted spouse",
+          "reaction": "steady attentive nod mirroring calm breath cadence"
         }
       ],
-      "wardrobe": "Participant in dusty-rose knit cardigan and dark slacks; partner in charcoal crew-neck wool sweater; researcher in crisp white lab coat.",
-      "lighting": "Bright high-key clinical daylight balanced with soft warm tungsten rim light on clasped porcelain hands.",
-      "recognition_hook": "Two wired brains sitting inches apart stay out of sync — until their hands touch and lock two separate storms into one pain-blunting wave.",
+      "wardrobe": "48-year-old participant in dusty-rose knit cardigan and dark slacks; spouse in charcoal wool crew sweater; clinician in crisp white coat.",
+      "lighting": "Bright high-key clinical daylight balanced with soft warm rim light on clasped hands.",
+      "recognition_hook": "Sitting inches apart leaves two stressed brains out of sync — until clasping hands locks 8–12 Hz brain waves together and cuts pain in half!",
       "sources": [
         "goldstein_2018",
-        "coan_2006",
-        "fnirs_hyperscan_protocol"
+        "coan_2006"
       ],
       "key_visual": {
-        "description": "two porcelain partners wearing sleek white neural sensor caps seated side-by-side clasping porcelain hands across a wooden chair armrest in front of an unmarked dual-wave clinical monitor",
+        "description": "two adults wearing sleek white neural sensor caps seated side-by-side clasping hands across a wooden chair armrest in front of an unmarked dual-wave clinical monitor",
         "must_show": [
           "hand|clasp|armrest",
           "cap|monitor|wave",
-          "porcelain"
+          "chair"
         ],
         "source": "fnirs_hyperscan_protocol@00:48-01:25; goldstein_2018; coan_2006"
       }
     },
     {
-      "id": "solo_shock_waiting_chair",
-      "title": "Coan 2006 solo ankle-shock threat baseline vs stranger hand vs trusted spouse hand",
+      "id": "S2",
+      "title": "2006 UVA Solo Threat Chair: Empty Companion Seat Paying the Solitude Tax",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "2006 University of Virginia fMRI Suite",
+      "era": "2006, University of Virginia Clinical Scanner Waiting Bay (Coan, Schaefer & Davidson)",
       "layout": {
-        "description": "Same bright clinical suite with the right companion chair completely empty while the lone participant grips both wooden armrests.",
+        "description": "Same bright clinical suite with the right companion chair completely empty while the lone participant grips both wooden armrests tightly.",
         "positions": [
           {
             "who": "Participant in dusty-rose cardigan",
-            "where": "seated solo next to an empty companion chair",
-            "facing": "forward"
+            "where": "seated solo next to a visibly vacant oak companion chair",
+            "facing": "forward with tense shoulders"
           }
         ]
       },
       "props": [
         {
-          "name": "slender unmarked ankle sensor cuff and empty companion chair",
-          "period_detail": "minimalist clinical strap on right ankle beside a visibly vacant oak armchair",
-          "physical_behavior": "lone porcelain hands grip the wooden armrests tightly when facing the cue solo"
+          "name": "slender unmarked ankle sensor cuff and vacant oak companion chair",
+          "period_detail": "minimalist clinical ankle strap beside an empty partner seat",
+          "physical_behavior": "State-A: participant glances at empty chair -> State-B: grips both oak armrests tightly as solo threat circuitry works overtime"
         }
       ],
       "actions": [
         {
           "who": "Participant",
-          "verb_sequence": "glances at the empty chair beside her -> grips both wooden armrests tightly"
+          "verb_sequence": "glances sideways at the empty chair -> grips both oak armrests tightly"
         }
       ],
       "reactions": [
         {
           "who": "Participant",
-          "reaction": "posture stiffens as solo threat circuitry burns extra energy"
+          "reaction": "stiffened solo posture illustrating Coan's Social Baseline solitude tax"
         }
       ],
       "wardrobe": "Dusty-rose knit cardigan and dark slacks.",
       "lighting": "Crisp cool clinical daylight.",
-      "recognition_hook": "Solitude isn't neutral zero — to the human brain, an empty chair during pain is an extra threat tax.",
+      "recognition_hook": "To the evolved human brain, an empty chair beside you during danger isn't zero — it's an extra fuel tax.",
       "sources": [
         "coan_2006",
         "master_2009"
       ]
     },
     {
-      "id": "brain_insula_cingulate_sync",
-      "title": "Contained Living 4-Color 3D Brain coronal cutaway: anterior insula & dorsal ACC pain alarm blunted by social touch",
+      "id": "S3",
+      "title": "Sunlit Clinic Garden Walkway: Walking Out Hand-in-Hand (Outdoor)",
       "iconic": false,
-      "shorts_priority": 1,
-      "era": "2006-2026 Pain & Social Baseline Gallery",
+      "shorts_priority": 2,
+      "era": "Modern sunlit outdoor clinic garden path & wooden bench",
       "layout": {
-        "description": "Bright white architectural gallery with Contained Living 4-Color 3D Brain coronal cutaway on matte-white pedestal.",
+        "description": "Open-world sunlit outdoor brick garden path lined with green shrubs outside a medical center where the 48-year-old couple walks calmly hand-in-hand in warm afternoon sunshine.",
         "positions": [
           {
-            "who": "3D Coronal Brain Model",
-            "where": "centered on matte-white pedestal",
-            "facing": "anterior coronal cutaway"
+            "who": "Couple in dusty-rose cardigan and charcoal sweater",
+            "where": "walking side-by-side along the sunlit garden path with inner hands clasped",
+            "facing": "forward into warm sunlight"
           }
         ]
       },
       "props": [
         {
-          "name": "translucent coronal 3D brain cutaway",
-          "period_detail": "contained subsurface four-color glow",
-          "physical_behavior": "crimson-red flares in deep bilateral insula and midline anterior cingulate soften into synchronized electric cyan-blue and pearl-aqua waves"
+          "name": "clasped hands beside sunlit wooden garden bench",
+          "period_detail": "everyday adult biological load-sharing in open daylight",
+          "physical_behavior": "State-A: stepping out clinic doors -> State-B: clasping hands warmly in stride as shoulders relax"
         }
       ],
       "actions": [
         {
-          "who": "3D Brain",
-          "verb_sequence": "blazes crimson-red inside deep insula and midline anterior cingulate -> softens into rhythmic pearl-aqua and electric cyan-blue waves"
+          "who": "Couple",
+          "verb_sequence": "steps onto the sunlit brick garden path -> clasps inner hands smoothly while walking forward"
         }
       ],
       "reactions": [
         {
-          "who": "3D Brain",
-          "reaction": "front prefrontal cortex spares solo emergency fuel"
+          "who": "Couple",
+          "reaction": "calm synchronized stride and relaxed ink expressions"
         }
       ],
-      "wardrobe": "None.",
-      "lighting": "High-key white gallery daylight.",
-      "recognition_hook": "Maps the exact insula and anterior cingulate pain dials turned down by trusted touch.",
+      "wardrobe": "Dusty-rose cardigan and charcoal wool sweater.",
+      "lighting": "Warm golden afternoon outdoor sunlight.",
+      "recognition_hook": "Reaching for a trusted hand in hard moments isn't weakness — it's biological load-sharing.",
       "sources": [
         "coan_2006",
         "goldstein_2018",
-        "eisenberger_2003"
+        "order_handhold_2026"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Isolated solo clinic chair where threat arrows surge unchecked",
+    "landmark_or_object_b": "Partner hand-clasping bridge synchronizing twin wave tracks",
+    "arrow_3d_mode": "split_hemisphere_watch",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past UVA Jeffersonian Rotunda lawn ascending above the neuroimaging suite",
+    "cut_b_topdown_3d_arrow": "90-degree top-down twin-chair room showing chaotic solo #FF2525 alarm arrows calming into linked cyan partner lanes",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

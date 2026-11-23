@@ -1,0 +1,1700 @@
+{
+  "schema": "aab_brand_identity_pack_v2",
+  "generated_at_utc": "2026-11-22T11:28:25.445785+00:00",
+  "output_dir": "BCI_Shorts_Channel/brand_assets/v2_ep31_rebrand",
+  "final_selected_pair": {
+    "avatar_key": "logo_A_ted_red",
+    "avatar_file": "logo_A_ted_red_bg_cyan_brain.png",
+    "avatar_sha256": "36051e661c51928c128327beca473118513d825f69ed7acf749c0af930c31d21",
+    "banner_key": "banner_jh3_human_element",
+    "banner_file": "banner_youtube_2560x1440_jh3_human_element_homage.png",
+    "banner_sha256": "635b5fdd8bbdafdb2b343317e0ae968748d45583012a7740f901cd02da67eff4",
+    "banner_upload_key": "banner_jh3_yt_upload",
+    "banner_upload_file": "banner_youtube_2560x1440_jh3_yt_upload.jpg",
+    "banner_upload_path": "BCI_Shorts_Channel/brand_assets/v2_ep31_rebrand/banner_youtube_2560x1440_jh3_yt_upload.jpg",
+    "banner_upload_sha256": "c4fe6e9521ddcafa527fa42ba7207c535f264e6661b01b1d140fa523af5054a9",
+    "banner_upload_bytes": 1843098,
+    "preview_sheet_key": "brand_final_lock_sheet",
+    "preview_sheet_file": "brand_final_lock_preview.jpg",
+    "copy_slots": {
+      "eyebrow_text": "PEER-REVIEWED NEUROSCIENCE",
+      "signature_text": "inside the human mind",
+      "left_notes": [
+        "what makes us conscious?",
+        "86 billion neurons",
+        "memory  ->  emotion  ->  choice"
+      ],
+      "right_notes": [
+        "real experiments, real data",
+        "one study, one story",
+        "how the brain rewires"
+      ]
+    }
+  },
+  "palette": {
+    "void_bg": "#040711",
+    "studio_glow": "#0C1830",
+    "crimson_glow": "#200A10",
+    "sulcal_cyan": "#27D8FF",
+    "contrast_crimson": "#FF2525",
+    "ted_red_center": "#E62B1E",
+    "ted_red_edge": "#C81E15",
+    "studio_crimson_center": "#DC2228",
+    "studio_crimson_edge": "#8A0E16"
+  },
+  "fonts": {
+    "display": "BCI_Shorts_Channel/assets/fonts/AABCondensed-Black.ttf",
+    "subhead": "BCI_Shorts_Channel/assets/fonts/Inter-Variable.ttf",
+    "handwriting": "pipeline/assets/fonts/Caveat-Variable.ttf"
+  },
+  "jh5_flow_prompts": {
+    "jh1": {
+      "title": "JH-1: Midnight Neuroscience Lab x MRI Lightbox",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh1_lightbox.png",
+      "prompt": "16:9 anamorphic 35mm documentary cinema still inside a dimly lit university neuroscience laboratory at midnight, no people, no faces. Deep misty teal shadows (#091822) across steel lab benches on the outer third, warm tungsten illuminated MRI lightbox in upper background glow (#C84B31), shallow depth of field foreground with subtle cyan neural reflection on brushed glass optics. Clean unobstructed dark atmospheric center third for wide title typography, Kodak Vision3 500T film grain, zero embedded text, zero cartoon elements."
+    },
+    "jh2": {
+      "title": "JH-2: Crimson Darkroom Specimen Case",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh2_crimson_darkroom.png",
+      "prompt": "16:9 35mm cinema documentary still inside a shadowed crimson-lit archival specimen darkroom, no faces. Deep obsidian background (#07080B) washed in directional TED-red darkroom rim light (#B81D24) illuminating a brushed steel and glass museum specimen vitrine along the right third containing a pale matte gypsum anatomical brain sculpture with faint cyan vessel glow, misty dust motes in volumetric light beam, dark balanced center scrim zone, zero text, zero faces."
+    },
+    "jh3": {
+      "title": "JH-3: THE HUMAN ELEMENT Homage — Faceless Glass Head + Misty Teal Horizon",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh3_human_element_homage.png",
+      "prompt": "16:9 widescreen 35mm anamorphic movie poster backdrop inspired by Johnny Harris The Human Element: atmospheric foggy teal coastal twilight horizon (#173E4F -> #3D8096 -> #6BABB2) with subtle misty ridge silhouette, right-centered faceless frosted obsidian-glass human cranium in profile housing an intricate glowing cyan neural connectome inside the cranial vault, kissed by warm salmon-crimson side key light (#E0523C) on the brow edge. Open misty teal outer left wing, zero facial features, zero text."
+    },
+    "jh4": {
+      "title": "JH-4: 3T fMRI Scanner Tunnel Cinema Still",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh4_fmri_tunnel.png",
+      "prompt": "16:9 35mm documentary still down the center axis of a clinical 3-Tesla fMRI neuroimaging suite at night, completely empty room, zero people. Cool steel-teal ambient room light (#0E2634) contrasting against warm amber-crimson status LEDs along the circular scanner bore, soft translucent coronal MRI hippocampus glass slice hovering subtly in optical foreground focus, clean negative-space center across the bore horizon for typography, Kodak 35mm grain, zero text."
+    },
+    "jh5": {
+      "title": "JH-5: Investigative Neuroscience Evidence Desk",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh5_investigator_desk.png",
+      "prompt": "16:9 overhead three-quarter 35mm documentary still of a late-night investigative neuroscience desk illuminated by one warm crimson-amber architect lamp, dark oiled walnut table with subtle laboratory glassware, coiled oscilloscope cables, unlabeled white matter tract macro print pinned beside a small dark plaster cortical study model on outer wings, deep uncluttered shadow across the center band for crisp cinema title legibility, zero readable words, zero hands or faces."
+    }
+  },
+  "jh2_5opts_flow_prompts": {
+    "jh2a": {
+      "title": "JH2-A: Crimson Darkroom + Wide Blue Brain Hologram Wave Stream",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh2a_hologram_wave_stream.png",
+      "prompt": "16:9 35mm documentary cinema still inside a deep 660nm crimson safelight neuroimaging darkroom (#8F151A -> #1E0305), no people, no faces. Floating dead center in midair is a pure luminous translucent blue-cyan (#27D8FF) holographic wireframe brain streaming wide horizontally left and right into flowing glowing blue neural-fiber ribbons, oscillating EEG brainwave lines, subtle 1px horizontal laser scanlines, and micro blue light sparks across the full panorama, Kodak Vision3 500T film grain, zero text."
+    },
+    "jh2b": {
+      "title": "JH2-B: Crimson Darkroom + Wide 4-View Blue Hologram Projection Beam",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh2b_hologram_multi_angle_beam.png",
+      "prompt": "16:9 35mm documentary still inside a 660nm crimson-lit neuroimaging darkroom with shallow f/1.4 bokeh, zero faces. A sleek wide horizontal glowing cyan (#27D8FF) holographic projection beam spans across the center horizontal band, projecting four translucent glowing blue holographic anatomical brain angles side by side (faceless cranial profile, lateral cortex, dorsal topdown, midsagittal thalamus/brainstem) connected by delicate horizontal scanlines and telemetry ticks, zero pink mud, zero text."
+    },
+    "jh2c": {
+      "title": "JH2-C: Crimson Darkroom + 7-Slice MNI152 Blue Hologram Strip",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh2c_hologram_mri_strip.png",
+      "prompt": "16:9 35mm documentary cinema still inside a shadowed crimson 660nm darkroom, zero faces. Floating horizontally through the air is a wide ethereal translucent blue (#27D8FF) holographic MRI filmstrip showing seven sequential coronal brain cross-sections rendered purely as glowing cyan anatomical wireframe contours and subcortical nuclei light lines (no solid white panes), linked by horizontal laser projection lines and 1px scanlines, zero text."
+    },
+    "jh2d": {
+      "title": "JH2-D: Crimson Darkroom + Pure Blue Hologram Bullet-Time Echo Panorama",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh2d_hologram_echo_panorama.png",
+      "prompt": "16:9 35mm documentary cinema still inside a moody 660nm TED-crimson darkroom vault, zero faces. Dead center floats a sharp translucent electric-blue (#27D8FF) holographic anatomical brain emitting ten symmetrical bullet-time horizontal holographic contour echoes and cyan scanline streaks stretching wide across the full horizontal darkroom horizon, Kodak 35mm film grain, zero text."
+    },
+    "jh2e": {
+      "title": "JH2-E: Crimson Darkroom + Edge-to-Edge Blue Cortical Horizon",
+      "aspect_ratio": "16:9",
+      "filename": "banner_youtube_2560x1440_jh2e_hologram_cortical_horizon.png",
+      "prompt": "16:9 35mm cinema wide shot inside a crimson-safelight midnight neuroscience laboratory, zero faces. Stretching seamlessly edge-to-edge across the entire horizontal frame is a continuous luminous translucent blue (#27D8FF) holographic cortical fold and white-matter synaptic fiber horizon centered on a glowing holographic lateral brain core with laser scanlines, zero pasted panels, zero text."
+    }
+  },
+  "assets": {
+    "logo_A": {
+      "file": "logo_A_ep31_gypsum_cyan.png",
+      "width": 800,
+      "height": 800,
+      "priority": 1,
+      "recommended": true,
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "subject_frame_ratio": 0.76,
+      "ring_radius_px": 378,
+      "sha256": "f4e76c95f46973fcb20e5ed9f298043796a64199c1c0aa2f02e028d1ed1bf05b",
+      "bytes": 498437
+    },
+    "logo_A_red": {
+      "file": "logo_A_red_ep31_gypsum_crimson.png",
+      "width": 800,
+      "height": 800,
+      "priority": 1,
+      "variant": "crimson_red",
+      "accent_color": "#FF2525",
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "subject_frame_ratio": 0.76,
+      "ring_radius_px": 378,
+      "sha256": "59bfe293b96ba602882319cc098118d7656361c04a1ffcbd0027996620341831",
+      "bytes": 454100
+    },
+    "logo_A_ted_red": {
+      "file": "logo_A_ted_red_bg_cyan_brain.png",
+      "width": 800,
+      "height": 800,
+      "variant": "ted_red_bg_cyan_brain",
+      "recommended": true,
+      "backdrop_center_hex": "#E62B1E",
+      "backdrop_edge_hex": "#C81E15",
+      "ring_radius_px": null,
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "subject_frame_ratio": 0.81,
+      "sha256": "36051e661c51928c128327beca473118513d825f69ed7acf749c0af930c31d21",
+      "bytes": 490640
+    },
+    "logo_A_crimson_studio": {
+      "file": "logo_A_crimson_studio_bg_cyan_brain.png",
+      "width": 800,
+      "height": 800,
+      "variant": "deep_crimson_studio_bg_cyan_brain",
+      "recommended": false,
+      "backdrop_center_hex": "#DC2228",
+      "backdrop_edge_hex": "#8A0E16",
+      "ring_radius_px": null,
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "subject_frame_ratio": 0.81,
+      "sha256": "eedbf5d62446a719d920a559f49ac66f634c6913a47672b78a1e98700543b18b",
+      "bytes": 504323
+    },
+    "logo_B": {
+      "file": "logo_B_mode1_xray_skull.png",
+      "width": 800,
+      "height": 800,
+      "priority": 2,
+      "recommended": false,
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A01_mode1_translucent_head_lateral/cand_01.png",
+      "subject_frame_ratio": 0.8,
+      "ring_radius_px": 378,
+      "sha256": "2d83cf8116eb58d493c6761d2c56d7c7bb95b4d9a4c60099c94d9b5ffa432a0b",
+      "bytes": 485104
+    },
+    "logo_C": {
+      "file": "logo_C_split_cyan_crimson.png",
+      "width": 800,
+      "height": 800,
+      "priority": 3,
+      "recommended": false,
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_01.png",
+      "subject_frame_ratio": 0.815,
+      "ring_radius_px": 378,
+      "sha256": "4b63a0cb89a9ad1ad7e1ba88e00e37de0d8748d5c18aea4cdabff04cae67273c",
+      "bytes": 570766
+    },
+    "banner": {
+      "file": "banner_youtube_2560x1440.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "cyan",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "title": [
+          652,
+          618,
+          1908,
+          742
+        ],
+        "title_height_px": 124,
+        "subhead": [
+          741,
+          786,
+          1819,
+          820
+        ],
+        "subhead_height_px": 34,
+        "combined_ink_union": [
+          652,
+          618,
+          1902,
+          820
+        ]
+      },
+      "safe_zone_margins_px": {
+        "left": 145,
+        "top": 110,
+        "right": 151,
+        "bottom": 111
+      },
+      "sha256": "aec7e22d9b4262ae0e848cfcd93245e1d02f5e2f4f0cb2ff159906af44099328",
+      "bytes": 376737
+    },
+    "banner_red": {
+      "file": "banner_youtube_2560x1440_red.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "crimson_red",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "title": [
+          652,
+          618,
+          1908,
+          742
+        ],
+        "title_height_px": 124,
+        "subhead": [
+          741,
+          786,
+          1819,
+          820
+        ],
+        "subhead_height_px": 34,
+        "combined_ink_union": [
+          652,
+          618,
+          1902,
+          820
+        ]
+      },
+      "safe_zone_margins_px": {
+        "left": 145,
+        "top": 110,
+        "right": 151,
+        "bottom": 111
+      },
+      "sha256": "7a07774e9f943d29e970d015f827c951a136ef89c4287d530166c9d817a49a0a",
+      "bytes": 346137
+    },
+    "banner_matrix_10slice_A": {
+      "file": "banner_youtube_2560x1440_matrix_10slice_A_cyan.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "matrix_10slice_A_cyan",
+      "slice_count": 10,
+      "slice_spans": [
+        {
+          "label": "S01",
+          "cx": 210,
+          "cy": 718,
+          "x0": 178,
+          "x1": 242
+        },
+        {
+          "label": "S02",
+          "cx": 448,
+          "cy": 721,
+          "x0": 417,
+          "x1": 479
+        },
+        {
+          "label": "S03",
+          "cx": 686,
+          "cy": 724,
+          "x0": 656,
+          "x1": 716
+        },
+        {
+          "label": "S04",
+          "cx": 924,
+          "cy": 725,
+          "x0": 895,
+          "x1": 953
+        },
+        {
+          "label": "S05",
+          "cx": 1140,
+          "cy": 722,
+          "x0": 1112,
+          "x1": 1168
+        },
+        {
+          "label": "S06",
+          "cx": 1420,
+          "cy": 719,
+          "x0": 1392,
+          "x1": 1448
+        },
+        {
+          "label": "S07",
+          "cx": 1636,
+          "cy": 716,
+          "x0": 1607,
+          "x1": 1665
+        },
+        {
+          "label": "S08",
+          "cx": 1874,
+          "cy": 715,
+          "x0": 1844,
+          "x1": 1904
+        },
+        {
+          "label": "S09",
+          "cx": 2112,
+          "cy": 717,
+          "x0": 2081,
+          "x1": 2143
+        },
+        {
+          "label": "S10",
+          "cx": 2350,
+          "cy": 721,
+          "x0": 2318,
+          "x1": 2382
+        }
+      ],
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1011,
+          590,
+          1576,
+          608
+        ],
+        "title": [
+          834,
+          662,
+          1726,
+          722
+        ],
+        "subhead": [
+          932,
+          794,
+          1627,
+          812
+        ],
+        "combined_ink_union": [
+          834,
+          590,
+          1721,
+          812
+        ]
+      },
+      "sha256": "ba3ce3826b5e50dd47dcebe594d7a155c2905383cfb05967755c66974dae8552",
+      "bytes": 5048698
+    },
+    "banner_matrix_10slice_B": {
+      "file": "banner_youtube_2560x1440_matrix_10slice_B_dual.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "matrix_10slice_B_dual",
+      "slice_count": 10,
+      "slice_spans": [
+        {
+          "label": "S01",
+          "cx": 200,
+          "cy": 718,
+          "x0": 168,
+          "x1": 232
+        },
+        {
+          "label": "S02",
+          "cx": 392,
+          "cy": 721,
+          "x0": 361,
+          "x1": 423
+        },
+        {
+          "label": "S03",
+          "cx": 584,
+          "cy": 724,
+          "x0": 554,
+          "x1": 614
+        },
+        {
+          "label": "S04",
+          "cx": 776,
+          "cy": 725,
+          "x0": 747,
+          "x1": 805
+        },
+        {
+          "label": "S05",
+          "cx": 968,
+          "cy": 722,
+          "x0": 940,
+          "x1": 996
+        },
+        {
+          "label": "S06",
+          "cx": 1592,
+          "cy": 719,
+          "x0": 1564,
+          "x1": 1620
+        },
+        {
+          "label": "S07",
+          "cx": 1784,
+          "cy": 716,
+          "x0": 1755,
+          "x1": 1813
+        },
+        {
+          "label": "S08",
+          "cx": 1976,
+          "cy": 715,
+          "x0": 1946,
+          "x1": 2006
+        },
+        {
+          "label": "S09",
+          "cx": 2168,
+          "cy": 717,
+          "x0": 2137,
+          "x1": 2199
+        },
+        {
+          "label": "S10",
+          "cx": 2360,
+          "cy": 721,
+          "x0": 2328,
+          "x1": 2392
+        }
+      ],
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1011,
+          590,
+          1576,
+          608
+        ],
+        "title": [
+          834,
+          662,
+          1726,
+          722
+        ],
+        "subhead": [
+          932,
+          794,
+          1627,
+          812
+        ],
+        "combined_ink_union": [
+          834,
+          590,
+          1721,
+          812
+        ]
+      },
+      "sha256": "0b53e22fd47612ee5668549447ffc2798c8e67c24d503e20634938f627a844fc",
+      "bytes": 5085360
+    },
+    "banner_crimson_echo_A": {
+      "file": "banner_youtube_2560x1440_crimson_echo_A_lateral.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "crimson_echo_A_lateral",
+      "hero_mode": "lateral",
+      "hero_bbox": [
+        1064,
+        526,
+        1497,
+        914
+      ],
+      "echo_count_per_side": 4,
+      "echo_dxs_px": [
+        236,
+        456,
+        686,
+        924
+      ],
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A02_mode2_whole_brain_lateral/cand_02.png",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "title": [
+          755,
+          686,
+          1805,
+          754
+        ],
+        "combined_ink_union": [
+          755,
+          686,
+          1801,
+          754
+        ]
+      },
+      "sha256": "ca85acf6973ff7473ed0e805c541265401408c0af1737a9eb03afd05aac8797b",
+      "bytes": 4528061
+    },
+    "banner_crimson_echo_B": {
+      "file": "banner_youtube_2560x1440_crimson_echo_B_dorsal.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "crimson_echo_B_dorsal",
+      "hero_mode": "dorsal",
+      "hero_bbox": [
+        1122,
+        524,
+        1439,
+        916
+      ],
+      "echo_count_per_side": 4,
+      "echo_dxs_px": [
+        214,
+        434,
+        668,
+        912
+      ],
+      "source_asset": "BCI_Shorts_Channel/canonical_assets/v1/A_brain/A03_mode2_whole_brain_dorsal_topdown/cand_01.png",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "title": [
+          755,
+          686,
+          1805,
+          754
+        ],
+        "combined_ink_union": [
+          755,
+          686,
+          1801,
+          754
+        ]
+      },
+      "sha256": "584c240d974414b92f704dff1fc49ec49967cc486bab6be875a59962ef5cb16d",
+      "bytes": 4588247
+    },
+    "banner_mri_glass_A": {
+      "file": "banner_youtube_2560x1440_mri_glass_A_panes.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "mri_glass_A_panes",
+      "with_glass_panes": true,
+      "slice_count": 9,
+      "slice_bboxes": [
+        {
+          "label": "S01",
+          "y_mni": 52.0,
+          "cx": 544,
+          "cy": 720,
+          "bbox": [
+            501,
+            524,
+            615,
+            915
+          ]
+        },
+        {
+          "label": "S02",
+          "y_mni": 34.5,
+          "cx": 728,
+          "cy": 720,
+          "bbox": [
+            674,
+            524,
+            809,
+            915
+          ]
+        },
+        {
+          "label": "S03",
+          "y_mni": 17.0,
+          "cx": 912,
+          "cy": 720,
+          "bbox": [
+            848,
+            524,
+            1004,
+            915
+          ]
+        },
+        {
+          "label": "S04",
+          "y_mni": -0.5,
+          "cx": 1096,
+          "cy": 720,
+          "bbox": [
+            1022,
+            524,
+            1199,
+            916
+          ]
+        },
+        {
+          "label": "S05",
+          "y_mni": -18.0,
+          "cx": 1280,
+          "cy": 720,
+          "bbox": [
+            1191,
+            524,
+            1394,
+            915
+          ]
+        },
+        {
+          "label": "S06",
+          "y_mni": -35.5,
+          "cx": 1464,
+          "cy": 720,
+          "bbox": [
+            1366,
+            524,
+            1589,
+            915
+          ]
+        },
+        {
+          "label": "S07",
+          "y_mni": -53.0,
+          "cx": 1648,
+          "cy": 720,
+          "bbox": [
+            1542,
+            524,
+            1783,
+            916
+          ]
+        },
+        {
+          "label": "S08",
+          "y_mni": -70.5,
+          "cx": 1832,
+          "cy": 720,
+          "bbox": [
+            1716,
+            524,
+            1978,
+            916
+          ]
+        },
+        {
+          "label": "S09",
+          "y_mni": -86.0,
+          "cx": 2016,
+          "cy": 720,
+          "bbox": [
+            1889,
+            524,
+            2173,
+            915
+          ]
+        }
+      ],
+      "source_atlas": "pipeline/assets/neuro_atlas_3d/neuro_atlas_mni152.npz",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "title": [
+          755,
+          686,
+          1805,
+          754
+        ],
+        "combined_ink_union": [
+          755,
+          686,
+          1801,
+          754
+        ]
+      },
+      "sha256": "c286f82e31543aee8e01441ce370d27625f3356b830a79b977361c8ee6a665bc",
+      "bytes": 4468219
+    },
+    "banner_mri_glass_B": {
+      "file": "banner_youtube_2560x1440_mri_glass_B_sculpted.png",
+      "width": 2560,
+      "height": 1440,
+      "variant": "mri_glass_B_sculpted",
+      "with_glass_panes": false,
+      "slice_count": 9,
+      "slice_bboxes": [
+        {
+          "label": "S01",
+          "y_mni": 52.0,
+          "cx": 544,
+          "cy": 720,
+          "bbox": [
+            511,
+            617,
+            581,
+            786
+          ]
+        },
+        {
+          "label": "S02",
+          "y_mni": 34.5,
+          "cx": 728,
+          "cy": 720,
+          "bbox": [
+            680,
+            584,
+            782,
+            791
+          ]
+        },
+        {
+          "label": "S03",
+          "y_mni": 17.0,
+          "cx": 912,
+          "cy": 720,
+          "bbox": [
+            852,
+            563,
+            979,
+            828
+          ]
+        },
+        {
+          "label": "S04",
+          "y_mni": -0.5,
+          "cx": 1096,
+          "cy": 720,
+          "bbox": [
+            1023,
+            546,
+            1178,
+            847
+          ]
+        },
+        {
+          "label": "S05",
+          "y_mni": -18.0,
+          "cx": 1280,
+          "cy": 720,
+          "bbox": [
+            1191,
+            538,
+            1381,
+            823
+          ]
+        },
+        {
+          "label": "S06",
+          "y_mni": -35.5,
+          "cx": 1464,
+          "cy": 720,
+          "bbox": [
+            1366,
+            533,
+            1575,
+            873
+          ]
+        },
+        {
+          "label": "S07",
+          "y_mni": -53.0,
+          "cx": 1648,
+          "cy": 720,
+          "bbox": [
+            1547,
+            548,
+            1762,
+            849
+          ]
+        },
+        {
+          "label": "S08",
+          "y_mni": -70.5,
+          "cx": 1832,
+          "cy": 720,
+          "bbox": [
+            1742,
+            576,
+            1931,
+            847
+          ]
+        },
+        {
+          "label": "S09",
+          "y_mni": -86.0,
+          "cx": 2016,
+          "cy": 720,
+          "bbox": [
+            1933,
+            618,
+            2107,
+            773
+          ]
+        }
+      ],
+      "source_atlas": "pipeline/assets/neuro_atlas_3d/neuro_atlas_mni152.npz",
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "title": [
+          755,
+          686,
+          1805,
+          754
+        ],
+        "combined_ink_union": [
+          755,
+          686,
+          1801,
+          754
+        ]
+      },
+      "sha256": "6ba9a43a2a2da8f1da1b62fd393e4ad5472e49b39f1f650d6bfce396a31af49a",
+      "bytes": 4431945
+    },
+    "banner_jh1_lightbox": {
+      "file": "banner_youtube_2560x1440_jh1_lightbox.png",
+      "variant": "jh1_lightbox",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e01_lab_empty_01",
+        "g01_mri_lightbox_01"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1296,
+          744,
+          1579,
+          770
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          770
+        ]
+      },
+      "sha256": "e34871f76750b2d9f7ac37c90aceaeeff9963ddb906acc1184efdd6b82955576",
+      "bytes": 6851712
+    },
+    "banner_jh2_crimson_darkroom": {
+      "file": "banner_youtube_2560x1440_jh2_crimson_darkroom.png",
+      "variant": "jh2_crimson_darkroom",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e02_mri_empty_01",
+        "h01_glass_case_02"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1283,
+          744,
+          1590,
+          776
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          776
+        ]
+      },
+      "sha256": "bbe1e0a0a8e4c365853893d0ee01b380fe0989d4e57eb0adc094d2a18d601a94",
+      "bytes": 6821903
+    },
+    "banner_jh3_human_element": {
+      "file": "banner_youtube_2560x1440_jh3_human_element_homage.png",
+      "variant": "jh3_human_element_homage",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "d01_campus_drone_02",
+        "a01_mode1_head_01"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "copy_slots": {
+        "eyebrow_text": "PEER-REVIEWED NEUROSCIENCE",
+        "signature_text": "inside the human mind",
+        "left_notes": [
+          "what makes us conscious?",
+          "86 billion neurons",
+          "memory  ->  emotion  ->  choice"
+        ],
+        "right_notes": [
+          "real experiments, real data",
+          "one study, one story",
+          "how the brain rewires"
+        ]
+      },
+      "text_bboxes": {
+        "eyebrow": [
+          1030,
+          622,
+          1530,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1296,
+          744,
+          1579,
+          770
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          770
+        ]
+      },
+      "sha256": "635b5fdd8bbdafdb2b343317e0ae968748d45583012a7740f901cd02da67eff4",
+      "bytes": 6833308
+    },
+    "banner_jh3_yt_upload": {
+      "file": "banner_youtube_2560x1440_jh3_yt_upload.jpg",
+      "variant": "jh3_yt_upload_444",
+      "source_master": "banner_youtube_2560x1440_jh3_human_element_homage.png",
+      "width": 2560,
+      "height": 1440,
+      "jpeg_quality": 96,
+      "subsampling": "4:4:4",
+      "max_upload_bytes": 5500000,
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1030,
+          622,
+          1530,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1296,
+          744,
+          1579,
+          770
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          770
+        ]
+      },
+      "sha256": "c4fe6e9521ddcafa527fa42ba7207c535f264e6661b01b1d140fa523af5054a9",
+      "bytes": 1843098
+    },
+    "banner_jh4_fmri_tunnel": {
+      "file": "banner_youtube_2560x1440_jh4_fmri_tunnel.png",
+      "variant": "jh4_fmri_tunnel",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e02_mri_empty_01",
+        "a18_coronal_hipp_01"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1295,
+          743,
+          1579,
+          775
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          775
+        ]
+      },
+      "sha256": "46a325d407c2b1e47515e64db889d011f7bc0e9ec70a3eee32af0ad454508ba2",
+      "bytes": 6838551
+    },
+    "banner_jh5_investigator_desk": {
+      "file": "banner_youtube_2560x1440_jh5_investigator_desk.png",
+      "variant": "jh5_investigator_desk",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "g08_desk_stimulus_01",
+        "a02_lateral_brain_02"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1284,
+          742,
+          1588,
+          775
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          775
+        ]
+      },
+      "sha256": "1599d2fa86558b65bf86b27ae856aa0bbf912c51b91739da50e21fba60361620",
+      "bytes": 6828277
+    },
+    "banner_jh2a_wave_stream": {
+      "file": "banner_youtube_2560x1440_jh2a_hologram_wave_stream.png",
+      "variant": "jh2a_hologram_wave_stream",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e02_mri_empty_01",
+        "a02_lateral_brain_02"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1302,
+          743,
+          1571,
+          776
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          776
+        ]
+      },
+      "sha256": "5641fdda07c0d21c640ad3351d0cd270845303748873594c4107eb935094afc3",
+      "bytes": 6909378
+    },
+    "banner_jh2b_multi_angle": {
+      "file": "banner_youtube_2560x1440_jh2b_hologram_multi_angle_beam.png",
+      "variant": "jh2b_hologram_multi_angle_beam",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e02_mri_empty_01",
+        "a01_mode1_head_01",
+        "a02_lateral_brain_02",
+        "a03_dorsal_brain_01",
+        "a07_midsagittal_01"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1295,
+          742,
+          1579,
+          775
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          775
+        ]
+      },
+      "sha256": "03dc4ecf10d3c1f0cd11fd7c1d001da5ae26e4e52839f10e445fddcd53642e3b",
+      "bytes": 6928996
+    },
+    "banner_jh2c_mri_strip": {
+      "file": "banner_youtube_2560x1440_jh2c_hologram_mri_strip.png",
+      "variant": "jh2c_hologram_mri_strip",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e02_mri_empty_01",
+        "neuro_atlas_mni152"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1269,
+          742,
+          1609,
+          777
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          777
+        ]
+      },
+      "sha256": "7b733e093e5270f8f43d4136015264d64669fd76aeaff6667e5f6a0e35e63b89",
+      "bytes": 6916005
+    },
+    "banner_jh2d_echo_panorama": {
+      "file": "banner_youtube_2560x1440_jh2d_hologram_echo_panorama.png",
+      "variant": "jh2d_hologram_echo_panorama",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e02_mri_empty_01",
+        "a02_lateral_brain_02"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1309,
+          743,
+          1566,
+          772
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          772
+        ]
+      },
+      "sha256": "7d0d6d935775905e826affeb790fa004ebd4ac344a2415354b91ec089c1b9dbd",
+      "bytes": 6920708
+    },
+    "banner_jh2e_cortical_horizon": {
+      "file": "banner_youtube_2560x1440_jh2e_hologram_cortical_horizon.png",
+      "variant": "jh2e_hologram_cortical_horizon",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "e01_lab_empty_01",
+        "a13_1p_white_matter_tract_canyon",
+        "a05_sulcal_vessel_macro",
+        "a02_lateral_brain_02"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "eyebrow": [
+          1020,
+          622,
+          1540,
+          637
+        ],
+        "title": [
+          809,
+          664,
+          1751,
+          733
+        ],
+        "signature": [
+          1278,
+          743,
+          1593,
+          776
+        ],
+        "combined_ink_union": [
+          809,
+          622,
+          1751,
+          776
+        ]
+      },
+      "sha256": "87dab0e374f5ec37972d10f64cc37f5e09ae7f936ad1c551d786c2e6460ccf93",
+      "bytes": 6954578
+    },
+    "banner_rc1_pure_type": {
+      "file": "banner_youtube_2560x1440_rc1_pure_type.png",
+      "variant": "rc1_pure_type",
+      "width": 2560,
+      "height": 1440,
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "line_1": [
+          630,
+          624,
+          1930,
+          820
+        ],
+        "combined_ink_union": [
+          632,
+          626,
+          1920,
+          809
+        ]
+      },
+      "sha256": "6473dcdf8cec456252bc95d05b6f32890486db165dfd6c7c023ff98ffb3df3be",
+      "bytes": 146209
+    },
+    "banner_rc2_type_plus_brain": {
+      "file": "banner_youtube_2560x1440_rc2_type_plus_brain.png",
+      "variant": "rc2_type_plus_brain",
+      "width": 2560,
+      "height": 1440,
+      "source_keys": [
+        "a02_lateral_cand02"
+      ],
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "brain": [
+          592,
+          570,
+          927,
+          870
+        ],
+        "top_line": [
+          1265,
+          549,
+          1686,
+          651
+        ],
+        "bot_line": [
+          1133,
+          663,
+          1817,
+          895
+        ],
+        "combined_ink_union": [
+          592,
+          551,
+          1795,
+          890
+        ]
+      },
+      "sha256": "d70e43624d91aa4c31eb80ab512dfc2801a8bd0793768366b01612ac7207820e",
+      "bytes": 286327
+    },
+    "banner_rc3_stacked_3d_poster": {
+      "file": "banner_youtube_2560x1440_rc3_stacked_3d_poster.png",
+      "variant": "rc3_stacked_3d_poster",
+      "width": 2560,
+      "height": 1440,
+      "safe_zone_box": [
+        507,
+        508,
+        2053,
+        931
+      ],
+      "desktop_zone_box": [
+        0,
+        508,
+        2560,
+        931
+      ],
+      "text_bboxes": {
+        "top_line": [
+          1075,
+          538,
+          1485,
+          634
+        ],
+        "bot_line": [
+          951,
+          644,
+          1608,
+          862
+        ],
+        "cyan_bar": [
+          1023,
+          876,
+          1537,
+          906
+        ],
+        "combined_ink_union": [
+          953,
+          539,
+          1587,
+          906
+        ]
+      },
+      "sha256": "d43b0357eb21b3656ce6a7ccbebd4e8a8184c3a8bdc48d70c0ab312510488afa",
+      "bytes": 126721
+    },
+    "comparison_sheet": {
+      "file": "brand_rebrand_comparison_sheet.jpg",
+      "width": 2400,
+      "height": 2180,
+      "mode": "RGB",
+      "sha256": "c1af89e9fe873b6b7b5ea4480f503d4654b86eaa7f9a1ad8a741a6f9a40c5773",
+      "bytes": 1004878
+    },
+    "logo_A_cyan_vs_red_sheet": {
+      "file": "logo_A_cyan_vs_red_comparison.jpg",
+      "width": 2400,
+      "height": 2544,
+      "mode": "RGB",
+      "sha256": "2f28a7b9b6cd4a06bb53afe340794946232814761a249a264993e77b3d0741dc",
+      "bytes": 1152967
+    },
+    "logo_ted_red_bg_sheet": {
+      "file": "logo_ted_red_bg_comparison.jpg",
+      "width": 2400,
+      "height": 1384,
+      "mode": "RGB",
+      "sha256": "583d3bd304d58882f09f1b6861354bc6ac036c8acd4a1c86d3a4ce8b60d1d823",
+      "bytes": 824553
+    },
+    "banner_matrix_10slice_sheet": {
+      "file": "banner_matrix_10slice_comparison.jpg",
+      "width": 2400,
+      "height": 2660,
+      "mode": "RGB",
+      "sha256": "3f4949752dd948588389a6ed4f4e1a3f6fbccf963323ce13af264c24da11e2f2",
+      "bytes": 1723093
+    },
+    "banner_crimson_echo_sheet": {
+      "file": "banner_crimson_echo_comparison.jpg",
+      "width": 2400,
+      "height": 2660,
+      "mode": "RGB",
+      "sha256": "9dba8a8889303dc4aacf7818c282bfd0fa9207559be130d7f1266641a3802ad9",
+      "bytes": 2002161
+    },
+    "banner_mri_glass_sheet": {
+      "file": "banner_mri_glass_comparison.jpg",
+      "width": 2400,
+      "height": 2660,
+      "mode": "RGB",
+      "sha256": "526e3a8aca1156106c5e7697e7a5afe2cdcbbc95d075e2384f85e6e6953caca9",
+      "bytes": 1941356
+    },
+    "banner_jh5_collection_sheet": {
+      "file": "banner_jh5_collection_comparison.jpg",
+      "width": 2400,
+      "height": 3612,
+      "variants_compared": 5,
+      "sha256": "3824a921bc0f4d05e59e379bf1b6606bd5b9d532ae2ebad240093d82c1417070",
+      "bytes": 2280751
+    },
+    "banner_jh2_5opts_sheet": {
+      "file": "banner_jh2_5opts_comparison.jpg",
+      "width": 2400,
+      "height": 3612,
+      "variants_compared": 5,
+      "sha256": "17a25c27ee1ec9e071e2c1d867c91f819032163b54332948f97990eca58acac5",
+      "bytes": 3129802
+    },
+    "banner_ricks_clips_3opts_sheet": {
+      "file": "banner_ricks_clips_3opts_comparison.jpg",
+      "width": 2400,
+      "height": 2228,
+      "variants_compared": 3,
+      "sha256": "bf38122a9c461e07361b104c609483bce50bd29a54a6d4cb7d9a979821b8a4c4",
+      "bytes": 1057568
+    },
+    "brand_final_lock_sheet": {
+      "file": "brand_final_lock_preview.jpg",
+      "width": 2400,
+      "height": 2280,
+      "avatar_key": "logo_A_ted_red",
+      "banner_key": "banner_jh3_human_element",
+      "sha256": "c9a2303130affb7456be02c4e951f342c5e78e1d26a36c09c0036b183b1a98be",
+      "bytes": 1556504
+    }
+  }
+}

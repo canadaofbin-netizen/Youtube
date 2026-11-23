@@ -36,12 +36,12 @@ if str(WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(WORKSPACE_ROOT))
 
 
-def test_all_pillars_compliance():
+def test_all_pillars_compliance(tmp_path: Path):
     """Audits all 7 Content Pillars against Production Contract v4 narration/prompt rules and 12 Master QA Gates."""
     pillars = list_all_pillars()
     assert len(pillars) == 7, f"Expected 7 pillars, found {len(pillars)}"
 
-    dummy_storage = ProjectStorage("temp_audit_pillar_storage")
+    dummy_storage = ProjectStorage("temp_audit_pillar_storage", projects_dir=tmp_path)
     scripting_validator = ScriptingStage(dummy_storage)
 
     try:
@@ -80,8 +80,9 @@ def test_all_pillars_compliance():
         shutil.rmtree(dummy_storage.project_dir, ignore_errors=True)
 
 
-def test_full_pipeline_verification():
+def test_full_pipeline_verification(tmp_path: Path, monkeypatch):
     """Executes full pipeline blueprint verification and validates 12 QA gates and lossless storage integrity."""
+    monkeypatch.setattr("pipeline.storage.PROJECTS_DIR", tmp_path)
     pillars = list_all_pillars()
     health_pillar = pillars[5]  # brain_health
     bp_health = health_pillar.production_blueprint
@@ -107,10 +108,10 @@ def test_full_pipeline_verification():
         shutil.rmtree(orchestrator.storage.project_dir, ignore_errors=True)
 
 
-def test_narrative_router_and_contract_v4_generation():
+def test_narrative_router_and_contract_v4_generation(tmp_path: Path):
     """Validates all 6 Historical Storytelling Archetypes, auto-routing, and Contract v4 prompt generation."""
     gen = ContentGenerator()
-    dummy_storage = ProjectStorage("temp_audit_narrative_router")
+    dummy_storage = ProjectStorage("temp_audit_narrative_router", projects_dir=tmp_path)
     scripting_validator = ScriptingStage(dummy_storage)
 
     try:
@@ -164,8 +165,9 @@ def test_narrative_router_and_contract_v4_generation():
         shutil.rmtree(dummy_storage.project_dir, ignore_errors=True)
 
 
-def test_2_track_topic_researcher_and_news_hunt_report():
+def test_2_track_topic_researcher_and_news_hunt_report(tmp_path: Path, monkeypatch):
     """Verify the 2-Track Historical x Academic DOI Research Engine and 5D scoring rubric."""
+    monkeypatch.setattr("pipeline.researcher.NEWS_DIR", tmp_path / "news")
     assert len(HISTORICAL_CASE_VAULT) >= 12
     covered_styles = {entry["narrative_style"] for entry in HISTORICAL_CASE_VAULT}
     for style_id in NARRATIVE_STYLE_SPECS:

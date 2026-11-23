@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "schachter_external_eating_cues",
   "topic": "Stanley Schachter (1968): The Rigged Wall-Clock Cracker Test — Eating Because the Wall Says 6:05 PM!",
   "pillar": "brain_health",
@@ -52,11 +52,52 @@
     },
     {
       "fact": "Look at the **crossover interaction in *Science* (SRC1)**: external-cue / heavier students ate **NEARLY TWICE AS MANY CRACKERS (37.1 grams vs 19.3 grams!)** simply because the lying wall dial read **6:05 PM** instead of **5:20 PM**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "External-Cue Cracker Intake",
+        "unit": "g",
+        "bars": [
+          {
+            "label": "Slow Clock (5:20)",
+            "value": 19.3,
+            "unit": "g"
+          },
+          {
+            "label": "Fast Clock (6:05)",
+            "value": 37.1,
+            "unit": "g"
+          }
+        ],
+        "doi": "10.1126/science.161.3843.751",
+        "source_citation": "Schachter (1968)"
+      }
     },
     {
       "fact": "Meanwhile, normal-weight internal-cue students did the **exact opposite** (**16.0 g at fake 6:05 PM vs 41.5 g at fake 5:20 PM**) — several literally telling the experimenter *'No thanks, it's 6:05 and I don't want to spoil my appetite right before campus dinner!'*",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Internal-Cue Cracker Intake",
+        "unit": "g",
+        "series": [
+          {
+            "start_label": "Slow Clock (5:20)",
+            "label": "Fast Clock (6:05)",
+            "values": [
+              41.5,
+              16.0
+            ],
+            "unit": "g"
+          }
+        ],
+        "doi": "10.1126/science.161.3843.751",
+        "source_citation": "Schachter (1968)"
+      }
     },
     {
       "fact": "Two vital scientific updates (**Herman & Polivy 2008, SRC2; Polivy & Herman 2017, SRC3**): (1) **anyone** — thin or heavy — becomes hyper-reactive to external food cues under **chronic restrictive dieting, stress, or ultra-processed food visibility** (like Nisbett's 1-sandwich-vs-3-sandwiches desk test & bright-light vs dim-light cashew test in SRC1!); and (2) while **Brian Wansink's** 2000s 'bottomless soup bowl' papers were famously retracted in 2018 for statistical misconduct, **rigorous pre-registered labs (Rolls' portion-size trials & Polivy's cue studies)** confirmed that **visible food proximity and portion size powerfully steer human intake**.",
@@ -116,5 +157,37 @@
     "diorama_52_schachter_external_eating_cues"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1126/science.161.3843.751",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling zero hunger at 11:55 AM during deep work — then glancing up, seeing **12:15 PM** on your monitor, and instantly feeling 'starving'.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1126/science.161.3843.751",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1126/science.161.3843.751"
+      ],
+      "summary": "Stanley Schachter (1968). Obesity and Eating. Science."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1007/s13679-017-0243-1",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1007/s13679-017-0243-1"
+      ],
+      "summary": "Janet Polivy, C. Peter Herman (2017). Restrained Eating and Food Cues: Recent Findings and Conclusions. Current Obesity Reports."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Sensitivity to external food cues is an inborn trait found *only* in people with obesity.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

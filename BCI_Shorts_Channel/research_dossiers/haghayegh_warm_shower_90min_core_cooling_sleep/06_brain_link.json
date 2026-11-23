@@ -1,0 +1,32 @@
+{
+  "visual_mode": "HYBRID",
+  "links": [
+    {
+      "role": "step1",
+      "region": "somatosensory cortex",
+      "plain": "skin warmth sensors registering the 10-minute warm shower",
+      "function": "relays cutaneous warmth signals from skin thermoreceptors inward toward subcortical centers",
+      "scene_id": "S1",
+      "narration_bridge": "Tracks cutaneous temperature sensing in Raymann, Swaab & Van Someren (2008, Brain, SRC5).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "hypothalamus",
+      "plain": "preoptic thermostat opening hand-and-foot vessels to drop core heat and start sleep",
+      "function": "commands peripheral vasodilation to shed ~1°F of core heat while firing sleep-promoting GABAergic neurons",
+      "scene_id": "S1",
+      "narration_bridge": "Directly mapped in Harding, Franks & Wisden (2018, Current Biology, SRC3; 2019, SRC6).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "thalamus",
+      "plain": "deep slow-wave generator locking into steady early-night recovery",
+      "function": "stabilizes slow-wave NREM oscillations once core temperature glides downward",
+      "scene_id": "S2",
+      "narration_bridge": "Explains enhanced slow-wave sleep stability in Dorsey et al. (1996, SRC7) and Raymann et al. (2008, SRC5).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

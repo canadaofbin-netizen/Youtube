@@ -45,10 +45,11 @@ def test_phase1_retired_whitelist_and_public_protection():
     assert all_19[0] == ("diorama_08_maguire_london_taxi_hippocampus", "4jNxwVMMxQo")
     assert all_19[-1] == ("diorama_26_clark_doll_experiment_bias", "whXcmzZygN8")
 
-    # Zero overlap with the 13 protected Public videos (R34)
+    # Zero overlap with the 15 protected Public/frozen videos (R34 + R75 v8 Public protection)
     whitelist_vids = {vid for _, vid in all_19}
     assert whitelist_vids.isdisjoint(PROTECTED_PUBLIC_VIDEO_IDS)
-    assert len(PROTECTED_PUBLIC_VIDEO_IDS) == 13
+    assert len(PROTECTED_PUBLIC_VIDEO_IDS) == 15
+    assert {"soUNqH7UyKw", "7W8zIOMKPrQ"}.issubset(PROTECTED_PUBLIC_VIDEO_IDS)
 
     for pub_tok in (
         "diorama_01_hm_lab_B_dynamic",
@@ -108,8 +109,9 @@ def test_phase1_watchdog_parses_scheduled_time_et_and_verifies_video_id_match(tm
 
 
 def test_phase2_global_emma_us_v7_defaults_and_unfrozen_08_26():
-    assert DEFAULT_DIORAMA_VOICE_PRESET == "emma_v7"
-    assert DIORAMA_VOICE_PRESETS["emma_v7"]["pitch"] == "+0Hz"
+    assert DEFAULT_DIORAMA_VOICE_PRESET == "elevenlabs_v4"
+    assert DIORAMA_VOICE_PRESETS["elevenlabs_v4"]["elevenlabs_voice_id"] == "CwhRBWXzGAHq8TQ4Fs17"
+    assert DIORAMA_VOICE_PRESETS["el_researcher_v4"]["pitch"] == "+0Hz"
     assert DIORAMA_V7_PROSODY_MODE == "dynamic_us_v7"
     assert SHORTS_THUMB_MAX_BYTES == 1_950_000
 
@@ -146,19 +148,21 @@ def test_phase2_flow_worker_fail_closed_and_track_a_no_silent_fallback():
 
 
 def test_phase2_voice_hard_lock_and_acoustic_p3_gear_tempo(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    import pipeline.elevenlabs_tts as el_mod
     import pipeline.prosody as prosody_mod
     import pipeline.voice_fallback as vf
+    from pipeline.elevenlabs_tts import ElevenLabsUnavailableError
 
-    def _raise_edge(*_a, **_kw):
-        raise RuntimeError("edge-tts transient outage")
+    def _raise_el(*_a, **_kw):
+        raise ElevenLabsUnavailableError("elevenlabs transient outage")
 
-    monkeypatch.setattr(vf, "_synthesize_edge_tts_acts", _raise_edge)
-    with pytest.raises(RuntimeError, match="allow_kokoro_fallback=False"):
+    monkeypatch.setattr(el_mod, "synthesize_elevenlabs_v4_episode", _raise_el)
+    with pytest.raises(ElevenLabsUnavailableError, match="transient outage"):
         vf.synthesize_continuous_diorama_track(
             tmp_path / "fail_proj",
             ["Testing fail-closed voice synthesis."],
-            voice_preset="emma_v7",
-            allow_kokoro_fallback=False,
+            voice_preset="elevenlabs_v4",
+            allow_test_stub=False,
         )
 
     # Build a synthetic prosody project to test P3_gear_tempo enforcement

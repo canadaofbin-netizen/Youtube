@@ -1,0 +1,120 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "48-year-old adult in sunlit armchair performing a calm double nasal inhale and slow exhale",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing active brainstem-insula vagal brake quieting the amygdala",
+    "badge_text": "BEATS MEDITATION"
+  },
+  "r75_clean_seed_tags": [
+    "physiological sigh",
+    "cyclic sighing stanford",
+    "how to calm anxiety fast",
+    "vagus nerve breathing",
+    "breathwork vs meditation",
+    "stress relief science",
+    "neuroscience",
+    "brain health",
+    "amygdala calm",
+    "breathing exercise",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why trying to calm an anxious mind with thoughts often fails—while two quick inhales and one long exhale flip your brain's stress brake in seconds.",
+    "core_experiment": "Balban, Spiegel & Huberman (2023, Stanford Medicine RCT, N=108): 5 daily minutes of cyclic sighing beat 5 minutes of mindfulness meditation on mood and resting breathing rate.",
+    "twist": "The second tiny sniff pops open collapsed lung sacs to dump CO2, while the long exhale mechanically activates your vagus nerve and quiets the amygdala (Herrero et al., 2018)."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Why 'Just Relax Your Mind' Backfires Under Stress",
+      "beats": [
+        "Top-down thought suppression vs pounding chest",
+        "Putting breathwork head-to-head against mindfulness at Stanford"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "courtyard briefcase tension"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Stanford's 28-Day Trial: 4 Groups, 5 Minutes a Day",
+      "beats": [
+        "108 volunteers wearing biometric wrist straps (NCT05304000)",
+        "Cyclic sighing vs box breathing, hyperventilation, and mindfulness"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "armchair 5-minute timer & double-inhale cadence"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Why the Second Sniff & Long Exhale Work",
+      "beats": [
+        "Alveolar re-inflation and CO2 unloading (Vlemincx et al. 2013)",
+        "Intracranial human insula and amygdala entrainment (Herrero 2018; Zelano 2016)"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 brainstem -> insula -> amygdala silenced"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Inhale Speeds the Heart, Exhale Taps the Brake",
+      "beats": [
+        "Why gasping a big breath in without a slow exhale keeps pulse high",
+        "28-day cumulative drop in baseline respiratory rate"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "biometric mood slope comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your 60-Second Anytime Reset",
+      "beats": [
+        "3 physiological sighs before tough conversations or sleep",
+        "Building the 5-minute daily habit"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "composed walk into meeting"
+      ]
+    }
+  ]
+}

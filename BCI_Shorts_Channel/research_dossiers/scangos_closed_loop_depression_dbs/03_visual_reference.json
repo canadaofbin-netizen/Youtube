@@ -1,3 +1,109 @@
 {
-  "scenes": []
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "Scangos, Chang & Krystal (2021): Closed-Loop Amygdala-Guided Brain Pacemaker for Severe De",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2021, UCSF Weill Institute for Neurosciences, University of California, San Francisco",
+      "layout": {
+        "description": "Katherine Scangos, Edward Chang, Andrew Krystal, and colleagues (Nature Medicine, Oct 2021) mapped a 36-year-old woman ('Sarah') with severe treatment-resistant depression using 10 days of multi-site intracranial stereo-EEG, discovering a right-amygdala gamma biomarker that predicted symptom spikes with 87% accuracy and triggered a closed-loop ventral striatum pacemaker (~300 six-second pulses/day) that dropped her MADRS depression score from 36 to 10!",
+        "positions": [
+          {
+            "who": "Katherine W. Scangos, Edward F. Chang & Andrew D. Krystal",
+            "where": "standing beside the primary experimental apparatus and quantitative monitoring console",
+            "facing": "toward the participant and precision instrument"
+          },
+          {
+            "who": "Patient 'Sarah' (36-year-old participant with severe treatment-resistant depression)",
+            "where": "seated at the experimental test station undergoing the critical trial condition",
+            "facing": "toward the experimental stimulus"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Primary experimental apparatus and timing controller",
+          "period_detail": "Authentic 2021 clinical/neuroscience laboratory hardware",
+          "physical_behavior": "switches cleanly between baseline control and experimental trigger state"
+        },
+        {
+          "name": "Quantitative physiological readout & comparison display",
+          "period_detail": "Displays trial-by-trial behavioral and neural response metrics",
+          "physical_behavior": "shifts sharply between the two experimental conditions"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Patient 'Sarah' (36-year-old participant with severe treatment-resistant depression)",
+          "verb_sequence": "completes baseline control trial -> experiences experimental manipulation -> exhibits dramatic quantitative shift"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Patient 'Sarah' (36-year-old participant with severe treatment-resistant depression)",
+          "reaction": "immediate, unmistakable behavioral and physiological response"
+        }
+      ],
+      "wardrobe": "Clean clinical laboratory coats and smart-casual participant attire.",
+      "lighting": "High-key warm museum-grade tungsten and daylight studio illumination.",
+      "recognition_hook": "In Scangos, Khambhati, Chang & Krystal (2021 Nature Medicine), 10 days of continuous 10-lead intracranial stereo-EEG mapping in a 36-year-old woman with severe ",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC5"
+      ],
+      "key_visual": {
+        "description": "Katherine Scangos, Edward Chang, Andrew Krystal, and colleagues (Nature Medicine, Oct 2021) mapped a 36-year-old woman ('Sarah') with severe treatment-resistant depression using 10",
+        "must_show": [
+          "apparatus|monitor",
+          "researcher|participant"
+        ],
+        "source": "SRC1; SRC2"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "3D Translucent Brain Circuit Breakdown",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "2021–2023 Neuroimaging Suite",
+      "layout": {
+        "description": "High-key studio with Contained Living 4-Color 3D Brain illustrating the primary subcortical-cortical pathway.",
+        "positions": [
+          {
+            "who": "Katherine W. Scangos, Edward F. Chang & Andrew D. Krystal",
+            "where": "tracing the neural signal pathway across the translucent 3D brain pedestal",
+            "facing": "toward the 3D brain model"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Contained Living 4-Color 3D Brain Pedestal",
+          "period_detail": "Anatomical glass brain with subsurface fiber-optic tracts",
+          "physical_behavior": "pulses along the active neural pathway"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Researcher",
+          "verb_sequence": "points to primary region -> pathway illuminates"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Participant",
+          "reaction": "comprehends the underlying neural mechanism"
+        }
+      ],
+      "wardrobe": "Laboratory attire.",
+      "lighting": "High-key studio light.",
+      "recognition_hook": "The implanted NeuroPace RNS closed-loop device delivered approximately 300 six-second stimulation bursts per day (totalling roughly 30 minutes of dail",
+      "sources": [
+        "SRC1",
+        "SRC5"
+      ]
+    }
+  ]
 }

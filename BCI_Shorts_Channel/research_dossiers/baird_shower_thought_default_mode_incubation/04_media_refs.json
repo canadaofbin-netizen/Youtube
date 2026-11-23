@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern behavioral/fMRI topic staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Why You Get Your Best Ideas In The Shower",
+      "url": "https://www.youtube.com/watch?v=risAcwiZ_ck",
+      "channel": "MindfulThinks",
+      "source_id": "SRC_M1",
+      "duration_sec": 173,
+      "timecodes": [
+        {
+          "t": "00:06-00:24",
+          "what": "Opening contrast (kf_001.jpg–kf_005.jpg) showing desk-bound creative gridlock dissolving the moment an adult steps into a warm, low-demand shower routine."
+        },
+        {
+          "t": "00:26-00:48",
+          "what": "Mid-segment visual frames (kf_006.jpg–kf_012.jpg) illustrating how gentle external engagement frees the brain's daydream network to connect distant ideas."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Inspected media/M1/contact_sheet.jpg (12 frames sampled across 00:05–00:50) from MindfulThinks's \"Why You Get Your Best Ideas In The Shower\".",
+          "Used strictly as research reference for visual pacing and everyday behavioral framing; zero frames or audio reused."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "gate3_flat_slide_or_2d_cartoon(median_flat=0.8146>0.62)"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "Why mind-wandering is the secret to creative breakthrough",
+      "url": "https://www.youtube.com/watch?v=YU8_cpgh6VQ",
+      "channel": "Betwixt: The Story of You",
+      "source_id": "SRC_M2",
+      "duration_sec": 281,
+      "timecodes": [
+        {
+          "t": "00:15-00:50",
+          "what": "Breakdown of creative incubation and why staring harder at a blank page narrows associative search."
+        },
+        {
+          "t": "01:20-02:05",
+          "what": "Discussion of Baird et al. (2012) and modern default-executive network cooperation during moderately engaging breaks."
+        }
+      ],
+      "license_note": "Complementary reference video logged for conceptual pacing only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_behavioral_fmri_topic_track_b"
+    }
+  ]
+}

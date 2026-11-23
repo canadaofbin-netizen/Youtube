@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "tulving_episodic_mental_time_travel",
   "topic": "Endel Tulving (1972/2002): 'Mental Time Travel' — Patient K.C. Knowing Every Rule of Chess Without Remembering Playing a Single Game",
   "pillar": "brain_basics",
@@ -48,7 +48,18 @@
     },
     {
       "fact": "Even more astonishing: K.C. could **learn brand-new Semantic facts** slowly over trials (definitions of new technical words, 3-word sentences via errorless learning) despite having **0% Episodic memory** of any study session.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Semantic Learning Curve",
+        "concept": "Errorless Semantic Acquisition",
+        "fn": "sigmoid",
+        "x_label": "Errorless Study Trials",
+        "y_label": "Semantic Fact Retention",
+        "doi": ""
+      }
     },
     {
       "fact": "Then Endel Tulving asked K.C. a question nobody had ever thought to ask an amnesic patient (**1985 / 2002**, SRC1): ***'Kent, what are you going to do tomorrow?'*** K.C. paused for 15 seconds and described his mental screen as **'completely blank — like walking into an empty room looking for a chair and there's nothing there — the exact same kind of blankness as trying to remember yesterday!'**",
@@ -118,5 +129,37 @@
     "diorama_88_tulving_episodic_mental_time_travel"
   ],
   "reenactment_track": "track_a",
-  "reenactment_track_subtier": "A2_section_window"
+  "reenactment_track_subtier": "A2_section_window",
+  "everyday_domain": "sleep",
+  "primary_doi": "10.1146/annurev.psych.53.100901.135114",
+  "three_layer_formula": {
+    "everyday_problem": "Knowing 100% that the capital of Japan is Tokyo (**Semantic 'Know'**) with zero memory of the 4th-grade afternoon you learned it — versus instantly smelling the campfire from your 16th birthday (**Episodic 'Remember'**).",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1146/annurev.psych.53.100901.135114",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1146/annurev.psych.53.100901.135114"
+      ],
+      "summary": "Endel Tulving (2002). Episodic Memory: From Mind to Brain. Annual Review of Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1684/nrp.2023.0773",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1684/nrp.2023.0773"
+      ],
+      "summary": "Francis Eustache (2023). Memory according to Endel Tulving. Revue de neuropsychologie."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Factual textbook knowledge ('Semantic') and personal life memories ('Episodic') sit in the exact same memory bank.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

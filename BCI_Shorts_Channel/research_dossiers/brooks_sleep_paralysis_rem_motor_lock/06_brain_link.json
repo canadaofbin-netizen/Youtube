@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "brainstem",
+      "plain": "reflex center",
+      "function": "Holds skeletal muscles safely still with dual GABA and glycine switches for a few extra seconds during morning wake-up.",
+      "scene_id": "S1",
+      "narration_bridge": "At the base of your brain, your reflex center — the brainstem — keeps the nightly dream brake engaged.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "pivot",
+      "region": "motor cortex",
+      "plain": "movement strip",
+      "function": "Wakes up on time and sends reach signals downward, but those signals pause cleanly at the brainstem safety lock.",
+      "scene_id": "S1",
+      "narration_bridge": "Across the top, your movement strip — the motor cortex — sends a reach signal that hits the parked brake.",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "step1",
+      "region": "parietal cortex",
+      "plain": "spatial map",
+      "function": "Notices zero movement feedback returning when you strain hard, scrambling body sensation until you relax.",
+      "scene_id": "S2",
+      "narration_bridge": "Upper back, your spatial map — the parietal cortex — spots zero motion coming back from your arm.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "amygdala",
+      "plain": "emotional center",
+      "function": "Quiets down rapidly once you stop straining and gently wiggle one toe to clear the timing overlap.",
+      "scene_id": "S3",
+      "narration_bridge": "Deep inside, your emotional center — the amygdala — settles the instant you stop fighting the brake.",
+      "r78_circuit_state": "silenced"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "wernicke_sensory_aphasia",
   "topic": "Carl Wernicke (1874): Fluent Nonsense, Broken Comprehension & the First Network Diagram of the Human Brain",
   "pillar": "brain_history",
@@ -60,7 +60,18 @@
     },
     {
       "fact": "That modern correction also explained why classic Wernicke patients can't catch their own spoken slips: posterior STG is the **self-monitoring audio-motor feedback loop** that checks your own voice as you speak.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "pSTG Error-Monitoring Loop",
+        "concept": "Auditory-Motor Feedback Gain",
+        "fn": "sigmoid",
+        "x_label": "pSTG Feedback Integrity",
+        "y_label": "Self-Error Detection",
+        "doi": ""
+      }
     }
   ],
   "wow_facts": [
@@ -118,5 +129,37 @@
     "diorama_50_wernicke_sensory_aphasia"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1001/archneur.1970.00480210090013",
+  "three_layer_formula": {
+    "everyday_problem": "Hearing someone speak a foreign language fluently across a cafe — capturing all the melody, questions, and emotion with zero decoded words.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1001/archneur.1970.00480210090013",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1001/archneur.1970.00480210090013"
+      ],
+      "summary": "C. Wernicke (1970). THE APHASIC SYMPTOM-COMPLEX. Archives of Neurology. [English edition of Carl Wernicke's 1874 Breslau monograph Der aphasische Symptomencomplex]"
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1016/j.wneu.2024.02.103",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1016/j.wneu.2024.02.103"
+      ],
+      "summary": "Abdullah Ahmad, Nitin Jagdhane, Karin Ademmer, Kishor Choudhari (2024). Carl Wernicke of the Wernicke Area: A Historical Review. World Neurosurgery."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Wernicke's Area is a single dictionary drawer where every word's meaning is stored.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

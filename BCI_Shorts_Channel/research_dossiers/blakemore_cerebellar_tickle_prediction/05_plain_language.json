@@ -1,5 +1,21 @@
 {
-  "one_sentence_story": "",
-  "so_what_for_you": "",
-  "jargon_map": []
+  "one_sentence_story": "Sarah-Jayne Blakemore, Daniel Wolpert, and Chris Frith (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999) placed 16 volunteers in fMRI with a master-slave robotic tickling lever, proving that cerebellar forward models cancel self-generated touch at 0 ms delay — but inserting a 100–200 ms robotic delay restores full ticklishness!",
+  "so_what_for_you": "Understanding how your cerebellum and somatosensory cortex interact lets you work with your brain's hardware instead of fighting it.",
+  "jargon_map": [
+    {
+      "term": "cerebellum",
+      "plain": "predictive forward model computing exact sensory consequences of your own motor command",
+      "analogy": "sending an efference-copy cancellation signal to somatosensory cortex when touch"
+    },
+    {
+      "term": "somatosensory cortex",
+      "plain": "secondary somatosensory cortex (SII) touch-intensity amplifier",
+      "analogy": "dampened by 38% during zero-delay self-touch, then snapping back to full tickle "
+    },
+    {
+      "term": "anterior cingulate cortex",
+      "plain": "affective tickle & surprise salience hub",
+      "analogy": "triggers involuntary laughter and withdrawal reflex when unexpected or 200 ms-de"
+    }
+  ]
 }

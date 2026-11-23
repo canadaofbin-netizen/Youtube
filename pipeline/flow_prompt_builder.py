@@ -1,7 +1,7 @@
 """
 ALL ABOUT BRAIN - Canonical Google Flow Prompt Builder (Production Contract v4).
 
-Single source of truth for every Google Flow (Gemini Omni 1.1) clip prompt:
+Single source of truth for every Google Flow (Gemini Omni 1.2) clip prompt:
 
     {FLOW_PROMPT_PREFIX} <scene 50-80 words> Voice: Consistent deep male baritone documentary narrator. Spoken narration: "<line>"
 
@@ -16,6 +16,7 @@ Single source of truth for every Google Flow (Gemini Omni 1.1) clip prompt:
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 import re
 from typing import Any
@@ -36,7 +37,12 @@ from pipeline.config import (
     FLOW_DEFAULT_VOICE,
     FLOW_LEGACY_VOICE_LABELS,
     FLOW_MOTION_STYLE_V5,
+    FLOW_OMNI_CREDIT_COST_WITH_REF,
+    FLOW_OMNI_EPISODE_CREDIT_CAP,
+    FLOW_OMNI_HERO_MAX_CLIPS,
+    FLOW_PRIMARY_VIDEO_MODEL,
     FLOW_PROMPT_PREFIX,
+    FLOW_RETIRED_VIDEO_MODELS,
     FLOW_SHORT_CLIP_MAX_SYLLABLES,
     FLOW_SHORT_CLIP_MAX_WORDS,
     FLOW_VOICE_PROMPT_DESCRIPTOR,
@@ -50,7 +56,6 @@ from pipeline.config import (
     PROMPT_SCHEMA_VERSION_V8,
     ROLE_SETTINGS,
     DIORAMA_CAMERA_MOVES,
-    DIORAMA_TTS_VOICE,
     DIORAMA_CLIP_COUNT_MAX,
     DIORAMA_CLIP_COUNT_MIN,
     DIORAMA_CLIP_RENDER_SEC,
@@ -64,27 +69,50 @@ from pipeline.config import (
     DIORAMA_V7_VISUAL_GRAMMARS,
     DIORAMA_V7_ZOOM_CAMERA_MAX_RATIO,
     EXPRESSIVE_25D_V8_STYLE_PROFILE,
+    EXPRESSIVE_V8_3D_FLIGHT_MOVES,
     EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC,
     EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE,
     EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+    EXPRESSIVE_V8_CAMERA_FAST_FPV_MAX_RATIO,
+    EXPRESSIVE_V8_CAMERA_LOCKED_MIN_RATIO,
     EXPRESSIVE_V8_CAMERA_MOVES,
+    EXPRESSIVE_V8_CAMERA_ORBIT_MAX_RATIO,
     EXPRESSIVE_V8_CAST_SHEET_FILENAMES,
+    EXPRESSIVE_V8_CONTEXT_SPLIT_WORDS_RANGE,
+    EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+    EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN,
+    EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE,
+    EXPRESSIVE_V8_MAX_CONSECUTIVE_SAME_INDOOR_LOC,
+    EXPRESSIVE_V8_MIN_3D_FLIGHT_RATIO,
+    EXPRESSIVE_V8_MIN_DISTINCT_LOCATIONS,
+    EXPRESSIVE_V8_MIN_DRONE_FLIGHT_RATIO,
+    EXPRESSIVE_V8_MIN_OUTDOOR_OR_ARCH_RATIO,
+    EXPRESSIVE_V8_REQUIRE_REAL_LANDMARK_REFS,
+    EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS,
     EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
     EXPRESSIVE_V8_TRANSITION_TYPES,
     EXPRESSIVE_V8_VISUAL_GRAMMARS,
     PORCELAIN_V7_STYLE_PROFILE,
     PORCELAIN_V7_VISUAL_GRAMMARS,
+    REAL_WORLD_REFS_MANIFEST_FILENAME,
     SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX,
     SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN,
     SHORTS_EXPRESSIVE_V8_PROFILE,
+    compute_dynamic_omni_episode_budget,
     is_diorama_profile,
     is_diorama_v7_plan,
     is_expressive_v8_plan,
     is_porcelain_v7_plan,
+    is_r72_open_world_v8_plan,
     resolve_diorama_v7_style_profile,
     VISUAL_MODES,
     clip_roles,
     script_word_range,
+)
+from pipeline.depiction_rules import (
+    SELECTIVE_COLOR_BACKDROP_CLAUSE,
+    resolve_act_lighting_hint,
+    resolve_alternating_camera_move,
 )
 
 SCHEMA_VERSION = 4
@@ -484,7 +512,7 @@ def sanitize_prompt_for_flow(text: str, is_spoken_dialogue: bool = False) -> str
     out = re.sub(r"\bX\s*=\s*\d+%?\s*,?\s*Y\s*=\s*\d+%?", "", out, flags=re.IGNORECASE)
     out = re.sub(r"\b\d+\s*mm\b", "tiny", out, flags=re.IGNORECASE)
     out = _restore_allow_list(out, kept)
-    out = re.sub(r"\(\s*\)", "", out)
+    out = re.sub(r"\([\s\-–—/,;:]*\)", "", out)
     out = re.sub(r"\s+([,.;:])", r"\1", out)
     out = re.sub(r"\s{2,}", " ", out).strip()
     return out
@@ -509,6 +537,13 @@ _DIORAMA_POLICY_TERMS: tuple[tuple[str, str], ...] = (
     (r"\bdecapitat\w*\b", "severed"),
     (r"\bdismember\w*\b", "separated"),
     (r"\bmutilat\w*\b", "damaged"),
+    # Anti-literal animal/food hallucination guards for 3D neuroanatomy prompts (e.g., ocean seahorse fish in C10)
+    (r"\bseahorse[-\s]+shaped\b", "smooth rounded C-curved"),
+    (r"\bseahorses?\b", "smooth rounded C-curved medial-temporal cylinder"),
+    (r"\balmond[-\s]+shaped\b", "ovoid"),
+    (r"\balmonds?\b", "ovoid nucleus"),
+    (r"\bwalnut[-\s]+(?:shaped|like)\b", "folded bilateral"),
+    (r"\bwalnuts?\b", "folded hemisphere"),
 )
 
 
@@ -521,7 +556,7 @@ def sanitize_diorama_scene_for_flow(text: str) -> str:
     out = _HEX_RE.sub("", str(text or ""))
     for pattern, repl in _DIORAMA_POLICY_TERMS:
         out = re.sub(pattern, repl, out, flags=re.IGNORECASE)
-    out = re.sub(r"\(\s*\)", "", out)
+    out = re.sub(r"\([\s\-–—/,;:]*\)", "", out)
     out = re.sub(r"\s+([,.;:])", r"\1", out)
     out = re.sub(r"\s{2,}", " ", out).strip()
     return out
@@ -575,7 +610,7 @@ def count_english_syllables(text: str) -> int:
 
 def compute_clip_target_duration(narration: str, role: str = "") -> dict[str, Any]:
     """
-    Dynamically selects '8s' vs '10s' Google Flow (Omni 1.1 Flash) generation duration from spoken syllable density,
+    Dynamically selects '8s' vs '10s' Google Flow (Omni 1.2 Flash) generation duration from spoken syllable density,
     clause pauses, and narrative role so short punchy hooks avoid trailing dead air / prompt bleed
     while dense mechanism explanations never suffer tail speech cut-off.
     """
@@ -590,7 +625,7 @@ def compute_clip_target_duration(narration: str, role: str = "") -> dict[str, An
         target_dur = "8s"
     else:
         target_dur = "10s"
-    # Omni 1.1 Flash renders up to CLIP_MAX_RENDER_SEC (10 s) without an ingredient. With a reference image attached
+    # Omni 1.2 Flash renders up to CLIP_MAX_RENDER_SEC (10 s) on Frames/no-ingredient (and 3s-15s Ingredients). With a reference image attached
     # Omni locks 8 s, and the Gemini app renders 8 s: native speech must then fit 8 s (see scene_blueprint packets).
     cutoff_risk = bool(syls > FLOW_CLIP_SAFE_MAX_SYLLABLES or est_sec > float(CLIP_MAX_RENDER_SEC) + 0.2)
     return {
@@ -1122,7 +1157,7 @@ def render_prompt(
     style_suffix: str | None = None,
     voice_label: str | None = None,
 ) -> str:
-    """Renders a single Google Flow Omni 1.1 prompt string (v4 when style_suffix/voice_label are None)."""
+    """Renders a single Google Flow Omni 1.2 prompt string (v4 when style_suffix/voice_label are None)."""
     clean_scene = _clean(scene)
     if clean_scene and not clean_scene.endswith("."):
         clean_scene += "."
@@ -1139,7 +1174,11 @@ def render_prompt(
         matched_anchor: str | None = None
         if v_key and v_key != FLOW_DEFAULT_VOICE.lower():
             for p_id, spec in DIORAMA_VOICE_PRESETS.items():
-                if v_key in (p_id, spec["voice"].lower(), spec["kokoro_voice"].lower()):
+                if v_key in (
+                    p_id,
+                    spec["voice"].lower(),
+                    str(spec.get("elevenlabs_voice_id") or "").lower(),
+                ):
                     raw_anc = re.sub(r"^Voice:\s*", "", str(spec["flow_voice_anchor"]).strip(), flags=re.IGNORECASE)
                     matched_anchor = raw_anc.rstrip(".")
                     break
@@ -1402,14 +1441,20 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
         ExpressiveCameoWorldRule,
         ExpressiveHandsActionRule,
         ExpressiveLiteralAnalogyRule,
+        ExpressiveReactionCloseupRule,
+        ExpressiveRigidPhysicsRule,
         ExpressiveVinylWorldRule,
         ExpressiveXRayBrainRule,
         SceneDepictionRule,
+        format_expression_acting_clause,
         normalize_expressive_v8_grammar,
     )
 
     cameo_flag = bool(clip_spec.get("cameo_easter_egg")) or str(clip_spec.get("grammar") or "") == "expressive_cameo_world"
     allow_list = [str(t).strip() for t in (clip_spec.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+    expr_id = str(clip_spec.get("expression_id") or "").strip()
+    speaker_role = str(clip_spec.get("speaker_role") or clip_spec.get("voice_role") or "").strip()
+    rigid_grammar = str(clip_spec.get("rigid_physics_grammar") or clip_spec.get("physics_grammar") or "").strip()
     explicit_scene = str(clip_spec.get("scene") or "").strip()
     if explicit_scene:
         out = SceneDepictionRule.clean_clause(explicit_scene)
@@ -1441,6 +1486,8 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
             )
         )
         cons_txt = SceneDepictionRule.clean_clause(str(clip_spec.get("consequence") or ""))
+        if not act_txt and expr_id:
+            act_txt = format_expression_acting_clause(expr_id, speaker_role=speaker_role, compact=False)
         if not act_txt and not cast_txt and not cons_txt:
             return default_action
         base = act_txt or default_action
@@ -1459,9 +1506,15 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
         "studio_cinema": "warm cinematic key-and-rim studio lighting",
     }
     raw_lmode = str(clip_spec.get("lighting_mode") or "").strip().lower()
+    act_hint_key = (
+        clip_spec.get("act_index")
+        if clip_spec.get("act_index") is not None
+        else (clip_spec.get("act") or clip_spec.get("act_role") or clip_spec.get("narrative_act"))
+    )
     resolved_lighting = str(
         clip_spec.get("lighting")
         or lighting_map.get(raw_lmode)
+        or (resolve_act_lighting_hint(act_hint_key) if act_hint_key is not None and str(act_hint_key).strip() else "")
         or "warm cinematic key-and-rim studio lighting"
     )
 
@@ -1469,6 +1522,23 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
         clip_spec.get("grammar") or clip_spec.get("visual_grammar") or "expressive_vinyl_world",
         cameo_easter_egg=cameo_flag,
     )
+    if rigid_grammar in EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS:
+        return ExpressiveRigidPhysicsRule.compose(
+            rigid_grammar,
+            subject=str(clip_spec.get("cast") or clip_spec.get("subject") or "2.5D figure"),
+            action=str(clip_spec.get("action") or clip_spec.get("prop_action") or ""),
+            compact=False,
+        )
+    if grammar == "expressive_reaction_closeup":
+        return ExpressiveReactionCloseupRule.compose(
+            expression_id=(expr_id or "question_brow_raise"),
+            character_desc=str(clip_spec.get("cast") or "clothed 2.5D matte cream-white vinyl character"),
+            environment=str(clip_spec.get("environment") or "a softly lit 3D miniature room"),
+            speaker_role=speaker_role,
+            action=str(clip_spec.get("action") or ""),
+            prop_detail=str(clip_spec.get("prop_action") or clip_spec.get("consequence") or ""),
+            compact=False,
+        )
     if grammar == "expressive_hands_closeup":
         return ExpressiveHandsActionRule.compose(
             attire_and_hands=str(
@@ -1514,6 +1584,15 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
             ),
             lighting=str(clip_spec.get("lighting") or lighting_map.get(raw_lmode) or "dramatic warm key-and-rim cinema lighting"),
         )
+    if grammar == "brain_simulator_3d":
+        s_reg = SceneDepictionRule.clean_clause(str(clip_spec.get("start_brain_region") or clip_spec.get("brain_region") or "fusiform face area"))
+        e_reg = SceneDepictionRule.clean_clause(str(clip_spec.get("end_brain_region") or s_reg))
+        n_state = str(clip_spec.get("neural_state") or "active").strip().lower()
+        return (
+            f"Deterministic Blender 4.2 MNI152 3D clinical brain simulator view over dark studio slate showing a translucent human head shell, "
+            f"bilateral cortex, cerebellum, and brainstem with spotlighted matte anatomical structures linking {s_reg} to {e_reg} "
+            f"in '{n_state}' pathway state under steady medical drone framing and crisp cavity depth cues."
+        )
     if grammar == "expressive_xray_brain":
         return ExpressiveXRayBrainRule.compose(
             brain_scene=str(clip_spec.get("brain_scene") or clip_spec.get("maquette_scene") or "").strip() or None,
@@ -1521,7 +1600,7 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
             character_reaction=str(
                 clip_spec.get("character_reaction")
                 or _compose_cast_action_beat(
-                    "the clothed 2.5D matte cream-white vinyl sleeper blinks one charcoal-black 2D cartoon ink eye alertly on the pillow",
+                    "the smooth featureless matte-white architectural porcelain sleeper turns toward the pillow in three-quarter silhouette",
                     include_cast=False,
                 )
             ),
@@ -1531,7 +1610,7 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
         return ExpressiveCameoWorldRule.compose(
             environment=str(clip_spec.get("environment") or "a cozy miniature bedroom with a wooden nightstand"),
             action=_compose_cast_action_beat(
-                "a clothed 2.5D matte cream-white vinyl character with bold charcoal-black 2D cartoon ink eyebrows and eyes turns toward the bedside lamp"
+                "a clothed smooth featureless matte-white architectural porcelain figure in three-quarter silhouette turns toward the bedside lamp"
             ),
             cameo_placement=str(
                 clip_spec.get("cameo_placement")
@@ -1547,7 +1626,7 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
                 or "a split-contrast 3D miniature stage dividing opposing left and right lighting zones"
             ),
             action=_compose_cast_action_beat(
-                "two clothed 2.5D matte cream-white vinyl figures with bold charcoal-black 2D cartoon ink expressions react in opposing left-and-right room zones"
+                "two clothed smooth featureless matte-white architectural porcelain figures in back or three-quarter silhouette gesture in opposing left-and-right room zones"
             ),
             lighting=resolved_lighting,
             diegetic_text_allowlist=allow_list,
@@ -1555,11 +1634,607 @@ def _compose_expressive_v8_clip_scene(clip_spec: dict[str, Any]) -> str:
     return ExpressiveVinylWorldRule.compose(
         environment=str(clip_spec.get("environment") or "a stylized 3D miniature bedroom with crisp woven bedding"),
         action=_compose_cast_action_beat(
-            "a clothed 2.5D matte cream-white vinyl figure with bold charcoal-black 2D cartoon ink eyebrows, eyes, and animated mouth reacts in surprise"
+            "a clothed smooth featureless matte-white architectural porcelain figure in three-quarter silhouette reacts briskly with four-fingered porcelain hands"
         ),
         lighting=resolved_lighting,
         diegetic_text_allowlist=allow_list,
     )
+
+
+def _strip_v8_context_split_boilerplate(raw_text: str) -> str:
+    """Strips repeated world/lighting/optics/material boilerplate from image-conditioned R68 context-split clips."""
+    from pipeline.depiction_rules import (
+        EXPRESSIVE_V8_OPTICS_TAIL,
+        EXPRESSIVE_V8_WORLD_LEAD,
+        EXPRESSIVE_V8_XRAY_OPTICS_TAIL,
+    )
+
+    s = str(raw_text or "")
+    for boiler in (EXPRESSIVE_V8_WORLD_LEAD, EXPRESSIVE_V8_OPTICS_TAIL, EXPRESSIVE_V8_XRAY_OPTICS_TAIL):
+        s = re.sub(re.escape(boiler), " ", s, flags=re.IGNORECASE)
+    s = re.sub(
+        r"stylized\s+3d\s+cinematic\s+miniature\s+diorama\s+filling[^.:]*[.:]?",
+        " ",
+        s,
+        flags=re.IGNORECASE,
+    )
+    s = re.sub(
+        r",?\s*staged\s+as\s+clothed\s+2\.5d\s+matte\s+cream-white\s+vinyl\s+figures?\s+with\s+smooth\s+earless\s+hairless\s+noseless\s+oval\s+heads?[^.]*",
+        "",
+        s,
+        flags=re.IGNORECASE,
+    )
+    s = re.sub(r"crisp\s+cinema\s+prime\s+lens\s+clarity[^.]*\.?", " ", s, flags=re.IGNORECASE)
+    s = re.sub(r"^\s*:\s*(?:full-bleed\s+view\s+of\s+[^.]+\.\s*)?", "", s, flags=re.IGNORECASE)
+    s = re.sub(r"\bclothed\s+2\.5d\s+matte\s+cream-white\s+vinyl\b", "2.5D", s, flags=re.IGNORECASE)
+    s = re.sub(r"\bsmooth\s+matte\s+cream-white\s+four-fingered\s+vinyl\s+hands\b", "four-fingered hands", s, flags=re.IGNORECASE)
+    return re.sub(r"\s+", " ", s).strip(" .,:;")
+
+
+def _compress_v8_delta_cast_subject(cast_clean: str) -> str:
+    """Compresses static start-frame cast descriptions to <=8-word Delta-Only actor identifiers for VIDEO_FRAMES."""
+    c = str(cast_clean or "").strip()
+    for tail_sep in (
+        " with a smooth ",
+        " with smooth ",
+        " with matte ",
+        " with bold ",
+        " seated on ",
+        " seated at ",
+        " seated in ",
+        " seated inside ",
+        " seated across ",
+        " standing in ",
+        " standing at ",
+        " standing beside ",
+        " across from ",
+        " beside ",
+        " facing ",
+    ):
+        low_c = c.lower()
+        if tail_sep in low_c:
+            c = c[: low_c.index(tail_sep)].strip(" ,.;:")
+    words = c.split()
+    if len(words) > 9:
+        c = " ".join(words[:9]).rstrip(" ,.;:")
+    return c
+
+
+def _prepend_concise_cast_subject(act_clause: str, cast_raw: str, grammar: str, camera_move: str = "") -> str:
+    """
+    Ensures context-split human action clauses always open with an explicit concise cast subject
+    instead of subjectless verb fragments (Rule R79-M), while eliminating duplicate 'first the 2.5D...'
+    subject collisions and verbose static attire re-description (Rule R82 Veo 3.1 Delta-Only).
+    """
+    from pipeline.config import EXPRESSIVE_V8_DRONE_CAMERA_MOVES
+    from pipeline.depiction_rules import SceneDepictionRule, _PORCELAIN_V7_ACTOR_NOUN_RE
+
+    act = str(act_clause or "").strip()
+    if not act:
+        return act
+    # Strip redundant leading 'First,' / 'First ' before an explicit subject phrase
+    act = re.sub(
+        r"^first\s*,?\s+(?=(?:the|a|an|two|both|three|2\.5d|doctor|neurologist|clinician|researcher|pharmacist|patient|woman|man|subject|four-fingered)\b)",
+        "",
+        act,
+        flags=re.IGNORECASE,
+    ).strip()
+    if act:
+        act = act[:1].upper() + act[1:]
+    cam_k = str(camera_move or "").strip().lower()
+    if grammar in ("brain_simulator_3d", "architectural_cutaway_portal", "spatial_3d_arrow_diorama") or cam_k in EXPRESSIVE_V8_DRONE_CAMERA_MOVES:
+        return act
+    if (
+        re.match(
+            r"^(?:the|a|an|two|both|three|young|older|female|male|clothed|2\.5d|"
+            r"doctor|dr\.|neurologist|clinician|researcher|pharmacist|mother|father|son|daughter|woman|man|patient|subject|figure|protagonist|four-fingered)\b",
+            act,
+            flags=re.IGNORECASE,
+        )
+        or "2.5d" in act[:68].lower()
+        or bool(_PORCELAIN_V7_ACTOR_NOUN_RE.search(act[:68]))
+    ):
+        return act
+    c_clean = _strip_v8_context_split_boilerplate(SceneDepictionRule.clean_clause(cast_raw))
+    if not c_clean:
+        return f"The 2.5D character {act[:1].lower() + act[1:]}"
+    c_clean = re.sub(r"^(?:a|an|the)\s+2\.5d\s+", "The 2.5D ", c_clean, flags=re.IGNORECASE)
+    c_clean = re.sub(r"^2\.5d\s+", "The 2.5D ", c_clean, flags=re.IGNORECASE)
+    if not re.match(r"^(?:the|a|an|two|both|three)\b", c_clean, flags=re.IGNORECASE):
+        c_clean = f"The {c_clean}"
+    c_clean = _compress_v8_delta_cast_subject(c_clean)
+    return f"{c_clean} {act[:1].lower() + act[1:]}"
+
+
+def _compose_expressive_v8_context_split_scene(clip_spec: dict[str, Any]) -> str:
+    """
+    Previs Rule ③ Context-Splitting (`맥락 나누기`):
+    When `VIDEO_FRAMES` or `VIDEO_REFERENCES` images already supply character appearance, room architecture,
+    and lighting, emit ONLY subject physical action + 2D expression/hand detail + mandatory reveal/cameo anchors.
+    """
+    from pipeline.depiction_rules import (
+        ExpressiveReactionCloseupRule,
+        ExpressiveRigidPhysicsRule,
+        SceneDepictionRule,
+        format_expression_acting_clause,
+        normalize_expressive_v8_grammar,
+    )
+
+    cameo_flag = bool(clip_spec.get("cameo_easter_egg")) or str(clip_spec.get("grammar") or "") == "expressive_cameo_world"
+    allow_list = [str(t).strip() for t in (clip_spec.get("diegetic_text_allowlist") or ()) if str(t).strip()][:2]
+    expr_id = str(clip_spec.get("expression_id") or "").strip()
+    speaker_role = str(clip_spec.get("speaker_role") or clip_spec.get("voice_role") or "").strip()
+    rigid_grammar = str(clip_spec.get("rigid_physics_grammar") or clip_spec.get("physics_grammar") or "").strip()
+    grammar = normalize_expressive_v8_grammar(
+        clip_spec.get("grammar") or clip_spec.get("visual_grammar") or "expressive_vinyl_world",
+        cameo_easter_egg=cameo_flag,
+    )
+    explicit_scene = str(clip_spec.get("scene") or "").strip()
+    if explicit_scene:
+        base = _strip_v8_context_split_boilerplate(SceneDepictionRule.clean_clause(explicit_scene))
+    elif rigid_grammar in EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS:
+        base = _strip_v8_context_split_boilerplate(
+            ExpressiveRigidPhysicsRule.compose(
+                rigid_grammar,
+                subject=str(clip_spec.get("cast") or clip_spec.get("subject") or "Subject"),
+                action=str(clip_spec.get("action") or clip_spec.get("prop_action") or ""),
+                compact=True,
+            )
+        )
+    elif grammar == "expressive_reaction_closeup":
+        base = _strip_v8_context_split_boilerplate(
+            ExpressiveReactionCloseupRule.compose(
+                expression_id=(expr_id or "curious_head_tilt_perk"),
+                character_desc=str(clip_spec.get("cast") or "Subject"),
+                environment=str(clip_spec.get("environment") or "a softly lit room"),
+                speaker_role=speaker_role,
+                action=str(clip_spec.get("action") or ""),
+                prop_detail=str(clip_spec.get("prop_action") or ""),
+                compact=True,
+            )
+        )
+    elif grammar == "expressive_xray_brain":
+        from pipeline.anatomy_map import build_neural_state_clip_clause
+        from pipeline.config import EXPRESSIVE_V8_NEURAL_DIVE_MOVES
+
+        cam_mv_cs = str(clip_spec.get("camera_move") or clip_spec.get("camera") or "").strip().lower()
+        ns_cs = str(clip_spec.get("neural_state") or "active").strip().lower()
+        if ns_cs not in ("active", "silenced", "severed", "rerouted"):
+            ns_cs = "active"
+        reg = SceneDepictionRule.clean_clause(str(clip_spec.get("brain_region") or "hippocampus"))
+        end_reg_raw = str(clip_spec.get("end_brain_region") or "").strip()
+        is_r85_brain_cs = bool(clip_spec.get("r85_brain_clip") or clip_spec.get("r85_shot_scale") or clip_spec.get("r85_mode"))
+        if ns_cs in ("silenced", "severed", "rerouted") and not clip_spec.get("brain_scene"):
+            state_clause = build_neural_state_clip_clause(reg, neural_state=ns_cs, end_region=end_reg_raw or None)
+            if is_r85_brain_cs:
+                state_clause = (
+                    state_clause.replace("glowing", "solid matte")
+                    .replace("luminous", "opaque")
+                    .replace("glows", "shades")
+                    .replace("glow", "matte color")
+                )
+                base = f"Inside the matte silver-white sculpted gypsum 3D brain cutaway, {state_clause[:1].lower() + state_clause[1:]}"
+            else:
+                base = f"Inside the translucent frosted-glass 3D brain, {state_clause[:1].lower() + state_clause[1:]}"
+        else:
+            default_b_sc = (
+                "short opaque amber-gold segments move cleanly through thick sky-blue branching surface vessel tubes"
+                if is_r85_brain_cs
+                else "cool sapphire-blue and amber-gold pulses fire inside enclosed 3D brain pathways"
+            )
+            b_sc = _strip_v8_context_split_boilerplate(
+                SceneDepictionRule.clean_clause(str(clip_spec.get("brain_scene") or default_b_sc))
+            )
+            if cam_mv_cs in EXPRESSIVE_V8_NEURAL_DIVE_MOVES or bool(clip_spec.get("neural_dive_relay")):
+                if is_r85_brain_cs:
+                    end_reg = SceneDepictionRule.clean_clause(str(end_reg_raw or "prefrontal cortex"))
+                    if cam_mv_cs == "neural_fpv_dive_in":
+                        base = f"Matte silver-white sculpted gypsum 3D brain parts along sulcal grooves until the solid matte-shaded {reg} fills center frame as {b_sc}"
+                    elif cam_mv_cs == "neural_fpv_pullback_out":
+                        base = f"Solid matte-shaded {reg} recedes behind matte silver-white cortical gyri into the full 3D brain cutaway while {b_sc}"
+                    elif cam_mv_cs == "neural_tract_relay_flight":
+                        base = f"Inside the matte silver-white 3D brain cutaway, opaque tract tubes carry short solid segments from {reg} into {end_reg} as {b_sc}"
+                    else:
+                        base = f"Inside the matte silver-white 3D brain cutaway, the sculpted {reg} holds solid matte color as {b_sc}"
+                elif cam_mv_cs == "neural_fpv_dive_in":
+                    base = (
+                        f"Translucent frosted-glass 3D brain parts cleanly along crystal-glass cortical folds until the glowing optical-glass {reg} "
+                        f"fills the center frame as {b_sc}"
+                    )
+                elif cam_mv_cs == "neural_fpv_pullback_out":
+                    base = (
+                        f"Glowing optical-glass {reg} recedes cleanly behind parted crystal-glass cortical ribs into the full translucent frosted-glass 3D brain "
+                        f"while {b_sc}"
+                    )
+                elif cam_mv_cs == "neural_tract_relay_flight":
+                    end_reg = SceneDepictionRule.clean_clause(str(end_reg_raw or "prefrontal cortex"))
+                    base = (
+                        f"Inside the translucent frosted-glass 3D brain, luminous optical-glass tracts carry pulses from {reg} straight into {end_reg} "
+                        f"as {b_sc}"
+                    )
+                else:
+                    base = (
+                        f"Inside the translucent frosted-glass 3D brain chamber, the giant sculpted optical-glass {reg} pulses crisply "
+                        f"as {b_sc}"
+                    )
+            else:
+                react = _strip_v8_context_split_boilerplate(
+                    SceneDepictionRule.clean_clause(
+                        str(
+                            clip_spec.get("character_reaction")
+                            or clip_spec.get("action")
+                            or (format_expression_acting_clause(expr_id, speaker_role=speaker_role, compact=True) if expr_id else "")
+                            or "Subject leans calmly in three-quarter silhouette"
+                        )
+                    )
+                )
+                reg_tail = f" across {reg}" if clip_spec.get("brain_region") else ""
+                if is_r85_brain_cs:
+                    base = (
+                        f"{react} across the matte silver-white sculpted gypsum 3D brain cutaway with thick sky-blue branching surface vessel tubes{reg_tail}; "
+                        f"{b_sc}"
+                    )
+                else:
+                    base = (
+                        f"{react} as isolated semi-transparent frosted-glass 3D human brain reveals glowing internal neural tracts{reg_tail}; "
+                        f"{b_sc}"
+                    )
+    elif grammar == "spatial_3d_arrow_diorama":
+        from pipeline.spatial_arrow_guide import build_r80_flow_scene_clause
+
+        if clip_spec.get("spatial_arrow_eligible") is False:
+            raise ValueError(
+                "R87-A forbids spatial_3d_arrow_diorama when spatial_arrow_eligible is False"
+            )
+        raw_sp_act = str(clip_spec.get("action") or "").strip()
+        if raw_sp_act:
+            base = _strip_v8_context_split_boilerplate(SceneDepictionRule.clean_clause(raw_sp_act))
+        else:
+            cam_sp = str(clip_spec.get("camera_move") or clip_spec.get("camera") or "").strip().lower()
+            phase_sp = "landmark_ascend" if cam_sp == "drone_landmark_ascend" else "topdown_arrow"
+            base = build_r80_flow_scene_clause(
+                str(clip_spec.get("arrow_3d_mode") or "adaptive_landmark_zigzag"),
+                cut_phase=phase_sp,
+                landmark_desc=str(clip_spec.get("environment") or ""),
+                vehicle_or_actor_desc=str(clip_spec.get("cast") or ""),
+                anchor_prop_a=str(clip_spec.get("anchor_prop_a") or ""),
+                anchor_prop_b=str(clip_spec.get("anchor_prop_b") or ""),
+            )
+    elif grammar in ("expressive_hands_closeup", "expressive_pov_hands"):
+        p_act = _strip_v8_context_split_boilerplate(
+            SceneDepictionRule.clean_clause(
+                str(clip_spec.get("prop_action") or clip_spec.get("action") or "Four-fingered hands grip and shift the physical prop")
+            )
+        )
+        cons = _strip_v8_context_split_boilerplate(
+            SceneDepictionRule.clean_clause(
+                str(clip_spec.get("consequence") or "the tactile mechanism clicks cleanly into alignment")
+            )
+        )
+        pov_lead = "First-person POV: " if grammar == "expressive_pov_hands" else "Tight hand close-up: "
+        base = f"{pov_lead}{p_act}, and {cons[:1].lower() + cons[1:]}"
+    else:
+        act = _strip_v8_context_split_boilerplate(
+            SceneDepictionRule.clean_clause(
+                str(
+                    clip_spec.get("action")
+                    or clip_spec.get("kinetic_action")
+                    or clip_spec.get("character_reaction")
+                    or clip_spec.get("comparison_action")
+                    or clip_spec.get("comparison_motion")
+                    or clip_spec.get("prop_action")
+                    or (format_expression_acting_clause(expr_id, speaker_role=speaker_role, compact=True) if expr_id else "")
+                    or "Subject shifts cleanly as four-fingered matte-white architectural porcelain hands move the prop"
+                )
+            )
+        )
+        act = _prepend_concise_cast_subject(
+            act,
+            str(clip_spec.get("cast") or ""),
+            grammar,
+            str(clip_spec.get("camera_move") or clip_spec.get("camera") or ""),
+        )
+        cons = _strip_v8_context_split_boilerplate(SceneDepictionRule.clean_clause(str(clip_spec.get("consequence") or "")))
+        base = f"{act}, and {cons[:1].lower() + cons[1:]}" if (cons and cons.lower() not in act.lower()) else act
+        cam_aerial = str(clip_spec.get("camera_move") or clip_spec.get("camera") or "").strip().lower()
+        if (
+            grammar == "expressive_exterior_establishing"
+            and cam_aerial in ("drone_aerial_approach", "drone_landmark_ascend", "drone_high_orbit_drop")
+            and not any(tok in base.lower() for tok in ("unlabeled", "unmarked", "sign-free", "blank stone", "blank facade"))
+        ):
+            base = f"{base.rstrip('.')}, across smooth blank unlabeled stone facades"
+
+    low_b = base.lower()
+    if grammar == "brain_simulator_3d":
+        s_reg = SceneDepictionRule.clean_clause(str(clip_spec.get("start_brain_region") or clip_spec.get("brain_region") or "fusiform face area"))
+        e_reg = SceneDepictionRule.clean_clause(str(clip_spec.get("end_brain_region") or s_reg))
+        n_state = str(clip_spec.get("neural_state") or "active").strip().lower()
+        return (
+            f"Deterministic Blender 4.2 MNI152 3D clinical brain simulator view over dark studio slate showing a translucent human head shell, "
+            f"bilateral cortex, cerebellum, and brainstem with spotlighted matte anatomical structures linking {s_reg} to {e_reg} "
+            f"in '{n_state}' pathway state under steady medical drone framing and crisp cavity depth cues."
+        )
+    if grammar == "expressive_xray_brain":
+        is_r85_cs = bool(clip_spec.get("r85_brain_clip") or clip_spec.get("r85_shot_scale") or clip_spec.get("r85_mode"))
+        if not any(k in low_b for k in ("3d brain", "3d human brain", "hemisphere", "cerebral")):
+            base = (
+                f"{base.rstrip('.')}; matte silver-white gypsum 3D brain reveals opaque sulcal tubes"
+                if is_r85_cs
+                else f"{base.rstrip('.')}; translucent frosted-glass 3D brain reveals glowing neural tracts"
+            )
+        elif not any(
+            k in low_b
+            for k in (
+                "glass dome",
+                "crystal-clear",
+                "translucent",
+                "frosted-glass",
+                "golden forehead",
+                "x-ray",
+                "silver-white",
+                "silver-gray",
+                "gypsum",
+                "sulcal",
+                "cutaway",
+            )
+        ):
+            base = (
+                f"{base.rstrip('.')} inside the matte silver-white 3D brain cutaway"
+                if is_r85_cs
+                else f"{base.rstrip('.')} inside the translucent frosted-glass 3D brain"
+            )
+    if allow_list and not all(tok.lower() in base.lower() for tok in allow_list):
+        quoted = ", ".join(f"'{tok}'" for tok in allow_list)
+        base = f"{base.rstrip('.')}. Prop stencil shows {quoted}"
+    if cameo_flag and "mini-cortex" not in base.lower():
+        base = f"{base.rstrip('.')}. Tiny 4cm Mini-Cortex figurine rests quietly on background shelf"
+    return base.strip(" .")
+
+
+_CREDIT_SAFETY_MINOR_RE = re.compile(
+    r"\b(?:child|children|kid|kids|toddler|toddlers|preschooler|preschoolers|young\s+boy|young\s+girl|little\s+boy|little\s+girl)\b",
+    flags=re.IGNORECASE,
+)
+_CREDIT_SAFETY_ISOLATION_RE = re.compile(
+    r"\b(?:left\s+alone|sits?\s+alone|sitting\s+alone|isolated|unattended|locked|trap(?:ped)?|"
+    r"shuts?\s+(?:the\s+)?door|clos(?:es?|ing|ed)\s+(?:the\s+)?(?:\w+\s+)?door|behind\s+a\s+closed\s+door)\b",
+    flags=re.IGNORECASE,
+)
+_CREDIT_SAFETY_SKIN_HUE_HEAD_RE = re.compile(
+    r"(?:warm\s+afternoon\s+sunbeams?|warm\s+sunlight\s+shifts|peach\s+sunbeams?|flesh[-\s]toned|"
+    r"warm\s+amber\s+sunbeams?\s+across\s+the\s+(?:face|head)|"
+    r"warm\s+(?:wooden|oak|walnut|tan|beige)\s+(?:door|wall|plaster)\s+(?:directly\s+)?behind\s+(?:his|her|the|their)\s+(?:head|face))",
+    flags=re.IGNORECASE,
+)
+
+
+def normalize_clip_engine_tag(val: Any, default: str = "auto") -> str:
+    """Normalizes a per-clip engine tag to `'omni'`, `'zero-credit'`, or `'auto'`."""
+    raw = str(val or "").strip().lower().replace("_", "-")
+    if raw in ("omni", "omni-1.2-flash", "gemini-omni-1.2-flash", "omni-1.1-flash", "primary"):  # legacy 1.1 CLI alias routes to primary Omni 1.2 Flash
+        return "omni"
+    if raw in ("zero-credit", "lite", "veo-lite", "free"):
+        return "zero-credit"
+    if raw == "auto":
+        return "auto"
+    return default
+
+
+def assign_hero_omni_engines(
+    visual_plan: dict[str, Any] | None,
+    max_hero_clips: int = FLOW_OMNI_HERO_MAX_CLIPS,
+    available_credits: int | None = None,
+) -> dict[int, str]:
+    """
+    Resolves 1-based `clip_number -> engine` (`'omni'` | `'zero-credit'` | `'auto'`):
+      - Honors any explicit per-clip `spec['engine']`.
+      - When `available_credits` is provided (or `visual_plan['omni_tier']` in `{'all', 'dynamic_all'}`),
+        computes `compute_dynamic_omni_episode_budget(available_credits, clip_count)` (`C3`) and routes up to
+        `max_omni_clips` in priority order:
+          (0) `portal_to_brain` / `expressive_xray_brain`
+          (1) 3D flight (`fpv_dive_glide`, `orbital_3d_arc_sweep`) & rigid physics (`R68-A`)
+          (2) Hook Cuts 1..3 & Climax / Cameo
+          (3) Remaining dialogue cuts
+      - When `visual_plan['omni_tier'] == 'hero'` (or `hero_omni_cap` is True), tags up to `max_hero_clips`
+        (`8` clips = `160` credits with refs) as `'omni'` and sets remaining untagged cuts to `'zero-credit'`.
+      - Otherwise defaults untagged cuts to `'auto'` (bounded by `FLOW_OMNI_EPISODE_CREDIT_CAP` at runtime).
+    """
+    raw_clips = (visual_plan or {}).get("clips") if isinstance((visual_plan or {}).get("clips"), list) else []
+    n_total = len(raw_clips)
+    if n_total == 0:
+        return {}
+    tier_mode = str((visual_plan or {}).get("omni_tier") or "").strip().lower()
+    raw_avail = available_credits if available_credits is not None else (visual_plan or {}).get("available_credits")
+    dynamic_mode = raw_avail is not None or tier_mode in ("all", "dynamic_all", "v83")
+    hero_mode = tier_mode == "hero" or bool((visual_plan or {}).get("hero_omni_cap"))
+    core_rev_sent = (visual_plan or {}).get("core_reveal_sentence_index")
+    brain_grammars = {
+        "expressive_xray_brain",
+        "porcelain_living_brain",
+        "lowpoly_matte_brain",
+        "arch_brain_maquette",
+        "frosted_crystal_specimen",
+    }
+    engine_map: dict[int, str] = {}
+    omni_count = 0
+    for idx, spec in enumerate(raw_clips, start=1):
+        if not isinstance(spec, dict):
+            continue
+        if str(spec.get("engine") or "").strip():
+            tag = normalize_clip_engine_tag(spec.get("engine"), default="auto")
+            engine_map[idx] = tag
+            if tag == "omni":
+                omni_count += 1
+
+    if dynamic_mode:
+        budget_info = compute_dynamic_omni_episode_budget(
+            int(raw_avail) if raw_avail is not None else None,
+            clip_count=n_total,
+        )
+        dyn_cap = max(0, int(budget_info["max_omni_clips"]))
+        dyn_candidates: list[tuple[int, int]] = []
+        for idx, spec in enumerate(raw_clips, start=1):
+            if idx in engine_map or not isinstance(spec, dict):
+                continue
+            grammar = str(spec.get("grammar") or spec.get("visual_grammar") or "").strip()
+            cam = str(spec.get("camera") or spec.get("camera_move") or "").strip()
+            rigid_g = str(spec.get("rigid_physics_grammar") or spec.get("physics_grammar") or "").strip()
+            cut_role = str(spec.get("cut_role") or "").strip().lower()
+            s0 = spec.get("sentence_index")
+            s1 = spec.get("end_sentence_index") or s0
+            is_core_sent = False
+            if core_rev_sent is not None and isinstance(s0, int):
+                try:
+                    is_core_sent = int(s0) <= int(core_rev_sent) <= int(s1 or s0)
+                except (TypeError, ValueError):
+                    is_core_sent = False
+            if bool(spec.get("portal_to_brain")) or grammar in brain_grammars or bool(spec.get("brain_clip")) or is_core_sent:
+                dyn_candidates.append((0, idx))
+            elif cam in EXPRESSIVE_V8_3D_FLIGHT_MOVES or rigid_g in EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS:
+                dyn_candidates.append((1, idx))
+            elif idx in (1, 2, 3) or bool(spec.get("cameo_easter_egg")) or grammar == "expressive_cameo_world" or cut_role in ("climax", "reveal", "twist", "pivot") or idx == n_total:
+                dyn_candidates.append((2, idx))
+            else:
+                dyn_candidates.append((3, idx))
+        dyn_candidates.sort(key=lambda pair: (pair[0], pair[1]))
+        for _prio, idx in dyn_candidates:
+            if omni_count >= dyn_cap:
+                break
+            engine_map[idx] = "omni"
+            omni_count += 1
+        for idx in range(1, n_total + 1):
+            engine_map.setdefault(idx, "zero-credit")
+        return engine_map
+
+    if not hero_mode:
+        for idx in range(1, n_total + 1):
+            engine_map.setdefault(idx, "auto")
+        return engine_map
+
+    # Priority buckets for automatic hero-cut selection up to `max_hero_clips`
+    candidates: list[tuple[int, int]] = []
+    for idx, spec in enumerate(raw_clips, start=1):
+        if idx in engine_map or not isinstance(spec, dict):
+            continue
+        grammar = str(spec.get("grammar") or spec.get("visual_grammar") or "").strip()
+        cut_role = str(spec.get("cut_role") or "").strip().lower()
+        s0 = spec.get("sentence_index")
+        s1 = spec.get("end_sentence_index") or s0
+        is_core_sent = False
+        if core_rev_sent is not None and isinstance(s0, int):
+            try:
+                is_core_sent = int(s0) <= int(core_rev_sent) <= int(s1 or s0)
+            except (TypeError, ValueError):
+                is_core_sent = False
+        if idx in (1, 2, 3):
+            candidates.append((0, idx))
+        elif grammar in brain_grammars or bool(spec.get("brain_clip")) or is_core_sent:
+            candidates.append((1, idx))
+        elif bool(spec.get("portal_to_brain")) or bool(spec.get("cameo_easter_egg")) or grammar == "expressive_cameo_world":
+            candidates.append((2, idx))
+        elif cut_role in ("climax", "reveal", "twist", "pivot") or idx == n_total:
+            candidates.append((3, idx))
+
+    candidates.sort(key=lambda pair: (pair[0], pair[1]))
+    cap = max(0, int(max_hero_clips))
+    for _prio, idx in candidates:
+        if omni_count >= cap:
+            break
+        engine_map[idx] = "omni"
+        omni_count += 1
+
+    for idx in range(1, n_total + 1):
+        engine_map.setdefault(idx, "zero-credit")
+    return engine_map
+
+
+def validate_flow_credit_safety_lint(
+    plan: dict[str, Any] | None,
+    clips: list[dict[str, Any]] | None,
+) -> list[str]:
+    """
+    Pre-Flow Credit-Loss Prevention Linter (Task 2):
+      1. Minor + isolation/closed-door wording that triggers Google Flow / Veo child-safety false rejections.
+      2. Warm peach/amber sunbeams or skin-hued wooden/tan backdrops behind porcelain/vinyl heads that trip YuNet `skin_ratio`.
+      3. Explicit `engine='omni'` count exceeding `FLOW_OMNI_EPISODE_CREDIT_CAP` (`200` credits = max `10` ref clips).
+    """
+    issues: list[str] = []
+    max_explicit_omni = max(1, int(FLOW_OMNI_EPISODE_CREDIT_CAP) // max(1, int(FLOW_OMNI_CREDIT_COST_WITH_REF)))
+    explicit_omni_clips: list[int] = []
+
+    for anc in (plan or {}).get("reference_anchors") or []:
+        if not isinstance(anc, dict):
+            continue
+        rid = str(anc.get("ref_id") or anc.get("filename") or "anchor")
+        desc = " ".join(
+            str(anc.get(k) or "")
+            for k in ("subject", "environment", "visual_desc", "prompt", "description")
+        )
+        if _CREDIT_SAFETY_MINOR_RE.search(desc) and _CREDIT_SAFETY_ISOLATION_RE.search(desc):
+            issues.append(
+                f"[credit_safety_lint:minor_isolation_filter_risk] reference_anchor '{rid}' combines minor/child subject "
+                "with isolation/closed-door phrasing (high Veo/Imagen safety rejection risk; rephrase to neutral open-room figure)"
+            )
+        if _CREDIT_SAFETY_SKIN_HUE_HEAD_RE.search(desc):
+            issues.append(
+                f"[credit_safety_lint:skin_tone_head_backdrop_risk] reference_anchor '{rid}' places warm sunbeams or "
+                "skin-toned wood/tan wall behind a vinyl/porcelain head (YuNet false-positive risk)"
+            )
+
+    for idx, c in enumerate(clips or [], start=1):
+        if not isinstance(c, dict):
+            continue
+        c_num = int(c.get("clip_number") or idx)
+        if normalize_clip_engine_tag(c.get("engine"), default="auto") == "omni":
+            explicit_omni_clips.append(c_num)
+        is_brain = bool(c.get("brain_clip")) or str(c.get("grammar") or "") in (
+            "expressive_xray_brain",
+            "porcelain_living_brain",
+            "lowpoly_matte_brain",
+            "arch_brain_maquette",
+            "frosted_crystal_specimen",
+        )
+        scene_txt = str(c.get("scene") or "")
+        if _CREDIT_SAFETY_MINOR_RE.search(scene_txt) and _CREDIT_SAFETY_ISOLATION_RE.search(scene_txt):
+            issues.append(
+                f"[credit_safety_lint:minor_isolation_filter_risk] clip {c_num} combines minor/child subject with "
+                "isolation/closed-door phrasing (high Veo safety rejection risk; use 'small vinyl character' + open doorway)"
+            )
+        if not is_brain and _CREDIT_SAFETY_SKIN_HUE_HEAD_RE.search(scene_txt):
+            issues.append(
+                f"[credit_safety_lint:skin_tone_head_backdrop_risk] clip {c_num} uses warm peach/afternoon sunbeams or "
+                "skin-toned backdrop near character head (high YuNet human-skin false-positive risk; use cool/neutral studio daylight)"
+            )
+
+    if len(explicit_omni_clips) > max_explicit_omni:
+        issues.append(
+            f"[credit_safety_lint:omni_budget_exceeded] {len(explicit_omni_clips)} clips tagged engine='omni' "
+            f"({explicit_omni_clips}) exceeds episode cap of {max_explicit_omni} clips ({FLOW_OMNI_EPISODE_CREDIT_CAP} credits)"
+        )
+    return issues
+
+
+def compose_scene_from_r86_beat_card(spec: dict[str, Any]) -> str:
+    """
+    Rule R86 Semantic Beat Contract -> Scene Composer:
+    Translates `(claim, viewer_must_understand, visual_proof_type, concrete_referent, state_delta, bridge_element)`
+    into a single-takeaway visual action description so `scene` prompts never drift into noun-only busywork.
+    """
+    ref = str(spec.get("concrete_referent") or "").strip().rstrip(".")
+    delta = str(spec.get("state_delta") or "").strip().rstrip(".")
+    bridge = str(spec.get("bridge_element") or "").strip().rstrip(".")
+    env = str(spec.get("environment") or "").strip().rstrip(".")
+    parts: list[str] = []
+    if ref:
+        parts.append(ref[0].upper() + ref[1:] if len(ref) > 1 else ref.upper())
+    if delta and delta.lower() not in ref.lower():
+        parts.append(delta)
+    if bridge and bridge.lower() not in " ".join(parts).lower():
+        parts.append(f"matching {bridge}")
+    if env and env.lower() not in " ".join(parts).lower():
+        parts.append(f"in {env}")
+    composed = ", ".join(p for p in parts if p).strip()
+    return f"{composed}." if composed and not composed.endswith(".") else composed
 
 
 def build_expressive_v8_prompts(
@@ -1568,13 +2243,56 @@ def build_expressive_v8_prompts(
     aspect: str = FLOW_ASPECT_SHORTS,
 ) -> list[dict[str, Any]]:
     """Renders Schema v8 (`expressive_25d_v8`) 8-second multi-beat clip prompts with Start+End VIDEO_FRAMES keyframe chains & transition hygiene (R68)."""
-    from pipeline.depiction_rules import ExpressiveV8PromptComposer, normalize_expressive_v8_grammar
+    from pipeline.config import BRAIN_SIM_ONLY_CLIP_COUNT_RANGE, is_brain_sim_only_plan, is_r76_v8_plan
+    from pipeline.depiction_rules import (
+        EXPRESSIVE_V8_CAMERA_DESCRIPTORS,
+        ExpressiveV8PromptComposer,
+        FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD,
+        normalize_expressive_v8_grammar,
+        sanitize_flow_viewpoint_hardware_terms,
+    )
 
     raw_clips = visual_plan.get("clips") if isinstance(visual_plan.get("clips"), list) else []
-    if not (SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN <= len(raw_clips) <= SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX):
+    from pipeline.config import (
+        PRE_R88_FROZEN_V8_PROJECTS,
+        R82_CLIP_COUNT_RANGE,
+        R85_DRONE_ALTITUDE_LOCK_CLAUSE,
+        R85_HUMAN_IDENTITY_LOCK_SUFFIX,
+        R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX,
+        is_r82_dual_speed_pacing_plan,
+        is_r85_flow_31_brain_plan,
+        is_r86_semantic_beat_plan,
+    )
+
+    is_brain_only_build = is_brain_sim_only_plan(visual_plan)
+    is_r85_build = is_r85_flow_31_brain_plan(visual_plan)
+    is_r86_build = is_r86_semantic_beat_plan(visual_plan)
+    is_r82_build = is_r82_dual_speed_pacing_plan(visual_plan) or is_r85_build
+    is_r76_build = is_r76_v8_plan(visual_plan)
+    is_r72_build = is_r72_open_world_v8_plan(visual_plan)
+    if bool(visual_plan.get("allow_legacy_v8_clip_count")):
+        min_clips = EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN
+    elif is_brain_only_build:
+        min_clips = int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0])
+    elif is_r82_build:
+        min_clips = int(R82_CLIP_COUNT_RANGE[0])
+    elif is_r76_build:
+        from pipeline.config import EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE
+
+        min_clips = int(EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE[0])
+    elif not is_r72_build:
+        min_clips = EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE[0]
+    else:
+        min_clips = SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN
+    max_clips = (
+        int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[1])
+        if is_brain_only_build
+        else (int(R82_CLIP_COUNT_RANGE[1]) if is_r82_build else SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX)
+    )
+    if not (min_clips <= len(raw_clips) <= max_clips):
         raise ValueError(
             f"Schema v8 expressive_25d_v8 visual_plan.clips must contain "
-            f"{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN}-{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX} clip specs (got {len(raw_clips)})"
+            f"{min_clips}-{max_clips} clip specs (got {len(raw_clips)})"
         )
     mode = str(visual_plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
     anchor_by_stem: dict[str, dict[str, Any]] = {}
@@ -1598,6 +2316,7 @@ def build_expressive_v8_prompts(
         "gentle_push_in",
         "tilt_up",
     )
+    engine_map = assign_hero_omni_engines(visual_plan)
     out: list[dict[str, Any]] = []
     for idx, spec in enumerate(raw_clips, start=1):
         if not isinstance(spec, dict):
@@ -1609,15 +2328,52 @@ def build_expressive_v8_prompts(
         )
         if grammar == "expressive_cameo_world":
             cameo_flag = True
+        is_brain = grammar in ("expressive_xray_brain", "brain_simulator_3d")
         explicit_cam = str(spec.get("camera") or spec.get("camera_move") or "").strip()
-        cam = explicit_cam if explicit_cam else default_cam_cycle[(idx - 1) % len(default_cam_cycle)]
-        is_brain = grammar == "expressive_xray_brain"
+        if explicit_cam:
+            cam = explicit_cam
+        elif bool(visual_plan.get("use_alternating_camera_cycle") or spec.get("use_alternating_camera_cycle")):
+            cam = resolve_alternating_camera_move(idx - 1, is_brain=is_brain)
+        else:
+            cam = default_cam_cycle[(idx - 1) % len(default_cam_cycle)]
+        render_engine = str(
+            spec.get("render_engine")
+            or ("blender_3d_simulator" if grammar == "brain_simulator_3d" else "google_flow")
+        ).strip()
         ref_img = spec.get("reference_image")
         sec_ref_img = spec.get("secondary_reference_image")
         end_ref_img = spec.get("end_reference_image")
         start_ref_str = str(ref_img or "").strip()
         sec_ref_str = str(sec_ref_img or "").strip()
         end_ref_str = str(end_ref_img or "").strip()
+        drift_end_frame_lock = bool(spec.get("drift_end_frame_lock"))
+        is_drift_vulnerable_r85 = is_r85_build and (
+            grammar in ("expressive_reaction_closeup", "expressive_hands_closeup", "expressive_hands_macro")
+            or (
+                grammar == "spatial_3d_arrow_diorama"
+                and str(spec.get("arrow_3d_mode") or "") == "doorway_boundary_sever"
+            )
+        )
+        if (
+            is_drift_vulnerable_r85
+            and not bool(spec.get("single_start_frame_lock"))
+            and start_ref_str
+            and not end_ref_str
+            and not sec_ref_str
+            and not start_ref_str.endswith(
+                (
+                    EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+                    EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+                    *EXPRESSIVE_V8_CAST_SHEET_FILENAMES,
+                )
+            )
+        ):
+            end_ref_img = ref_img
+            end_ref_str = start_ref_str
+            drift_end_frame_lock = True
+        has_same_end_lock = bool(
+            start_ref_str and end_ref_str and start_ref_str == end_ref_str and (drift_end_frame_lock or is_r85_build) and not cameo_flag
+        )
         has_distinct_end = bool(start_ref_str and end_ref_str and start_ref_str != end_ref_str and not cameo_flag)
         start_stem = Path(start_ref_str).stem if start_ref_str else ""
         end_stem = Path(end_ref_str).stem if end_ref_str else ""
@@ -1628,7 +2384,8 @@ def build_expressive_v8_prompts(
             and has_distinct_end
             and "xray" not in start_stem.lower()
             and "brain_master" not in start_stem.lower()
-            and str((start_anc or {}).get("setting") or "") != "brain_studio"
+            and "brain" not in start_stem.lower()
+            and str((start_anc or {}).get("setting") or "") not in ("brain_studio", "contrast_pair")
             and (
                 "xray" in end_stem.lower()
                 or "brain" in end_stem.lower()
@@ -1647,18 +2404,32 @@ def build_expressive_v8_prompts(
         if cameo_flag and sec_ref_str:
             flow_input_mode = "VIDEO_REFERENCES"
             keyframe_chain_mode = "dual_reference_ingredients"
-        elif has_distinct_end:
+        elif has_distinct_end or has_same_end_lock:
             flow_input_mode = "VIDEO_FRAMES"
-            keyframe_chain_mode = "portal_zoom_to_xray_brain" if portal_to_brain else "start_end_interpolation"
+            keyframe_chain_mode = (
+                "start_end_drift_lock"
+                if has_same_end_lock
+                else ("portal_zoom_to_xray_brain" if portal_to_brain else "start_end_interpolation")
+            )
         elif start_ref_str:
-            flow_input_mode = "VIDEO_REFERENCES"
-            keyframe_chain_mode = "single_reference_anchor"
+            if (
+                str(spec.get("flow_input_mode") or "").strip().upper() == "VIDEO_FRAMES"
+                or bool(spec.get("single_start_frame_lock"))
+            ):
+                flow_input_mode = "VIDEO_FRAMES"
+                keyframe_chain_mode = "single_start_frame"
+            else:
+                flow_input_mode = "VIDEO_REFERENCES"
+                keyframe_chain_mode = "single_reference_anchor"
         elif end_ref_str:
             flow_input_mode = "VIDEO_FRAMES"
             keyframe_chain_mode = "end_frame_only"
         else:
             flow_input_mode = "TEXT_TO_VIDEO"
             keyframe_chain_mode = "unconditioned"
+
+        is_image_conditioned = flow_input_mode in ("VIDEO_FRAMES", "VIDEO_REFERENCES")
+        use_context_split = bool(spec.get("context_split", True)) and is_image_conditioned
 
         keyframe_bridge_clause: str | None = None
         if has_distinct_end:
@@ -1669,6 +2440,21 @@ def build_expressive_v8_prompts(
             e_ang = str((end_anc or {}).get("camera_angle_tag") or "").strip().replace("_", " ")
             if explicit_traj:
                 keyframe_bridge_clause = explicit_traj
+            elif use_context_split:
+                if cam == "neural_fpv_dive_in":
+                    keyframe_bridge_clause = "Forward-gliding macro trajectory dives from wide 3D glass brain frame into close-up optical-glass subcortical chamber"
+                elif cam == "neural_fpv_pullback_out":
+                    keyframe_bridge_clause = "Reverse macro pullback sweeps out from subcortical chamber into wide 3D glass brain frame"
+                elif cam == "neural_tract_relay_flight":
+                    keyframe_bridge_clause = "Smooth macro trajectory glides along optical-glass neural tracts between subcortical chambers"
+                elif portal_to_brain:
+                    keyframe_bridge_clause = "3D flight bridges opening room frame into closing glass-dome X-Ray brain frame"
+                elif grammar == "architectural_cutaway_portal" or cam == "fpv_window_portal_breach":
+                    keyframe_bridge_clause = "Forward-gliding sweep breaches landmark facade smoothly into cutaway interior laboratory"
+                elif s_ang and e_ang and s_ang != e_ang:
+                    keyframe_bridge_clause = f"Bridges opening {s_ang} frame smoothly into closing {e_ang} frame"
+                else:
+                    keyframe_bridge_clause = "Bridges opening frame smoothly into closing pose"
             elif s_brief and e_brief:
                 keyframe_bridge_clause = (
                     f"Continuous 3D trajectory smoothly connecting {s_brief} in the opening frame "
@@ -1698,17 +2484,114 @@ def build_expressive_v8_prompts(
             "cameo_easter_egg": cameo_flag,
             "diegetic_text_allowlist": allow_list,
         }
-        scene_body = sanitize_diorama_scene_for_flow(_compose_expressive_v8_clip_scene(spec_for_scene))
-        render_sec = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
-        prompt_str = ExpressiveV8PromptComposer.compose_clip_prompt(
-            scene_body=scene_body,
-            grammar=grammar,
-            camera_move=cam,
-            transition_out=transition_out,
-            aspect=aspect,
-            render_sec=render_sec,
-            keyframe_bridge_clause=keyframe_bridge_clause,
-        )
+        if (
+            is_r86_build
+            and not str(spec_for_scene.get("scene") or "").strip()
+            and not str(spec_for_scene.get("action") or "").strip()
+            and str(spec_for_scene.get("concrete_referent") or "").strip()
+        ):
+            composed_r86 = compose_scene_from_r86_beat_card(spec_for_scene)
+            if composed_r86:
+                spec_for_scene["scene"] = composed_r86
+                spec_for_scene["action"] = composed_r86
+        r78m_custom = str(spec.get("r78m_flow_prompt") or "").strip()
+        if r78m_custom:
+            clean_r78m = sanitize_flow_viewpoint_hardware_terms(r78m_custom)
+            clean_r78m = re.sub(
+                r"\bsweeping\s+3d\s+(?:lateral\s+)?orbit\b",
+                "Poised steady 3D glide",
+                clean_r78m,
+                flags=re.IGNORECASE,
+            )
+            scene_body = sanitize_diorama_scene_for_flow(clean_r78m)
+            render_sec = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
+            if bool(spec.get("side_by_side_brain_compare")):
+                plane_tail = (
+                    "Maintain poised wide front-coronal framing under 6 degrees of subtle single-plane micro-parallax "
+                    "keeping both entire whole brains completely inside the left and right frame margins over pure dark studio slate."
+                )
+            else:
+                plane_tail = (
+                    "Maintain one consistent anatomical viewing plane with gentle micro-parallax under 12 degrees "
+                    "(no 90-degree sagittal-to-coronal head spin)."
+                )
+            prompt_str = (
+                f"{EXPRESSIVE_V8_CAMERA_DESCRIPTORS.get(cam, '') + ' ' if cam in EXPRESSIVE_V8_CAMERA_DESCRIPTORS else ''}"
+                f"Vertical full-bleed 3D motion locked seamlessly to the opening keyframe, "
+                f"{scene_body.rstrip('. ')}. "
+                f"{plane_tail} "
+                f"Upper studio background stays pure unobstructed dark void. Silent voice track. {FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD}"
+            ).strip()
+        else:
+            if grammar == "spatial_3d_arrow_diorama" and visual_plan.get("spatial_arrow_eligible") is False:
+                raise ValueError(
+                    "R87-A forbids spatial_3d_arrow_diorama when visual_plan['spatial_arrow_eligible'] is False"
+                )
+            raw_scene_text = (
+                _compose_expressive_v8_context_split_scene(spec_for_scene)
+                if use_context_split
+                else _compose_expressive_v8_clip_scene(spec_for_scene)
+            )
+            scene_body = sanitize_diorama_scene_for_flow(raw_scene_text)
+            render_sec = int(spec.get("render_sec") or DIORAMA_CLIP_RENDER_SEC)
+            prompt_str = ExpressiveV8PromptComposer.compose_clip_prompt(
+                scene_body=scene_body,
+                grammar=grammar,
+                camera_move=cam,
+                transition_out=transition_out,
+                aspect=aspect,
+                render_sec=render_sec,
+                keyframe_bridge_clause=keyframe_bridge_clause,
+                context_split=use_context_split,
+                r85_mode=is_r85_build,
+            )
+            if is_r85_build:
+                from pipeline.config import R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE
+
+                is_aerial_drone_cut = cam in (
+                    "drone_aerial_approach",
+                    "drone_landmark_ascend",
+                    "drone_high_orbit_drop",
+                    "drone_skyline_pullback",
+                ) or grammar == "expressive_exterior_establishing"
+                if is_brain and R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE.lower() not in prompt_str.lower():
+                    prompt_str = prompt_str.replace(
+                        "Silent voice track.",
+                        f"{R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE}. Silent voice track.",
+                        1,
+                    )
+                elif is_aerial_drone_cut and R85_DRONE_ALTITUDE_LOCK_CLAUSE.lower() not in prompt_str.lower():
+                    prompt_str = prompt_str.replace(
+                        "Silent voice track.",
+                        f"{R85_DRONE_ALTITUDE_LOCK_CLAUSE}. Silent voice track.",
+                        1,
+                    )
+                elif (
+                    not is_brain
+                    and not is_aerial_drone_cut
+                    and grammar != "spatial_3d_arrow_diorama"
+                    and not (
+                        not bool(spec.get("cast_roles"))
+                        and not str(spec.get("cast") or "").strip()
+                        and ("zero people" in scene_body.lower() or "tabletop-only" in scene_body.lower())
+                    )
+                ):
+                    eff_pid_lock = str(visual_plan.get("project_id") or "").strip()
+                    human_lock_suffix = (
+                        R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX
+                        if (eff_pid_lock in PRE_R88_FROZEN_V8_PROJECTS or bool(visual_plan.get("allow_legacy_pre_r88")))
+                        else R85_HUMAN_IDENTITY_LOCK_SUFFIX
+                    )
+                    if (
+                        human_lock_suffix.lower() not in prompt_str.lower()
+                        and R85_HUMAN_IDENTITY_LOCK_SUFFIX.lower() not in prompt_str.lower()
+                        and R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX.lower() not in prompt_str.lower()
+                    ):
+                        prompt_str = prompt_str.replace(
+                            "Silent voice track.",
+                            f"{human_lock_suffix}. Silent voice track.",
+                            1,
+                        )
         ref_imgs = list(spec.get("reference_images") or [])
         if not ref_imgs and ref_img:
             ref_imgs = [ref_img] + ([sec_ref_img] if sec_ref_img else [])
@@ -1732,12 +2615,47 @@ def build_expressive_v8_prompts(
                 "cutoff_risk": False,
                 "motif_present": False,
                 "location_id": spec.get("location_id"),
+                "environment": spec.get("environment"),
+                "real_world_target_id": spec.get("real_world_target_id"),
                 "scene_id": spec.get("scene_id") or f"act{act_no}_clip{idx}",
                 "shot_type": spec.get("shot_type") or _shot_type_from_camera(cam),
                 "brain_clip": is_brain,
-                "brain_mode": ("crystal_dome_xray_4color" if is_brain else spec.get("brain_mode")),
+                "render_engine": render_engine,
+                "brain_mode": (
+                    "mni152_clinical_3d"
+                    if grammar == "brain_simulator_3d"
+                    else ("crystal_dome_xray_4color" if is_brain else spec.get("brain_mode"))
+                ),
+                "start_brain_region": spec.get("start_brain_region") or spec.get("brain_region"),
                 "brain_region": spec.get("brain_region"),
-                "anatomy_label": None,
+                "end_brain_region": spec.get("end_brain_region"),
+                "neural_state": spec.get("neural_state"),
+                "start_neural_state": spec.get("start_neural_state"),
+                "callout_mode": spec.get("callout_mode"),
+                "callout_gloss": spec.get("callout_gloss"),
+                "neural_dive_relay": bool(spec.get("neural_dive_relay")),
+                "r74_macro_mode": bool(spec.get("r74_macro_mode")),
+                "portal_entry_sec": spec.get("portal_entry_sec"),
+                "anatomy_label": spec.get("anatomy_label"),
+                "callout_enabled": spec.get("callout_enabled"),
+                "r78m_callout": spec.get("r78m_callout"),
+                "r78m_material_mode": spec.get("r78m_material_mode"),
+                "r78m_flow_prompt": spec.get("r78m_flow_prompt"),
+                "spatial_relay_cut": bool(spec.get("spatial_relay_cut")),
+                "human_action_relay": bool(spec.get("human_action_relay")),
+                "r72_cold_open_relay": bool(spec.get("r72_cold_open_relay")),
+                "side_by_side_brain_compare": bool(spec.get("side_by_side_brain_compare")),
+                "stacked_cutaway_brain_compare": bool(spec.get("stacked_cutaway_brain_compare")),
+                "surgical_cutaway": spec.get("surgical_cutaway"),
+                "dashed_baseline": bool(spec.get("dashed_baseline")),
+                "morph_mode": spec.get("morph_mode"),
+                "arrow_3d_mode": spec.get("arrow_3d_mode"),
+                "flight_speed_ramp": spec.get("flight_speed_ramp"),
+                "crop_zoom": spec.get("crop_zoom"),
+                "src_start_sec": spec.get("src_start_sec"),
+                "src_end_sec": spec.get("src_end_sec"),
+                "max_src_end_sec": spec.get("max_src_end_sec"),
+                "single_start_frame_lock": bool(spec.get("single_start_frame_lock")),
                 "sentence_index": spec.get("sentence_index"),
                 "end_sentence_index": spec.get("end_sentence_index"),
                 "beat_index": spec.get("beat_index"),
@@ -1747,8 +2665,32 @@ def build_expressive_v8_prompts(
                 "secondary_reference_image": sec_ref_img,
                 "reference_images": ref_imgs,
                 "end_reference_image": end_ref_img,
+                "drift_end_frame_lock": bool(drift_end_frame_lock or has_same_end_lock),
+                "preferred_flow_model": (
+                    FLOW_PRIMARY_VIDEO_MODEL
+                    if (
+                        not str(spec.get("preferred_flow_model") or "").strip()
+                        or str(spec.get("preferred_flow_model") or "").strip() in FLOW_RETIRED_VIDEO_MODELS
+                    )
+                    else str(spec.get("preferred_flow_model")).strip()
+                ),
+                "r85_shot_scale": spec.get("r85_shot_scale"),
+                "viewpoint": spec.get("viewpoint"),
+                "functional_highlight_color": spec.get("functional_highlight_color"),
+                "claim": spec.get("claim"),
+                "viewer_must_understand": spec.get("viewer_must_understand"),
+                "visual_proof_type": spec.get("visual_proof_type"),
+                "visual_register": spec.get("visual_register"),
+                "concrete_referent": spec.get("concrete_referent"),
+                "metaphor_continuity_id": spec.get("metaphor_continuity_id"),
+                "bridge_element": spec.get("bridge_element"),
+                "concept_id": spec.get("concept_id"),
+                "state_delta": spec.get("state_delta"),
+                "mechanism_seed": spec.get("mechanism_seed"),
+                "anti_filler_check": spec.get("anti_filler_check"),
                 "full_trajectory_span": bool(spec.get("full_trajectory_span") or end_ref_str),
                 "flow_input_mode": flow_input_mode,
+                "engine": engine_map.get(idx, "auto"),
                 "keyframe_chain_mode": keyframe_chain_mode,
                 "portal_to_brain": portal_to_brain,
                 "start_anchor_id": (start_stem or None),
@@ -1775,27 +2717,93 @@ def validate_expressive_v8_prompts(
     plan: dict[str, Any] | None = None,
 ) -> list[str]:
     """Structural & R68 forensic prompt validator for Schema v8 (`expressive_25d_v8`)."""
-    from pipeline.depiction_rules import EXPRESSIVE_V8_CAMERA_DESCRIPTORS, validate_expressive_v8_scene
+    from pipeline.config import (
+        BRAIN_SIM_ONLY_CLIP_COUNT_RANGE,
+        EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES,
+        EXPRESSIVE_V8_NEURAL_DIVE_MOVES,
+        EXPRESSIVE_V8_NEURO_BRAIN_REVEAL_WINDOW_FRAC,
+        EXPRESSIVE_V8_R76_BRAIN_REVEAL_WINDOW_FRAC,
+        PRE_R77_FROZEN_V8_PROJECTS,
+        is_brain_sim_only_plan,
+        is_r74_neural_dive_v8_plan,
+        is_r74b_neuro_pathway_v8_plan,
+        is_r76_v8_plan,
+        resolve_expressive_v8_topic_focus,
+    )
+    from pipeline.depiction_rules import (
+        EXPRESSIVE_V8_CAMERA_DESCRIPTORS,
+        EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS,
+        EXPRESSIVE_V8_SUPPLEMENTAL_CAMERA_DESCRIPTORS,
+        FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD,
+        validate_expressive_v8_scene,
+    )
 
     issues: list[str] = []
-    if not isinstance(clips, list) or not (
-        SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN <= len(clips) <= SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX
-    ):
+    from pipeline.config import (
+        EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE,
+        R82_CLIP_COUNT_RANGE,
+        is_r82_dual_speed_pacing_plan,
+        is_r85_flow_31_brain_plan,
+    )
+
+    allow_legacy_clips = bool((plan or {}).get("allow_legacy_v8_clip_count"))
+    is_brain_sim_only = is_brain_sim_only_plan(plan)
+    is_r82 = is_r82_dual_speed_pacing_plan(plan)
+    is_r76_cnt = is_r76_v8_plan(plan)
+    is_r72 = is_r72_open_world_v8_plan(plan)
+    eff_pid = str((plan or {}).get("project_id") or "").strip()
+    is_pre_r77_frozen = bool(eff_pid in PRE_R77_FROZEN_V8_PROJECTS or (plan or {}).get("allow_legacy_pre_r77"))
+    if is_brain_sim_only:
+        min_clips = int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0])
+    elif allow_legacy_clips:
+        min_clips = EXPRESSIVE_V8_LEGACY_CLIP_COUNT_MIN
+    elif is_r82:
+        min_clips = int(R82_CLIP_COUNT_RANGE[0])
+    elif is_r76_cnt:
+        min_clips = int(EXPRESSIVE_V8_R76_CLIP_COUNT_RANGE[0])
+    elif not is_r72:
+        min_clips = EXPRESSIVE_V8_LEGACY_INDOOR_CLIP_COUNT_RANGE[0]
+    else:
+        min_clips = SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN
+    max_clips = (
+        int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[1])
+        if is_brain_sim_only
+        else (int(R82_CLIP_COUNT_RANGE[1]) if is_r82 else SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX)
+    )
+    if not isinstance(clips, list) or not (min_clips <= len(clips) <= max_clips):
         return [
             f"[prompt] Schema v8 expressive_25d_v8 clip count must be "
-            f"{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MIN}-{SHORTS_EXPRESSIVE_V8_CLIP_COUNT_MAX} "
-            f"(got {len(clips) if isinstance(clips, list) else 0}) (R68)"
+            f"{min_clips}-{max_clips} "
+            f"(got {len(clips) if isinstance(clips, list) else 0}) ({'R77-BrainOnly' if is_brain_sim_only else ('R82' if is_r82 else ('R76-P' if is_r76_cnt else ('R72' if is_r72 else 'R68')))})"
         ]
 
     n_total = len(clips)
     tol_lo, tol_hi = EXPRESSIVE_V8_BRAIN_REVEAL_TOLERANCE_FRAC
+    is_r76 = is_r76_v8_plan(plan)
+    is_r74 = is_r74_neural_dive_v8_plan(plan)
+    is_neuro_r74b = (
+        is_r74b_neuro_pathway_v8_plan(plan)
+        and resolve_expressive_v8_topic_focus(plan) == "neuroscience"
+    )
+    if is_r76:
+        eff_premature_floor = float(EXPRESSIVE_V8_R76_BRAIN_REVEAL_WINDOW_FRAC[0])
+        tol_lo = eff_premature_floor
+        tol_hi = 0.90
+    elif is_neuro_r74b:
+        eff_premature_floor = EXPRESSIVE_V8_NEURO_BRAIN_REVEAL_WINDOW_FRAC[0]
+        tol_hi = max(tol_hi, EXPRESSIVE_V8_NEURO_BRAIN_REVEAL_WINDOW_FRAC[1])
+    else:
+        eff_premature_floor = 0.36 if is_r74 else tol_lo
     core_rev_sent = (plan or {}).get("core_reveal_sentence_index")
-    allow_early_override = bool((plan or {}).get("allow_early_brain_override") or core_rev_sent)
+    allow_early_override = bool((plan or {}).get("allow_early_brain_override"))
     allowed_trans = (*EXPRESSIVE_V8_TRANSITION_TYPES, "hard")
     cameo_clips: list[int] = []
     xray_in_window: list[int] = []
     premature_xray: list[int] = []
     core_sent_has_xray = False
+    flight_clips = 0
+    distinct_locations: set[str] = set()
+    cs_lo, cs_hi = EXPRESSIVE_V8_CONTEXT_SPLIT_WORDS_RANGE
 
     for idx, c in enumerate(clips, start=1):
         if not isinstance(c, dict):
@@ -1807,6 +2815,9 @@ def validate_expressive_v8_prompts(
         prompt_str = str(c.get("prompt") or c.get("full_prompt") or "")
         trans_out = str(c.get("transition_out") or "").strip().lower()
         cameo_flag = bool(c.get("cameo_easter_egg")) or grammar == "expressive_cameo_world"
+        loc_val = str(c.get("location_id") or "").strip()
+        if loc_val:
+            distinct_locations.add(loc_val)
         raw_vp_clips = list((plan or {}).get("clips") or [])
         raw_vp_allow = (
             list((raw_vp_clips[idx - 1] or {}).get("diegetic_text_allowlist") or [])
@@ -1819,13 +2830,31 @@ def validate_expressive_v8_prompts(
             issues.append(
                 f"[prompt] clip {idx}: invalid v8 grammar '{grammar}' (must be in {list(EXPRESSIVE_V8_VISUAL_GRAMMARS)}) (R68)"
             )
-        if cam not in EXPRESSIVE_V8_CAMERA_MOVES:
-            issues.append(f"[prompt] clip {idx}: camera '{cam}' must be one of {list(EXPRESSIVE_V8_CAMERA_MOVES)} (R68)")
+        allowed_v8_cams = set(EXPRESSIVE_V8_CAMERA_MOVES) | set(EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS)
+        if cam not in allowed_v8_cams:
+            issues.append(f"[prompt] clip {idx}: camera '{cam}' must be one of {sorted(allowed_v8_cams)} (R68)")
         else:
-            desc = EXPRESSIVE_V8_CAMERA_DESCRIPTORS[cam]
-            cnt = prompt_str.count(desc)
+            desc_full = (
+                EXPRESSIVE_V8_CAMERA_DESCRIPTORS.get(cam)
+                or EXPRESSIVE_V8_SUPPLEMENTAL_CAMERA_DESCRIPTORS.get(cam)
+                or ""
+            )
+            desc_compact = EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS[cam]
+            desc_compact_r85 = (
+                desc_compact.replace("translucent frosted-glass cortical folds", "matte silver-white sculpted gypsum cortical folds")
+                .replace("frosted-glass cortical folds", "matte silver-white cortical folds")
+                .replace("luminous optical-glass subcortical hub", "solid matte-shaded subcortical hub")
+                .replace("luminous optical-glass fiber bundles", "opaque sulcal and white-matter tubes")
+            )
+            cnt = (prompt_str.count(desc_full) if desc_full else 0) + prompt_str.count(desc_compact) + (
+                prompt_str.count(desc_compact_r85) if desc_compact_r85 != desc_compact else 0
+            )
             if cnt != 1:
                 issues.append(f"[prompt] clip {idx}: v8 camera clause must appear exactly once (found {cnt}) (R68)")
+        if idx == 1 and cam == "locked_tripod":
+            issues.append(
+                "[prompt] clip 1: R68 Action Cold-Open requires 3D camera motion from frame 0 (cannot use 'locked_tripod' on clip 1) (R68)"
+            )
         if trans_out and trans_out not in allowed_trans:
             issues.append(
                 f"[prompt] clip {idx}: transition_out '{trans_out}' must be in {list(allowed_trans)} (R68)"
@@ -1839,11 +2868,29 @@ def validate_expressive_v8_prompts(
         start_ref = str(c.get("reference_image") or "").strip()
         sec_ref = str(c.get("secondary_reference_image") or "").strip()
         end_ref = str(c.get("end_reference_image") or "").strip()
+        f_mode = str(c.get("flow_input_mode") or "").strip().upper()
+        is_img_cond = f_mode in ("VIDEO_FRAMES", "VIDEO_REFERENCES") or bool(start_ref or end_ref or sec_ref)
+        if cam in EXPRESSIVE_V8_3D_FLIGHT_MOVES or bool(end_ref) or f_mode == "VIDEO_FRAMES":
+            flight_clips += 1
+
         if sec_ref and end_ref:
             issues.append(
                 f"[keyframe_chain_v8] clip {idx}: cannot combine secondary_reference_image ('{sec_ref}') "
                 f"with end_reference_image ('{end_ref}') — Flow VIDEO_REFERENCES and VIDEO_FRAMES modes are mutually exclusive (R68)"
             )
+        if is_r85_flow_31_brain_plan(plan) or bool((plan or {}).get("canonical_assets_version")):
+            from pipeline.canonical_assets import is_retired_derivative_anchor
+
+            for r_lbl, r_val in (
+                ("reference_image", start_ref),
+                ("secondary_reference_image", sec_ref),
+                ("end_reference_image", end_ref),
+            ):
+                if r_val and is_retired_derivative_anchor(r_val):
+                    issues.append(
+                        f"[canonical_retired_anchor] clip {idx}: {r_lbl} '{r_val}' uses retired/unapproved anchor; "
+                        "load strictly from canonical_assets/v1 approved slots (R85)"
+                    )
         if end_ref.endswith(EXPRESSIVE_V8_CAMEO_SHEET_FILENAME):
             issues.append(
                 f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' must not bind multi-panel cameo turnaround sheet (R68)"
@@ -1860,25 +2907,62 @@ def validate_expressive_v8_prompts(
             issues.append(
                 f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' requires a non-empty start reference_image (R68)"
             )
-        if end_ref and start_ref and end_ref == start_ref:
+        if (
+            end_ref
+            and start_ref
+            and end_ref == start_ref
+            and not bool(c.get("drift_end_frame_lock"))
+            and not is_r85_flow_31_brain_plan(plan)
+        ):
             issues.append(
                 f"[keyframe_chain_v8] clip {idx}: end_reference_image '{end_ref}' duplicates start reference_image (degenerate zero-motion keyframe pair) (R68)"
             )
 
-        wc = count_words(scene)
-        if not (35 <= wc <= DIORAMA_SCENE_WORDS_MAX + 30):
+        from pipeline.config import (
+            R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE,
+            R85_DRONE_ALTITUDE_LOCK_CLAUSE,
+            R85_HUMAN_IDENTITY_LOCK_SUFFIX,
+            R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX,
+        )
+
+        prompt_for_wc = (
+            prompt_str.replace(FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD, "")
+            .replace(R85_HUMAN_IDENTITY_LOCK_SUFFIX + ".", "")
+            .replace(R85_HUMAN_IDENTITY_LOCK_SUFFIX, "")
+            .replace(R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX + ".", "")
+            .replace(R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX, "")
+            .replace(R85_DRONE_ALTITUDE_LOCK_CLAUSE + ".", "")
+            .replace(R85_DRONE_ALTITUDE_LOCK_CLAUSE, "")
+            .replace(R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE + ".", "")
+            .replace(R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE, "")
+            .strip()
+        )
+        if is_img_cond and c.get("context_split", True) is not False and grammar != "brain_simulator_3d":
+            p_wc = count_words(prompt_for_wc)
+            if not (cs_lo <= p_wc <= cs_hi):
+                issues.append(
+                    f"[prompt] clip {idx}: image-conditioned context-split prompt word count {p_wc} outside "
+                    f"{cs_lo}-{cs_hi} words (strip room/lighting/material bloat and keep only camera + action + hand/expression) (R68)"
+                )
+        elif grammar != "brain_simulator_3d":
+            wc = count_words(scene)
+            if not (35 <= wc <= DIORAMA_SCENE_WORDS_MAX + 30):
+                issues.append(
+                    f"[prompt] clip {idx}: scene word count {wc} outside 35-{DIORAMA_SCENE_WORDS_MAX + 30} (R68)"
+                )
+        if is_r76 and grammar == "expressive_xray_brain":
             issues.append(
-                f"[prompt] clip {idx}: scene word count {wc} outside 35-{DIORAMA_SCENE_WORDS_MAX + 30} (R68)"
+                f"[r76_brain_simulator] clip {idx}: R76 forbids Google Flow 'expressive_xray_brain'; use 'brain_simulator_3d' (R76)"
             )
         if "silent voice track" not in prompt_str.lower():
             issues.append(f"[prompt] clip {idx}: missing silent-voice foley audio clause (R68)")
 
         pos_frac = (idx - 0.5) / float(max(1, n_total))
-        is_xray = grammar == "expressive_xray_brain" or bool(c.get("brain_clip"))
+        is_xray = grammar in ("expressive_xray_brain", "brain_simulator_3d") or bool(c.get("brain_clip"))
         if is_xray:
-            if pos_frac < tol_lo and not allow_early_override:
+            if not is_brain_sim_only and not is_r85_flow_31_brain_plan(plan) and pos_frac < eff_premature_floor and not allow_early_override:
                 premature_xray.append(idx)
-            if tol_lo <= pos_frac <= tol_hi:
+            if is_brain_sim_only or tol_lo <= pos_frac <= tol_hi or (is_r74 and cam in EXPRESSIVE_V8_NEURAL_DIVE_MOVES and pos_frac >= 0.50):
                 xray_in_window.append(idx)
             if core_rev_sent is not None:
                 try:
@@ -1892,20 +2976,62 @@ def validate_expressive_v8_prompts(
         if cameo_flag:
             cameo_clips.append(idx)
 
+        from pipeline.config import is_r79m_character_motion_plan
+
+        is_r79m = is_r79m_character_motion_plan(plan)
+        prompt_for_v8_lint = (
+            prompt_str.replace(R85_HUMAN_IDENTITY_LOCK_SUFFIX + ".", "")
+            .replace(R85_HUMAN_IDENTITY_LOCK_SUFFIX, "")
+            .replace(R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX + ".", "")
+            .replace(R85_LEGACY_HUMAN_IDENTITY_LOCK_SUFFIX, "")
+            .replace(R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE + ".", "")
+            .replace(R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE, "")
+            .strip()
+        )
         v8_errs = validate_expressive_v8_scene(
-            prompt_str,
+            prompt_for_v8_lint,
             grammar=grammar,
             camera_move=cam,
             diegetic_text_allowlist=allow_list,
             cameo_easter_egg=cameo_flag,
+            image_conditioned=(is_img_cond and c.get("context_split", True) is not False),
+            allow_legacy_hardware=is_pre_r77_frozen,
+            allow_legacy_r79m=(is_pre_r77_frozen and not is_r79m),
         )
         for err in v8_errs:
             issues.append(f"clip {idx}: {err}")
+        if (
+            is_r79m
+            and grammar not in ("brain_simulator_3d", "expressive_xray_brain", "spatial_3d_arrow_diorama")
+            and not bool(c.get("brain_clip"))
+            and str(c.get("visual_register") or "") != "diagram"
+            and cam not in EXPRESSIVE_V8_DRONE_CAMERA_MOVES
+        ):
+            raw_wo_g = prompt_str.replace(FLOW_CAMERA_HARDWARE_NEGATIVE_GUARD, "").strip()
+            if not re.search(
+                r"\b(?:man|woman|mother|father|son|daughter|doctor|neurologist|clinician|researcher|patient|husband|wife|figure|character|subject|hands|student|guard)\b",
+                raw_wo_g,
+                flags=re.IGNORECASE,
+            ):
+                issues.append(f"clip {idx}: [r79m_missing_subject] human character cut lacks an explicit cast subject noun (R79-M)")
+
+    if not allow_legacy_clips and not is_brain_sim_only:
+        flight_ratio = flight_clips / float(max(1, n_total))
+        if flight_ratio < EXPRESSIVE_V8_MIN_3D_FLIGHT_RATIO:
+            issues.append(
+                f"[camera] R68 requires >= {int(EXPRESSIVE_V8_MIN_3D_FLIGHT_RATIO * 100)}% 3D flight/VIDEO_FRAMES clips "
+                f"(got {flight_clips}/{n_total} = {flight_ratio:.0%}) (R68)"
+            )
+        if len(distinct_locations) < EXPRESSIVE_V8_MIN_DISTINCT_LOCATIONS:
+            issues.append(
+                f"[world] R68 requires >= {EXPRESSIVE_V8_MIN_DISTINCT_LOCATIONS} distinct location_id zones across clips "
+                f"(got {len(distinct_locations)}: {sorted(distinct_locations)}) (R68)"
+            )
 
     if premature_xray:
         issues.append(
-            f"[xray_timing_v8] premature 3D brain reveal in clip(s) {premature_xray} before {int(tol_lo * 100)}% / 70% mark "
-            "without core_reveal_sentence_index / allow_early_brain_override (R68)"
+            f"[xray_timing_v8] premature 3D brain reveal in clip(s) {premature_xray} before {int(tol_lo * 100)}% mark "
+            "without allow_early_brain_override (R68)"
         )
     if core_rev_sent is not None and not core_sent_has_xray:
         issues.append(
@@ -1916,11 +3042,377 @@ def validate_expressive_v8_prompts(
             f"[xray_timing_v8] missing 'expressive_xray_brain' reveal inside [{int(tol_lo * 100)}%-{int(tol_hi * 100)}%] "
             "mechanism window (R68)"
         )
-    if len(cameo_clips) != EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE:
+    expected_cameo_count = 0 if (is_r76 or is_r85_flow_31_brain_plan(plan)) else 1
+    if len(cameo_clips) != expected_cameo_count:
         issues.append(
-            f"[cameo_v8] expected exactly {EXPRESSIVE_V8_CAMEO_COUNT_PER_EPISODE} 'Mini-Cortex' cameo clip per episode, "
-            f"got {len(cameo_clips)} ({cameo_clips}) (R68)"
+            f"[cameo_v8] expected {expected_cameo_count} 'Mini-Cortex' cameo clip per episode, "
+            f"got {len(cameo_clips)} ({cameo_clips}) ({'R76' if is_r76 else 'R68'})"
         )
+    if bool((plan or {}).get("enforce_v83_camera_balance")) or bool((plan or {}).get("v8_3_mode")):
+        issues.extend(validate_v83_camera_and_acting_balance(clips, plan))
+    if is_r72 and not allow_legacy_clips:
+        issues.extend(_validate_r72_open_world_issues(clips, plan)[0])
+    return issues
+
+
+def _validate_r72_open_world_issues(
+    clips: list[dict[str, Any]],
+    plan: dict[str, Any] | None = None,
+    script_doc: dict[str, Any] | None = None,
+) -> tuple[list[str], dict[str, Any]]:
+    """
+    Core Rule R72 + R72-R Open-World Architectural Scale, Drone Flight & Real-World Landmark Reference Validator:
+      - `R72-1`: Supports BOTH Pattern A (`Clip 1` exterior landmark drone `K0->K1` -> `Clip 2` cutaway `K1->K2`)
+                 AND Pattern B (`Clip 1` `<=2.60s` R73 US-native hook -> `Clip 2` exterior landmark drone `K0->K1` -> `Clip 3` cutaway `K1->K2`).
+      - `R72-2`: `>= 35%` (`EXPRESSIVE_V8_MIN_OUTDOOR_OR_ARCH_RATIO`) outdoor / urban / architectural cutaway cuts.
+      - `R72-3`: `<= 2` (`EXPRESSIVE_V8_MAX_CONSECUTIVE_SAME_INDOOR_LOC`) consecutive non-outdoor cuts sharing the same indoor `location_id`.
+      - `R72-4`: `>= 35%` (`EXPRESSIVE_V8_MIN_DRONE_FLIGHT_RATIO`) drone/FPV/orbital flight camera moves (with `>= 2` dedicated `EXPRESSIVE_V8_DRONE_CAMERA_MOVES`) + real-world landmark/setting/apparatus reference conditioning (`R72-R`).
+    """
+    from pipeline.config import (
+        EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES,
+        EXPRESSIVE_V8_R76_MIN_HUMAN_OUTDOOR_RATIO,
+        EXPRESSIVE_V8_US_NATIVE_OPENING_MODES,
+        is_r76_v8_plan,
+        is_r82_dual_speed_pacing_plan,
+    )
+    from pipeline.previs_blender import is_outdoor_or_architectural_clip
+
+    issues: list[str] = []
+    if not isinstance(clips, list) or len(clips) < 2:
+        return issues, {"outdoor_ratio": 0.0, "drone_ratio": 0.0, "max_consec_indoor": 0}
+
+    is_r76 = is_r76_v8_plan(plan, script_doc)
+    is_r82 = is_r82_dual_speed_pacing_plan(plan, script_doc)
+    n_total = len(clips)
+    raw_vp_clips = list((plan or {}).get("clips") or [])
+    drone_and_fpv_set = set(EXPRESSIVE_V8_DRONE_CAMERA_MOVES) | set(EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES) | {
+        "fpv_3d_flight",
+        "crane_swoop_dive",
+        "portal_dive_flight",
+        "axial_portal_dive",
+        "orbital_3d_arc_sweep",
+        "dolly_zoom_vertigo",
+        "whip_pan_occlusion",
+    }
+    cutaway_cams = (
+        *EXPRESSIVE_V8_DRONE_CAMERA_MOVES,
+        "portal_dive_flight",
+        "axial_portal_dive",
+        "fpv_3d_flight",
+        "crane_swoop_dive",
+    )
+
+    def _merged_clip(idx0: int) -> dict[str, Any]:
+        c_cur = clips[idx0] if isinstance(clips[idx0], dict) else {}
+        vp_cur = raw_vp_clips[idx0] if idx0 < len(raw_vp_clips) and isinstance(raw_vp_clips[idx0], dict) else {}
+        return {**vp_cur, **{k: v for k, v in c_cur.items() if v is not None}}
+
+    vp_open = str((plan or {}).get("opening_mode") or (script_doc or {}).get("opening_mode") or "").strip().lower()
+    m1 = _merged_clip(0)
+    m2 = _merged_clip(1)
+    explicit_bridge = list((plan or {}).get("r72_bridge_clips") or [])
+    allow_pattern_b_s1_2cut = (
+        len(clips) >= 4
+        and (
+            explicit_bridge == [3, 4]
+            or (
+                is_r82
+                and int(m1.get("sentence_index") or 1) == 1
+                and int(m2.get("sentence_index") or 2) == 1
+                and int(_merged_clip(2).get("sentence_index") or 3) == 2
+                and is_outdoor_or_architectural_clip(_merged_clip(2))
+            )
+        )
+    )
+    allow_pattern_b = (
+        not allow_pattern_b_s1_2cut
+        and not is_outdoor_or_architectural_clip(m1)
+        and len(clips) >= 3
+        and (
+            vp_open in EXPRESSIVE_V8_US_NATIVE_OPENING_MODES
+            or bool(m2.get("r72_cold_open_relay"))
+            or explicit_bridge == [2, 3]
+        )
+        and is_outdoor_or_architectural_clip(m2)
+    )
+    if allow_pattern_b_s1_2cut:
+        ext_m = _merged_clip(2)
+        cut_m = _merged_clip(3)
+        ext_lbl, cut_lbl = "clip 3", "clip 4"
+        for hk_i, hk_m in ((1, m1), (2, m2)):
+            if str(hk_m.get("camera_move") or hk_m.get("camera") or "").strip() == "locked_tripod":
+                issues.append(
+                    f"[r72_cold_open:R72-1] clip {hk_i} R73/R82 hook cannot use static 'locked_tripod' before S2 drone bridge (R72/R82)"
+                )
+    elif allow_pattern_b:
+        ext_m = m2
+        cut_m = _merged_clip(2)
+        ext_lbl, cut_lbl = "clip 2", "clip 3"
+        cam_hook = str(m1.get("camera_move") or m1.get("camera") or "").strip()
+        if cam_hook == "locked_tripod":
+            issues.append(
+                "[r72_cold_open:R72-1] clip 1 R73 hook cannot use static 'locked_tripod' before S2 drone bridge (R72)"
+            )
+    else:
+        ext_m = m1
+        cut_m = m2
+        ext_lbl, cut_lbl = "clip 1", "clip 2"
+
+    cam_ext = str(ext_m.get("camera_move") or ext_m.get("camera") or "").strip()
+    cam_cut = str(cut_m.get("camera_move") or cut_m.get("camera") or "").strip()
+    g_cut = str(cut_m.get("grammar") or cut_m.get("visual_grammar") or "").strip()
+    if not is_outdoor_or_architectural_clip(ext_m):
+        issues.append(
+            f"[r72_cold_open:R72-1] {ext_lbl} must open outdoors on an iconic exterior campus/urban landmark "
+            "(got indoor/unmarked location_id without exterior environment) (R72)"
+        )
+    if cam_ext not in drone_and_fpv_set:
+        issues.append(
+            f"[r72_cold_open:R72-1] {ext_lbl} camera '{cam_ext}' must be an aerial drone or 3D FPV approach move (R72)"
+        )
+    ext_end = str(ext_m.get("end_reference_image") or ext_m.get("end_frame_image") or "").strip()
+    cut_start = str(cut_m.get("reference_image") or cut_m.get("start_frame_image") or "").strip()
+    if (plan or {}).get("r72_cold_open_relay") is not False and ext_end and cut_start and ext_end != cut_start:
+        issues.append(
+            f"[r72_cold_open:R72-1] {ext_lbl} -> {cut_lbl} Cold-Open Relay requires shared K1 keyframe "
+            f"({ext_lbl} end '{ext_end}' != {cut_lbl} start '{cut_start}') (R72)"
+        )
+    if g_cut != "architectural_cutaway_portal" and cam_cut not in cutaway_cams and not is_outdoor_or_architectural_clip(cut_m):
+        issues.append(
+            f"[r72_cold_open:R72-1] {cut_lbl} must continue the exterior/architectural cutaway breach "
+            f"(grammar='{g_cut}', camera='{cam_cut}') (R72)"
+        )
+
+    # R72-2, R72-3, R72-4 across full clip timeline
+    outdoor_count = 0
+    brain_count = 0
+    drone_fpv_count = 0
+    dedicated_drone_count = 0
+    prev_indoor_loc = ""
+    consec_indoor = 0
+    max_consec_indoor = 0
+    worst_indoor_loc = ""
+    has_real_target_signal = bool((plan or {}).get("real_world_targets") or (plan or {}).get("primary_institution"))
+    for anc in (plan or {}).get("reference_anchors") or []:
+        if isinstance(anc, dict) and anc.get("real_world_target_id"):
+            has_real_target_signal = True
+
+    for idx0 in range(n_total):
+        mc = _merged_clip(idx0)
+        g_cur = str(mc.get("grammar") or mc.get("visual_grammar") or "").strip()
+        cam_cur = str(mc.get("camera_move") or mc.get("camera") or "").strip()
+        loc_cur = str(mc.get("location_id") or "").strip()
+        is_brain_c = bool(mc.get("brain_clip")) or g_cur in ("expressive_xray_brain", "brain_simulator_3d")
+        if is_brain_c:
+            brain_count += 1
+        is_out_c = (not is_brain_c if is_r82 else True) and is_outdoor_or_architectural_clip(mc)
+        if mc.get("real_world_target_id"):
+            has_real_target_signal = True
+        if is_out_c:
+            outdoor_count += 1
+        if cam_cur in EXPRESSIVE_V8_DRONE_CAMERA_MOVES or cam_cur in EXPRESSIVE_V8_BRAIN_SIM_DRONE_MOVES:
+            dedicated_drone_count += 1
+            drone_fpv_count += 1
+        elif cam_cur in drone_and_fpv_set:
+            drone_fpv_count += 1
+
+        if not is_out_c and not is_brain_c and loc_cur:
+            if loc_cur == prev_indoor_loc:
+                consec_indoor += 1
+            else:
+                prev_indoor_loc = loc_cur
+                consec_indoor = 1
+            if consec_indoor > max_consec_indoor:
+                max_consec_indoor = consec_indoor
+                worst_indoor_loc = loc_cur
+        else:
+            prev_indoor_loc = ""
+            consec_indoor = 0
+
+    from pipeline.config import is_r85_flow_31_brain_plan
+
+    is_r85_ow = is_r85_flow_31_brain_plan(plan, script_doc)
+    human_denom = max(1, n_total - brain_count) if (is_r76 or is_r85_ow) else max(1, n_total)
+    outdoor_ratio = outdoor_count / float(human_denom)
+    eff_min_out = float(
+        EXPRESSIVE_V8_R76_MIN_HUMAN_OUTDOOR_RATIO
+        if (is_r76 or is_r85_ow)
+        else EXPRESSIVE_V8_MIN_OUTDOOR_OR_ARCH_RATIO
+    )
+    if not is_r85_ow and outdoor_ratio + 1e-6 < eff_min_out:
+        issues.append(
+            f"[r72_open_world_scale:R72-2] outdoor/architectural cuts {outdoor_count}/{human_denom} ({outdoor_ratio:.0%}) "
+            f"< required {int(eff_min_out * 100)}% Open-World minimum ({'R76' if is_r76 else 'R72'})"
+        )
+    if not is_r85_ow and max_consec_indoor > EXPRESSIVE_V8_MAX_CONSECUTIVE_SAME_INDOOR_LOC:
+        issues.append(
+            f"[r72_indoor_stagnation:R72-3] {max_consec_indoor} consecutive indoor cuts share location_id "
+            f"'{worst_indoor_loc}' (max allowed {EXPRESSIVE_V8_MAX_CONSECUTIVE_SAME_INDOOR_LOC}) (R72)"
+        )
+    drone_ratio = drone_fpv_count / float(n_total)
+    if not is_r85_ow and (drone_ratio + 1e-6 < EXPRESSIVE_V8_MIN_DRONE_FLIGHT_RATIO or dedicated_drone_count < 2):
+        issues.append(
+            f"[r72_drone_flight:R72-4] drone/FPV flight ratio {drone_fpv_count}/{n_total} ({drone_ratio:.0%}, "
+            f"dedicated_drone_moves={dedicated_drone_count}) below required "
+            f"{int(EXPRESSIVE_V8_MIN_DRONE_FLIGHT_RATIO * 100)}% & >=2 dedicated drone moves (R72)"
+        )
+
+    if is_r82:
+        inst_target_ids = {
+            str(t.get("target_id") or "").strip()
+            for t in ((plan or {}).get("real_world_targets") or [])
+            if isinstance(t, dict) and str(t.get("category") or "").strip().lower() == "institution" and str(t.get("target_id") or "").strip()
+        }
+        sents_bridge = " ".join(str(x) for x in (((script_doc or {}).get("sentences") or [])[:4])).lower()
+        inst_kw_hit = any(
+            k in sents_bridge
+            for k in (
+                "university",
+                "college",
+                "institute",
+                "hospital",
+                "clinic",
+                "medical center",
+                "medical school",
+                "school of medicine",
+                "laboratory",
+                "harvard",
+                "stanford",
+                "oxford",
+                "cambridge",
+                "johns hopkins",
+                "mayo",
+                "caltech",
+                "yale",
+                "columbia",
+            )
+        ) or bool(re.search(r"\b(ucl|mit|nih|ucla|ucsf|nyu)\b", sents_bridge))
+        if inst_target_ids or inst_kw_hit:
+            aerial_inst_cams = ("drone_aerial_approach", "drone_landmark_ascend", "drone_high_orbit_drop")
+            has_act1_inst_drone = False
+            if inst_target_ids:
+                for idx0 in range(n_total):
+                    mc_i = _merged_clip(idx0)
+                    s_no_i = int(mc_i.get("sentence_index") or (idx0 + 1))
+                    cam_i = str(mc_i.get("camera_move") or mc_i.get("camera") or "").strip()
+                    tgt_i = str(mc_i.get("real_world_target_id") or "").strip()
+                    if s_no_i <= 4 and cam_i in aerial_inst_cams and tgt_i in inst_target_ids:
+                        has_act1_inst_drone = True
+                        break
+            if not has_act1_inst_drone:
+                issues.append(
+                    f"[r82_institution_drone] S01-S04 credibility bridge requires a dedicated aerial campus/institution drone shot "
+                    f"({list(aerial_inst_cams)}) bound to a category='institution' real_world_target_id "
+                    f"(declared={sorted(inst_target_ids)}) (R82)"
+                )
+
+    if EXPRESSIVE_V8_REQUIRE_REAL_LANDMARK_REFS and (plan or {}).get("require_real_landmark_refs", True) is not False:
+        if not has_real_target_signal:
+            issues.append(
+                "[r72_real_world_refs:R72-R] episode lacks real-world landmark/setting/apparatus reference target "
+                "(declare 'real_world_targets' or 'real_world_target_id' on clips/anchors) (R72-R)"
+            )
+        p_dir_hint = (plan or {}).get("_project_dir") or (plan or {}).get("project_dir")
+        if p_dir_hint:
+            mf_p = Path(str(p_dir_hint)) / "03_visuals" / REAL_WORLD_REFS_MANIFEST_FILENAME
+            if mf_p.is_file():
+                try:
+                    mf_doc = json.loads(mf_p.read_text(encoding="utf-8"))
+                    if not bool(mf_doc.get("quarantine_purged")):
+                        issues.append("[r72_real_world_refs:R72-R] real_world_refs_manifest.json reports quarantine_purged=False (R72-R)")
+                    if mf_doc.get("all_rq_real_passed") is False:
+                        issues.append("[r72_real_world_refs:R72-R] real_world_refs_manifest.json reports all_rq_real_passed=False (R72-R)")
+                except Exception:
+                    issues.append("[r72_real_world_refs:R72-R] corrupt real_world_refs_manifest.json (R72-R)")
+    metrics = {
+        "outdoor_count": outdoor_count,
+        "outdoor_ratio": round(outdoor_ratio, 4),
+        "drone_fpv_count": drone_fpv_count,
+        "dedicated_drone_count": dedicated_drone_count,
+        "drone_ratio": round(drone_ratio, 4),
+        "max_consec_indoor": max_consec_indoor,
+        "relay_pattern": "pattern_b_s2_s3" if allow_pattern_b else "pattern_a_s1_s2",
+    }
+    return issues, metrics
+
+
+def validate_r72_open_world_drone_and_real_refs(
+    clips_or_plan: list[dict[str, Any]] | dict[str, Any],
+    plan: dict[str, Any] | None = None,
+    *,
+    script_doc: dict[str, Any] | None = None,
+) -> Any:
+    """
+    Public R72 + R72-R validator:
+      - When passed a `visual_plan` dict as first argument (`validate_r72_open_world_drone_and_real_refs(plan, script_doc=...)`),
+        returns a structured report dict `{"passed": bool, "issues": [...], ...}`.
+      - When passed `(clips_list, plan_dict)`, returns `list[str]` of issues.
+    """
+    if isinstance(clips_or_plan, dict):
+        vp_dict = clips_or_plan
+        c_list = list(vp_dict.get("clips") or [])
+        iss, met = _validate_r72_open_world_issues(c_list, vp_dict, script_doc=script_doc)
+        return {"passed": len(iss) == 0, "issues": iss, **met}
+    iss, _ = _validate_r72_open_world_issues(clips_or_plan, plan, script_doc=script_doc)
+    return iss
+
+
+def validate_v83_camera_and_acting_balance(
+    clips: list[dict[str, Any]],
+    plan: dict[str, Any] | None = None,
+) -> list[str]:
+    """
+    Enforces Schema v8.3 (`R55-B`, `C4`) camera balance & gaze-lock rules:
+      1. Fast `fpv_dive_glide` ratio `<= EXPRESSIVE_V8_CAMERA_FAST_FPV_MAX_RATIO` (`25%`).
+      2. `orbital_3d_arc_sweep` ratio `<= EXPRESSIVE_V8_CAMERA_ORBIT_MAX_RATIO` (`30%`), and forbids combining
+         `orbital_3d_arc_sweep` with `portal_to_brain` (multi-scale zoom + orbit collision).
+      3. Locked / reaction close-up cuts (`locked_tripod`, `tilt_up`, `tilt_down`, or `grammar == 'expressive_reaction_closeup'`)
+         ratio `>= EXPRESSIVE_V8_CAMERA_LOCKED_MIN_RATIO` (`15%`).
+    """
+    issues: list[str] = []
+    if not isinstance(clips, list) or not clips:
+        return issues
+    n_total = len(clips)
+    fpv_count = 0
+    orbit_count = 0
+    locked_or_reaction_count = 0
+    for idx, c in enumerate(clips, start=1):
+        if not isinstance(c, dict):
+            continue
+        cam = str(c.get("camera_move") or c.get("camera") or "").strip()
+        grammar = str(c.get("grammar") or "").strip()
+        portal = bool(c.get("portal_to_brain"))
+        if cam == "fpv_dive_glide":
+            fpv_count += 1
+        if cam == "orbital_3d_arc_sweep":
+            orbit_count += 1
+            if portal:
+                issues.append(
+                    f"[camera_v83:R55-B] clip {idx} combines 'orbital_3d_arc_sweep' with portal_to_brain "
+                    "(use 'fpv_dive_glide' or 'gentle_push_in' for axial portal dives; keep orbit single-scale)"
+                )
+        if cam in ("locked_tripod", "tilt_up", "tilt_down") or grammar == "expressive_reaction_closeup":
+            locked_or_reaction_count += 1
+
+    fpv_ratio = fpv_count / float(n_total)
+    orbit_ratio = orbit_count / float(n_total)
+    locked_ratio = locked_or_reaction_count / float(n_total)
+    if fpv_ratio > EXPRESSIVE_V8_CAMERA_FAST_FPV_MAX_RATIO + 1e-6:
+        issues.append(
+            f"[camera_v83:R55-B] fast 'fpv_dive_glide' ratio {fpv_count}/{n_total} ({fpv_ratio:.0%}) "
+            f"exceeds {int(EXPRESSIVE_V8_CAMERA_FAST_FPV_MAX_RATIO * 100)}% ceiling (use gentle_push_in for calm Z-axis push)"
+        )
+    if orbit_ratio > EXPRESSIVE_V8_CAMERA_ORBIT_MAX_RATIO + 1e-6:
+        issues.append(
+            f"[camera_v83:R55-B] 'orbital_3d_arc_sweep' ratio {orbit_count}/{n_total} ({orbit_ratio:.0%}) "
+            f"exceeds {int(EXPRESSIVE_V8_CAMERA_ORBIT_MAX_RATIO * 100)}% ceiling"
+        )
+    if locked_ratio + 1e-6 < EXPRESSIVE_V8_CAMERA_LOCKED_MIN_RATIO:
+        issues.append(
+            f"[camera_v83:R55-B] locked/reaction cuts {locked_or_reaction_count}/{n_total} ({locked_ratio:.0%}) "
+            f"below {int(EXPRESSIVE_V8_CAMERA_LOCKED_MIN_RATIO * 100)}% floor"
+        )
+    _ = plan
     return issues
 
 
@@ -1975,6 +3467,7 @@ def build_diorama_v7_prompts(
         "tilt_down",
         "clean_pullback_reveal",
     )
+    engine_map = assign_hero_omni_engines(visual_plan)
     out: list[dict[str, Any]] = []
     for idx, spec in enumerate(raw_clips, start=1):
         if not isinstance(spec, dict):
@@ -2047,6 +3540,8 @@ def build_diorama_v7_prompts(
                 "cutoff_risk": False,
                 "motif_present": False,
                 "location_id": spec.get("location_id"),
+                "environment": spec.get("environment"),
+                "real_world_target_id": spec.get("real_world_target_id"),
                 "scene_id": spec.get("scene_id") or f"act{act_no}_clip{idx}",
                 "shot_type": spec.get("shot_type") or _shot_type_from_camera(cam),
                 "brain_clip": is_brain,
@@ -2060,6 +3555,7 @@ def build_diorama_v7_prompts(
                 "cut_role": spec.get("cut_role"),
                 "reference_image": spec.get("reference_image"),
                 "end_reference_image": spec.get("end_reference_image"),
+                "engine": engine_map.get(idx, "auto"),
                 "source_shot_id": spec.get("source_shot_id"),
                 "aspect": aspect,
                 "schema_version": PROMPT_SCHEMA_VERSION_V7,
@@ -2226,6 +3722,7 @@ def build_diorama_v6_prompts(
     motif_prop = visual_plan.get("motif_prop") if isinstance(visual_plan.get("motif_prop"), dict) else {}
     mode = str(visual_plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
     cam_profile = str(visual_plan.get("camera_profile") or DEFAULT_DIORAMA_CAMERA_PROFILE).strip().lower()
+    engine_map = assign_hero_omni_engines(visual_plan)
     out: list[dict[str, Any]] = []
     for idx, spec in enumerate(raw_clips, start=1):
         if not isinstance(spec, dict):
@@ -2277,6 +3774,7 @@ def build_diorama_v6_prompts(
             "beat_index": spec.get("beat_index"),
             "cut_role": spec.get("cut_role"),
             "reference_image": spec.get("reference_image"),
+            "engine": engine_map.get(idx, "auto"),
             "aspect": aspect,
             "schema_version": PROMPT_SCHEMA_VERSION_V6,
             "profile": "neuro_diorama",
@@ -2737,9 +4235,12 @@ def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voic
         if v8
         else (PROMPT_SCHEMA_VERSION_V7 if v7 else (PROMPT_SCHEMA_VERSION_V6 if v6 else (PROMPT_SCHEMA_VERSION_V5 if v5 else SCHEMA_VERSION)))
     )
+    from pipeline.config import DEFAULT_DIORAMA_VOICE_PRESET, DIORAMA_VOICE_PRESETS
+
+    default_diorama_voice = DIORAMA_VOICE_PRESETS[DEFAULT_DIORAMA_VOICE_PRESET]["voice"]
     payload: dict[str, Any] = {
         "schema_version": schema_ver,
-        "voice": (DIORAMA_TTS_VOICE if (v7 or v6) else voice),
+        "voice": (default_diorama_voice if (v7 or v6) else voice),
         "clips": clips,
         "prompts": [c.get("prompt") or c.get("full_prompt") or "" for c in clips],
     }
@@ -2754,5 +4255,14 @@ def write_flow_prompts_json(project_dir: Path, clips: list[dict[str, Any]], voic
     elif v5:
         payload["visual_mode"] = clips[0].get("visual_mode")
         payload["aspect"] = clips[0].get("aspect")
-    out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    payload_txt = json.dumps(payload, indent=2, ensure_ascii=False)
+    tmp_path = vis_dir / f".tmp_{os.getpid()}_{out_path.name}"
+    try:
+        tmp_path.write_text(payload_txt, encoding="utf-8")
+        os.replace(tmp_path, out_path)
+    except OSError:
+        tmp_path.unlink(missing_ok=True)
+        out_path.write_text(payload_txt, encoding="utf-8")
+    finally:
+        tmp_path.unlink(missing_ok=True)
     return out_path

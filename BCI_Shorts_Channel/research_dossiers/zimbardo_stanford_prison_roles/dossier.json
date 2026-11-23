@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "zimbardo_stanford_prison_roles",
   "topic": "Philip Zimbardo, Craig Haney & Curtis Banks (1971): The Stanford Prison Simulation & Modern Archival Critique",
   "pillar": "bci_ethics",
@@ -32,7 +32,17 @@
   "core_facts": [
     {
       "fact": "In August 1971 at Stanford University, Craig Haney, Curtis Banks, and Philip Zimbardo recruited male college students via a $15-per-day newspaper ad and screened 75 applicants down to 24 psychologically healthy finalists.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Screened Student Finalists",
+        "highlighted_k": 24,
+        "total_n": 75,
+        "doi": "10.21236/ad0751041",
+        "source_citation": "Haney, Banks & Zimbardo (1972)"
+      }
     },
     {
       "fact": "A coin flip assigned 12 men as 'Guards' (given khaki uniforms, whistles, and silver mirrored sunglasses hiding eye contact) and 12 as 'Prisoners' (given numbered smocks, stocking caps, and ankle chains in a converted basement hallway of Jordan Hall).",
@@ -40,7 +50,28 @@
     },
     {
       "fact": "Planned to run for 14 days, the simulation escalated so rapidly into sleep-disrupted roll calls, verbal humiliation, and acute emotional distress that five prisoners had to be released early and the entire study was halted on Day 6.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Planned vs Actual Duration",
+        "unit": "days",
+        "bars": [
+          {
+            "label": "Planned Study",
+            "value": 14.0,
+            "unit": "days"
+          },
+          {
+            "label": "Halted Early",
+            "value": 6.0,
+            "unit": "days"
+          }
+        ],
+        "doi": "10.21236/ad0751041",
+        "source_citation": "Haney, Banks & Zimbardo (1972)"
+      }
     },
     {
       "fact": "Crucially, Guard behavior was NEVER uniform: roughly one-third became aggressively punitive (led by a student nicknamed 'John Wayne'), a middle group enforced rules strictly but fairly, and several 'good guards' quietly did favors and refused cruelty.",
@@ -128,5 +159,37 @@
     "diorama_46_zimbardo_stanford_prison_roles"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.21236/ad0751041",
+  "three_layer_formula": {
+    "everyday_problem": "Notice how an online moderator badge or airport clipboard can inflate petty rule-flexing when nobody audits the role.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.21236/ad0751041",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.21236/ad0751041"
+      ],
+      "summary": "Craig Haney, Curtis Banks, Philip Zimbardo (1972). Interpersonal Dynamics in a Simulated Prison."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.29364/epsy.551",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.29364/epsy.551"
+      ],
+      "summary": "Veronika Káplová (2026). Philip Zimbardo, Daniel Hartwig. Philip Zimbardo: Paměti psychologa. E-psychologie."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Putting on a guard uniform automatically turns any ordinary person into a sadist with zero instruction.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

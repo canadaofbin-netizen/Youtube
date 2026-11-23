@@ -1,22 +1,41 @@
 {
+  "visual_mode": "HYBRID",
   "links": [
     {
-      "region": "prefrontal cortex",
-      "plain": "front safety evaluator",
-      "function": "Stays partially vigilant inside the left default-mode network on Night 1 to monitor unfamiliar surroundings.",
-      "narration_bridge": "Up front on the left, the prefrontal cortex, the safety scout, refuses deep sleep."
+      "role": "symptom",
+      "region": "default mode network",
+      "plain": "left background guard network",
+      "function": "Refuses deep slow-wave delta sleep in the left hemisphere on Night 1 so unfamiliar room cues can be monitored.",
+      "scene_id": "S1",
+      "narration_bridge": "On the left side, the default mode network, your background room monitor, stays half awake on guard.",
+      "r78_circuit_state": "active"
     },
     {
+      "role": "pivot",
       "region": "thalamus",
-      "plain": "sensory relay gate",
-      "function": "Lets faint unfamiliar hallway sounds pass through to the left cortex instead of blocking them.",
-      "narration_bridge": "At the center, the thalamus, the sensory gate, cracks open to odd sounds."
+      "plain": "central sound relay gate",
+      "function": "Cracks open during 50-second brainstem pulses to pass faint unfamiliar hallway sounds up to the left cortex.",
+      "scene_id": "S1",
+      "narration_bridge": "Dead center, the thalamus, your sensory gatekeeper, lets tiny odd hallway sounds slip right through.",
+      "r78_circuit_state": "active"
     },
     {
+      "role": "crisis",
       "region": "amygdala",
-      "plain": "threat alarm",
-      "function": "Triggers rapid micro-awakening when an unfamiliar tone breaches the sentinel hemisphere.",
-      "narration_bridge": "Deep inside, the amygdala, the threat alarm, jolts your fingers awake."
+      "plain": "deep threat alarm",
+      "function": "Fires a rapid micro-awakening jolt when an unfamiliar sound reaches the vigilant left hemisphere.",
+      "scene_id": "S1",
+      "narration_bridge": "Deep inside, the amygdala, your threat alarm, jolts your eyes open three times faster.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "front safety scout",
+      "function": "Logs familiar room cues by Night 2 so the left hemisphere stands down into full deep sleep.",
+      "scene_id": "S3",
+      "narration_bridge": "Behind your forehead, the prefrontal cortex, your safety checker, clears the room by night two.",
+      "r78_circuit_state": "silenced"
     }
   ]
 }

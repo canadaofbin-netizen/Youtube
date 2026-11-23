@@ -1,8 +1,17 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "workspace": "/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube",
   "hub_conversation_id": "b57c97a8-6324-4c31-a2bb-16b25e28dd55",
-  "usage": "In YouTube_CEO, resolve @<chatroom> mentions via `python -X utf8 scripts/chatroom_mention.py resolve \"<prompt>\"` and dispatch via `send_message(Recipient=<conversation_id>, Message=<task>)`.",
+  "governance": {
+    "strict_seven_rooms_only": true,
+    "forbid_cli_print_workers": true,
+    "forbid_ceo_direct_execution": true,
+    "forbid_hidden_subagents_in_ceo": true,
+    "allow_vp_ephemeral_subagents": true,
+    "vp_subagent_charter": "R83-8 (G1 single-browser CDP lock, G2 inherit for coding/vision/deep-research synthesis & flash for chores, G3 disjoint file writes, G4 ephemeral zero-daemon + Web-UI summary, R83-8-V mandatory VP first-line verification before relay)",
+    "dispatch_mechanism": "Web-UI send_message(Recipient=<conversation_id>, Message=<task>) ONLY"
+  },
+  "usage": "Operate strictly the 7 top-level Web-UI chatrooms below. @YouTube_CEO never performs direct coding/rendering/scraping/subagent work; resolve @<chatroom> and dispatch via send_message. The 6 Domain VPs may invoke ephemeral subagents under R83-8.",
   "ignored_handles": [
     "@allaboutbrainofficial",
     "@yt-writer",
@@ -16,97 +25,170 @@
       "handle": "@YouTube_CEO",
       "conversation_id": "b57c97a8-6324-4c31-a2bb-16b25e28dd55",
       "title": "YouTube_CEO",
-      "role": "Executive orchestrator, architecture/bottleneck decisions, and cross-chatroom task dispatch",
-      "aliases": ["youtube_ceo", "ceo", "대표", "총괄"],
+      "role": "Judge & verifier hub (R83-5..7): aligns user intent, decides root causes/plans/rejections, delegates ALL execution to the 6 work rooms via send_message, and independently re-verifies every [*_DONE] report (read-only) before reporting PASS/REJECT to the user",
+      "owns": [
+        "User alignment & requirement clarification",
+        "Root-cause judgment, plan authoring & approval/reject decisions",
+        "Cross-chatroom task decomposition & send_message delegation",
+        "Read-only post-hoc verification: code/artifact reading, pytest re-runs, /tmp frame inspection, Red-Team QA replay, DOI web fact-checks",
+        "CEO-owned governance docs (R83 section, chatrooms.json, global alwaysApply charter) when the user explicitly asks"
+      ],
+      "forbidden": [
+        "Direct pipeline coding, script/clip generation, audio/video assembly, Studio uploads, or cut-review sign-offs",
+        "Mutating workspace files outside CEO-owned governance docs",
+        "Relaying a work room's [*_DONE] report to the user without independent verification",
+        "Spawning hidden subagents (invoke_subagent) or invisible CLI (agy -p) background rooms"
+      ],
+      "aliases": [
+        "youtube_ceo",
+        "ceo",
+        "대표",
+        "총괄"
+      ],
+      "active": true
+    },
+    {
+      "handle": "@Operator",
+      "conversation_id": "1f9808d4-ebac-4b58-a570-45c8f1f00a85",
+      "title": "Operator",
+      "role": "Dedicated engineering & production execution room (Gears 2-4 + global pipeline code, Rule R82+ upgrades, pytest, Omni 1.2 Flow rendering, assembly, 10-gate QA, multi-bundle & top-level MP4 export)",
+      "owns": [
+        "pipeline/*.py, scripts/*.py, tests/*.py implementation & conflict-free pytest verification",
+        "Gear 2 script/visual_plan/keyframes, Gear 3 Google Flow Omni 1.2 rendering, Gear 4 Siren audio/assembly/QA",
+        "Exporting completed final_shorts_<project_id>.mp4 to 07_Youtube/ root"
+      ],
+      "forbidden": [
+        "One-off manual episode hacks that bypass global pipeline/*.py rules",
+        "Modifying or deleting already-Public YouTube Studio videos"
+      ],
+      "aliases": [
+        "operator",
+        "오퍼레이터",
+        "실행",
+        "운영"
+      ],
       "active": true
     },
     {
       "handle": "@Research",
       "conversation_id": "ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c",
       "title": "Research",
-      "role": "Competitor Shorts teardown, viral hook/retention formula extraction, and topic/case research",
-      "aliases": ["research", "리서치", "연구", "벤치마크"],
+      "role": "Quality & Visual QA VP: Gate 1/2 VLM vision sign-off, Canonical asset screening, Lock 4/5 retention & cut-by-cut diagnostics, and scientific/visual comparison blueprint design",
+      "owns": [
+        "Gate 1 keyframe & Gate 2 final video VLM vision sign-off and Canonical asset library screening",
+        "Cut-by-cut quality/retention gap analysis on in-house episodes (Lock 4/5) & visual upgrade spec authoring",
+        "Deep single-case DOI mechanism & A-vs-B brain comparison design"
+      ],
+      "forbidden": [
+        "Mutating pipeline/*.py production code, running Flow video renders, or touching YouTube Studio"
+      ],
+      "schedule_cron_utc": "0 */6 * * *",
+      "aliases": [
+        "research",
+        "리서치",
+        "연구",
+        "품질검수",
+        "벤치마크"
+      ],
+      "active": true
+    },
+    {
+      "handle": "@Deep_Research",
+      "conversation_id": "8c666be9-5bad-43d9-b91a-e7ba2b936c62",
+      "title": "Deep Research",
+      "role": "Deep Research & Strategy VP: deep external multi-source research, competitor/viral-format teardowns, YouTube/IG/TikTok algorithm & policy analysis, prompt-engineering & tool reverse-engineering, and long-horizon neuroscience literature deep dives",
+      "owns": [
+        "External deep research across YouTube videos, Google Docs, academic papers, tool repos/skills, and platform policy docs",
+        "Competitor viral Shorts ecosystems, Semantic ID differentiation, and prompt-engineering methodology teardowns",
+        "Ephemeral subagent research orchestration (100% Model=inherit) with mandatory G4 kill cleanup and R83-8-V primary-source verification"
+      ],
+      "forbidden": [
+        "Mutating pipeline/*.py production code, running Flow video renders, or touching YouTube Studio",
+        "Signing Gate 1/2 cut reviews or Canonical asset screening (owned exclusively by @Research)"
+      ],
+      "aliases": [
+        "deep_research",
+        "deep-research",
+        "deepresearch",
+        "딥리서치",
+        "립리서치",
+        "심층리서치",
+        "심층연구"
+      ],
       "active": true
     },
     {
       "handle": "@Daily_Report",
       "conversation_id": "e3210c73-cc41-4432-87b1-c158efe9cadb",
       "title": "Daily Report",
-      "role": "Daily YouTube Studio traffic-light growth report, KPI funnel diagnostics, and PNG charts",
-      "aliases": ["daily_report", "daily-report", "report", "일일리포트", "데일리리포트", "리포트", "보고서"],
+      "role": "Daily 07:00 UTC YouTube Studio read-only KPI funnel & traffic-light growth report + PNG chart generator",
+      "owns": [
+        "Daily Studio analytics extraction (Views, Viewed vs Swiped, APV, traffic sources)",
+        "reports/daily/ traffic-light (green/yellow/red) markdown & PNG chart generation"
+      ],
+      "forbidden": [
+        "Uploading, editing, scheduling, or deleting any video/playlist/setting in Studio",
+        "Mutating pipeline production code"
+      ],
+      "schedule_cron_utc": "0 7 * * *",
+      "aliases": [
+        "daily_report",
+        "daily-report",
+        "report",
+        "일일리포트",
+        "데일리리포트",
+        "리포트",
+        "보고서"
+      ],
       "active": true
     },
     {
-      "handle": "@Headquarters",
-      "conversation_id": "8c7f8d97-664d-4d6b-9ef8-b17e721354f9",
-      "title": "YouTube Project Headquarters Setup",
-      "role": "Pipeline engineering, Schema v7 production runs, QA gates, and YouTube Studio operations",
-      "aliases": ["headquarters", "hq", "본부", "제작본부", "제작"],
+      "handle": "@QA_Scheduler",
+      "conversation_id": "ef8185bb-5afd-4859-b697-2fe07f1ecf1c",
+      "title": "Scheduler",
+      "role": "Daily 08:00 UTC cross-platform QA gatekeeper & Gear 5 Studio/IG/TikTok publishing scheduler",
+      "owns": [
+        "Daily HOLD / THROTTLE / GO verdict from Daily Report & anti-penalty/anti-shadowban guardrails",
+        "Gear 5 YouTube Studio scheduled uploads (12:00 / 19:30 ET, >=3.0h warmup, R35 DOI pin, R35-B related ring, R75 0-playlist & tag hygiene) + 1-Episode -> 5-Asset plan"
+      ],
+      "forbidden": [
+        "Uploading any episode lacking 100% PASS QA & verify INTACT receipts",
+        "Deleting or privatizing any already-Public YouTube video"
+      ],
+      "schedule_cron_utc": "0 8 * * *",
+      "aliases": [
+        "qa_scheduler",
+        "qa-scheduler",
+        "scheduler",
+        "스케줄러",
+        "스케쥴러"
+      ],
       "active": true
     },
     {
-      "handle": "@Channel_Art",
-      "conversation_id": "3c2fa53b-b43c-4f67-9dfd-0e5c86581f67",
-      "title": "YouTube Channel Art And Profile Prompts",
-      "role": "Channel banner, profile avatar, visual identity, and thumbnail branding assets",
-      "aliases": ["channel_art", "channel-art", "branding", "art", "채널아트", "브랜딩"],
+      "handle": "@Topic_Radar",
+      "conversation_id": "0ffee83a-d9de-4520-a177-7d3b57dc01dc",
+      "title": "Topic Radar",
+      "role": "Weekly Monday 09:30 UTC rolling topic discovery & Gear 1 Schema v2 dossier queue chief (30-35 Golden Buffer)",
+      "owns": [
+        "Crossref/PubMed/ClinicalTrials verified single-case DOI discovery & pillar/domain balancing",
+        "Gear 1 research_dossiers/<slug>/ Schema v2 authoring & dossier validate --require-v2"
+      ],
+      "forbidden": [
+        "Unverified/composite claims without DOI, Flow video rendering, or Studio publishing"
+      ],
+      "schedule_cron_utc": "30 9 * * 1",
+      "aliases": [
+        "topic_radar",
+        "topic-radar",
+        "topic_rader",
+        "topic-rader",
+        "radar",
+        "토픽레이더",
+        "주제레이더",
+        "주제스케줄러"
+      ],
       "active": true
-    },
-    {
-      "handle": "@Report_Redesign",
-      "conversation_id": "8a60150d-92b4-453f-9996-d50159fc2827",
-      "title": "YouTube Daily Report Redesign",
-      "role": "Archive: Daily report schema and chart layout redesign",
-      "aliases": ["report_redesign"],
-      "active": false
-    },
-    {
-      "handle": "@Hermes_Compare",
-      "conversation_id": "ac92e768-c29f-4e52-9c5f-2c29a14db1e6",
-      "title": "Hermes Folder Code Comparison",
-      "role": "Archive: Hermes profile and workspace synchronization",
-      "aliases": ["hermes_compare", "hermes"],
-      "active": false
-    },
-    {
-      "handle": "@Prompt_Audit",
-      "conversation_id": "a935bacf-5ae3-4e1a-b5e2-7ed23172c727",
-      "title": "영상 제작 프롬프트 문제점 분석",
-      "role": "Archive: Flow visual prompt diagnostics",
-      "aliases": ["prompt_audit", "프롬프트분석"],
-      "active": false
-    },
-    {
-      "handle": "@Topics_Archive",
-      "conversation_id": "2d7e4ddb-30dd-4eea-bd03-33bf22bff383",
-      "title": "Psychology And Brain Science Topics",
-      "role": "Archive: Initial psychology & neuroscience topic ideation",
-      "aliases": ["topics_archive"],
-      "active": false
-    },
-    {
-      "handle": "@GitHub_Archive",
-      "conversation_id": "169b5013-e9b4-42f8-9742-caad9ae1b914",
-      "title": "GitHub Repository Integration Request",
-      "role": "Archive: GitHub repository integration setup",
-      "aliases": ["github_archive"],
-      "active": false
-    },
-    {
-      "handle": "@Old_Videos_Archive",
-      "conversation_id": "08a40359-6af9-4f3a-8c01-3d62916a724d",
-      "title": "Status Of Old Videos",
-      "role": "Archive: Legacy video status audit",
-      "aliases": ["old_videos_archive"],
-      "active": false
-    },
-    {
-      "handle": "@Report_Plan_Archive",
-      "conversation_id": "bbb45bc3-32ce-4376-8fcc-f14f175beed1",
-      "title": "YouTube Daily Report Plan",
-      "role": "Archive: Initial daily report planning",
-      "aliases": ["report_plan_archive"],
-      "active": false
     }
   ]
 }

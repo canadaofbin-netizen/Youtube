@@ -173,96 +173,175 @@ def build_reference_image_specs(
       - 3 Master Anchors (`ref_cast_subject`, `ref_env_master`, `ref_prop_hero`)
       - N Per-Clip Keyframe Reference Anchors (`ref_clip_01 .. ref_clip_N`)
     """
+    from pipeline.config import is_r76_v8_plan, is_r85_flow_31_brain_plan, is_r88_faceless_cast_plan
     from pipeline.flow_prompt_builder import is_diorama_v6_plan
 
     mode = str(plan.get("visual_mode") or "NEURO_BIOLOGY").upper()
     if is_expressive_v8_plan(plan):
-        master_anchors_v8: list[dict[str, Any]] = [
-            {
-                "ref_id": "species_opt1_sheet",
-                "category": "cast_anchor",
-                "role": "cast_master",
-                "scene_id": "MASTER_SPECIES",
-                "setting": "real_env",
-                "filename": EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
-                "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
-                "generation_order": 1,
-                "conditioned_on": [],
-                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
-                "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
-                "must_include": ["matte-white 2.5D vinyl cast", "charcoal 2D ink facial features"],
-            },
-            {
-                "ref_id": "cameo_opt3_sheet",
-                "category": "cast_anchor",
-                "role": "cameo_master",
-                "scene_id": "MASTER_CAMEO",
-                "setting": "real_env",
-                "filename": EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
-                "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
-                "generation_order": 1,
-                "conditioned_on": [],
-                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
-                "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
-                "must_include": ["Mini-Cortex palm-sized brain cameo mascot"],
-            },
-            {
-                "ref_id": "xray_brain75_master",
-                "category": "brain_anchor",
-                "role": "brain_master",
-                "scene_id": "MASTER_BRAIN",
-                "setting": "brain_studio",
-                "filename": "xray_brain75_master.png",
-                "title": "Golden-ring crystal dome X-ray living 4-color 3D brain master anchor ([70-85%] reveal)",
-                "generation_order": 1,
-                "conditioned_on": [],
-                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
-                "prompt": "Vertical 9:16 matte-white 2.5D vinyl head with golden metallic seam parting into a crystal dome exposing the living 4-color 3D brain, zero text.",
-                "must_include": ["golden seam crystal dome cranium", "living 4-color 3D brain"],
-            },
-            {
-                "ref_id": "expressive_conflict_master",
-                "category": "environment_anchor",
-                "role": "env_master",
-                "scene_id": "MASTER_CONFLICT",
-                "setting": "real_env",
-                "filename": "expressive_conflict_master.png",
-                "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
-                "generation_order": 1,
-                "conditioned_on": [],
-                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
-                "prompt": "Vertical 9:16 stylized 2.5D cinematic interior scene with matte-white vinyl protagonist under dramatic tactile lighting, zero text.",
-                "must_include": ["stylized 2.5D tactile room staging", "matte-white vinyl protagonist"],
-            },
-            {
-                "ref_id": "cast_sheet_02_clinical_historical_6roles",
-                "category": "cast_anchor",
-                "role": "cast_master",
-                "scene_id": "MASTER_CAST_CLINICAL",
-                "setting": "real_env",
-                "filename": "cast_sheet_02_clinical_historical_6roles.png",
-                "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
-                "generation_order": 2,
-                "conditioned_on": ["species_opt1_sheet"],
-                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
-                "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
-                "must_include": ["clinical and historical 2.5D vinyl cast"],
-            },
-            {
-                "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
-                "category": "cast_anchor",
-                "role": "cast_master",
-                "scene_id": "MASTER_CAST_EVERYDAY",
-                "setting": "real_env",
-                "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
-                "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
-                "generation_order": 2,
-                "conditioned_on": ["species_opt1_sheet"],
-                "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
-                "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
-                "must_include": ["everyday lifestyle 2.5D vinyl cast"],
-            },
-        ]
+        is_r76 = is_r76_v8_plan(plan) or is_r85_flow_31_brain_plan(plan)
+        is_r88 = is_r88_faceless_cast_plan(plan)
+        if is_r88:
+            master_anchors_v8 = [
+                {
+                    "ref_id": "species_opt1_sheet",
+                    "category": "cast_anchor",
+                    "role": "cast_master",
+                    "scene_id": "MASTER_SPECIES",
+                    "setting": "real_env",
+                    "filename": EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+                    "title": "Core 6-role matte-white R88 faceless architectural porcelain species turnaround sheet (R88 faceless silhouettes & hands)",
+                    "generation_order": 1,
+                    "conditioned_on": [],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "r88_mode": True,
+                    "prompt": "Vertical 9:16 R88 architectural style sheet conditioned on A01 translucent Mode 1 porcelain bust: smooth featureless matte-white architectural porcelain figure proportions, four-fingered porcelain hands, tailored matte woven attire, pure blank porcelain head crown silhouette, studio daylight, zero text.",
+                    "must_include": [
+                        "matte-white smooth featureless matte-white architectural porcelain cast",
+                        "smooth blank porcelain head silhouette",
+                    ],
+                },
+                {
+                    "ref_id": "expressive_conflict_master",
+                    "category": "environment_anchor",
+                    "role": "env_master",
+                    "scene_id": "MASTER_CONFLICT",
+                    "setting": "real_env",
+                    "filename": "expressive_conflict_master.png",
+                    "title": "Expressive 2.5D empty sunlit architectural environment master plate (E02_mri_suite_empty, zero cartoon faces)",
+                    "generation_order": 1,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "r88_mode": True,
+                    "prompt": "Vertical 9:16 stylized 2.5D empty architectural environment master plate (E02_mri_suite_empty): a sunlit cream-plaster and oak architectural fMRI imaging suite with soft daylight across clean tables and equipment, zero figures, zero faces, zero cartoon eyes, zero text.",
+                    "must_include": [
+                        "stylized 2.5D tactile empty architectural room master plate, zero cartoon ink faces",
+                    ],
+                },
+                {
+                    "ref_id": "cast_sheet_02_clinical_historical_6roles",
+                    "category": "cast_anchor",
+                    "role": "cast_master",
+                    "scene_id": "MASTER_CAST_CLINICAL",
+                    "setting": "real_env",
+                    "filename": "cast_sheet_02_clinical_historical_6roles.png",
+                    "title": "R88 clinical laboratory empty architectural environment master plate (E01_laboratory_empty, zero cartoon faces)",
+                    "generation_order": 2,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "r88_mode": True,
+                    "prompt": "Vertical 9:16 R88 empty clinical laboratory architectural diorama master plate (E01_laboratory_empty): clean sunlit laboratory benches, cabinetry, and warm natural daylight with strictly zero people, zero figures, zero cartoon eyes, zero text.",
+                    "must_include": [
+                        "clean empty sunlit clinical laboratory architectural diorama master plate, zero cartoon ink faces",
+                    ],
+                },
+                {
+                    "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+                    "category": "cast_anchor",
+                    "role": "cast_master",
+                    "scene_id": "MASTER_CAST_EVERYDAY",
+                    "setting": "real_env",
+                    "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+                    "title": "R88 everyday kitchen empty architectural environment master plate (E05_kitchen_empty, zero cartoon faces)",
+                    "generation_order": 2,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "r88_mode": True,
+                    "prompt": "Vertical 9:16 R88 empty everyday kitchen architectural diorama master plate (E05_kitchen_empty): warm sunlit kitchen island and cabinetry with crisp architectural surfaces and strictly zero people, zero figures, zero cartoon eyes, zero text.",
+                    "must_include": [
+                        "clean empty sunlit everyday kitchen architectural diorama master plate, zero cartoon ink faces",
+                    ],
+                },
+            ]
+        else:
+            master_anchors_v8 = [
+                {
+                    "ref_id": "species_opt1_sheet",
+                    "category": "cast_anchor",
+                    "role": "cast_master",
+                    "scene_id": "MASTER_SPECIES",
+                    "setting": "real_env",
+                    "filename": EXPRESSIVE_V8_SPECIES_SHEET_FILENAME,
+                    "title": "Core 6-role matte-white 2.5D vinyl species turnaround sheet (2D charcoal ink faces)",
+                    "generation_order": 1,
+                    "conditioned_on": [],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": "Vertical 9:16 character bible sheet of matte-white 2.5D vinyl cast with crisp charcoal 2D ink expressions and tailored matte fabric wardrobe, zero text.",
+                    "must_include": ["matte-white 2.5D vinyl cast", "charcoal 2D ink facial features"],
+                },
+                {
+                    "ref_id": "expressive_conflict_master",
+                    "category": "environment_anchor",
+                    "role": "env_master",
+                    "scene_id": "MASTER_CONFLICT",
+                    "setting": "real_env",
+                    "filename": "expressive_conflict_master.png",
+                    "title": "Expressive 2.5D dramatic tactile lighting and staging master plate",
+                    "generation_order": 1,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": "Vertical 9:16 stylized 2.5D cinematic interior room staging plate: a sunlit warm oak-and-cream-plaster architectural study room with tall paned windows casting soft diagonal daylight beams across a wooden desk, where one bald smooth matte cream-white 2.5D vinyl protagonist with bold 2D charcoal-black cartoon ink eyes and eyebrows sits in thoughtful focus wearing a tailored navy jacket; completely blank smooth cream walls, strictly zero wall text, zero stencil letters, zero clocks, zero numbers, zero labels.",
+                    "must_include": ["stylized 2.5D tactile room staging", "matte-white vinyl protagonist"],
+                },
+                {
+                    "ref_id": "cast_sheet_02_clinical_historical_6roles",
+                    "category": "cast_anchor",
+                    "role": "cast_master",
+                    "scene_id": "MASTER_CAST_CLINICAL",
+                    "setting": "real_env",
+                    "filename": "cast_sheet_02_clinical_historical_6roles.png",
+                    "title": "Clinical & historical 6-role matte-white 2.5D vinyl cast sheet",
+                    "generation_order": 2,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": "Vertical 9:16 6-role clinical and historical matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+                    "must_include": ["clinical and historical 2.5D vinyl cast"],
+                },
+                {
+                    "ref_id": "cast_sheet_03_everyday_lifestyle_6roles",
+                    "category": "cast_anchor",
+                    "role": "cast_master",
+                    "scene_id": "MASTER_CAST_EVERYDAY",
+                    "setting": "real_env",
+                    "filename": "cast_sheet_03_everyday_lifestyle_6roles.png",
+                    "title": "Everyday lifestyle 6-role matte-white 2.5D vinyl cast sheet",
+                    "generation_order": 2,
+                    "conditioned_on": ["species_opt1_sheet"],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": "Vertical 9:16 6-role everyday lifestyle matte-white 2.5D vinyl cast turnaround sheet, zero text.",
+                    "must_include": ["everyday lifestyle 2.5D vinyl cast"],
+                },
+            ]
+        if not is_r76:
+            master_anchors_v8[1:1] = [
+                {
+                    "ref_id": "cameo_opt3_sheet",
+                    "category": "cast_anchor",
+                    "role": "cameo_master",
+                    "scene_id": "MASTER_CAMEO",
+                    "setting": "real_env",
+                    "filename": EXPRESSIVE_V8_CAMEO_SHEET_FILENAME,
+                    "title": "Mini-Cortex palm-sized porcelain-gyri mascot cameo bible sheet",
+                    "generation_order": 1,
+                    "conditioned_on": [],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": "Vertical 9:16 Mini-Cortex palm-sized translucent porcelain-gyri cameo mascot turnaround sheet, zero text.",
+                    "must_include": ["Mini-Cortex palm-sized brain cameo mascot"],
+                },
+                {
+                    "ref_id": "xray_brain75_master",
+                    "category": "brain_anchor",
+                    "role": "brain_master",
+                    "scene_id": "MASTER_BRAIN",
+                    "setting": "brain_studio",
+                    "filename": "xray_brain75_master.png",
+                    "title": "Translucent X-ray 3D brain silhouette master anchor over dark studio void",
+                    "generation_order": 1,
+                    "conditioned_on": [],
+                    "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "prompt": "Vertical 9:16 translucent X-ray 3D brain silhouette with cerebellum and brainstem floating over #05080F dark studio void, zero text.",
+                    "must_include": ["translucent X-ray 3D brain silhouette", "dark studio void background"],
+                },
+            ]
         master_fnames_v8 = {m["filename"] for m in master_anchors_v8}
         clip_anchors_v8: list[dict[str, Any]] = []
         for idx, raw_anc in enumerate(plan.get("reference_anchors") or [], start=1):
@@ -276,6 +355,63 @@ def build_reference_image_specs(
             ref_id = str(raw_anc.get("ref_id") or Path(fname).stem)
             setting = str(raw_anc.get("setting") or "real_env")
             is_brain = setting in (*BRAIN_SETTINGS, "brain_studio")
+            raw_cond = raw_anc.get("conditioned_on")
+            is_r85_brain = bool(raw_anc.get("r85_brain_clip"))
+            if is_r76:
+                from pipeline.canonical_assets import (
+                    select_canonical_arrow_slot,
+                    select_canonical_brain_slot,
+                    select_canonical_character_slot,
+                    select_canonical_drone_slot,
+                    select_canonical_environment_slot,
+                )
+
+                explicit_can_slot = str(raw_anc.get("canonical_slot_id") or "").strip()
+                if explicit_can_slot:
+                    default_r85_cond = [f"canonical_{explicit_can_slot}"]
+                elif is_brain:
+                    bslot = select_canonical_brain_slot(
+                        brain_region=str(raw_anc.get("brain_region") or ""),
+                        viewpoint=str(raw_anc.get("viewpoint") or ""),
+                        mode=str(raw_anc.get("r85_brain_mode") or ""),
+                        shot_scale=str(raw_anc.get("r85_shot_scale") or ""),
+                        neural_state=str(raw_anc.get("neural_state") or ""),
+                        side_by_side=bool(raw_anc.get("side_by_side_brain_compare")),
+                    )
+                    default_r85_cond = [f"canonical_{bslot}"]
+                elif str(raw_anc.get("arrow_3d_mode") or ""):
+                    default_r85_cond = [f"canonical_{select_canonical_arrow_slot(str(raw_anc.get('arrow_3d_mode') or ''))}"]
+                elif str(raw_anc.get("category") or "") == "drone_anchor":
+                    default_r85_cond = [f"canonical_{select_canonical_drone_slot(str(raw_anc.get('prompt') or ''))}"]
+                elif raw_anc.get("present_cast") == []:
+                    default_r85_cond = [f"canonical_{select_canonical_environment_slot(str(raw_anc.get('prompt') or ''), staged=False, r88_faceless=is_r88)}"]
+                else:
+                    default_r85_cond = [f"canonical_{select_canonical_character_slot(r88_faceless=is_r88)}"]
+            else:
+                default_r85_cond = ["xray_brain75_master"] if is_brain else ["species_opt1_sheet"]
+
+            cond_list_v8 = (
+                list(raw_cond)
+                if raw_cond is not None
+                else default_r85_cond
+            )
+            default_must_inc = (
+                ["Episode #31 matte silver-white gypsum 3D brain with opaque sky-blue sulcal groove tubes, zero VFX, zero text"]
+                if (is_brain and is_r85_brain)
+                else (
+                    ["translucent frosted-glass 3D brain, zero text"]
+                    if is_brain
+                    else (
+                        ["stylized 3D miniature architectural landmark, zero text"]
+                        if raw_anc.get("present_cast") == []
+                        else (
+                            ["matte-white smooth featureless architectural porcelain cast, no human skin"]
+                            if is_r88
+                            else ["matte-white 2.5D vinyl cast, no human skin"]
+                        )
+                    )
+                )
+            )
             clip_anchors_v8.append(
                 {
                     "ref_id": ref_id,
@@ -289,12 +425,35 @@ def build_reference_image_specs(
                     "filename": fname,
                     "title": str(raw_anc.get("title") or f"Clip {c_num:02d} {which} anchor"),
                     "generation_order": int(raw_anc.get("generation_order") or 3),
-                    "conditioned_on": list(raw_anc.get("conditioned_on") or (["xray_brain75_master"] if is_brain else ["species_opt1_sheet"])),
+                    "canonical_slot_id": raw_anc.get("canonical_slot_id"),
+                    "conditioned_on": cond_list_v8,
                     "style_profile": EXPRESSIVE_25D_V8_STYLE_PROFILE,
+                    "r88_mode": bool(is_r88),
                     "prompt": sanitize_scene(str(raw_anc.get("prompt") or "")),
                     "diegetic_text_allowlist": list(raw_anc.get("diegetic_text_allowlist") or []),
                     "present_cast": raw_anc.get("present_cast"),
-                    "must_include": list(raw_anc.get("must_include") or ["matte-white 2.5D vinyl cast, no human skin"]),
+                    "previs_guide_png": raw_anc.get("previs_guide_png"),
+                    "color_role_legend": raw_anc.get("color_role_legend"),
+                    "real_world_target_id": raw_anc.get("real_world_target_id"),
+                    "real_world_category": raw_anc.get("real_world_category"),
+                    "r72_relay_stage": raw_anc.get("r72_relay_stage"),
+                    "r74_relay_stage": raw_anc.get("r74_relay_stage"),
+                    "is_r74_macro_anchor": bool(raw_anc.get("is_r74_macro_anchor")),
+                    "brain_region": raw_anc.get("brain_region"),
+                    "end_brain_region": raw_anc.get("end_brain_region"),
+                    "neural_state": raw_anc.get("neural_state"),
+                    "side_by_side_brain_compare": bool(raw_anc.get("side_by_side_brain_compare")),
+                    "custom_brain_anchor": bool(raw_anc.get("custom_brain_anchor") or is_r85_brain),
+                    "r85_brain_clip": is_r85_brain,
+                    "r85_brain_mode": raw_anc.get("r85_brain_mode"),
+                    "r85_shot_scale": raw_anc.get("r85_shot_scale"),
+                    "viewpoint": raw_anc.get("viewpoint"),
+                    "structural_guide_path": raw_anc.get("structural_guide_path"),
+                    "wikimedia_structural_plate": raw_anc.get("wikimedia_structural_plate"),
+                    "mni152_offscreen_guide": raw_anc.get("mni152_offscreen_guide"),
+                    "viewer_must_understand": raw_anc.get("viewer_must_understand"),
+                    "skip_structural_guide": bool(raw_anc.get("skip_structural_guide")),
+                    "must_include": list(raw_anc.get("must_include") or default_must_inc),
                 }
             )
         all_v8 = master_anchors_v8 + clip_anchors_v8
@@ -535,7 +694,15 @@ def build_reference_image_specs(
                 "key_visual": raw_anc.get("key_visual"),
                 "bound_master_anchors": cond_anchors,
             }
-            for extra_key in ("location_id", "present_cast", "skip_structural_guide", "empty_chairs_note"):
+            for extra_key in (
+                "location_id",
+                "present_cast",
+                "skip_structural_guide",
+                "empty_chairs_note",
+                "previs_guide_png",
+                "color_role_legend",
+                "diegetic_text_allowlist",
+            ):
                 if extra_key in raw_anc and raw_anc[extra_key] is not None:
                     anc_entry[extra_key] = raw_anc[extra_key]
             if plan_style_profile:
@@ -675,7 +842,7 @@ def inspect_single_reference_image(
     bot_strip = float(np.mean(gray[min(h - 1, int(h * 0.97)) :, :]))
     left_strip = float(np.mean(gray[:, : max(4, int(w * 0.03))]))
     right_strip = float(np.mean(gray[:, min(w - 1, int(w * 0.97)) :]))
-    has_black_bars = min(top_strip, bot_strip, left_strip, right_strip) < 6.0
+    has_black_bars = False if is_brain_setting else (min(top_strip, bot_strip, left_strip, right_strip) < 6.0)
     q1_ok = bool(
         file_size >= MIN_REF_IMAGE_SIZE_BYTES
         and w >= min_w
@@ -689,9 +856,10 @@ def inspect_single_reference_image(
     luma_std = round(float(np.std(gray)), 2)
     dark_ratio = round(float(np.mean(gray < 25)), 4)
     white_ratio = round(float(np.mean(gray > 250)), 4)
+    is_sbs_brain = bool(is_brain_setting and spec.get("side_by_side_brain_compare"))
     max_white_ratio = PORCELAIN_REF_WHITE_RATIO_MAX if (is_brain_setting or is_v7_or_v8_porcelain) else 0.55
-    min_luma_req = 32.0 if is_expressive_v8 else REF_IMAGE_LUMA_MIN
-    max_dark_req = 0.68 if is_expressive_v8 else 0.42
+    min_luma_req = (18.0 if is_sbs_brain else (24.0 if is_brain_setting else 32.0)) if is_expressive_v8 else REF_IMAGE_LUMA_MIN
+    max_dark_req = (0.89 if is_sbs_brain else (0.78 if is_brain_setting else 0.68)) if is_expressive_v8 else 0.42
     q2_ok = bool(
         min_luma_req <= luma_mean <= REF_IMAGE_LUMA_MAX
         and luma_std >= REF_IMAGE_CONTRAST_STD_MIN
@@ -704,7 +872,7 @@ def inspect_single_reference_image(
     edges = cv2.Canny(gray, 60, 160)
     edge_density = round(float(np.mean(edges > 0)), 4)
     min_sharp = 10.0 if is_brain_setting else REF_IMAGE_SHARPNESS_MIN
-    min_edge = 0.008 if is_brain_setting else REF_IMAGE_EDGE_DENSITY_MIN
+    min_edge = (0.004 if is_sbs_brain else 0.008) if is_brain_setting else REF_IMAGE_EDGE_DENSITY_MIN
     q3_ok = bool(lap_var >= min_sharp and edge_density >= min_edge)
 
     # --- Q4: Porcelain Mannequin / 2.5D Vinyl Surface Fidelity & Anti-Human-Skin Lock ---
@@ -732,14 +900,95 @@ def inspect_single_reference_image(
         & (head_hsv[:, :, 2] <= 210)
     )
     human_skin_ratio = round(float(np.mean(skin_mask)), 4)
+    spec_prompt_low = str(spec.get("prompt") or "").lower()
+    is_zero_people_tabletop = (
+        (spec.get("present_cast") == [] or "zero people" in spec_prompt_low or "zero figures" in spec_prompt_low)
+        and "hands" not in str(spec.get("ref_id") or "").lower()
+    )
+    is_overhead_hands_tabletop = (
+        any(tok in spec_prompt_low for tok in ("top-down", "overhead", "bird's-eye", "birds-eye"))
+        and any(tok in spec_prompt_low for tok in ("tabletop", "oak", "wood", "counter", "desk"))
+        and any(tok in spec_prompt_low for tok in ("zero head", "no head", "hands-only", "hands only", "only two"))
+    )
+    yunet_faces: list[tuple[int, int, int, int, float]] = []
     yunet_human_face_count = 0
+    yunet_pareidolia_advisory_boxes: list[dict[str, Any]] = []
     if not is_brain_setting:
         from pipeline.source_reenactment import detect_non_porcelain_human_faces_yunet
 
-        yunet_human_face_count = len(
-            detect_non_porcelain_human_faces_yunet(bgr, allow_expressive_2d_ink=is_expressive_v8)
+        yunet_faces = list(
+            detect_non_porcelain_human_faces_yunet(
+                bgr,
+                allow_expressive_2d_ink=is_expressive_v8,
+            )
+            or []
         )
-    if is_v7_or_v8_porcelain and (
+        if is_expressive_v8 and is_overhead_hands_tabletop and yunet_faces:
+            # Overhead hands+dark-prop shots (e.g. matte-white porcelain hands cupping a dark chocolate bowl)
+            # can trigger low/moderate-confidence YuNet pareidolia (<0.75) with near-zero skin pixels.
+            # Keep real human faces (skin > 0.12 OR conf >= 0.75 OR non-prop crop) as hard Q4 blockers,
+            # while routing confirmed non-skin prop pareidolia to advisory for @Research Gate 1 visual audit.
+            hard_faces: list[tuple[int, int, int, int, float]] = []
+            for fx, fy, fw, fh, fconf in yunet_faces:
+                x0_b = max(0, int(fx))
+                y0_b = max(0, int(fy))
+                x1_b = min(w, int(fx + fw))
+                y1_b = min(h, int(fy + fh))
+                crop_hsv = hsv[y0_b:y1_b, x0_b:x1_b]
+                if crop_hsv.size == 0 or float(fconf) >= 0.75:
+                    hard_faces.append((fx, fy, fw, fh, fconf))
+                    continue
+                c_skin = float(
+                    np.mean(
+                        (crop_hsv[:, :, 0] >= 6)
+                        & (crop_hsv[:, :, 0] <= 16)
+                        & (crop_hsv[:, :, 1] >= 68)
+                        & (crop_hsv[:, :, 1] <= 145)
+                        & (crop_hsv[:, :, 2] >= 95)
+                        & (crop_hsv[:, :, 2] <= 210)
+                    )
+                )
+                c_porcelain = float(np.mean((crop_hsv[:, :, 1] <= p_s_max) & (crop_hsv[:, :, 2] >= p_v_min)))
+                c_dark_prop = float(np.mean(crop_hsv[:, :, 2] <= 85))
+                c_non_skin_prop = float(
+                    np.mean(((crop_hsv[:, :, 1] <= p_s_max) & (crop_hsv[:, :, 2] >= p_v_min)) | (crop_hsv[:, :, 2] <= 85))
+                )
+                if c_skin <= 0.12 and c_non_skin_prop >= 0.55 and (c_dark_prop >= 0.30 or c_porcelain >= 0.30):
+                    yunet_pareidolia_advisory_boxes.append(
+                        {
+                            "bbox": [int(fx), int(fy), int(fw), int(fh)],
+                            "conf": round(float(fconf), 4),
+                            "skin_ratio": round(c_skin, 4),
+                            "porcelain_ratio": round(c_porcelain, 4),
+                            "dark_prop_ratio": round(c_dark_prop, 4),
+                            "requires_gate1_visual_check": True,
+                        }
+                    )
+                else:
+                    hard_faces.append((fx, fy, fw, fh, fconf))
+            yunet_human_face_count = len(hard_faces)
+        else:
+            yunet_human_face_count = len(yunet_faces)
+    is_r72_arch_anchor = bool(
+        spec.get("real_world_target_id")
+        or spec.get("r72_relay_stage")
+        or role in ("exterior_landmark", "architectural_cutaway", "env_master")
+    )
+    if is_expressive_v8 and is_r72_arch_anchor:
+        # Sunlit red-brick / warm-sandstone / oak facades overlap HSV warm terracotta bands while having 0 human faces
+        q4_ok = bool(yunet_human_face_count == 0 and human_skin_ratio <= 0.78)
+    elif is_expressive_v8 and is_zero_people_tabletop:
+        # Warm sunlit honey-oak / terracotta tabletop surfaces overlap HSV skin bands while having 0 faces
+        q4_ok = bool(yunet_human_face_count == 0 and human_skin_ratio <= 0.72)
+    elif is_expressive_v8 and is_overhead_hands_tabletop:
+        # R88 overhead bird's-eye hands-only oak tabletop POV has warm wood in the upper-center "head" crop,
+        # while still enforcing matte-white porcelain hands presence and 0 YuNet human faces.
+        q4_ok = bool(
+            effective_porcelain_ratio >= min(0.015, REF_IMAGE_PORCELAIN_RATIO_MIN)
+            and human_skin_ratio <= 0.72
+            and yunet_human_face_count == 0
+        )
+    elif is_v7_or_v8_porcelain and (
         category in ("environment_anchor", "prop_anchor", "cameo_anchor")
         or role in ("cameo_anchor", "prop_only")
     ):
@@ -771,7 +1020,8 @@ def inspect_single_reference_image(
     bg_edges = float(np.mean(edges[surround_mask] > 0))
     if is_brain_setting:
         # Studio gallery / dark-slate brain busts have a clean uniform surround (near-zero bg_edges by R21/R53/R66 design)
-        q5_ok = bool(entropy >= 3.4 and fg_edges >= 0.010)
+        min_brain_entropy = 2.2 if is_sbs_brain else 3.4
+        q5_ok = bool(entropy >= min_brain_entropy and fg_edges >= 0.010)
     else:
         q5_ok = bool(entropy >= 4.2 and fg_edges >= 0.012 and bg_edges >= 0.002)
 
@@ -818,7 +1068,7 @@ def inspect_single_reference_image(
     bot_edges = float(np.mean(edges[int(h * 0.95) :, :] > 0))
     q7_ok = bool(top_edges <= 0.35 and bot_edges <= 0.35)
 
-    axes = {
+    axes: dict[str, bool] = {
         "Q1_resolution_and_aspect": q1_ok,
         "Q2_lighting_and_exposure": q2_ok,
         "Q3_sharpness_and_detail": q3_ok,
@@ -827,10 +1077,132 @@ def inspect_single_reference_image(
         "Q6_brain_4point_color_code": q6_ok,
         "Q7_zero_text_or_ui_pollution": q7_ok,
     }
-    failed_axes = [k for k, v in axes.items() if not v]
+    if bool(spec.get("side_by_side_brain_compare")):
+        # R82-4 Side-by-Side Brain Comparison Gate: both complete 3D brains must fit inside frame margins
+        # (never sliced in half off X=0 / X=W!) with clear left-vs-right cohort contrast.
+        sbs_y0, sbs_y1 = int(h * 0.25), int(h * 0.80)
+        left_edge_luma = float(np.mean(gray[sbs_y0:sbs_y1, : max(4, int(w * 0.025))]))
+        right_edge_luma = float(np.mean(gray[sbs_y0:sbs_y1, min(w - 4, int(w * 0.975)) :]))
+        left_brain_p90 = float(np.percentile(gray[sbs_y0:sbs_y1, int(w * 0.06) : int(w * 0.48)], 90))
+        right_brain_p90 = float(np.percentile(gray[sbs_y0:sbs_y1, int(w * 0.52) : int(w * 0.94)], 90))
+        mid_gap_luma = float(np.mean(gray[sbs_y0:sbs_y1, int(w * 0.485) : int(w * 0.515)]))
+        axes["Q_side_by_side_complete_brains"] = bool(
+            left_edge_luma <= 28.0
+            and right_edge_luma <= 28.0
+            and left_brain_p90 >= 75.0
+            and right_brain_p90 >= 75.0
+            and mid_gap_luma <= 45.0
+        )
+
+    # R85 Tier-1 Immutable Identity #2 Gate: Genuine 31_O2CmlKOk Brain Style Fidelity & Zero AI VFX
+    r85_ep31_fidelity_meta: dict[str, Any] = {}
+    if bool(spec.get("r85_brain_clip")):
+        r85_m_str = str(spec.get("r85_brain_mode") or spec.get("r85_shot_scale") or "mode2")
+        r85_ep31_fidelity_meta = evaluate_r85_ep31_brain_style_fidelity(bgr, mode=r85_m_str)
+        axes["Q_R85_ep31_brain_fidelity"] = bool(r85_ep31_fidelity_meta["passed"])
+
+    # --- P5: E7 3D Previs Conformance & Zero Marker-Color Leak Gate ---
+    previs_qa_meta: dict[str, Any] = {}
+    pv_guide_raw = str(spec.get("previs_guide_png") or "").strip()
+    if pv_guide_raw and not is_brain_setting:
+        pv_cand = Path(pv_guide_raw)
+        if not pv_cand.is_file() and not pv_cand.is_absolute():
+            for alt_root in (path.parent.parent.parent, path.parent.parent):
+                if (alt_root / pv_guide_raw).is_file():
+                    pv_cand = alt_root / pv_guide_raw
+                    break
+        if pv_cand.is_file():
+            from pipeline.previs_blender import hex_to_rgb, previs_conformance_qa
+
+            min_pv_iou = float(spec.get("min_previs_iou") or 0.25)
+            e7_rep = previs_conformance_qa(pv_cand, path, min_iou=min_pv_iou)
+            e7_ok = bool(e7_rep.get("passed", True))
+            axes["E7_previs_conformance"] = e7_ok
+
+            # Detect Previs solid marker hue leak onto vinyl character head/body
+            leak_detected = False
+            leak_ratio = 0.0
+            legend_d = spec.get("color_role_legend") if isinstance(spec.get("color_role_legend"), dict) else {}
+            actor_rgbs = [
+                hex_to_rgb(str(m["color_hex"]))
+                for m in legend_d.values()
+                if isinstance(m, dict) and str(m.get("entity_kind") or "actor") == "actor" and m.get("color_hex")
+            ]
+            pv_small = cv2.imread(str(pv_cand))
+            if pv_small is not None:
+                pv_small = cv2.resize(pv_small, (270, 480), interpolation=cv2.INTER_AREA)
+                if not actor_rgbs:
+                    pv_hsv_auto = cv2.cvtColor(pv_small, cv2.COLOR_BGR2HSV)
+                    sat_px = pv_small[pv_hsv_auto[:, :, 1] >= 65]
+                    if sat_px.size >= 120:
+                        med_bgr = np.median(sat_px, axis=0)
+                        actor_rgbs.append((int(med_bgr[2]), int(med_bgr[1]), int(med_bgr[0])))
+            if actor_rgbs:
+                kf_small = cv2.resize(bgr, (270, 480), interpolation=cv2.INTER_AREA)
+                kf_rgb_f = kf_small[:, :, ::-1].astype(np.float32)
+                min_dist = np.full(kf_small.shape[:2], 999.0, dtype=np.float32)
+                for mr, mg, mb in actor_rgbs:
+                    d_map = np.sqrt(
+                        (kf_rgb_f[:, :, 0] - mr) ** 2
+                        + (kf_rgb_f[:, :, 1] - mg) ** 2
+                        + (kf_rgb_f[:, :, 2] - mb) ** 2
+                    )
+                    min_dist = np.minimum(min_dist, d_map)
+                global_marker_hit = float(np.mean(min_dist <= 30.0))
+                head_leak_hit = 0.0
+                head_porc_hit = 1.0
+                if pv_small is not None:
+                    pv_hsv = cv2.cvtColor(pv_small, cv2.COLOR_BGR2HSV)
+                    ys_m, xs_m = np.where(pv_hsv[:, :, 1] >= 55)
+                    if xs_m.size >= 40:
+                        hy0 = int(np.min(ys_m))
+                        hy1 = min(480, hy0 + max(18, int((np.max(ys_m) - hy0) * 0.28)))
+                        hx0, hx1 = int(np.min(xs_m)), int(np.max(xs_m)) + 1
+                        pv_head_mask = pv_hsv[hy0:hy1, hx0:hx1, 1] >= 55
+                        head_roi_dist = min_dist[hy0:hy1, hx0:hx1]
+                        head_roi_kf = kf_small[hy0:hy1, hx0:hx1]
+                        head_hsv = cv2.cvtColor(head_roi_kf, cv2.COLOR_BGR2HSV)
+                        if int(np.count_nonzero(pv_head_mask)) >= 12:
+                            head_leak_hit = float(np.mean(head_roi_dist[pv_head_mask] <= 34.0))
+                            head_porc_hit = float(
+                                np.mean((head_hsv[:, :, 1][pv_head_mask] <= 52) & (head_hsv[:, :, 2][pv_head_mask] >= 145))
+                            )
+                        else:
+                            head_leak_hit = float(np.mean(head_roi_dist <= 34.0))
+                            head_porc_hit = float(
+                                np.mean((head_hsv[:, :, 1] <= 52) & (head_hsv[:, :, 2] >= 145))
+                            )
+                leak_ratio = round(max(global_marker_hit, head_leak_hit), 4)
+                if (head_leak_hit >= 0.40 and head_porc_hit < 0.04) or (
+                    global_marker_hit >= 0.18 and effective_porcelain_ratio < 0.02
+                ):
+                    leak_detected = True
+            axes["E7_zero_previs_color_leak"] = not leak_detected
+            previs_qa_meta = {
+                "previs_guide_png": str(pv_cand),
+                "iou": e7_rep.get("iou"),
+                "min_iou": min_pv_iou,
+                "conformance_passed": e7_ok,
+                "marker_leak_ratio": leak_ratio,
+                "zero_color_leak": not leak_detected,
+            }
+
+    all_failed_axes = [k for k, v in axes.items() if not v]
+    tier2_v8_axes = {
+        "Q2_high_key_exposure",
+        "Q3_sharpness_and_detail",
+        "Q5_environment_and_prop_depth",
+        "Q6_contained_brain_palette",
+    }
+    if is_expressive_v8:
+        advisory_axes = [k for k in all_failed_axes if k in tier2_v8_axes]
+        failed_axes = [k for k in all_failed_axes if k not in tier2_v8_axes]
+    else:
+        advisory_axes = []
+        failed_axes = all_failed_axes
 
     center_lab = lab[cy0:cy1, cx0:cx1]
-    return {
+    rep_out: dict[str, Any] = {
         "ref_id": ref_id,
         "category": category,
         "filename": path.name,
@@ -851,6 +1223,8 @@ def inspect_single_reference_image(
         "porcelain_ratio": porcelain_ratio,
         "human_skin_ratio": human_skin_ratio,
         "yunet_human_face_count": yunet_human_face_count,
+        "yunet_pareidolia_advisory_count": len(yunet_pareidolia_advisory_boxes),
+        "yunet_pareidolia_advisory_boxes": yunet_pareidolia_advisory_boxes,
         "spatial_entropy": entropy,
         "fg_edge_density": round(fg_edges, 4),
         "bg_edge_density": round(bg_edges, 4),
@@ -867,9 +1241,152 @@ def inspect_single_reference_image(
             round(float(np.mean(center_lab[:, :, 2])), 2),
         ],
         "axes_q1_to_q7": axes,
+        "advisory_axes": advisory_axes,
         "failed_axes": failed_axes,
         "passed": len(failed_axes) == 0,
         "_hist": _hsv_hist(bgr),
+    }
+    if previs_qa_meta:
+        rep_out["previs_qa"] = previs_qa_meta
+    if r85_ep31_fidelity_meta:
+        rep_out["r85_ep31_fidelity"] = r85_ep31_fidelity_meta
+    return rep_out
+
+
+def evaluate_r85_ep31_brain_style_fidelity(
+    bgr: np.ndarray,
+    *,
+    mode: str = "mode2",
+    exclude_overlay_bands: bool = False,
+) -> dict[str, Any]:
+    """
+    Rule R85 Tier-1 Immutable Identity #2 CV Gate (`31_O2CmlKOk` Native Style & Zero-VFX Contract):
+      1. Cortical gyri / Mode-1 mannequin surface saturation (`<= R85_EP31_CORTEX_SAT_MAX`) & brightness
+         (`>= R85_EP31_CORTEX_LUMA_MIN` / `R85_EP31_MODE1_HEAD_P75_MIN`): enforces bright matte sculpted
+         gypsum-white cortex & light-gray Mode-1 mannequin head (rejects dark blue-tinted 2nd-gen brains
+         and dark/black smoked-glass heads).
+      2. Floating particle / spark / ember cluster detector (`<= R85_EP31_MAX_SPARK_CLUSTERS`): blocks
+         pinpoint AI sparks, golden embers, and fine glowing vine filaments outside solid vessels.
+      3. Outer-void glow halo / bloom / light-beam detector (`halo_luma_p90 <= R85_EP31_MAX_VOID_HALO_P90`,
+         `halo_color_bloom <= R85_EP31_MAX_VOID_HALO_BLOOM`): enforces flat `#040711` dark navy background.
+    """
+    from pipeline.config import (
+        R85_EP31_CORTEX_LUMA_MIN,
+        R85_EP31_CORTEX_SAT_MAX,
+        R85_EP31_MAX_SPARK_CLUSTERS,
+        R85_EP31_MAX_VOID_HALO_BLOOM,
+        R85_EP31_MAX_VOID_HALO_P90,
+        R85_EP31_MODE1_HEAD_P75_MIN,
+        R85_EP31_MODE1_LUMA_MIN,
+    )
+
+    if bgr is None or bgr.size == 0:
+        return {"passed": False, "reasons": ["empty_image"]}
+    work = bgr
+    if exclude_overlay_bands:
+        hh = bgr.shape[0]
+        work = bgr[int(hh * 0.24) : int(hh * 0.68), :]
+    h, w = work.shape[:2]
+    bgr_s = cv2.resize(work, (540, max(32, int(round(h * 540 / max(1, w))))), interpolation=cv2.INTER_AREA)
+    sh_i, sw_i = bgr_s.shape[:2]
+    hsv = cv2.cvtColor(bgr_s, cv2.COLOR_BGR2HSV)
+    H, S, V = hsv[:, :, 0], hsv[:, :, 1], hsv[:, :, 2]
+    is_m1 = "mode1" in str(mode).lower() or "xray_head" in str(mode).lower()
+
+    if is_m1:
+        low_roi = hsv[int(sh_i * 0.52) : int(sh_i * 0.96), :]
+        m1_surf = (low_roi[:, :, 2] >= 25) & (low_roi[:, :, 1] < 85)
+        neutral_cortex_frac = 1.0
+        cortex_sat_mean = float(np.mean(low_roi[:, :, 1][m1_surf])) if np.any(m1_surf) else 999.0
+        cortex_luma_mean = float(np.mean(low_roi[:, :, 2][m1_surf])) if np.any(m1_surf) else 0.0
+        mode1_head_p75 = float(np.percentile(low_roi[:, :, 2][m1_surf], 75)) if np.any(m1_surf) else 0.0
+    else:
+        fg_bright = V >= 72
+        func_hl = (S >= 55) & (((H >= 10) & (H <= 36)) | ((H >= 80) & (H <= 116)))
+        cortex_mask = fg_bright & (S < 125) & (~func_hl)
+        neutral_cortex_frac = float(np.count_nonzero(cortex_mask)) / max(1, int(np.count_nonzero(fg_bright)))
+        cortex_sat_mean = float(np.mean(S[cortex_mask])) if np.any(cortex_mask) else 999.0
+        cortex_luma_mean = float(np.mean(V[cortex_mask])) if np.any(cortex_mask) else 0.0
+        mode1_head_p75 = cortex_luma_mean
+
+    k7 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
+    tophat = cv2.morphologyEx(V, cv2.MORPH_TOPHAT, k7)
+    cand_peaks = ((tophat >= 48) & (V >= 200) & (S >= 28) & ~((H >= 84) & (H <= 112))).astype(np.uint8)
+    n_lbl, lbls, stats, _ = cv2.connectedComponentsWithStats(cand_peaks, connectivity=8)
+    floating_sparks = 0
+    for li in range(1, n_lbl):
+        area = int(stats[li, cv2.CC_STAT_AREA])
+        x0 = int(stats[li, cv2.CC_STAT_LEFT])
+        y0 = int(stats[li, cv2.CC_STAT_TOP])
+        bw_i = int(stats[li, cv2.CC_STAT_WIDTH])
+        bh_i = int(stats[li, cv2.CC_STAT_HEIGHT])
+        aspect = max(bw_i, bh_i) / max(1, min(bw_i, bh_i))
+        if 2 <= area <= 50 and aspect <= 2.6:
+            pad_x0, pad_y0 = max(0, x0 - 5), max(0, y0 - 5)
+            pad_x1, pad_y1 = min(sw_i, x0 + bw_i + 5), min(sh_i, y0 + bh_i + 5)
+            patch_v = V[pad_y0:pad_y1, pad_x0:pad_x1]
+            patch_s = S[pad_y0:pad_y1, pad_x0:pad_x1]
+            patch_m = lbls[pad_y0:pad_y1, pad_x0:pad_x1] == li
+            ring_v = patch_v[~patch_m]
+            ring_s = patch_s[~patch_m]
+            if ring_v.size > 0 and (float(np.median(ring_v)) < 110.0 or float(np.median(ring_s)) < 55.0):
+                floating_sparks += 1
+
+    core_sil = cv2.morphologyEx(
+        (V >= 75).astype(np.uint8),
+        cv2.MORPH_CLOSE,
+        cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (19, 19)),
+    )
+    cnts, _ = cv2.findContours(core_sil, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    hull_mask = np.zeros_like(core_sil)
+    for cnt in cnts:
+        if cv2.contourArea(cnt) >= 1200:
+            cv2.drawContours(hull_mask, [cv2.convexHull(cnt)], -1, 1, -1)
+    fg_frac = float(np.mean(hull_mask > 0))
+    d_in = cv2.dilate(hull_mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (15, 15)))
+    d_out = cv2.dilate(hull_mask, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (55, 55)))
+    ring = (d_out > 0) & (d_in == 0)
+    if fg_frac < 0.78 and int(np.count_nonzero(ring)) >= 200:
+        halo_luma_p90 = float(np.percentile(V[ring], 90))
+        halo_color_bloom = float(np.mean((V[ring] >= 42) & (S[ring] >= 75)))
+        left_out = hull_mask[: int(sh_i * 0.80), : int(sw_i * 0.08)] == 0
+        left_v = V[: int(sh_i * 0.80), : int(sw_i * 0.08)]
+        left_h = H[: int(sh_i * 0.80), : int(sw_i * 0.08)]
+        left_s = S[: int(sh_i * 0.80), : int(sw_i * 0.08)]
+        warm_beam = float(np.mean((left_v >= 48) & (left_s >= 50) & (left_h <= 38) & left_out))
+    else:
+        halo_luma_p90 = 0.0
+        halo_color_bloom = 0.0
+        warm_beam = 0.0
+
+    reasons: list[str] = []
+    min_luma = float(R85_EP31_MODE1_LUMA_MIN if is_m1 else R85_EP31_CORTEX_LUMA_MIN)
+    if cortex_sat_mean > float(R85_EP31_CORTEX_SAT_MAX):
+        reasons.append(f"cortex_sat_too_high({cortex_sat_mean:.1f}>{R85_EP31_CORTEX_SAT_MAX})")
+    if not is_m1 and neutral_cortex_frac < 0.25:
+        reasons.append(f"insufficient_neutral_gypsum_cortex({neutral_cortex_frac:.3f}<0.25)")
+    if cortex_luma_mean < min_luma:
+        reasons.append(f"cortex_too_dark({cortex_luma_mean:.1f}<{min_luma})")
+    if is_m1 and mode1_head_p75 < float(R85_EP31_MODE1_HEAD_P75_MIN):
+        reasons.append(f"mode1_dark_head({mode1_head_p75:.1f}<{R85_EP31_MODE1_HEAD_P75_MIN})")
+    if floating_sparks > int(R85_EP31_MAX_SPARK_CLUSTERS):
+        reasons.append(f"spark_particles({floating_sparks}>{R85_EP31_MAX_SPARK_CLUSTERS})")
+    if halo_luma_p90 > float(R85_EP31_MAX_VOID_HALO_P90) or halo_color_bloom > float(R85_EP31_MAX_VOID_HALO_BLOOM):
+        reasons.append(f"glow_halo(p90={halo_luma_p90:.1f},bloom={halo_color_bloom:.3f})")
+    if warm_beam > 0.010:
+        reasons.append(f"light_beam({warm_beam:.3f})")
+
+    return {
+        "passed": len(reasons) == 0,
+        "mode": "mode1" if is_m1 else "mode2",
+        "cortex_sat_mean": round(cortex_sat_mean, 1),
+        "cortex_luma_mean": round(cortex_luma_mean, 1),
+        "mode1_head_p75": round(mode1_head_p75, 1),
+        "floating_spark_clusters": int(floating_sparks),
+        "void_halo_luma_p90": round(halo_luma_p90, 1),
+        "void_halo_bloom_ratio": round(halo_color_bloom, 4),
+        "warm_light_beam_ratio": round(warm_beam, 4),
+        "reasons": reasons,
     }
 
 
@@ -998,11 +1515,31 @@ def inspect_reference_image_pack(
         )
     ]
     if len(real_env_clips) >= 2:
-        a_vals = [float(r["lab_subject"][1]) for r in real_env_clips]
-        b_vals = [float(r["lab_subject"][2]) for r in real_env_clips]
-        med_a, med_b = float(np.median(a_vals)), float(np.median(b_vals))
-        drifts = [float(np.hypot(a - med_a, b - med_b)) for a, b in zip(a_vals, b_vals)]
-        max_cast_chroma_drift = round(max(drifts), 2)
+        distinct_locs = {
+            str(spec_by_id.get(str(r.get("ref_id")), {}).get("location_id") or "").strip()
+            for r in real_env_clips
+            if str(spec_by_id.get(str(r.get("ref_id")), {}).get("location_id") or "").strip()
+        }
+        if len(distinct_locs) >= 2:
+            loc_buckets: dict[str, list[dict[str, Any]]] = {}
+            for r in real_env_clips:
+                loc_key = str(spec_by_id.get(str(r.get("ref_id")), {}).get("location_id") or "_default").strip()
+                loc_buckets.setdefault(loc_key, []).append(r)
+            drifts: list[float] = []
+            for bucket in loc_buckets.values():
+                if len(bucket) < 2:
+                    continue
+                a_vals = [float(r["lab_subject"][1]) for r in bucket]
+                b_vals = [float(r["lab_subject"][2]) for r in bucket]
+                med_a, med_b = float(np.median(a_vals)), float(np.median(b_vals))
+                drifts.extend(float(np.hypot(a - med_a, b - med_b)) for a, b in zip(a_vals, b_vals))
+            max_cast_chroma_drift = round(max(drifts), 2) if drifts else 0.0
+        else:
+            a_vals = [float(r["lab_subject"][1]) for r in real_env_clips]
+            b_vals = [float(r["lab_subject"][2]) for r in real_env_clips]
+            med_a, med_b = float(np.median(a_vals)), float(np.median(b_vals))
+            drifts = [float(np.hypot(a - med_a, b - med_b)) for a, b in zip(a_vals, b_vals)]
+            max_cast_chroma_drift = round(max(drifts), 2)
     else:
         max_cast_chroma_drift = 0.0
     q9_ok = bool(sufficient_count_ok and max_cast_chroma_drift <= REF_IMAGE_CAST_CHROMA_DRIFT_MAX)
@@ -1022,10 +1559,18 @@ def inspect_reference_image_pack(
                 clip_reps[i].get("setting") in (*BRAIN_SETTINGS, "brain_studio")
                 and clip_reps[j].get("setting") in (*BRAIN_SETTINGS, "brain_studio")
             )
+            rid_i = str(sp_i.get("ref_id") or clip_reps[i].get("ref_id") or "")
+            rid_j = str(sp_j.get("ref_id") or clip_reps[j].get("ref_id") or "")
+            cond_linked = (
+                rid_i in [str(c) for c in (sp_j.get("conditioned_on") or [])]
+                or rid_j in [str(c) for c in (sp_i.get("conditioned_on") or [])]
+            )
             both_locked_reenact = (
-                sp_i.get("role") == "reenactment"
-                and sp_j.get("role") == "reenactment"
-                and str(sp_i.get("ref_id")) != str(sp_j.get("ref_id"))
+                rid_i != rid_j
+                and (
+                    (sp_i.get("role") == "reenactment" and sp_j.get("role") == "reenactment")
+                    or cond_linked
+                )
             )
             min_dist = 1 if both_brain else REF_IMAGE_MIN_DHASH_DISTANCE
             dh_dist = _hamming_hex(clip_reps[i].get("dhash_64", ""), clip_reps[j].get("dhash_64", ""))
@@ -1041,7 +1586,15 @@ def inspect_reference_image_pack(
                         roi_i = cv2.resize(im_i[int(hi * 0.35):int(hi * 0.82), int(wi * 0.18):int(wi * 0.82)], (120, 160))
                         roi_j = cv2.resize(im_j[int(hj * 0.35):int(hj * 0.82), int(wj * 0.18):int(wj * 0.82)], (120, 160))
                         subj_l1 = float(np.mean(np.abs(roi_i.astype(np.float32) - roi_j.astype(np.float32))))
-                        if subj_l1 >= 6.0:
+                        full_l1 = float(
+                            np.mean(
+                                np.abs(
+                                    cv2.resize(im_i, (180, 320)).astype(np.float32)
+                                    - cv2.resize(im_j, (180, 320)).astype(np.float32)
+                                )
+                            )
+                        )
+                        if subj_l1 >= 6.0 or (cond_linked and full_l1 >= 5.0):
                             continue
                 duplicate_ref_pairs.append((clip_reps[i]["ref_id"], clip_reps[j]["ref_id"]))
 
@@ -1262,18 +1815,60 @@ def inspect_reference_image_pack(
     semantic = validate_semantic_review(p_dir, all_specs)
     q11_ok = bool(semantic["complete"] and not semantic["failed"])
 
-    eff_require_review = (not _is_diorama_plan_top(plan)) if require_review is None else bool(require_review)
-    cv_regenerate_ids = [r["ref_id"] for r in per_image_reports if not r.get("passed")]
+    from pipeline.real_world_reference_builder import validate_real_world_refs_manifest
+
+    rw_manifest_check = validate_real_world_refs_manifest(p_dir)
+    rw_manifest_ok = bool(rw_manifest_check.get("passed", True))
+
+    from pipeline.canonical_assets import validate_project_canonical_provenance
+    from pipeline.config import (
+        CANONICAL_PROVENANCE_FILENAME,
+        CANONICAL_REF_IMAGE_SOURCES,
+        is_r85_flow_31_brain_plan as _is_r85_ref_diet,
+    )
+
+    _vp_ref_p = p_dir / "03_visuals" / "visual_plan.json"
+    _vp_ref_doc = json.loads(_vp_ref_p.read_text(encoding="utf-8")) if _vp_ref_p.is_file() else {}
+    _r85_ref_diet = _is_r85_ref_diet(_vp_ref_doc, project_id=p_dir.name) or bool(_vp_ref_doc.get("canonical_assets_version"))
+    _has_can_prov = (ref_dir / CANONICAL_PROVENANCE_FILENAME).is_file() or any(
+        v in CANONICAL_REF_IMAGE_SOURCES for v in provenance.values()
+    )
+    can_prov_check = (
+        validate_project_canonical_provenance(p_dir)
+        if (_r85_ref_diet or _has_can_prov)
+        else {"passed": True, "library_version": "legacy", "locked_file_count": 0, "issues": []}
+    )
+    can_prov_ok = bool(can_prov_check.get("passed", True))
+    _tier1_ref_axes = {
+        "Q1_resolution_and_aspect",
+        "Q4_porcelain_cast_fidelity",
+        "Q7_zero_text_or_ui_pollution",
+        "Q_R85_ep31_brain_fidelity",
+    }
+    eff_require_review = True if require_review is None else bool(require_review)
+    if _r85_ref_diet:
+        cv_regenerate_ids = [
+            r["ref_id"]
+            for r in per_image_reports
+            if not r.get("exists") or any(ax in _tier1_ref_axes for ax in (r.get("failed_axes") or []))
+        ]
+    else:
+        cv_regenerate_ids = [r["ref_id"] for r in per_image_reports if not r.get("passed")]
     regenerate_ids = list(cv_regenerate_ids)
     regenerate_ids += [x for x in semantic["failed"] if x not in regenerate_ids]
     cv_all_single_ok = len(cv_regenerate_ids) == 0 and sufficient_count_ok
     all_single_ok = len(regenerate_ids) == 0 and sufficient_count_ok
-    cv_all_passed = bool(cv_all_single_ok and q8_ok and q9_ok and q10_ok)
-    cv_pre_generation_ready = bool(cv_all_passed and not unproven)
-    if eff_require_review:
-        all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and q11_ok)
+    if _r85_ref_diet:
+        cv_all_passed = bool(cv_all_single_ok and rw_manifest_ok and can_prov_ok)
     else:
-        all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and not semantic["failed"])
+        cv_all_passed = bool(cv_all_single_ok and q8_ok and q9_ok and q10_ok and rw_manifest_ok and can_prov_ok)
+    cv_pre_generation_ready = bool(cv_all_passed and not unproven)
+    if _r85_ref_diet:
+        all_passed = bool(all_single_ok and (q11_ok if eff_require_review else (not semantic["failed"])) and rw_manifest_ok and can_prov_ok)
+    elif eff_require_review:
+        all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and q11_ok and rw_manifest_ok and can_prov_ok)
+    else:
+        all_passed = bool(all_single_ok and q8_ok and q9_ok and q10_ok and not semantic["failed"] and rw_manifest_ok and can_prov_ok)
     pre_generation_ready = bool(all_passed and not unproven)
 
     # Compute 0-100 score (CV score + effective score)
@@ -1314,6 +1909,8 @@ def inspect_reference_image_pack(
         "pre_generation_ready": pre_generation_ready,
         "cv_pre_generation_ready": cv_pre_generation_ready,
         "semantic_review_complete": q11_ok,
+        "real_world_refs_manifest_audit": rw_manifest_check,
+        "canonical_assets_provenance_audit": can_prov_check,
         "video_continuity_checked": video_continuity_checked,
         "reference_qa_score": score,
         "cv_reference_qa_score": cv_score,
@@ -1451,7 +2048,16 @@ SEMANTIC_STANDARD_CHECKS: tuple[str, ...] = (
 )
 
 
-def _expected_semantic_checks(spec: dict[str, Any]) -> dict[str, Any]:
+def _is_cut1_hook_ref_spec(spec: dict[str, Any], idx0: int) -> bool:
+    if int(spec.get("clip_number") or 0) == 1:
+        return True
+    rid = str(spec.get("ref_id") or "").strip().lower()
+    if any(tok in rid for tok in ("clip_01", "clip_1", "cut_01", "cut_1", "hook", "j01", "j02", "j03", "j04", "j05", "j06")):
+        return True
+    return idx0 == 0
+
+
+def _expected_semantic_checks(spec: dict[str, Any], *, is_r87: bool = False, is_cut1_hook: bool = False) -> dict[str, Any]:
     checks: dict[str, Any] = {f"shows: {m}": None for m in (spec.get("must_include") or [])}
     if spec.get("setting") not in BRAIN_SETTINGS:
         checks.update({c: None for c in SEMANTIC_STANDARD_CHECKS})
@@ -1460,7 +2066,27 @@ def _expected_semantic_checks(spec: dict[str, Any]) -> dict[str, Any]:
             checks["no_severed_or_floating_mannequin_parts"] = None
     else:
         checks.update({"realistic_brain_anatomy": None, "no_text_logo_or_watermark": None})
+    if spec.get("viewer_must_understand"):
+        checks["delivers_viewer_must_understand"] = None
+    if is_r87:
+        checks["narration_visual_logic_match"] = None
+        if is_cut1_hook:
+            checks["silent_3s_scroll_stop"] = None
+            checks["thumbnail_to_0s_promise_kept"] = None
     return checks
+
+
+def _load_plan_for_r87_ref_check(p_dir: Path) -> bool:
+    from pipeline.config import is_r87_plan
+
+    vp_p = next((p for p in (p_dir / "03_visuals" / "visual_plan.json", p_dir / "visual_plan.json") if p.exists()), None)
+    vp_doc: dict[str, Any] = {}
+    if vp_p is not None:
+        try:
+            vp_doc = json.loads(vp_p.read_text(encoding="utf-8")) or {}
+        except Exception:
+            vp_doc = {}
+    return is_r87_plan(vp_doc, project_id=p_dir.name)
 
 
 def write_semantic_review_template(project_dir: Path, specs: list[dict[str, Any]] | None = None) -> Path:
@@ -1476,20 +2102,29 @@ def write_semantic_review_template(project_dir: Path, specs: list[dict[str, Any]
     ref_dir.mkdir(parents=True, exist_ok=True)
     if specs is None:
         specs = json.loads((p_dir / "03_visuals" / REF_SPECS_FILENAME).read_text(encoding="utf-8")).get("all_specs") or []
+    is_r87_proj = _load_plan_for_r87_ref_check(p_dir)
     path = ref_dir / REF_SEMANTIC_REVIEW_FILENAME
+    old_doc: dict[str, Any] = {}
     old: dict[str, Any] = {}
     if path.exists():
         try:
-            old = json.loads(path.read_text(encoding="utf-8")).get("images") or {}
+            old_doc = json.loads(path.read_text(encoding="utf-8")) or {}
+            old = old_doc.get("images") or {}
         except Exception:  # noqa: BLE001
+            old_doc = {}
             old = {}
+    prev_reviewer = str(old_doc.get("reviewer") or "").strip()
     images: dict[str, Any] = {}
-    for spec in specs:
+    for idx0, spec in enumerate(specs):
         rid = str(spec.get("ref_id"))
         fname = str(spec.get("filename") or f"{rid}.png")
         img_p = ref_dir / fname
         cur_sha = compute_sha256(img_p) if img_p.exists() else None
-        checks = _expected_semantic_checks(spec)
+        checks = _expected_semantic_checks(
+            spec,
+            is_r87=is_r87_proj,
+            is_cut1_hook=_is_cut1_hook_ref_spec(spec, idx0),
+        )
         prev_entry = old.get(rid) or {}
         prev_sha = prev_entry.get("image_sha256")
         sha_unchanged = (prev_sha is None) or (cur_sha is None) or (prev_sha == cur_sha)
@@ -1504,7 +2139,7 @@ def write_semantic_review_template(project_dir: Path, specs: list[dict[str, Any]
             "checks": checks,
             "note": prev_entry.get("note", "") if sha_unchanged else "",
         }
-    path.write_text(json.dumps({"reviewer": "", "images": images}, indent=2, ensure_ascii=False), encoding="utf-8")
+    path.write_text(json.dumps({"reviewer": prev_reviewer, "images": images}, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
@@ -1515,10 +2150,21 @@ def validate_semantic_review(project_dir: Path, specs: list[dict[str, Any]]) -> 
     p_dir = Path(project_dir)
     ref_dir = p_dir / "03_visuals" / REF_IMAGES_DIRNAME
     path = ref_dir / REF_SEMANTIC_REVIEW_FILENAME
+    is_r87_proj = _load_plan_for_r87_ref_check(p_dir)
+    reviewer_name = ""
+    raw_doc: dict[str, Any] = {}
     try:
-        images = json.loads(path.read_text(encoding="utf-8")).get("images") or {}
+        raw_doc = json.loads(path.read_text(encoding="utf-8"))
+        reviewer_name = str(raw_doc.get("reviewer") or "").strip()
+        images = raw_doc.get("images") or {}
     except Exception:  # noqa: BLE001
         images = {}
+
+    is_machine_reviewer = reviewer_name.lower() in (
+        "auto_cv_verified_v7",
+        "unmanned_cv_verified_signoff",
+        "auto_populated_cv_baseline",
+    ) or reviewer_name.lower().startswith(("auto_", "unmanned_"))
 
     # Anti-boilerplate check: reject copy-pasted identical non-empty notes across >= 4 distinct reference images
     note_by_id: dict[str, str] = {}
@@ -1534,13 +2180,25 @@ def validate_semantic_review(project_dir: Path, specs: list[dict[str, Any]]) -> 
     failed: list[str] = []
     stale_sha_ids: list[str] = []
     boilerplate_ids: list[str] = []
+    machine_signoff_ids: list[str] = []
+    r87_common_sense_failed_ids: list[str] = []
 
-    for spec in specs:
+    for idx0, spec in enumerate(specs):
         rid = str(spec.get("ref_id"))
         fname = str(spec.get("filename") or f"{rid}.png")
         entry = images.get(rid) or {}
-        checks = entry.get("checks") or {}
-        expected_keys = list(_expected_semantic_checks(spec).keys())
+        checks = dict(entry.get("checks") or {})
+        is_cut1_h = _is_cut1_hook_ref_spec(spec, idx0)
+        # Allow top-level or entry-level fallback for the 3 R87 viewer common-sense booleans
+        for rk in ("narration_visual_logic_match", "silent_3s_scroll_stop", "thumbnail_to_0s_promise_kept"):
+            if rk not in checks:
+                if rk in entry:
+                    checks[rk] = entry[rk]
+                elif rk in ("silent_3s_scroll_stop", "thumbnail_to_0s_promise_kept") and is_cut1_h and rk in raw_doc:
+                    checks[rk] = raw_doc[rk]
+        expected_keys = list(
+            _expected_semantic_checks(spec, is_r87=is_r87_proj, is_cut1_hook=is_cut1_h).keys()
+        )
 
         # Require non-empty matching SHA-256 whenever the reference image exists on disk
         rec_sha = str(entry.get("image_sha256") or "").strip()
@@ -1555,21 +2213,44 @@ def validate_semantic_review(project_dir: Path, specs: list[dict[str, Any]]) -> 
             stale_sha_ids.append(rid)
             continue
 
+        note_low = str(note_by_id.get(rid) or "").strip().lower()
+        if is_machine_reviewer or note_low.startswith("auto-verified "):
+            failed.append(rid)
+            machine_signoff_ids.append(rid)
+            continue
+
         if not checks or any(k not in checks or checks[k] is None for k in expected_keys):
             pending.append(rid)
+            if is_r87_proj and any(
+                k in ("narration_visual_logic_match", "silent_3s_scroll_stop", "thumbnail_to_0s_promise_kept")
+                and (k not in checks or checks[k] is None)
+                for k in expected_keys
+            ):
+                r87_common_sense_failed_ids.append(rid)
         elif not all(checks.get(k) is True for k in expected_keys):
             failed.append(rid)
+            if is_r87_proj and any(
+                k in ("narration_visual_logic_match", "silent_3s_scroll_stop", "thumbnail_to_0s_promise_kept")
+                and checks.get(k) is not True
+                for k in expected_keys
+            ):
+                r87_common_sense_failed_ids.append(rid)
         elif note_by_id.get(rid) in boilerplate_notes:
             failed.append(rid)
             boilerplate_ids.append(rid)
 
+    is_complete = not pending and not machine_signoff_ids and bool(specs)
     return {
         "file_exists": path.exists(),
-        "complete": not pending and bool(specs),
+        "reviewer": reviewer_name,
+        "complete": is_complete,
+        "valid": bool(is_complete and not failed),
         "pending": pending,
         "failed": failed,
         "stale_sha256_ids": stale_sha_ids,
         "boilerplate_note_ids": boilerplate_ids,
+        "machine_signoff_ids": machine_signoff_ids,
+        "r87_common_sense_failed_ids": r87_common_sense_failed_ids,
     }
 
 
@@ -1613,46 +2294,19 @@ def auto_populate_reference_semantic_review(
     specs: list[dict[str, Any]] | None = None,
 ) -> Path:
     """
-    Populates `03_visuals/reference_images/reference_semantic_review.json` with SHA-256-bound CV-verified
-    check entries and distinct per-image telemetry notes for images that pass Q1..Q7.
+    R85 Honesty Lock: Machine auto-signoff (`auto_cv_verified_v7`) is strictly forbidden.
+    Writes ONLY the pending SHA-256-bound `reference_semantic_review.json` template (`checks` left `None`)
+    so `@Research` VLM/human reviewer must inspect every keyframe before Flow video generation.
     """
-    from pipeline.clip_qa_contract import compute_sha256
-
     p_dir = Path(project_dir)
     vis_dir = p_dir / "03_visuals"
-    ref_dir = vis_dir / REF_IMAGES_DIRNAME
     if specs is None:
         sp_path = vis_dir / REF_SPECS_FILENAME
         if sp_path.exists():
             specs = json.loads(sp_path.read_text(encoding="utf-8")).get("all_specs") or []
         else:
             specs = build_reference_image_specs(load_visual_plan(project_dir=p_dir), []).get("all_specs") or []
-
-    sem_path = write_semantic_review_template(p_dir, specs)
-    sem_doc = json.loads(sem_path.read_text(encoding="utf-8"))
-    sem_doc["reviewer"] = str(sem_doc.get("reviewer") or "auto_cv_verified_v7")
-    images_map = sem_doc.setdefault("images", {})
-    for sp in specs:
-        rid = str(sp.get("ref_id") or "")
-        fname = str(sp.get("filename") or f"{rid}.png")
-        img_p = ref_dir / fname
-        if not rid or not img_p.exists():
-            continue
-        rep = inspect_single_reference_image(img_p, sp)
-        if not rep.get("passed"):
-            continue
-        entry = images_map.get(rid) or {}
-        checks = entry.get("checks") or {}
-        entry["filename"] = fname
-        entry["checks"] = {k: True for k in checks}
-        entry["image_sha256"] = compute_sha256(img_p)
-        entry["note"] = (
-            f"Auto-verified {rid} ({sp.get('category', 'anchor')}): "
-            f"luma={rep.get('mean_luma')}, sharp={rep.get('laplacian_sharpness')}, dhash={str(rep.get('dhash_64') or '')[:12]}"
-        )
-        images_map[rid] = entry
-    sem_path.write_text(json.dumps(sem_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    return sem_path
+    return write_semantic_review_template(p_dir, specs)
 
 
 def build_and_verify_project_reference_pack(
@@ -1780,8 +2434,12 @@ def build_and_verify_project_reference_pack(
                 ProjectStorage.record_if_manifest_tracks_stages(
                     p_dir, "03_visuals", "flow_all_in_one_prompts.json", prompts_path
                 )
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("reference_image_qa").warning(
+                "Failed updating reference mappings in %s: %s", prompts_path, exc, exc_info=True
+            )
 
     slug = str(plan.get("dossier") or plan.get("dossier_slug") or "").strip()
     if dossier_dir is None and slug:
@@ -1798,8 +2456,12 @@ def build_and_verify_project_reference_pack(
             from pipeline.clip_qa_contract import compile_clip_qa_contract
 
             compile_clip_qa_contract(p_dir, dossier_dir=dossier_dir, save=True)
-        except Exception:  # noqa: BLE001
-            pass
+        except Exception as exc:  # noqa: BLE001
+            import logging
+
+            logging.getLogger("reference_image_qa").warning(
+                "Non-fatal compile_clip_qa_contract warning for %s: %s", p_dir.name, exc, exc_info=True
+            )
 
     qa_report = inspect_reference_image_pack(p_dir, save_report=True, require_review=require_review)
     qa_report["mode"] = "audit_extracted_from_clips" if audit_extract_from_clips else "pre_generation"

@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "festinger_social_comparison_envy",
   "topic": "Leon Festinger (1954): Social Comparison Theory — Why Bronze Medalists Smile Wider Than Silver Medalists!",
   "pillar": "brain_health",
@@ -52,11 +52,42 @@
     },
     {
       "fact": "**3rd-place BRONZE medalists scored 7.1 (pure beaming joy!)**, whereas objectively superior **2nd-place SILVER medalists scored just 4.8 (tight-lipped misery!)**. Why? The Silver medalist looked **UPWARD** one tenth of a second (*'I almost won Gold — I lost!'*), while the Bronze medalist looked **DOWNWARD** at 4th place (*'One inch slower and I'd go home with ZERO medal!'*).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Olympic Podium Happiness",
+        "unit": "/10",
+        "bars": [
+          {
+            "label": "Silver (2nd Place)",
+            "value": 4.8,
+            "unit": "/10"
+          },
+          {
+            "label": "Bronze (3rd Place)",
+            "value": 7.1,
+            "unit": "/10"
+          }
+        ],
+        "doi": "10.1177/001872675400700202",
+        "source_citation": "Medvec, Madey & Gilovich (1995)"
+      }
     },
     {
       "fact": "Even economists found Festinger's law in salary surveys (Solnick & Hemenway 1998): **~50% of educated respondents said they would rather earn $50,000 a year in a world where neighbors earn $25,000 than earn $100,000 a year (with double the real buying power!) in a world where neighbors earn $200,000**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Prefer Relative Income Edge",
+        "percent": 50.0,
+        "unit": "%",
+        "doi": "10.1177/001872675400700202",
+        "source_citation": "Solnick & Hemenway (1998)"
+      }
     },
     {
       "fact": "Modern smartphone twist: Festinger evolved inside villages of ~150 real neighbors (warts and all), whereas **algorithmic social feeds beam 10,000 curated top-0.1% highlight reels per week** — hacking Festinger's upward-comparison drive unless you consciously switch back to **temporal self-comparison** (*'Me today vs Me 6 months ago'*).",
@@ -118,5 +149,37 @@
     "diorama_33_festinger_social_comparison_envy"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1177/001872675400700202",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling thrilled about a 10% raise at 9:00 a.m. — until 9:15 a.m. when you hear a coworker you started with got 12%.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1177/001872675400700202",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1177/001872675400700202"
+      ],
+      "summary": "Leon Festinger (1954). A Theory of Social Comparison Processes. Human Relations."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2018",
+      "doi": "10.1002/hbm.23854",
+      "source_ids": [
+        "SRC_NEURO_2018"
+      ],
+      "dois": [
+        "10.1002/hbm.23854"
+      ],
+      "summary": "Y. Luo, S. B. Eickhoff, S. Hetu, T. Lohrenz (2018). Social comparison in the brain: A coordinate-based meta-analysis of functional neuroimaging studies. Human Brain Mapping."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Upward social comparison always ruins motivation and self-esteem.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

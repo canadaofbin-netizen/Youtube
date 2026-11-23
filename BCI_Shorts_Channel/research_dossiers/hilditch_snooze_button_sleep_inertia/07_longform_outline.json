@@ -1,0 +1,118 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Why your hand can slap the snooze bar in two seconds while your brain pours coffee onto the counter ten minutes later.",
+    "core_experiment": "Balkin (2002 PET), Wertz (2006 JAMA 26-hour benchmark), and Vallat (2019 EEG-fMRI) scanning the waking human brain.",
+    "twist": "Your brainstem wakes instantly, yet your prefrontal cortex trails 25 minutes behind—performing worse than 26 hours without sleep."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 6:15 AM Nine-Minute Bargain",
+      "beats": [
+        "Why 57% of working adults hit snooze",
+        "The puzzling gap between open eyes and foggy judgment"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook",
+        "setup"
+      ],
+      "new_shots_needed": [
+        "brass alarm slap & kitchen kettle spill"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Balkin's 2002 PET Scan: Your Brain Wakes Up at Two Different Speeds",
+      "beats": [
+        "Brainstem & thalamus blood flow returns first",
+        "Prefrontal cortex lags 20 to 30 minutes behind"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "symptom",
+        "pivot"
+      ],
+      "new_shots_needed": [
+        "3D #27D8FF two-speed reboot map"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Worse Than 26 Hours Awake: The 2006 JAMA Wakeup Test",
+      "beats": [
+        "Six nights of 8-hour sleep still leave a 3-minute cliff",
+        "Why ER doctors and commuters get caught"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "core_experiment"
+      ],
+      "new_shots_needed": [
+        "26-hour comparison chart"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Deep N3 Delta Invasion & The 2024 Stockholm Snooze Trial",
+      "beats": [
+        "Vallat's 34-person EEG-fMRI network blur",
+        "Sundelin's 1,732 survey + 31 lab snoozers nuance"
+      ],
+      "scene_ids": [
+        "S1",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "N3 vs N2 awakening contrast"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "The 25-Minute Morning Shield & Outdoor Daylight Reset",
+      "beats": [
+        "One real-time alarm across the room",
+        "Stepping onto a sunlit porch before touching big emails"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit porch doorway walk"
+      ]
+    }
+  ],
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Groggy 45-year-old adult in pajamas slamming a brass bedside snooze alarm with heavy half-shut eyes",
+    "right_cyan_brain": "Glowing #27D8FF 3D brain with bright awake brainstem at base and dimmed shadowed prefrontal cortex behind forehead",
+    "badge_text": "STILL ASLEEP"
+  },
+  "r75_clean_seed_tags": [
+    "snooze button",
+    "sleep inertia",
+    "morning grogginess",
+    "sleep science",
+    "prefrontal cortex",
+    "waking up tired",
+    "brain health",
+    "circadian rhythm",
+    "sleep habits"
+  ]
+}

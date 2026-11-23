@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "bandura_bobo_doll_mirroring",
   "topic": "Albert Bandura (1961): Stanford Nursery Bobo Doll Experiment & Observational Social Learning",
   "pillar": "brain_basics",
@@ -60,7 +60,28 @@
     },
     {
       "fact": "Boys exhibited more total physical aggression than girls overall (e.g., averaging 38.2 imitative physical acts after a male model vs 12.7 for girls after a male model), while verbal imitation rose sharply when model and child shared the same gender.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Imitative Physical Acts",
+        "unit": "acts",
+        "bars": [
+          {
+            "label": "Boys (Male Model)",
+            "value": 38.2,
+            "unit": "acts"
+          },
+          {
+            "label": "Girls (Male Model)",
+            "value": 12.7,
+            "unit": "acts"
+          }
+        ],
+        "doi": "10.1037/h0045925",
+        "source_citation": "Bandura, Ross & Ross (1961, JASP)"
+      }
     },
     {
       "fact": "Zero stickers, candy, or praise were ever given to the children — demolishing radical behaviorism's claim that learning cannot occur without direct reinforcement.",
@@ -133,5 +154,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
-  "offcenter_creator_bet": "Hard take: kids copy actions, not lectures — toddlers invented new strikes after watching one adult lose temper. Which adult habit did you copy growing up without noticing?"
+  "offcenter_creator_bet": "Hard take: kids copy actions, not lectures — toddlers invented new strikes after watching one adult lose temper. Which adult habit did you copy growing up without noticing?",
+  "everyday_domain": "relationships",
+  "primary_doi": "10.1037/h0045925",
+  "three_layer_formula": {
+    "everyday_problem": "Hearing your four-year-old repeat the exact frustrated phrase you muttered in traffic three days ago.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0045925",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0045925"
+      ],
+      "summary": "Albert Bandura, Dorothea Ross, Sheila A. Ross (1961). Transmission of aggression through imitation of aggressive models. The Journal of Abnormal and Social Psychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.4324/9781003110156-5",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.4324/9781003110156-5"
+      ],
+      "summary": "Albert Bandura (2021). Influence of Models' Reinforcement Contingencies on the Acquisition of Imitative Responses. Psychological Modeling."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Watching someone vent anger acts as 'catharsis' that drains away a viewer's own aggressive urges.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Hard take: kids copy actions, not lectures — toddlers invented new strikes after watching one adult lose temper. Which adult habit did you copy growing up without noticing?"
+  }
 }

@@ -1,0 +1,189 @@
+{
+  "schema_version": 2,
+  "slug": "kaptchuk_open_label_placebo_pain_switch",
+  "topic": "Why Sugar Pills Still Cut Pain Even When Doctors Tell You They Are Fake",
+  "pillar": "brain_health",
+  "everyday_domain": "anxiety",
+  "created_at": "2026-11-16T03:49:43+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Explaining how an honestly labeled inert capsule relieves gut cramps, chronic lower-back ache, and emotional distress requires tracing top-down prefrontal appraisal into the anterior cingulate pain-alarm hub, insula body-state sensor, and brainstem descending opioid pain switch.",
+  "setup_18w": "Doctors handed patients bottles labeled placebo pills and openly explained the capsules contained zero active medicine.",
+  "three_layer_formula": {
+    "everyday_problem": "Adults aged 35 to 65+ managing nagging lower-back stiffness, stress-triggered stomach cramps, or bedtime tension assume relief only counts if a chemical drug overrides the body — dismissing calming medical routines as 'all in your head.'",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1371/journal.pone.0015591",
+      "source_ids": [
+        "SRC1",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1371/journal.pone.0015591",
+        "10.1097/j.pain.0000000000000700"
+      ],
+      "summary": "Ted J. Kaptchuk et al. (2010, PLoS ONE) randomized 80 irritable bowel syndrome patients (mean age 47) to matched doctor visits with or without twice-daily capsules openly labeled 'placebo pills', followed by Carvalho et al.'s (2016, Pain) 97-adult chronic low back pain replication."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1038/s41467-020-17654-y",
+      "year": 2020,
+      "source_ids": [
+        "SRC3",
+        "SRC4",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1038/s41467-020-17654-y",
+        "10.1146/annurev-clinpsy-021815-093015",
+        "10.1038/nrn3976"
+      ],
+      "summary": "Darwin A. Guevarra, Jason S. Moser, Tor D. Wager & Ethan Kross (2020, Nature Communications) showed non-deceptive placebos shrink objective neural late-positive-potential distress signals, complementing Wager & Atlas (2015) and Ashar, Chang & Wager (2017) prefrontal-brainstem descending analgesia circuits."
+    },
+    "psychology_studies": [
+      "SRC1",
+      "SRC2"
+    ],
+    "neuroscience_studies": [
+      "SRC3",
+      "SRC4",
+      "SRC6"
+    ]
+  },
+  "primary_case": {
+    "title": "Ted Kaptchuk's 2010 Harvard/BIDMC Open-Label Placebo Trial & 2016 Chronic Low-Back Pain Replication",
+    "year": 2010,
+    "place": "Beth Israel Deaconess Medical Center, Harvard Medical School, Boston, Massachusetts",
+    "people": [
+      {
+        "name": "Ted J. Kaptchuk",
+        "role": "Director of the Harvard Program in Placebo Studies at Beth Israel Deaconess Medical Center who challenged two centuries of medical dogma by testing placebos with 100% honest informed consent",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "80 Adult IBS Patients (Mean Age 47) & 97 Chronic Back-Pain Adults",
+        "role": "Midlife and older clinical volunteers living with severe irritable bowel syndrome (2010) or persistent chronic lower-back pain (2016) who swallowed inert cellulose capsules twice a day knowing zero medication was inside",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Tor D. Wager, Darwin A. Guevarra & Falk Eippert",
+        "role": "Neuroscientists who mapped how prefrontal appraisal and descending brainstem opioid pathways physically quiet spinal and cortical distress signals without requiring patient deception",
+        "source_id": "SRC3"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "For generations, physicians assumed the placebo effect only worked if doctors tricked patients into believing a dummy capsule contained real medicine — making clinical placebo use ethically taboo under informed consent.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In 2010 at Harvard's Beth Israel Deaconess Medical Center, Ted Kaptchuk randomized 80 adults (mean age 47, 70% women) with moderate-to-severe irritable bowel syndrome into two groups receiving the exact same warm 15-minute clinician checkups over 21 days.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Half the patients received a pill bottle boldly printed 'placebo pills' and were openly told the blue-and-white microcrystalline cellulose capsules held zero active drug, alongside a 4-point explanation of how automatic conditioned rituals trigger real body relief.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Ted Kaptchuk's 21-day Harvard trial of 80 adults with irritable bowel syndrome, 59% of patients taking twice-daily capsules openly labeled 'placebo pills' reported adequate symptom relief compared with 35% in the matched no-pill control group.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Honest Placebo Symptom Relief",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Open Placebo Pills",
+            "value": 59.0,
+            "unit": "%"
+          },
+          {
+            "label": "No-Pill Control",
+            "value": 35.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1371/journal.pone.0015591",
+        "source_citation": "Kaptchuk et al. (2010)"
+      }
+    },
+    {
+      "fact": "Global improvement scores already separated cleanly at the 11-day midpoint (5.2 versus 4.0) and held through Day 21 (5.0 versus 3.9), even among skeptical middle-aged adults who laughed when opening the bottle labeled 'placebo'.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Six years later, Cláudia Carvalho, Ted Kaptchuk, and Irving Kirsch tested open-label placebos in 97 adults suffering persistent chronic lower-back pain for more than 3 months: adding twice-daily honest placebo capsules cut composite back pain by 1.5 points on a 10-point scale (roughly 30%) versus 0.2 points on usual care alone, and cut back-related disability by 2.9 points.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "To rule out polite questionnaire bias, Darwin Guevarra, Tor Wager, and Ethan Kross (2020) recorded scalp EEG during distressing images after administering a non-deceptive nasal-spray placebo: honest placebos significantly shrank the brain's involuntary late positive potential distress wave within milliseconds.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "High-resolution spinal and brain fMRI (Eippert et al. 2009; Wager & Atlas 2015; Ashar et al. 2017) reveals how treatment rituals recruit prefrontal reality-appraisal networks and brainstem descending opioid pathways that turn down pain signals right inside the spinal cord dorsal horn.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Crucially, open-label placebos cannot shrink tumors, set broken bones, or replace antibiotics — their power acts specifically on brain-modulated symptoms like chronic pain, gut cramping, fatigue, and emotional distress.",
+      "source_id": "SRC6"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Hand 40 skeptical midlife IBS patients a pill bottle literally printed 'PLACEBO PILLS — INERT SUGAR/CELLULOSE' and ask them to swallow two capsules morning and night: within 21 days, 59% achieve clinically meaningful symptom relief versus 35% given identical doctor care without the bottle.",
+      "why_surprising": "Zero deception was needed — the physical act of taking a capsule in a trusted medical ritual switched on endogenous relief.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Add honest sugar-free cellulose capsules to standard care for adults with stubborn chronic lower-back pain (Carvalho et al. 2016), and both daily back ache and physical disability drop by nearly 30% in three weeks — then drop again in the control group the moment they cross over onto the honest fake pills.",
+      "why_surprising": "Decades-long adult back pain responded to an openly fake pill ritual.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Non-deceptive placebos don't just change what volunteers say on clipboards: in Guevarra & Wager's 2020 Nature Communications experiments, an openly fake nasal spray measurably dampened the brain's electrical emotional-distress waveform.",
+      "why_surprising": "Kills the 'patients were just being polite to the doctor' objection with objective neural timing.",
+      "source_id": "SRC3",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Placebos only work on gullible people who have been tricked into thinking a fake pill is a powerful chemical drug.",
+      "truth": "Both Kaptchuk (2010) and Carvalho (2016) told adults explicitly that the capsules were 100% inert cellulose — conditioned medical rituals and predictive brain appraisal triggered relief even when conscious minds stayed skeptical.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "If a placebo reduces your back pain or stomach cramps, your pain was imaginary all along.",
+      "truth": "Spinal fMRI (Eippert et al. 2009) and neuroscience reviews (Wager & Atlas 2015) prove placebo rituals release real endogenous opioids from the brainstem down into the spinal cord, dialing down physical nerve transmission.",
+      "source_id": "SRC5"
+    },
+    {
+      "myth": "Open-label placebos can replace real prescriptions for infections, heart disease, or tumors.",
+      "truth": "Honest placebos modulate brain-regulated symptoms like pain, nausea, gut spasms, and distress — they never replace disease-modifying medicine.",
+      "source_id": "SRC6"
+    }
+  ],
+  "everyday_hooks": [
+    "Feeling your tense shoulders and headache start easing the minute you swallow an evening magnesium tablet with a warm glass of water — twenty minutes before your gut could possibly absorb it.",
+    "Wondering why a trusted family doctor's calm exam and structured morning routine quiets a flaring lower back far better than gulping the exact same pill hurriedly in parked traffic.",
+    "Using honest, deliberate wind-down rituals — warm tea, a timed stretch, or a soothing topical balm — to recruit your brainstem's built-in pain dimmer without self-deception."
+  ],
+  "offcenter_creator_bet": "My bet: honest rituals beat willpower — knowing a capsule is sugar still dials down real pain alarms. Would an open placebo calm your pain or feel pointless?",
+  "debate_ignition": {
+    "prebunk_myth": "Placebos only work when doctors trick gullible patients into believing a sugar capsule contains real medicine.",
+    "open_verdict_question": "If your doctor handed you a bottle boldly labeled Inert Placebo Pills for a stubborn back ache, would your brain dial the pain down or ignore the ritual completely?",
+    "offcenter_creator_bet": "My bet: honest rituals beat willpower — knowing a capsule is sugar still dials down real pain alarms. Would an open placebo calm your pain or feel pointless?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "primary_doi": "10.1371/journal.pone.0015591",
+  "linked_projects": [],
+  "shorts_projects": [
+    "v8_ep11_open_label_placebo_pain"
+  ]
+}

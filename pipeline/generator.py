@@ -1,6 +1,6 @@
 """
 ALL ABOUT BRAIN - Autonomous AI Script & Visual Prompt Generator (Production Contract v4).
-Generates broadcast-ready 5-10 clip narrations (18-28 words per clip) and Google Flow Omni 1.1 prompts
+Generates broadcast-ready 5-10 clip narrations (18-28 words per clip) and Google Flow Omni 1.2 prompts
 for any of the 7 Content Pillars using deterministic local synthesis (zero external paid APIs).
 """
 

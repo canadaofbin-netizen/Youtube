@@ -1,0 +1,41 @@
+{
+  "visual_mode": "NEURO_BIOLOGY",
+  "links": [
+    {
+      "role": "symptom",
+      "region": "temporal lobe",
+      "plain": "side familiarity sensor firing a false match on a look-alike room layout",
+      "function": "signals gut-level familiarity when spatial geometry or word themes echo a forgotten past experience",
+      "scene_id": "S2",
+      "narration_bridge": "Generates the initial rhinal familiarity spark documented in Cleary et al. (2009, SRC2) and Bartolomei et al. (2012, SRC5).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step1",
+      "region": "hippocampus",
+      "plain": "deep memory vault staying quiet because you were never truly here before",
+      "function": "searches episodic memory records and returns zero true recollection during artificial déjà vu",
+      "scene_id": "S1",
+      "narration_bridge": "Remained notably unactivated during fMRI déjà vu trials in Urquhart & O'Connor (2021, SRC1).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "pivot",
+      "region": "anterior cingulate cortex",
+      "plain": "conflict alarm flagging the clash between eerie familiarity and brand-new facts",
+      "function": "detects the sharp mismatch between rising temporal familiarity and zero hippocampal recall",
+      "scene_id": "S1",
+      "narration_bridge": "Lit up robustly in 16 of 21 scanned participants experiencing déjà vu in Urquhart & O'Connor (2021, SRC1).",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "forehead reality-checker vetoing the false alarm before it becomes a fake memory",
+      "function": "audits and overrides erroneous familiarity so you know the moment is genuinely new",
+      "scene_id": "S3",
+      "narration_bridge": "Explains why frontal intactness produces healthy déjà vu while frontal damage yields persistent déjà vécu (Moulin 2017, SRC4; Urquhart & O'Connor 2021, SRC1).",
+      "r78_circuit_state": "active"
+    }
+  ]
+}

@@ -41,16 +41,14 @@ from pipeline.config import (
     FLOW_ZERO_CREDIT_MODEL,
     PROJECTS_DIR,
     PROJECTS_QUARANTINE_DIR,
-    PUCK_F0_RANGE_HZ,
-    VOICE_F0_CLIP_DEV_MAX_ST,
     VOICE_REGEN_MAX_ROUNDS,
     WORKSPACE_ROOT,
     is_diorama_profile,
 )
-from pipeline.voice_consistency import semitones as _semitones
 from pipeline.flow_browser import (
     CHECK_CREDIT_EXHAUSTION_JS,
     DISMISS_CREDIT_DIALOG_JS,
+    FLOW_DETECT_ANTIBOT_HALT_JS,
     FLOW_TILE_CLASSIFIER_JS,
     FlowCircuitBreakerError,
     FlowDownloadHarvestLock,
@@ -83,15 +81,16 @@ from pipeline.flow_workspace import (
 )
 from pipeline.qa_gates import run_full_executable_qa
 from pipeline.storage import ProjectStorage
+from pipeline.studio.config import CONTAINER_BROWSER_BRIDGE_DIR, HOST_BROWSER_BRIDGE_DIR
 from pipeline.studio.whale_session import DirectCDPClient
 from pipeline.video_autopsy import VideoAutopsyEngine
 
 COMPLETED_100_DIR = WORKSPACE_ROOT / "Completed_Psychology_100_Shorts"
 COMPLETED_SHORTS_DIR = COMPLETED_100_DIR
-_WIN_DOWNLOADS = Path(r"C:\Users\yunky\Downloads")
-_LINUX_DOWNLOADS = Path.home() / "chrome-profile" / "flow_bridge"
-USER_DOWNLOADS_DIR = _WIN_DOWNLOADS if _WIN_DOWNLOADS.exists() or os.name == "nt" else _LINUX_DOWNLOADS
-CONTAINER_DOWNLOADS_PATH = "/home/seluser/chrome-profile/flow_bridge" if os.name != "nt" else None
+_WIN_DOWNLOADS = Path.home() / "Downloads"
+_LINUX_DOWNLOADS = HOST_BROWSER_BRIDGE_DIR
+USER_DOWNLOADS_DIR = Path(os.environ.get("AAB_USER_DOWNLOADS_DIR") or (_WIN_DOWNLOADS if os.name == "nt" else _LINUX_DOWNLOADS))
+CONTAINER_DOWNLOADS_PATH = CONTAINER_BROWSER_BRIDGE_DIR if os.name != "nt" else None
 
 
 def _normalize_engine_mode(engine_mode: str | None) -> str:
@@ -1223,7 +1222,6 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
                 and det["leading_puck_trim_sec"] == 0.0
                 and 100.0 <= f0_hz <= 165.0
                 and f0_dev <= 22.0
-                and abs(_semitones(f0_hz, proj_f0_med)) <= VOICE_F0_CLIP_DEV_MAX_ST
                 and s_i != extreme_f0_slot
             )
         )
@@ -1269,7 +1267,7 @@ def order_downloaded_flow_clips_for_project(project_dir: Path, force_scan_downlo
 
 
 def _render_v5_contact_sheet(native_dir: Path, v5_ss_path: Path) -> None:
-    import tempfile
+    from pipeline.media_cache import get_ram_scratch_root, is_ephemeral_scratch_path
 
     frames = []
     sorted_native_clips = sorted(
@@ -1279,9 +1277,9 @@ def _render_v5_contact_sheet(native_dir: Path, v5_ss_path: Path) -> None:
     for c_file in sorted_native_clips:
         tmp_c: Path | None = None
         open_c = c_file
-        if os.name != "nt" and not str(c_file).startswith("/tmp"):
+        if os.name != "nt" and not is_ephemeral_scratch_path(c_file):
             try:
-                tmp_c = Path(tempfile.gettempdir()) / f"_tmp_v5_{os.getpid()}_{c_file.name}"
+                tmp_c = get_ram_scratch_root() / f"_tmp_v5_{os.getpid()}_{c_file.name}"
                 shutil.copy2(c_file, tmp_c)
                 open_c = tmp_c
             except Exception:
@@ -1331,12 +1329,14 @@ async def allocate_dedicated_flow_project_tab(
     purpose: str = "flow_worker",
     room_name: str | None = None,
     existing_project_url: str | None = None,
+    foreground: bool = False,
+    force_fresh_room: bool = False,
 ) -> dict[str, str]:
     """
-    Opens a brand-new background Naver Whale tab under `/tmp/aab_cdp_leases.json`
-    (or attaches to `existing_tab_id` / an unleased tab matching `project_id`),
-    reuses `existing_project_url` or an existing `AAB_<project_id>` dashboard card when present,
-    or clicks 'New project' (`button.new-project-button`) once if no room exists yet.
+    Opens a brand-new Naver Whale/Chrome tab under `/tmp/aab_cdp_leases.json`
+    (background by default; foreground when `foreground=True` for `--human-submit`),
+    reuses `existing_project_url` or an existing `AAB_<project_id>` dashboard card when present
+    (skipped when `force_fresh_room=True`), or clicks 'New project' (`button.new-project-button`) once.
     Returns {'tab_id': ..., 'ws_url': ..., 'project_url': ..., 'lease_owner_id': ...}.
     """
     eff_owner = lease_owner_id or make_lease_owner_id(purpose if not project_id else f"{purpose}:{project_id}")
@@ -1345,7 +1345,7 @@ async def allocate_dedicated_flow_project_tab(
 
     tab_info = None
     tabs = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{cdp_port}/json/list", timeout=8).read().decode("utf-8"))
-    if existing_tab_id:
+    if existing_tab_id and not force_fresh_room:
         for t in tabs:
             tid = str(t.get("id") or "")
             if tid == existing_tab_id and not is_tab_leased_by_other(tid, owner_id=eff_owner, cdp_port=cdp_port):
@@ -1353,13 +1353,28 @@ async def allocate_dedicated_flow_project_tab(
                 tab_info = t
                 break
 
-    if tab_info is None and project_id:
+    reuse_norm = "" if force_fresh_room else str(existing_project_url or "").strip().split("?")[0].rstrip("/")
+    if tab_info is None and project_id and not force_fresh_room:
         for t in tabs:
             tid = str(t.get("id") or "")
             if not tid or is_tab_leased_by_other(tid, owner_id=eff_owner, cdp_port=cdp_port):
                 continue
             t_url = str(t.get("url") or "")
             if ("flow.google.com/project/" in t_url or "/tools/flow/project/" in t_url) and t.get("webSocketDebuggerUrl"):
+                if reuse_norm and t_url.split("?")[0].rstrip("/") == reuse_norm:
+                    acquire_tab_lease(
+                        tid,
+                        owner_id=eff_owner,
+                        purpose=purpose,
+                        url=t_url,
+                        cdp_port=cdp_port,
+                    )
+                    return {
+                        "tab_id": tid,
+                        "ws_url": t["webSocketDebuggerUrl"],
+                        "project_url": t_url,
+                        "lease_owner_id": eff_owner,
+                    }
                 t_title = str(t.get("title") or "")
                 # Never probe arbitrary personal user Flow tabs unless title already carries an AAB_* / project token
                 if not any(mt and mt in t_title for mt in match_titles) and "AAB_" not in t_title:
@@ -1391,7 +1406,7 @@ async def allocate_dedicated_flow_project_tab(
             owner_id=eff_owner,
             purpose=purpose if not project_id else f"{purpose}:{project_id}",
             cdp_port=cdp_port,
-            background=True,
+            background=not bool(foreground),
         )
         opened_new_tab = True
 
@@ -1399,13 +1414,18 @@ async def allocate_dedicated_flow_project_tab(
     ws_url = tab_info["webSocketDebuggerUrl"]
 
     try:
+        if foreground and tab_id:
+            try:
+                urllib.request.urlopen(f"http://127.0.0.1:{int(cdp_port)}/json/activate/{tab_id}", timeout=3).read()
+            except Exception:
+                pass
         async with DirectCDPClient(ws_url) as client:
             await enable_background_focus_emulation(client)
             await asyncio.sleep(1.5)
             cur_url = await client.eval("location.href") or ""
 
             # 1. Reuse explicit canonical project URL when provided (single-room lock across waves/retries/shards)
-            reuse_url = str(existing_project_url or "").strip()
+            reuse_url = "" if force_fresh_room else str(existing_project_url or "").strip()
             if reuse_url and ("flow.google.com/project/" in reuse_url or "/tools/flow/project/" in reuse_url):
                 await client.send("Page.navigate", {"url": reuse_url})
                 await asyncio.sleep(2.5)
@@ -1418,7 +1438,7 @@ async def allocate_dedicated_flow_project_tab(
                 cur_url = reused_cur
 
             # 2. Check if already on an empty project page or a matching project page
-            if "flow.google.com/project/" in cur_url or "/tools/flow/project/" in cur_url:
+            if not force_fresh_room and ("flow.google.com/project/" in cur_url or "/tools/flow/project/" in cur_url):
                 t_val = await client.eval("document.querySelector('.editable-text-input')?.value || ''") or ""
                 tile_cnt = await client.eval("document.querySelectorAll('flow-video-tile').length") or 0
                 if existing_tab_id or int(tile_cnt) == 0 or (project_id and t_val.strip() in match_titles):
@@ -1432,7 +1452,7 @@ async def allocate_dedicated_flow_project_tab(
                 await client.send("Page.navigate", {"url": "https://flow.google.com/"})
                 await asyncio.sleep(3.5)
 
-            if match_titles:
+            if match_titles and not force_fresh_room:
                 matched_href = ""
                 for _scan_try in range(3):
                     if _scan_try > 0:
@@ -1539,14 +1559,19 @@ async def ensure_manual_video_916_mode(
     """
     Switches Google Flow from Agent chat mode (which has a daily chat quota limit)
     to Manual Prompting mode configured under the Credit-Aware Dual-Tier Engine Policy:
-      - `engine_mode="auto"`: attempts `FLOW_PRIMARY_VIDEO_MODEL` (`Omni 1.1 Flash`, 9:16, 720p,
+      - `engine_mode="auto"`: attempts `FLOW_PRIMARY_VIDEO_MODEL` (`Omni 1.2 Flash`, 9:16, 720p,
         `target_duration`, x1) while credits are available; on credit exhaustion (`button.prompt-warning-button`
         or low/zero-credit banner), sets `credit_exhausted_event` and seamlessly switches to
         `FLOW_ZERO_CREDIT_MODEL` (`Veo 3.1 - Lite [Lower Priority]`, 9:16, 8s, x1) verified at 0 credits.
       - `engine_mode="omni"`: requires `FLOW_PRIMARY_VIDEO_MODEL` and fails closed if out of credits.
       - `engine_mode="zero-credit"`: locks `FLOW_ZERO_CREDIT_MODEL` immediately and forbids credit approval.
     """
+    from pipeline.config import (
+        FLOW_OMNI_ENABLE_EXTENDED_DURATIONS,
+        FLOW_OMNI_EXTENDED_DURATIONS,
+    )
     from pipeline.flow_ingredients import (
+        _family_matches_model,
         press_escape,
         read_active_flow_model_family,
         select_flow_video_model,
@@ -1559,8 +1584,24 @@ async def ensure_manual_video_916_mode(
             await asyncio.sleep(0.18)
 
     mode = _normalize_engine_mode(engine_mode)
-    if target_duration not in FLOW_ALLOWED_DURATION_TARGETS:
-        target_duration = FLOW_CLIP_DURATION_TARGET
+    allowed_durs = (
+        FLOW_OMNI_EXTENDED_DURATIONS
+        if FLOW_OMNI_ENABLE_EXTENDED_DURATIONS
+        else FLOW_ALLOWED_DURATION_TARGETS
+    )
+    if target_duration not in allowed_durs:
+        # Snap numeric seconds to nearest supported duration when possible, else default
+        m_sec = re.match(r"^(\d+(?:\.\d+)?)s?$", str(target_duration or "").strip())
+        if m_sec:
+            req_s = float(m_sec.group(1))
+            cand_secs = [int(d[:-1]) for d in allowed_durs if d.endswith("s") and d[:-1].isdigit()]
+            if cand_secs:
+                nearest_s = min(cand_secs, key=lambda s: (abs(s - req_s), -s))
+                target_duration = f"{nearest_s}s"
+            else:
+                target_duration = FLOW_CLIP_DURATION_TARGET
+        else:
+            target_duration = FLOW_CLIP_DURATION_TARGET
 
     exhausted_now = bool(credit_exhausted_event is not None and credit_exhausted_event.is_set())
     forbid_approve = bool(mode == "zero-credit" or (mode == "auto" and exhausted_now))
@@ -1616,10 +1657,9 @@ async def ensure_manual_video_916_mode(
     expected_cached = await client.eval(
         f"Boolean(window.__bci_flow_0cred_configured && window.__bci_flow_10s_configured === {json.dumps(eff_duration)} && window.__bci_flow_mode_configured === {json.dumps('lite' if use_lite else 'omni')})"
     )
-    family_ok_cached = (
-        (cur_family == "veo_3_1_lite_low_priority")
-        if use_lite
-        else (cur_family in ("omni", "omni_1_1_flash") or cur_family.startswith("omni"))
+    family_ok_cached = _family_matches_model(
+        FLOW_ZERO_CREDIT_MODEL if use_lite else FLOW_PRIMARY_VIDEO_MODEL,
+        cur_family,
     )
 
     need_reconfigure = (
@@ -1654,6 +1694,19 @@ async def ensure_manual_video_916_mode(
         await asyncio.sleep(0.3)
 
         async def _click_setting_btns(want_720: bool, dur_tok: str) -> None:
+            reopen_pt = await client.eval("""(() => {
+                const openPane = Array.from(document.querySelectorAll('flow-prompt-box-settings, .cdk-overlay-pane')).some(
+                    el => ((el.innerText || '').includes('Generating will use') || (el.innerText || '').includes('x1')) && el.getBoundingClientRect().height > 40
+                );
+                if (openPane) return null;
+                const st = document.querySelector('flow-prompt-box button.settings-trigger-button, button.settings-trigger-button');
+                if (!st) return null;
+                const r = st.getBoundingClientRect();
+                return r.width > 0 ? { x: r.x + r.width / 2, y: r.y + r.height / 2 } : null;
+            })()""")
+            if isinstance(reopen_pt, dict) and float(reopen_pt.get("x") or 0) > 0:
+                await _click_pt(reopen_pt)
+                await asyncio.sleep(0.35)
             pts = await client.eval(f"""(() => {{
                 const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
                 const out = [];
@@ -1673,10 +1726,11 @@ async def ensure_manual_video_916_mode(
                 for pt_i in pts:
                     await _click_pt(pt_i)
 
+        chosen_omni_model = FLOW_PRIMARY_VIDEO_MODEL
         if not use_lite:
-            omni_ok = await select_flow_video_model(client, FLOW_PRIMARY_VIDEO_MODEL)
-            await asyncio.sleep(0.3)
             await _click_setting_btns(True, target_duration)
+            await asyncio.sleep(0.3)
+            omni_ok = await select_flow_video_model(client, FLOW_PRIMARY_VIDEO_MODEL)
             await asyncio.sleep(0.35)
             post_omni_cred = await client.eval(CHECK_CREDIT_EXHAUSTION_JS) or {}
             omni_exhausted = bool(post_omni_cred.get("exhausted")) or not omni_ok
@@ -1731,7 +1785,7 @@ async def ensure_manual_video_916_mode(
             await press_escape(client)
         await asyncio.sleep(0.25)
 
-    active_model = FLOW_ZERO_CREDIT_MODEL if use_lite else FLOW_PRIMARY_VIDEO_MODEL
+    active_model = FLOW_ZERO_CREDIT_MODEL if use_lite else locals().get("chosen_omni_model", FLOW_PRIMARY_VIDEO_MODEL)
     credit_tier = "zero_credit_fallback" if use_lite else "omni_monthly_credit"
     final_summary = await client.eval("""(() => {
         const st = document.querySelector('button.settings-trigger-button');
@@ -2325,7 +2379,18 @@ async def run_live_flow_for_single_project(
 
                     poll_state = await client.eval(f"""(() => {{
                         const classify = {FLOW_TILE_CLASSIFIER_JS};
+                        const detectHalt = {FLOW_DETECT_ANTIBOT_HALT_JS};
+                        const errSnips = [];
+                        document.querySelectorAll('flow-error-tile').forEach(et => {{
+                            const tx = (et.innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 240);
+                            if (tx) errSnips.push(tx);
+                        }});
                         const allTiles = Array.from(document.querySelectorAll('flow-video-tile')).map(el => ({{ el, info: classify(el) }}));
+                        allTiles.filter(x => x.info.isError).forEach(x => {{
+                            const tx = (x.el.innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 240);
+                            if (tx) errSnips.push(tx);
+                        }});
+                        const haltInfo = detectHalt(errSnips);
                         const validTiles = allTiles.filter(x => !x.info.isError);
                         const readyTiles = validTiles.filter(x => x.info.isReady);
                         const renderingTiles = validTiles.filter(x => x.info.isRendering);
@@ -2339,9 +2404,19 @@ async def run_live_flow_for_single_project(
                             ready_tiles: readyTiles.length,
                             rendering_tiles: renderingTiles.length,
                             pct: tilePct,
-                            has_stop_btn: stopBtn
+                            has_stop_btn: stopBtn,
+                            haltWarn: Boolean(haltInfo && haltInfo.haltWarn),
+                            haltText: String((haltInfo && haltInfo.haltText) || ''),
                         }};
                     }})()""") or {}
+                    if bool(poll_state.get("haltWarn")):
+                        warn_txt = str(poll_state.get("haltText") or "flow_antibot_halt")
+                        warn_ss = await _capture_ss("flow_warning_capture_single.png")
+                        raise FlowCircuitBreakerError(
+                            f"FLOW_HALT_GUARD on {project_id}: {warn_txt} | screenshot={warn_ss}"
+                        )
+                except FlowCircuitBreakerError:
+                    raise
                 except Exception as poll_exc:
                     worker.log(f"Render poll transient CDP wait ({type(poll_exc).__name__}); continuing...")
                     await asyncio.sleep(5.0)
@@ -3098,7 +3173,7 @@ def main():
         "--engine-mode",
         choices=list(FLOW_ENGINE_MODES),
         default=DEFAULT_FLOW_ENGINE_MODE,
-        help="Dual-tier Flow engine mode: 'auto' (Omni 1.1 Flash -> 0-credit fallback), 'omni', or 'zero-credit'",
+        help="Dual-tier Flow engine mode: 'auto' (Omni 1.2 Flash -> 0-credit fallback), 'omni', or 'zero-credit'",
     )
     args = parser.parse_args()
 

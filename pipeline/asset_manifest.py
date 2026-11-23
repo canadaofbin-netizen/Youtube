@@ -47,25 +47,17 @@ def _asset_index_lock(index_path: Path):
     with rlock:
         from pipeline.cdp_tab_lease import get_aab_locks_dir
 
+        from pipeline.cdp_tab_lease import acquire_shared_flock
+
         lock_root = get_aab_locks_dir() if (os.name != "nt" and Path("/tmp").exists()) else index_path.parent
         lock_root.mkdir(parents=True, exist_ok=True)
         digest = hashlib.sha1(resolved.encode("utf-8")).hexdigest()[:16]
         lock_file = lock_root / f"asset_idx_{digest}.lock"
-        fh = None
-        locked = False
+        fh = acquire_shared_flock(lock_file)
         try:
-            if _fcntl is not None:
-                try:
-                    fh = open(lock_file, "a+", encoding="utf-8")
-                    _fcntl.flock(fh.fileno(), _fcntl.LOCK_EX)
-                    locked = True
-                except OSError:
-                    if fh is not None:
-                        fh.close()
-                        fh = None
             yield
         finally:
-            if locked and fh is not None and _fcntl is not None:
+            if fh is not None and _fcntl is not None:
                 try:
                     _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
                 except OSError:

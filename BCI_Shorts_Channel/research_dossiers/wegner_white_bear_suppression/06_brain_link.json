@@ -4,18 +4,29 @@
     {
       "role": "crisis",
       "region": "anterior cingulate cortex",
-      "plain": "ironic error monitor",
-      "function": "automatically scanning every few seconds for 'white bear' to check if suppression failed — keeping the forbidden concept primed",
+      "plain": "conflict detector",
+      "function": "automatically scanning every few seconds for 'white bear' to check if suppression failed — keeping the forbidden worry electrically primed",
       "scene_id": "S1",
-      "narration_bridge": "Explains why every 'don't think of X' command re-triggers the desk bell."
+      "narration_bridge": "Explains why every 'don't think of it' command rings the desk bell again (SRC2, SRC3).",
+      "r78_circuit_state": "active"
     },
     {
-      "role": "pivot",
+      "role": "failure",
       "region": "dorsolateral prefrontal cortex",
-      "plain": "focused replacement director",
-      "function": "tiring out when hunting random room distractions, yet succeeding cleanly when aimed at ONE concrete positive target ('red Volkswagen')",
+      "plain": "working-memory desk",
+      "function": "burning heavy mental fuel hunting random distractions around the room, tiring out first at 3 a.m. or under high stress",
+      "scene_id": "S2",
+      "narration_bridge": "Shows why fatigue silences effortful distraction while the conflict detector stays loud (SRC2, SRC6).",
+      "r78_circuit_state": "silenced"
+    },
+    {
+      "role": "breakthrough",
+      "region": "prefrontal cortex",
+      "plain": "reality-checker",
+      "function": "steering attention cleanly onto one concrete positive target ('red Volkswagen' or center flagstick) so the rebound surge drops to zero",
       "scene_id": "S3",
-      "narration_bridge": "Links Wegner's Experiment 2 cure to positive single-target prefrontal steering."
+      "narration_bridge": "Connects Wegner's Experiment 2 cure to positive single-target steering (SRC1).",
+      "r78_circuit_state": "active"
     }
   ]
 }

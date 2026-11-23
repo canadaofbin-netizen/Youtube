@@ -2,65 +2,60 @@
   "scenes": [
     {
       "id": "S1",
-      "title": "Trinity University student alone at a microphone and silver tap-bell ringing >6 times in 5 minutes while trying NOT to think of a white bear",
+      "title": "1987 Trinity University Booth: Hand Hovering Then Slamming the Chrome Tap-Bell Past 16 Rebound Rings",
       "iconic": true,
       "shorts_priority": 1,
-      "era": "1987, Trinity University psychology booth, San Antonio, Texas",
+      "era": "1987, Trinity University individual recording booth, San Antonio, Texas",
       "layout": {
-        "description": "Clean brightly lit 1987 individual recording room with plain cream walls, a wooden desk holding a silver tap-bell, a desktop stand microphone, a printed instruction card reading 'DO NOT THINK OF A WHITE BEAR — Ring Bell If It Occurs', and a white porcelain polar-bear figurine sitting outside in the experimenter's control window.",
+        "description": "Sunlit 1987 acoustic testing room with warm oak desk, gleaming chrome call-bell, stand microphone, bold tabletop placard reading 'DO NOT THINK OF A WHITE BEAR', and an observation window where Daniel Wegner tracks bell counts climbing from 6 to 16.",
         "positions": [
           {
-            "who": "Student Participant (mannequin in 1987 collegiate polo shirt and jeans)",
-            "where": "seated alone at the wooden desk pressing a palm down onto the silver tap-bell AGAIN with an exasperated head-shake while glancing desperately around the bare room walls",
-            "facing": "facing the microphone and bell"
+            "who": "42-year-old adult volunteer in crisp 1987 collared knit polo and slacks",
+            "where": "seated upright at the oak booth desk with right palm poised tense above the chrome tap-bell before striking it down",
+            "facing": "facing the chrome desk bell and stand microphone"
           },
           {
-            "who": "Daniel Wegner (mannequin in 1987 Oxford shirt and glasses)",
-            "where": "standing outside the observation glass holding a tally counter showing a steep Period-2 Rebound spike (16+ rings)",
-            "facing": "watching the desk bell"
+            "who": "Daniel Wegner in 1987 Oxford button-down shirt and tortoiseshell glasses",
+            "where": "standing at the observation window clicking a mechanical tally counter as Period-2 rings pass 16",
+            "facing": "observing the volunteer's desk bell through glass"
           }
         ]
       },
       "props": [
         {
-          "name": "chrome tabletop tap-bell",
-          "period_detail": "classic silver call bell centered beside the desk microphone",
-          "physical_behavior": "tapped >6 times during initial suppression and >16 times during the Period-2 rebound surge"
+          "name": "gleaming chrome tabletop tap-bell beside stand microphone",
+          "period_detail": "classic 1987 spring-loaded silver call bell centered on the oak recording desk",
+          "physical_behavior": "State-A palm hovers tense 5 cm above dome -> State-B palm strikes bell dome down with crisp metallic ring (>6 rings in Period 1, 16 rings in Period 2)"
         },
         {
-          "name": "'DO NOT THINK OF A WHITE BEAR' instruction placard",
-          "period_detail": "crisp black-on-white 1987 printed card propped on the desk",
-          "physical_behavior": "every glance at the card re-primes the forbidden bear"
-        },
-        {
-          "name": "Period-1 vs Period-2 Rebound bar chart",
-          "period_detail": "researcher's clipboard chart showing Suppression-First Period 2 towering above Expression-First",
-          "physical_behavior": "captures the beach-ball rebound effect"
+          "name": "printed 'DO NOT THINK OF A WHITE BEAR' desk placard and mechanical tally counter",
+          "period_detail": "bold black-on-cream 1987 instruction card paired with researcher's handheld click counter",
+          "physical_behavior": "State-A volunteer flips Period-2 card over -> State-B researcher clicks silver tally counter rapidly up to 16 rebound rings"
         }
       ],
       "actions": [
         {
-          "who": "Student Participant",
-          "verb_sequence": "reads 'DO NOT THINK OF A WHITE BEAR' -> stares hard at the desk lamp and shoe trying to distract himself -> freezes and taps the silver bell AGAIN -> sighs and taps it a seventh time"
+          "who": "Adult volunteer",
+          "verb_sequence": "holds right hand tense above the chrome bell trying to focus on the desk lamp -> winces as a white bear intrudes -> strikes palm firmly onto the silver tap-bell -> shakes head and strikes the bell again"
         },
         {
           "who": "Daniel Wegner",
-          "verb_sequence": "flips the Period-2 sign to 'Express Freely' and watches bell taps surge past 16"
+          "verb_sequence": "flips the Period-2 window card to 'Express Freely' -> clicks handheld counter up to 16 rings"
         }
       ],
       "reactions": [
         {
-          "who": "Student Participant",
-          "reaction": "laughs in disbelief at how fast 'Don't' summoned the exact forbidden thought"
+          "who": "Adult volunteer",
+          "reaction": "exhales a wry, rueful laugh realizing fighting the thought made the bell ring nonstop"
         },
         {
           "who": "Daniel Wegner",
-          "reaction": "notes how scanning random room objects turned the lamp and wall into bear triggers"
+          "reaction": "records the 16-vs-12 rebound spike on his clipboard"
         }
       ],
-      "wardrobe": "1987 Texas collegiate wear: pastel cotton polo shirt, pleated jeans; researcher in crisp striped Oxford button-down and slacks.",
-      "lighting": "Bright high-key 1987 university booth daylight.",
-      "recognition_hook": "Seated alone with a microphone and a silver bell, students ordered NOT to picture a white bear ring the confession bell every forty-five seconds — then rebound forty percent higher afterward.",
+      "wardrobe": "1987 smart-casual adult attire: navy cotton knit polo and khaki trousers; researcher in striped Oxford shirt.",
+      "lighting": "Clean high-key 1987 laboratory daylight through tall acoustic-room windows.",
+      "recognition_hook": "Ordered NOT to picture a white bear for five minutes, volunteers keep slamming a silver desk bell every forty-five seconds — then rebound to sixteen rings once the ban lifts.",
       "sources": [
         "SRC1",
         "SRC2",
@@ -69,7 +64,7 @@
         "SRC_STILL"
       ],
       "key_visual": {
-        "description": "a 1987 college student at a wooden booth desk tapping a silver desk bell beside a stand microphone and a 'DO NOT THINK OF A WHITE BEAR' card",
+        "description": "an adult volunteer in a sunlit 1987 testing booth striking a chrome desk tap-bell beside a stand microphone and a 'DO NOT THINK OF A WHITE BEAR' card while Daniel Wegner clicks a tally counter",
         "must_show": [
           "bell",
           "microphone|mic",
@@ -80,87 +75,86 @@
     },
     {
       "id": "S2",
-      "title": "Young Tolstoy standing in the 1863 nursery corner",
+      "title": "3 A.M. Adult Bedroom Spiral: Fighting the Clock Doubles Wakefulness",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "1863, Russian country estate study room",
+      "era": "Modern suburban master bedroom at 3:00 a.m.",
       "layout": {
-        "description": "Sunlit 19th-century wooden study corner where a young boy mannequin stands facing two wainscot walls while his older brother grins behind him.",
+        "description": "Cool moonlit master bedroom where a tired 48-year-old homeowner sits upright beside a glowing bedside clock, flipping the clock face-down while trying to force sleep.",
         "positions": [
           {
-            "who": "Young Leo Tolstoy mannequin",
-            "where": "standing in the sunlit corner covering face in comic defeat",
-            "facing": "facing corner"
+            "who": "48-year-old adult in cotton sleep shirt",
+            "where": "sitting up against pillows turning the bedside alarm clock away in frustration",
+            "facing": "facing the nightstand clock"
           }
         ]
       },
       "props": [
         {
-          "name": "carved white porcelain bear figurine on shelf",
-          "period_detail": "visual emblem of the older brother's impossible club rule",
-          "physical_behavior": "origin of Wegner's 1987 experiment"
+          "name": "bedside alarm clock and notepad",
+          "period_detail": "modern warm-amber nightstand clock beside a legal pad",
+          "physical_behavior": "State-A hand grips glowing clock -> State-B turns clock face-down yet eyes snap wide open"
         }
       ],
       "actions": [
         {
-          "who": "Older brother mannequin",
-          "verb_sequence": "whispers the dare -> Young boy stands in corner unable to clear his mind"
+          "who": "Homeowner",
+          "verb_sequence": "squeezes eyes shut commanding 'Stop thinking about the 8 a.m. meeting' -> snaps wide awake"
         }
       ],
       "reactions": [
         {
-          "who": "Young boy mannequin",
-          "reaction": "turns around laughing after five helpless minutes"
+          "who": "Homeowner",
+          "reaction": "rubs temples recognizing blunt thought suppression backfired"
         }
       ],
-      "wardrobe": "1860s linen tunic shirt and trousers.",
-      "lighting": "Warm morning window light.",
-      "recognition_hook": "Wait in this corner until you stop thinking of a white bear — Tolstoy's 1863 childhood dare became modern cognitive science.",
+      "wardrobe": "Soft navy cotton pajama top.",
+      "lighting": "Crisp cool moonlight balanced with warm bedside lamp rim light.",
+      "recognition_hook": "Commanding your brain 'Stop worrying and sleep!' at 3 a.m. feeds the exact radar keeping you awake.",
       "sources": [
         "SRC1",
         "SRC2",
-        "SRC_M1",
-        "SRC_M2"
+        "SRC5"
       ]
     },
     {
       "id": "S3",
-      "title": "Experiment 2 Cure: The Single 'Red Volkswagen' Anchor",
+      "title": "Experiment 2 Antidote: One Red Die-Cast Volkswagen Silences the Bell",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "1987, Trinity University booth",
+      "era": "1987, Trinity University booth (Experiment 2)",
       "layout": {
-        "description": "Same booth desk, now holding a crisp card reading 'If a white bear occurs, focus on ONE Red Volkswagen beetle' beside a small red die-cast model.",
+        "description": "Same oak testing desk, now featuring a bright red die-cast Volkswagen Beetle model placed squarely in front of the untouched, silent chrome tap-bell.",
         "positions": [
           {
-            "who": "Student Participant",
-            "where": "speaking calmly into the microphone with right hand resting relaxed BESIDE the silent silver bell",
-            "facing": "facing mic"
+            "who": "42-year-old adult volunteer",
+            "where": "seated calmly rolling the small red Volkswagen model across the desk while the silver bell stays untouched",
+            "facing": "facing the red Volkswagen model and microphone"
           }
         ]
       },
       "props": [
         {
-          "name": "Red Volkswagen replacement card & silent bell",
-          "period_detail": "focused single distractor",
-          "physical_behavior": "eliminates Period-2 rebound completely"
+          "name": "red die-cast Volkswagen Beetle model beside silent chrome tap-bell",
+          "period_detail": "1980s miniature red Beetle used to stage Wegner's Experiment 2 focused-distraction cure",
+          "physical_behavior": "State-A hand reaches past bell -> State-B fingers roll red Beetle smoothly forward while bell stays completely silent"
         }
       ],
       "actions": [
         {
-          "who": "Student Participant",
-          "verb_sequence": "anchors smoothly on the single replacement image -> Period 2 bell count stays completely flat with zero rebound"
+          "who": "Adult volunteer",
+          "verb_sequence": "picks up the single red Volkswagen focus -> speaks calmly into mic with zero rebound bell rings"
         }
       ],
       "reactions": [
         {
-          "who": "Daniel Wegner",
-          "reaction": "circles the flat Experiment-2 rebound bar"
+          "who": "Adult volunteer",
+          "reaction": "nods with calm relief as the rebound surge vanishes"
         }
       ],
-      "wardrobe": "1987 collegiate sweater.",
-      "lighting": "High-key booth light.",
-      "recognition_hook": "Giving the brain ONE absorbing positive destination wiped out the white-bear rebound in Experiment 2.",
+      "wardrobe": "1987 smart-casual sweater over collared shirt.",
+      "lighting": "Bright high-key booth daylight.",
+      "recognition_hook": "Giving a tired mind ONE concrete replacement destination wiped out the white-bear rebound completely.",
       "sources": [
         "SRC1",
         "SRC2"
@@ -168,46 +162,59 @@
     },
     {
       "id": "S4",
-      "title": "Golfer / Speaker swapping 'Don't hit water' for 'Land center green'",
+      "title": "Outdoor Morning Putting Green: Aiming at the Center Flagstick Instead of the Pond",
       "iconic": false,
       "shorts_priority": 2,
-      "era": "Modern sunlit putting green / podium",
+      "era": "Modern sunlit morning neighborhood golf green (Outdoor)",
       "layout": {
-        "description": "Bright sunlit golf green bordering a pond where a player crosses out 'Don't hit pond' in a yardage notebook and points club squarely at a crisp white center flagstick.",
+        "description": "Open-air sunlit morning putting green beside a sparkling pond where a 55-year-old golfer aligns putter squarely toward the crisp white center pin and rolls the ball straight into the cup.",
         "positions": [
           {
-            "who": "Golfer mannequin",
-            "where": "aligning shoulders calmly toward the center pin and rolling the ball dead-center",
-            "facing": "facing flagstick"
+            "who": "55-year-old golfer in breathable polo shirt and chinos",
+            "where": "standing on the sunlit outdoor green pointing putter blade at the center flagstick before striking a clean putt",
+            "facing": "facing the outdoor flagstick"
           }
         ]
       },
       "props": [
         {
-          "name": "positive target yardage card ('Aim Center Pin')",
-          "period_detail": "replaces ironic hazard monitor with clear motor target",
-          "physical_behavior": "keeps both brain systems aligned"
+          "name": "brass putter, white golf ball, and center flagstick beside pond",
+          "period_detail": "classic outdoor weekend golf green setup",
+          "physical_behavior": "State-A golfer grounds putter behind white ball -> State-B smooth pendulum stroke rolls ball dead-center into cup"
         }
       ],
       "actions": [
         {
-          "who": "Golfer mannequin",
-          "verb_sequence": "locks eyes on center pin -> strokes smooth putt straight to the cup"
+          "who": "Golfer",
+          "verb_sequence": "locks gaze onto a single spot on the cup -> strokes ball smoothly into the hole"
         }
       ],
       "reactions": [
         {
-          "who": "Golfer mannequin",
-          "reaction": "nods calmly"
+          "who": "Golfer",
+          "reaction": "raises putter in quiet satisfaction"
         }
       ],
-      "wardrobe": "Clean polo shirt and chinos.",
-      "lighting": "Crisp outdoor morning sunshine.",
-      "recognition_hook": "Your brain steers toward whatever noun you feed it — feed it the target, never the hazard.",
+      "wardrobe": "Light sage golf polo, tailored chinos, walking shoes.",
+      "lighting": "Crisp golden outdoor morning sunlight across green turf.",
+      "recognition_hook": "Feed your brain the exact target you want — never the water hazard you fear.",
       "sources": [
         "SRC1",
-        "SRC2"
+        "SRC2",
+        "SRC6"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Forced 'Do Not Think' suppression loop ricocheting back to the desk bell",
+    "landmark_or_object_b": "Single focused replacement-thought straight exit lane",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past Harvard Yard red-brick gables ascending into top-down study cutaway",
+    "cut_b_topdown_3d_arrow": "90-degree top-down room maze where #FF2525 3D rebound arrows bounce repeatedly back to the central silver bell",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

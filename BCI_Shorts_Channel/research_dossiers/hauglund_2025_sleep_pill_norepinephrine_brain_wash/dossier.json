@@ -1,0 +1,218 @@
+{
+  "schema_version": 2,
+  "slug": "hauglund_2025_sleep_pill_norepinephrine_brain_wash",
+  "topic": "2025 Breakthrough: Why Certain Sleeping Pills Mute Your Brain's Nightly Pump",
+  "pillar": "brain_news",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T03:43:55+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "NEURO_BIOLOGY showcases the 2025 Cell discovery: rhythmic 50-second brainstem norepinephrine pulses pumping cerebrospinal fluid across the #27D8FF 3D brain—versus zolpidem muting the pump by 50%.",
+  "setup_18w": "Researchers tracked slow nightly blood-vessel waves that pump fluid through the sleeping brain—and tested common sleep drugs.",
+  "primary_doi": "10.1016/j.cell.2024.11.027",
+  "three_layer_formula": {
+    "everyday_problem": "Taking a prescription sleeping pill to knock out for eight hours, yet waking up with a heavy, unwashed morning head because sedation is not restorative sleep.",
+    "psychology_experiment": {
+      "source_id": "SRC3",
+      "doi": "10.1093/brain/awaa443",
+      "source_ids": [
+        "SRC3",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1093/brain/awaa443",
+        "10.1126/science.1241224"
+      ],
+      "summary": "Eide et al. (2021, Brain) tracked 24 human adults over 48 hours with intrathecal contrast MRI, proving one sleepless night stalls molecular waste clearance across 85 brain regions even after recovery sleep."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1016/j.cell.2024.11.027",
+      "year": 2025,
+      "source_ids": [
+        "SRC1",
+        "SRC2",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1016/j.cell.2024.11.027",
+        "10.1126/science.aax5440",
+        "10.1038/s41586-024-07108-6"
+      ],
+      "summary": "Hauglund, Nedergaard et al. (2025, Cell) discovered slow 50-second brainstem norepinephrine waves squeeze blood vessels to pump CSF through the sleeping brain—and showed zolpidem cuts norepinephrine waves by 50% and CSF transport by 30%."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC3",
+        "doi": "10.1093/brain/awaa443",
+        "year": 2021,
+        "summary": "Human 48-hour multiphase contrast MRI trial (7 sleep-deprived vs 17 sleeping controls) proving impaired molecular clearance."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1016/j.cell.2024.11.027",
+        "year": 2025,
+        "summary": "2025 Cell breakthrough discovering norepinephrine-driven slow vasomotion and zolpidem suppression."
+      },
+      {
+        "source_id": "SRC2",
+        "doi": "10.1126/science.aax5440",
+        "year": 2019,
+        "summary": "Human fast-fMRI discovery of coupled slow-wave, blood-volume, and CSF waves in non-REM sleep."
+      }
+    ]
+  },
+  "primary_case": {
+    "title": "Hauglund & Nedergaard's 2025 Cell Discovery of the Brainstem Norepinephrine Nightly Fluid Pump",
+    "year": 2025,
+    "place": "University of Copenhagen (Center for Translational Neuromedicine), Denmark & University of Oxford, UK",
+    "people": [
+      {
+        "name": "Natalie L. Hauglund, Celia Kjaerby & Maiken Nedergaard",
+        "role": "Copenhagen and Oxford neuroscientists who discovered slow 50-second norepinephrine blood-vessel waves drive nightly brain fluid clearance—and tested zolpidem",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Nina E. Fultz & Laura D. Lewis",
+        "role": "Boston University neuroimaging researchers who captured giant coupled waves of cerebrospinal fluid pulsing into the sleeping human brain",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Per Kristian Eide & Geir Ringstad",
+        "role": "Oslo University Hospital clinicians who proved via 48-hour tracer MRI that losing one night of human sleep impairs brain molecular clearance",
+        "source_id": "SRC3"
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In January 2025 in Cell, Hauglund, Nedergaard, and colleagues proved that tightly synchronized slow oscillations in brainstem norepinephrine, blood-vessel volume, and cerebrospinal fluid drive nightly glymphatic waste clearance during non-REM sleep.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "During natural non-REM sleep, the brainstem locus coeruleus releases gentle rhythmic pulses of norepinephrine roughly every 50 seconds, causing cerebral arteries to slowly squeeze and relax like a hydraulic pump.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Compared with 100 percent natural sleep wave amplitude, administering the common sedative sleeping pill zolpidem slashed slow norepinephrine waves to 50 percent—and cut cerebrospinal fluid transport into the brain by 30 percent.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Nightly Pump Wave Strength",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "Natural Sleep",
+            "value": 100.0,
+            "unit": "%"
+          },
+          {
+            "label": "Zolpidem Pill",
+            "value": 50.0,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1016/j.cell.2024.11.027",
+        "source_citation": "Hauglund et al. (2025)"
+      }
+    },
+    {
+      "fact": "In Fultz and Lewis's human accelerated-MRI sleep study, non-REM slow neural waves triggered cortical blood-volume dips immediately followed by large macroscopic waves of cleansing cerebrospinal fluid flowing into the human brain.",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In Eide et al.'s 48-hour human intrathecal MRI tracer study comparing 17 free-sleeping controls against 7 sleep-deprived adults across 85 brain regions, a single sleepless night impaired molecular brain clearance.",
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Human MRI Tracer Cohorts",
+        "unit": "adults",
+        "bars": [
+          {
+            "label": "Sleeping Controls",
+            "value": 17.0,
+            "unit": "adults"
+          },
+          {
+            "label": "Sleepless Group",
+            "value": 7.0,
+            "unit": "adults"
+          }
+        ],
+        "doi": "10.1093/brain/awaa443",
+        "source_citation": "Eide et al. (2021)"
+      }
+    },
+    {
+      "fact": "Even when sleep-deprived human volunteers slept freely on Night 2, residual MRI tracer levels stayed elevated, showing lost nightly brain washing is not fully repaid the next night.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Natural sleep expands the fluid channels between brain cells by 60 percent and doubles beta-amyloid clearance speed compared with wakefulness.",
+      "source_id": "SRC4"
+    },
+    {
+      "fact": "In 2024 in Nature, Jiang-Xie and Kipnis showed synchronized neuronal ionic waves work alongside vascular pumping to propel cerebrospinal fluid through dense brain tissue.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Glymphatic pumping declines with midlife aging and fragmented sleep architecture, linking chronic poor sleep clearance to long-term neurodegenerative protein buildup.",
+      "source_id": "SRC7"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Your brainstem doesn't turn norepinephrine off at night—it pulses it every 50 seconds to turn your brain's blood vessels into a slow dishwashing pump.",
+      "why_surprising": "Flips textbook dogma that norepinephrine is purely a daytime stress hormone.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "While zolpidem knocked subjects out quickly, it cut those slow norepinephrine pump waves by 50 percent and reduced cleansing brain fluid inflow by 30 percent.",
+      "why_surprising": "Reveals a stark mechanical difference between chemical sedation and natural restorative sleep.",
+      "source_id": "SRC1",
+      "rank": 2
+    },
+    {
+      "fact": "In 48-hour human contrast MRI scans across 85 brain regions, skipping just one night of sleep stalled waste clearance—and sleeping the next night didn't fully catch up.",
+      "why_surprising": "Proves the nightly glymphatic rinse cannot simply be banked for the weekend.",
+      "source_id": "SRC3",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "Any pill or nightcap that keeps me unconscious for eight hours gives my brain the exact same nightly cleanup.",
+      "truth": "Suppressing natural non-REM brainstem rhythms flattens slow arterial vasomotion and cuts glymphatic fluid transport by roughly 30 percent.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "I should quit my prescribed sleep medication tonight on my own after reading this.",
+      "truth": "Stopping sedatives abruptly triggers rebound insomnia; clinicians guide gradual tapering paired with CBT-I behavioral sleep therapy.",
+      "source_id": "SRC1"
+    }
+  ],
+  "everyday_hooks": [
+    "Clocking eight motionless hours after a bedtime tablet or nightcap, yet waking up at 7:00 AM feeling like your head was never rinsed clean.",
+    "Picturing your brain's blood vessels gently squeezing like a kitchen sponge under clean running water every 50 seconds of natural deep sleep.",
+    "Protecting natural early-night deep sleep with dark evenings, morning outdoor walks, and doctor-guided CBT-I instead of chronic knockouts."
+  ],
+  "offcenter_creator_bet": "My bet: sedation is not real sleep — would you rebuild natural sleep habits or lean on a nightly pill?",
+  "debate_ignition": {
+    "prebunk_myth": "Millions assume passing out from a sleep aid equals restorative sleep, even when the brain's nightly fluid pump is half-muted.",
+    "open_verdict_question": "For long-term brain health, would you overhaul bedtime habits to protect natural sleep waves or trade pump strength for fast sedation?",
+    "offcenter_creator_bet": "My bet: sedation is not real sleep — would you rebuild natural sleep habits or lean on a nightly pill?"
+  },
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": [],
+  "shorts_projects": [
+    "v8_ep10_sleep_pill_brain_wash"
+  ]
+}

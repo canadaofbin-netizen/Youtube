@@ -22,7 +22,7 @@ from pipeline import config as cfg
 
 
 # ==============================================================================
-# 1. Credit-Aware Dual-Tier Flow Engine (`Omni 1.1 Flash` -> `0-Credit` Fallback)
+# 1. Credit-Aware Dual-Tier Flow Engine (`Omni 1.2 Flash` -> `0-Credit` Fallback)
 # ==============================================================================
 def test_dual_tier_flow_engine_auto_fallback_and_zero_credit_safety(monkeypatch) -> None:
     from pipeline import flow_diorama_sharded_worker as fdsw
@@ -33,7 +33,7 @@ def test_dual_tier_flow_engine_auto_fallback_and_zero_credit_safety(monkeypatch)
         FlowCircuitBreakerError,
     )
 
-    assert cfg.FLOW_PRIMARY_VIDEO_MODEL == "Omni 1.1 Flash"
+    assert cfg.FLOW_PRIMARY_VIDEO_MODEL == "Omni 1.2 Flash"
     assert cfg.FLOW_ZERO_CREDIT_MODEL == "Veo 3.1 - Lite [Lower Priority]"
     assert cfg.DEFAULT_FLOW_ENGINE_MODE == "auto"
     assert set(cfg.FLOW_ENGINE_MODES) == {"auto", "omni", "zero-credit"}
@@ -80,7 +80,7 @@ def test_dual_tier_flow_engine_auto_fallback_and_zero_credit_safety(monkeypatch)
 
     async def _exercise_modes() -> None:
         ev = asyncio.Event()
-        # Case A: Credits available -> selects Omni 1.1 Flash
+        # Case A: Credits available -> selects Omni 1.2 Flash
         c_ok = _FakeCDPClient(credits_exhausted=False)
         res_omni = await fdsw._configure_diorama_tab_engine(c_ok, engine_mode="auto", credit_exhausted_event=ev)
         assert res_omni["flow_model"] == cfg.FLOW_PRIMARY_VIDEO_MODEL
@@ -325,17 +325,11 @@ def test_slot_4_2000_et_and_us_dst_kst_conversion() -> None:
 # ==============================================================================
 def test_voice_fallback_kokoro_mapping_f0_zero_and_fuse_atomic_storage(tmp_path: Path) -> None:
     from pipeline.storage import ProjectStorage
-    from pipeline.voice_consistency import evaluate_f0_series
-    from pipeline.voice_fallback import _resolve_kokoro_voice
+    from pipeline.voice_fallback import resolve_diorama_voice_preset
 
-    assert _resolve_kokoro_voice("en-US-AndrewMultilingualNeural") == cfg.VOICE_FALLBACK_VOICE
-    assert _resolve_kokoro_voice("") == cfg.VOICE_FALLBACK_VOICE
-    assert _resolve_kokoro_voice("am_fenrir") == "am_fenrir"
-
-    f0_rep = evaluate_f0_series([132.0, 0.0, 134.5, 131.0])
-    assert f0_rep["passed"] is False
-    assert 2 in f0_rep["regenerate_clips"]
-    assert 2 in f0_rep["unvoiced_outliers"]
+    p_def, spec_def = resolve_diorama_voice_preset("")
+    assert p_def == "elevenlabs_v4"
+    assert spec_def["elevenlabs_voice_id"] == "CwhRBWXzGAHq8TQ4Fs17"
 
     st = ProjectStorage("fuse_atomic_case", title="FUSE Atomic", pillar="bci_tech", projects_dir=tmp_path / "projects")
     p_json = st.save_json("02_script", "script.json", {"hello": "world", "count": 42})

@@ -13,7 +13,7 @@ Architecture (6-Stage Zero-Pixel-Copy Reenactment Pipeline):
       mannequin silhouettes while preserving chair angles, wardrobe tones, floor props, and pose vectors,
       and expands `4:3 -> 9:16` (`720x1280`) high-key studio framing without black bars.
   Stage 3 (`translate_porcelain_keyframes`):
-      Uses native Google Flow `0-credit` `Image` mode (`Nano Banana 2.1`, `x4` batch per prompt,
+      Uses native Google Flow `0-credit` `Image` mode (`Nano Banana 2.1`, `x1` first-pass / `x2` retry per prompt,
       `generate_flow_image_batch`) with `(structural_guide.png, master_cast_or_env.png)` (`<= 2` ingredients)
       to synthesize 100% newly generated `porcelain_cinematic_v7` (`R66`) reference keyframes in
       `03_visuals/reference_images/`, auto-selecting the highest-scoring `Q1..Q7` + `RQ2` candidate,
@@ -46,6 +46,8 @@ from pipeline.config import (
     DIORAMA_TARGET_CUT_MIN,
     DOSSIERS_DIR,
     FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    FLOW_ZERO_CREDIT_IMAGE_FALLBACK_MODELS,
+    FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT,
     PORCELAIN_V7_LONG_TAKE_MAX_SEC,
     PORCELAIN_V7_MIN_CUT_SEC,
     PORCELAIN_V7_STYLE_PROFILE,
@@ -64,6 +66,7 @@ from pipeline.config import (
     REENACT_QUARANTINE_ROOT,
     WORKSPACE_ROOT,
     YUNET_FACE_MODEL_PATH,
+    resolve_flow_image_batch_count,
 )
 from pipeline.reference_image_qa import (
     _dhash_64,
@@ -1284,6 +1287,351 @@ def render_reenactment_comparison_sheet(
     return out_path
 
 
+def resolve_keyframe_conditioning_and_prompt(
+    spec: dict[str, Any],
+    plan: dict[str, Any],
+    guides_dir: Path,
+    ref_dir: Path,
+) -> tuple[list[Path], str, bool]:
+    """
+    Resolves `<= 2` conditioning PNG paths (`[guide_or_previs_png, cast_or_style_sheet_png]`)
+    and composes the Flow `Image` translation prompt, supporting both R67 sanitized structural
+    guides AND Phase 5.5 3D Workbench Previs PNGs (`previs_guide_png` + `color_role_legend`).
+    Returns `(cond_paths, full_prompt, has_structural_or_previs_guide)`.
+    """
+    from pipeline.config import (
+        EXPRESSIVE_25D_V8_STYLE_PROFILE,
+        PORCELAIN_V7_STYLE_PROFILE,
+        PROMPT_SCHEMA_VERSION_V8,
+        is_expressive_v8_plan,
+    )
+    from pipeline.previs_blender import format_previs_color_mapping_prompt
+
+    cond_paths: list[Path] = []
+    sc_id = str(spec.get("scene_id") or "")
+    which = str(spec.get("frame") or "start")
+    is_brain_setting = spec.get("setting") in (*BRAIN_SETTINGS, "brain_studio")
+
+    # 1. Check explicit or directory-discovered 3D Previs PNG first, then Track A structural guide
+    previs_cand: Path | None = None
+    explicit_pv = str(spec.get("previs_guide_png") or "").strip()
+    if explicit_pv:
+        p_exp = Path(explicit_pv)
+        if p_exp.is_file():
+            previs_cand = p_exp
+    if previs_cand is None and sc_id:
+        for pv_name in (f"{sc_id}_{which}_previs.png", f"{sc_id}_start_previs.png"):
+            cand_pv = guides_dir / pv_name
+            if cand_pv.is_file():
+                previs_cand = cand_pv
+                break
+
+    is_previs_guide = False
+    guide_cand = guides_dir / f"{sc_id}_{which}_guide.png"
+    if not guide_cand.exists() and sc_id.startswith("S"):
+        guide_cand = guides_dir / f"{sc_id}_start_guide.png"
+
+    if previs_cand is not None and not is_brain_setting and not bool(spec.get("skip_structural_guide")):
+        cond_paths.append(previs_cand)
+        is_previs_guide = True
+    elif guide_cand.exists() and not is_brain_setting and not bool(spec.get("skip_structural_guide")):
+        cond_paths.append(guide_cand)
+
+    has_guide_cond = len(cond_paths) > 0
+
+    raw_cond_ids = [str(c) for c in (spec.get("conditioned_on") or []) if str(c).strip()]
+    if has_guide_cond:
+        # Pair [guide_or_previs_png, character_sheet] strictly <= 2 attachments
+        preferred_cast = [
+            c for c in raw_cond_ids if c.startswith(("ref_cast_", "species_opt1", "ref_turnaround"))
+        ]
+        others = [c for c in raw_cond_ids if c not in preferred_cast]
+        raw_cond_ids = preferred_cast + others
+
+    is_v8_anchor = is_expressive_v8_plan(plan) or str(spec.get("style_profile") or "") == EXPRESSIVE_25D_V8_STYLE_PROFILE
+    if is_v8_anchor:
+        spec.setdefault("style_profile", EXPRESSIVE_25D_V8_STYLE_PROFILE)
+        spec.setdefault("schema_version", PROMPT_SCHEMA_VERSION_V8)
+
+    # Rule R72-R: Resolve quarantined Wikimedia real-world structural guide if tagged on spec
+    real_guide_cand: Path | None = None
+    rw_tid = str(spec.get("real_world_target_id") or "").strip()
+    r72_stage = str(spec.get("r72_relay_stage") or "").strip().upper()
+    if rw_tid and not is_brain_setting:
+        from pipeline.real_world_reference_builder import resolve_quarantined_real_guide_path
+
+        proj_name = ref_dir.parent.parent.name if ref_dir.parent.name == "03_visuals" else str((plan or {}).get("project_id") or "")
+        if proj_name:
+            real_guide_cand = resolve_quarantined_real_guide_path(proj_name, rw_tid)
+
+    r74_stage = str(spec.get("r74_relay_stage") or "").strip().upper()
+    is_r85_brain = bool(spec.get("r85_brain_clip"))
+    explicit_canonical_slot = str(spec.get("canonical_slot_id") or "").strip()
+    # For R85 Ep #31 6-Scale Brain & canonical-bound anchors: slot #1 = approved SHA-locked canonical_assets/v1 slot (or Start frame for End specs), slot #2 = offscreen cutaway/MNI152 guide
+    if is_r85_brain or explicit_canonical_slot:
+        from pipeline.canonical_assets import (
+            CanonicalAssetError,
+            is_retired_derivative_anchor,
+            resolve_canonical_approved_slot,
+            select_canonical_brain_slot,
+            stage_canonical_slot_to_project,
+        )
+
+        for bad_c in raw_cond_ids:
+            if is_retired_derivative_anchor(bad_c):
+                raise CanonicalAssetError(
+                    f"Keyframe '{spec.get('ref_id')}' conditioned_on retired derivative anchor '{bad_c}'"
+                )
+
+        cond_paths.clear()
+        is_previs_guide = False
+        p_dir_can = ref_dir.parent.parent if ref_dir.parent.name == "03_visuals" else None
+
+        # Preserve Start->End keyframe chaining when generating an End keyframe conditioned on its Start keyframe in ref_dir
+        if str(spec.get("frame") or "").strip().lower() == "end" and raw_cond_ids:
+            first_c = str(raw_cond_ids[0]).strip()
+            first_fn = first_c if first_c.lower().endswith((".png", ".jpg", ".jpeg")) else f"{first_c}.png"
+            start_cand_p = ref_dir / first_fn
+            if start_cand_p.is_file() and not is_retired_derivative_anchor(first_fn):
+                cond_paths.append(start_cand_p)
+
+        if not cond_paths:
+            slot_to_use = explicit_canonical_slot or select_canonical_brain_slot(
+                brain_region=str(spec.get("brain_region") or ""),
+                viewpoint=str(spec.get("viewpoint") or ""),
+                mode=str(spec.get("r85_brain_mode") or ""),
+                shot_scale=str(spec.get("r85_shot_scale") or ""),
+                neural_state=str(spec.get("neural_state") or ""),
+                side_by_side=bool(spec.get("side_by_side_brain_compare")),
+            )
+            slot_frame = str(spec.get("canonical_slot_frame") or "single").strip().lower()
+            if p_dir_can is not None and p_dir_can.is_dir():
+                staged_can = stage_canonical_slot_to_project(
+                    p_dir_can,
+                    slot_to_use,
+                    version="auto",
+                    frame=slot_frame,
+                )
+                cond_paths.append(Path(staged_can["staged_path"]))
+            else:
+                res_can = resolve_canonical_approved_slot(
+                    slot_to_use,
+                    version="auto",
+                    frame=slot_frame,
+                    verify_sha256=True,
+                )
+                cond_paths.append(Path(res_can["abs_path"]))
+
+        proj_name_r85 = ref_dir.parent.parent.name if ref_dir.parent.name == "03_visuals" else str((plan or {}).get("project_id") or "")
+        runtime_guide_entry: dict[str, Any] = {}
+        if proj_name_r85:
+            rt_map_p = Path(f"/tmp/aab_real_refs/{proj_name_r85}/r85_brain_guide_map.json")
+            if rt_map_p.is_file():
+                try:
+                    runtime_guide_entry = (json.loads(rt_map_p.read_text(encoding="utf-8")) or {}).get(str(spec.get("ref_id") or ""), {})
+                except Exception:
+                    runtime_guide_entry = {}
+        for g_key in ("structural_guide_path", "mni152_offscreen_guide"):
+            g_raw = str(spec.get(g_key) or runtime_guide_entry.get(g_key) or "").strip()
+            if g_raw and len(cond_paths) < 2:
+                gp = Path(g_raw)
+                if gp.is_file() and gp not in cond_paths:
+                    cond_paths.append(gp)
+                    has_guide_cond = True
+                    break
+        if len(cond_paths) < 2 and is_r85_brain:
+            # Optional secondary local or canonical reference (never retired derivative)
+            for cond_id in raw_cond_ids:
+                if len(cond_paths) >= 2:
+                    break
+                cname = cond_id if cond_id.lower().endswith((".png", ".jpg", ".jpeg")) else f"{cond_id}.png"
+                cand_p = ref_dir / cname
+                if cand_p.is_file() and cand_p not in cond_paths and not is_retired_derivative_anchor(cname):
+                    cond_paths.append(cand_p)
+    # For K1/K2 relay stages or R74 B1 macro neural anchors, resolve conditioned_on (K0/K1 or B0 in ref_dir) FIRST!
+    elif r72_stage in ("K1", "K2") or r74_stage == "B1":
+        cond_paths.clear()
+        is_previs_guide = False
+        for cond_id in raw_cond_ids:
+            if len(cond_paths) >= 2:
+                break
+            cname = cond_id if cond_id.lower().endswith((".png", ".jpg", ".jpeg")) else f"{cond_id}.png"
+            cand_p = ref_dir / cname
+            if cand_p.exists() and cand_p not in cond_paths:
+                cond_paths.append(cand_p)
+        if real_guide_cand is not None and len(cond_paths) < 2 and real_guide_cand not in cond_paths:
+            cond_paths.append(real_guide_cand)
+        if previs_cand is not None and len(cond_paths) < 2 and previs_cand not in cond_paths:
+            cond_paths.append(previs_cand)
+    else:
+        if real_guide_cand is not None and not bool(spec.get("skip_structural_guide")):
+            # Real-world guide takes primary slot #1; previs or character sheet takes slot #2
+            cond_paths = [real_guide_cand] + [p for p in cond_paths if p != real_guide_cand][:1]
+            is_previs_guide = False
+            has_guide_cond = True
+        for cond_id in raw_cond_ids:
+            if len(cond_paths) >= 2:
+                break
+            cname = cond_id if cond_id.lower().endswith((".png", ".jpg", ".jpeg")) else f"{cond_id}.png"
+            cand_p = ref_dir / cname
+            if cand_p.exists() and cand_p not in cond_paths:
+                cond_paths.append(cand_p)
+
+    base_prompt = str(spec.get("prompt") or "")
+    allow_toks = [str(t).strip() for t in (spec.get("diegetic_text_allowlist") or []) if str(t).strip()]
+    cast_suffix = ""
+    if spec.get("present_cast") is not None and not is_brain_setting:
+        p_list = [str(x).strip() for x in (spec.get("present_cast") or []) if str(x).strip()]
+        if len(p_list) == 0:
+            if real_guide_cand is not None or r72_stage in ("K0", "K1"):
+                cast_suffix += " No close-up foreground portrait figures block the architecture."
+            else:
+                cast_suffix += " The room and all chairs are completely empty with zero figures present."
+        elif is_v8_anchor:
+            cast_suffix += f" Present in frame: {', '.join(p_list)}."
+        else:
+            cast_suffix += f" Exactly {len(p_list)} clothed matte-white porcelain figure(s) appear in the frame ({', '.join(p_list)})."
+    if spec.get("empty_chairs_note"):
+        cast_suffix += f" {str(spec['empty_chairs_note']).strip()}"
+    if "no text" not in base_prompt.lower() and "zero text" not in base_prompt.lower():
+        if allow_toks:
+            q_allow = ", ".join(f"'{t}'" for t in allow_toks[:2])
+            cast_suffix += f" Crisp physical prop stencil displays {q_allow} only; zero other text, letters, or watermarks."
+        else:
+            cast_suffix += " Strictly zero text, zero letters, zero numbers, zero labels, no watermark."
+
+    if is_r85_brain:
+        from pipeline.config import R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE
+
+        r85_mode_lead = str(spec.get("r85_brain_mode") or "").strip().lower()
+        r85_scale_lead = str(spec.get("r85_shot_scale") or "").strip().lower()
+        if r85_mode_lead == "mode1_xray_translucent_head" or r85_scale_lead == "xray_head_dive":
+            brain_cond_lead = (
+                "Vertical 9:16 full-bleed 3D neuroanatomy render in genuine Episode #31 Mode 1 X-Ray style over solid flat dark navy void (#040711), "
+                "large hero framing filling 85% to 92% of the horizontal 9:16 width. "
+                "Match the smooth bright pearl-gray glossy mannequin head-and-shoulders bust (#C4CBD2 to #E4E8EC, never dark or black glass) and clear "
+                "see-through transparent upper glass cranium cleanly enclosing the full interior almost-white matte gypsum-plaster 3D brain (#DCDFE3 to "
+                "#F0F3F6) with an organic tree-like branching network of thick opaque sky-blue (#27D8FF) 3D blood-vessel tubes spreading naturally over "
+                "the brain surface (never outlining every sulcal groove) from the first reference image. "
+            )
+        else:
+            guide_clause = (
+                "while following the exact surgical cutaway viewpoint and anatomical position of the second reference guide (render zero text, zero pointer lines, zero labels). "
+                if len(cond_paths) >= 2
+                else "in clean hero full-bleed 3D neuroanatomical perspective filling 85% to 92% of the horizontal 9:16 width. "
+            )
+            brain_cond_lead = (
+                "Vertical 9:16 full-bleed 3D neuroanatomy render in genuine Episode #31 Mode 2 style over solid flat dark navy void (#040711), "
+                "large hero framing filling 85% to 92% of the horizontal 9:16 width under unified bright top-left 45-degree studio keylight. "
+                "Match the almost-white bright cool matte sculpted gypsum-plaster cortical gyri (#DCDFE3 to #F0F3F6, ultra-low saturation matte chalk "
+                "texture, strictly zero blue steel tint, zero wet cortical gloss) and the organic tree-like branching network of thick round opaque sky-blue "
+                "(#27D8FF to #58E4FF) 3D cylindrical blood-vessel tubes with crisp glossy rim highlights spreading naturally OVER the cortical surface "
+                f"(never outlining or tracing every sulcal fold like a contour wireframe) from the first reference image, {guide_clause}"
+            )
+        anti_vfx_tail = (
+            ""
+            if R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE.lower() in base_prompt.lower()
+            else f" {R85_BRAIN_ANTI_VFX_NEGATIVE_CLAUSE}."
+        )
+        full_prompt = f"{brain_cond_lead}{base_prompt}{cast_suffix}{anti_vfx_tail}"
+    elif is_brain_setting and (is_v8_anchor or r74_stage in ("B0", "B1")):
+        brain_cond_lead = (
+            "Vertical 9:16 full-bleed medical-grade 3D translucent borosilicate crystal-glass neuroanatomy photograph in a deep midnight-navy chamber (#050811). "
+            "Preserve the exact frosted borosilicate crystal-glass cortical surface refraction and 4-color optical-glass internal glow from the primary brain reference image "
+            + (
+                "while zooming deep inside the parted glass cortical ribs to match the close-up macro subcortical framing of the 3D layout guide (replace any solid matte previs marker sphere with luminous sculpted optical glass). "
+                if r74_stage == "B1"
+                else "in clean full-brain 3D perspective. "
+            )
+        )
+        full_prompt = f"{brain_cond_lead}{base_prompt}{cast_suffix}"
+    elif is_previs_guide:
+        eff_legend = spec.get("color_role_legend")
+        if not eff_legend and isinstance(plan, dict):
+            c_idx_pv = int(spec.get("clip_number") or 0)
+            p_clips_pv = plan.get("clips") if isinstance(plan.get("clips"), list) else []
+            if 1 <= c_idx_pv <= len(p_clips_pv) and isinstance(p_clips_pv[c_idx_pv - 1], dict):
+                pv_d = p_clips_pv[c_idx_pv - 1].get("previs")
+                if isinstance(pv_d, dict) and pv_d.get("color_role_legend"):
+                    eff_legend = pv_d["color_role_legend"]
+            if not eff_legend and sc_id:
+                for cp_it in p_clips_pv:
+                    if isinstance(cp_it, dict) and str(cp_it.get("scene_id") or "") == sc_id:
+                        pv_d = cp_it.get("previs")
+                        if isinstance(pv_d, dict) and pv_d.get("color_role_legend"):
+                            eff_legend = pv_d["color_role_legend"]
+                            break
+        pv_lead = format_previs_color_mapping_prompt(
+            eff_legend,
+            style_profile=EXPRESSIVE_25D_V8_STYLE_PROFILE if is_v8_anchor else PORCELAIN_V7_STYLE_PROFILE,
+            has_character_sheet=(len(cond_paths) >= 2),
+        )
+        full_prompt = f"{pv_lead} {base_prompt}{cast_suffix}".strip()
+    elif is_v8_anchor and (real_guide_cand is not None or r72_stage in ("K0", "K1", "K2")):
+        if r72_stage == "K2":
+            arch_lead = (
+                "Vertical 9:16 full-bleed stylized 3D architectural cutaway miniature diorama photograph. "
+                "Preserve the exact exterior building architecture from the first reference image while slicing open "
+                "a clean geometric section of the front facade wall to reveal the warm illuminated interior laboratory. "
+            )
+        else:
+            arch_lead = (
+                "Vertical 9:16 full-bleed stylized 3D cinematic miniature diorama photograph. "
+                "Match the real-world architectural silhouette, roof/dome profile, column/window rhythm, and masonry/prop "
+                "palette of the reference guide while rendering every surface from scratch in tactile miniature 3D materials. "
+            )
+        full_prompt = f"{arch_lead}{base_prompt}{cast_suffix}"
+    elif is_v8_anchor:
+        from pipeline.config import is_r88_faceless_cast_plan
+
+        is_r88 = is_r88_faceless_cast_plan(plan) or bool(spec.get("r88_mode"))
+        is_zero_people_spec = (
+            spec.get("present_cast") == []
+            or "zero people" in base_prompt.lower()
+            or "zero figures" in base_prompt.lower()
+        )
+        if cond_paths:
+            if is_zero_people_spec:
+                cond_lead = (
+                    "Match the warm miniature 3D lighting, oak/ceramic material palette, and clean tabletop composition "
+                    "of the reference image with strictly zero people, zero dolls, zero mannequins, and zero hands in frame. "
+                )
+            elif is_r88:
+                cond_lead = (
+                    "Match the R88 faceless architectural porcelain diorama aesthetic of the reference image "
+                    "(smooth featureless matte-white #F5F2EB architectural porcelain figure with a pure smooth blank "
+                    "unprinted oval head silhouette, four-fingered matte-white porcelain hands, tailored 3D matte woven clothing). "
+                )
+            else:
+                cond_lead = (
+                    "Match the exact 2.5D character species from the reference sheet (smooth earless noseless hairless matte cream-white vinyl oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, four-fingered matte cream-white vinyl hands, tailored 3D woven fabric clothing). "
+                )
+        else:
+            cond_lead = ""
+        full_prompt = (
+            f"Vertical 9:16 full-bleed stylized 3D cinematic miniature diorama photograph. {cond_lead}{base_prompt}{cast_suffix}"
+        )
+    elif has_guide_cond:
+        i2i_prefix = (
+            "Vertical 9:16 high-key architectural documentary photograph. Match the room layout, chair placement, "
+            "tabletop props, and body pose geometry of the first structural guide image, replacing every figure with "
+            "articulated matte-white porcelain mannequins with smooth featureless oval porcelain heads and period "
+            "fabric clothing (bright studio daylight, clean blank unmarked walls, zero text or labels). "
+        )
+        full_prompt = f"{i2i_prefix}{base_prompt}{cast_suffix}"
+    else:
+        cast_head_lock = (
+            ", articulated matte-white porcelain mannequins with completely smooth featureless blank white oval heads and period fabric clothing"
+            if (spec.get("present_cast") and not is_brain_setting)
+            else ""
+        )
+        full_prompt = (
+            f"Vertical 9:16 portrait aspect ratio (tall vertical frame, full-bleed high-key studio daylight{cast_head_lock}). {base_prompt}{cast_suffix}"
+        )
+
+    return cond_paths[:2], full_prompt, has_guide_cond
+
+
 async def translate_porcelain_keyframes_async(
     project_dir: Path,
     slug: str,
@@ -1292,11 +1640,12 @@ async def translate_porcelain_keyframes_async(
     only_ref_ids: set[str] | None = None,
     force: bool = False,
     backend: str = DEFAULT_REENACT_IMAGE_BACKEND,
-    batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    batch_count: int | None = None,
+    retry_batch_count: int = FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT,
 ) -> dict[str, Any]:
     """
     Stage 3: Synthesizes `porcelain_cinematic_v7` master anchors + shot start/end reference keyframes
-    exclusively inside Google Flow `0-credit` `Image` mode (`Nano Banana 2.1`, `x4` batch per prompt,
+    exclusively inside Google Flow `0-credit` `Image` mode (`Nano Banana 2.1`, `x1` first-pass / `x2` retry per prompt,
     auto-selecting the highest-scoring `Q1..Q7` + `RQ2 dHash >= 18` candidate), conditioning lab keyframes
     on `(sanitized_guide.png, ref_cast_or_env.png)` (`<= 2` ingredients).
     """
@@ -1310,7 +1659,18 @@ async def translate_porcelain_keyframes_async(
         raise ValueError(
             f"Unsupported reenactment image backend: {backend!r} (expected one of {REENACT_IMAGE_BACKENDS})"
         )
-    eff_batch = max(1, min(4, int(batch_count or FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT)))
+    first_pass_batch = resolve_flow_image_batch_count(
+        batch_count,
+        is_retry=False,
+        force=force,
+        retry_batch_count=retry_batch_count,
+    )
+    eff_retry_batch = resolve_flow_image_batch_count(
+        batch_count,
+        is_retry=True,
+        force=force,
+        retry_batch_count=retry_batch_count,
+    )
 
     p_dir = Path(project_dir)
     if not p_dir.exists():
@@ -1332,6 +1692,16 @@ async def translate_porcelain_keyframes_async(
     edl_path = vis_dir / REENACT_EDL_FILENAME
     edl_doc = json.loads(edl_path.read_text(encoding="utf-8")) if edl_path.exists() else {"shots": [], "source_dhash_64_list": []}
     source_dhashes = list(edl_doc.get("source_dhash_64_list") or [])
+    from pipeline.config import REAL_WORLD_REFS_MANIFEST_FILENAME
+    rw_manifest_path = vis_dir / REAL_WORLD_REFS_MANIFEST_FILENAME
+    if rw_manifest_path.exists():
+        try:
+            rw_doc = json.loads(rw_manifest_path.read_text(encoding="utf-8"))
+            for rdh in rw_doc.get("raw_dhash64_list") or []:
+                if str(rdh).strip() and str(rdh).strip() not in source_dhashes:
+                    source_dhashes.append(str(rdh).strip())
+        except Exception:
+            pass
 
     q_dir = Path(work_dir) if work_dir else (REENACT_QUARANTINE_ROOT / slug)
     guides_dir = q_dir / "guides"
@@ -1369,12 +1739,19 @@ async def translate_porcelain_keyframes_async(
             return
         release_and_close_leased_tab(tid, owner_id=owner_id, cdp_port=cdp_port)
 
+    unusual_activity_halted = False
+    halt_reason = ""
     try:
         client_cm = None
         client: DirectCDPClient | None = None
+        fallback_models = list(FLOW_ZERO_CREDIT_IMAGE_FALLBACK_MODELS)
+        rl_models: set[str] = set()
         for idx_sp, spec in enumerate(ordered_specs, start=1):
             ref_id = str(spec["ref_id"])
             if only_ref_ids and ref_id not in only_ref_ids:
+                continue
+            if unusual_activity_halted or not [m for m in fallback_models if m not in rl_models]:
+                failed.append(ref_id)
                 continue
             out_png = ref_dir / str(spec["filename"])
             if out_png.exists() and not force:
@@ -1387,89 +1764,37 @@ async def translate_porcelain_keyframes_async(
                     print(f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: cached_ok (dHash_min={min_dh})", flush=True)
                     continue
 
-            # Select <= 2 conditioning PNGs
-            cond_paths: list[Path] = []
             sc_id = str(spec.get("scene_id") or "")
             which = str(spec.get("frame") or "start")
             guide_cand = guides_dir / f"{sc_id}_{which}_guide.png"
             if not guide_cand.exists() and sc_id.startswith("S"):
                 guide_cand = guides_dir / f"{sc_id}_start_guide.png"
-            if (
-                guide_cand.exists()
-                and spec.get("setting") not in (*BRAIN_SETTINGS, "brain_studio")
-                and not bool(spec.get("skip_structural_guide"))
-            ):
-                cond_paths.append(guide_cand)
-
-            raw_cond_ids = [str(c) for c in (spec.get("conditioned_on") or []) if str(c).strip()]
-            if guide_cand in cond_paths:
-                # Track A R67 lock: pair [guide_png, ref_cast_*] instead of [guide_png, ref_env_master]
-                raw_cond_ids = [c for c in raw_cond_ids if c.startswith("ref_cast_")] + [
-                    c for c in raw_cond_ids if not c.startswith("ref_cast_")
-                ]
             is_v8_anchor = is_expressive_v8_plan(plan) or str(spec.get("style_profile") or "") == EXPRESSIVE_25D_V8_STYLE_PROFILE
-            if is_v8_anchor:
-                spec.setdefault("style_profile", EXPRESSIVE_25D_V8_STYLE_PROFILE)
-                spec.setdefault("schema_version", PROMPT_SCHEMA_VERSION_V8)
-
-            for cond_id in raw_cond_ids:
-                if len(cond_paths) >= 2:
-                    break
-                cname = cond_id if cond_id.lower().endswith((".png", ".jpg", ".jpeg")) else f"{cond_id}.png"
-                cand_p = ref_dir / cname
-                if cand_p.exists() and cand_p not in cond_paths:
-                    cond_paths.append(cand_p)
-
-            base_prompt = str(spec.get("prompt") or "")
-            allow_toks = [str(t).strip() for t in (spec.get("diegetic_text_allowlist") or []) if str(t).strip()]
-            cast_suffix = ""
-            if spec.get("present_cast") is not None:
-                p_list = [str(x).strip() for x in (spec.get("present_cast") or []) if str(x).strip()]
-                if len(p_list) == 0:
-                    cast_suffix += " The room and all chairs are completely empty with zero figures present."
-                elif is_v8_anchor:
-                    cast_suffix += f" Present in frame: {', '.join(p_list)}."
-                else:
-                    cast_suffix += f" Exactly {len(p_list)} clothed matte-white porcelain figure(s) appear in the frame ({', '.join(p_list)})."
-            if spec.get("empty_chairs_note"):
-                cast_suffix += f" {str(spec['empty_chairs_note']).strip()}"
-            if "no text" not in base_prompt.lower() and "zero text" not in base_prompt.lower():
-                if allow_toks:
-                    q_allow = ", ".join(f"'{t}'" for t in allow_toks[:2])
-                    cast_suffix += f" Crisp physical prop stencil displays {q_allow} only; zero other text, letters, or watermarks."
-                else:
-                    cast_suffix += " Strictly zero text, zero letters, zero numbers, zero labels, no watermark."
-
-            if is_v8_anchor:
-                cond_lead = (
-                    "Match the exact 2.5D character species from the reference sheet (smooth earless noseless hairless matte cream-white vinyl oval head, bold charcoal-black 2D cartoon ink eyes eyebrows and mouth, four-fingered matte cream-white vinyl hands, tailored 3D woven fabric clothing). "
-                    if cond_paths
-                    else ""
-                )
-                full_prompt = (
-                    f"Vertical 9:16 full-bleed stylized 3D cinematic miniature diorama photograph. {cond_lead}{base_prompt}{cast_suffix}"
-                )
-            elif guide_cand in cond_paths:
-                i2i_prefix = (
-                    "Vertical 9:16 high-key architectural documentary photograph. Match the room layout, chair placement, "
-                    "tabletop props, and body pose geometry of the first structural guide image, replacing every figure with "
-                    "articulated matte-white porcelain mannequins with smooth featureless oval porcelain heads and period "
-                    "fabric clothing (bright studio daylight, clean blank unmarked walls, zero text or labels). "
-                )
-                full_prompt = f"{i2i_prefix}{base_prompt}{cast_suffix}"
-            else:
-                cast_head_lock = (
-                    ", articulated matte-white porcelain mannequins with completely smooth featureless blank white oval heads and period fabric clothing"
-                    if (spec.get("present_cast") and spec.get("setting") not in (*BRAIN_SETTINGS, "brain_studio"))
-                    else ""
-                )
-                full_prompt = (
-                    f"Vertical 9:16 portrait aspect ratio (tall vertical frame, full-bleed high-key studio daylight{cast_head_lock}). {base_prompt}{cast_suffix}"
-                )
+            cond_paths, full_prompt, has_guide_cond = resolve_keyframe_conditioning_and_prompt(
+                spec=spec,
+                plan=plan,
+                guides_dir=guides_dir,
+                ref_dir=ref_dir,
+            )
+            has_guide_cond = bool(has_guide_cond or (guide_cand in cond_paths))
 
             ok_this = False
-            has_guide_cond = guide_cand in cond_paths
-            for attempt in range(4):
+            for attempt in range(3):
+                avail_models = [m for m in fallback_models if m not in rl_models]
+                if unusual_activity_halted or not avail_models:
+                    print(
+                        f"[reenact-refs {idx_sp}/{len(ordered_specs)}] ABORTING remaining batch: "
+                        f"{halt_reason or f'all official 0-credit Flow image models ({fallback_models}) hit usage limit!'}",
+                        flush=True,
+                    )
+                    break
+                active_img_model = avail_models[0]
+                attempt_batch = resolve_flow_image_batch_count(
+                    batch_count,
+                    is_retry=(attempt > 0),
+                    force=force,
+                    retry_batch_count=retry_batch_count,
+                )
                 try:
                     if client is None:
                         import inspect as _inspect_sr
@@ -1496,12 +1821,49 @@ async def translate_porcelain_keyframes_async(
 
                     if attempt == 0:
                         retry_suffix = ""
-                    elif is_v8_anchor:
+                    elif bool(spec.get("r85_brain_clip")):
                         retry_suffix = (
-                            " Ensure full-bleed 9:16 vertical framing, crisp cinema key-and-rim miniature lighting, "
-                            "smooth earless noseless matte cream-white vinyl oval head with bold black 2D cartoon ink eyes and mouth, "
-                            "and tailored 3D woven fabric clothing."
+                            " Ensure full-bleed 9:16 genuine Episode #31 almost-white matte gypsum-plaster 3D brain (#DCDFE3-#ECEFF2, ultra-low saturation, zero blue tint) "
+                            "with thick opaque sky-blue (#27D8FF) cylindrical tubes tucked inside sulcal grooves over solid flat #040711 dark navy void, "
+                            "zero glow, zero neon, zero particles, zero sparks, zero light beams, zero smoke, zero human skin, zero text, and zero labels."
                         )
+                    elif is_v8_anchor and (spec.get("category") == "brain_anchor" or spec.get("r74_relay_stage")):
+                        retry_suffix = (
+                            " Ensure full-bleed 9:16 vertical 3D translucent borosilicate crystal-glass neuroanatomy framing "
+                            "in a deep midnight-navy chamber (#050811) with luminous sculpted optical-glass subcortical structures, "
+                            "zero mannequin head, zero face, zero wet biological tissue, and zero text."
+                        )
+                    elif is_v8_anchor and (spec.get("real_world_target_id") or spec.get("r72_relay_stage")):
+                        retry_suffix = (
+                            " Ensure full-bleed 9:16 vertical miniature architectural framing, crisp sunlit daylight "
+                            "and tactile 3D brick/stone/timber texture, zero human faces, zero text, and zero watermarks."
+                        )
+                    elif is_v8_anchor:
+                        from pipeline.config import is_r88_faceless_cast_plan
+
+                        _sp_prompt_low = str(spec.get("prompt") or "").lower()
+                        _sp_zero_people = (
+                            (spec.get("present_cast") == [])
+                            or ("zero people" in _sp_prompt_low)
+                            or ("zero figures" in _sp_prompt_low)
+                        )
+                        if _sp_zero_people:
+                            retry_suffix = (
+                                " Ensure full-bleed 9:16 vertical miniature tabletop framing, crisp natural daylight, "
+                                "tactile 3D ceramic/wood/glass materials, and strictly zero people, zero dolls, zero hands, zero text, and zero numbers."
+                            )
+                        elif is_r88_faceless_cast_plan(plan) or bool(spec.get("r88_mode")):
+                            retry_suffix = (
+                                " Ensure full-bleed 9:16 vertical R88 faceless architectural porcelain framing, "
+                                "crisp cinema key-and-rim miniature lighting, smooth featureless matte-white architectural "
+                                "porcelain oval head silhouette (pure smooth blank surface), and tailored 3D matte woven fabric clothing."
+                            )
+                        else:
+                            retry_suffix = (
+                                " Ensure full-bleed 9:16 vertical framing, crisp cinema key-and-rim miniature lighting, "
+                                "smooth earless noseless matte cream-white vinyl oval head with bold black 2D cartoon ink eyes and mouth, "
+                                "and tailored 3D woven fabric clothing."
+                            )
                     else:
                         retry_suffix = (
                             " Ensure bright high-key daylight studio exposure, razor-sharp f/8 deep architectural focus "
@@ -1511,7 +1873,7 @@ async def translate_porcelain_keyframes_async(
                     eff_cond = [] if (attempt >= 2 and not has_guide_cond) else cond_paths[:2]
                     print(
                         f"[reenact-refs {idx_sp}/{len(ordered_specs)}] Generating {ref_id} via flow"
-                        f" (0-credit x{eff_batch}) (try {attempt + 1}/4, cond={[p.name for p in eff_cond]})...",
+                        f" ({active_img_model}, 0-credit x{attempt_batch}) (try {attempt + 1}/3, cond={[p.name for p in eff_cond]})...",
                         flush=True,
                     )
                     flow_res = await generate_flow_image_batch(
@@ -1519,20 +1881,56 @@ async def translate_porcelain_keyframes_async(
                         prompt=full_prompt + retry_suffix,
                         out_path=out_png,
                         conditioning_paths=eff_cond if eff_cond else None,
-                        batch_count=eff_batch,
+                        batch_count=attempt_batch,
                         aspect="9:16",
                         uploaded_cache=uploaded_cache,
                         seen_img_srcs=seen_img_srcs,
                         spec=spec,
                         source_dhashes=source_dhashes,
                         project_dir=None,
+                        image_model=active_img_model,
                     )
                     if not flow_res.get("ok") or not flow_res.get("saved") or not out_png.exists():
                         miss_reason = str(flow_res.get("reason") or "")
                         print(
-                            f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} Flow batch miss: {miss_reason}",
+                            f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id} try {attempt + 1} Flow batch miss: {miss_reason} ({active_img_model})",
                             flush=True,
                         )
+                        if miss_reason == "flow_unusual_activity_blocked":
+                            rl_models.update(fallback_models)
+                            unusual_activity_halted = True
+                            halt_reason = miss_reason
+                            try:
+                                import base64 as _b64
+
+                                _shot_res = await client.send("Page.captureScreenshot", {"format": "png"})
+                                if _shot_res and _shot_res.get("data"):
+                                    _cap_path = vis_dir / "flow_unusual_activity_capture.png"
+                                    _cap_path.write_bytes(_b64.b64decode(_shot_res["data"]))
+                                    print(f"[reenact-refs {idx_sp}/{len(ordered_specs)}] Saved Flow warning screenshot: {_cap_path}", flush=True)
+                            except Exception:
+                                pass
+                            print(
+                                f"[reenact-refs {idx_sp}/{len(ordered_specs)}] HARD HALT ({miss_reason}): "
+                                f"Google Flow unusual activity detected on {active_img_model}; "
+                                "halting entire batch immediately (0 retries, 0 model hopping).",
+                                flush=True,
+                            )
+                            break
+                        if miss_reason == "flow_usage_limit_reached":
+                            rl_models.add(active_img_model)
+                            next_avail = [m for m in fallback_models if m not in rl_models]
+                            if next_avail:
+                                print(
+                                    f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {active_img_model} hit Flow usage limit -> switching cleanly to official 0-credit model '{next_avail[0]}'...",
+                                    flush=True,
+                                )
+                                continue
+                            print(
+                                f"[reenact-refs {idx_sp}/{len(ordered_specs)}] ALL official 0-credit Flow image models exhausted ({fallback_models}); halting immediately to avoid rate-limit hammering.",
+                                flush=True,
+                            )
+                            break
                         if "no_flow_images_rendered" in miss_reason:
                             if client_cm is not None:
                                 try:
@@ -1556,7 +1954,7 @@ async def translate_porcelain_keyframes_async(
                             "flow_image_generation",
                         )
                         print(
-                            f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED via Flow x{eff_batch} "
+                            f"[reenact-refs {idx_sp}/{len(ordered_specs)}] {ref_id}: PASSED via Flow x{attempt_batch} "
                             f"(best_of={flow_res.get('candidate_count')}, cand#{int(flow_res.get('selected_index', 0)) + 1}, dHash_min={min_dh})",
                             flush=True,
                         )
@@ -1587,6 +1985,13 @@ async def translate_porcelain_keyframes_async(
                 generated.append(ref_id)
             else:
                 failed.append(ref_id)
+            if unusual_activity_halted:
+                for rem_spec in ordered_specs[idx_sp:]:
+                    rem_id = str(rem_spec["ref_id"])
+                    if only_ref_ids and rem_id not in only_ref_ids:
+                        continue
+                    failed.append(rem_id)
+                break
     finally:
         if client_cm is not None:
             try:
@@ -1602,17 +2007,24 @@ async def translate_porcelain_keyframes_async(
                     project_urls=opened_project_urls,
                     clean_local_temp=True,
                 )
-            except Exception:
-                pass
+            except Exception as exc:
+                import logging
+
+                logging.getLogger("source_reenactment").warning(
+                    "Post-reenactment Flow workspace cleanup warning for %s: %s", p_dir.name, exc, exc_info=True
+                )
 
     sheet_path = render_reenactment_comparison_sheet(p_dir, edl_doc, specs_payload)
     return {
         "project_id": p_dir.name,
         "slug": slug,
         "backend": eff_backend,
-        "batch_count": eff_batch if eff_backend == "flow" else 1,
+        "batch_count": first_pass_batch if eff_backend == "flow" else 1,
+        "retry_batch_count": eff_retry_batch if eff_backend == "flow" else 1,
         "generated_count": len(generated),
         "failed_ids": failed,
+        "unusual_activity_halted": unusual_activity_halted,
+        "halted_reason": halt_reason,
         "comparison_sheet": str(sheet_path),
     }
 
@@ -1625,7 +2037,8 @@ def translate_porcelain_keyframes(
     only_ref_ids: set[str] | None = None,
     force: bool = False,
     backend: str = DEFAULT_REENACT_IMAGE_BACKEND,
-    batch_count: int = FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT,
+    batch_count: int | None = None,
+    retry_batch_count: int = FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT,
 ) -> dict[str, Any]:
     return asyncio.run(
         translate_porcelain_keyframes_async(
@@ -1637,18 +2050,46 @@ def translate_porcelain_keyframes(
             force=force,
             backend=backend,
             batch_count=batch_count,
+            retry_batch_count=retry_batch_count,
         )
     )
 
 
-def purge_reenactment_quarantine(slug: str | None = None) -> dict[str, Any]:
-    """Deletes `/tmp/aab_reenact` (or `/tmp/aab_reenact/<slug>`) after Stage 3 keyframe translation."""
-    target = (REENACT_QUARANTINE_ROOT / slug) if slug else REENACT_QUARANTINE_ROOT
+def purge_reenactment_quarantine(
+    slug: str | None = None,
+    *,
+    allow_all: bool = False,
+    cdp_port: int = 9222,
+) -> dict[str, Any]:
+    """Deletes `/tmp/aab_reenact/<slug>` after Stage 3 keyframe translation (or all when `allow_all=True` with 0 active leases)."""
+    clean_slug = str(slug or "").strip()
+    if clean_slug:
+        if "/" in clean_slug or "\\" in clean_slug or ".." in clean_slug or clean_slug in (".", ".."):
+            raise ValueError(f"Invalid reenactment quarantine slug: {slug!r}")
+        target = REENACT_QUARANTINE_ROOT / clean_slug
+    else:
+        if not allow_all:
+            raise ValueError(
+                "purge_reenactment_quarantine requires a non-empty episode slug "
+                "(pass allow_all=True only for standalone maintenance)"
+            )
+        from pipeline.cdp_tab_lease import list_active_tab_leases
+
+        active = list_active_tab_leases(cdp_port=cdp_port)
+        if active:
+            raise RuntimeError(
+                f"Refusing allow_all quarantine purge while {len(active)} active CDP tab lease(s) exist"
+            )
+        target = REENACT_QUARANTINE_ROOT
     existed = target.exists()
     if existed:
         shutil.rmtree(target, ignore_errors=True)
-    if slug and REENACT_QUARANTINE_ROOT.exists() and not any(REENACT_QUARANTINE_ROOT.iterdir()):
-        shutil.rmtree(REENACT_QUARANTINE_ROOT, ignore_errors=True)
+    if clean_slug and REENACT_QUARANTINE_ROOT.exists():
+        try:
+            if not any(REENACT_QUARANTINE_ROOT.iterdir()):
+                shutil.rmtree(REENACT_QUARANTINE_ROOT, ignore_errors=True)
+        except OSError:
+            pass
     return {"purged_path": str(target), "existed": existed, "quarantine_exists": REENACT_QUARANTINE_ROOT.exists()}
 
 
@@ -1701,7 +2142,14 @@ def validate_reenactment_non_infringement(
             low_name = f.name.lower()
             if any(pat in low_name for pat in suspicious_patterns):
                 leaked_files.append(str(f))
-    quarantine_clean = (not REENACT_QUARANTINE_ROOT.exists()) if require_quarantine_purged else True
+    if require_quarantine_purged:
+        quarantine_clean = (
+            not (REENACT_QUARANTINE_ROOT / slug).exists()
+            if slug
+            else not REENACT_QUARANTINE_ROOT.exists()
+        )
+    else:
+        quarantine_clean = True
     rq1_ok = bool(len(leaked_files) == 0 and quarantine_clean and bool(edl_doc))
 
     # --- RQ2: Perceptual dHash distance >= 18 against all source frames ---

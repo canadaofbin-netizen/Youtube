@@ -1,0 +1,138 @@
+{
+  "target_minutes": 10,
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "45-year-old adult in cobalt jacket mid-gasp glancing at a glowing blurred red LED wristband against bright outdoor sky",
+    "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan primary visual cortex and blazing crimson-amber amygdala-hippocampus memory arc",
+    "badge_text": "MEMORY ILLUSION"
+  },
+  "r75_clean_seed_tags": [
+    "time perception neuroscience",
+    "slow motion crisis",
+    "david eagleman free fall",
+    "why time speeds up with age",
+    "amygdala memory encoding",
+    "hippocampus time perception",
+    "brain illusions explained",
+    "cognitive neuroscience",
+    "human memory science"
+  ],
+  "shorts_extract": {
+    "hook": "Why a 3-second highway close call feels like slow motion — even though your eyes never speed up.",
+    "core_experiment": "Stetson, Fiesta & Eagleman's 2007 150-foot Dallas free-fall tower test with a flashing LED wrist chronometer.",
+    "twist": "Jumpers gained 0% eye speed yet judged their fall 36% longer because amygdala-charged memory writes a thicker file."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "chapter": 1,
+      "title": "The Bullet-Time Myth: Why Survivors Swear Time Stretched",
+      "beats": [
+        "Highway black-ice close calls",
+        "1892 Alpine cliff-fall puzzle"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook"
+      ],
+      "new_shots_needed": [
+        "Driver hands gripping wheel on wet road"
+      ]
+    },
+    {
+      "n": 2,
+      "chapter": 2,
+      "title": "Building the Wrist Perceptual Chronometer at Baylor",
+      "beats": [
+        "Positive vs negative LED digit flicker",
+        "Finding each volunteer's exact ground speed limit"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup"
+      ],
+      "new_shots_needed": [
+        "Macro wrist LED flicker blur calibration"
+      ]
+    },
+    {
+      "n": 3,
+      "chapter": 3,
+      "title": "150 Feet Backward Into Open Air: Dallas SCAD Tower Drop",
+      "beats": [
+        "Unharnessed 2.5-second 70-mph plunge",
+        "Zero improvement in reading flashing digits"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "Tower release latch pop and free-fall tracking"
+      ]
+    },
+    {
+      "n": 4,
+      "chapter": 4,
+      "title": "The 36% Stopwatch Gap: Normal Eyes, Overtime Memory",
+      "beats": [
+        "136% own-fall estimate vs 100% watched fall",
+        "Why file size fools your inner clock"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Paired silver stopwatch comparison"
+      ]
+    },
+    {
+      "n": 5,
+      "chapter": 5,
+      "title": "Inside the Amygdala-Hippocampus High-Density Recorder",
+      "beats": [
+        "Dirnberger 2012 fMRI + Bowen & Kensinger 2018 recapitulation",
+        "Clewett & Davachi 2019 event boundaries"
+      ],
+      "scene_ids": [
+        "S2",
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D visual cortex vs amygdala-hippocampus relay"
+      ]
+    },
+    {
+      "n": 6,
+      "chapter": 6,
+      "title": "How to Slow Down Fast Adult Decades Without Jumping Off a Tower",
+      "beats": [
+        "Why routine commutes erase years",
+        "Packing fresh weekend event boundaries after 40"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "Sunlit novel weekend walk"
+      ]
+    }
+  ]
+}

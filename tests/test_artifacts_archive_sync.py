@@ -119,10 +119,10 @@ def test_hooks_json_and_workspace_configs_valid() -> None:
     assert "--hook stop" in stop_list[0]["command"]
 
     agents_bytes = AGENTS_MD_PATH.read_bytes()
-    assert len(agents_bytes) < 10_240, "AGENTS.md must stay well under 10 KB"
-    agents_txt = agents_bytes.decode("utf-8")
-    assert "artifacts_archive/" in agents_txt
-    assert "sync_artifacts_archive.py" in agents_txt
+    assert 3_000 <= len(agents_bytes) <= 6_500, "AGENTS.md must stay compact (3-6.5 KB)"
+    storage_rules_txt = (WORKSPACE_ROOT / ".agents" / "rules" / "project_storage_rules.md").read_text(encoding="utf-8")
+    assert "artifacts_archive/" in storage_rules_txt
+    assert "sync_artifacts_archive.py" in storage_rules_txt
 
     for ignore_name in (".rgignore", ".ignore"):
         ignore_txt = (WORKSPACE_ROOT / ignore_name).read_text(encoding="utf-8")
@@ -403,10 +403,10 @@ def test_live_project_archive_populated() -> None:
 
     bench_md = (ceo_dir / "benchmark_success_formula_report.md").read_text(encoding="utf-8")
     assert "./benchmark_media/012_jar_31M.jpg" in bench_md
-    assert "../02_Research/ricksclips3000_shorts_report.md" in bench_md
+    assert "../03_Research/ricksclips3000_shorts_report.md" in bench_md or "../02_Research/ricksclips3000_shorts_report.md" in bench_md
     assert "/.gemini/" not in bench_md
 
-    res_dir = DEFAULT_ARCHIVE_DIR / "02_Research"
+    res_dir = DEFAULT_ARCHIVE_DIR / "03_Research"
     for fname in (
         "ricksclips3000_shorts_report.md",
         "heyhistorically_shorts_report.md",
@@ -416,7 +416,7 @@ def test_live_project_archive_populated() -> None:
         txt = (res_dir / fname).read_text(encoding="utf-8")
         assert "./" in txt and "/.gemini/" not in txt
 
-    for folder in ("03_Daily_Report", "04_Headquarters", "05_Channel_Art"):
+    for folder in ("02_Operator", "03_Research", "04_Daily_Report", "05_QA_Scheduler", "06_Topic_Radar"):
         assert (DEFAULT_ARCHIVE_DIR / folder).is_dir()
 
 
@@ -1111,7 +1111,7 @@ def test_strict_non_youtube_isolation_outside_of_project_and_fast_noop_latency(t
 
 def test_live_all_youtube_chatrooms_retroactively_archived() -> None:
     cmap = load_chatroom_map(DEFAULT_REGISTRY_PATH)
-    assert len([c for c in cmap.values() if c.active]) == 5
+    assert len([c for c in cmap.values() if c.active]) == 7
 
     all_yt_cids: list[str] = list(cmap.keys())
     seen = set(all_yt_cids)

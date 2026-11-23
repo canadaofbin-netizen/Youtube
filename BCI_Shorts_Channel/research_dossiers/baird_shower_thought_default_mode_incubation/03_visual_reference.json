@@ -1,0 +1,176 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "2012 UC Santa Barbara Incubation Lab: Red Clay Brick + 12-Minute Mindless Break Unlocks +41% Ideas",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "2012, Department of Psychological & Brain Sciences, UC Santa Barbara, California",
+      "layout": {
+        "description": "Sunlit California psychology lab featuring a heavy red clay brick on a testing desk beside a stalled idea pad, paired with a 12-minute low-demand break station where ideas suddenly surge +41%.",
+        "positions": [
+          {
+            "who": "47-year-old adult participant in rolled-sleeve Oxford shirt and chinos",
+            "where": "setting down a stalled notepad beside a red clay brick, completing a relaxed 12-minute light-tap break, then writing fast fresh solutions",
+            "facing": "facing the red brick and idea notepad on the oak desk"
+          },
+          {
+            "who": "Benjamin Baird in smart-casual blazer holding the 4-Group Incubation Comparison chart",
+            "where": "standing beside the testing station pointing to the +41% jump in the Undemanding Break group versus 0% in Demanding Break and Rest",
+            "facing": "observing the participant's sudden burst of written ideas"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "solid red clay brick and Unusual Uses legal pad with fountain pen",
+          "period_detail": "classic Guilford/Baird Unusual Uses Task stimulus prop",
+          "physical_behavior": "State-A pen sits frozen above 2 crossed-out lines beside the red brick -> State-B after 12-minute light break, hand writes 6 rapid new ideas down the page"
+        },
+        {
+          "name": "12-minute bench timer and 4-Condition Comparison Board (+41% vs 0%)",
+          "period_detail": "stages Baird, Smallwood & Schooler's 2012 12-minute incubation window",
+          "physical_behavior": "State-A timer clicks through 12 calm minutes -> State-B +41% Undemanding bar towers above Demanding and Rest"
+        }
+      ],
+      "actions": [
+        {
+          "who": "47-year-old participant",
+          "verb_sequence": "stares stuck at the red clay brick on the desk -> switches to a calm 12-minute mindless sorting break as thoughts drift freely -> returns to desk and writes rapid creative solutions"
+        },
+        {
+          "who": "Benjamin Baird",
+          "verb_sequence": "records low conscious problem-rehearsal paired with +41% creative breakthrough"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "47-year-old participant",
+          "reaction": "smiles in sudden 'aha!' clarity as fresh uses pour onto the pad"
+        },
+        {
+          "who": "Benjamin Baird",
+          "reaction": "confirms gentle mind-wandering — not conscious grinding — drove the 41% leap"
+        }
+      ],
+      "wardrobe": "Light blue Oxford shirt with rolled sleeves and navy chinos; researcher in tan linen blazer.",
+      "lighting": "Warm high-key Santa Barbara window sunlight.",
+      "recognition_hook": "Grinding harder or sitting in a blank chair gave zero boost — yet twelve minutes of an easy, hands-busy task jumped creative solutions by forty-one percent!",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC4",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a sunlit Santa Barbara lab where a 47-year-old adult sits before a red clay brick and legal pad beside a 12-minute timer and a +41% creative incubation chart",
+        "must_show": [
+          "brick",
+          "pad|notebook",
+          "timer|chart"
+        ],
+        "source": "M1@00:06-00:24; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Tree-Lined Neighborhood Walk: Leaving the Phone on the Entry Table",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern sunlit afternoon neighborhood sidewalk (Outdoor)",
+      "layout": {
+        "description": "Sun-dappled suburban tree-lined sidewalk where a 50-year-old professional walks unhurriedly with hands in jacket pockets — phone left behind at home — when the exact missing insight clicks.",
+        "positions": [
+          {
+            "who": "50-year-old adult in light field jacket walking under sunlit trees",
+            "where": "pausing mid-stride on a quiet outdoor sidewalk as a creative breakthrough lands",
+            "facing": "walking toward camera along sunlit tree-lined path"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "small pocket index card and pen pulled from jacket pocket",
+          "period_detail": "analog phone-free walk capture tool",
+          "physical_behavior": "State-A hands swing relaxed in coat pockets -> State-B pulls pocket card out to jot the sudden 'aha!' sentence"
+        }
+      ],
+      "actions": [
+        {
+          "who": "50-year-old walker",
+          "verb_sequence": "strolls calmly without headphones or phone -> stops mid-step snapping fingers -> jots 5-word breakthrough on pocket card"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "50-year-old walker",
+          "reaction": "beams with effortless relief after an hour of earlier desk gridlock"
+        }
+      ],
+      "wardrobe": "Olive cotton field jacket, knit polo, walking sneakers.",
+      "lighting": "Golden afternoon sunlight filtering through neighborhood oak trees.",
+      "recognition_hook": "Leave your phone behind for twelve minutes of gentle walking and your daydream network connects dots your desk brain missed.",
+      "sources": [
+        "SRC1",
+        "SRC3",
+        "SRC6"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Morning Steam & Chrome Shower Dial: Why 'Moderately Engaging' Beats Phone Scrolling",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "Modern bright tiled home bathroom / home office doorway",
+      "layout": {
+        "description": "Bright sunlit glass-tiled bathroom vanity where a homeowner turns off the chrome shower valve and reaches for a towel as the morning's best solution arrives fully formed.",
+        "positions": [
+          {
+            "who": "49-year-old homeowner wrapped in crisp cotton bathrobe",
+            "where": "turning the chrome shower dial off and reaching for a dry notepad by the sink",
+            "facing": "facing sunlit bathroom mirror and vanity"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "chrome shower valve, folded white towel, and vanity notepad",
+          "period_detail": "everyday morning routine staging Irving's 2024 Shower Effect",
+          "physical_behavior": "State-A hand turns chrome shower dial clockwise to shut water -> State-B picks up vanity pencil to capture fresh idea"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Homeowner",
+          "verb_sequence": "turns off warm water -> dries hands -> writes down the exact solution that eluded yesterday's late night"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Homeowner",
+          "reaction": "nods recognizing why warm autopilot routines unlock stuck problems"
+        }
+      ],
+      "wardrobe": "Crisp waffle-weave slate bathrobe.",
+      "lighting": "Clean morning skylight through frosted glass.",
+      "recognition_hook": "Warm water gives your senses just enough gentle motion to stop brooding — and just enough freedom to connect distant memories.",
+      "sources": [
+        "SRC3",
+        "SRC4"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Rigid locked desk-stare corridor stalling on one dead-end wall",
+    "landmark_or_object_b": "Unstructured sunlit walk / shower detour linking distant idea nodes",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit coastal campus courtyard walkways ascending into bird's-eye view",
+    "cut_b_topdown_3d_arrow": "90-degree top-down campus path maze where #FF2525 3D associative arrows connect three distant idea beacons",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

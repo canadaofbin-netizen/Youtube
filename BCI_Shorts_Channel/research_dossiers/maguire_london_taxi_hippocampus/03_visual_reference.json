@@ -199,5 +199,18 @@
         "SRC2"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "London Eye observation wheel & tangled 25,000-street London black-cab maze",
+    "landmark_or_object_b": "London red circular roundel bus stop & fixed straight double-decker bus boulevard",
+    "arrow_3d_mode": "adaptive_landmark_zigzag",
+    "contrast_arrow_3d_mode": "fixed_linear_corridor",
+    "target_act": 4,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past the London Eye wheel ascending steeply into the London skyline",
+    "cut_b_topdown_3d_arrow": "90-degree top-down London street labyrinth with #FF2525 3D zigzag cab arrows vs single straight bus corridor",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

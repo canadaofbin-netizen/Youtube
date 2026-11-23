@@ -2,74 +2,75 @@
   "scenes": [
     {
       "id": "S1",
-      "title": "1947 Winnenden Clinic: Patient S. Reading Fine Print Sharp Yet Failing to Know a Tabletop Mirror & Family Portraits Until a Voice Speaks",
+      "title": "1947 Winnenden Clinic Desk: Crisp Fine-Print Reading Yet a Blank Tabletop Mirror Until a Loved One Speaks",
       "iconic": true,
       "shorts_priority": 1,
-      "era": "1947, Winnenden Neurological Clinic, Germany",
+      "era": "1947, Winnenden Neurological Clinic, Württemberg, Germany",
       "layout": {
-        "description": "Sunlit high-key 1947 European clinic consultation desk holding a fine-print eye-chart card (read 100% accurately), a brass-trimmed wooden tabletop mirror, three framed black-and-white family portrait photographs, and a doorway where a visiting family member mannequin steps in silently before speaking.",
+        "description": "Sunlit 1947 European neurology consultation desk holding a fine-print reading card, a brass-trimmed wooden tabletop mirror, three framed black-and-white family portrait photographs, and an open doorway where a visiting relative steps in silently before speaking.",
         "positions": [
           {
-            "who": "Patient S. (mannequin in neat 1947 wool cardigan and collared shirt)",
-            "where": "reading tiny print cleanly, then gazing puzzled into the tabletop mirror and across three family portraits — before lighting up with instant recognition the second the visitor at the door speaks",
-            "facing": "seated at clinic desk"
+            "who": "Patient S. (2.5D matte cream-white vinyl adult in neat 1947 wool cardigan and collared shirt)",
+            "where": "seated at the oak consultation desk reading the tiny eye-chart line cleanly, staring puzzled into the tabletop mirror, then rising in instant recognition the millisecond the visitor speaks",
+            "facing": "seated at clinic consultation desk"
           },
           {
-            "who": "Joachim Bodamer (mannequin in 1947 crisp white physician coat)",
-            "where": "presenting the fine-print card, object tray, and portrait photographs to isolate pure face-identity loss",
+            "who": "Joachim Bodamer (2.5D matte cream-white vinyl neurologist in crisp 1947 white physician coat and tie)",
+            "where": "standing across the desk exchanging the fine-print reading card for the tabletop mirror and family portraits",
             "facing": "across consultation desk"
           },
           {
-            "who": "Mother / Visitor mannequin (in 1947 coat and hat)",
-            "where": "standing silently at first (unrecognized), then speaking warmly and triggering instant joyful recognition",
-            "facing": "at sunlit doorway"
+            "who": "Visiting family member (2.5D matte cream-white vinyl older woman in 1947 tailored coat)",
+            "where": "pausing silently in the sunlit doorway (unrecognized) before speaking one warm greeting",
+            "facing": "at sunlit clinic doorway"
           }
         ]
       },
       "props": [
         {
-          "name": "fine-print reading card & everyday object tray vs family portraits",
-          "period_detail": "proves sharp 20/20 visual acuity and object naming alongside zero face ID",
-          "physical_behavior": "Bodamer's exact 1947 diagnostic contrast"
+          "name": "brass-trimmed wooden tabletop mirror and framed family portraits",
+          "period_detail": "stages Bodamer's 1947 discovery of 0% silent face recognition alongside intact feature vision",
+          "physical_behavior": "State-A tilted toward Patient S. as he tilts head in blank confusion -> State-B set down briskly on desk as he turns toward the speaking voice at the door"
         },
         {
-          "name": "wooden-framed tabletop mirror",
-          "period_detail": "stages Patient S. (and later Oliver Sacks) looking into a mirror without recognizing his own face",
-          "physical_behavior": "visceral iconic beat of prosopagnosia"
+          "name": "fine-print clinical reading card and pocket watch object tray",
+          "period_detail": "proves 20/20 visual acuity and intact everyday object naming right beside complete face blindness",
+          "physical_behavior": "State-A held up at reading distance and read aloud effortlessly -> State-B placed beside portraits contrasting sharp vision with zero face ID"
         }
       ],
       "actions": [
         {
           "who": "Patient S.",
-          "verb_sequence": "reads fine print aloud effortlessly -> looks into the tabletop mirror and family portraits shaking head blankly -> Visitor speaks one warm greeting -> Patient S. turns and rises immediately in warm recognition"
+          "verb_sequence": "reads tiny print card aloud cleanly -> peers into tabletop mirror shaking head blankly -> hears visitor speak one word at doorway -> stands up immediately with open-armed warmth"
         },
         {
           "who": "Joachim Bodamer",
-          "verb_sequence": "notes intact visual acuity + intact voice identity vs selective *Prosop-Agnosie*"
+          "verb_sequence": "places mirror beside fine-print card -> records 0% silent face ID vs 100% voice recognition in his 1947 clinical ledger"
         }
       ],
       "reactions": [
         {
           "who": "Patient S.",
-          "reaction": "relieved warmth upon hearing the unmistakable voice"
+          "reaction": "puzzled brow in front of silent mirror melting into instant warm recognition upon hearing the voice"
         },
         {
           "who": "Joachim Bodamer",
-          "reaction": "inscribes 'Prosopagnosia' in his 1947 case ledger"
+          "reaction": "insightful nod coining 'Prosopagnosia'"
         }
       ],
-      "wardrobe": "1947 European clinical white coat with tie; wool cardigan and pleated trousers; 1947 tailored coat.",
-      "lighting": "Bright high-key European hospital window daylight.",
-      "recognition_hook": "He can read the smallest line on an eye chart — yet stares straight at his own face in a mirror and his own mother in a doorway until she speaks.",
+      "wardrobe": "1947 European clinic dress: crisp white physician coat over dark tie; wool knit cardigan and pleated trousers; tailored wool overcoat.",
+      "lighting": "Bright high-key European tall-window daylight across warm oak desk and brass mirror.",
+      "recognition_hook": "He can read the smallest print on the desk — yet stares straight into a mirror at himself and straight at his own mother until she speaks a single word!",
       "sources": [
         "SRC1",
         "SRC2",
+        "SRC5",
         "SRC_M1",
         "SRC_M2",
         "SRC_STILL"
       ],
       "key_visual": {
-        "description": "a 1947 neurology clinic desk with a fine-print eye card, family portraits, and a tabletop mirror where a seated patient looks blankly at faces until recognizing a speaking visitor",
+        "description": "a sunlit 1947 neurology clinic desk with a fine-print reading card, family portraits, and a wooden tabletop mirror where a seated adult stares blankly until turning warmly toward a speaking visitor",
         "must_show": [
           "mirror",
           "portraits|photos|card",
@@ -80,133 +81,107 @@
     },
     {
       "id": "S2",
-      "title": "1985 Covert Recognition: Palm Sweat Knows Mom When Words Don't",
+      "title": "1985 Iowa Sweat-Sensor Lab: Palm Conductance Recognizes Loved Ones When Conscious Speech Says 'Stranger'",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "1985, University of Iowa neurology lab (Tranel & Damasio)",
+      "era": "1985, University of Iowa Hospitals neurology lab (Tranel & Damasio)",
       "layout": {
-        "description": "Bright clinical table with stranger vs family portrait cards and a dual-pen electrodermal chart.",
+        "description": "Clean sunlit clinical table where a 52-year-old prosopagnosic adult wired with gentle palm skin-conductance clips views shuffled family and stranger photographs beside an ink polygraph chart.",
         "positions": [
           {
-            "who": "Prosopagnosic patient mannequin",
-            "where": "shaking head 'Stranger' on every photo while the electrodermal pen jumps high exclusively on family portraits",
-            "facing": "at table"
+            "who": "52-year-old prosopagnosic volunteer & Iowa neurologist",
+            "where": "volunteer shaking head 'Never met him' at a spouse photograph while the polygraph pen leaps sharply upward",
+            "facing": "across sunlit Iowa testing desk"
           }
         ]
       },
       "props": [
         {
-          "name": "family-vs-stranger photo deck & palmar conductance graph",
-          "period_detail": "proves unconscious autonomic recognition survives without conscious face ID",
-          "physical_behavior": "Tranel & Damasio 1985 Science"
+          "name": "shuffled family-vs-stranger portrait deck and electrodermal pen graph",
+          "period_detail": "captures Tranel & Damasio's (1985 Science) covert recognition spike",
+          "physical_behavior": "State-A flat ink line on stranger photo -> State-B tall sharp ink spike the instant a spouse photo lands on the desk"
         }
       ],
       "actions": [
         {
-          "who": "Clinician",
-          "verb_sequence": "slides stranger photo (flat line) -> slides spouse photo (patient says 'Don't know her' while needle jumps high)"
+          "who": "Iowa neurologist",
+          "verb_sequence": "lays stranger photo down (flat needle) -> lays spouse photo down (volunteer shakes head NO while sweat needle jumps high)"
         }
       ],
       "reactions": [
         {
-          "who": "Clinician",
-          "reaction": "contrasts covert prosopagnosia against its mirror twin, Capgras delusion"
+          "who": "Iowa neurologist",
+          "reaction": "points to the covert autonomic spike proving emotional familiarity survived without conscious face ID"
         }
       ],
-      "wardrobe": "1985 blazer and clinical coat.",
-      "lighting": "Clean high-key daylight.",
-      "recognition_hook": "Consciously she swears she has never seen her husband's photo in her life — while her sweat glands leap in instant recognition.",
+      "wardrobe": "1985 academic blazer, collared shirt, and white clinical coat.",
+      "lighting": "Bright high-key clinical daylight.",
+      "recognition_hook": "Her mouth honestly says 'I have never seen this man in my life' — while her palm sweat sensor leaps in instant recognition of her husband!",
       "sources": [
         "SRC6",
-        "SRC_M1",
-        "SRC_M2"
+        "SRC3"
       ]
     },
     {
       "id": "S3",
-      "title": "1 in 50 People: The Uniform & Haircut Context Trap",
+      "title": "Sunlit Outdoor Saturday Farmers' Market: The 1-in-50 Out-of-Context Encounter Rescued by Five Kind Words",
       "iconic": false,
       "shorts_priority": 1,
-      "era": "Modern office vs supermarket aisle",
+      "era": "Modern sunlit outdoor weekend neighborhood farmers' market walkway",
       "layout": {
-        "description": "Bright split comparison: recognizable colleague in signature red glasses at her usual desk vs unrecognizable in casual hoodie after a haircut.",
+        "description": "Open-air sunlit Saturday farmers' market sidewalk lined with produce crates where a 46-year-old adult hesitates when an office colleague walks up wearing casual weekend sunhat and polo — then lights up instantly the second the colleague greets them by name.",
         "positions": [
           {
-            "who": "Developmental prosopagnosic mannequin",
-            "where": "recognizing colleague instantly by desk context & voice, vs hesitating when non-facial cues change",
-            "facing": "in bright hallway"
+            "who": "46-year-old developmental face-blind adult (holding woven market basket)",
+            "where": "pausing uncertainly on the sunlit brick market walkway when a coworker out of office attire waves silently",
+            "facing": "along sunlit outdoor market sidewalk"
+          },
+          {
+            "who": "Friendly office colleague (in weekend sunhat and linen shirt)",
+            "where": "stepping up with a warm wave and speaking their name aloud ('Hey Sam, it's Maya from third floor!')",
+            "facing": "facing colleague on sunlit market walkway"
           }
         ]
       },
       "props": [
         {
-          "name": "signature glasses / voice cue card ('~2% Congenital Prevalence')",
-          "period_detail": "destigmatizes why 1 in 50 adults rely on context and voice",
-          "physical_behavior": "modern developmental research"
+          "name": "weekend sunhat and woven farmers' market produce basket",
+          "period_detail": "shows how changing hairstyle/hat outside office context trips ~2% of adults with developmental face blindness",
+          "physical_behavior": "State-A silent wave across market stall (hesitant pause) -> State-B spoken name greeting triggering an immediate warm handshake"
         }
       ],
       "actions": [
         {
-          "who": "Colleague",
-          "verb_sequence": "says 'Hey Jordan, it's Maya!' -> instant warm smile and handshake"
+          "who": "Friendly office colleague",
+          "verb_sequence": "waves silently in weekend sunhat (colleague squints uncertainly) -> speaks warm name greeting aloud -> both clasp hands laughing"
         }
       ],
       "reactions": [
         {
-          "who": "Both",
-          "reaction": "easy social connection once name + voice anchor identity"
+          "who": "Both adults",
+          "reaction": "instant relieved smile as voice bypasses the fusiform bottleneck"
         }
       ],
-      "wardrobe": "Modern smart-casual attire.",
-      "lighting": "Bright daylight.",
-      "recognition_hook": "Roughly one in fifty people around you navigates faces by hairstyle, stride, and voice — one friendly name check bridges the gap instantly.",
+      "wardrobe": "Relaxed weekend outdoor wear: woven sunhat, sky-blue linen shirt, cotton cardigan, market tote.",
+      "lighting": "Warm golden morning sunlight across open-air market canopies and brick sidewalk.",
+      "recognition_hook": "One in fifty adults walks past friends at the weekend market when haircuts or hats change — until five spoken words unlock instant recognition!",
       "sources": [
-        "SRC1",
-        "SRC2"
-      ]
-    },
-    {
-      "id": "S4",
-      "title": "Oliver Sacks & The Friendly Mirror Apology",
-      "iconic": false,
-      "shorts_priority": 2,
-      "era": "2010, Sunlit New York bookshop mirror",
-      "layout": {
-        "description": "Warm sunlit bookshop doorway with a tall bevel-edged wall mirror.",
-        "positions": [
-          {
-            "who": "Bearded neurologist-author mannequin",
-            "where": "stepping aside politely tipping his hat to 'another bearded gentleman' in the mirror, then chuckling warmly upon realizing it is his own reflection",
-            "facing": "beside tall mirror"
-          }
-        ]
-      },
-      "props": [
-        {
-          "name": "full-length bevelled bookshop mirror & notebook",
-          "period_detail": "humanizes congenital prosopagnosia with humor and grace",
-          "physical_behavior": "Oliver Sacks's famous personal account"
-        }
-      ],
-      "actions": [
-        {
-          "who": "Author mannequin",
-          "verb_sequence": "tips hat to mirror -> realizes reflection matches his own move -> laughs and jots a note"
-        }
-      ],
-      "reactions": [
-        {
-          "who": "Author mannequin",
-          "reaction": "warm self-aware chuckle"
-        }
-      ],
-      "wardrobe": "Tweed blazer and spectacles.",
-      "lighting": "Warm morning window light.",
-      "recognition_hook": "Even world-famous neurologist Oliver Sacks once apologized for bumping into a bearded stranger — who turned out to be himself in a mirror.",
-      "sources": [
-        "SRC1",
-        "SRC2"
+        "SRC2",
+        "SRC4",
+        "SRC7"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Silent face-recognition corridor severed cleanly before identity recall",
+    "landmark_or_object_b": "Spoken voice detour routing around the face block straight to instant recognition",
+    "arrow_3d_mode": "doorway_boundary_sever",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep past classical European stone clinic courtyard ascending into cutaway view",
+    "cut_b_topdown_3d_arrow": "90-degree top-down hallway where the central #FF2525 visual-face arrow severs at a gap while a side voice lane connects",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

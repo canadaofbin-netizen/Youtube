@@ -1,0 +1,224 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "opening_mode": "case_stamp",
+  "core_reveal_sentence_index": 15,
+  "sentence_beats": [
+    "case_stamp",
+    "setup",
+    "promise",
+    "rehook",
+    "myth",
+    "evidence",
+    "conflict",
+    "rehook",
+    "evidence",
+    "evidence",
+    "escalation",
+    "evidence",
+    "evidence",
+    "rehook",
+    "core",
+    "mechanism",
+    "payoff",
+    "payoff",
+    "payoff",
+    "climax_cut"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp"
+  ],
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "project_id": "v8_ep05_ucl_tickle_delay_robot",
+  "pillar": "brain_health",
+  "everyday_domain": "habits",
+  "dossier": "blakemore_cerebellar_tickle_prediction",
+  "language": "en-US",
+  "title": "Why a Delayed Robot Can Tickle You",
+  "doi": "10.1038/2870",
+  "secondary_doi": "10.1162/089892999563607",
+  "mechanism_doi": "10.1523/JNEUROSCI.1732-19.2019",
+  "omit_experiment_nicknames": [],
+  "viewer_description": "Try tickling your own palm and nothing happens, even if someone else barely touches the exact same spot and you lose it.\n\nA team at UCL tested why by having volunteers move a plastic lever with their left hand to stroke their right palm with a soft foam brush. When the brush moved right away, it barely felt like anything because the cerebellum already knew the touch was coming and turned the sensation down. Once the researchers added a 0.2 second delay between the two hands, the brain stopped recognizing the touch as its own, and people started laughing from their own hand.\n\nResearch: Blakemore et al., University College London (1998, 1999).",
+  "debate_question": "Are you super ticklish, or can you keep a straight face no matter what?",
+  "offcenter_creator_bet": "",
+  "cameo_prompt": "",
+  "us_anti_clone_v7": true,
+  "acts": [
+    {
+      "act": 1,
+      "name": "UCL Robotic Tickle Rig",
+      "sentences": [
+        "In nineteen ninety-eight at University College London, neuroscientists built a tickle robot to test why nobody can tickle themselves!",
+        "Volunteers lay in a scanner with one hand on a lever and the other palm open.",
+        "Push this lever with your right hand, and the foam robot will stroke your left palm.",
+        "When the foam tip moved in sync with their fingers, why did volunteers feel almost nothing?"
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Conscious Ownership Myth & Sixty-Two Percent Cancellation",
+      "sentences": [
+        "For years, people assumed you cannot tickle yourself simply because you know it is you.",
+        "Self-touch with zero delay dropped touch activity to sixty-two percent, versus one hundred percent from outside!",
+        "Even watching their own fingers push the lever, their bodies muted the touch."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Split-Second Delay Pivot & Tickle Surge",
+      "sentences": [
+        "Hold on! What if that robot secretly waits a split second before touching your palm?",
+        "The London team added tiny delays of one hundred, then two hundred milliseconds — faster than a blink.",
+        "Volunteers still pushed the same lever and knew they caused every stroke.",
+        "Once that two-hundred-millisecond lag kicked in, volunteers burst into squirming laughter!",
+        "Tickle scores jumped from two point one to five point four, then six point two — nearly triple!",
+        "Rotating the stroke angle ninety degrees broke the forecast too, turning self-touch ticklish."
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Millisecond Prediction vs Conscious Belief: Cerebellum & Somatosensory Cortex",
+      "sentences": [
+        "Wait — if they knew they moved the lever, why did a tiny lag fool them?",
+        "Your cerebellum — your coordination center — predicts each move and cancels expected touch.",
+        "When touch arrives late, your somatosensory cortex — your touch map — fires a surprise alert!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Everyday Missed Stair & Laggy Screen Habit Mirror",
+      "sentences": [
+        "That is why missing one phantom step on dark stairs jolts your whole body.",
+        "It is also why tiny headphone audio lag or a delayed mouse breaks focus."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Immediate Sensory Feedback Habit Rule",
+      "sentences": [
+        "When building a habit, give your hands an immediate cue right as you finish.",
+        "Your body runs on split-second timing forecasts, long before conscious thought catches up."
+      ]
+    }
+  ],
+  "sentences": [
+    "In nineteen ninety-eight at University College London, neuroscientists built a tickle robot to test why nobody can tickle themselves!",
+    "Volunteers lay in a scanner with one hand on a lever and the other palm open.",
+    "Push this lever with your right hand, and the foam robot will stroke your left palm.",
+    "When the foam tip moved in sync with their fingers, why did volunteers feel almost nothing?",
+    "For years, people assumed you cannot tickle yourself simply because you know it is you.",
+    "Self-touch with zero delay dropped touch activity to sixty-two percent, versus one hundred percent from outside!",
+    "Even watching their own fingers push the lever, their bodies muted the touch.",
+    "Hold on! What if that robot secretly waits a split second before touching your palm?",
+    "The London team added tiny delays of one hundred, then two hundred milliseconds — faster than a blink.",
+    "Volunteers still pushed the same lever and knew they caused every stroke.",
+    "Once that two-hundred-millisecond lag kicked in, volunteers burst into squirming laughter!",
+    "Tickle scores jumped from two point one to five point four, then six point two — nearly triple!",
+    "Rotating the stroke angle ninety degrees broke the forecast too, turning self-touch ticklish.",
+    "Wait — if they knew they moved the lever, why did a tiny lag fool them?",
+    "Your cerebellum — your coordination center — predicts each move and cancels expected touch.",
+    "When touch arrives late, your somatosensory cortex — your touch map — fires a surprise alert!",
+    "That is why missing one phantom step on dark stairs jolts your whole body.",
+    "It is also why tiny headphone audio lag or a delayed mouse breaks focus.",
+    "When building a habit, give your hands an immediate cue right as you finish.",
+    "Your body runs on split-second timing forecasts, long before conscious thought catches up."
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 6,
+      "mode": "study",
+      "preset": "bar_compare",
+      "chart": "bar_compare",
+      "style": "ink_pen",
+      "title": "Somatosensory SII Response",
+      "unit": "%",
+      "bars": [
+        {
+          "label": "Self-Touch (0ms)",
+          "value": 62.0,
+          "unit": "%"
+        },
+        {
+          "label": "External Touch",
+          "value": 100.0,
+          "unit": "%"
+        }
+      ],
+      "doi": "10.1038/2870",
+      "source_citation": "Blakemore, Wolpert & Frith (1998)"
+    },
+    {
+      "sentence_index": 12,
+      "mode": "study",
+      "preset": "line",
+      "chart": "line",
+      "style": "ink_pen",
+      "title": "Tickle Rating vs Robot Delay",
+      "unit": "pt",
+      "series": [
+        {
+          "start_label": "0ms Delay",
+          "label": "300ms Delay",
+          "values": [
+            2.1,
+            5.4,
+            6.2
+          ],
+          "unit": "pt"
+        }
+      ],
+      "doi": "10.1162/089892999563607",
+      "source_citation": "Blakemore, Frith & Wolpert (1999)"
+    }
+  ]
+}

@@ -63,28 +63,19 @@ class ProjectStorage:
             if resolved_dir in held:
                 yield
                 return
-            from pipeline.cdp_tab_lease import get_aab_locks_dir
+            from pipeline.cdp_tab_lease import acquire_shared_flock, get_aab_locks_dir
 
             lock_root = get_aab_locks_dir() if (os.name != "nt" and Path("/tmp").exists()) else Path(project_dir)
             lock_root.mkdir(parents=True, exist_ok=True)
             digest = hashlib.sha1(resolved_dir.encode("utf-8")).hexdigest()[:16]
             lock_file = lock_root / f"manifest_{digest}.lock"
             fh = None
-            locked_flock = False
             held.add(resolved_dir)
             try:
-                if _fcntl is not None:
-                    try:
-                        fh = open(lock_file, "a+", encoding="utf-8")
-                        _fcntl.flock(fh.fileno(), _fcntl.LOCK_EX)
-                        locked_flock = True
-                    except OSError:
-                        if fh is not None:
-                            fh.close()
-                            fh = None
+                fh = acquire_shared_flock(lock_file)
                 yield
             finally:
-                if locked_flock and fh is not None and _fcntl is not None:
+                if fh is not None and _fcntl is not None:
                     try:
                         _fcntl.flock(fh.fileno(), _fcntl.LOCK_UN)
                     except OSError:
@@ -227,6 +218,7 @@ class ProjectStorage:
             except (OSError, PermissionError):
                 time.sleep(0.1)
         if not written:
+            temp_file.unlink(missing_ok=True)
             manifest_path.write_text(payload, encoding="utf-8")
             return
         cls._atomic_replace_or_write(temp_file, manifest_path, fallback_content=payload, is_json=True, json_data=manifest)
@@ -334,6 +326,7 @@ class ProjectStorage:
         if written:
             self._atomic_replace_or_write(temp, target, fallback_content=payload_str, is_json=True, json_data=data)
         else:
+            temp.unlink(missing_ok=True)
             target.write_text(payload_str, encoding="utf-8")
         self.record_artifact(stage_name, filename, target, known_sha256=known_sha, known_size_bytes=known_sz)
         return target
@@ -366,6 +359,7 @@ class ProjectStorage:
         if written:
             self._atomic_replace_or_write(temp, target, fallback_content=text)
         else:
+            temp.unlink(missing_ok=True)
             target.write_text(text, encoding="utf-8")
         self.record_artifact(stage_name, filename, target)
         return target

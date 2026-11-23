@@ -1,0 +1,119 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "55-year-old adult stepping out of a warm misty shower 90 minutes before bedtime",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway highlighting the hypothalamic preoptic cooling switch and calm thalamic sleep waves",
+    "badge_text": "90-MIN COOL DROP"
+  },
+  "r75_clean_seed_tags": [
+    "warm shower before bed",
+    "body temperature and sleep",
+    "fall asleep faster",
+    "hypothalamus sleep",
+    "insomnia tips science",
+    "deep sleep",
+    "sleep hygiene",
+    "neuroscience",
+    "brain health",
+    "older adult sleep",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why a hot shower 10 minutes before bed keeps you tossing—while the exact same shower 90 minutes earlier switches on deep sleep.",
+    "core_experiment": "Haghayegh et al. (2019, UT Austin) & Tai et al. (2021, 1,094 adults): 10 minutes at 40–42.5 °C timed 1–2 hours pre-bed opens palm-and-sole radiators to cool your core.",
+    "twist": "Your brain needs core temperature to drop to fall asleep—and warm hands and feet predict sleep speed even better than melatonin (Kräuchi et al., 1999, Nature)."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Why Showering Right Before Bed Backfires",
+      "beats": [
+        "Trapping core heat under thick blankets",
+        "Why your brain demands a core temperature drop to initiate sleep"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "late hot shower vs overheated duvet"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "5,322 Papers & 1,094 Older Adults: The 90-Minute Sweet Spot",
+      "beats": [
+        "UT Austin's 40–42.5 °C 10-minute meta-analysis (SRC1)",
+        "Nara cohort actigraphy across 1–60 vs 61–180 minutes (SRC4)"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "9:00 PM shower valve + 90-min clock runway"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Hands, Feet & The Preoptic Hypothalamus Hub",
+      "beats": [
+        "Kräuchi et al. (1999, Nature) warm-feet radiator discovery",
+        "Harding & Wisden (2018) shared cooling-and-sleep neurons"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 somatosensory -> hypothalamus -> thalamus"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why Cold Showers Backfire at Night",
+      "beats": [
+        "Vasoconstriction sealing heat inside the core",
+        "Gentle skin warming doubling slow-wave stability in older insomniacs (SRC5, SRC7)"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "evening porch cool-down"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Your 3-Step 90-Minute Evening Thermal Routine",
+      "beats": [
+        "10 minutes warm water, 90 minutes cool air, breathable bedding",
+        "Warm socks if feet turn icy"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "calm 10:30 PM lights-out"
+      ]
+    }
+  ]
+}

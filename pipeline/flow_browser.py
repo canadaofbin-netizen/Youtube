@@ -43,14 +43,19 @@ class FlowCircuitBreakerError(RuntimeError):
 
 class FlowDownloadHarvestLock:
     """
-    Guard 1 & Guard 6 (R37): Cross-process and in-process lock (BCI_Shorts_Channel/.flow_download_harvest.lock)
+    Guard 1 & Guard 6 (R37): Cross-process and in-process lock (`/tmp/aab_locks/flow_download_harvest.lock`)
     serializing prompt submission and Downloads folder clip harvesting across concurrent subagent workers.
     """
 
     _async_locks: "weakref.WeakKeyDictionary[Any, dict[str, Any]]" = weakref.WeakKeyDictionary()
 
-    def __init__(self, lock_path: Path = FLOW_DOWNLOAD_HARVEST_LOCK_FILE, timeout_sec: float = 120.0):
-        self.lock_path = Path(lock_path)
+    def __init__(self, lock_path: Path | None = None, timeout_sec: float = 120.0):
+        if lock_path is None:
+            from pipeline.cdp_tab_lease import get_aab_locks_dir
+
+            self.lock_path = get_aab_locks_dir() / "flow_download_harvest.lock"
+        else:
+            self.lock_path = Path(lock_path)
         self.timeout_sec = timeout_sec
         self._fh: Any = None
         self._held_async_lock: Any = None
@@ -78,18 +83,28 @@ class FlowDownloadHarvestLock:
                     import fcntl
 
                     fcntl.flock(self._fh.fileno(), fcntl.LOCK_UN)
-            except OSError:
-                pass
+            except OSError as exc:
+                import logging
+
+                logging.getLogger("flow_browser").warning("FlowDownloadHarvestLock unlock failed (%s): %s", self.lock_path, exc)
             finally:
                 try:
                     self._fh.close()
-                except Exception:
-                    pass
+                except Exception as exc:
+                    import logging
+
+                    logging.getLogger("flow_browser").warning("FlowDownloadHarvestLock close failed (%s): %s", self.lock_path, exc)
                 self._fh = None
 
     def acquire(self) -> None:
         self.lock_path.parent.mkdir(parents=True, exist_ok=True)
         self._fh = open(self.lock_path, "a+b")
+        if os.name != "nt":
+            try:
+                if self.lock_path.stat().st_uid == os.getuid():
+                    os.chmod(self.lock_path, 0o666)
+            except OSError:
+                pass
         deadline = time.monotonic() + self.timeout_sec
         while True:
             try:
@@ -111,8 +126,10 @@ class FlowDownloadHarvestLock:
             try:
                 if self._held_async_lock.locked():
                     self._held_async_lock.release()
-            except Exception:
-                pass
+            except Exception as exc:
+                import logging
+
+                logging.getLogger("flow_browser").warning("FlowDownloadHarvestLock async release warning: %s", exc)
             self._held_async_lock = None
 
     async def release_async(self) -> None:
@@ -121,8 +138,10 @@ class FlowDownloadHarvestLock:
             try:
                 if self._held_async_lock.locked():
                     self._held_async_lock.release()
-            except Exception:
-                pass
+            except Exception as exc:
+                import logging
+
+                logging.getLogger("flow_browser").warning("FlowDownloadHarvestLock async release warning: %s", exc)
             self._held_async_lock = None
 
     def __enter__(self) -> "FlowDownloadHarvestLock":
@@ -153,6 +172,12 @@ class FlowDownloadHarvestLock:
         try:
             self.lock_path.parent.mkdir(parents=True, exist_ok=True)
             self._fh = open(self.lock_path, "a+b")
+            if os.name != "nt":
+                try:
+                    if self.lock_path.stat().st_uid == os.getuid():
+                        os.chmod(self.lock_path, 0o666)
+                except OSError:
+                    pass
             while True:
                 try:
                     self._try_flock_nonblocking()
@@ -327,13 +352,15 @@ CHECK_CREDIT_EXHAUSTION_JS = """
     const phrases = [
         'not enough credits',
         'not enough ai credits',
+        'not enough google flow credits',
         'out of credits',
         'out of ai credits',
+        'out of google flow credits',
         '0 credits remaining',
+        '0 ai credits',
         'no credits remaining',
         'insufficient credits',
-        'insufficient ai credits',
-        'add ai credits'
+        'insufficient ai credits'
     ];
     let matchedPhrase = '';
     for (const node of uiNodes) {
@@ -398,6 +425,46 @@ FLOW_TILE_CLASSIFIER_JS = """
     return { isError, isReady, isRendering, pct, videoSrc, topKey, statusText };
 })
 """
+
+FLOW_HALT_WARN_PREDICATE_JS = (
+    "((s) => /unusual activity|wait a few moments|browser extensions that modify|"
+    "captcha|verify you are human|recaptcha|turnstile|are you a robot|human verification/i.test(s || ''))"
+)
+
+# Unified anti-bot / warning detector (`errSnips` -> visible `[role="dialog"]/[role="alert"]` -> visible interactive challenge iframe).
+FLOW_DETECT_ANTIBOT_HALT_JS = f"""((extraSnips) => {{
+    const isHaltWarn = {FLOW_HALT_WARN_PREDICATE_JS};
+    const snips = Array.isArray(extraSnips) ? extraSnips.map(x => String(x || '').trim()).filter(Boolean) : [];
+    const errMatch = snips.find(isHaltWarn);
+    if (errMatch) {{
+        return {{ haltWarn: true, haltText: errMatch }};
+    }}
+    const alertNodes = Array.from(document.querySelectorAll('[role="dialog"], [role="alert"]'));
+    for (const n of alertNodes) {{
+        const r = n.getBoundingClientRect ? n.getBoundingClientRect() : {{ width: 0, height: 0 }};
+        if (r.width <= 20 || r.height <= 20) continue;
+        const tx = (n.innerText || '').trim().replace(/\\s+/g, ' ').slice(0, 260);
+        if (isHaltWarn(tx)) {{
+            return {{ haltWarn: true, haltText: tx }};
+        }}
+    }}
+    const antiBotIframes = Array.from(
+        document.querySelectorAll('iframe[src*="recaptcha"], iframe[src*="turnstile"], iframe[src*="hcaptcha"], iframe[src*="challenges.cloudflare.com"]')
+    ).filter(f => {{
+        const src = String(f.getAttribute('src') || f.src || '');
+        if (/\\/anchor(?:\\?|$)/i.test(src) || /size=invisible/i.test(src)) return false;
+        const isChallengeSrc = /\\/bframe/i.test(src) || /hcaptcha\\.com.*challenge/i.test(src) || /challenges\\.cloudflare\\.com/i.test(src);
+        if (!isChallengeSrc) return false;
+        const r = f.getBoundingClientRect();
+        if (!(r.width >= 200 && r.height >= 200 && r.bottom > 0 && r.right > 0 && r.top < window.innerHeight && r.left < window.innerWidth)) return false;
+        const cs = window.getComputedStyle(f);
+        return cs.display !== 'none' && cs.visibility !== 'hidden' && parseFloat(cs.opacity || '1') > 0.05;
+    }});
+    if (antiBotIframes.length > 0) {{
+        return {{ haltWarn: true, haltText: 'anti_bot_captcha_iframe' }};
+    }}
+    return {{ haltWarn: false, haltText: '' }};
+}})"""
 
 
 class FlowProjectSubagentWorker:
@@ -576,6 +643,57 @@ class FlowProjectSubagentWorker:
 
         errors: list[str] = []
         if not receipt_path.exists():
+            vp_file = visuals_dir / "visual_plan.json"
+            vp_doc: dict[str, Any] = {}
+            script_doc: dict[str, Any] = {}
+            if vp_file.exists():
+                try:
+                    vp_doc = json.loads(vp_file.read_text(encoding="utf-8"))
+                except Exception:
+                    vp_doc = {}
+            sp_file = p_dir / "02_script" / "script.json"
+            if sp_file.exists():
+                try:
+                    script_doc = json.loads(sp_file.read_text(encoding="utf-8"))
+                except Exception:
+                    script_doc = {}
+            from pipeline.config import BRAIN_SIM_ONLY_CLIP_COUNT_RANGE, is_brain_sim_only_plan
+
+            has_native_flow = native_dir.exists() and any(native_dir.glob("clip_*.mp4"))
+            if vp_doc and is_brain_sim_only_plan(vp_doc, script_doc) and not has_native_flow:
+                sim_dir = visuals_dir / "brain_simulator_clips"
+                sim_clips = (
+                    sorted(sim_dir.glob("clip_*.mp4"))
+                    if sim_dir.exists()
+                    else []
+                )
+                sim_errors: list[str] = []
+                min_sim = int(BRAIN_SIM_ONLY_CLIP_COUNT_RANGE[0])
+                if len(sim_clips) < min_sim:
+                    sim_errors.append(f"insufficient_brain_simulator_clips ({len(sim_clips)} < {min_sim})")
+                for sc in sim_clips:
+                    if sc.stat().st_size < MIN_CLIP_SIZE_BYTES:
+                        sim_errors.append(f"{sc.stem}_undersized ({sc.stat().st_size} < {MIN_CLIP_SIZE_BYTES})")
+                    sq_path = sim_dir / f"{sc.stem}_sim_qa.json"
+                    if not sq_path.exists():
+                        sim_errors.append(f"missing_{sq_path.name}")
+                    else:
+                        try:
+                            sq_doc = json.loads(sq_path.read_text(encoding="utf-8"))
+                            if not bool(sq_doc.get("passed")):
+                                sim_errors.append(f"failed_{sq_path.name}")
+                        except Exception as exc:
+                            sim_errors.append(f"corrupt_{sq_path.name}:{exc}")
+                return {
+                    "valid": len(sim_errors) == 0,
+                    "passed": len(sim_errors) == 0,
+                    "receipt_exists": False,
+                    "brain_simulator_3d_only": True,
+                    "flow_project_url": "",
+                    "tab_target_id": "",
+                    "errors": sim_errors,
+                    "receipt": {},
+                }
             return {
                 "valid": False,
                 "passed": False,
@@ -1139,11 +1257,11 @@ class FlowProjectSubagentWorker:
                     self.title_set = bool(await rename_active_flow_project(client, canonical_room))
 
                     # 6b. Configure Google Flow UI duration to FLOW_CLIP_DURATION_TARGET ("10s", never "8s")
-                    try:
-                        from pipeline.flow_live_single_worker import ensure_manual_video_916_mode
-                        await ensure_manual_video_916_mode(client, target_duration=FLOW_CLIP_DURATION_TARGET)
-                    except Exception:
-                        pass
+                    from pipeline.flow_live_single_worker import ensure_manual_video_916_mode
+
+                    mode_ok = await ensure_manual_video_916_mode(client, target_duration=FLOW_CLIP_DURATION_TARGET)
+                    if mode_ok is False:
+                        raise RuntimeError("Failed to verify Google Flow 9:16 video mode before prompt injection")
 
                     # 7. Layer 1A: Inject Shot 1 prompt with real InputEvent and verify Generate button enabled
                     async with FlowDownloadHarvestLock():
@@ -1384,7 +1502,7 @@ class FlowProjectSubagentWorker:
 
 class GoogleFlowWhaleController:
     """
-    Automates and assists Google Flow (Omni 1.1 / Omni 1.1) video generation using Naver Whale.
+    Automates and assists Google Flow (Omni 1.2 Flash) video generation using Naver Whale.
     Never uses headless virtual browsers; launches visible Whale instance.
     """
 
@@ -1711,7 +1829,7 @@ class GoogleFlowWhaleController:
 **Project ID**: `{project_id}`  
 **Pillar**: {pillar} | **Topic**: {topic}  
 **Format**: YouTube Shorts (9:16 Vertical, 1080x1920, 30.0s)  
-**Production Engine**: 100% Google Flow (`https://labs.google/fx/tools/flow` / Gemini Omni 1.1)
+**Production Engine**: 100% Google Flow (`https://labs.google/fx/tools/flow` / Gemini Omni 1.2)
 
 ---
 
@@ -1719,17 +1837,17 @@ class GoogleFlowWhaleController:
 
 ### 1. Canvas & Engine Configuration:
 - **Studio URL**: `https://labs.google/fx/tools/flow`
-- **Video Engine**: Select **Gemini Omni 1.1 (Omni 1.1 Flash / Quality)**
+- **Video Engine**: Select **Gemini Omni 1.2 (Omni 1.2 Flash)**
 - **Canvas Aspect Ratio**: **9:16 (Vertical)**
 - **Video Resolution**: **1080p**
 - **Target Duration**: Exactly **30.0 seconds** ({total_shots} sequenced shots at ~{avg_shot_dur} seconds each)
 
 ### 2. {total_shots}-Shot Timeline Sequencing & Transition Decisions:
-| Shot | Timeline | Role | Camera Choreography | Spoken Narration (Omni 1.1 Embedded) | Transition to Next |
+| Shot | Timeline | Role | Camera Choreography | Spoken Narration (Omni 1.2 Embedded) | Transition to Next |
 |:---:|:---:|:---:|:---:|:---:|:---:|
 {sp_rows}
 ### 3. Step-by-Step Flow Assembly Instructions:
-1. **Generate Shot 1**: Paste Clip 1 All-in-One prompt into Google Flow (Gemini Omni 1.1). Click Generate.
+1. **Generate Shot 1**: Paste Clip 1 All-in-One prompt into Google Flow (Gemini Omni 1.2). Click Generate.
 2. **Generate Shots 2 to {total_shots}**: In sequence on the timeline, paste each corresponding prompt (Clip 2 to Clip {total_shots}).
 3. **Set Timeline Transitions**:
    - Shot 1 to Shot 2: Instant hard cut (0.1s).
@@ -1742,7 +1860,7 @@ class GoogleFlowWhaleController:
 
 ---
 
-## Copy-Paste Google Flow (Omni 1.1) All-in-One Prompts
+## Copy-Paste Google Flow (Omni 1.2) All-in-One Prompts
 """
         for i, p in enumerate(prompts, 1):
             c_num = p.get("clip_number") or p.get("clip_index") or i
@@ -2125,7 +2243,7 @@ class GoogleFlowWhaleController:
                 <span> Pure Google Flow All-in-One Production Protocol</span>
             </div>
             <div>
-                Generate all clips directly in Google Flow Omni 1.1 with embedded Puck spoken voiceover and native room acoustics.
+                Generate all clips directly in Google Flow Omni 1.2 Flash with embedded Puck spoken voiceover and native room acoustics.
                 Sequence the shots on the timeline and export your broadcast-ready MP4.
             </div>
             <div class="timeline-steps">
@@ -2152,7 +2270,7 @@ class GoogleFlowWhaleController:
             </div>
             <div style="font-size: 13px; color: #CBD5E1;">
                 <b>Assembly & Export Checklist:</b>
-                (1) Canvas: Omni 1.1, 9:16 Vertical, 1080p •
+                (1) Canvas: Omni 1.2 Flash, 9:16 Vertical, 1080p •
                 (2) Copy & paste each prompt in sequence •
                 (3) Transition between Shot 2 & Shot 3: Crossfade 0.25s •
                 (4) Click Export (1080x1920 MP4) •

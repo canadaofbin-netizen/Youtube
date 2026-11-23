@@ -1,0 +1,117 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "shorts_extract": {
+    "hook": "Why eight hours knocked out on a sleeping pill can still leave your morning brain feeling unwashed.",
+    "core_experiment": "Hauglund & Nedergaard's 2025 Cell study tracking 50-second norepinephrine blood-vessel pumping under natural sleep vs zolpidem.",
+    "twist": "Zolpidem induced fast sleep yet cut slow norepinephrine pump waves by 50% and reduced brain fluid washing by 30%."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Sedation vs Real Sleep: Why Knockouts Feel Unrefreshed",
+      "beats": [
+        "The mystery of morning fog after 8 sedated hours",
+        "How the brain clears 20% of the body's metabolic exhaust"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "hook",
+        "setup"
+      ],
+      "new_shots_needed": [
+        "bedside amber pill vial pause"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "60% Wider Channels & Giant Human Fluid Waves (2013–2021)",
+      "beats": [
+        "Xie (2013) 60% interstitial expansion",
+        "Fultz (2019) human CSF waves & Eide (2021) 48-hour human MRI tracer proof"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "human MRI tracer cohort comparison"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "The Missing Engine Found in 2025: 50-Second Norepinephrine Waves",
+      "beats": [
+        "Hauglund & Nedergaard (Cell 2025)",
+        "How brainstem pulses squeeze arteries like a sponge"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "core_experiment"
+      ],
+      "new_shots_needed": [
+        "sponge-in-clear-water squeeze demo & 3D #27D8FF pump"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Putting Zolpidem to the Test: -50% Waves, -30% Fluid Flow",
+      "beats": [
+        "Fast sleep onset vs muted vascular pumping",
+        "Why animal-to-human translation & medical supervision matter"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "100% vs 50% wave chart"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Protecting Your Nightly Brain Wash Safely After 40",
+      "beats": [
+        "Doctor-guided CBT-I over abrupt stopping",
+        "Consolidated early-night sleep & morning outdoor movement"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "sunlit morning park walk"
+      ]
+    }
+  ],
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "Thoughtful 55-year-old adult holding a bedtime pill tablet beside a water glass in dim bedroom light",
+    "right_cyan_brain": "Glowing #27D8FF 3D brain with dimmed muted brainstem pump vs bright flowing perivascular waves",
+    "badge_text": "PUMP MUTED"
+  },
+  "r75_clean_seed_tags": [
+    "glymphatic system",
+    "sleeping pills",
+    "sleep science",
+    "brain wash",
+    "deep sleep",
+    "brain health",
+    "dementia prevention",
+    "norepinephrine",
+    "insomnia"
+  ]
+}

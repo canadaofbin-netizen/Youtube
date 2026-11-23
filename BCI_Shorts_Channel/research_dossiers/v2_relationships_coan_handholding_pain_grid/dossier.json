@@ -4,28 +4,93 @@
   "topic": "Why Holding a Partner Hand Synchronizes Brain Waves and Cuts Pain",
   "pillar": "brain_news",
   "everyday_domain": "relationships",
+  "created_at": "2026-11-16T03:50:49+00:00",
+  "status": "ready",
   "visual_mode": "HYBRID",
-  "visual_mode_reason": "Pairs clinical/behavioral experiment reenactment in bright minimalist rooms with Contained Living 4-Color 3D Brain circuit cutaways.",
+  "visual_mode_reason": "Pairs Coan's (2006) clinical ankle-cue fMRI and Goldstein's (2018) 22-couple dual-EEG handholding lab (plus an outdoor sunlit clinic-garden bench) with 3D brain cutaways of anterior insula, anterior cingulate, and prefrontal load-sharing.",
+  "setup_18w": "Couples wore twin brainwave caps during arm heat tests alone, seated apart, or clasping hands together.",
   "primary_doi": "10.1073/pnas.1703643115",
+  "three_layer_formula": {
+    "everyday_problem": "Sitting alone in an outpatient hospital bay or facing scary medical news solo at age 50 — and wondering why every sting feels twice as sharp until a trusted spouse or partner clasps your hand.",
+    "psychology_experiment": {
+      "source_id": "coan_2006",
+      "doi": "10.1111/j.1467-9280.2006.01832.x",
+      "source_ids": [
+        "coan_2006",
+        "master_2009"
+      ],
+      "dois": [
+        "10.1111/j.1467-9280.2006.01832.x",
+        "10.1111/j.1467-9280.2009.02444.x"
+      ],
+      "summary": "Coan, Schaefer & Davidson (2006, Psychological Science) 16-couple ankle-shock-cue fMRI experiment (alone vs stranger's hand vs spouse's hand) paired with Master et al. (2009) thermal analgesia replication."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "goldstein_2018",
+      "doi": "10.1073/pnas.1703643115",
+      "year": 2018,
+      "source_ids": [
+        "goldstein_2018",
+        "order_handhold_2026"
+      ],
+      "dois": [
+        "10.1073/pnas.1703643115",
+        "10.1097/pr9.0000000000001464"
+      ],
+      "summary": "Goldstein, Weissman-Fogel, Dumas & Shamay-Tsoory (2018, PNAS) 22-couple dual-EEG hyperscanning proving partner handholding synchronizes 8–12 Hz alpha-mu brain waves across both skulls and cuts heat pain from 52 down to 25."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "coan_2006",
+        "doi": "10.1111/j.1467-9280.2006.01832.x",
+        "year": 2006,
+        "summary": "Scanned 16 married women under a 20% ankle-shock threat cue alone, holding a stranger's hand, or holding their husband's hand."
+      },
+      {
+        "source_id": "master_2009",
+        "doi": "10.1111/j.1467-9280.2009.02444.x",
+        "year": 2009,
+        "summary": "Demonstrated partner handholding lowers perceived thermal pain significantly more than holding a stranger's hand or squeezing an object."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "goldstein_2018",
+        "doi": "10.1073/pnas.1703643115",
+        "year": 2018,
+        "summary": "Dual-EEG hyperscanning across 22 couples showing 8–12 Hz alpha-mu inter-brain coupling tracks analgesia (pain score dropping 52 -> 38 -> 25)."
+      },
+      {
+        "source_id": "order_handhold_2026",
+        "doi": "10.1097/pr9.0000000000001464",
+        "year": 2026,
+        "summary": "Jaltare, Sanfrinnon & Torta (2026, PAIN Reports) demonstrating lingering carryover order effects of partner handholding on mechanical pain sensitivity."
+      }
+    ]
+  },
   "primary_case": {
+    "title": "Coan's 2006 Spouse-Handholding fMRI & Goldstein's 2018 22-Couple Dual-EEG Brain-Coupling Discovery",
     "year": 2018,
-    "place": "University of Virginia fMRI Suite & University of Colorado / Haifa Dual-EEG Lab",
-    "summary": "James Coan (2006) scanned 16 women facing ankle-shock threats alone, holding a stranger's hand, or holding their spouse's hand, and Pavel Goldstein & Simone Shamay-Tsoory (2018, PNAS) wired 22 couples into dual-EEG hyperscanning — proving partner touch physically synchronizes alpha-mu brain waves across two skulls and blunts anterior cingulate and insula pain alarms.",
+    "place": "University of Virginia fMRI Suite & CU Boulder / University of Haifa Dual-EEG Laboratory",
+    "summary": "James Coan (2006) scanned 16 married women facing ankle-shock cues alone, holding a stranger's hand, or holding their husband's hand, and Pavel Goldstein & Simone Shamay-Tsoory (2018, PNAS) wired 22 couples into dual-EEG hyperscanning — proving partner touch synchronizes 8–12 Hz alpha-mu waves across two skulls and cuts pain ratings roughly in half (52 down to 25).",
     "people": [
       {
         "name": "James A. Coan & Richard J. Davidson",
-        "role": "University of Virginia & UW-Madison affective neuroscientists (Psychological Science, 2006)",
-        "bio": "Pioneered Social Baseline Theory by scanning 16 married women under ankle-shock threat alone vs holding a stranger's or spouse's hand."
+        "role": "University of Virginia & UW-Madison affective neuroscientists who formulated Social Baseline Theory (Psychological Science, 2006)",
+        "source_id": "coan_2006",
+        "bio": "Scanned 16 married women under ankle-shock threat alone vs holding a stranger's or spouse's hand, revealing marital quality scales neural calm."
       },
       {
         "name": "Pavel Goldstein, Guillaume Dumas & Simone G. Shamay-Tsoory",
-        "role": "CU Boulder, Institut Pasteur & University of Haifa neuroscientists (PNAS, 2018)",
-        "bio": "Wired 22 romantic couples to dual-EEG hyperscanning during heat pain, discovering inter-brain alpha-mu wave coupling tracks analgesia."
+        "role": "CU Boulder, Institut Pasteur & University of Haifa dual-EEG neuroscientists (PNAS, 2018)",
+        "source_id": "goldstein_2018",
+        "bio": "Wired 22 couples (44 brains simultaneously) to dual-EEG caps after Goldstein watched his wife's labor pain ease whenever he held her hand."
       },
       {
-        "name": "Sarah L. Master & Naomi I. Eisenberger",
-        "role": "UCLA affective & social pain neuroscientists (Science 2003; Psychological Science 2009)",
-        "bio": "Mapped shared dorsal anterior cingulate and anterior insula pain-distress hubs and demonstrated partner attachment cues directly blunt experimental thermal pain."
+        "name": "Sarah L. Master, Naomi I. Eisenberger & Diana M. Torta",
+        "role": "Social analgesia and mechanical-pain follow-up investigators (2003, 2009, 2026)",
+        "source_id": "master_2009",
+        "bio": "Confirmed partner safety cues blunt physical thermal and mechanical pain across anterior insula and dorsal anterior cingulate hubs."
       }
     ]
   },
@@ -46,110 +111,125 @@
       "bio": "Mapped shared dorsal anterior cingulate and anterior insula pain-distress hubs and demonstrated partner attachment cues directly blunt experimental thermal pain."
     }
   ],
-  "three_layer_formula": {
-    "everyday_problem": "Why sitting alone in a hospital bay or enduring bad news solo feels twice as overwhelming and physically painful as facing the exact same moment holding a trusted hand.",
-    "psychology_experiment": {
-      "source_id": "coan_2006",
-      "doi": "10.1111/j.1467-9280.2006.01832.x",
-      "source_ids": [
-        "coan_2006"
-      ],
-      "dois": [
-        "10.1111/j.1467-9280.2006.01832.x"
-      ],
-      "summary": "Coan, Schaefer & Davidson (2006) exposed 16 women to a 20% ankle-shock threat alone, holding an anonymous experimenter's hand, or holding their partner's hand — subjective distress and threat arousal dropped sharply with a trusted spouse, scaled by relationship quality."
-    },
-    "neuroscience_mechanism": {
-      "source_id": "goldstein_2018",
-      "doi": "10.1073/pnas.1703643115",
-      "source_ids": [
-        "goldstein_2018",
-        "order_handhold_2026"
-      ],
-      "dois": [
-        "10.1073/pnas.1703643115",
-        "10.1097/pr9.0000000000001464"
-      ],
-      "summary": "Goldstein et al. (2018, PNAS) dual-EEG hyperscanning across 22 couples proved holding a partner's hand during heat pain locks 8–12 Hz alpha-mu rhythms into synchrony across both brains, dampening anterior insula and dorsal anterior cingulate pain signals."
-    }
-  },
-  "debate_ignition": {
-    "prebunk_myth": "Modern culture treats 'toughing pain out alone' as strength and handholding as sentimental placebo.",
-    "open_verdict_question": "When real pain or bad news hits, do you instinctively reach for someone's hand or pull away to endure it alone?",
-    "offcenter_creator_bet": "My bet: going solo wastes brain fuel — our nerves expect a second hand nearby in pain. Reach out or go solo?"
-  },
   "core_facts": [
     {
-      "fact": "In 2006, James Coan scanned 16 married women inside an fMRI bore facing cues warning of a 20 percent chance of mild electric ankle shock across three conditions: alone, stranger's hand, or husband's hand.",
+      "fact": "In 2006, University of Virginia psychologist James Coan scanned 16 married women inside an fMRI bore facing visual cues warning of a 20 percent chance of mild electric ankle shock across three randomized conditions: alone, holding an anonymous stranger's hand, or holding their husband's hand.",
       "source_id": "coan_2006"
     },
     {
-      "fact": "Holding a stranger's hand reduced bodily threat activation modestly, while holding a trusted spouse's hand quieted the anterior insula, anterior cingulate, and hypothalamus far more broadly.",
+      "fact": "Holding a stranger's hand reduced bodily threat activation modestly, whereas holding a trusted spouse's hand quieted the anterior insula, dorsal anterior cingulate cortex, hypothalamus, and prefrontal threat circuits far more broadly.",
       "source_id": "coan_2006"
     },
     {
-      "fact": "Women in the highest-rated marriages showed the steepest drop in neural threat alarm — while rocky marriages yielded almost zero extra neural relief.",
+      "fact": "Women in the highest-rated marriages showed the steepest drop in neural threat alarm — while strained marriages yielded almost zero extra neural relief beyond holding a stranger's hand.",
       "source_id": "coan_2006"
     },
     {
-      "fact": "In 2018, Pavel Goldstein and Simone Shamay-Tsoory wired 22 romantic couples with dual-EEG caps across sitting together without touch versus holding hands during calibrated arm heat pain.",
+      "fact": "Inspired after holding his wife's hand in a delivery room, Pavel Goldstein and Simone Shamay-Tsoory (2018 PNAS) wired 22 romantic couples (44 brains simultaneously) with dual-EEG caps during calibrated 2-minute forearm heat pain.",
       "source_id": "goldstein_2018"
     },
     {
-      "fact": "Merely sitting in the same room without touching failed to maximize brain coupling during pain, whereas clasping hands synchronized 8 to 12 Hz alpha-mu waves across both partners' central-parietal cortices.",
+      "fact": "In Pavel Goldstein and Simone Shamay-Tsoory's 2018 PNAS dual-EEG study of 22 couples under calibrated forearm heat pain, average 0-to-100 pain intensity dropped from 52 when partners were separated and 38 when sitting side-by-side without touching down to 25 when clasping hands — synchronizing 8 to 12 Hz alpha-mu waves across both brains.",
+      "source_id": "goldstein_2018",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Partner Touch Pain Drop",
+        "unit": "pts",
+        "bars": [
+          {
+            "label": "Partner Apart",
+            "value": 52.0,
+            "unit": "pts"
+          },
+          {
+            "label": "Seated No Touch",
+            "value": 38.0,
+            "unit": "pts"
+          },
+          {
+            "label": "Hands Clasped",
+            "value": 25.0,
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1073/pnas.1703643115",
+        "source_citation": "Goldstein et al. (2018)"
+      }
+    },
+    {
+      "fact": "Sitting in the exact same room without skin contact failed to maximize inter-brain coupling during pain; clasping hands locked 8 to 12 Hz alpha-mu oscillations across central-parietal somatosensory hubs in direct proportion to analgesia and empathic accuracy.",
       "source_id": "goldstein_2018"
     },
     {
-      "fact": "The tighter the inter-brain alpha-mu synchrony between partner and sufferer, the larger the measurable drop in the sufferer's pain ratings and the higher the partner's empathic accuracy.",
-      "source_id": "goldstein_2018"
-    },
-    {
-      "fact": "Follow-up mechanical pain trials in 2026 showed partner handholding support leaves measurable order and carryover effects on pain sensitivity.",
-      "source_id": "order_handhold_2026"
-    },
-    {
-      "fact": "Controlled thermal pain experiments confirmed holding a romantic partner's hand lowers perceived physical pain significantly more than holding a stranger's hand or squeezing a ball.",
+      "fact": "Controlled thermal pain trials by Master, Eisenberger & Lieberman (2009 Psychological Science) confirmed holding a partner's hand lowers physical heat pain significantly more than holding a stranger's hand or squeezing a rubber ball.",
       "source_id": "master_2009"
     },
     {
-      "fact": "Human fMRI proved dorsal anterior cingulate cortex and anterior insula process both physical nociceptive distress and social separation alarm.",
+      "fact": "Recent human neuroimaging and 2026 mechanical-pain trials (Hoeppli et al., 2022 Nature Communications; Jaltare, Sanfrinnon & Torta, 2026 PAIN Reports) confirmed individual neural variability and showed partner handholding leaves measurable carryover effects on pain sensitivity.",
+      "source_id": "order_handhold_2026"
+    },
+    {
+      "fact": "Human fMRI established that dorsal anterior cingulate cortex and anterior insula register both physical nociceptive distress and social separation alarm — explaining why physical touch calms both simultaneously.",
       "source_id": "eisenberger_2003"
     }
   ],
   "wow_facts": [
     {
-      "fact": "Your brain doesn't treat solitude as neutral zero — Coan's Social Baseline Theory shows the human brain budgets energy assuming a trusted ally is standing within arm's reach.",
-      "source_id": "coan_2006"
+      "fact": "Under Goldstein et al.'s (2018 PNAS) dual-EEG hyperscanning, clasping a partner's hand cut average heat pain from 52 (apart) and 38 (sitting side-by-side without touching) all the way down to 25 while locking 8–12 Hz brain waves across both skulls.",
+      "why_surprising": "Proves sitting nearby without skin contact misses half the biological pain relief.",
+      "source_id": "goldstein_2018",
+      "rank": 1
     },
     {
-      "fact": "Sitting next to your partner without touching during pain leaves two separate stress storms; clasping hands locks 8–12 Hz brain waves into one shared rhythm.",
-      "source_id": "goldstein_2018"
+      "fact": "Your brain does NOT treat solitude as neutral zero: Coan's Social Baseline Theory shows a lone human brain burns extra prefrontal emergency fuel because evolution expects a trusted ally within arm's reach.",
+      "why_surprising": "Reframes 'toughing hardship out alone' from stoic strength into a literal metabolic tax on the cortex.",
+      "source_id": "coan_2006",
+      "rank": 2
     },
     {
-      "fact": "A warm stranger's hand helps a little, but your anterior insula checks relationship trust before turning the pain dial all the way down.",
-      "source_id": "coan_2006"
+      "fact": "Inside UVA's MRI scanner, your anterior insula can tell a stranger's warm hand from your spouse's hand — and even grades how deeply you trust that marriage before turning the threat dial down.",
+      "why_surprising": "Relationship trust is etched directly into sub-second autonomic threat circuits.",
+      "source_id": "coan_2006",
+      "rank": 3
     }
   ],
   "misconceptions": [
     {
-      "myth": "Holding someone's hand in a hospital is just a polite emotional gesture.",
-      "reality": "Dual-EEG and fMRI prove skin-to-skin partner touch physically synchronizes alpha-mu oscillations and blunts insula-cingulate pain processing.",
+      "myth": "Holding someone's hand in a clinic bay is just a polite sentimental gesture.",
+      "truth": "Dual-EEG and fMRI prove skin-to-skin partner touch physically synchronizes 8–12 Hz alpha-mu waves and cuts perceived pain nearly in half (52 down to 25).",
+      "reality": "Dual-EEG and fMRI prove skin-to-skin partner touch physically synchronizes 8–12 Hz alpha-mu waves and cuts perceived pain nearly in half (52 down to 25).",
       "source_id": "goldstein_2018"
     },
     {
-      "myth": "Any human hand works the same in an emergency.",
-      "reality": "Brain scans distinguish a stranger's hand from a deeply trusted partner's hand — and even reflect relationship quality.",
+      "myth": "Sitting quietly in the room next to your spouse gives the same relief as holding their hand.",
+      "truth": "Without skin contact, pain destroyed inter-brain synchrony (mean pain 38); clasping hands restored 8–12 Hz coupling and dropped pain to 25.",
+      "reality": "Without skin contact, pain destroyed inter-brain synchrony (mean pain 38); clasping hands restored 8–12 Hz coupling and dropped pain to 25.",
+      "source_id": "goldstein_2018"
+    },
+    {
+      "myth": "Any human hand works identically in a medical emergency.",
+      "truth": "Brain scans sharply distinguish a stranger's hand from a deeply trusted partner's hand — scaled by relationship quality.",
+      "reality": "Brain scans sharply distinguish a stranger's hand from a deeply trusted partner's hand — scaled by relationship quality.",
       "source_id": "coan_2006"
     }
   ],
   "everyday_hooks": [
-    "Sitting alone in a cold clinic room feeling every needle sting twice as sharply.",
-    "Wondering why a silent squeeze of the hand calms panic faster than ten minutes of verbal advice.",
-    "Pulling away to 'deal with stress alone' without realizing solitude forces your prefrontal cortex to burn extra threat fuel."
+    "Sitting solo in an outpatient biopsy or dental chair at 52 and feeling every beep and pinch twice as sharply.",
+    "Discovering why one silent 10-second hand squeeze calms a frightened spouse faster than ten minutes of well-meaning advice.",
+    "Pulling away to 'handle stress alone' in midlife without realizing solitude forces your prefrontal cortex to pay an extra threat tax."
   ],
+  "offcenter_creator_bet": "My bet: going solo wastes brain fuel — our nerves expect a trusted hand nearby under stress. Do you reach for a hand or tough it out solo?",
+  "debate_ignition": {
+    "prebunk_myth": "Modern culture praises 'toughing pain out alone' as stoic strength and dismisses handholding as polite sentiment.",
+    "open_verdict_question": "When real physical pain or scary medical news hits, do you instinctively reach for a trusted hand or pull back to endure it solo?",
+    "offcenter_creator_bet": "My bet: going solo wastes brain fuel — our nerves expect a trusted hand nearby under stress. Do you reach for a hand or tough it out solo?"
+  },
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A1a_ready_keyframes",
   "shorts_projects": [
     "boost_05_relationships_handholding_pain"
-  ]
+  ],
+  "linked_projects": []
 }

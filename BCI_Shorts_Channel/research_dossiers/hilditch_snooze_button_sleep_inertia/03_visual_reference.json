@@ -1,0 +1,168 @@
+{
+  "scenes": [
+    {
+      "id": "S1",
+      "title": "6:15 AM Bedroom Snooze Trap & Kitchen Counter Coffee Spill",
+      "iconic": true,
+      "shorts_priority": 1,
+      "era": "Modern adult bedroom & sunlit-adjacent morning kitchen",
+      "layout": {
+        "description": "Warm suburban adult bedroom with a twin-bell brass analog alarm clock on an oak nightstand beside a rumpled linen duvet, leading directly to an espresso kettle counter.",
+        "positions": [
+          {
+            "who": "Groggy 46-year-old commuter (stylized 2.5D vinyl character in rumpled heather-gray cotton pajama top)",
+            "where": "reaching a heavy arm out from under the linen duvet toward the vibrating brass nightstand alarm clock",
+            "facing": "angled sideways toward the oak nightstand"
+          },
+          {
+            "who": "Awake household partner / clinical sleep observer (stylized 2.5D vinyl character in crisp olive morning robe holding a ceramic mug)",
+            "where": "standing in the bedroom doorway watching the third consecutive alarm slap",
+            "facing": "toward the bed and nightstand clock"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Twin-bell brushed-brass mechanical alarm clock with top plunger snooze bar",
+          "period_detail": "classic tactile analog clock face with physical vibrating hammer bells and zero digital screen text",
+          "physical_behavior": "State A brass bells shudder violently at 6:15 AM -> State B heavy palm slams the top brass snooze plunger flat down while head drops back into the pillow"
+        },
+        {
+          "name": "Gooseneck stainless pour-over kettle and ceramic morning coffee mug",
+          "period_detail": "matte-black gooseneck kettle steaming over a white stoneware mug on oak counter",
+          "physical_behavior": "State A sleep-fogged hand tilts steaming kettle two inches off-center -> State B hot dark coffee splashes onto the oak saucer rim beside the mug"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Groggy adult commuter",
+          "verb_sequence": "slams palm onto the vibrating brass alarm plunger -> staggers upright into the kitchen five minutes later and pours steaming coffee onto the counter rim beside the mug"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Household partner",
+          "reaction": "catches the tilting kettle handle and slides the alarm clock across the room toward the bright window"
+        }
+      ],
+      "wardrobe": "Heather-gray cotton pajama shirt and flannel trousers; partner in olive morning robe.",
+      "lighting": "Dim slate-blue dawn bedroom shadow contrasting with warm kitchen task light.",
+      "recognition_hook": "Your hand can slap the alarm and walk to the kettle in ten seconds—while the decision-maker behind your forehead is still fast asleep!",
+      "sources": [
+        "SRC1",
+        "SRC5",
+        "SRC6",
+        "SRC_M1",
+        "SRC_M2"
+      ],
+      "key_visual": {
+        "description": "a groggy adult reaching out from a rumpled duvet to slam a vibrating brass mechanical alarm clock plunger before pouring morning coffee beside the mug",
+        "must_show": [
+          "alarm|clock|plunger",
+          "hand|bed|duvet",
+          "kettle|mug|coffee"
+        ],
+        "source": "M1@00:10-00:25; SRC1"
+      }
+    },
+    {
+      "id": "S2",
+      "title": "Outdoor Sunlit Front-Porch Steps: Flushing Morning Sleep Inertia With Daylight",
+      "iconic": false,
+      "shorts_priority": 1,
+      "era": "Modern 6:45 AM sunlit residential front porch and tree-lined sidewalk",
+      "layout": {
+        "description": "Open-air residential front stoop and sunlit tree-lined sidewalk bathed in crisp golden morning sunshine.",
+        "positions": [
+          {
+            "who": "Refreshed 46-year-old adult commuter (in navy quarter-zip sweater)",
+            "where": "stepping outdoors onto the sunlit front porch stairs holding a warm ceramic mug and breathing crisp morning air",
+            "facing": "into the golden eastern morning sun"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Front-door brass handle and steaming stoneware mug in outdoor sunlight",
+          "period_detail": "solid brass latch opening wide onto sunlit neighborhood trees",
+          "physical_behavior": "hand swings the front door wide open into bright morning sun and posture straightens crisply"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult commuter",
+          "verb_sequence": "rises on a single alarm across the room -> swings open the front porch door into bright outdoor sunlight and takes a brisk sidewalk walk"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Adult commuter",
+          "reaction": "blinks once in golden daylight as posture and gaze sharpen with alert clarity"
+        }
+      ],
+      "wardrobe": "Navy quarter-zip knit over collared shirt.",
+      "lighting": "Bright golden outdoor early-morning sunbeams.",
+      "recognition_hook": "Stepping straight into outdoor morning sun helps flush lingering delta fog out of your prefrontal cortex.",
+      "sources": [
+        "SRC2",
+        "SRC4"
+      ]
+    },
+    {
+      "id": "S3",
+      "title": "Neuroimaging Wake Suite: 5-Minute Delta Fog vs 25-Minute Prefrontal Reboot",
+      "iconic": false,
+      "shorts_priority": 2,
+      "era": "2019 Lyon & Walter Reed neuroimaging sleep laboratory",
+      "layout": {
+        "description": "High-key clinical sleep-scanner room with a cushioned scanner bed, scalp sensor cap, and physical handheld reaction clicker.",
+        "positions": [
+          {
+            "who": "Adult study volunteer & sleep neuroscientist",
+            "where": "volunteer seated up on scanner couch clicking a dual-button thumb responder while researcher checks a wall clock at 5 vs 25 minutes",
+            "facing": "three-quarter laboratory angle"
+          }
+        ]
+      },
+      "props": [
+        {
+          "name": "Handheld mechanical thumb clicker and wall sweep-second timer",
+          "period_detail": "clean clinical reaction-speed button and analog wall timer",
+          "physical_behavior": "hesitant slow thumb clicks at minute 5 transform into crisp rapid clicks by minute 25"
+        }
+      ],
+      "actions": [
+        {
+          "who": "Adult volunteer",
+          "verb_sequence": "fumbles slow thumb presses 5 minutes after deep-sleep waking -> clicks crisply and accurately 25 minutes post-awakening"
+        }
+      ],
+      "reactions": [
+        {
+          "who": "Sleep neuroscientist",
+          "reaction": "records the sharp 25-minute prefrontal recovery curve"
+        }
+      ],
+      "wardrobe": "Volunteer in soft clinical scrub top; researcher in white lab coat.",
+      "lighting": "Clean high-key clinical daylight.",
+      "recognition_hook": "Waking straight out of deep slow-wave sleep floods daytime brain networks with delta waves for nearly half an hour.",
+      "sources": [
+        "SRC1",
+        "SRC2",
+        "SRC3"
+      ]
+    }
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Single crisp morning alarm & straight sunlit hallway walk",
+    "landmark_or_object_b": "Repeated 9-minute snooze alarm loop & zig-zagging groggy kitchen stumble",
+    "arrow_3d_mode": "dual_speed_race_lanes",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep skimming sunlit suburban rooftops as morning light hits a bedroom window",
+    "cut_b_topdown_3d_arrow": "90-degree top-down apartment layout comparing fast cyan brainstem wake lane vs lagging #FF2525 25-minute prefrontal track",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
+}

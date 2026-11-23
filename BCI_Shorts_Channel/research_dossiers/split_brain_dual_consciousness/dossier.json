@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "split_brain_dual_consciousness",
   "topic": "Michael Gazzaniga & Roger Sperry (1962-2000): Corpus Callosotomy, Split-Brain Patients (W.J. & P.S.), and the Left-Hemisphere Interpreter",
   "pillar": "brain_mysteries",
@@ -54,7 +54,26 @@
     },
     {
       "fact": "When a visual stimulus is flashed for 100 to 150 milliseconds to the left of a central fixation dot (left visual hemifield), retinal fibers project exclusively to the silent right visual cortex before the eyes can saccade.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Pre-Saccade Flash Window",
+        "unit": "ms",
+        "series": [
+          {
+            "label": "Lateralized Flash",
+            "values": [
+              100.0,
+              150.0
+            ],
+            "unit": "ms"
+          }
+        ],
+        "doi": "10.1093/brain/123.7.1293",
+        "source_citation": "Gazzaniga (2000)"
+      }
     },
     {
       "fact": "Shown a word or object exclusively in the left visual field, W.J. verbally insisted 'I saw nothing,' yet his left hand (controlled by the right hemisphere) reached behind a screen and picked up the exact matching object.",
@@ -78,7 +97,18 @@
     },
     {
       "fact": "Modern debates (Pinto et al. 2017 vs Volz & Gazzaniga 2017) show that while subcortical brainstem motor links allow cross-hand pointing, perceptual awareness of left- and right-field content remains strictly divided across the severed callosum.",
-      "source_id": "SRC3"
+      "source_id": "SRC3",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Callosal Transfer Threshold",
+        "concept": "Interhemispheric Perceptual Isolation",
+        "fn": "sigmoid",
+        "x_label": "Callosal Connectivity",
+        "y_label": "Shared Visual Awareness",
+        "doi": ""
+      }
     },
     {
       "fact": "Across 50 years of post-commissurotomy research since 1962, investigators debated whether callosotomy yields two independent conscious streams or unified agency bridged by subcortical pathways.",
@@ -141,5 +171,38 @@
   ],
   "linked_projects": [
     "psych_03_split_brain_dual_consciousness"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1073/pnas.48.10.1765",
+  "three_layer_formula": {
+    "everyday_problem": "Buying something impulsively online at midnight and hearing yourself invent three sensible 'practical reasons' for it the next morning.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1073/pnas.48.10.1765",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1073/pnas.48.10.1765"
+      ],
+      "summary": "M. S. Gazzaniga, J. E. Bogen, R. W. Sperry (1962). Some functional effects of sectioning the cerebral commissures in man*. Proceedings of the National Academy of Sciences."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1093/brain/awx012",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1093/brain/awx012"
+      ],
+      "summary": "Alex J. Clark, Malte S. Kaller, Jorge Galino, Hugh J. Willison et al. (2017). Co-cultures with stem cell-derived human sensory neurons reveal regulators of peripheral myelination. Brain."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Left-brained people are purely logical mathematicians while right-brained people are purely artistic creatives.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

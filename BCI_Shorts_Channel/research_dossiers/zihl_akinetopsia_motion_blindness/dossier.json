@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "zihl_akinetopsia_motion_blindness",
   "topic": "Josef Zihl (1983): Akinetopsia ('Motion Blindness') — Why Patient L.M. Saw Pouring Tea Freeze Like a Solid Glacier",
   "pillar": "brain_mysteries",
@@ -52,7 +52,28 @@
     },
     {
       "fact": "Zihl et al.'s rigorous 1983 psychophysics pinpointed the exact speed cliff: below ~6-10 degrees/second on clean backgrounds L.M. detected slow drift, whereas above **12-14 degrees/second** her smooth-pursuit eye tracking and speed discrimination collapsed completely.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "V5 Motion Speed Threshold",
+        "unit": "deg/s",
+        "bars": [
+          {
+            "label": "Slow Drift Limit",
+            "value": 6.0,
+            "unit": "deg/s"
+          },
+          {
+            "label": "Motion Blindness",
+            "value": 12.0,
+            "unit": "deg/s"
+          }
+        ],
+        "doi": "10.1093/brain/106.2.313",
+        "source_citation": "Zihl et al. (1983)"
+      }
     },
     {
       "fact": "Crucially, L.M.'s **auditory motion** (tracking a sound moving left-to-right with eyes closed) and **tactile motion** (feeling a brush glide across her skin) were **100% NORMAL** — proving the brain doesn't have one generic 'motion center,' it has a dedicated **VISUAL motion module (V5/hMT+)**.",
@@ -123,5 +144,37 @@
   ],
   "reenactment_track": "track_a",
   "reenactment_track_subtier": "A2_section_window",
-  "offcenter_creator_bet": "My bet: smooth motion is stitched art — lose area V5 and pouring tea freezes into scary jumping snapshots. Which everyday sense do we take for granted most?"
+  "offcenter_creator_bet": "My bet: smooth motion is stitched art — lose area V5 and pouring tea freezes into scary jumping snapshots. Which everyday sense do we take for granted most?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1093/brain/106.2.313",
+  "three_layer_formula": {
+    "everyday_problem": "Watching a dancer under a nightclub strobe light teleport from pose A to pose B with zero fluid motion in between.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/brain/106.2.313",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1093/brain/106.2.313"
+      ],
+      "summary": "J. Zihl, D. Von Cramon, N. Mai (1983). SELECTIVE DISTURBANCE OF MOVEMENT VISION AFTER BILATERAL BRAIN DAMAGE. Brain."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.3389/fneur.2024.1510807",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.3389/fneur.2024.1510807"
+      ],
+      "summary": "Johanna L. Browne, Lydia Krabbendam, Jan Dirk Blom (2025). Akinetopsia: a systematic review on visual motion blindness. Frontiers in Neurology."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Your eyes send 'moving video' straight to one master television screen at the back of your head.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: smooth motion is stitched art — lose area V5 and pouring tea freezes into scary jumping snapshots. Which everyday sense do we take for granted most?"
+  }
 }

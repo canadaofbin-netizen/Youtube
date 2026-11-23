@@ -1,0 +1,1691 @@
+{
+  "schema_version": 2,
+  "updated_at_utc": "2026-11-16T10:01:48.770455+00:00",
+  "queue_ceiling": 35,
+  "minimum_score_floor": 85,
+  "portfolio_counts": {
+    "total": 35,
+    "track1_everyday_new": 18,
+    "track2_remodel": 12,
+    "track3_breaking_2025_2026": 5
+  },
+  "weekly_schedule_cron": "30 9 * * 1",
+  "r80_spatial_enriched": true,
+  "items": [
+    {
+      "slug": "hauglund_2025_sleep_pill_norepinephrine_brain_wash",
+      "track": "Track 3 (2025-2026)",
+      "base_score": 96,
+      "effective_score": 98.0,
+      "topic": "2025 Breakthrough: Why Certain Sleeping Pills Mute Your Brain's Nightly Pump",
+      "pillar": "brain_news",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1016/j.cell.2024.11.027",
+      "verified_doi_count": 8,
+      "primary_region": "brainstem",
+      "regions": [
+        "brainstem",
+        "thalamus",
+        "prefrontal cortex",
+        "primary visual cortex"
+      ],
+      "setup_18w": "Researchers tracked slow nightly blood-vessel waves that pump fluid through the sleeping brain—and tested common sleep drugs.",
+      "shorts_hook": "Why eight hours knocked out on a sleeping pill can still leave your morning brain feeling unwashed.",
+      "shorts_twist": "Zolpidem induced fast sleep yet cut slow norepinephrine pump waves by 50% and reduced brain fluid washing by 30%.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Thoughtful 55-year-old adult holding a bedtime pill tablet beside a water glass in dim bedroom light",
+        "right_cyan_brain": "Glowing #27D8FF 3D brain with dimmed muted brainstem pump vs bright flowing perivascular waves",
+        "badge_text": "PUMP MUTED"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Natural dark bedroom window & rhythmic pulsing perivascular fluid channels",
+        "landmark_or_object_b": "Bedside Zolpidem pill blister & flattened stalled fluid corridor",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 4,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep from moonlit Copenhagen research institute facade into quiet bedroom nightstand",
+        "cut_b_topdown_3d_arrow": "90-degree top-down comparison track with pulsing cyan 3D fluid arrows vs shortened muted #FF2525 sedated lane",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "For long-term brain health, would you overhaul bedtime habits to protect natural sleep waves or trade pump strength for fast sedation?",
+      "creator_bet": "My bet: sedation is not real sleep — would you rebuild natural sleep habits or lean on a nightly pill?",
+      "queue_rank": 1,
+      "planned_episode": "Ep #10",
+      "suggested_slot_et": "2026-11-17 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "janata_music_nostalgia_alzheimers_spared_hub",
+      "track": "Track 1 (New)",
+      "base_score": 96,
+      "effective_score": 97.5,
+      "topic": "Why You Forget a New Name in 5 Seconds Yet Sing Every Word From 1985",
+      "pillar": "brain_history",
+      "everyday_domain": "memory",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1093/cercor/bhp008",
+      "verified_doi_count": 6,
+      "primary_region": "hippocampus",
+      "regions": [
+        "hippocampus",
+        "auditory cortex",
+        "ventromedial prefrontal cortex",
+        "anterior cingulate cortex"
+      ],
+      "setup_18w": "Scanners played random billboard songs from decades past to watch which brain hub lit up on nostalgia.",
+      "shorts_hook": "Why you forget a new name in five seconds at a barbecue—yet climb in the car and sing every single word from 1985.",
+      "shorts_twist": "Long-loved songs don't live in your fragile name-learning hippocampus—they live in a sheltered midline brain sanctuary that Alzheimer's touches last.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Older adult putting on cushioned headphones and lighting up singing every word of a 1985 song",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing dimmed hippocampus vs blazing cyan ventromedial prefrontal and anterior cingulate musical sanctuary",
+        "badge_text": "SPARED HUB"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Backyard barbecue patio where a new acquaintance's name fades in 5 seconds",
+        "landmark_or_object_b": "1985 car stereo cassette deck unlocking a lifelong multi-turn memory highway",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep from UC Davis campus courtyard down to a sunlit parked vintage sedan",
+        "cut_b_topdown_3d_arrow": "90-degree top-down life-timeline neighborhood where #FF2525 3D arrows weave across 1985 teen landmarks",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When an old song from your teens comes on unexpectedly, does it bring back a specific place first or the exact person you were with?",
+      "creator_bet": "My bet: teenage songs outlast every password — do old hits bring back places or people first?",
+      "queue_rank": 2,
+      "planned_episode": "Ep #11",
+      "suggested_slot_et": "2026-11-18 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "v2_sleep_first_night_hemisphere_watch",
+      "track": "Track 2 (Remodel)",
+      "base_score": 96,
+      "effective_score": 98.0,
+      "topic": "Why Your Left Hemisphere Stays Awake on Your First Night in a Hotel Bed",
+      "pillar": "brain_health",
+      "everyday_domain": "sleep",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1016/j.cub.2016.02.063",
+      "verified_doi_count": 6,
+      "primary_region": "default mode network",
+      "regions": [
+        "default mode network",
+        "thalamus",
+        "amygdala",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Neuroscientists scanned thirty-five volunteers across two nights in an unfamiliar bed while playing quiet oddball earphone beeps.",
+      "shorts_hook": "Checking into a quiet hotel exhausted at 11 PM—yet snapping wide awake at every faint hallway sound on Night 1.",
+      "shorts_twist": "Your sleep isn't broken: your left default-mode network stays on dolphin-like sentinel watch on Night 1 and stands down on Night 2.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Wide-awake exhausted adult traveler on crisp white hotel pillow glancing sharply sideways in dim moonlight",
+        "right_cyan_brain": "Glowing #27D8FF 3D brain split with calm deep-blue right hemisphere and bright crimson-amber sentinel left hemisphere",
+        "badge_text": "HALF AWAKE"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Unfamiliar hotel hallway & Night-1 half-awake sentinel bed side",
+        "landmark_or_object_b": "Familiar Night-2 bedroom & symmetrical deep-sleep stillness",
+        "arrow_3d_mode": "split_hemisphere_watch",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming an illuminated hotel exterior sign-free portico and ascending above the roof",
+        "cut_b_topdown_3d_arrow": "90-degree top-down hotel suite floorplan where #FF2525 3D sound-alert arrows patrol the left corridor while the right side rests",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "On night one in a strange hotel, do you pack your own pillowcase to calm that sentinel or let half your brain stand guard?",
+      "creator_bet": "My bet: packing your pillowcase works — does a familiar scent calm your hotel brain or do you still toss?",
+      "queue_rank": 3,
+      "planned_episode": "Ep #12",
+      "suggested_slot_et": "2026-11-19 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "radvansky_doorway_effect_memory_boundary",
+      "track": "Track 1 (New)",
+      "base_score": 96,
+      "effective_score": 97.5,
+      "topic": "Why Walking Through a Doorway Erases What You Came For (The Doorway Effect)",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "memory",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1080/17470218.2011.571267",
+      "verified_doi_count": 7,
+      "primary_region": "parietal cortex",
+      "regions": [
+        "parietal cortex",
+        "hippocampus",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Volunteers carried objects either across a single large room or through a doorway into a second room.",
+      "shorts_hook": "Why walking ten feet into the kitchen erases what you came for—while walking ten feet inside one room leaves memory intact.",
+      "shorts_twist": "Zheng et al. (2022) caught human hippocampal boundary cells filing the old room away on the threshold—a sign of healthy brain organization, not memory loss.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "50-year-old adult freezing mid-step in a bright kitchen doorway staring at empty hands",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing hippocampal boundary-cell burst and silenced prefrontal working-memory desk",
+        "badge_text": "DOORWAY RESET"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Single continuous 10-foot living-room walk keeping memory intact",
+        "landmark_or_object_b": "10-foot walk crossing an open kitchen doorway threshold where the memory track snaps",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Notre Dame Golden Dome ascending into an architectural house cutaway",
+        "cut_b_topdown_3d_arrow": "90-degree top-down two-room floorplan where a solid #FF2525 3D extruded arrow fractures cleanly at the doorway frame",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When you freeze in a doorway forgetting why you came in, does walking back to the last room bring it back or leave you just as blank?",
+      "creator_bet": "My bet: doorways reset working memory — when you blank in the kitchen, do you retrace steps or stand still?",
+      "queue_rank": 4,
+      "planned_episode": "Ep #13",
+      "suggested_slot_et": "2026-11-20 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "haghayegh_warm_shower_90min_core_cooling_sleep",
+      "track": "Track 1 (New)",
+      "base_score": 95,
+      "effective_score": 97.0,
+      "topic": "Why a Warm Shower 90 Minutes Before Bed Cools Your Core to Trigger Deep Sleep",
+      "pillar": "brain_health",
+      "everyday_domain": "sleep",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1016/j.smrv.2019.04.008",
+      "verified_doi_count": 7,
+      "primary_region": "somatosensory cortex",
+      "regions": [
+        "somatosensory cortex",
+        "hypothalamus",
+        "thalamus"
+      ],
+      "setup_18w": "Researchers compared ten-minute warm showers timed ninety minutes before bed against showering immediately before lights-out.",
+      "shorts_hook": "Why a hot shower 10 minutes before bed keeps you tossing—while the exact same shower 90 minutes earlier switches on deep sleep.",
+      "shorts_twist": "Your brain needs core temperature to drop to fall asleep—and warm hands and feet predict sleep speed even better than melatonin (Kräuchi et al., 1999, Nature).",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "55-year-old adult stepping out of a warm misty shower 90 minutes before bedtime",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway highlighting the hypothalamic preoptic cooling switch and calm thalamic sleep waves",
+        "badge_text": "90-MIN COOL DROP"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "10:50 PM last-minute hot shower trapping core heat under blankets and delaying sleep",
+        "landmark_or_object_b": "9:00 PM warm shower plus 90-minute cool-hallway runway radiating core heat out through hands and feet",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep over a twilight suburban neighborhood diving through an illuminated upstairs window into a two-lane bathroom-to-bedroom cutaway",
+        "cut_b_topdown_3d_arrow": "Top-down side-by-side home floorplan where a stalled short path overheats in bed while a sweeping #FF2525 3D arrow glides across the 90-minute cooling runway straight into deep sleep",
+        "ricks_tempo_sec_range": [
+          2.3,
+          3.1
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "To fall asleep faster tonight, would you time a 10-minute warm shower 90 minutes before bed or stick to morning showers only?",
+      "creator_bet": "My bet: 9 PM warm showers beat sleep aids — do you shower at night or in the morning?",
+      "status": "ready_v2_verified",
+      "queue_rank": 5,
+      "suggested_slot_et": "2026-11-21 19:30 ET",
+      "planned_episode": "Ep #14"
+    },
+    {
+      "slug": "yiweng_2025_walking_steps_tau_alzheimers_brake",
+      "track": "Track 3 (2025-2026)",
+      "base_score": 96,
+      "effective_score": 97.5,
+      "topic": "New Harvard Scan Study: How Just 5,000 Daily Steps Slow Brain Aging by Years",
+      "pillar": "brain_news",
+      "everyday_domain": "memory",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1001/jamaneurol.2019.1879",
+      "verified_doi_count": 7,
+      "primary_region": "motor cortex",
+      "regions": [
+        "motor cortex",
+        "temporal lobe",
+        "hippocampus",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Harvard doctors tracked step counters and long-term brain scans in older adults carrying early Alzheimer's plaques.",
+      "shorts_hook": "Why feeling guilty about missing 10,000 steps is backwards—new Harvard PET brain scans show just 5,000 to 7,500 daily steps delay Alzheimer's memory decline by ~7 years.",
+      "shorts_twist": "Walking didn't erase amyloid plaques—it slammed the brakes on downstream tau tangles that actually destroy memory cells, plateauing right around 7,500 steps.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Active 60-year-old striding briskly down a sunlit tree-lined sidewalk as wristwatch crosses 5,200 steps",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing protected cyan hippocampus and braked temporal tau spread",
+        "badge_text": "5,000 STEPS = +7 YRS"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Sedentary indoor sofa loop (<2,000 daily steps)",
+        "landmark_or_object_b": "Sunlit Boston tree-lined park loop crossing 5,000–7,500 daily steps",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Massachusetts General / Harvard stone colonnade rising over Charles River park paths",
+        "cut_b_topdown_3d_arrow": "90-degree top-down neighborhood park grid with thick #FF2525 3D walking-route arrows connecting four green plaza pins",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "For keeping your brain sharp long-term, do you aim for a daily step number on your watch or a brisk 30-minute walk outdoors?",
+      "creator_bet": "My bet: daily walks beat weekend workouts — do you track daily steps or walk neighborhood routes by time?",
+      "queue_rank": 6,
+      "planned_episode": "Ep #15",
+      "suggested_slot_et": "2026-11-22 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "hilditch_snooze_button_sleep_inertia",
+      "track": "Track 1 (New)",
+      "base_score": 95,
+      "effective_score": 97.0,
+      "topic": "Why Hitting Snooze Traps Your Forehead Brain in Deep-Sleep Fog for Hours",
+      "pillar": "brain_health",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1093/brain/awf228",
+      "verified_doi_count": 6,
+      "primary_region": "brainstem",
+      "regions": [
+        "brainstem",
+        "thalamus",
+        "prefrontal cortex",
+        "default mode network"
+      ],
+      "setup_18w": "Sleep labs measured blood flow and reaction speed right after waking from deep versus light morning sleep.",
+      "shorts_hook": "Why your hand can slap the snooze bar in two seconds while your brain pours coffee onto the counter ten minutes later.",
+      "shorts_twist": "Your brainstem wakes instantly, yet your prefrontal cortex trails 25 minutes behind—performing worse than 26 hours without sleep.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Groggy 45-year-old adult in pajamas slamming a brass bedside snooze alarm with heavy half-shut eyes",
+        "right_cyan_brain": "Glowing #27D8FF 3D brain with bright awake brainstem at base and dimmed shadowed prefrontal cortex behind forehead",
+        "badge_text": "STILL ASLEEP"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Single crisp morning alarm & straight sunlit hallway walk",
+        "landmark_or_object_b": "Repeated 9-minute snooze alarm loop & zig-zagging groggy kitchen stumble",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming sunlit suburban rooftops as morning light hits a bedroom window",
+        "cut_b_topdown_3d_arrow": "90-degree top-down apartment layout comparing fast cyan brainstem wake lane vs lagging #FF2525 25-minute prefrontal track",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "sjMteEvcjD0",
+      "anchor_label": "How Trying to Fall Asleep Backfires (527+ views surging)",
+      "debate_question": "Tomorrow morning, do you set one single alarm at your real wake time or use a snooze buffer to ease out of bed?",
+      "creator_bet": "My bet: snoozing wrecks morning focus — do you set one single alarm or stack three in a row?",
+      "queue_rank": 7,
+      "planned_episode": "Ep #16",
+      "suggested_slot_et": "2026-11-23 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "thanarajah_2023_2025_ultraprocessed_snack_reward_rewiring",
+      "track": "Track 3 (2025-2026)",
+      "base_score": 95,
+      "effective_score": 96.6,
+      "topic": "How 8 Weeks of One Daily Sugary Snack Quietly Rewires Your Brain's Craving Circuit",
+      "pillar": "brain_news",
+      "everyday_domain": "habits",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1016/j.cmet.2023.02.015",
+      "verified_doi_count": 6,
+      "primary_region": "nucleus accumbens",
+      "regions": [
+        "nucleus accumbens",
+        "basal ganglia",
+        "hypothalamus",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Normal-weight adults ate either one small high-fat sugary pudding or a matched low-fat pudding daily for eight weeks.",
+      "shorts_hook": "Think one small daily sugary snack is harmless as long as your weight stays flat? An 8-week brain-scan trial proved otherwise.",
+      "shorts_twist": "Zero weight gain on the scale, yet fMRI caught rewired dopamine reward circuits AND lingering brain-insulin lag!",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "46-year-old adult pushing healthy berries away for a glossy pudding snack cup beside a '0 LBS GAINED' scale",
+        "right_cyan_brain": "Translucent #27D8FF cyan 3D brain highlighting over-lit nucleus accumbens reward center and silenced hypothalamus",
+        "badge_text": "8-WEEK REWIRE"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Daily sugary high-fat snack shelf detour over 8 weeks",
+        "landmark_or_object_b": "Calorie-matched low-fat whole-food aisle corridor",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Max Planck / Yale stone laboratory courtyard rising into a miniature market grid",
+        "cut_b_topdown_3d_arrow": "90-degree top-down grocery aisle maze where #FF2525 3D craving arrows veer repeatedly toward the sweet-snack island",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When evening snack cravings hit hard, do you think it is mostly daily habit wiring or conscious willpower?",
+      "creator_bet": "My bet: daily treats retrain cravings — after 8 weeks, is snacking sheer willpower or rewired circuits?",
+      "queue_rank": 8,
+      "planned_episode": "Ep #17",
+      "suggested_slot_et": "2026-11-24 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "kaptchuk_open_label_placebo_pain_switch",
+      "track": "Track 1 (New)",
+      "base_score": 96,
+      "effective_score": 97.0,
+      "topic": "Why Sugar Pills Still Cut Pain Even When Doctors Tell You They Are Fake",
+      "pillar": "brain_health",
+      "everyday_domain": "anxiety",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1371/journal.pone.0015591",
+      "verified_doi_count": 6,
+      "primary_region": "prefrontal cortex",
+      "regions": [
+        "prefrontal cortex",
+        "brainstem",
+        "anterior cingulate cortex",
+        "insula"
+      ],
+      "setup_18w": "Doctors handed patients bottles labeled placebo pills and openly explained the capsules contained zero active medicine.",
+      "shorts_hook": "Harvard doctors handed hurting adults a bottle boldly labeled 'Placebo Pills' and told them zero medicine was inside — yet 59% still got real symptom relief.",
+      "shorts_twist": "Why you don't need to be fooled: lifelong conditioned pill rituals fire prefrontal-to-brainstem opioid pathways that quiet your anterior cingulate pain alarm.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "47-year-old adult holding an amber bottle boldly labeled PLACEBO with two inert capsules in palm and surprised raised eyebrows",
+        "right_cyan_brain": "3D translucent glass brain with bright #27D8FF prefrontal-to-brainstem pathway active and silenced anterior cingulate alarm",
+        "badge_text": "HONEST FAKE PILL"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Empty waiting-room bench with untreated recurring pain",
+        "landmark_or_object_b": "Harvard clinic pharmacy counter & open-label amber capsule ritual",
+        "arrow_3d_mode": "fixed_linear_corridor",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming Harvard Longwood marble courtyard columns ascending steeply skyward",
+        "cut_b_topdown_3d_arrow": "90-degree top-down clinic corridor with a straight #FF2525 3D conditioned-ritual arrow driving straight to the relief checkpoint",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "If your doctor handed you a bottle boldly labeled Inert Placebo Pills for a stubborn back ache, would your brain dial the pain down or ignore the ritual completely?",
+      "creator_bet": "My bet: honest rituals beat willpower — knowing a capsule is sugar still dials down real pain alarms. Would an open placebo calm your pain or feel pointless?",
+      "queue_rank": 9,
+      "planned_episode": "Ep #18",
+      "suggested_slot_et": "2026-11-25 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "tholke_2025_caffeine_sleeping_brain_criticality",
+      "track": "Track 3 (2025-2026)",
+      "base_score": 95,
+      "effective_score": 97.0,
+      "topic": "2025 Brain Scan: Why Afternoon Coffee Keeps Your Sleeping Brain Wired Even If You Fall Asleep",
+      "pillar": "brain_news",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1038/s42003-025-08090-z",
+      "verified_doi_count": 7,
+      "primary_region": "brainstem",
+      "regions": [
+        "brainstem",
+        "thalamus",
+        "prefrontal cortex",
+        "hypothalamus"
+      ],
+      "setup_18w": "Forty adults swallowed caffeine or placebo capsules before overnight brainwave recordings across two laboratory nights.",
+      "shorts_hook": "Why falling asleep fast after a 3 PM coffee still leaves your sleeping brain wired like daytime.",
+      "shorts_twist": "Gardiner et al. (2023) proved even one regular cup of coffee needs 8.8 hours before bed—and evening doses delay your circadian clock by 40 minutes.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "50-year-old adult sleeping with eyes closed beside an afternoon espresso cup",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway pulsing with wired awake-like prefrontal and thalamic criticality waves",
+        "badge_text": "BRAIN STILL WIRED"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Sunlit 2:00 PM outdoor sidewalk café table where caffeine enters bloodstream 9 hours before bed",
+        "landmark_or_object_b": "11:00 PM dark bedroom bed where unconscious NREM cortex stays wired in criticality",
+        "arrow_3d_mode": "split_hemisphere_watch",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep from a sunlit Montreal boulevard café awning straight across twilight rooftops into a quiet bedroom cutaway",
+        "cut_b_topdown_3d_arrow": "Top-down architectural timeline floorplan where a glowing #FF2525 3D volumetric arrow bridges 8.8 hours from café cup straight into the sleeping pillow",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.1
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "After seeing how afternoon caffeine wires your sleeping brain waves, will you cut off coffee 9 hours before bed or keep your 3 PM cup?",
+      "creator_bet": "My bet: passing out isn't deep recovery — do you stop coffee by 1 PM or drink it late?",
+      "status": "ready_v2_verified",
+      "queue_rank": 10,
+      "suggested_slot_et": "2026-11-26 19:30 ET",
+      "planned_episode": "Ep #19"
+    },
+    {
+      "slug": "burke_tip_of_the_tongue_word_block",
+      "track": "Track 1 (New)",
+      "base_score": 94,
+      "effective_score": 95.5,
+      "topic": "Why Known Names Freeze on the Tip of Your Tongue — And Why Forcing Fails",
+      "pillar": "brain_basics",
+      "everyday_domain": "memory",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1016/0749-596x(91)90026-g",
+      "verified_doi_count": 7,
+      "primary_region": "temporal lobe",
+      "regions": [
+        "temporal lobe",
+        "Broca's area",
+        "anterior cingulate cortex",
+        "insula"
+      ],
+      "setup_18w": "Younger and older adults kept diaries of every blocked name and tested whether guessing helped or hurt.",
+      "shorts_hook": "You can picture their face, their job, and even the first letter — so why does their name freeze solid on the tip of your tongue?",
+      "shorts_twist": "Why refusing to Google a stuck name trains your brain to freeze again 48 hours later — and why looking it up in 10 seconds fixes the wire.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "52-year-old adult snapping fingers mid-sentence with a frozen 'S___?' speech tag on a sunlit patio",
+        "right_cyan_brain": "Translucent #27D8FF cyan 3D brain showing active temporal meaning hub and silenced Broca's speech bridge",
+        "badge_text": "NAME FROZEN?"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Blocked speech bridge where forcing a forgotten name dead-ends at a gap",
+        "landmark_or_object_b": "10-second phone lookup detour reconnecting meaning to pronunciation",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Claremont / sunlit garden patio tables ascending into overhead diorama view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down pathway where a thick #FF2525 3D arrow snaps across a mid-corridor gap when forcing a stuck word",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When a familiar name freezes on the tip of your tongue, do you stubbornly refuse to Google it or look it up right away?",
+      "creator_bet": "My bet: forcing a name locks it tighter — when a name freezes, do you keep straining or look it up fast?",
+      "queue_rank": 11,
+      "planned_episode": "Ep #20",
+      "suggested_slot_et": "2026-11-27 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "tubbs_mind_after_midnight_3am_spiral",
+      "track": "Track 1 (New)",
+      "base_score": 95,
+      "effective_score": 97.0,
+      "topic": "Why Every Small Worry Feels 10 Times Worse When You Wake Up at 3 AM",
+      "pillar": "brain_health",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.3389/fnetp.2021.830338",
+      "verified_doi_count": 6,
+      "primary_region": "prefrontal cortex",
+      "regions": [
+        "prefrontal cortex",
+        "amygdala",
+        "hypothalamus",
+        "nucleus accumbens"
+      ],
+      "setup_18w": "Scientists tracked mood, impulse brakes, and threat alarms hour by hour across the twenty-four-hour biological clock.",
+      "shorts_hook": "Why a tiny Tuesday problem feels like an unsolvable life disaster at 3:12 AM—and looks completely manageable at 8:00 AM.",
+      "shorts_twist": "At 3 AM your prefrontal brake is offline while your amygdala threat alarm fires 60% hotter—built for savanna predators, not emails.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Wide-awake worried 50-year-old sitting upright in dark 3 AM bedroom staring into shadows",
+        "right_cyan_brain": "Glowing #27D8FF 3D brain with dimmed severed prefrontal forehead brake and blazing crimson amygdala alarm",
+        "badge_text": "3 AM TRAP"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Dark 3:00 AM bedroom spiral loop with offline frontal brake",
+        "landmark_or_object_b": "Bright 8:00 AM sunlit sidewalk straight problem-solving path",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep over moonlit city rooftops ascending above a solitary lit 3 AM window",
+        "cut_b_topdown_3d_arrow": "90-degree top-down bedroom-to-street cutaway contrasting tangled #FF2525 3 AM loop arrows vs straight daylight path",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "sjMteEvcjD0",
+      "anchor_label": "How Trying to Fall Asleep Backfires (527+ views surging)",
+      "debate_question": "When a worry wakes you up at 3 AM, do you park it on a bedside notepad or lie in the dark trying to solve it?",
+      "creator_bet": "My bet: never trust a 3 AM thought — when you wake at night, do you jot it on paper or lie there spiraling?",
+      "queue_rank": 12,
+      "planned_episode": "Ep #21",
+      "suggested_slot_et": "2026-11-28 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "oconnor_deja_vu_frontal_fact_check",
+      "track": "Track 1 (New)",
+      "base_score": 94,
+      "effective_score": 95.5,
+      "topic": "Why Déjà Vu Means Your Brain's Fact-Checker Is Working, Not Failing",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "memory",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1080/09658211.2018.1524496",
+      "verified_doi_count": 6,
+      "primary_region": "temporal lobe",
+      "regions": [
+        "temporal lobe",
+        "hippocampus",
+        "anterior cingulate cortex",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Scientists triggered artificial déjà vu inside a brain scanner using word lists linked to one missing theme.",
+      "shorts_hook": "Why stepping into a brand-new place triggers spine-tingling déjà vu—and why an MRI scanner proved it means your brain's fact-checker is sharp, not broken.",
+      "shorts_twist": "Without that frontal veto, you wouldn't feel eerie at all—you would blindly believe a false memory.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Adult traveler freezing mid-step in a sunlit stone courtyard with wide eyes of uncanny recognition",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing silent dark hippocampus vs blazing cyan prefrontal reality-checker and anterior cingulate alarm",
+        "badge_text": "FACT-CHECK ON"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Brand-new stone courtyard matching the geometric layout of an older forgotten plaza",
+        "landmark_or_object_b": "Frontal reality-check checkpoint catching the false-familiarity overlap",
+        "arrow_3d_mode": "split_hemisphere_watch",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming St Andrews stone quad arches ascending into vertical bird's-eye view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down twin courtyard grid with parallel cyan and #FF2525 3D arrows revealing identical spatial geometry",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When déjà vu hits you in a brand-new place, does it feel like a past memory surfacing or like your brain catching a mismatch?",
+      "creator_bet": "My bet: déjà vu means sharp frontal checks — when a room feels eerie, do you trust it or question it?",
+      "queue_rank": 13,
+      "planned_episode": "Ep #22",
+      "suggested_slot_et": "2026-11-29 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "balban_2023_cyclic_sighing_double_inhale_calm_switch",
+      "track": "Track 1 (New)",
+      "base_score": 95,
+      "effective_score": 96.0,
+      "topic": "Stanford Trial: Why Two Quick Inhales and One Long Exhale Beat Meditation for Fast Calm",
+      "pillar": "brain_health",
+      "everyday_domain": "anxiety",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1016/j.xcrm.2022.100895",
+      "verified_doi_count": 6,
+      "primary_region": "brainstem",
+      "regions": [
+        "brainstem",
+        "insula",
+        "amygdala",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Stanford volunteers practiced five minutes of double-inhale sighing or mindfulness meditation daily for twenty-eight days.",
+      "shorts_hook": "Why trying to calm an anxious mind with thoughts often fails—while two quick inhales and one long exhale flip your brain's stress brake in seconds.",
+      "shorts_twist": "The second tiny sniff pops open collapsed lung sacs to dump CO2, while the long exhale mechanically activates your vagus nerve and quiets the amygdala (Herrero et al., 2018).",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "48-year-old adult in sunlit armchair performing a calm double nasal inhale and slow exhale",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing active brainstem-insula vagal brake quieting the amygdala",
+        "badge_text": "BEATS MEDITATION"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "5-minute passive mindfulness sit trying to suppress racing thoughts top-down",
+        "landmark_or_object_b": "5-minute double-inhale extended-exhale cyclic sighing mechanically engaging the vagal brake",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep across Stanford's palm-lined sandstone quad descending into a twin-room home-study cutaway",
+        "cut_b_topdown_3d_arrow": "Top-down two-lane physiological floorplan where a bold #FF2525 3D arrow surges ahead along the prolonged-exhale lane to calm respiratory rate and lift mood",
+        "ricks_tempo_sec_range": [
+          2.3,
+          3.1
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "When stress spikes during the day, does active breathing reset you faster or does quiet meditation work better for your brain?",
+      "creator_bet": "My bet: long exhales beat meditation — under stress, do you use breathwork or quiet sitting?",
+      "status": "ready_v2_verified",
+      "queue_rank": 14,
+      "suggested_slot_et": "2026-11-30 19:30 ET",
+      "planned_episode": "Ep #23"
+    },
+    {
+      "slug": "sparrow_wegner_google_effect_photo_memory_offloading",
+      "track": "Track 1 (New)",
+      "base_score": 94,
+      "effective_score": 95.5,
+      "topic": "Why Saving Facts or Snapping Photos Tells Your Brain It Has Permission to Forget",
+      "pillar": "brain_basics",
+      "everyday_domain": "memory",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1126/science.1207745",
+      "verified_doi_count": 7,
+      "primary_region": "prefrontal cortex",
+      "regions": [
+        "prefrontal cortex",
+        "parietal cortex",
+        "hippocampus"
+      ],
+      "setup_18w": "Volunteers typed forty trivia facts into a computer that promised either to save or erase them.",
+      "shorts_hook": "Why you still know your 1988 landline by heart—yet forget a saved fact or photographed museum piece in ten minutes.",
+      "shorts_twist": "Linda Henkel (2014) proved quick photos trigger the exact same 'permission to forget'—unless you pause or zoom onto one specific detail.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "52-year-old adult snapping a quick museum photo with a puzzled blank look seconds later",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing silenced prefrontal-hippocampal content encoding vs bright parietal folder pointer",
+        "badge_text": "PERMISSION TO FORGET"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Sculpture A photographed in one hasty second and immediately forgotten down the gallery path",
+        "landmark_or_object_b": "Sculpture B observed directly with naked eyes or zoomed in closely, locking full detail into memory",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep over a sunlit university museum courtyard descending into an open gallery walkway",
+        "cut_b_topdown_3d_arrow": "Top-down courtyard floorplan where a #FF2525 3D volumetric arrow zigzags from sculpture pedestal to pedestal—fading on hasty shutter clicks and glowing bright on paused eye contact",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "At a big family moment or scenic view, do you remember more when you put the camera away or when you snap a quick photo?",
+      "creator_bet": "My bet: quick photos erase real memories — at big moments, do you film or just watch?",
+      "status": "ready_v2_verified",
+      "queue_rank": 15,
+      "suggested_slot_et": "2026-12-01 19:30 ET",
+      "planned_episode": "Ep #24"
+    },
+    {
+      "slug": "brooks_power_nap_10min_vs_30min_grogginess",
+      "track": "Track 1 (New)",
+      "base_score": 94,
+      "effective_score": 96.0,
+      "topic": "Why a 10-Minute Nap Sharpens Your Brain Better Than a 30-Minute Nap",
+      "pillar": "brain_health",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1093/sleep/29.6.831",
+      "verified_doi_count": 6,
+      "primary_region": "thalamus",
+      "regions": [
+        "thalamus",
+        "prefrontal cortex",
+        "hippocampus",
+        "default mode network"
+      ],
+      "setup_18w": "Sleep researchers tested naps lasting five, ten, twenty, or thirty minutes and tracked alertness for three hours.",
+      "shorts_hook": "Why a 30-minute afternoon nap leaves you feeling hit by a truck—while a 10-minute nap sharpens your brain for 155 minutes.",
+      "shorts_twist": "At 10 minutes you ride light N1/N2 refresh with zero grogginess; at 30 minutes you plunge into deep slow-wave sleep inertia.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Crisp energized adult snapping awake beside a 10-minute brass bell timer vs groggy 30-minute contrast",
+        "right_cyan_brain": "Glowing #27D8FF 3D brain pulsing bright cyan thalamic-prefrontal relays without heavy delta shadow",
+        "badge_text": "10 MIN WINS"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Crisp 10-minute light-nap express lane launching straight into 155-minute focus",
+        "landmark_or_object_b": "30-minute deep slow-wave pitfall trench causing heavy sleep inertia",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit university sleep-lab courtyard ascending into roof cutaway",
+        "cut_b_topdown_3d_arrow": "90-degree top-down dual timeline lanes comparing fast cyan 10-minute nap track overtaking stalled #FF2525 30-minute lane",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "When afternoon fatigue hits at 2:30 PM, do you take a strict 10-minute power nap or push through with more coffee?",
+      "creator_bet": "My bet: ten minutes beats thirty flat — do you set a short afternoon timer or skip naps completely?",
+      "queue_rank": 16,
+      "planned_episode": "Ep #25",
+      "suggested_slot_et": "2026-12-02 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "eisenberger_social_rejection_physical_pain",
+      "track": "Track 1 (New)",
+      "base_score": 94,
+      "effective_score": 95.0,
+      "topic": "Why Being Left Out Fires the Exact Same Brain Pain Alarm as a Burn",
+      "pillar": "brain_basics",
+      "everyday_domain": "relationships",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1126/science.1089134",
+      "verified_doi_count": 7,
+      "primary_region": "anterior cingulate cortex",
+      "regions": [
+        "anterior cingulate cortex",
+        "insula",
+        "ventromedial prefrontal cortex"
+      ],
+      "setup_18w": "Volunteers played a three-person ball-tossing game inside a scanner until the other two suddenly stopped throwing.",
+      "shorts_hook": "Why being silently left out at a table hits your chest like a physical burn.",
+      "shorts_twist": "Evolution wired social exile onto your cingulate and insula distress board — while your prefrontal reality-checker holds the off-switch.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "48-year-old adult in slate sweater standing excluded as two blurred colleagues talk behind him, hand pressed lightly to sternum in bright natural light",
+        "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan cortical folds and a blazing crimson-amber midline anterior cingulate and insula alarm",
+        "badge_text": "SAME PAIN ALARM"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Three-person triangle ball-toss inclusion loop",
+        "landmark_or_object_b": "Two-person closed back-and-forth line shutting the third player out",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep over UCLA Royce Hall brick arcades ascending above an outdoor courtyard table",
+        "cut_b_topdown_3d_arrow": "90-degree top-down courtyard triangle where the #FF2525 3D pass arrow severs away from the excluded third figure",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "When someone freezes you out at work or home, do you address it head-on fast or step back solo to let your alarm cool?",
+      "creator_bet": "My bet: silent treatment hits like fire — our brain treats cold shoulders as real bodily alarms. Do you talk it out fast or step back solo?",
+      "queue_rank": 17,
+      "planned_episode": "Ep #26",
+      "suggested_slot_et": "2026-12-03 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "burns_2024_2025_night_light_circadian_mental_risk",
+      "track": "Track 3 (2025-2026)",
+      "base_score": 93,
+      "effective_score": 95.0,
+      "topic": "86,000-Person Study: Why Bedroom Night Light Disrupts Mood Even If You Sleep",
+      "pillar": "brain_news",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1038/s44220-023-00135-8",
+      "verified_doi_count": 6,
+      "primary_region": "retina",
+      "regions": [
+        "retina",
+        "hypothalamus",
+        "amygdala",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Scientists put wrist light sensors on eighty-six thousand adults to compare dark nights and bright days.",
+      "shorts_hook": "Why sleeping seven hours with a bedroom TV or hallway light on still disrupts your mood and heart rate through closed eyelids.",
+      "shorts_twist": "Night light raised depression risk 30% independent of sleep hours—while bright outdoor daytime light cut risk 20%.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Sleeping 60-year-old adult bathed in bluish bedroom TV/window light glare across closed eyelids",
+        "right_cyan_brain": "Glowing #27D8FF 3D brain showing optic light beam firing from retina straight into crimson hypothalamus and amygdala",
+        "badge_text": "EYELIDS LEAK"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Bedroom bathed in artificial street/TV glow leaking across closed eyelids at night",
+        "landmark_or_object_b": "Pitch-dark bedroom paired with bright outdoor morning park walk",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep from illuminated city streetlamp canyon rising over residential rooftops",
+        "cut_b_topdown_3d_arrow": "90-degree top-down house-and-park cutaway showing #FF2525 night-light intrusion beam vs clean outdoor daylight corridor",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "At bedtime in your house, do you lock the room into pitch-black darkness or fall asleep with a TV or hallway glow on?",
+      "creator_bet": "My bet: even dim bedroom TV hurts mood — do you sleep in pitch darkness or keep a night light on?",
+      "queue_rank": 18,
+      "planned_episode": "Ep #27",
+      "suggested_slot_et": "2026-12-04 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "wegner_white_bear_suppression",
+      "track": "Track 2 (Remodel)",
+      "base_score": 93,
+      "effective_score": 94.6,
+      "topic": "Why Commanding Yourself 'Stop Thinking About It' Makes Nighttime Worries Rebound Stronger",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "habits",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1037/0022-3514.53.1.5",
+      "verified_doi_count": 5,
+      "primary_region": "anterior cingulate cortex",
+      "regions": [
+        "anterior cingulate cortex",
+        "dorsolateral prefrontal cortex",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Volunteers sat alone with a desk bell and tried not to picture a white bear.",
+      "shorts_hook": "Ordered NOT to picture a white bear for five minutes, adults slam a desk bell every 45 seconds — then rebound to 16 rings.",
+      "shorts_twist": "Why tired brains backfire hardest at 3 a.m., and how ONE concrete replacement focus wipes out the rebound.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "Wide-eyed 45-year-old adult slamming palm onto a gleaming silver desk bell beside a bold WHITE BEAR card",
+        "right_cyan_brain": "Translucent #27D8FF cyan 3D brain highlighting an overactive anterior cingulate conflict detector vs fatigued forehead working-memory desk",
+        "badge_text": "DON'T THINK IT"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Forced 'Do Not Think' suppression loop ricocheting back to the desk bell",
+        "landmark_or_object_b": "Single focused replacement-thought straight exit lane",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Harvard Yard red-brick gables ascending into top-down study cutaway",
+        "cut_b_topdown_3d_arrow": "90-degree top-down room maze where #FF2525 3D rebound arrows bounce repeatedly back to the central silver bell",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "At 3 a.m., does telling yourself 'stop worrying' quiet your mind or make the thought rebound louder?",
+      "creator_bet": "My bet: fighting thoughts feeds them — at 3 a.m., do you push worries away or switch to one calm task?",
+      "queue_rank": 19,
+      "planned_episode": "Ep #28",
+      "suggested_slot_et": "2026-12-05 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "v2_relationships_coan_handholding_pain_grid",
+      "track": "Track 2 (Remodel)",
+      "base_score": 94,
+      "effective_score": 95.0,
+      "topic": "Why Holding a Partner Hand Synchronizes Brain Waves and Cuts Pain",
+      "pillar": "brain_news",
+      "everyday_domain": "relationships",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1073/pnas.1703643115",
+      "verified_doi_count": 6,
+      "primary_region": "insula",
+      "regions": [
+        "insula",
+        "anterior cingulate cortex",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Couples wore twin brainwave caps during arm heat tests alone, seated apart, or clasping hands together.",
+      "shorts_hook": "Why facing pain or scary medical news alone hurts twice as sharp as clasping a trusted hand.",
+      "shorts_twist": "Sitting together without touching leaves brains out of sync; clasping hands locks 8–12 Hz waves and cuts pain in half.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "48-year-old adult in clinic chair visibly relaxing shoulders as a partner's warm hand clasps theirs in bright natural light",
+        "right_cyan_brain": "In-skull 3D translucent glass brain cutaway cooling from crimson pain flare into synchronized #27D8FF cyan waves across insula and cingulate",
+        "badge_text": "PAIN CUT IN HALF"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Isolated solo clinic chair where threat arrows surge unchecked",
+        "landmark_or_object_b": "Partner hand-clasping bridge synchronizing twin wave tracks",
+        "arrow_3d_mode": "split_hemisphere_watch",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past UVA Jeffersonian Rotunda lawn ascending above the neuroimaging suite",
+        "cut_b_topdown_3d_arrow": "90-degree top-down twin-chair room showing chaotic solo #FF2525 alarm arrows calming into linked cyan partner lanes",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "When real physical pain or scary medical news hits, do you instinctively reach for a trusted hand or pull back to endure it solo?",
+      "creator_bet": "My bet: going solo wastes brain fuel — our nerves expect a trusted hand nearby under stress. Do you reach for a hand or tough it out solo?",
+      "queue_rank": 20,
+      "planned_episode": "Ep #29",
+      "suggested_slot_et": "2026-12-06 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "brooks_sleep_paralysis_rem_motor_lock",
+      "track": "Track 1 (New)",
+      "base_score": 92,
+      "effective_score": 94.0,
+      "topic": "Why Your Mind Can Wake Up While Your Body's Dream Brake Stays Locked",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "sleep",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1523/jneurosci.0482-12.2012",
+      "verified_doi_count": 6,
+      "primary_region": "brainstem",
+      "regions": [
+        "brainstem",
+        "motor cortex",
+        "parietal cortex",
+        "amygdala"
+      ],
+      "setup_18w": "Neuroscientists mapped the exact two chemical switches that paralyze skeletal muscles every night during vivid dreams.",
+      "shorts_hook": "Why your mind can wake up in bright morning light while your body's dream brake stays locked for ten seconds.",
+      "shorts_twist": "Fighting the lock scrambles your body map — relaxing and wiggling one toe clicks the safety brake cleanly off.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "45-year-old adult lying peacefully on crisp sunlit white morning pillow with wide-awake calm eyes looking down toward still hand on sheet",
+        "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan waking motor cortex and glowing amber-crimson brainstem safety brake switch",
+        "badge_text": "DREAM BRAKE ON"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Wide-awake morning eyes while brainstem motor gate sever-locks the arms",
+        "landmark_or_object_b": "Single gentle toe-wiggle side path clicking the safety lock open",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit Toronto stone facade rising over a bright morning bedroom skylight",
+        "cut_b_topdown_3d_arrow": "90-degree top-down bedroom cutaway where a thick #FF2525 3D motor command arrow halts cleanly at the brainstem safety gate",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "31_O2CmlKOk",
+      "anchor_label": "What One Sleepless Night Does to Your Brain (2,023 views)",
+      "debate_question": "If you wake up before your body's dream brake clicks off, do you instinctively try to force your arms up or relax and wiggle one toe?",
+      "creator_bet": "My bet: wiggling one toe beats fighting — relaxing unlocks the dream brake faster than straining. Have you ever woken up locked or slept right through?",
+      "queue_rank": 21,
+      "planned_episode": "Ep #30",
+      "suggested_slot_et": "2026-12-07 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "dutton_aron_capilano_bridge_arousal",
+      "track": "Track 2 (Remodel)",
+      "base_score": 93,
+      "effective_score": 94.0,
+      "topic": "Why Crossing a 230-Foot Swaying Bridge Made Strangers Mistake Fear for Chemistry",
+      "pillar": "brain_basics",
+      "everyday_domain": "relationships",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1037/h0037031",
+      "verified_doi_count": 7,
+      "primary_region": "amygdala",
+      "regions": [
+        "amygdala",
+        "insula",
+        "ventromedial prefrontal cortex"
+      ],
+      "setup_18w": "Researchers interviewed travelers crossing either a high swaying canyon bridge or a low sturdy cedar bridge.",
+      "shorts_hook": "Why meeting the exact same stranger on a swaying 230-foot canyon bridge quadrupled follow-up phone calls compared with a low wooden bridge.",
+      "shorts_twist": "Your insula reads a racing heart without a return address—making leftover adrenaline amplify attraction on adventures AND amplify irritation after traffic.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "40-year-old traveler gripping a swaying canyon bridge cable while smiling at a clipboard interviewer",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing amygdala-insula heartbeat surge mislabeled by ventromedial prefrontal cortex",
+        "badge_text": "4X SPARK ILLUSION"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Low 10-foot solid cedar creek bridge where heart rate stays calm (12.5% callbacks)",
+        "landmark_or_object_b": "High 230-foot swaying Capilano gorge suspension bridge spiking unlabelled adrenaline (50.0% callbacks)",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial canyon dive down North Vancouver's towering evergreens past the 230-foot swaying Capilano Suspension Bridge and upstream low creek bridge",
+        "cut_b_topdown_3d_arrow": "Top-down canyon twin-bridge comparison where a calm baseline path crosses the low cedar span while a surging #FF2525 3D arrow crosses the 230-foot gorge at 4x callback rate",
+        "ricks_tempo_sec_range": [
+          2.3,
+          3.1
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "For a lasting relationship spark, does sharing an exciting new adventure beat a calm quiet dinner or just mask real compatibility?",
+      "creator_bet": "My bet: shared thrills beat candlelit dinners — for real spark, do you pick adventure or calm?",
+      "status": "ready_v2_verified",
+      "queue_rank": 22,
+      "suggested_slot_et": "2026-12-08 19:30 ET",
+      "planned_episode": "Ep #31"
+    },
+    {
+      "slug": "stetson_eagleman_slow_motion_crisis_memory",
+      "track": "Track 1 (New)",
+      "base_score": 93,
+      "effective_score": 94.0,
+      "topic": "Why Car Crashes Feel Like Slow Motion — Even Though Your Eyes Never Speed Up",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "anxiety",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1371/journal.pone.0001295",
+      "verified_doi_count": 6,
+      "primary_region": "primary visual cortex",
+      "regions": [
+        "primary visual cortex",
+        "amygdala",
+        "hippocampus"
+      ],
+      "setup_18w": "Volunteers fell backward a hundred and fifty feet off a tower while reading a flashing wrist number.",
+      "shorts_hook": "Why a 3-second highway close call feels like slow motion — even though your eyes never speed up.",
+      "shorts_twist": "Jumpers gained 0% eye speed yet judged their fall 36% longer because amygdala-charged memory writes a thicker file.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "45-year-old adult in cobalt jacket mid-gasp glancing at a glowing blurred red LED wristband against bright outdoor sky",
+        "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan primary visual cortex and blazing crimson-amber amygdala-hippocampus memory arc",
+        "badge_text": "MEMORY ILLUSION"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "150-foot vertical free-fall tower drop at constant real-time camera speed",
+        "landmark_or_object_b": "Expanded post-hoc memory tape stretched 36% longer by amygdala recording",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep climbing alongside the tall outdoor steel free-fall tower before banking into vertical top-down view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down dual track comparing short cyan live-eye ruler vs 36%-longer #FF2525 amygdala memory arrow",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "In your sharpest real-life close call, did it feel like your eyes genuinely sped up live or did your memory pack ten times more detail?",
+      "creator_bet": "My bet: slow-motion is a memory replay — our eyes run at normal speed while memory records overtime. Did time stretch live for you or only after?",
+      "queue_rank": 23,
+      "planned_episode": "Ep #32",
+      "suggested_slot_et": "2026-12-09 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "baird_shower_thought_default_mode_incubation",
+      "track": "Track 1 (New)",
+      "base_score": 92,
+      "effective_score": 93.6,
+      "topic": "Why Your Best Ideas Strike in the Shower Instead of at Your Desk",
+      "pillar": "brain_basics",
+      "everyday_domain": "habits",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1177/0956797612446024",
+      "verified_doi_count": 6,
+      "primary_region": "dorsolateral prefrontal cortex",
+      "regions": [
+        "dorsolateral prefrontal cortex",
+        "default mode network",
+        "hippocampus",
+        "anterior cingulate cortex"
+      ],
+      "setup_18w": "Volunteers paused a hard creativity test for either a demanding task, rest, or an easy mindless task.",
+      "shorts_hook": "Why can you stare at a work problem for two hours with zero ideas — then solve it in thirty seconds in the shower?",
+      "shorts_twist": "You MUST load the problem first, blank rest fizzles, and scrolling your phone kills the Default Mode daydream duet!",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "48-year-old adult pausing on a sunlit walk with a sudden lightbulb 'AHA!' grin vs stressed desk stare",
+        "right_cyan_brain": "Translucent #27D8FF cyan 3D brain linking glowing midline Default Mode daydream network with forehead planner",
+        "badge_text": "+41% IDEA BOOST"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Rigid locked desk-stare corridor stalling on one dead-end wall",
+        "landmark_or_object_b": "Unstructured sunlit walk / shower detour linking distant idea nodes",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit coastal campus courtyard walkways ascending into bird's-eye view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down campus path maze where #FF2525 3D associative arrows connect three distant idea beacons",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When you hit a wall on a hard problem, do you power through at your desk or step away for a hands-busy break like a walk or shower?",
+      "creator_bet": "My bet: staring at desks stalls ideas — when you hit a wall, do you push harder or take a quiet walk?",
+      "queue_rank": 24,
+      "planned_episode": "Ep #33",
+      "suggested_slot_et": "2026-12-10 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "v2_anxiety_kross_third_person_amygdala",
+      "track": "Track 2 (Remodel)",
+      "base_score": 92,
+      "effective_score": 93.0,
+      "topic": "Why Silently Using Your Own First Name Quiets Your Amygdala in 1 Second",
+      "pillar": "brain_history",
+      "everyday_domain": "anxiety",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1038/s41598-017-04047-3",
+      "verified_doi_count": 6,
+      "primary_region": "amygdala",
+      "regions": [
+        "amygdala",
+        "prefrontal cortex",
+        "dorsolateral prefrontal cortex"
+      ],
+      "setup_18w": "Anxious adults prepared a five-minute speech before stone-faced judges using either I or their first name.",
+      "shorts_hook": "Why whispering 'I've got this' spikes stage fright — while silently using your own first name cools panic in 1 second.",
+      "shorts_twist": "Swapping 'I' for your first name drops emotional brainwaves in 1,000 ms with zero willpower burn.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "45-year-old adult in navy sweater standing poised at a chrome floor microphone in bright clean daylight",
+        "right_cyan_brain": "In-skull 3D translucent glass brain cutaway where deep crimson amygdala alarm cools rapidly into calm #27D8FF cyan prefrontal clarity",
+        "badge_text": "1-SECOND CALM"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "First-person 'I' self-talk trapping attention inside the stage spotlight",
+        "landmark_or_object_b": "Stepping back via own first name onto a calm observer vantage point",
+        "arrow_3d_mode": "fixed_linear_corridor",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Michigan stone auditorium portico ascending steeply above the roof",
+        "cut_b_topdown_3d_arrow": "90-degree top-down auditorium stage with a straight #FF2525 3D step-back arrow creating clean psychological distance in 1 second",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "Before your next high-pressure talk or tough conversation, will you coach yourself as 'I' or silently use your own first name?",
+      "creator_bet": "My bet: 'I got this' backfires fast — silently using my own first name cools nerves in one second. Do you coach yourself as 'I' or by name?",
+      "queue_rank": 25,
+      "planned_episode": "Ep #34",
+      "suggested_slot_et": "2026-12-11 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "holle_contagious_itch_mirror_insula",
+      "track": "Track 1 (New)",
+      "base_score": 92,
+      "effective_score": 93.6,
+      "topic": "Why Just Watching Someone Scratch Makes Your Own Skin Physically Itch",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "habits",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1073/pnas.1216160109",
+      "verified_doi_count": 6,
+      "primary_region": "premotor cortex",
+      "regions": [
+        "premotor cortex",
+        "insula",
+        "somatosensory cortex",
+        "basal ganglia"
+      ],
+      "setup_18w": "Healthy volunteers lay inside a brain scanner watching silent five-second clips of strangers scratching their arms.",
+      "shorts_hook": "Watch a silent 5-second clip of a stranger scratching an arm, and 64% of healthy adults start scratching their own clean skin — and it has ZERO to do with empathy.",
+      "shorts_twist": "Trait stress vigilance (neuroticism), not empathy, drives the insula-premotor-somatosensory itch alarm — an ancient parasite-defense radar you can calm with cool pressure.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "42-year-old adult wide-eyed catching their own hand mid-scratch on a clean forearm while watching someone scratch",
+        "right_cyan_brain": "3D translucent glass brain with glowing #27D8FF premotor mirror strip, insula body-feeling hub, and somatosensory touch map active",
+        "badge_text": "ZERO BUGS ON SKIN"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Stranger scratching across an open table triggering instant visual-to-skin relay",
+        "landmark_or_object_b": "Cool palm pressure breaking the contagious scratch loop",
+        "arrow_3d_mode": "fixed_linear_corridor",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming Sussex / sunlit glass atrium walkway ascending into top-down view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down two-seat atrium table with a straight #FF2525 3D contagion arrow leaping directly from viewer to forearm",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "Be honest right now — while hearing about people scratching their arms, did your skin stay completely calm or did you feel an urge to scratch?",
+      "creator_bet": "My bet: anxiety drives scratch contagion — watching someone scratch fires your body-feeling hub within seconds. Did your skin stay calm or start itching just now?",
+      "queue_rank": 26,
+      "planned_episode": "Ep #35",
+      "suggested_slot_et": "2026-12-12 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "melzack_wall_pain_gate",
+      "track": "Track 2 (Remodel)",
+      "base_score": 92,
+      "effective_score": 93.0,
+      "topic": "Why Rubbing a Bumped Shin Physically Slams Your Spinal Pain Gate Shut",
+      "pillar": "brain_basics",
+      "everyday_domain": "anxiety",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1126/science.150.3699.971",
+      "verified_doi_count": 7,
+      "primary_region": "brainstem",
+      "regions": [
+        "brainstem",
+        "thalamus",
+        "somatosensory cortex",
+        "anterior cingulate cortex"
+      ],
+      "setup_18w": "MIT researchers tested gentle high-speed touch pulses on bare forearms to block slower incoming pain signals.",
+      "shorts_hook": "Every time you bang your shin and rub it, you trigger a 100-meter-per-second nerve race that slams a gate inside your spine before pain reaches your brain.",
+      "shorts_twist": "Why cutting spinal nerves made phantom pain worse, why anxious staring opens the gate from above, and how to close your gate from both ends.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "48-year-old adult wincing then relieved while rubbing a bumped shin firmly with both hands",
+        "right_cyan_brain": "3D translucent glass brain and brainstem with bright #27D8FF descending brainstem gate active and silenced thalamic pain relay",
+        "badge_text": "100 M/S PAIN GATE"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "100 m/s fast myelinated touch lane rubbing a bumped shin",
+        "landmark_or_object_b": "2 m/s slow unmyelinated ache lane blocked at the spinal dorsal-horn gate",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past MIT Great Dome limestone colonnade ascending steeply into skyward view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down parallel nerve highway where a blazing cyan 3D arrow outruns a #FF2525 slow pain arrow to shut the gate",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "When you bang your shin or tweak your lower back, do you instinctively rub and move it right away or freeze completely still?",
+      "creator_bet": "My bet: rubbing beats toughing it out — fast touch nerves literally outrun slow ache wires to shut your spinal gate. Do you rub a bumped shin or hold still?",
+      "queue_rank": 27,
+      "planned_episode": "Ep #36",
+      "suggested_slot_et": "2026-12-13 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "draganski_juggling_gray_matter",
+      "track": "Track 2 (Remodel)",
+      "base_score": 91,
+      "effective_score": 92.6,
+      "topic": "How 90 Days of Learning a New Hand-Eye Skill Physically Thickens Adult Gray Matter — Even in Your 60s",
+      "pillar": "brain_health",
+      "everyday_domain": "habits",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1038/427311a",
+      "verified_doi_count": 6,
+      "primary_region": "temporal lobe",
+      "regions": [
+        "temporal lobe",
+        "parietal cortex",
+        "hippocampus"
+      ],
+      "setup_18w": "Beginners got three brain scans: before juggling, after ninety days practicing, and after ninety idle days.",
+      "shorts_hook": "Three balls, 90 days, and three MRI scans: how Draganski (2004 Nature) filmed 'Use It or Lose It' brain growth live.",
+      "shorts_twist": "Why visual-motion radar grew instead of finger cortex, why 60-year-olds grew hippocampal volume too, and keeping Scan-2 branches alive.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "58-year-old adult launching three bright juggling balls in mid-air beside a 90-DAY MRI stopwatch",
+        "right_cyan_brain": "Translucent #27D8FF cyan 3D brain glowing across lateral visual-motion temporal radar, parietal spatial map, and hippocampus",
+        "badge_text": "90-DAY BRAIN GAIN"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "90 days tracking 3 curved airborne juggling arcs expanding spatial-motion hubs",
+        "landmark_or_object_b": "90 idle days with balls boxed away causing structural volume pullback",
+        "arrow_3d_mode": "adaptive_landmark_zigzag",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Regensburg stone courtyard where beginners practice three-ball arcs",
+        "cut_b_topdown_3d_arrow": "90-degree top-down 3-scan timeline court with multi-turn #FF2525 3D trajectory arrows across Days 0, 90, and 180",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "Past age 40, do you think desk puzzles or 3D hand-eye skills like pickleball and juggling build more brain resilience?",
+      "creator_bet": "My bet: movement beats crosswords — past 40, do you train your brain with desk puzzles or hand-eye skills?",
+      "queue_rank": 28,
+      "planned_episode": "Ep #37",
+      "suggested_slot_et": "2026-12-14 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "rubber_hand_body_plasticity",
+      "track": "Track 2 (Remodel)",
+      "base_score": 91,
+      "effective_score": 92.0,
+      "topic": "How Two Paintbrushes Trick Your Brain Into Owning a Lifeless Rubber Hand in 60 Seconds",
+      "pillar": "brain_basics",
+      "everyday_domain": "anxiety",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1038/35784",
+      "verified_doi_count": 7,
+      "primary_region": "somatosensory cortex",
+      "regions": [
+        "somatosensory cortex",
+        "premotor cortex",
+        "parietal cortex",
+        "insula"
+      ],
+      "setup_18w": "Experimenters hid a volunteer's real hand behind a board while brushing a visible rubber hand in sync.",
+      "shorts_hook": "Give neuroscientists two cheap paintbrushes and a piece of cardboard, and in 60 seconds they can make your brain swear a dead rubber glove is your own hand.",
+      "shorts_twist": "Why a 500-ms brush delay or wooden block breaks the spell instantly, Lush's 2020 suggestibility critique, and how adult brains embody everyday tools and rehab mirrors.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "45-year-old adult gasping in disbelief as twin paintbrushes stroke a rubber hand in front of a white divider screen",
+        "right_cyan_brain": "3D translucent glass brain with glowing #27D8FF premotor cortex, parietal spatial map, and somatosensory touch strip active",
+        "badge_text": "OWNED IN 60 SEC"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Synchronized twin paintbrush strokes merging visible rubber glove into body map",
+        "landmark_or_object_b": "500-ms delayed out-of-sync strokes severing ownership across the divider board",
+        "arrow_3d_mode": "split_hemisphere_watch",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit university psychology building facade into tabletop divider cutaway",
+        "cut_b_topdown_3d_arrow": "90-degree top-down partitioned table with twin synchronized cyan/#FF2525 3D stroke arrows converging into one body pin",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "When your eyes and your hidden joints disagree, do you think your brain trusts what your eyes see or where your joints actually sit?",
+      "creator_bet": "My bet: body maps are live guesses — sixty seconds of synced brushing makes healthy adults flinch for a rubber glove. Do you trust your eyes or your joints more?",
+      "queue_rank": 29,
+      "planned_episode": "Ep #38",
+      "suggested_slot_et": "2026-12-15 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "zeigarnik_uncompleted_task_loop",
+      "track": "Track 2 (Remodel)",
+      "base_score": 90,
+      "effective_score": 91.5,
+      "topic": "Bluma Zeigarnik (1927): Why One Unfinished Task Wakes You at 3 AM While Twelve Finished Jobs Vanish",
+      "pillar": "brain_health",
+      "everyday_domain": "memory",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1007/bf02409755",
+      "verified_doi_count": 6,
+      "primary_region": "dorsolateral prefrontal cortex",
+      "regions": [
+        "dorsolateral prefrontal cortex",
+        "anterior cingulate cortex",
+        "prefrontal cortex",
+        "hippocampus"
+      ],
+      "setup_18w": "Participants tackled twenty hands-on tabletop puzzles while researchers interrupted half right before the final piece.",
+      "shorts_hook": "Why you forget twelve finished chores yet wake up at 3 AM replaying one unreturned message—traced to a 1920s Berlin cafe waiter and 164 interrupted puzzles.",
+      "shorts_twist": "Once paid or written into a concrete tomorrow-morning calendar slot, your frontal scratchpad silences the open loop in 60 seconds.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "50-year-old adult wide awake at night staring as an unfinished wooden puzzle piece hovers beside a closed desk drawer",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing hyper-active dorsolateral prefrontal cortex and anterior cingulate open-loop alarm",
+        "badge_text": "1.9X OPEN LOOP"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "12 completed Berlin cafe orders vanishing cleanly off the mental board",
+        "landmark_or_object_b": "1 interrupted unpaid puzzle/order keeping a live #FF2525 3D alert arrow active",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past classic Berlin stone boulevard cafe terrace ascending into overhead view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down tabletop grid where an interrupted #FF2525 3D task arrow stops just short of the goal pin and glows",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "At the end of a busy workday, does writing a tomorrow list quiet your mind or do open tasks still follow you to bed?",
+      "creator_bet": "My bet: a written plan beats midnight work — at 5 PM, do you push to finish or schedule tomorrow?",
+      "queue_rank": 30,
+      "planned_episode": "Ep #39",
+      "suggested_slot_et": "2026-12-16 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "jakubowski_earworm_stuck_song_motor_loop",
+      "track": "Track 1 (New)",
+      "base_score": 92,
+      "effective_score": 93.6,
+      "topic": "Why a 10-Second Song Loop Gets Stuck in Your Head — And How Gum Stops It",
+      "pillar": "brain_basics",
+      "everyday_domain": "habits",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1080/17470218.2015.1034142",
+      "verified_doi_count": 6,
+      "primary_region": "auditory cortex",
+      "regions": [
+        "auditory cortex",
+        "premotor cortex",
+        "Broca's area"
+      ],
+      "setup_18w": "Volunteers listened to catchy pop hooks and then chewed plain gum to jam inner speech rehearsal.",
+      "shorts_hook": "Why does 10 seconds of a grocery-store song loop inside your head for four hours — and how does plain chewing gum shut it off?",
+      "shorts_twist": "Stuck songs aren't just in your ears — your throat and jaw planner silently sings them, AND spontaneous replay helps file life memories!",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "48-year-old adult pulling off headphones and unwrapping a silver stick of gum to stop a looping song",
+        "right_cyan_brain": "Translucent #27D8FF cyan 3D brain linking active auditory sound center to silenced Broca's speech-jaw loop",
+        "badge_text": "STOP STUCK SONGS"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Grocery-aisle pop chorus trapping speech-motor pathways in a repetitive zigzag loop",
+        "landmark_or_object_b": "Plain chewing-gum jaw rhythm severing the silent vocal rehearsal loop",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past Durham stone courtyard and high-street shops ascending skyward",
+        "cut_b_topdown_3d_arrow": "90-degree top-down walkway where a looping #FF2525 3D song-track arrow breaks cleanly apart the moment jaw motion starts",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When a 10-second chorus gets stuck on repeat in your head, do you listen to the full song to finish it or try to distract your mouth and mind?",
+      "creator_bet": "My bet: stuck songs live in your jaw — when a chorus loops, do you replay the whole song or chew gum?",
+      "queue_rank": 31,
+      "planned_episode": "Ep #40",
+      "suggested_slot_et": "2026-12-17 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "bodamer_prosopagnosia_face_blindness",
+      "track": "Track 2 (Remodel)",
+      "base_score": 89,
+      "effective_score": 90.0,
+      "topic": "20/20 Eyesight Yet a Stranger in the Mirror — Joachim Bodamer & the Face-Blind Brain",
+      "pillar": "brain_mysteries",
+      "everyday_domain": "relationships",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1007/bf00352849",
+      "verified_doi_count": 7,
+      "primary_region": "primary visual cortex",
+      "regions": [
+        "primary visual cortex",
+        "fusiform face area",
+        "auditory cortex",
+        "amygdala"
+      ],
+      "setup_18w": "Clinicians tested adults with sharp eyesight who could not recognize family faces until someone spoke aloud.",
+      "shorts_hook": "He could read the tiniest print on a newspaper — yet stared into a mirror at himself and straight at his own mother seeing total strangers, until she spoke one word.",
+      "shorts_twist": "Why palm sweat knows Mom when conscious speech doesn't, the Capgras mirror-twin proof, and why 1 in 50 adults around you live with developmental face blindness.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "46-year-old adult staring puzzled into a brass-framed mirror with 20/20 sharp eyes",
+        "right_cyan_brain": "3D translucent glass brain with severed crimson X on fusiform face area alongside active #27D8FF visual cortex, auditory cortex, and amygdala",
+        "badge_text": "STRANGER IN MIRROR"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Silent face-recognition corridor severed cleanly before identity recall",
+        "landmark_or_object_b": "Spoken voice detour routing around the face block straight to instant recognition",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past classical European stone clinic courtyard ascending into cutaway view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down hallway where the central #FF2525 visual-face arrow severs at a gap while a side voice lane connects",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "u5mQNZWNjiw",
+      "anchor_label": "His Missing Hand Stayed Clenched for 10 Years, Until a Mirror Box Opened It (1,250 views)",
+      "debate_question": "When someone walks up to you unexpectedly out of context, do you recognize them faster by their silent face or the instant you hear their voice?",
+      "creator_bet": "My bet: faces run on separate wiring — sharp 20/20 eyesight still leaves a mirror blank when face hubs disconnect. Do you place people faster by face or by voice?",
+      "queue_rank": 32,
+      "planned_episode": "Ep #41",
+      "suggested_slot_et": "2026-12-18 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "mcgurk_multisensory_illusion",
+      "track": "Track 2 (Remodel)",
+      "base_score": 91,
+      "effective_score": 92.6,
+      "topic": "Why Putting On Your Glasses Helps You Hear — How Vision Rewrites Speech ('BA' + 'GA' = 'DA')",
+      "pillar": "brain_basics",
+      "everyday_domain": "habits",
+      "visual_mode": "NEURO_BIOLOGY",
+      "primary_doi": "10.1038/264746a0",
+      "verified_doi_count": 6,
+      "primary_region": "cochlea",
+      "regions": [
+        "cochlea",
+        "primary visual cortex",
+        "temporal lobe",
+        "auditory cortex"
+      ],
+      "setup_18w": "Researchers dubbed audio of ba-ba onto silent video of lips mouthing ga-ga before healthy listeners.",
+      "shorts_hook": "Why do adults swear they can HEAR better at a loud dinner table the second they put their glasses on? A 1976 dubbing accident caught your eyes rewriting your ears.",
+      "shorts_twist": "Knowing the trick gives zero immunity — covering the screen flips 'DA' right back into 'BA' because lips lead sound by 100 milliseconds.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "50-year-old adult sliding a white card over half their glasses with shocked expression between BA and DA",
+        "right_cyan_brain": "3D translucent glass brain with glowing #27D8FF visual cortex and cochlea converging into temporal lobe and auditory cortex",
+        "badge_text": "98% HEAR PHANTOM DA"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Uncovered face in bright restaurant light where lip-vision leads ear-sound by 100 ms",
+        "landmark_or_object_b": "Covered mouth screen severing visual override so ears hear true 'BA'",
+        "arrow_3d_mode": "dual_speed_race_lanes",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming Surrey campus courtyard into an acoustic studio cutaway",
+        "cut_b_topdown_3d_arrow": "90-degree top-down studio floorplan where fast cyan visual arrow arrives 100 ms ahead of #FF2525 audio arrow at the listener",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "In a noisy restaurant, do you catch words better by leaning an ear closer or by looking straight at the speaker's face in good light?",
+      "creator_bet": "My bet: your eyes edit your ears — even knowing the dub trick cannot stop open eyes from flipping BA into DA. Do you hear better with glasses on or eyes shut?",
+      "queue_rank": 33,
+      "planned_episode": "Ep #42",
+      "suggested_slot_et": "2026-12-19 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "godden_baddeley_diver_context_memory",
+      "track": "Track 2 (Remodel)",
+      "base_score": 89,
+      "effective_score": 90.5,
+      "topic": "Godden & Baddeley (1975): Scuba Divers 20 Feet Underwater — Why Matching Surroundings Jumped Word Recall 46%",
+      "pillar": "brain_basics",
+      "everyday_domain": "memory",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1111/j.2044-8295.1975.tb01468.x",
+      "verified_doi_count": 4,
+      "primary_region": "hippocampus",
+      "regions": [
+        "hippocampus",
+        "temporal lobe",
+        "prefrontal cortex"
+      ],
+      "setup_18w": "Eighteen scuba divers memorized word lists either dry on shore or twenty feet underwater in Scotland.",
+      "shorts_hook": "Why 18 Scottish scuba divers forgot words on a sunny beach yet remembered 36% more by plunging back 20 feet into cold water.",
+      "shorts_twist": "Multiple-choice tests erased the gap in 1980, and picturing your original room for 20 seconds unlocks the same hippocampal key anywhere.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "1975 Scottish scuba diver 20 feet underwater holding a white Formica word slate vs blanking dry on the pier above",
+        "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway illuminating the C-shaped hippocampus context tag and prefrontal search hub",
+        "badge_text": "+46% SAME ROOM"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Dry Scottish harbor pier study zone vs 20-foot underwater dive platform mismatch",
+        "landmark_or_object_b": "Matching underwater-to-underwater context corridor boosting word recall 46%",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep skimming a sunlit stone harbor pier and turquoise dive boat ascending into vertical top-down view",
+        "cut_b_topdown_3d_arrow": "90-degree top-down split pier-and-water map where cross-boundary #FF2525 arrow severs at shoreline while matched lane stays whole",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "When a name or errand slips your mind out of context, do you physically retrace where you were or picture the old room in your head?",
+      "creator_bet": "My bet: varied rooms build stronger memory — when learning new material, do you stick to one desk or switch spots?",
+      "queue_rank": 34,
+      "planned_episode": "Ep #43",
+      "suggested_slot_et": "2026-12-20 19:30 ET",
+      "status": "ready_v2_verified"
+    },
+    {
+      "slug": "kruger_phantom_pocket_vibration_habit_false_alarm",
+      "track": "Track 1 (New)",
+      "base_score": 90,
+      "effective_score": 91.6,
+      "topic": "Why Your Brain Invents Fake Phone Buzzes Inside an Empty Pocket",
+      "pillar": "brain_basics",
+      "everyday_domain": "habits",
+      "visual_mode": "HYBRID",
+      "primary_doi": "10.1136/bmj.c6914",
+      "verified_doi_count": 6,
+      "primary_region": "somatosensory cortex",
+      "regions": [
+        "somatosensory cortex",
+        "basal ganglia",
+        "insula",
+        "nucleus accumbens"
+      ],
+      "setup_18w": "Researchers surveyed hundreds of medical staff and adults whose pockets buzzed while their phones sat across the room.",
+      "shorts_hook": "Why you feel a crisp two-beat phone buzz inside an empty pocket while your phone sits across the room.",
+      "shorts_twist": "Vibrate mode trains top-down priors on that exact inch of skin — moving the phone to a bag resets your touch map.",
+      "r70_preset": "bar_compare",
+      "r65_thumbnail_spec": {
+        "left_human": "46-year-old adult in crisp shirt looking down baffled at an empty turned-out pocket while a dark silent phone rests on a table behind",
+        "right_cyan_brain": "In-skull 3D translucent glass brain cutaway with #27D8FF cyan cortex and bright amber-crimson basal ganglia habit loop firing into the upper somatosensory touch strip",
+        "badge_text": "FAKE POCKET BUZZ"
+      },
+      "spatial_contrast_spec": {
+        "landmark_or_object_a": "Empty trouser pocket firing false top-down vibration alert while phone rests 10 feet away",
+        "landmark_or_object_b": "Relocating phone into a carry bag across the desk to reset the thigh touch map",
+        "arrow_3d_mode": "doorway_boundary_sever",
+        "target_act": 3,
+        "cut_a_landmark_drone": "Fast 3D aerial sweep past sunlit hospital glass courtyard into doctor's workstation cutaway",
+        "cut_b_topdown_3d_arrow": "90-degree top-down room showing a 10-foot gap between the silent desk phone and the #FF2525 false-alarm arrow at the pocket",
+        "ricks_tempo_sec_range": [
+          2.4,
+          3.2
+        ]
+      },
+      "anchor_video_id": "p4ou90cHt50",
+      "anchor_label": "Why Deep Brain Loops Lock Habits on Autopilot (1,617 views)",
+      "debate_question": "To stop your brain from inventing fake pocket alerts, would you rather turn vibrate mode completely off or keep your phone out of your pocket?",
+      "creator_bet": "My bet: vibrate mode trains false alarms — habit circuits invent buzzes from fabric friction. Do you keep vibrate on or switch alerts completely off?",
+      "queue_rank": 35,
+      "planned_episode": "Ep #44",
+      "suggested_slot_et": "2026-12-21 19:30 ET",
+      "status": "ready_v2_verified"
+    }
+  ],
+  "domain_velocity_bonuses": {
+    "sleep": 2.0,
+    "habits": 1.6,
+    "memory": 1.5,
+    "anxiety": 1.0,
+    "relationships": 1.0
+  }
+}

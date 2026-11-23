@@ -10,8 +10,12 @@ htmlcov/
 g:\*
 
 # Lock & temporary files
+.env
+.env.*
 *.lock
 *.tmp
+.tmp_*
+*.corrupt.*.json
 *.new
 *.log
 
@@ -48,3 +52,20 @@ artifacts_archive/**/*.jpeg
 artifacts_archive/**/*.webp
 artifacts_archive/**/*.gif
 artifacts_archive/**/*.pdf
+BCI_Shorts_Channel/reports/daily/*.png
+BCI_Shorts_Channel/reports/archive/
+BCI_Shorts_Channel/reports/*.png
+BCI_Shorts_Channel/canonical_assets/**/*.png
+BCI_Shorts_Channel/brand_assets/**/*.png
+BCI_Shorts_Channel/brand_assets/**/*.jpg
+BCI_Shorts_Channel/reference_style_anchors/**/*.png
+BCI_Shorts_Channel/database/*.json
+!BCI_Shorts_Channel/database/published_legacy_topics.json
+docs/assets_preview/*.jpg
+docs/assets_preview/*.png
+Hermes youtube worklplace/
+tests/fixtures/**/*.png
+tests/fixtures/**/*.jpg
+tests/fixtures/**/*.mp4
+
+BCI_Shorts_Channel/canonical_assets/**/*.jpg

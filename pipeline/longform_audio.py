@@ -34,7 +34,6 @@ import numpy as np
 
 from pipeline.config import (
     DIORAMA_MUX_TRUE_PEAK_LIMITER,
-    DIORAMA_TTS_OUTPUT_FORMAT,
     DIORAMA_V7_AUDIO_CHANNELS,
     DIORAMA_V7_MASTER_DEESSER,
     DIORAMA_V7_PROSODY_SPLICE_FADE_SEC,
@@ -67,10 +66,9 @@ from pipeline.plain_language import to_expressive_tts_text
 from pipeline.voice_fallback import (
     STORYTELLER_VOCAL_FILTER,
     _apply_studio_booth_glue,
-    _decode_mp3_storyteller_pcm,
     _ffmpeg,
-    _run_coro_sync,
-    synthesize_line,
+    _master_storyteller_vocal,
+    _synthesize_test_stub_pcm,
 )
 
 SAMPLE_RATE = 48000
@@ -254,83 +252,6 @@ def _align_display_words_to_boundaries(
             if out[k]["end"] <= out[k]["start"]:
                 out[k]["end"] = round(out[k]["start"] + 0.05, 3)
     return out
-
-
-async def _stream_edge_sentence_with_words(
-    spoken_text: str,
-    voice: str,
-    rate: str,
-    pitch: str,
-    volume: str,
-) -> tuple[bytes, list[dict[str, Any]]]:
-    """Streams one sentence via Microsoft ReadAloud WebSocket at 96kbps with `WordBoundary` metadata."""
-    import aiohttp  # type: ignore
-    from xml.sax.saxutils import escape, unescape
-    import edge_tts.communicate as ec_mod  # type: ignore
-
-    tts_cfg = ec_mod.TTSConfig(voice, rate, volume, pitch, "WordBoundary")
-    esc_text = escape(ec_mod.remove_incompatible_characters(spoken_text))
-    audio_buf = bytearray()
-    word_bounds: list[dict[str, Any]] = []
-    timeout = aiohttp.ClientTimeout(total=45, sock_connect=10, sock_read=30)
-
-    async with aiohttp.ClientSession(trust_env=True, timeout=timeout) as session:
-        ws_url = (
-            f"{ec_mod.WSS_URL}&ConnectionId={ec_mod.connect_id()}"
-            f"&Sec-MS-GEC={ec_mod.DRM.generate_sec_ms_gec()}"
-            f"&Sec-MS-GEC-Version={ec_mod.SEC_MS_GEC_VERSION}"
-        )
-        async with session.ws_connect(
-            ws_url,
-            compress=15,
-            headers=ec_mod.DRM.headers_with_muid(ec_mod.WSS_HEADERS),
-            ssl=ec_mod._SSL_CTX,
-        ) as ws:
-            await ws.send_str(
-                f"X-Timestamp:{ec_mod.date_to_string()}\r\n"
-                "Content-Type:application/json; charset=utf-8\r\n"
-                "Path:speech.config\r\n\r\n"
-                '{"context":{"synthesis":{"audio":{"metadataoptions":{'
-                '"sentenceBoundaryEnabled":"false","wordBoundaryEnabled":"true"'
-                "},"
-                f'"outputFormat":"{DIORAMA_TTS_OUTPUT_FORMAT}"'
-                "}}}}\r\n"
-            )
-            await ws.send_str(
-                ec_mod.ssml_headers_plus_data(
-                    ec_mod.connect_id(),
-                    ec_mod.date_to_string(),
-                    ec_mod.mkssml(tts_cfg, esc_text),
-                )
-            )
-            async for msg in ws:
-                if msg.type == aiohttp.WSMsgType.TEXT:
-                    enc = msg.data.encode("utf-8")
-                    params, body = ec_mod.get_headers_and_data(enc, enc.find(b"\r\n\r\n"))
-                    p_hdr = params.get(b"Path")
-                    if p_hdr == b"audio.metadata":
-                        for m_obj in json.loads(body).get("Metadata", []):
-                            if m_obj.get("Type") == "WordBoundary":
-                                word_bounds.append(
-                                    {
-                                        "offset": int(m_obj["Data"]["Offset"]),
-                                        "duration": int(m_obj["Data"]["Duration"]),
-                                        "text": unescape(m_obj["Data"]["text"]["Text"]),
-                                    }
-                                )
-                    elif p_hdr == b"turn.end":
-                        break
-                elif msg.type == aiohttp.WSMsgType.BINARY:
-                    if len(msg.data) >= 2:
-                        hdr_len = int.from_bytes(msg.data[:2], "big")
-                        if len(msg.data) > hdr_len + 2:
-                            audio_buf.extend(msg.data[hdr_len + 2 :])
-                elif msg.type in (aiohttp.WSMsgType.ERROR, aiohttp.WSMsgType.CLOSED):
-                    break
-
-    if not audio_buf:
-        raise RuntimeError(f"Empty edge-tts audio stream for sentence: {spoken_text[:60]!r}")
-    return bytes(audio_buf), word_bounds
 
 
 def _synthesize_longform_stereo_bgm(
@@ -565,13 +486,14 @@ def synthesize_longform_master_audio(
     project_id_or_dir: str | Path,
     *,
     voice_preset: str | None = None,
-    engine: str = "edge-tts",
+    engine: str = "eleven_v4",
     force: bool = False,
+    allow_test_stub: bool = False,
 ) -> dict[str, Any]:
     """
     Synthesizes `04_audio/audio_master.wav` (`longform_us_v7` relaxed vocal delivery + natural pauses +
-    chapter-boundary stereo orchestral swells at `-14.0 LUFS`), builds `04_audio/subtitles.ass`, and
-    retimes `03_visuals/visual_plan.json` & `flow_longform_prompts.json` to exact spoken sentence timestamps.
+    chapter-boundary stereo orchestral swells at `-14.0 LUFS`) via ElevenLabs `eleven_v4`, builds
+    `04_audio/subtitles.ass`, and retimes `03_visuals/visual_plan.json` & `flow_longform_prompts.json`.
     """
     p_dir = resolve_longform_project_dir(project_id_or_dir, create=False)
     script_path = p_dir / "02_script" / "script.json"
@@ -599,86 +521,53 @@ def synthesize_longform_master_audio(
     cache_dir.mkdir(parents=True, exist_ok=True)
     wav_out = aud_dir / "audio_master.wav"
 
-    def _prep_spoken(txt: str) -> str:
-        t = to_expressive_tts_text(txt)
-        t = re.sub(r"\.\.\.\s+(?=[A-Za-z])", " — ", t)
-        t = t.replace("!", ".")
-        if not re.search(r"[.!?]$", t):
-            t += "."
-        return t
+    req_engine = str(engine or "eleven_v4").strip().lower()
+    if req_engine in ("edge-tts", "edge_tts", "kokoro-onnx", "kokoro") and not allow_test_stub:
+        from pipeline.elevenlabs_tts import ElevenLabsUnavailableError
 
-    use_edge = str(engine or "edge-tts").strip().lower() == "edge-tts"
-    used_engine = "edge-tts" if use_edge else "kokoro-onnx"
-
-    async def _fetch_all_edge() -> list[tuple[np.ndarray, list[dict[str, Any]]]]:
-        sem = asyncio.Semaphore(4)
-        results: list[tuple[np.ndarray, list[dict[str, Any]]] | None] = [None] * len(sentences)
-
-        async def _worker(idx_zero: int, s_obj: dict[str, Any]) -> None:
-            raw_txt = str(s_obj["text"]).strip()
-            spoken = _prep_spoken(raw_txt)
-            gear = str(s_obj.get("gear") or "explain").strip()
-            rate = LONGFORM_PROSODY_GEAR_RATES.get(gear, "+0%")
-            key = hashlib.sha256(
-                f"{spoken}|{preset['voice']}|{rate}|{preset['pitch']}|{preset['volume']}|v1".encode("utf-8")
-            ).hexdigest()[:18]
-            mp3_cache = cache_dir / f"s_{idx_zero + 1:03d}_{key}.mp3"
-            wb_cache = cache_dir / f"s_{idx_zero + 1:03d}_{key}.json"
-            if not force and mp3_cache.exists() and wb_cache.exists():
-                mp3_b = mp3_cache.read_bytes()
-                wb_l = json.loads(wb_cache.read_text(encoding="utf-8"))
-            else:
-                async with sem:
-                    last_err: Exception | None = None
-                    mp3_b = b""
-                    wb_l = []
-                    for _try in range(3):
-                        try:
-                            mp3_b, wb_l = await _stream_edge_sentence_with_words(
-                                spoken,
-                                preset["voice"],
-                                rate,
-                                preset["pitch"],
-                                preset["volume"],
-                            )
-                            break
-                        except Exception as exc:
-                            last_err = exc
-                            await asyncio.sleep(1.0 + _try)
-                    if not mp3_b:
-                        raise RuntimeError(f"edge-tts failed on sentence {idx_zero + 1}: {last_err}")
-                    mp3_cache.write_bytes(mp3_b)
-                    wb_cache.write_text(json.dumps(wb_l, ensure_ascii=False), encoding="utf-8")
-            pcm_s = await asyncio.to_thread(_decode_mp3_storyteller_pcm, mp3_b, SAMPLE_RATE, vocal_filter)
-            results[idx_zero] = (pcm_s, wb_l)
-
-        await asyncio.gather(*(_worker(i, s) for i, s in enumerate(sentences)))
-        return [r for r in results if r is not None]
+        raise ElevenLabsUnavailableError(
+            f"Legacy Long-Form TTS engine {engine!r} is permanently removed; production audio is strictly locked to ElevenLabs eleven_v4."
+        )
 
     synth_items: list[tuple[np.ndarray, list[dict[str, Any]]]] = []
-    if use_edge:
-        try:
-            synth_items = _run_coro_sync(_fetch_all_edge())
-        except Exception as edge_exc:
-            print(f"[longform-audio] edge-tts unavailable ({edge_exc}); falling back to offline kokoro-onnx...", flush=True)
-            used_engine = "kokoro-onnx"
-
-    if used_engine != "edge-tts":
-        kokoro_speeds = {"rush": 1.02, "explain": 0.98, "brisk": 0.98, "stamp": 0.95}
+    if allow_test_stub:
+        used_engine = "test_stub"
+        stub_tempos = {"rush": 1.02, "explain": 0.94, "brisk": 0.94, "stamp": 0.90}
         for i_s, s_obj in enumerate(sentences, start=1):
             gear = str(s_obj.get("gear") or "explain").strip()
-            spd = kokoro_speeds.get(gear, 0.98)
-            pcm_k = synthesize_line(
+            pcm_s = _synthesize_test_stub_pcm(
                 str(s_obj["text"]),
                 sr=SAMPLE_RATE,
-                cache_dir=cache_dir,
-                clip_no=i_s,
-                voice_preset=preset_id,
-                speed=spd,
-                vocal_profile="storyteller",
-                vocal_filter=vocal_filter,
+                target_tempo=stub_tempos.get(gear, 0.94),
+                seed_idx=i_s,
             )
-            synth_items.append((pcm_k, []))
+            synth_items.append((pcm_s, []))
+    else:
+        from pipeline.elevenlabs_tts import synthesize_elevenlabs_v4_episode
+
+        used_engine = "eleven_v4"
+        el_res = synthesize_elevenlabs_v4_episode(
+            [str(s["text"]).strip() for s in sentences],
+            voice_id=str(preset.get("elevenlabs_voice_id") or preset["voice"]),
+            fallback_voice_id=preset.get("elevenlabs_fallback_voice_id"),
+            gender=str(preset.get("gender") or "male"),
+            gears=[str(s.get("gear") or "explain").strip() for s in sentences],
+            preserve_exclamation=False,
+            sr=SAMPLE_RATE,
+            force_refresh_indices=set(range(1, len(sentences) + 1)) if force else None,
+        )
+        wt_by_idx = dict(el_res.get("word_timestamps_by_idx") or {})
+        for idx_zero, raw_pcm in enumerate(el_res["pcms"]):
+            pcm_s = _master_storyteller_vocal(raw_pcm, SAMPLE_RATE, SAMPLE_RATE, vocal_filter=vocal_filter)
+            wb_l = [
+                {
+                    "offset": int(round(float(t0) * 1e7)),
+                    "duration": int(round(max(0.02, float(t1) - float(t0)) * 1e7)),
+                    "text": str(w),
+                }
+                for t0, t1, w in (wt_by_idx.get(idx_zero) or [])
+            ]
+            synth_items.append((pcm_s, wb_l))
 
     # Assemble full voice timeline with natural breathing pauses
     lead_sec = 0.08

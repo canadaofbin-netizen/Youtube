@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "schachter_singer_two_factor",
   "topic": "Stanley Schachter & Jerome Singer (1962): Epinephrine 'Suproxin' Injection & Two-Factor Emotion Attribution",
   "pillar": "brain_mysteries",
@@ -60,11 +60,44 @@
     },
     {
       "fact": "Students with NO explanation ('Epi-Ignorant' and 'Epi-Misinformed') caught the room's emotion dramatically — tossing paper airplanes in the Euphoria room (indices ~16.0 to 22.56) or joining the outrage in the Anger room.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Unexplained Arousal Euphoria",
+        "unit": "pts",
+        "bars": [
+          {
+            "label": "Epi-Ignorant Score",
+            "value": 16.0,
+            "unit": "pts"
+          },
+          {
+            "label": "Misinformed Score",
+            "value": 22.56,
+            "unit": "pts"
+          }
+        ],
+        "doi": "10.1037/h0046234",
+        "source_citation": "Schachter & Singer (1962)"
+      }
     },
     {
       "fact": "Pulse measurements confirmed both Informed and Ignorant epinephrine groups had identical elevated heart rates; only their cognitive explanation differed.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "sigmoid",
+        "title": "Two-Factor Emotion Appraisal",
+        "concept": "Cognitive Attribution of Arousal",
+        "x_label": "Unexplained Heart Arousal",
+        "y_label": "Emotional Contagion",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Later replications by Marshall and Zimbardo (1979) and Reisenzein (1983) moderated the extreme claim: unexplained adrenaline isn't 100 percent neutral clay (strong inexplicable palpitations lean slightly anxious), yet cognitive labeling strongly steers emotional interpretation.",
@@ -127,5 +160,38 @@
   ],
   "linked_projects": [
     "psych_20_schachter_singer_two_factor"
-  ]
+  ],
+  "everyday_domain": "habits",
+  "primary_doi": "10.1037/h0046234",
+  "three_layer_formula": {
+    "everyday_problem": "Drinking an extra double espresso, feeling your heart race in traffic, and snapping at a minor lane merge because your brain blames the driver instead of the caffeine.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/h0046234",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1037/h0046234"
+      ],
+      "summary": "Stanley Schachter, Jerome Singer (1962). Cognitive, social, and physiological determinants of emotional state. Psychological Review."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC6",
+      "doi": "10.1177/0276236620938015",
+      "source_ids": [
+        "SRC6"
+      ],
+      "dois": [
+        "10.1177/0276236620938015"
+      ],
+      "summary": "Robert Kunzendorf (2020). In Memory of Jerome L. Singer. Imagination, Cognition and Personality."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Every emotion — fear, excitement, anger, joy — has a completely unmistakable bodily feeling you can never confuse.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

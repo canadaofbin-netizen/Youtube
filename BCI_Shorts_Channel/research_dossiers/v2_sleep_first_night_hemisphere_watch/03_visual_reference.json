@@ -1,153 +1,165 @@
 {
   "scenes": [
     {
-      "id": "hotel_first_night_bed",
-      "title": "Night 1 unfamiliar bedroom sleep suite: right hemisphere sleeps while left hemisphere taps awake at deviant tones",
+      "id": "S1",
+      "title": "Night 1 Hotel-Style Sleep Suite: Right Hemisphere Sleeps While Left Hemisphere Snaps Hand to Bedside Switch",
       "iconic": true,
       "shorts_priority": 1,
-      "era": "2016 Brown University Sleep & Vision Laboratory two-night neuroimaging study",
+      "era": "2016 Brown University Sleep & Vision Laboratory two-night neuroimaging suite",
       "layout": {
-        "description": "Bright architectural sleep-laboratory bedroom with crisp white hotel-style platform bed at center, walnut bedside stand holding an unmarked finger-tap button pad on the right, and an observation window on the left.",
+        "description": "Clean architectural hotel-style sleep suite with a crisp white platform bed at center, warm walnut nightstand holding a brushed-metal tactile response button on the right, and a recessed observation glass window on the left.",
         "positions": [
           {
-            "who": "Volunteer sleeper (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in slate-blue cotton pajama cardigan and soft white sleep earphones)",
-            "where": "lying supine on the crisp white hotel-style mattress with right porcelain hand resting beside the bedside response pad",
-            "facing": "upward and angled slightly toward the bedside response pad"
+            "who": "Adult business traveler sleeper (45-year-old stylized 2.5D vinyl character in slate-blue buttoned cotton pajama shirt wearing soft acoustic sleep earphones)",
+            "where": "lying supine on the crisp white hotel mattress with right hand resting inches from the walnut nightstand switch",
+            "facing": "upward angled slightly toward the walnut nightstand"
           },
           {
-            "who": "Sleep neuroscientist (clothed matte-white porcelain figure with smooth featureless solid matte-white egg-shaped oval head in crisp white lab coat over charcoal knit)",
-            "where": "standing beside the bed checking scalp sensor leads, then watching through the observation window",
-            "facing": "facing the bed and dual-hemisphere waveform monitor"
+            "who": "Sleep neuroscientist (stylized 2.5D vinyl character in tailored navy blazer over crisp white lab coat holding a physical brass stopwatch and clipboard)",
+            "where": "standing beside the observation glass timing the exact moment the sleeper's hand strikes the bedside button",
+            "facing": "angled toward the sleeper and bedside switch"
           }
         ]
       },
       "props": [
         {
-          "name": "crisp white hotel-style pillow, soft acoustic earphones, and slender scalp sensor leads",
-          "period_detail": "unmarked white cotton bedding paired with minimal white clinical sleep leads",
-          "physical_behavior": "sleeper shifts restlessly on the unfamiliar pillow on Night 1 and snaps awake when an oddball earphone tone arrives"
+          "name": "Brushed-aluminum bedside tactile response button on walnut nightstand",
+          "period_detail": "heavy mechanical laboratory plunger switch wired to a cloth-braided cord with zero digital screens",
+          "physical_behavior": "State A resting unpressed beside the sleeper's still fingers -> State B briskly slammed downward by the sleeper's right index finger the instant an oddball earphone chime arrives"
         },
         {
-          "name": "unmarked bedside finger-tap response pad and dual waveform display",
-          "period_detail": "clean brushed-aluminum button pad beside a text-free dual wave monitor",
-          "physical_behavior": "right index finger briskly depresses the button pad as the top left-hemisphere wave trace spikes"
+          "name": "Crisp unfamiliar hotel pillow paired with soft acoustic sleep earphones",
+          "period_detail": "stiff bright-white hotel percale pillow slip and minimal white acoustic ear tubes",
+          "physical_behavior": "State A sleeper's head rests lightly tilted toward the right ear -> State B head snaps upright off the pillow as eyes pop wide open at a faint hallway sound"
         }
       ],
       "actions": [
         {
-          "who": "Volunteer sleeper",
-          "verb_sequence": "lies still on the crisp white pillow wearing slender sensor leads -> briskly presses the bedside button pad with right index finger the instant an irregular tone sounds"
+          "who": "Adult sleeper",
+          "verb_sequence": "breathes shallowly on the unfamiliar white hotel pillow -> snaps eyes wide open at an oddball right-ear tone and slams right index finger onto the mechanical bedside button"
         }
       ],
       "reactions": [
         {
           "who": "Sleep neuroscientist",
-          "reaction": "leans closer to the unmarked dual-wave display comparing the shallow top trace against the deep slow bottom trace"
+          "reaction": "clicks the mechanical brass stopwatch and nods as the immediate Night-1 button strike confirms left-hemisphere sentinel vigilance"
         }
       ],
-      "wardrobe": "Volunteer in slate-blue buttoned cotton pajama cardigan and trousers; researcher in crisp white lab coat over charcoal sweater.",
-      "lighting": "Clean high-key cool architectural daylight-moonlight balance with soft rim illumination.",
-      "recognition_hook": "On Night 1 in an unfamiliar bed, half your brain stays on dolphin-like night-watch duty and snaps your hand awake three times faster.",
+      "wardrobe": "Sleeper in slate-blue buttoned cotton pajama top; researcher in crisp white lab coat over dark charcoal knit.",
+      "lighting": "Cool moonlit hotel-bedroom rim light balanced with clean architectural key lighting.",
+      "recognition_hook": "Exhausted in a quiet hotel bed, yet snapping wide awake three times faster because half your brain refuses to go off duty on Night 1!",
       "sources": [
         "tamaki_2016",
         "agnew_1966",
         "sleep_bed_sensors"
       ],
       "key_visual": {
-        "description": "porcelain sleeper in slate-blue pajama cardigan lying on a crisp white hotel-style bed wearing slender scalp leads and pressing a bedside button pad while a researcher watches behind glass",
+        "description": "an adult sleeper in slate-blue pajamas snapping awake on a crisp white hotel bed and slamming a mechanical bedside response button while a researcher clicks a brass stopwatch",
         "must_show": [
           "bed|pillow",
-          "sensor|lead|pad|button",
-          "porcelain"
+          "button|switch|hand",
+          "stopwatch|researcher"
         ],
         "source": "sleep_bed_sensors@00:25-01:15; tamaki_2016"
       }
     },
     {
-      "id": "night_two_familiar_pillow_reset",
-      "title": "Night 2 adaptation & familiar pillowcase cue calming left-hemisphere sentinel",
+      "id": "S2",
+      "title": "Outdoor Morning Terrace Café After Night 1 vs Night 2 Travel Recovery",
       "iconic": false,
-      "shorts_priority": 2,
-      "era": "2016 Brown University Night 2 session & everyday hotel bedroom",
+      "shorts_priority": 1,
+      "era": "Modern sunlit morning hotel sidewalk café patio",
       "layout": {
-        "description": "Same minimalist hotel-style bedroom with sleeper slipping a familiar oatmeal-linen home pillowcase onto the hotel pillow before resting deeply.",
+        "description": "Sunlit outdoor cobblestone sidewalk café outside a city hotel with wrought-iron bistro tables, potted olive trees, and morning commuters walking past in golden sunlight.",
         "positions": [
           {
-            "who": "Traveler sleeper (porcelain figure in slate-blue pajama cardigan)",
-            "where": "seated at the edge of the bed smoothing a familiar home pillowcase over the pillow",
-            "facing": "facing the bed center"
+            "who": "Adult business traveler (in camel wool coat with rolling carry-on suitcase beside outdoor bistro chair)",
+            "where": "seated outdoors at a sunlit sidewalk table pulling a folded oatmeal-linen home pillowcase from an open weekender bag",
+            "facing": "three-quarter view toward the sunlit street"
           }
         ]
       },
       "props": [
         {
-          "name": "folded oatmeal-linen home pillowcase over hotel pillow",
-          "period_detail": "unmarked natural woven linen pillow slip carried in an open overnight bag",
-          "physical_behavior": "porcelain hands smooth the familiar linen pillowcase flat before shoulders sink into deep stillness"
+          "name": "Ceramic espresso cup and folded oatmeal-linen home pillowcase inside leather weekender bag",
+          "period_detail": "textured natural home linen contrasted against crisp hotel luggage tag",
+          "physical_behavior": "traveler lifts ceramic coffee cup steady-handed in bright morning sun after packing the familiar home pillowcase into the top zip pocket"
         }
       ],
       "actions": [
         {
-          "who": "Traveler sleeper",
-          "verb_sequence": "slips a folded oatmeal-linen pillowcase over the hotel pillow -> settles head deeply onto the linen with relaxed motionless hands"
+          "who": "Adult traveler",
+          "verb_sequence": "steps out of hotel revolving doors into bright morning sunlight -> tucks familiar oatmeal-linen pillowcase into carry-on bag and lifts warm espresso cup with calm focus"
         }
       ],
       "reactions": [
         {
-          "who": "Traveler sleeper",
-          "reaction": "chest rises in slow even breaths without twitching toward the bedside pad"
+          "who": "Adult traveler",
+          "reaction": "relaxes shoulders in warm outdoor morning light knowing Night 2 brings symmetric deep recovery"
         }
       ],
-      "wardrobe": "Slate-blue cotton pajama cardigan.",
-      "lighting": "Warm calm architectural evening studio balance.",
-      "recognition_hook": "By Night 2 — or when familiar scent/bedding cues disarm novelty — both hemispheres drop into matching deep delta waves.",
+      "wardrobe": "Tailored camel wool travel coat over oxford shirt.",
+      "lighting": "Crisp golden outdoor morning sunlight with natural tree shadows.",
+      "recognition_hook": "Stepping outside after a fragmented first hotel night—and packing your own home pillowcase so Night 1 feels safe from the start.",
       "sources": [
         "tamaki_2016",
         "ding_2024"
       ]
     },
     {
-      "id": "brain_hemisphere_nightwatch",
-      "title": "Contained Living 4-Color 3D Brain dorsal split: sleeping right hemisphere vs vigilant left default-mode network",
+      "id": "S3",
+      "title": "Night 2 Familiar Pillow Reset: Symmetric Deep Sleep Without Flinching",
       "iconic": false,
-      "shorts_priority": 1,
-      "era": "2016-2025 Neuroimaging Circuit Studio",
+      "shorts_priority": 2,
+      "era": "Modern hotel bedroom Night 2 adaptation",
       "layout": {
-        "description": "Bright white architectural gallery housing a Contained Living 4-Color 3D Brain dorsal cutaway on a matte-white pedestal.",
+        "description": "Warm minimal hotel bedroom where the traveler slips a familiar oatmeal-linen home pillowcase onto the hotel pillow beside an untouched bedside switch.",
         "positions": [
           {
-            "who": "3D Two-Hemisphere Living Brain Model",
-            "where": "centered on matte-white gallery pedestal",
-            "facing": "dorsal-anterior three-quarter camera angle"
+            "who": "Adult traveler sleeper",
+            "where": "seated on the edge of the bed smoothing the oatmeal-linen pillowcase flat before sinking deeply into rest",
+            "facing": "toward the pillow and warm bedside lamp"
           }
         ]
       },
       "props": [
         {
-          "name": "translucent dorsal 3D brain cutaway",
-          "period_detail": "contained subsurface four-color internal glow with zero external particle spill",
-          "physical_behavior": "right hemisphere pulses with deep pearl-aqua slow waves while left default-mode hubs glow warm amber-gold and crimson-red"
+          "name": "Oatmeal-linen home pillowcase slipped over hotel pillow",
+          "period_detail": "soft washed home fabric replacing stiff unfamiliar hotel percale",
+          "physical_behavior": "hands slide the linen slip smoothly over the pillow and click the warm brass bedside lamp switch off"
         }
       ],
       "actions": [
         {
-          "who": "3D Brain",
-          "verb_sequence": "pulses calm pearl-aqua waves across the right hemisphere -> flashes amber-gold and crimson-red sentinel signals along the left prefrontal-thalamic loop"
+          "who": "Adult traveler sleeper",
+          "verb_sequence": "pulls familiar linen pillowcase over the hotel pillow -> switches off the brass lamp and sinks deeply into stillness with motionless hands"
         }
       ],
       "reactions": [
         {
-          "who": "3D Brain",
-          "reaction": "by Night 2 both hemispheres synchronize into matching deep electric cyan-blue and pearl-aqua slow waves"
+          "who": "Adult traveler sleeper",
+          "reaction": "breathes slowly and evenly without flinching when a distant hallway door clicks"
         }
       ],
-      "wardrobe": "None (pure anatomical studio cutaway).",
-      "lighting": "Bright high-key white gallery daylight.",
-      "recognition_hook": "Visualizes half-asleep asymmetric human brain activity side-by-side inside one skull.",
+      "wardrobe": "Slate-blue cotton pajama shirt.",
+      "lighting": "Warm amber bedside lamp clicking into calm moonlit rest.",
+      "recognition_hook": "Once your brain recognizes the room as safe, your left-hemisphere sentinel stands down and both halves sleep deeply.",
       "sources": [
         "tamaki_2016",
         "kjaerby_2025"
       ]
     }
-  ]
+  ],
+  "spatial_contrast_spec": {
+    "landmark_or_object_a": "Unfamiliar hotel hallway & Night-1 half-awake sentinel bed side",
+    "landmark_or_object_b": "Familiar Night-2 bedroom & symmetrical deep-sleep stillness",
+    "arrow_3d_mode": "split_hemisphere_watch",
+    "target_act": 3,
+    "cut_a_landmark_drone": "Fast 3D aerial sweep skimming an illuminated hotel exterior sign-free portico and ascending above the roof",
+    "cut_b_topdown_3d_arrow": "90-degree top-down hotel suite floorplan where #FF2525 3D sound-alert arrows patrol the left corridor while the right side rests",
+    "ricks_tempo_sec_range": [
+      2.4,
+      3.2
+    ]
+  }
 }

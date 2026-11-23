@@ -1,0 +1,173 @@
+{
+  "schema_version": 2,
+  "slug": "gilbert_reversible_choice_paradox",
+  "topic": "Gilbert & Ebert (2002) Harvard Photography Darkroom Choice Paradox: Why Keeping a 5-Day Swap Option Ruins Satisfaction with Your Own Pick",
+  "pillar": "brain_mysteries",
+  "everyday_domain": "habits",
+  "status": "ready",
+  "visual_mode": "HYBRID",
+  "visual_mode_reason": "Pairs Harvard Memorial Hall / Harvard Yard architectural FPV cutaway into the red-safelight photography darkroom and gourmet jam tasting booth with a 2-cycle 3D translucent glass brain FPV dive into the anterior cingulate cortex and prefrontal cortex.",
+  "primary_doi": "10.1037/0022-3514.82.4.503",
+  "primary_case": {
+    "title": "Harvard Photography Darkroom Reversible vs Final Print Choice Experiment & Gourmet Jam Choice-Overload Field Study",
+    "year": 2002,
+    "place": "Department of Psychology, Harvard University (Cambridge, Massachusetts) & Upscale California Market",
+    "summary": "Gilbert & Ebert (2002) had Harvard photography students print two favorite black-and-white photos and pick one to take home either permanently or with a 5-day swap window. Although 66.3% of people asked beforehand preferred a reversible deal, students given 5 days to swap liked their print significantly less than students locked into a final pick, mirroring Iyengar & Lepper's (2000) 6-jar (30% buyers) vs 24-jar (3% buyers) choice trap.",
+    "people": [
+      {
+        "name": "Daniel T. Gilbert & Jane E. J. Ebert",
+        "role": "Harvard University social psychologists (J. Pers. Soc. Psychol., 2002)",
+        "source_id": "SRC1",
+        "bio": "Ran the Harvard photography darkroom experiment testing whether a 5-day print swap window increases or decreases real post-choice satisfaction."
+      },
+      {
+        "name": "Sheena S. Iyengar & Mark R. Lepper",
+        "role": "Columbia & Stanford psychologists (J. Pers. Soc. Psychol., 2000)",
+        "source_id": "SRC2",
+        "bio": "Demonstrated in a gourmet jam booth that expanding options from 6 jars to 24 jars slashed actual purchases from 30% down to 3%."
+      },
+      {
+        "name": "Katharina Voigt & Stefan Bode",
+        "role": "University of Melbourne human fMRI decision neuroscientists (J. Neuroscience 2019; Human Brain Mapping 2020)",
+        "source_id": "SRC3",
+        "bio": "Mapped how committing to a hard decision triggers ACC-to-prefrontal neural preference updating."
+      }
+    ]
+  },
+  "people": [
+    {
+      "name": "Daniel T. Gilbert & Jane E. J. Ebert",
+      "role": "Harvard University social psychologists (J. Pers. Soc. Psychol., 2002)",
+      "bio": "Tested final vs reversible 5-day swap choices in a Harvard student photography course."
+    },
+    {
+      "name": "Sheena S. Iyengar & Mark R. Lepper",
+      "role": "Columbia & Stanford psychologists (J. Pers. Soc. Psychol., 2000)",
+      "bio": "Measured 30% vs 3% purchase rates across 6-jar vs 24-jar gourmet jam booths."
+    }
+  ],
+  "three_layer_formula": {
+    "everyday_problem": "Keeping 30-day return policies, open tabs, and backup options only to end up nitpicking and regretting the very thing you chose.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1037/0022-3514.82.4.503",
+      "source_ids": [
+        "SRC1",
+        "SRC2"
+      ],
+      "dois": [
+        "10.1037/0022-3514.82.4.503",
+        "10.1037/0022-3514.79.6.995"
+      ],
+      "summary": "Gilbert & Ebert (2002, JPSP) Harvard darkroom final-vs-changeable print experiment paired with Iyengar & Lepper (2000, JPSP) 6-vs-24 gourmet jam choice-overload field experiment."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1523/JNEUROSCI.1681-18.2018",
+      "source_ids": [
+        "SRC3",
+        "SRC4"
+      ],
+      "dois": [
+        "10.1523/JNEUROSCI.1681-18.2018",
+        "10.1002/hbm.24999"
+      ],
+      "summary": "Voigt et al. (2019 J. Neuroscience; 2020 Human Brain Mapping) human fMRI decoding showing how anterior cingulate conflict signals hand off to prefrontal cortex preference re-coding once a hard decision is finalized."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Almost everyone assumes having a generous return or swap window guarantees higher happiness with what you pick.",
+    "open_verdict_question": "When you buy something new, does a long return window give you peace of mind or make you hunt for flaws?",
+    "offcenter_creator_bet": "My bet: final picks win every time — do return windows calm you down or breed regret?"
+  },
+  "offcenter_creator_bet": "My bet: final picks win every time — do return windows calm you down or breed regret?",
+  "core_facts": [
+    {
+      "fact": "In Gilbert & Ebert (2002 Journal of Personality and Social Psychology), Harvard University students enrolled in a hands-on photography darkroom course developed rolls of black-and-white film and printed two favorite portraits.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Harvard students had to choose one framed print to take home and give the second print away: one group made a permanent final choice on the spot, while the second group got 5 days to swap their print if they changed their mind.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "When Gilbert & Ebert (2002) asked participants beforehand which rule they wanted, 66.3% (roughly 66 percent, two out of three students) chose the changeable swap deal over a final commitment.",
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "single_percent",
+        "title": "Picked the Swap Window",
+        "value": 66.3,
+        "unit": "%",
+        "doi": "10.1037/0022-3514.82.4.503",
+        "source_citation": "Gilbert & Ebert (2002)"
+      }
+    },
+    {
+      "fact": "Days later in Gilbert & Ebert (2002), students given the changeable swap option liked their chosen photo significantly less than students whose choice was final and unchangeable from minute one.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In Iyengar & Lepper's (2000 Journal of Personality and Social Psychology) gourmet market study, shoppers saw either 6 jars or 24 jars of jam: 30% of visitors at the 6-jar booth bought a jar, whereas only 3% at the 24-jar booth bought one.",
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Gourmet Jam Buyers",
+        "unit": "%",
+        "bars": [
+          {
+            "label": "6 Jars",
+            "value": 30,
+            "unit": "%"
+          },
+          {
+            "label": "24 Jars",
+            "value": 3,
+            "unit": "%"
+          }
+        ],
+        "doi": "10.1037/0022-3514.79.6.995",
+        "source_citation": "Iyengar & Lepper (2000)"
+      }
+    },
+    {
+      "fact": "Shenhav, Straccia, Cohen & Botvinick (2014 Nature Neuroscience) demonstrated with human fMRI that unresolved alternatives keep the anterior cingulate cortex firing to flag ongoing choice conflict and difficulty.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Voigt, Murawski, Speer & Bode (2019 Journal of Neuroscience; 2020 Human Brain Mapping) showed with human fMRI that committing to a final hard decision engages the prefrontal cortex alongside anterior cingulate networks to upgrade the value of the chosen option.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Chernev, Bockenholt & Goodman (2015 Journal of Consumer Psychology) confirmed across 99 choice-overload studies that unclosed trade-offs erode satisfaction unless a clear commitment closes comparison loops.",
+      "source_id": "SRC6"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "66.3% of Harvard participants asked for the reversible swap option beforehand, yet having 5 days to swap made students like their own chosen photo significantly less.",
+      "why_surprising": "People crave an escape hatch for safety, unaware that the escape hatch blocks the brain's satisfaction builder.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Displaying 24 gourmet jams instead of 6 slashed real store purchases tenfold from 30% down to 3%.",
+      "why_surprising": "More options attract eyes but paralyze commitment.",
+      "source_id": "SRC2",
+      "rank": 2
+    },
+    {
+      "fact": "Human fMRI proves your prefrontal cortex upgrades how much you love a hard pick only after the decision locks for good.",
+      "why_surprising": "Satisfaction is actively built after commitment, not passively discovered while shopping.",
+      "source_id": "SRC3",
+      "rank": 3
+    }
+  ],
+  "everyday_hooks": [
+    "Keeping 30-day return receipts, free-cancellation buttons, and backup shopping tabs open — then nitpicking the very item you brought home.",
+    "Standing in front of 24 flavors or endless streaming thumbnails and walking away less satisfied than when you only had 6 solid picks."
+  ]
+}

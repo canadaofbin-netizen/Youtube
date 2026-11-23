@@ -1,0 +1,62 @@
+{
+  "suitability_schema_version": 2,
+  "reenactment_track": "track_b",
+  "track_subtier": "B_scene_bible_anchor",
+  "track_selection_reason": "Modern sensory/placebo clinical study staged via R79-M Scene Bible",
+  "primary_reenactment_media_id": null,
+  "media": [
+    {
+      "id": "M1",
+      "kind": "documentary",
+      "title": "Voices of BIDMC Research: Can a Placebo Pill Help You Feel Better?",
+      "url": "https://www.youtube.com/watch?v=2rt7WIK2OVE",
+      "channel": "Beth Israel Deaconess Medical Center (BIDMC)",
+      "source_id": "SRC_M1",
+      "duration_sec": 417,
+      "timecodes": [
+        {
+          "t": "00:08-00:24",
+          "what": "Beth Israel Deaconess Medical Center clinical research overview introducing open-label placebo capsules and transparent informed-consent framing with patients."
+        },
+        {
+          "t": "00:25-00:48",
+          "what": "Visual sequence of clinical consultation context and twice-daily inert capsule administration studied in IBS and chronic pain cohorts."
+        }
+      ],
+      "license_note": "Reference video analyzed locally in media/M1/ (12 keyframes, contact_sheet.jpg); never reused in channel videos.",
+      "analysis": {
+        "local_dir": "media/M1",
+        "contact_sheet": "media/M1/contact_sheet.jpg",
+        "keyframe_count": 12,
+        "shot_notes": [
+          "Extracted 12 reference keyframes across 00:05-00:50 in media/M1/keyframes/ for clinical room geometry and prop staging only.",
+          "Zero source video frames or audio reused; staged fresh in 9:16 2.5D diorama via R79-M Scene Bible."
+        ]
+      },
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_clinical_interview_staged_via_track_b_scene_bible"
+    },
+    {
+      "id": "M2",
+      "kind": "documentary",
+      "title": "The Potential of Placebo",
+      "url": "https://www.youtube.com/watch?v=hJB8qeWKV6w",
+      "channel": "RWJF",
+      "source_id": "SRC_M2",
+      "duration_sec": 162,
+      "timecodes": [
+        {
+          "t": "00:12-00:38",
+          "what": "Overview of Harvard placebo research examining how the doctor-patient encounter and treatment ritual modulate real pain pathways."
+        },
+        {
+          "t": "00:45-01:20",
+          "what": "Discussion of why honest non-deceptive placebos challenge traditional assumptions that patients must be fooled for symptom relief to occur."
+        }
+      ],
+      "license_note": "Complementary clinical research reference inspected for narrative context only; never reused in channel videos.",
+      "reenactment_suitability": "reject_track_b_only",
+      "reenactment_suitability_reason": "modern_interview_documentary_track_b_only"
+    }
+  ]
+}

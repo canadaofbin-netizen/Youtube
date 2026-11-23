@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "clive_wearing_seven_second_mind",
   "topic": "Wilson & Wearing (1995): Clive Wearing's 7-Second Memory Window — And the Music & Love Amnesia Could Never Touch",
   "pillar": "brain_mysteries",
@@ -36,7 +36,27 @@
     },
     {
       "fact": "Clive emerged into one of the most profound episodic amnesias ever documented in medicine: his conscious memory window spans just **7 to 30 seconds** — blink, turn away, or finish a sentence, and the slate resets to a feeling of *'waking up from coma for the very first time in 20 years'*.",
-      "source_id": "SRC5"
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Conscious Memory Window",
+        "unit": "s",
+        "series": [
+          {
+            "start_label": "Minimum Span",
+            "label": "Maximum Span",
+            "values": [
+              7.0,
+              30.0
+            ],
+            "unit": "s"
+          }
+        ],
+        "doi": "10.1080/01688639508405157",
+        "source_citation": "Wilson, Baddeley & Kapur (1995, JCEN)"
+      }
     },
     {
       "fact": "For decades, Clive filled notebook after notebook with haunting, time-stamped diary entries every few minutes: ***'8:31 AM: Now I am really, completely awake.'*** Crossed out ruthlessly four minutes later: ***'8:35 AM: NOW I am perfectly, overwhelmingly awake (first time)!'*** Crossed out again at ***'9:06 AM: Now I am superlatively, actually awake!'*** — recognizing his own handwriting yet stunned because he had ZERO memory of writing the line three inches higher.",
@@ -52,7 +72,25 @@
     },
     {
       "fact": "The second the final chord fades and someone asks *'Clive, what piece did you just play?'*, his 7-second window closes — he has zero memory of touching the keys ten seconds ago.",
-      "source_id": "SRC5"
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Episodic Trace Rapid Reset",
+        "concept": "Hippocampal Consolidation Loss",
+        "fn": "exp_decay",
+        "x_label": "Elapsed Seconds",
+        "y_label": "Conscious Recall Trace",
+        "markers": [
+          {
+            "x": 1.0,
+            "y": 65.5,
+            "label": "7s Slate Reset"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Equally profound is **emotional memory**: Clive cannot tell you when he married **Deborah**, what country they visited, or that she left the room two minutes ago to fetch tea — yet **every single time Deborah steps back through the door, Clive leaps out of his chair hugging her as if rescued after twenty years on a desert island**.",
@@ -116,5 +154,38 @@
   ],
   "shorts_projects": [
     "diorama_06_clive_wearing_seven_second_mind"
-  ]
+  ],
+  "everyday_domain": "memory",
+  "primary_doi": "10.1080/01688639508405157",
+  "three_layer_formula": {
+    "everyday_problem": "Forgetting why you walked into the kitchen, yet your hands automatically open the exact cabinet you needed ('procedural autopilot').",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1080/01688639508405157",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1080/01688639508405157"
+      ],
+      "summary": "Barbara A. Wilson, Alan D. Baddeley, Narinder Kapur (1995). Dense amnesia in a professional musician following herpes simplex virus encephalitis. Journal of Clinical and Experimental Neuropsychology."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC5",
+      "doi": "10.3366/elr.2018.0473",
+      "source_ids": [
+        "SRC5"
+      ],
+      "dois": [
+        "10.3366/elr.2018.0473"
+      ],
+      "summary": "Eric Clive (2018). Andrew R C Simpson, Scott Crichton Styles, Euan West and Adelyn L M Wilson (eds), Continuity, Change and Pragmatism in the Law: Essays in Memory of Professor Angelo Forte. Edinburgh Law Review."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Memory is one single tank in the brain — lose your memory and you lose your skills, personality, music, and love.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  },
+  "reenactment_track": "track_b"
 }

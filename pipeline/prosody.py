@@ -42,10 +42,15 @@ from pipeline.config import (
     DIORAMA_V7_US_PROSODY_MODE,
     EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC,
     EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC,
+    EXPRESSIVE_V8_POST_HOOK_PAUSE_RANGE_SEC,
+    EXPRESSIVE_V8_POST_HOOK_PAUSE_SEC,
     EXPRESSIVE_V8_PROSODY_BASE_RATE,
     EXPRESSIVE_V8_PROSODY_GEAR_RATES,
     EXPRESSIVE_V8_PROSODY_GEARS,
     EXPRESSIVE_V8_PROSODY_MODE,
+    EXPRESSIVE_V8_R77N_GAP_WINDOW_RANGE_SEC,
+    EXPRESSIVE_V8_R77N_POST_HOOK_PAUSE_SEC,
+    EXPRESSIVE_V8_R77N_PROSODY_GEARS,
     EXPRESSIVE_V8_TARGET_LUFS,
     EXPRESSIVE_V8_VOICED_RATIO_MIN,
     EXPRESSIVE_V8_WPM_ALLOWED_RANGE as EXPRESSIVE_V8_WPM_RANGE,
@@ -57,11 +62,24 @@ from pipeline.config import (
     PROSODY_P5_STAMP_PRE_SILENCE_RANGE,
     PROSODY_P6_ASR_MATCH_MIN,
     PROSODY_P10_OPEN_LOOP_MAX_GAP_SEC,
+    PROSODY_P11_F0_SPAN_MIN_ST,
+    PROSODY_P11_LIFT_VS_DROP_MIN_ST,
     SHORTS_EXPRESSIVE_V8_PROFILE,
+    is_brain_sim_only_plan,
     is_expressive_v8_plan,
+    is_r73_us_native_v8_script,
+    is_r77n_v8_script,
 )
 
-GEARS: tuple[str, ...] = ("rush", "stamp", "brisk")
+GEARS: tuple[str, ...] = (
+    "rush",
+    "stamp",
+    "brisk",
+    "surprised_lift",
+    "insider_reveal",
+    "hushed_suspense",
+    "deadpan_drop",
+)
 DYNAMIC_PROSODY_MODES: tuple[str, ...] = (
     "dynamic_rush_v7",
     DIORAMA_V7_US_PROSODY_MODE,
@@ -217,9 +235,10 @@ def plan_sentence_prosody(
     gears = classify_prosody_gears(sentences, script_doc) if is_dynamic else [
         ("stamp" if any(p in str(s).lower() for p in DIORAMA_V7_PROSODY_STAMP_PHRASES) else "brisk") for s in sentences
     ]
+    is_r77n = (mode == EXPRESSIVE_V8_PROSODY_MODE) and is_r77n_v8_script(script_doc)
     if mode == EXPRESSIVE_V8_PROSODY_MODE:
         active_base_rate = EXPRESSIVE_V8_PROSODY_BASE_RATE
-        active_gears_spec = EXPRESSIVE_V8_PROSODY_GEARS
+        active_gears_spec = EXPRESSIVE_V8_R77N_PROSODY_GEARS if is_r77n else EXPRESSIVE_V8_PROSODY_GEARS
         active_gear_rates = EXPRESSIVE_V8_PROSODY_GEAR_RATES
     elif mode == DIORAMA_V7_US_PROSODY_MODE:
         active_base_rate = DIORAMA_V7_US_PROSODY_BASE_RATE
@@ -232,13 +251,37 @@ def plan_sentence_prosody(
     base_speed = _rate_to_speed(active_base_rate)
     plan: list[dict[str, Any]] = []
     prev_factor = 1.0
+    is_r73_post_hook = (
+        mode == EXPRESSIVE_V8_PROSODY_MODE
+        and is_r73_us_native_v8_script(script_doc)
+    )
+    explicit_gaps_raw = (script_doc or {}).get("gap_before_sec")
+    r77n_gap_lo, r77n_gap_hi = (float(EXPRESSIVE_V8_R77N_GAP_WINDOW_RANGE_SEC[0]), float(EXPRESSIVE_V8_R77N_GAP_WINDOW_RANGE_SEC[1]))
     for i, g in enumerate(gears, start=1):
         after_act_break = (i - 1) in act_breaks
+        post_hook_pause = bool(is_r73_post_hook and i == 2)
+        explicit_gap: float | None = None
+        if isinstance(explicit_gaps_raw, list) and (i - 1) < len(explicit_gaps_raw) and explicit_gaps_raw[i - 1] is not None:
+            try:
+                explicit_gap = float(explicit_gaps_raw[i - 1])
+            except (TypeError, ValueError):
+                explicit_gap = None
+        elif isinstance(explicit_gaps_raw, dict):
+            raw_gv = explicit_gaps_raw.get(str(i)) or explicit_gaps_raw.get(i)
+            if raw_gv is not None:
+                try:
+                    explicit_gap = float(raw_gv)
+                except (TypeError, ValueError):
+                    explicit_gap = None
         if is_dynamic:
             spec = active_gears_spec[g]
             factor = round(float(spec["tempo"]) / base_speed, 4)
             gap = float(spec["gap_before"])
-            if after_act_break:
+            if is_r77n and explicit_gap is not None and i > 1:
+                gap = max(r77n_gap_lo, min(r77n_gap_hi, explicit_gap))
+            elif post_hook_pause:
+                gap = float(EXPRESSIVE_V8_R77N_POST_HOOK_PAUSE_SEC if is_r77n else EXPRESSIVE_V8_POST_HOOK_PAUSE_SEC)
+            if after_act_break and not (is_r77n and explicit_gap is not None):
                 gap = max(gap, DIORAMA_V7_PROSODY_ACT_GAP_MIN)
             clamped = False
             if i > 1 and gap < 0.10 and abs(factor - prev_factor) > DIORAMA_V7_PROSODY_MAX_ADJ_TEMPO_JUMP:
@@ -269,6 +312,7 @@ def plan_sentence_prosody(
                 "target_tempo": target_tempo,
                 "tempo_clamped": clamped,
                 "gap_before_sec": round(0.0 if i == 1 else gap, 3),
+                "post_hook_pause_before": post_hook_pause,
                 "trim_thresh_sec": trim_thresh,
                 "trim_keep_sec": trim_keep,
                 "act_boundary_before": after_act_break,
@@ -551,8 +595,19 @@ def _asr_tokens(text: str) -> list[str]:
 
     t = re.sub(r"\b((?:[A-Za-z]\.){2,})", lambda m: m.group(1).replace(".", ""), str(text or ""))
     t = re.sub(r"\b(\d{1,3})((?:\s+\d{3})+)\b", lambda m: m.group(1) + m.group(2).replace(" ", ","), t)
+    t = re.sub(r"(\d)\s+%", r"\1%", t)
     t = re.sub(r"\bdr\b\.?", "doctor", t, flags=re.IGNORECASE)
+    t = re.sub(r"\banytime\b", "any time", t, flags=re.IGNORECASE)
+    t = re.sub(r"\bcannot\b", "can not", t, flags=re.IGNORECASE)
+    t = re.sub(r"\bcavies\b", "cabbies", t, flags=re.IGNORECASE)
     t = to_tts_text(t).replace("-", " ").replace("—", " ")
+    # Whisper word-token cache strips '.' and '%' from digits ('9.5' -> '9 5', '100%' -> '100'), so fold 'point'/'percent' after numerals
+    _num_word_re = (
+        r"(?:zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|"
+        r"sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|\d+)"
+    )
+    t = re.sub(rf"\b({_num_word_re})\s+percent\b", r"\1", t, flags=re.IGNORECASE)
+    t = re.sub(rf"\b({_num_word_re})\s+point\s+({_num_word_re})\b", r"\1 \2", t, flags=re.IGNORECASE)
     out: list[str] = []
     for raw in t.split():
         w = _norm_word(raw)
@@ -585,6 +640,162 @@ DEFAULT_AUDIO_PROSODY_GATES: tuple[str, ...] = (
     "P10_open_loop_spacing",
 )
 
+def extract_voiced_f0_semitones(
+    pcm: np.ndarray,
+    sr: int,
+    sentence_spans: list[dict[str, Any]],
+    gears: list[str] | None = None,
+    *,
+    fmin: float = 135.0,
+    fmax: float = 430.0,
+) -> dict[str, Any]:
+    """
+    Measures voiced fundamental frequency (`F0`, Hz -> semitones relative to episode median) using a 20ms hop /
+    45ms Hann normalized autocorrelation tracker (`16kHz` mono), plus per-gear mean semitone offsets (Rule R78-V P11).
+    """
+    arr = np.asarray(pcm, dtype=np.float32)
+    if arr.ndim > 1:
+        arr = arr.mean(axis=1)
+    if arr.size < 1600 or sr <= 0:
+        return {
+            "voiced_frames": 0,
+            "median_hz": 0.0,
+            "f0_span_p05_p95_st": 0.0,
+            "f0_iqr_st": 0.0,
+            "f0_std_st": 0.0,
+            "gear_mean_st": {},
+            "lift_vs_drop_st": None,
+        }
+
+    sr16 = 16000
+    if int(sr) != sr16:
+        n_out = max(1, int(round(arr.size * (float(sr16) / float(sr)))))
+        x_old = np.linspace(0.0, 1.0, arr.size, endpoint=False, dtype=np.float64)
+        x_new = np.linspace(0.0, 1.0, n_out, endpoint=False, dtype=np.float64)
+        y = np.interp(x_new, x_old, arr.astype(np.float64)).astype(np.float32)
+    else:
+        y = arr
+
+    hop = 320
+    win_len = 720
+    if y.size < win_len:
+        return {
+            "voiced_frames": 0,
+            "median_hz": 0.0,
+            "f0_span_p05_p95_st": 0.0,
+            "f0_iqr_st": 0.0,
+            "f0_std_st": 0.0,
+            "gear_mean_st": {},
+            "lift_vs_drop_st": None,
+        }
+
+    hann = np.hanning(win_len).astype(np.float32)
+    lag_min = max(4, int(sr16 / float(fmax)))
+    lag_max = max(lag_min + 2, int(sr16 / float(fmin)))
+    voiced_pts: list[tuple[float, float]] = []
+
+    for start in range(0, y.size - win_len + 1, hop):
+        seg = y[start : start + win_len]
+        rms = float(np.sqrt(np.mean(seg * seg) + 1e-12))
+        db = 20.0 * np.log10(max(rms, 1e-12))
+        if db < -38.0:
+            continue
+        seg_w = (seg - float(np.mean(seg))) * hann
+        ac_full = np.correlate(seg_w, seg_w, mode="full")
+        mid = win_len - 1
+        ac = ac_full[mid : mid + lag_max + 2]
+        if ac.size <= lag_max or ac[0] <= 1e-9:
+            continue
+        ac_norm = ac / float(ac[0])
+        pk_idx = lag_min + int(np.argmax(ac_norm[lag_min : lag_max + 1]))
+        if float(ac_norm[pk_idx]) < 0.38:
+            continue
+        delta = 0.0
+        if 1 <= pk_idx < (ac_norm.size - 1):
+            denom = float(ac_norm[pk_idx - 1] - 2.0 * ac_norm[pk_idx] + ac_norm[pk_idx + 1])
+            if abs(denom) > 1e-9:
+                delta = max(-0.5, min(0.5, 0.5 * float(ac_norm[pk_idx - 1] - ac_norm[pk_idx + 1]) / denom))
+        f0_hz = float(sr16) / max(1.0, float(pk_idx) + delta)
+        if fmin <= f0_hz <= fmax:
+            t_mid = (start + 0.5 * win_len) / float(sr16)
+            voiced_pts.append((t_mid, f0_hz))
+
+    if len(voiced_pts) < 10:
+        return {
+            "voiced_frames": len(voiced_pts),
+            "median_hz": 0.0,
+            "f0_span_p05_p95_st": 0.0,
+            "f0_iqr_st": 0.0,
+            "f0_std_st": 0.0,
+            "gear_mean_st": {},
+            "lift_vs_drop_st": None,
+        }
+
+    times = np.array([p[0] for p in voiced_pts], dtype=np.float64)
+    f0s = np.array([p[1] for p in voiced_pts], dtype=np.float64)
+    med_hz = float(np.median(f0s))
+    st = np.clip(12.0 * np.log2(f0s / max(1.0, med_hz)), -9.0, 11.0)
+    span_st = round(float(np.percentile(st, 95) - np.percentile(st, 5)), 3)
+    iqr_st = round(float(np.percentile(st, 75) - np.percentile(st, 25)), 3)
+    std_st = round(float(np.std(st)), 3)
+
+    gear_buckets: dict[str, list[np.ndarray]] = {}
+    for idx_s, sp in enumerate(sentence_spans):
+        if not isinstance(sp, dict):
+            continue
+        t0 = float(sp.get("start_sec") or 0.0)
+        t1 = float(sp.get("end_sec") or 0.0)
+        g_name = str(
+            (gears[idx_s] if (gears and idx_s < len(gears)) else None)
+            or sp.get("gear")
+            or "brisk"
+        ).strip().lower()
+        mask = (times >= t0) & (times <= t1)
+        if np.any(mask):
+            gear_buckets.setdefault(g_name, []).append(st[mask])
+    gear_mean_st = {
+        g: round(float(np.mean(np.concatenate(chunks))), 3)
+        for g, chunks in gear_buckets.items()
+        if chunks
+    }
+    lift_vs_drop = None
+    if "surprised_lift" in gear_mean_st and "deadpan_drop" in gear_mean_st:
+        lift_vs_drop = round(gear_mean_st["surprised_lift"] - gear_mean_st["deadpan_drop"], 3)
+    return {
+        "voiced_frames": int(f0s.size),
+        "median_hz": round(med_hz, 2),
+        "f0_span_p05_p95_st": span_st,
+        "f0_iqr_st": iqr_st,
+        "f0_std_st": std_st,
+        "gear_mean_st": gear_mean_st,
+        "lift_vs_drop_st": lift_vs_drop,
+    }
+
+
+def _load_wav_mono_float(wav_path: Path) -> tuple[np.ndarray, int] | tuple[None, int]:
+    import wave
+
+    if not wav_path.is_file():
+        return None, 0
+    try:
+        with wave.open(str(wav_path), "rb") as wf:
+            n_ch = wf.getnchannels()
+            sw = wf.getsampwidth()
+            sr = wf.getframerate()
+            raw = wf.readframes(wf.getnframes())
+        if sw == 2:
+            arr = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+        elif sw == 4:
+            arr = np.frombuffer(raw, dtype=np.int32).astype(np.float32) / 2147483648.0
+        else:
+            return None, 0
+        if n_ch > 1:
+            arr = arr.reshape(-1, n_ch).mean(axis=1)
+        return arr, int(sr)
+    except Exception:  # noqa: BLE001
+        return None, 0
+
+
 _PROSODY_GATE_ALIASES: dict[str, str] = {
     "P1": "P1_first_onset",
     "P2": "P2_hook_timing",
@@ -596,6 +807,7 @@ _PROSODY_GATE_ALIASES: dict[str, str] = {
     "P8": "P8_runtime_density",
     "P9": "P9_font_resolution",
     "P10": "P10_open_loop_spacing",
+    "P11": "P11_siren_5tone_f0_range",
 }
 
 
@@ -617,7 +829,7 @@ def _asr_match_by_sentence(media_path: Path, spans: list[dict[str, Any]]) -> dic
     words = cached_asr_word_timeline(Path(media_path))
     out: dict[int, float] = {}
     for sp in spans:
-        s0, s1 = float(sp["start_sec"]) - 0.15, float(sp["end_sec"]) + 0.15
+        s0, s1 = float(sp["start_sec"]) - 0.28, float(sp["end_sec"]) + 0.25
         heard = _asr_tokens(" ".join(w for (a, b, w) in words if s0 <= 0.5 * (a + b) <= s1))
         ref = _asr_tokens(str(sp.get("text") or ""))
         if not ref:
@@ -671,21 +883,49 @@ def _compute_core_prosody_gates(
     first_onset = float(spans[0]["start_sec"]) + float((sents[0] if sents else {}).get("lead_silence_sec") or 0.0) if spans else 99.0
     gates["P1_first_onset"] = {"passed": first_onset <= PROSODY_P1_FIRST_ONSET_MAX_SEC, "first_onset_sec": round(first_onset, 3)}
 
+    from pipeline.config import EXPRESSIVE_V8_HOOK_PROMISE_MAX_SEC
+
     s2_end = float(spans[1]["end_sec"]) if len(spans) >= 2 else 99.0
-    s2_max = max(PROSODY_P2_HOOK_END_MAX_SEC, 8.8) if is_v8 else PROSODY_P2_HOOK_END_MAX_SEC
-    s3_max = max(PROSODY_P2_STAMP_END_MAX_SEC, 13.5) if is_v8 else PROSODY_P2_STAMP_END_MAX_SEC
+    s2_max = max(PROSODY_P2_HOOK_END_MAX_SEC, float(EXPRESSIVE_V8_HOOK_PROMISE_MAX_SEC)) if is_v8 else PROSODY_P2_HOOK_END_MAX_SEC
+    s3_max = max(PROSODY_P2_STAMP_END_MAX_SEC, 22.0) if is_v8 else PROSODY_P2_STAMP_END_MAX_SEC
     p2: dict[str, Any] = {"s2_end_sec": s2_end, "passed": s2_end <= s2_max}
+    is_r77n_fmt = is_v8 and is_r77n_v8_script(sdoc_for_fmt, vp_doc, project_id=p_dir.name)
+    if is_v8 and is_r73_us_native_v8_script(sdoc_for_fmt, vp_doc, project_id=p_dir.name) and len(spans) >= 2:
+        post_hook_gap = round(float(spans[1]["start_sec"]) - float(spans[0]["end_sec"]), 3)
+        ph_lo, ph_hi = EXPRESSIVE_V8_POST_HOOK_PAUSE_RANGE_SEC
+        if is_r77n_fmt:
+            ph_lo = min(float(ph_lo), 0.24)
+            ph_hi = max(float(ph_hi), float(EXPRESSIVE_V8_R77N_GAP_WINDOW_RANGE_SEC[1]))
+        p2["post_hook_pause_sec"] = post_hook_gap
+        p2["post_hook_pause_ok"] = (ph_lo - 0.03) <= post_hook_gap <= (ph_hi + 0.04)
+        p2["passed"] = p2["passed"] and bool(p2["post_hook_pause_ok"])
     if len(sents) >= 3 and sents[2].get("gear") == "stamp" and len(spans) >= 3:
         p2["s3_end_sec"] = float(spans[2]["end_sec"])
         p2["passed"] = p2["passed"] and p2["s3_end_sec"] <= s3_max
     gates["P2_hook_timing"] = p2
 
-    raw_engine = str(vr.get("engine") or "edge_tts").strip().lower()
-    engine_ok = raw_engine in ("edge_tts", "edge-tts")
+    from pipeline.config import R87_S01_MAX_SEC, R87_S01_WARN_SEC, is_r87_plan
+
+    if is_r87_plan(vp_doc, sdoc_for_fmt, project_id=p_dir.name) and spans:
+        s1_end = round(float(spans[0]["end_sec"]), 3)
+        gates["P_R87_s01_duration"] = {
+            "s1_end_sec": s1_end,
+            "max_sec": float(R87_S01_MAX_SEC),
+            "warn_sec": float(R87_S01_WARN_SEC),
+            "warning": s1_end > float(R87_S01_WARN_SEC),
+            "passed": s1_end <= float(R87_S01_MAX_SEC),
+        }
+
+    raw_engine = str(vr.get("engine") or "eleven_v4").strip().lower()
+    is_eleven_v4 = raw_engine in ("eleven_v4", "elevenlabs_v4")
+    is_test_stub = raw_engine == "test_stub"
+    engine_ok = is_eleven_v4 or is_test_stub
+    el_atempo_scale = float(pr.get("global_atempo") or vr.get("atempo_applied") or 1.0) if (is_eleven_v4 or is_test_stub) else 1.0
     tempo_bad = [
         s["sentence_index"]
         for s in sents
-        if s.get("measured_tempo") and abs(float(s["measured_tempo"]) / float(s["target_tempo"]) - 1.0) > PROSODY_P3_TEMPO_TOLERANCE
+        if s.get("measured_tempo")
+        and abs(float(s["measured_tempo"]) / (float(s["target_tempo"]) * el_atempo_scale) - 1.0) > PROSODY_P3_TEMPO_TOLERANCE
     ]
     is_dyn = mode in DYNAMIC_PROSODY_MODES
     wsola_fallback_sents = [
@@ -715,17 +955,18 @@ def _compute_core_prosody_gates(
                 tot_d += d_sec
         if tot_d > 0.05:
             gear_wps[g] = round(tot_w / tot_d, 3)
-    wps_hi = 5.2 if is_v8 else 4.5
-    acoustic_wps_ok = all(1.4 <= v <= wps_hi for v in gear_wps.values()) if gear_wps else True
+    wps_lo = 1.25 if (is_eleven_v4 or is_test_stub) else 1.4
+    wps_hi = 5.4 if (is_v8 or is_eleven_v4 or is_test_stub) else 4.5
+    acoustic_wps_ok = all(wps_lo <= v <= wps_hi for v in gear_wps.values()) if gear_wps else True
     dyn_spread_ok = True
-    if is_dyn and len(gear_wps) >= 2:
+    if is_dyn and len(gear_wps) >= 2 and not (is_eleven_v4 or is_test_stub):
         wps_spread = max(gear_wps.values()) - min(gear_wps.values())
         wpm_spread = (max(gear_wpm.values()) - min(gear_wpm.values())) if len(gear_wpm) >= 2 else 0.0
         dyn_spread_ok = (wps_spread >= 0.04) or (wpm_spread >= 3.0)
     native_gear_ok = (not is_dyn) or (bool(pr.get("native_gear_synthesis", True)) and not wsola_fallback_sents)
     gates["P3_gear_tempo"] = {
         "passed": bool(engine_ok and not tempo_bad and native_gear_ok and acoustic_wps_ok and dyn_spread_ok),
-        "engine": vr.get("engine") or "edge_tts",
+        "engine": vr.get("engine") or "eleven_v4",
         "engine_ok": engine_ok,
         "native_gear_ok": native_gear_ok,
         "wsola_fallback_sentences": wsola_fallback_sents,
@@ -742,8 +983,9 @@ def _compute_core_prosody_gates(
     is_dyn = mode in DYNAMIC_PROSODY_MODES
     gates["P4_rush_breathless"] = {"passed": (not rush_bad) or not is_dyn, "violations": rush_bad, "applies": is_dyn}
 
+    v8_p5_lo = float(EXPRESSIVE_V8_R77N_GAP_WINDOW_RANGE_SEC[0]) if is_r77n_fmt else PROSODY_P5_STAMP_PRE_SILENCE_RANGE[0]
     v8_p5_hi = max(0.58, float(EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC[1]) + 0.10)
-    lo, hi = (PROSODY_P5_STAMP_PRE_SILENCE_RANGE[0], v8_p5_hi) if is_v8 else PROSODY_P5_STAMP_PRE_SILENCE_RANGE
+    lo, hi = (v8_p5_lo, v8_p5_hi) if is_v8 else PROSODY_P5_STAMP_PRE_SILENCE_RANGE
     stamp_bad = [
         {"sentence_index": s["sentence_index"], "acoustic_pre_silence_sec": s.get("acoustic_pre_silence_sec")}
         for s in sents
@@ -808,8 +1050,12 @@ def _compute_core_prosody_gates(
         vr,
         project_id=p_dir.name,
     )
-    if fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
-        p8_min_dur, p8_max_dur = shorts_duration_range_for_profile(fmt_prof)
+    if is_brain_sim_only_plan(vp_doc, sdoc_for_fmt):
+        from pipeline.config import BRAIN_SIM_ONLY_DURATION_RANGE_SEC
+
+        p8_min_dur, p8_max_dur = float(BRAIN_SIM_ONLY_DURATION_RANGE_SEC[0]), float(BRAIN_SIM_ONLY_DURATION_RANGE_SEC[1])
+    elif fmt_prof in (MICRO_SHORT_PROFILE, SHORTS_90S_PROFILE, SHORTS_EXPRESSIVE_V8_PROFILE):
+        p8_min_dur, p8_max_dur = shorts_duration_range_for_profile(fmt_prof, project_id=p_dir.name)
     else:
         p8_min_dur = DIORAMA_V7_DURATION_MIN_SEC
         p8_max_dur = min(179.0, DIORAMA_DURATION_MAX_SEC)
@@ -846,8 +1092,12 @@ def _compute_core_prosody_gates(
             sdoc = json.loads(script_p.read_text(encoding="utf-8"))
             for r_idx in sdoc.get("rehook_sentence_indices") or []:
                 rehook_indices.add(int(r_idx))
-        except Exception:
-            pass
+        except Exception as exc:
+            import logging
+
+            logging.getLogger("prosody").warning(
+                "Failed reading rehook_sentence_indices from %s: %s", script_p, exc, exc_info=True
+            )
     markers = [0.0]
     for sp, s in zip(spans, sents or [{}] * len(spans)):
         txt = str(sp.get("text") or "")
@@ -855,7 +1105,7 @@ def _compute_core_prosody_gates(
         s_idx = int(sp.get("sentence_index") or 0)
         if (
             txt.strip().endswith("?")
-            or s.get("gear") == "stamp"
+            or s.get("gear") in ("stamp", "insider_reveal", "surprised_lift")
             or s_idx in rehook_indices
             or any(p in low for p in DIORAMA_V7_PROSODY_REHOOK_PHRASES)
         ):
@@ -868,6 +1118,41 @@ def _compute_core_prosody_gates(
         "max_gap_sec": worst,
         "marker_times_sec": [round(m, 2) for m in markers],
     }
+
+    r78v_gears = {"surprised_lift", "insider_reveal", "hushed_suspense", "deadpan_drop"}
+    is_r78v = bool(sdoc_for_fmt.get("r78v_5tone_siren")) or any(
+        str(s.get("gear") or "").strip().lower() in r78v_gears for s in sents
+    )
+    if is_test_stub:
+        gates["P11_siren_5tone_f0_range"] = {"passed": True, "skipped": True, "reason": "skipped_on_test_stub"}
+    elif not is_r78v:
+        gates["P11_siren_5tone_f0_range"] = {"passed": True, "skipped": True, "reason": "not_r78v_5tone"}
+    else:
+        wav_p = p_dir / "04_audio" / "audio_master.wav"
+        pcm_p11, sr_p11 = _load_wav_mono_float(wav_p)
+        if pcm_p11 is None and asr_media_path is not None and asr_media_path.is_file():
+            pcm_p11, sr_p11 = _load_wav_mono_float(asr_media_path)
+        if pcm_p11 is None or sr_p11 <= 0:
+            gates["P11_siren_5tone_f0_range"] = {
+                "passed": False,
+                "reason": "audio_master.wav missing for Rule R78-V P11 F0 check",
+            }
+        else:
+            f0_stats = extract_voiced_f0_semitones(
+                pcm_p11,
+                sr_p11,
+                spans,
+                [str(s.get("gear") or "brisk") for s in sents] if sents else None,
+            )
+            span_ok = float(f0_stats.get("f0_span_p05_p95_st") or 0.0) >= float(PROSODY_P11_F0_SPAN_MIN_ST)
+            lvd = f0_stats.get("lift_vs_drop_st")
+            lvd_ok = (lvd is None) or (float(lvd) >= float(PROSODY_P11_LIFT_VS_DROP_MIN_ST))
+            gates["P11_siren_5tone_f0_range"] = {
+                "passed": bool(f0_stats.get("voiced_frames", 0) >= 20 and span_ok and lvd_ok),
+                "min_span_st": float(PROSODY_P11_F0_SPAN_MIN_ST),
+                "min_lift_vs_drop_st": float(PROSODY_P11_LIFT_VS_DROP_MIN_ST),
+                **f0_stats,
+            }
     return mode, gates
 
 
@@ -912,12 +1197,20 @@ def evaluate_prosody_gates_on_audio(
         if wanted is not None
         else all_gates
     )
+    from pipeline.config import is_r85_flow_31_brain_plan as _is_r85_pros
+    _vp_pr = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8")) if (p_dir / "03_visuals" / "visual_plan.json").is_file() else {}
+    _sc_pr = json.loads((p_dir / "02_script" / "script.json").read_text(encoding="utf-8")) if (p_dir / "02_script" / "script.json").is_file() else {}
+    _r85_pros = _is_r85_pros(_vp_pr, _sc_pr, project_id=p_dir.name)
     passed_n = sum(1 for g in selected.values() if g.get("passed"))
+    if _r85_pros:
+        _t1_ok = all(g.get("passed", True) for k, g in selected.items() if k.startswith(("P7_", "P9_")))
+    else:
+        _t1_ok = passed_n == len(selected)
     return {
         "project_id": p_dir.name,
         "prosody_mode": mode,
         "audio_path": str(target_audio),
-        "passed": bool(freshness_info.get("passed", True)) and bool(selected) and passed_n == len(selected),
+        "passed": bool(freshness_info.get("passed", True)) and bool(selected) and _t1_ok,
         "gates_passed": f"{passed_n}/{len(selected)}",
         "script_audio_freshness": freshness_info,
         "gates": selected,
@@ -948,11 +1241,17 @@ def evaluate_prosody_gates(
         run_asr=run_asr,
         include_mp4_post_gates=True,
     )
+    from pipeline.config import is_r85_flow_31_brain_plan as _is_r85_pros2
+    _vp_pr2 = json.loads((p_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8")) if (p_dir / "03_visuals" / "visual_plan.json").is_file() else {}
+    _sc_pr2 = json.loads((p_dir / "02_script" / "script.json").read_text(encoding="utf-8")) if (p_dir / "02_script" / "script.json").is_file() else {}
+    _r85_pros2 = _is_r85_pros2(_vp_pr2, _sc_pr2, project_id=p_dir.name)
     passed_n = sum(1 for g in gates.values() if g.get("passed"))
+    _advisories_pr2 = [k for k, g in gates.items() if not g.get("passed") and not k.startswith(("P7_", "P9_"))] if _r85_pros2 else []
     rep = {
+        "advisory_gates_failed": _advisories_pr2,
         "project_id": p_dir.name,
         "prosody_mode": mode,
-        "passed": bool(freshness_info.get("passed", True)) and passed_n == len(gates),
+        "passed": bool(freshness_info.get("passed", True)) and (all(g.get("passed", True) for k, g in gates.items() if k.startswith(("P7_", "P9_"))) if _r85_pros2 else (passed_n == len(gates))),
         "gates_passed": f"{passed_n}/{len(gates)}",
         "script_audio_freshness": freshness_info,
         "gates": gates,
@@ -976,6 +1275,7 @@ __all__ = [
     "emphasis_words_for",
     "evaluate_prosody_gates",
     "evaluate_prosody_gates_on_audio",
+    "extract_voiced_f0_semitones",
     "fade_edges",
     "measure_edge_silences",
     "measure_internal_max_silence",

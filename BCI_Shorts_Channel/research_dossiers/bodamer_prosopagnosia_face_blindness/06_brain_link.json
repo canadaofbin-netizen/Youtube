@@ -4,26 +4,38 @@
     {
       "role": "symptom",
       "region": "primary visual cortex",
-      "plain": "intact 20/20 feature vision",
-      "function": "delivering crystal-clear edges, print, eyeglasses, and individual eyes/nose/lips with zero blur",
+      "plain": "vision center at the back of the head",
+      "function": "delivering razor-sharp 20/20 edges, tiny newspaper letters, and individual eyes and lips with zero blur",
       "scene_id": "S1",
-      "narration_bridge": "Explains why Patient S. read small text and named objects effortlessly."
+      "narration_bridge": "Explains why Patient S. read fine print effortlessly right before staring blankly into the mirror.",
+      "r78_circuit_state": "active"
     },
     {
       "role": "pivot",
       "region": "fusiform face area",
-      "plain": "broken holistic face-identity lookup",
-      "function": "failing to bind facial configuration on the right ventral occipitotemporal cortex to stored personal identities",
+      "plain": "face-recognition patch",
+      "function": "failing to bind whole-face geometry to stored personal identities after occipitotemporal disconnection",
       "scene_id": "S1",
-      "narration_bridge": "Captures Bodamer's (1947) selective face-blindness lesion."
+      "narration_bridge": "Captures Bodamer's (1947) 0% silent face recognition and Rossion's (2014) holistic face breakdown.",
+      "r78_circuit_state": "severed"
     },
     {
       "role": "step1",
       "region": "auditory cortex",
-      "plain": "instant voice-to-identity rescue (plus limbic covert trace)",
-      "function": "unlocking immediate warm recognition in temporal identity hubs the instant the loved one speaks a single word",
+      "plain": "hearing center",
+      "function": "routing a loved one's spoken voice straight to intact personal memory for 100% instant recognition",
       "scene_id": "S1",
-      "narration_bridge": "Matches Patient S.'s immediate vocal recognition and Tranel & Damasio's parallel covert path."
+      "narration_bridge": "Explains why one spoken greeting at the clinic door or weekend market rescues identity immediately.",
+      "r78_circuit_state": "active"
+    },
+    {
+      "role": "step2",
+      "region": "amygdala",
+      "plain": "emotional center",
+      "function": "triggering covert unconscious palm-sweat familiarity responses to family photos even while conscious naming stays blank",
+      "scene_id": "S2",
+      "narration_bridge": "Matches Tranel & Damasio (1985 Science) covert recognition and Ellis & Young's (1990) Capgras mirror twin.",
+      "r78_circuit_state": "active"
     }
   ]
 }

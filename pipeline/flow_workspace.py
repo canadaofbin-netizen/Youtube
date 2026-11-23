@@ -8,7 +8,7 @@ telemetry across single-tab, sharded-Short, reference-anchor, and Longform worke
   1. Deterministic Room Naming (`AAB__<project_id>__<role>[_sN][_wM]`):
      Replaces anonymous timestamp room titles (`Nov 05 - 02:19`) via Angular-compatible
      native `.editable-text-input` setter + `InputEvent` / `Enter` / `blur` dispatch.
-  2. Monthly & Daily Credit Refill Auto-Tier (`Omni 1.1 Flash` -> `0-credit` `Veo 3.1 - Lite`):
+  2. Monthly & Daily Credit Refill Auto-Tier (`Omni 1.2 Flash` -> `0-credit` `Veo 3.1 - Lite`):
      Persists live `.header-user-button` credit probes (`flow_credit_state.json`),
      automatically resets credit-exhaustion flags on monthly cycle rollover (`YYYY-MM`
      or `Resets on ...`), daily `+50` top-up rollover (`YYYY-MM-DD`), or periodic TTL,
@@ -46,11 +46,14 @@ from pipeline.cdp_tab_lease import (
     list_active_tab_leases,
     reap_orphan_pipeline_tabs,
 )
-from pipeline.config import CHANNEL_ROOT
+from pipeline.config import (
+    CHANNEL_ROOT,
+    FLOW_OMNI_CREDIT_COST_NO_REF,
+    FLOW_OMNI_CREDIT_COST_WITH_REF,
+    FLOW_UI_CAPABILITIES_CACHE_FILE,
+)
 
 FLOW_ROOM_PREFIX = "AAB_"
-FLOW_OMNI_CREDIT_COST_NO_REF = 12
-FLOW_OMNI_CREDIT_COST_WITH_REF = 20
 FLOW_CREDIT_REPROBE_TTL_SEC = 1800.0
 
 _CREDIT_LOCK = threading.RLock()
@@ -345,9 +348,9 @@ def should_reprobe_primary_omni(
     reprobe_ttl_sec: float = FLOW_CREDIT_REPROBE_TTL_SEC,
 ) -> tuple[bool, str]:
     """
-    Determines whether `engine='auto'` should attempt `Omni 1.1 Flash` (and probe live credits)
+    Determines whether `engine='auto'` should attempt `Omni 1.2 Flash` (and probe live credits)
     rather than starting immediately on `0-credit` `Veo 3.1 - Lite [Lower Priority]`.
-    Automatically re-enables `Omni 1.1 Flash` on:
+    Automatically re-enables `Omni 1.2 Flash` on:
       - Monthly billing cycle rollover (`YYYY-MM` changed)
       - Scheduled `resets_on_iso` timestamp elapsed
       - Daily `+50` AI credit refill rollover (`YYYY-MM-DD` changed)
@@ -435,9 +438,9 @@ async def probe_flow_account_credits(
 
 class SharedOmniCreditBudget:
     """
-    Coordinates atomic `Omni 1.1 Flash` credit reservations across concurrent shard workers
-    so `N` parallel tabs never simultaneously submit more `Omni 1.1 Flash` clips than the
-    account's remaining balance (`12` credits no-ref / `20` credits with ingredient).
+    Coordinates atomic `Omni 1.2 Flash` credit reservations across concurrent shard workers
+    so `N` parallel tabs never simultaneously submit more `Omni 1.2 Flash` clips than the
+    account's remaining balance (`24` credits per clip).
     When `credits_remaining` is `None` (unprobed), reservations remain open until live UI
     telemetry or a credit banner reports exhaustion.
     """
@@ -621,10 +624,16 @@ def purge_local_flow_temp_files(
         if temp_root is None:
             active_leases = list_active_tab_leases(cdp_port=cdp_port)
         else:
-            cand_lease_file = t_root / "aab_cdp_leases.json"
-            if cand_lease_file.exists():
+            cand_lease_files = [
+                t_root / "aab_locks" / f"aab_cdp_leases_{int(cdp_port)}.json",
+                t_root / "aab_locks" / "aab_cdp_leases.json",
+                t_root / f"aab_cdp_leases_{int(cdp_port)}.json",
+                t_root / "aab_cdp_leases.json",
+            ]
+            found_cand = next((cf for cf in cand_lease_files if cf.exists()), None)
+            if found_cand is not None:
                 try:
-                    raw_l = json.loads(cand_lease_file.read_text(encoding="utf-8"))
+                    raw_l = json.loads(found_cand.read_text(encoding="utf-8"))
                     if isinstance(raw_l, dict) and isinstance(raw_l.get("leases"), dict):
                         active_leases = {
                             str(k): v for k, v in raw_l["leases"].items() if isinstance(v, dict)
@@ -640,6 +649,7 @@ def purge_local_flow_temp_files(
         if min_age_sec is not None
         else (1800.0 if has_live_siblings else 0.0)
     )
+    rf_min_age = float(min_age_sec) if min_age_sec is not None else max(600.0, eff_min_age)
     now_ts = time.time()
     clean_pid = _sanitize_token(project_id, "") if project_id else ""
     pid_leased_active = bool(
@@ -655,8 +665,11 @@ def purge_local_flow_temp_files(
     protected_names = {
         "aab_cdp_leases.json",
         "aab_cdp_leases.lock",
+        f"aab_cdp_leases_{int(cdp_port)}.json",
+        f"aab_cdp_leases_{int(cdp_port)}.lock",
         "aab_locks",
         "aab_ffmpeg_bin",
+        "aab_studio_report.lock",
     }
     if not include_speed_cache:
         protected_names.add("aab_speed_cache")
@@ -668,7 +681,6 @@ def purge_local_flow_temp_files(
         "flow_cand_",
         "aab_flow_cand_",
         "aab_preflight_voice_",
-        "aab_studio_report.lock",
         "_aab_bitrate_norm_",
         ".aab_asset_idx_",
         ".aab_manifest_",
@@ -681,7 +693,7 @@ def purge_local_flow_temp_files(
     if t_root.exists():
         for entry in list(t_root.iterdir()):
             name = entry.name
-            if name in protected_names:
+            if name in protected_names or name.endswith(".lock") or name.startswith("aab_cdp_leases"):
                 continue
             try:
                 age = _entry_age_sec(entry, now_ts)
@@ -695,7 +707,8 @@ def purge_local_flow_temp_files(
                             shutil.rmtree(entry, ignore_errors=True)
                 elif entry.is_file() or entry.is_symlink():
                     if name.startswith(file_prefixes):
-                        if eff_min_age > 0.0 and age < eff_min_age and not belongs_to_pid:
+                        req_age = rf_min_age if name.startswith("rf_") else eff_min_age
+                        if not force_active and req_age > 0.0 and age < req_age and not belongs_to_pid:
                             continue
                         matched_files.append(str(entry))
                         if not dry_run:
@@ -1153,3 +1166,133 @@ def clean_flow_workspace(
     if err_box:
         raise err_box[0]
     return result_box[0]
+
+
+async def probe_flow_ui_capabilities(
+    client: Any,
+    *,
+    save_screenshot_dir: Path | str | None = None,
+    persist_cache: bool = True,
+) -> dict[str, Any]:
+    """
+    Phase 0 (`C2`): Read-only Google Flow UI capability inspector.
+    Opens the settings popover, tile download menu (if a tile exists), and credit header
+    without submitting any generation, verifying:
+      - `available_durations`: e.g. `['4s', '6s', '8s', '10s']` or `['3s', ..., '15s']`
+      - `supports_extended_durations`: True if any duration > 10s or odd-second duration is present
+      - `supports_native_1080p_download`: True if tile Download menu exposes `1080p` or `Upscaled`
+      - `supports_conversational_edit`: True if tile exposes an `Edit` / `Modify` control
+      - `displayed_credit_cost`: integer credit cost shown in `Generating will use X credits`
+      - `credits_remaining`, `resets_on_label`, `resets_on_iso`
+    """
+    import base64
+
+    ss_dir = Path(save_screenshot_dir) if save_screenshot_dir else None
+    if ss_dir is not None:
+        ss_dir.mkdir(parents=True, exist_ok=True)
+
+    credit_doc = await probe_flow_account_credits(client)
+
+    # Open settings popover read-only if not already open
+    await client.eval("""(() => {
+        const box = document.querySelector('flow-prompt-box-settings');
+        const st = document.querySelector('button.settings-trigger-button');
+        if (st && !box) st.click();
+    })()""")
+    await asyncio.sleep(0.45)
+
+    settings_probe = await client.eval("""(() => {
+        const btns = Array.from(document.querySelectorAll('flow-prompt-box-settings button, .cdk-overlay-pane button'));
+        const texts = btns.map(b => (b.innerText || '').trim()).filter(Boolean);
+        const durations = texts.filter(t => /^\\d+s$/i.test(t));
+        const box = document.querySelector('flow-prompt-box-settings') || document.querySelector('.cdk-overlay-pane');
+        const boxText = box ? (box.innerText || '') : '';
+        const mCost = boxText.match(/Generating will use\\s+(\\d+)\\s+credit/i);
+        const editBtns = Array.from(document.querySelectorAll('flow-video-tile button, button')).filter(
+            b => /\\b(edit|modify|refine)\\b/i.test((b.innerText || '') + ' ' + (b.getAttribute('aria-label') || ''))
+        );
+        return {
+            durations: Array.from(new Set(durations)),
+            settings_text: boxText.slice(0, 600),
+            displayed_credit_cost: mCost ? parseInt(mCost[1], 10) : null,
+            has_edit_button: editBtns.length > 0,
+        };
+    })()""") or {}
+
+    if ss_dir is not None:
+        with contextlib.suppress(Exception):
+            ss_res = await client.send("Page.captureScreenshot", {"format": "png"})
+            if isinstance(ss_res, dict) and ss_res.get("data"):
+                (ss_dir / "flow_probe_settings.png").write_bytes(base64.b64decode(ss_res["data"]))
+
+    # Close settings overlay cleanly
+    for ev_t in ("keyDown", "keyUp"):
+        with contextlib.suppress(Exception):
+            await client.send(
+                "Input.dispatchKeyEvent",
+                {"type": ev_t, "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27},
+            )
+    await asyncio.sleep(0.25)
+
+    # Probe tile download menu if a ready tile exists on canvas
+    dl_probe = await client.eval("""(() => {
+        const tile = document.querySelector('flow-video-tile');
+        if (!tile) return { has_tile: false, download_options: [] };
+        tile.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+        const more = tile.querySelector('button[aria-label*="More" i]');
+        if (more) more.click();
+        return { has_tile: true };
+    })()""") or {}
+
+    download_options: list[str] = []
+    if dl_probe.get("has_tile"):
+        await asyncio.sleep(0.35)
+        await client.eval("""(() => {
+            const items = Array.from(document.querySelectorAll('.cdk-overlay-pane flow-menu-item, .cdk-overlay-pane button, .cdk-overlay-pane [role="menuitem"]'));
+            const dl = items.find(el => (el.innerText || '').includes('Download'));
+            if (dl) dl.click();
+        })()""")
+        await asyncio.sleep(0.35)
+        opts_raw = await client.eval("""(() => {
+            const items = Array.from(document.querySelectorAll('.cdk-overlay-pane flow-menu-item, .cdk-overlay-pane button, .cdk-overlay-pane [role="menuitem"]'));
+            return items.map(el => (el.innerText || '').trim()).filter(Boolean);
+        })()""") or []
+        download_options = [str(x) for x in opts_raw if str(x).strip()]
+        if ss_dir is not None:
+            with contextlib.suppress(Exception):
+                ss_dl = await client.send("Page.captureScreenshot", {"format": "png"})
+                if isinstance(ss_dl, dict) and ss_dl.get("data"):
+                    (ss_dir / "flow_probe_download_menu.png").write_bytes(base64.b64decode(ss_dl["data"]))
+        for ev_t in ("keyDown", "keyUp"):
+            with contextlib.suppress(Exception):
+                await client.send(
+                    "Input.dispatchKeyEvent",
+                    {"type": ev_t, "key": "Escape", "code": "Escape", "windowsVirtualKeyCode": 27},
+                )
+
+    durations = list(settings_probe.get("durations") or [])
+    dur_secs = [int(d[:-1]) for d in durations if isinstance(d, str) and d[:-1].isdigit()]
+    supports_ext_dur = any(s > 10 or s not in (4, 6, 8, 10) for s in dur_secs)
+    supports_1080p = any("1080" in opt.lower() or "upscal" in opt.lower() for opt in download_options)
+
+    report: dict[str, Any] = {
+        "probed_at_ts": round(time.time(), 3),
+        "available_durations": durations,
+        "supports_extended_durations": bool(supports_ext_dur),
+        "download_options": download_options,
+        "supports_native_1080p_download": bool(supports_1080p),
+        "supports_conversational_edit": bool(settings_probe.get("has_edit_button")),
+        "displayed_credit_cost": settings_probe.get("displayed_credit_cost"),
+        "credits_remaining": credit_doc.get("credits_remaining"),
+        "resets_on_label": credit_doc.get("resets_on_label"),
+        "resets_on_iso": credit_doc.get("resets_on_iso"),
+        "exhausted": credit_doc.get("exhausted"),
+    }
+    if persist_cache:
+        with contextlib.suppress(Exception):
+            FLOW_UI_CAPABILITIES_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+            FLOW_UI_CAPABILITIES_CACHE_FILE.write_text(
+                json.dumps(report, indent=2, sort_keys=True) + "\n",
+                encoding="utf-8",
+            )
+    return report

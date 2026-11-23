@@ -1,35 +1,24 @@
-# YouTube Studio Operations (`R4`, `R30–R36-B`)
+---
+trigger: model_decision
+description: "Load when scheduling or uploading Shorts in YouTube Studio, setting US Education metadata & R4 AI disclosure, running R35 pinned comments, R35-B Anchor links, R75 playlist purge, Daily Report, or Watchdog (R4, R30-R36-B, R75)."
+---
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Numbers: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Skills: [youtube-studio](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio/SKILL.md), [youtube-report](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-report/SKILL.md) | Code: `pipeline/studio/` (`config.py`, `uploader.py`, `staging_queue.py`, `community.py`, `short_linker.py`, `studio_watchdog.py`, `whale_session.py`, `reporter.py`)
+# YouTube Studio Operations (`R4`, `R30–R36-B`, `R75` — `Tier-1 #12`)
 
-## R30 & R30-B — US ET 5-Slot Timetable, `<10K` Prime Lock & Pre-Upload Gate
-`SLOT_TIMETABLE` (`America/New_York` -> DST-aware `Asia/Seoul`, `<= MAX_DAILY_SUBSCRIBER_NOTIFICATIONS` = 3/24h):
-| Slot | US ET | KST (EDT/EST) | Notify | `PILLAR_SLOT_MAP` |
-|---|---|---|---|---|
-| 1 | `07:30` | `20:30 / 21:30` | `True` | `brain_health` |
-| 2 (Prime) | `12:00` | `01:00 / 02:00 (+1d)` | `False` | `bci_tech`, `brain_news` |
-| 3 | `16:00` | `05:00 / 06:00 (+1d)` | `True` | `brain_basics`, `brain_mysteries` |
-| 4 (Prime) | `20:00` | `09:00 / 10:00 (+1d)` | `True` | `brain_history` |
-| 5 | `22:30` | `11:30 / 12:30 (+1d)` | `False` | `bci_ethics` |
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Skills: [youtube-studio](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio/SKILL.md), [youtube-report](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-report/SKILL.md) | Retired: [retired_rules_2026-11-18.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/_archive/retired_rules_2026-11-18.md)
 
-- **R30-B (`enforce_seed_protection_window`)**: Zero simultaneous releases; `>= 4.0h` gap; `<10K` subs enforce `daily_prime_only=True` (Prime Slots `12:00 ET` & `20:00 ET`, 8h apart; hold `16:9` Longform until Shorts scale; rest staged `unlisted`). (`us_diorama_timetable.py` handles multi-format ET windows when enabled.)
-- **Pre-Upload QA Bundle Lock (`verify_publish_ready_qa_bundle`)**: Blocks upload/queue unless SHA-256-bound `video_autopsy_report.json` (`passed`), plus on `neuro_diorama`: `dynamic_episode_qa_report.json` (`DQ1–DQ12`), `posthoc_semantic_qa_report.json` (`R64`), `posthoc_semantic_review.json` (`valid`), and `06_publish/thumbnail_report.json` (`R65` `TQ1–TQ7`).
+## R30, R30-B & R75-S — Prime Slots (`12:00` / `19:30 ET`), `>=3.0h` Warmup & `No-Draft`
+- **Prime Cadence**: `<10K` subs schedule into US ET Prime Slots (`12:00 ET` Slot 2 / `19:30 ET` Slot 4; `>= 4.0h` gap; hold `16:9` Longform). Instant `Public` banned (`MIN_SCHEDULE_WARMUP_MINUTES = 180` `3.0h` warmup; `<= 88.0s` `R75` Shorts ceiling).
+- **`No-Draft` & QA Lock**: `_async_upload_direct_cdp_inner` verifies `/videos/short` `Scheduled` visibility, heals `Draft`, and requires SHA-256-valid `video_autopsy_report.json`, `dynamic_episode_qa_report.json`, `@Research`-signed `posthoc_semantic_review.json`, and `thumbnail_report.json` (`thumbnail_selected.png`).
+- **R32 (`not_applicable_shorts`)**: Shorts A/B thumbnail test is disabled in Desktop Studio (`swap_to_variant` returns `status: "not_applicable_shorts"` without CDP).
 
-## R31 & R32 — Thumbnails, `cover_frame_sec` & Shorts A/B Lock
-- **R31 (`R65`, `pipeline/thumbnail_studio.py`)**: Scores clean frames across eligible EDL cuts (excluding `THUMB_EXCLUDE_MODES` & outro), renders top-3 distinct `thumbnail_var_A/B/C.png` (`> THUMB_MIN_FILE_BYTES`, pairwise diff `>= THUMB_MIN_PAIRWISE_DIFF`) with `visual_plan.thumbnail.hook_text` in `AABCondensed-Black` (`THUMB_HOOK_STROKE_PX` stroke, `TQ1–TQ7`), and records `cover_frame_sec` in `upload_receipt.json` (`--burn-first-frame` skipped on `neuro_diorama`).
-- **R32 (`ThumbnailABTester` — Longform Only)**: Desktop Studio disables custom Shorts thumbnail swaps (`<= SHORTS_HARD_CEILING_SEC`); `swap_to_variant` returns `status: "not_applicable_shorts"` without opening CDP. Z-test (`|Z| > 1.96`, `p < 0.05`) is reserved for `> SHORTS_HARD_CEILING_SEC` longform.
+## R4, R34, R36, R36-B & R75 — `Public` Safety, Playlist Ban & Auto-Dubbing Check
+- **Inviolable `Public` (`R34, R75-C`)**: NEVER delete, unlisted-demote, or privatize `Public` videos. Delete superseded unpublished drafts (`Delete forever`, `0` Private dupes).
+- **Playlist Ban (`R75`)**: `STUDIO_PLAYLISTS_ENABLED = False` (`0` playlists; `main.py studio-settings --purge-playlists`).
+- **Metadata & AI Disclosure (`R4, R36, R75-C`)**: `VIDEO_LANGUAGE_CODE="en-US"`, `DEFAULT_VIDEO_CATEGORY="Education"` + `Academic system = "United States"`, `"Altered or synthetic content" = Yes`, `8–12` clean tags + `"shorts"` (`0` off-topic tech tags when `pillar != "bci_tech"`), and verify auto-dubbing OFF (`main.py studio-settings --check-auto-dubbing`).
+- **Tab Hygiene (`R36-B`)**: Pierce Polymer/Lit `shadowRoot` buttons; recycle self-owned Studio tabs only.
 
-## R33, R34, R36, R4 & R36-B — Staging, Localization, AI Disclosure & CDP Hygiene
-- **R33 / R34 (`StagingQueueManager`, `staging_queue.json`)**: Stage `unlisted` `>= 24h` pre-publish (`upload_receipt.json`); zero duplicate `project_id`, preserve `published_public` history, block legacy v4 (`passes_v5_publish_gate`) & `PRE_R66_FROZEN_PROJECT_PREFIXES` (`studio_batch_100_scheduler.py` / `sanitize_scheduled_metadata.py`).
-- **R36 & R4 (`configure_studio_localization`)**: `CHANNEL_RESIDENCE_COUNTRY="KR"`, `VIDEO_LANGUAGE_CODE="en-US"`, `TITLE_DESCRIPTION_LANGUAGE_CODE="en-US"`, category `DEFAULT_VIDEO_CATEGORY_STUDIO` (`Science and technology`), `"Altered or synthetic content" = Yes` (`AI_CONTENT_DECLARATION`).
-- **R36-B (`DirectCDPClient`, `recycle_studio_tab`)**: Recursively pierces open Polymer/Lit `shadowRoot` trees to click inner `<button class="ytcpButtonShapeImplHost">` (`#done-button`, `#next-button`, `#save`, `#action-1`); recycles **only** self-owned `studio.youtube.com` tabs every `STUDIO_TAB_RECYCLE_INTERVAL` (3) ops without touching sibling/user tabs.
-
-## R35 & R35-B — Pinned DOI Debate Comment & `Public`-Only `Related video` Ring
-- **R35 (`CommunityManager`, `community_receipt.json`)**: Conversational US English, zero emojis/bullets (`•`), zero `BANNED_COMMENT_VIOLENCE_TOKENS`:
-  - Line 1 (`<= PINNED_COMMENT_LINE1_MAX_CHARS`, above mobile 3-line fold): `offcenter_creator_bet` (`<= DEBATE_CREATOR_BET_MAX_PREFIX_CHARS`) + binary/personal debate question ending in `?`.
-  - Line 3: Complete case headline -> 5 short paragraphs (`~110–155w`: Phenomenon -> Method `Author, Year, Journal` -> Striking Scene/Mechanism -> Myth vs Reality -> Takeaway + `Source: https://doi.org/<doi>`).
-- **R35-B (`ShortLinkGraph`, `StudioShortLinker`)**: 4-axis affinity (`0.40` anatomy, `0.25` pillar/mode, `0.20` lexical, `0.15` retention; redistributes anatomy on `BEHAVIORAL_PSYCH`) + `seed_boost` Hamiltonian ring (`two_cycle_count == 0` for `N >= 3`). Links **`Public` targets only** (`dst_vis == "public"`), defers `< 24.0h` new uploads (`deferred_seed_lock` unless `--force`), upserts `short_link_graph.json` non-destructively, assigns `PILLAR_PLAYLIST_MAP` playlist, and verifies DOM read-back (`related_video_receipt.json`, `studio_publish_receipt.json`).
-
-## Daily Report & Go-Live Watchdog (`studio-report`, `studio-watchdog`)
-- **Zero-Fallback Report (`reporter.py`)**: Writes `reports/daily/` (`LATEST_DAILY_REPORT.md` + PNG charts when requested); returns `status: "unavailable_cdp_offline"` with `None`/`"N/A"` when Studio CDP is offline — never fabricates metrics.
-- **Watchdog (`studio_watchdog.py`)**: Promotes elapsed `Scheduled` -> `published_public`, runs missing `R35` pins + `R35-B` `Related video` links, audits `staging_queue.json`, and closes idle `about:blank` / stale Studio edit tabs.
+## R35 & R35-B — Zero Self-Bounce (`AVD = 0.0s` Prevention) & Anchor Link Ring
+- **Seed-Protected Pin (`R35`)**: Blocks non-`PUBLIC` comments; defers until `views >= 100` OR `elapsed >= 12.0h` (`DEFERRED_SEED_PROTECT`) with `PRE_DOCUMENT_AUTOPLAY_KILL_JS` (`0` playback frames). `v8` pins 1 casual `?` question (+ human vs animal study note when paired).
+- **Anchor Ring (`R35-B`)**: Links `Public` targets only; non-Anchor/Scheduled Shorts link to proven `Public` Anchors (`views >= 250`), honoring `3.0h` pre-release & `24.0h` post-release freeze.
+- **Report & Watchdog**: `studio-report` scrapes Studio Analytics only (`ALLOW_WATCH_PAGE_FALLBACK = False`); `studio-watchdog` promotes elapsed `Scheduled -> published_public` and runs eligible `R35`/`R35-B`.

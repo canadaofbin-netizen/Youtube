@@ -1,11 +1,60 @@
 {
-  "target_minutes": 10,
-  "published_longform_video_id": "",
-  "published_longform_title": "",
+  "target_minutes": 11,
   "shorts_extract": {
-    "hook": "",
-    "core_experiment": "",
-    "twist": ""
+    "hook": "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left palm by a soft foam robotic arm showed 62",
+    "core_experiment": "Sarah-Jayne Blakemore, Daniel Wolpert, and Chris Frith (Nature Neuroscience 1998; J. Cogn. Neurosci. 1999) placed 16 volunteers in fMRI with a master-slave robo",
+    "twist": "Rotating the slave robot's stroking direction by 45 degrees or 90 degrees relative to the right hand's movement also broke the cerebellum's "
   },
-  "chapters": []
+  "chapters": [
+    {
+      "n": 1,
+      "title": "Act 1: In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 ",
+      "beats": [
+        "In Blakemore, Wolpert & Frith (1998 Nature Neuroscience), 6 healthy volunteers stroked on the left p"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "Act 2: In Blakemore, Frith & Wolpert (1999 Journal of Cognitive Neu",
+      "beats": [
+        "In Blakemore, Frith & Wolpert (1999 Journal of Cognitive Neuroscience), 16 participants used their r"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Act 3: At 0 milliseconds delay, mean subjective ticklishness rating",
+      "beats": [
+        "At 0 milliseconds delay, mean subjective ticklishness ratings averaged 2.1 out of 10, whereas insert"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Act 4: Rotating the slave robot's stroking direction by 45 degrees ",
+      "beats": [
+        "Rotating the slave robot's stroking direction by 45 degrees or 90 degrees relative to the right hand"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Act 5: Right anterior cerebellar cortex BOLD activity selectively d",
+      "beats": [
+        "Right anterior cerebellar cortex BOLD activity selectively decreased during zero-delay self-produced"
+      ],
+      "scene_ids": [
+        "S1"
+      ]
+    }
+  ]
 }

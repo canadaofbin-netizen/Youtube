@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "baron_cohen_theory_of_mind",
   "topic": "Simon Baron-Cohen, Alan Leslie & Uta Frith (1985): The 'Sally-Anne' Marble Transfer & Theory of Mind",
   "pillar": "brain_basics",
@@ -44,7 +44,17 @@
     },
     {
       "fact": "Before asking the test question, researchers verify two control questions ('Where is the marble REALLY right now?' — Box; 'Where was the marble in the beginning?' — Basket) — passed 100 percent by every group.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "arc_gauge",
+        "format": "percentage",
+        "title": "Memory Control Accuracy",
+        "percent": 100.0,
+        "unit": "%",
+        "doi": "10.1016/0010-0277(85)90022-8",
+        "source_citation": "Baron-Cohen, Leslie & Frith (1985)"
+      }
     },
     {
       "fact": "Then Sally returns, and the researcher asks the decisive Belief Question: 'Where will Sally LOOK for her marble?'",
@@ -56,7 +66,17 @@
     },
     {
       "fact": "Across typical developmental studies (Wellman et al. 2001 meta-analysis of 178 studies), 3-year-olds reliably fail verbal false-belief questions (~80% point to the box where the marble really is!), whereas by age 4.5 roughly 85 percent pass effortlessly (23 of 27 typical 4-year-olds and 12 of 14 children with Down syndrome of lower verbal mental age passed in 1985, while 16 of 20 autistic children in that high-support 1985 clinical sample pointed to the box).",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "dot_array",
+        "format": "count_of_n",
+        "title": "Sally-Anne Pass Rate (Age 4)",
+        "highlighted_k": 23,
+        "total_n": 27,
+        "doi": "10.1016/0010-0277(85)90022-8",
+        "source_citation": "Baron-Cohen, Leslie & Frith (1985)"
+      }
     },
     {
       "fact": "Crucial modern update (Gernsbacher & Yergeau 2019; Milton's Double Empathy Problem; Baron-Cohen 2025): eye-tracking and modern replications proved 1) many autistic youths and adults pass verbal false-belief tasks cleanly depending on language load; 2) non-autistic people struggle JUST as hard to read autistic expressions ('two-way Double Empathy mismatch', not one-way brokenness); and 3) EVERY healthy adult routinely slips into the exact same 'Curse of Knowledge' error when writing confusing emails.",
@@ -124,5 +144,37 @@
     "diorama_37_baron_cohen_theory_of_mind"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1016/0010-0277(85)90022-8",
+  "three_layer_formula": {
+    "everyday_problem": "Sending a three-word Slack message ('Check the doc!') assuming your teammate knows which of forty docs you just had open ('adult Sally-Anne error').",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1016/0010-0277(85)90022-8",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1016/0010-0277(85)90022-8"
+      ],
+      "summary": "Simon Baron-Cohen, Alan M. Leslie, Uta Frith (1985). Does the autistic child have a “theory of mind” ? Cognition."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1016/s2215-0366(15)00461-7",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1016/s2215-0366(15)00461-7"
+      ],
+      "summary": "Jules Morgan (2015). Simon Baron-Cohen: cultivating diversity. The Lancet Psychiatry."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Three-year-olds point to Anne's box because they forgot where Sally put the marble.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

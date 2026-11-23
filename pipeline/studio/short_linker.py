@@ -34,17 +34,21 @@ from pipeline.config import CHANNEL_ROOT
 from pipeline.studio.config import (
     AFFINITY_WEIGHTS,
     ANCHOR_MIN_VIEWS,
+    BANNED_OFF_TOPIC_TECH_TAGS,
     CHANNEL_ID,
     DAILY_REPORTS_DIR,
     DEFAULT_CDP_HOST,
     DEFAULT_CDP_PORT,
     PILLAR_PLAYLIST_MAP,
     PLAYLIST_SELECTORS,
+    POST_RELEASE_FREEZE_HOURS,
+    PRE_RELEASE_FREEZE_HOURS,
     RELATED_VIDEO_SELECTORS,
     SEED_PROTECTION_LOCK_HOURS,
     SEED_STARVED_MAX_IMPRESSIONS,
     SHORT_LINK_GRAPH_FILE,
     STUDIO_CONTENT_URL,
+    STUDIO_PLAYLISTS_ENABLED,
     STUDIO_TAB_RECYCLE_INTERVAL,
     YOUTUBE_WATCH_BASE_URL,
 )
@@ -369,17 +373,31 @@ class ShortLinkGraph:
         metric_files = sorted(self.reports_dir.glob("*_studio_metrics.json"))
         if not metric_files:
             return {}
-        latest = _load_json_safe(metric_files[-1])
         by_key: dict[str, dict[str, Any]] = {}
-        for rec in latest.get("per_video_records", []):
-            if not isinstance(rec, dict):
-                continue
-            vid = str(rec.get("video_id") or "").strip()
-            pid = str(rec.get("project_id") or "").strip()
-            if vid:
-                by_key[vid] = rec
-            if pid:
-                by_key[pid] = rec
+        for mf in metric_files[-14:]:
+            doc = _load_json_safe(mf)
+            for rec in doc.get("per_video_records", []) or []:
+                if not isinstance(rec, dict):
+                    continue
+                vid = str(rec.get("video_id") or "").strip()
+                pid = str(rec.get("project_id") or "").strip()
+                for key in (vid, pid):
+                    if not key:
+                        continue
+                    prev = by_key.get(key)
+                    if prev is None:
+                        by_key[key] = dict(rec)
+                    else:
+                        merged = dict(prev)
+                        for k, v in rec.items():
+                            if v is not None and v != "":
+                                merged[k] = v
+                        merged["views"] = max(int(prev.get("views", 0) or 0), int(rec.get("views", 0) or 0))
+                        merged["impressions"] = max(
+                            int(prev.get("impressions", 0) or 0),
+                            int(rec.get("impressions", 0) or 0),
+                        )
+                        by_key[key] = merged
         return by_key
 
     def _build_dossier_index(self) -> dict[str, Path]:
@@ -591,6 +609,12 @@ class ShortLinkGraph:
             )
             pub_dt = _parse_datetime_utc(str(pub_raw)) if pub_raw else None
 
+            raw_tags = meta.get("tags") if isinstance(meta.get("tags"), list) else []
+            has_banned_tech_tags = bool(
+                pillar != "bci_tech"
+                and any(str(t).strip().lower() in BANNED_OFF_TOPIC_TECH_TAGS for t in raw_tags)
+            )
+
             nodes.append({
                 "project_id": pid,
                 "video_id": vid,
@@ -602,6 +626,7 @@ class ShortLinkGraph:
                 "published_at_utc": pub_dt.isoformat() if pub_dt else None,
                 "regions": region_set,
                 "lexical_tokens": lexical_tokens,
+                "has_banned_tech_tags": has_banned_tech_tags,
                 "views": int(metric.get("views", 0) or 0),
                 "impressions": int(metric.get("impressions", 0) or 0),
                 "apv_pct": float(metric.get("apv_pct", 0.0) or 0.0),
@@ -675,6 +700,14 @@ class ShortLinkGraph:
         node["published_longform_title"] = str(raw.get("published_longform_title") or "").strip()
         node["existing_target_video_id"] = str(raw.get("existing_target_video_id") or "").strip()
         node["existing_playlist_verified"] = bool(raw.get("existing_playlist_verified", False))
+        raw_tags = raw.get("tags") if isinstance(raw.get("tags"), list) else []
+        node["has_banned_tech_tags"] = bool(
+            raw.get("has_banned_tech_tags")
+            or (
+                str(node.get("pillar") or "") != "bci_tech"
+                and any(str(t).strip().lower() in BANNED_OFF_TOPIC_TECH_TAGS for t in raw_tags)
+            )
+        )
         return node
 
     @staticmethod
@@ -703,6 +736,8 @@ class ShortLinkGraph:
         src_vis = str(src.get("visibility") or "").lower()
         dst_vis = str(dst.get("visibility") or "").lower()
         if dst_vis in {"private", "deleted", "unknown", ""}:
+            return False
+        if bool(dst.get("has_banned_tech_tags")):
             return False
 
         if public_targets_only:
@@ -737,19 +772,38 @@ class ShortLinkGraph:
         force: bool = False,
     ) -> tuple[bool, str]:
         """
-        Protects newly published Public Shorts during their initial 24h seed-pool indexing window.
+        Rule R75 Seed Freeze Window:
+          - Protects Scheduled Shorts inside `PRE_RELEASE_FREEZE_HOURS` (`3.0h` before release)
+          - Protects Public Shorts inside `POST_RELEASE_FREEZE_HOURS` (`24.0h` after release)
         """
         if force:
             return False, ""
-        if str(node.get("visibility") or "").lower() != "public":
+        vis = str(node.get("visibility") or "").lower()
+        if vis == "scheduled":
+            raw_s = node.get("scheduled_at_utc") or node.get("published_at_utc") or node.get("scheduled_time_et")
+            sched_dt = raw_s if isinstance(raw_s, datetime) else _parse_datetime_utc(raw_s)
+            if sched_dt:
+                hours_until = (sched_dt - self.now_utc).total_seconds() / 3600.0
+                if 0.0 <= hours_until < PRE_RELEASE_FREEZE_HOURS:
+                    return (
+                        True,
+                        f"deferred_seed_lock (pre_release_freeze {hours_until:.1f}h < {PRE_RELEASE_FREEZE_HOURS:.1f}h)",
+                    )
+                if hours_until < 0.0 and abs(hours_until) < POST_RELEASE_FREEZE_HOURS:
+                    return (
+                        True,
+                        f"deferred_seed_lock (post_release_freeze {abs(hours_until):.1f}h < {POST_RELEASE_FREEZE_HOURS:.1f}h)",
+                    )
+            return False, ""
+        if vis != "public":
             return False, ""
         raw_p = node.get("published_at_utc") or node.get("published_at")
         pub_dt = raw_p if isinstance(raw_p, datetime) else _parse_datetime_utc(raw_p)
         if not pub_dt:
             return False, ""
         elapsed_hours = (self.now_utc - pub_dt).total_seconds() / 3600.0
-        if 0.0 <= elapsed_hours < SEED_PROTECTION_LOCK_HOURS:
-            return True, f"deferred_seed_lock ({elapsed_hours:.1f}h < {SEED_PROTECTION_LOCK_HOURS:.1f}h)"
+        if 0.0 <= elapsed_hours < POST_RELEASE_FREEZE_HOURS:
+            return True, f"deferred_seed_lock ({elapsed_hours:.1f}h < {POST_RELEASE_FREEZE_HOURS:.1f}h)"
         return False, ""
 
     @staticmethod
@@ -1027,6 +1081,19 @@ class ShortLinkGraph:
                 }
                 continue
 
+            # Rule R35-B / R75-C: Scheduled, seed-locked, or low-impression (<=100 imp) Shorts MUST point
+            # outbound ONLY to proven Public Anchor Shorts (>=250 views) whenever at least one clean Anchor exists,
+            # never leaking initial seed viewers into <250-view seed-starved videos.
+            src_locked, _ = self.is_seed_locked(src)
+            if (
+                src.get("visibility") == "scheduled"
+                or src_locked
+                or int(src.get("impressions", 0) or 0) <= SEED_STARVED_MAX_IMPRESSIONS
+            ):
+                anchor_candidates = [dst for dst in valid_candidates if self.is_anchor(dst)]
+                if anchor_candidates:
+                    valid_candidates = anchor_candidates
+
             non_two_cycle = [
                 dst for dst in valid_candidates
                 if assigned_target_pid.get(dst["project_id"]) != pid
@@ -1262,129 +1329,16 @@ class StudioShortLinker:
         client: DirectCDPClient,
         pillar: str,
     ) -> dict[str, Any]:
-        spec = PILLAR_PLAYLIST_MAP.get(pillar)
-        if not spec:
-            return {"assigned": False, "playlist_title": "", "reason": f"unknown_pillar:{pillar}"}
-
-        playlist_title = spec["title"]
-        playlist_prefix = playlist_title.split("|")[0].strip()
-        playlist_desc = spec["description"]
-
-        # Read current playlist box text
-        initial_text = str(await client.eval(
-            f"""(() => {{
-                {_DEEP_QUERY_HELPER_JS}
-                const el = deepQueryAll('ytcp-video-metadata-playlists')[0]
-                    || document.querySelector('ytcp-video-metadata-playlists');
-                return el ? (el.innerText || '').trim() : '';
-            }})()"""
-        ) or "")
-        if playlist_title in initial_text or (playlist_prefix and playlist_prefix in initial_text):
-            return {
-                "assigned": True,
-                "created": False,
-                "already_present": True,
-                "playlist_title": playlist_title,
-                "readback_text": initial_text,
-            }
-
-        clicked_trigger = await client.click(PLAYLIST_SELECTORS["trigger"])
-        if not clicked_trigger:
-            return {"assigned": False, "playlist_title": playlist_title, "reason": "playlist_trigger_not_found"}
-
-        if not await client.wait_for_element(PLAYLIST_SELECTORS["dialog"], timeout_sec=10.0):
-            return {"assigned": False, "playlist_title": playlist_title, "reason": "playlist_dialog_timeout"}
-
-        await asyncio.sleep(1.0)
-
-        # Try to find and check existing playlist inside ytcp-playlist-dialog
-        check_state = await client.eval(
-            f"""(() => {{
-                {_DEEP_QUERY_HELPER_JS}
-                const fullTitle = {json.dumps(playlist_title)};
-                const prefixTitle = {json.dumps(playlist_prefix)};
-                const dlg = deepQueryAll('ytcp-playlist-dialog')[0]
-                    || document.querySelector('ytcp-playlist-dialog');
-                if (!dlg) return {{ found: false }};
-                const labels = deepQueryAll('ytcp-checkbox-group li, tp-yt-paper-checkbox, ytcp-checkbox-lit, label', dlg);
-                for (const row of labels) {{
-                    const txt = (row.innerText || row.textContent || '').trim();
-                    if (!txt) continue;
-                    if (txt.includes(fullTitle) || (prefixTitle && txt.includes(prefixTitle))) {{
-                        const cb = (row.matches && row.matches('tp-yt-paper-checkbox, ytcp-checkbox-lit'))
-                            ? row
-                            : (deepQueryAll('tp-yt-paper-checkbox, ytcp-checkbox-lit, input[type="checkbox"]', row)[0]
-                               || (row.querySelector ? row.querySelector('tp-yt-paper-checkbox, ytcp-checkbox-lit, input[type="checkbox"]') : null));
-                        const isChecked = cb
-                            ? (cb.checked === true || cb.hasAttribute('checked') || cb.getAttribute('aria-checked') === 'true')
-                            : false;
-                        if (!isChecked) {{
-                            (cb || row).scrollIntoView({{ block: 'center' }});
-                            (cb || row).click();
-                        }}
-                        return {{ found: true, wasChecked: isChecked, matchedText: txt.slice(0, 120) }};
-                    }}
-                }}
-                return {{ found: false }};
-            }})()"""
-        )
-
-        created_new = False
-        if not (isinstance(check_state, dict) and check_state.get("found")):
-            # Create the playlist automatically
-            opened_new = await client.click(PLAYLIST_SELECTORS["new_playlist_button"])
-            if not opened_new:
-                await client.eval("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
-                return {"assigned": False, "playlist_title": playlist_title, "reason": "new_playlist_button_not_found"}
-
-            await asyncio.sleep(0.8)
-            if not await client.find_element(PLAYLIST_SELECTORS["creation_dialog"]):
-                await client.click(PLAYLIST_SELECTORS["new_playlist_menu_item"])
-                await asyncio.sleep(0.8)
-
-            if not await client.wait_for_element(PLAYLIST_SELECTORS["creation_dialog"], timeout_sec=8.0):
-                await client.eval("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
-                return {"assigned": False, "playlist_title": playlist_title, "reason": "playlist_creation_dialog_timeout"}
-
-            typed_title = await client.type_into(PLAYLIST_SELECTORS["creation_title_input"], playlist_title)
-            if not typed_title:
-                await client.eval("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
-                return {"assigned": False, "playlist_title": playlist_title, "reason": "playlist_title_input_failed"}
-
-            await asyncio.sleep(0.3)
-            await client.type_into(PLAYLIST_SELECTORS["creation_description_input"], playlist_desc)
-            await asyncio.sleep(0.4)
-
-            submitted = await client.click(PLAYLIST_SELECTORS["creation_submit_button"])
-            if not submitted:
-                return {"assigned": False, "playlist_title": playlist_title, "reason": "playlist_create_submit_failed"}
-            created_new = True
-            await asyncio.sleep(2.2)
-
-        # Close ytcp-playlist-dialog via Done
-        await client.click(PLAYLIST_SELECTORS["done_button"])
-        await asyncio.sleep(1.0)
-
-        readback = str(await client.eval(
-            f"""(() => {{
-                {_DEEP_QUERY_HELPER_JS}
-                const el = deepQueryAll('ytcp-video-metadata-playlists')[0]
-                    || document.querySelector('ytcp-video-metadata-playlists');
-                return el ? (el.innerText || '').trim() : '';
-            }})()"""
-        ) or "")
-        verified = (
-            playlist_title in readback
-            or (bool(playlist_prefix) and playlist_prefix in readback)
-            or (readback not in {"", "Select", "선택"} and "playlist" in readback.lower())
-            or ("개" in readback)
-        )
+        """
+        Rule R75 Permanent Playlist Ban:
+        Channel playlists are permanently retired (`STUDIO_PLAYLISTS_ENABLED = False`).
+        Never touches `ytcp-video-metadata-playlists` or clicks `New playlist`.
+        """
+        _ = (client, pillar)
         return {
-            "assigned": bool(verified),
-            "created": created_new,
-            "already_present": False,
-            "playlist_title": playlist_title,
-            "readback_text": readback,
+            "assigned": False,
+            "playlist_title": None,
+            "skipped_reason": "playlists_permanently_disabled_r75",
         }
 
     async def _select_related_video_on_edit_page(
@@ -1630,38 +1584,52 @@ class StudioShortLinker:
         if not clicked:
             return {"saved": False, "dirty": True, "reason": "save_click_failed"}
 
-        # Wait up to 15s for #save to transition back to disabled
+        # Wait up to 15s for #save to transition back to disabled (fail-fast if Google Verify-Identity gate appears)
         for _ in range(30):
             await asyncio.sleep(0.5)
-            done_now = await client.eval(
+            poll_state = await client.eval(
                 f"""(() => {{
                     {_DEEP_QUERY_HELPER_JS}
+                    const authDlgs = deepQueryAll('ytcp-reauth-dialog, ytcp-verify-identity-dialog, tp-yt-paper-dialog:not([aria-hidden="true"])');
+                    for (const d of authDlgs) {{
+                        const txt = (d.innerText || '').toLowerCase();
+                        if (txt.includes("verify it's you") || txt.includes("verify your identity") || txt.includes("본인 인증")) {{
+                            return {{ done: false, authGate: true }};
+                        }}
+                    }}
                     const btn = deepQueryAll('ytcp-video-metadata-editor ytcp-button#save')[0]
                         || deepQueryAll('ytcp-button#save')[0]
                         || deepQueryAll('#save')[0]
                         || document.querySelector('ytcp-video-metadata-editor ytcp-button#save')
                         || document.querySelector('ytcp-button#save')
                         || document.querySelector('#save');
-                    if (!btn) return false;
+                    if (!btn) return {{ done: false, authGate: false }};
                     const inner = deepQueryAll('button', btn)[0]
                         || (btn.querySelector && btn.querySelector('button'))
                         || (btn.shadowRoot && btn.shadowRoot.querySelector('button'));
-                    return btn.hasAttribute('disabled')
+                    const done = btn.hasAttribute('disabled')
                         || btn.getAttribute('aria-disabled') === 'true'
                         || (inner ? inner.disabled === true : false);
+                    return {{ done, authGate: false }};
                 }})()"""
             )
-            if done_now:
+            if isinstance(poll_state, dict):
+                if poll_state.get("authGate"):
+                    return {"saved": False, "dirty": True, "reason": "studio_auth_gate_verify_identity"}
+                if poll_state.get("done"):
+                    return {"saved": True, "dirty": True, "reason": "saved_and_confirmed"}
+            elif poll_state:
                 return {"saved": True, "dirty": True, "reason": "saved_and_confirmed"}
 
-        return {"saved": False, "dirty": True, "reason": "save_confirmation_timeout"}
+        return {"saved": False, "dirty": True, "reason": "save_confirmation_timeout_or_session_risk_gate"}
 
     async def apply_edge_async(
         self,
         edge: dict[str, Any],
-        assign_playlist: bool = True,
+        assign_playlist: bool = False,
         dry_run: bool = False,
     ) -> dict[str, Any]:
+        assign_playlist = bool(assign_playlist and STUDIO_PLAYLISTS_ENABLED)
         src_pid = str(edge.get("source_project_id") or "")
         src_vid = str(edge.get("source_video_id") or "")
         dst_vid = str(edge.get("target_video_id") or "")
@@ -1727,8 +1695,12 @@ class StudioShortLinker:
             await client.eval("document.dispatchEvent(new KeyboardEvent('keydown', {key: 'Escape', bubbles: true}))")
             await asyncio.sleep(0.3)
 
-            playlist_res: dict[str, Any] = {"assigned": False, "playlist_title": ""}
-            if assign_playlist and pillar:
+            playlist_res: dict[str, Any] = {
+                "assigned": False,
+                "playlist_title": None,
+                "skipped_reason": "playlists_permanently_disabled_r75",
+            }
+            if assign_playlist and STUDIO_PLAYLISTS_ENABLED and pillar:
                 playlist_res = await self._assign_pillar_playlist_on_edit_page(client, pillar)
 
             rel_res = await self._select_related_video_on_edit_page(client, dst_vid, dst_title)
@@ -1753,6 +1725,7 @@ class StudioShortLinker:
             "dom_readback_text": rel_res.get("dom_readback_text", ""),
             "playlist_title": playlist_res.get("playlist_title", ""),
             "playlist_verified": bool(playlist_res.get("assigned")),
+            "playlist_skipped_reason": playlist_res.get("skipped_reason"),
             "playlist_created": bool(playlist_res.get("created")),
             "playlist_readback_text": playlist_res.get("readback_text", ""),
             "save_result": save_res,
@@ -1784,10 +1757,32 @@ class StudioShortLinker:
 
         return receipt
 
+    def link_single_video(
+        self,
+        project_id: str,
+        target_video_id: str | None = None,
+        *,
+        assign_playlist: bool = False,
+        dry_run: bool = False,
+        force: bool = False,
+        public_targets_only: bool | None = None,
+    ) -> dict[str, Any]:
+        """Links a single Short's `Related video` (with playlists permanently disabled per Rule R75)."""
+        eff_assign = bool(assign_playlist and STUDIO_PLAYLISTS_ENABLED)
+        return self.run(
+            mode="seed_boost",
+            assign_playlists=eff_assign,
+            dry_run=dry_run,
+            force=force,
+            project_id=project_id,
+            target_video_id=target_video_id,
+            public_targets_only=public_targets_only,
+        )
+
     def run(
         self,
         mode: str = "seed_boost",
-        assign_playlists: bool = True,
+        assign_playlists: bool = False,
         dry_run: bool = False,
         force: bool = False,
         project_id: str | None = None,
@@ -1796,6 +1791,7 @@ class StudioShortLinker:
         *,
         public_targets_only: bool | None = None,
     ) -> dict[str, Any]:
+        assign_playlists = bool(assign_playlists and STUDIO_PLAYLISTS_ENABLED)
         graph = ShortLinkGraph(
             projects_dir=self.projects_dir,
             graph_file=self.graph_file,

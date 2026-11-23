@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "cherry_cocktail_party_filter",
   "topic": "Colin Cherry (1953): The 'Cocktail Party Problem' — Shadowing One Ear While Going Deaf to Language Flips in the Other",
   "pillar": "brain_basics",
@@ -56,11 +56,49 @@
     },
     {
       "fact": "Cherry & Taylor (1954, SRC2) also timed the **attention-switching bottleneck**: alternate a single sentence rapidly back-and-forth between Left Ear and Right Ear ~3 times per second (~160–200 ms per ear), and speech intelligibility **crashes** because shifting your attentional spotlight between channels costs ~150–200 milliseconds.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Ear-Switch Attention Cost",
+        "unit": "ms",
+        "series": [
+          {
+            "start_label": "Min Switch Lag",
+            "label": "Max Switch Lag",
+            "values": [
+              150.0,
+              200.0
+            ],
+            "unit": "ms"
+          }
+        ],
+        "doi": "10.1121/1.1907373",
+        "source_citation": "Cherry & Taylor (1954, JASA)"
+      }
     },
     {
       "fact": "Sixty years later in awake human neurosurgery (Mesgarani & Chang, 2012 *Nature*), high-density electrode grids on **human non-primary auditory cortex (superior temporal gyrus)** revealed Cherry's exact mechanism: two voices enter Heschl's primary auditory cortex together, and **selective attention sculpts non-primary auditory cortex until the neural spectrogram looks almost exclusively like the ONE voice you chose to listen to**.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "title": "Auditory Cortex Voice Filter",
+        "concept": "STG Selective Gain Sculpting",
+        "fn": "sigmoid",
+        "x_label": "Top-Down Attention Gain",
+        "y_label": "Target Voice Spectrogram",
+        "markers": [
+          {
+            "x": 5.0,
+            "y": 50.0,
+            "label": "Cocktail Filter"
+          }
+        ],
+        "doi": ""
+      }
     },
     {
       "fact": "Seven years after Cherry's 1953 dichotic shadowing paper, 24-year-old Oxford doctoral researcher Anne Treisman (1960) showed that semantic context and personal names leak across the unattended ear channel.",
@@ -122,5 +160,37 @@
     "diorama_42_cherry_cocktail_party_filter"
   ],
   "reenactment_track": "track_b",
-  "reenactment_track_subtier": "B_scene_bible_anchor"
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1121/1.1907229",
+  "three_layer_formula": {
+    "everyday_problem": "Nodding along to a podcast while writing an email, hitting pause 10 minutes later, and realizing you couldn't summarize a single sentence of the podcast.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1121/1.1907229",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1121/1.1907229"
+      ],
+      "summary": "E. Colin Cherry (1953). Some Experiments on the Recognition of Speech, with One and with Two Ears. The Journal of the Acoustical Society of America."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC3",
+      "doi": "10.1038/nature.2015.18173",
+      "source_ids": [
+        "SRC3"
+      ],
+      "dois": [
+        "10.1038/nature.2015.18173"
+      ],
+      "summary": "Davide Castelvecchi (2015). 3D-printed device helps computers solve cocktail-party problem. Nature."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "You can genuinely listen to a podcast or sports broadcast in one ear while absorbing a Zoom meeting in the other.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "My bet: 80% of us follow the automatic neural reflex before conscious control kicks in. Automatic reflex or conscious override?"
+  }
 }

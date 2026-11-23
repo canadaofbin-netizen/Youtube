@@ -1,0 +1,84 @@
+{
+  "schema": "aab_cast_registry_v1",
+  "max_voices_per_episode": 3,
+  "default_narrator_role": "narrator",
+  "cast": {
+    "narrator": {
+      "display_name": "Narrator (Siren)",
+      "on_screen": false,
+      "voice_preset": "el_siren_v4",
+      "elevenlabs_voice_id": "eXpIbVcVbLo8ZJQDlDnl",
+      "elevenlabs_fallback_voice_id": "tnSpp4vdxKPjI9w0GnoV",
+      "gender": "female",
+      "share_target": "1.00",
+      "eq_profile": "female_studio",
+      "height_m": 1.72,
+      "body_type": "adult"
+    },
+    "researcher": {
+      "display_name": "Dr. Ada (Researcher)",
+      "on_screen": true,
+      "voice_preset": "el_researcher_v4",
+      "elevenlabs_voice_id": "tnSpp4vdxKPjI9w0GnoV",
+      "elevenlabs_fallback_voice_id": "WQP7cQUF5aAS6Axh5yaa",
+      "gender": "female",
+      "max_lines": 2,
+      "height_m": 1.72,
+      "body_type": "adult"
+    },
+    "mini_cortex": {
+      "display_name": "Mini-Cortex",
+      "on_screen": true,
+      "voice_preset": "el_minicortex_v4",
+      "elevenlabs_voice_id": "FGY2WhTYpPnrIDTdsKH5",
+      "elevenlabs_fallback_voice_id": "hpp4J3VqNfWAUOO0d1Us",
+      "gender": "female",
+      "max_lines": 1,
+      "height_m": 0.22,
+      "body_type": "mini_mascot"
+    },
+    "foil": {
+      "display_name": "Skeptic Foil (Brian)",
+      "on_screen": true,
+      "voice_preset": "elevenlabs_v4_male",
+      "elevenlabs_voice_id": "nPczCjzI2devNBz1zQrb",
+      "elevenlabs_fallback_voice_id": "cjVigY5qzO86Huf0OWal",
+      "gender": "male",
+      "max_lines": 2,
+      "height_m": 1.74,
+      "body_type": "adult"
+    }
+  },
+  "actor_body_archetypes": {
+    "child": {
+      "height_m": 1.05,
+      "head_ratio": 0.24,
+      "default_pose": "seated"
+    },
+    "protagonist": {
+      "height_m": 1.72,
+      "head_ratio": 0.18,
+      "default_pose": "standing"
+    },
+    "adult": {
+      "height_m": 1.72,
+      "head_ratio": 0.18,
+      "default_pose": "standing"
+    },
+    "researcher": {
+      "height_m": 1.72,
+      "head_ratio": 0.18,
+      "default_pose": "standing"
+    },
+    "observer": {
+      "height_m": 1.74,
+      "head_ratio": 0.18,
+      "default_pose": "standing"
+    },
+    "mini_cortex": {
+      "height_m": 0.22,
+      "head_ratio": 0.55,
+      "default_pose": "standing"
+    }
+  }
+}

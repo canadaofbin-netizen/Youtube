@@ -1,0 +1,120 @@
+{
+  "target_minutes": 10,
+  "published_longform_video_id": "",
+  "published_longform_title": "",
+  "r70_recommended_preset": "bar_compare",
+  "r65_split_thumbnail_spec": {
+    "left_human": "50-year-old adult freezing mid-step in a bright kitchen doorway staring at empty hands",
+    "right_cyan_brain": "High-contrast #27D8FF cyan MNI152 3D glass brain cutaway showing hippocampal boundary-cell burst and silenced prefrontal working-memory desk",
+    "badge_text": "DOORWAY RESET"
+  },
+  "r75_clean_seed_tags": [
+    "doorway effect",
+    "why i forget why i walked in",
+    "working memory",
+    "hippocampus",
+    "event boundary memory",
+    "brain science",
+    "cognitive psychology",
+    "neuroscience",
+    "memory aging",
+    "everyday psychology",
+    "shorts"
+  ],
+  "shorts_extract": {
+    "hook": "Why walking ten feet into the kitchen erases what you came for—while walking ten feet inside one room leaves memory intact.",
+    "core_experiment": "Radvansky, Krawietz & Tamplin (2011, Notre Dame): 60 volunteers carrying hidden shoebox objects hit 28% errors through doorways vs 23% across one room.",
+    "twist": "Zheng et al. (2022) caught human hippocampal boundary cells filing the old room away on the threshold—a sign of healthy brain organization, not memory loss."
+  },
+  "chapters": [
+    {
+      "n": 1,
+      "title": "The 7:15 PM Kitchen Threshold Blank",
+      "beats": [
+        "Why every adult freezes in front of an open pantry or garage shelf",
+        "Putting virtual vs physical doorways on trial at Notre Dame (2011)"
+      ],
+      "scene_ids": [
+        "S2",
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "setup",
+        "symptom"
+      ],
+      "new_shots_needed": [
+        "porch-to-foyer threshold stall"
+      ]
+    },
+    {
+      "n": 2,
+      "title": "60 Volunteers, Concealed Shoeboxes & The 28% vs 23% Spike",
+      "beats": [
+        "Matched physical walking distance inside one room vs through a doorway",
+        "Why Experiment 3's walk back into Room A failed to undo the purge"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "pivot",
+        "step1"
+      ],
+      "new_shots_needed": [
+        "Notre Dame shoebox doorway walk and probe card"
+      ]
+    },
+    {
+      "n": 3,
+      "title": "Inside the Threshold: Hippocampal Boundary Cells (2017–2022)",
+      "beats": [
+        "Baldassano et al. (2017) fMRI archival bursts at scene shifts",
+        "Zheng et al. (2022) single-neuron boundary cells in the human hippocampus"
+      ],
+      "scene_ids": [
+        "S1"
+      ],
+      "reuse_shorts_roles": [
+        "crisis"
+      ],
+      "new_shots_needed": [
+        "3D cyan MNI152 parietal -> hippocampus -> prefrontal flush"
+      ]
+    },
+    {
+      "n": 4,
+      "title": "Why Multitasking Triggers the Blank (2021 Replication)",
+      "beats": [
+        "McFadyen & Baumann (2021): calm minds cross doorways unscathed",
+        "Digital doorways: alt-tabbing between email and browser windows"
+      ],
+      "scene_ids": [
+        "S2"
+      ],
+      "reuse_shorts_roles": [
+        "failure"
+      ],
+      "new_shots_needed": [
+        "wristwatch distraction across doorway"
+      ]
+    },
+    {
+      "n": 5,
+      "title": "Doorway-Proofing Your Errands in 2 Seconds",
+      "beats": [
+        "Carrying a physical hand cue or whispering one concrete noun",
+        "How event boundaries actually strengthen long-term memory chapters"
+      ],
+      "scene_ids": [
+        "S3"
+      ],
+      "reuse_shorts_roles": [
+        "breakthrough",
+        "conclusion"
+      ],
+      "new_shots_needed": [
+        "carrying parcel cleanly through kitchen doorway"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,9 @@
-# 7 Pillars & 5 Everyday Domains (`P1`, `R20`)
+---
+trigger: model_decision
+description: "Load when selecting or balancing weekly episode topics across the 7 academic pillars and 5 everyday domains in Topic Radar or dossier seeding (P1, R20 — Tier-2 operational diversity)."
+---
+
+# 7 Pillars & 5 Everyday Domains (`P1`, `R20` — Tier-2 Operational Diversity)
 
 Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Code: [`pipeline/pillars.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/pillars.py), `PILLAR_DEFAULT_STYLE_MAP` ([`pipeline/config.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/config.py)), `PILLAR_SLOT_MAP` ([`pipeline/studio/config.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/studio/config.py))
 

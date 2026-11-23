@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "libet_readiness_potential_free_will",
   "topic": "Benjamin Libet (1983): The -550 ms Readiness Potential, Conscious 'W-Time' & Schurger's Neural Noise Twist",
   "pillar": "brain_mysteries",
@@ -44,7 +44,26 @@
     },
     {
       "fact": "Yet when Libet averaged 40 spontaneous wrist-flick trials backward from 0 ms, the cortical Readiness Potential (Bereitschaftspotential) began ramping smoothly upward at roughly -550 milliseconds — a full 350 milliseconds BEFORE the person reported feeling any conscious decision.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Readiness Potential Lead (ms)",
+        "unit": "ms",
+        "series": [
+          {
+            "label": "Pre-Action Lead",
+            "values": [
+              550.0,
+              350.0
+            ],
+            "unit": "ms"
+          }
+        ],
+        "doi": "10.1093/brain/106.3.623",
+        "source_citation": "Libet et al. (1983)"
+      }
     },
     {
       "fact": "Headlines proclaimed 'Your brain decides 0.35 seconds before YOU do — free will is an illusion!' — a claim that horrified Libet himself.",
@@ -52,7 +71,28 @@
     },
     {
       "fact": "Libet pointed out a crucial 150-millisecond window between -200 ms ('W' awareness) and -50 ms (point of no return down the spinal cord) during which subjects could consciously VETO an urge before the muscle fired ('free won't').",
-      "source_id": "SRC4"
+      "source_id": "SRC4",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Conscious Veto Window (ms)",
+        "unit": "ms",
+        "bars": [
+          {
+            "label": "Conscious Urge (W)",
+            "value": 200.0,
+            "unit": "ms"
+          },
+          {
+            "label": "Point of No Return",
+            "value": 50.0,
+            "unit": "ms"
+          }
+        ],
+        "doi": "10.1093/brain/106.3.623",
+        "source_citation": "Libet et al. (1983)"
+      }
     },
     {
       "fact": "Then in 2012, Aaron Schurger, Jacobo Sitt, and Stanislas Dehaene solved the -550 ms mystery mathematically and empirically: on meaningless 'move whenever' trials, premotor neural activity fluctuates up and down like ocean waves; whenever a random crest happens to cross the motor threshold, the wrist flicks — and averaging 40 crest-crossings backward AUTOMATICALLY produces a smooth -550 ms upward ramp out of pure spontaneous noise, NOT a secret unconscious command 550 ms early.",
@@ -125,5 +165,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Honest take: free will is a veto brake — motor circuits warm up early, yet you still cancel impulses in the last split second. Do you feel like the starter or the editor?"
+  "offcenter_creator_bet": "Honest take: free will is a veto brake — motor circuits warm up early, yet you still cancel impulses in the last split second. Do you feel like the starter or the editor?",
+  "everyday_domain": "habits",
+  "primary_doi": "10.1093/brain/106.3.623",
+  "three_layer_formula": {
+    "everyday_problem": "Feeling an impulse to snap back an angry reply — and catching it in your 'free won't' veto window before your mouth opens.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1093/brain/106.3.623",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1093/brain/106.3.623"
+      ],
+      "summary": "Benjamin Libet, Curtis A. Gleason, Elwood W. Wright, Dennis K. Pearl (1983). TIME OF CONSCIOUS INTENTION TO ACT IN RELATION TO ONSET OF CEREBRAL ACTIVITY (READINESS-POTENTIAL). Brain."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC_NEURO_2016",
+      "doi": "10.1073/pnas.1513569112",
+      "source_ids": [
+        "SRC_NEURO_2016"
+      ],
+      "dois": [
+        "10.1073/pnas.1513569112"
+      ],
+      "summary": "M. Schultze-Kraft, D. Birman, M. Rusconi, C. Allefeld, K. Görgen, S. Dähne, B. Blankertz, J.-D. Haynes (2016). The point of no return in vetoing self-initiated movements. Proceedings of the National Academy of Sciences."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Libet proved 100% that human free will is a total illusion and every life decision is made unconsciously half a second early.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Honest take: free will is a veto brake — motor circuits warm up early, yet you still cancel impulses in the last split second. Do you feel like the starter or the editor?"
+  }
 }

@@ -1,0 +1,440 @@
+{
+  "schema": "canonical_assets_research_screening_v1",
+  "version": "1.2",
+  "screened_at_utc": "2026-11-20T02:59:00Z",
+  "reviewer": "@Research VP (R83-8 3x inherit Vision Shards + R83-8-V VP First-Line Native Verification + Lock 2 Viewer Checks)",
+  "parent_locked_libraries": {
+    "v1_manifest_sha256": "c9d2e271b8134363605890c289512ebd304ba09529260265f45bcbbc844a3892",
+    "v1_1_manifest_sha256": "ee9a179a0cad8c23246aac3b8b1459d1a2c2182a83991a5c78c14b75bcc883c2"
+  },
+  "spec_ssot": ".agents/research/r87_hook_and_conditional_arrow_spec.md",
+  "vp_verification_protocol": {
+    "shards": [
+      {
+        "shard": "Shard 1",
+        "conv_id": "911af111-32b7-4c46-812a-365726e98ca8",
+        "model": "inherit",
+        "slots": [
+          "J01",
+          "J02",
+          "J03",
+          "J04",
+          "J05"
+        ],
+        "pngs": 15
+      },
+      {
+        "shard": "Shard 2",
+        "conv_id": "9d836f8a-aa3f-4b87-8514-77cbd572ebd1",
+        "model": "inherit",
+        "slots": [
+          "J06",
+          "K01",
+          "K02",
+          "K03",
+          "K04"
+        ],
+        "pngs": 15
+      },
+      {
+        "shard": "Shard 3",
+        "conv_id": "48b90f44-9178-43d4-9402-2aab1cc9e36a",
+        "model": "inherit",
+        "slots": [
+          "K05",
+          "K06[S+E]",
+          "C01b",
+          "C02b",
+          "C03b"
+        ],
+        "pngs": 18
+      }
+    ],
+    "vp_native_verified_count": 22,
+    "vp_verified_all_rank1_and_excl": true
+  },
+  "summary": {
+    "total_slots": 15,
+    "total_raw_pngs_inspected": 48,
+    "passed_slots_count": 14,
+    "regen_required_slots_count": 1,
+    "regen_required_slots": [
+      "J04_hook_paradox_prop_split_tabletop"
+    ],
+    "excluded_candidates_count": 10,
+    "ready_for_full_lock": false,
+    "ready_for_14_of_15_approval_pending_j04_regen": true
+  },
+  "slots": [
+    {
+      "slot_id": "J01_hook_mode1_daily_action_xray_alert",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "J01. 0.0초 일상 행동(푸딩 한 입) + Mode 1 투명 두상 Ep #31 뇌 활성화",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "excluded_candidates": [
+        {
+          "filename": "cand_03.png",
+          "reason": "[EXCL] Ep #31 Lock ③ 위반: 전두엽 아래 두개강 바닥에서 따뜻한 주황색 발광(glow)이 백색 피질 밑면으로 반사·번짐."
+        }
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_01은 초콜릿 푸딩 그릇+숟가락+놀란 2D 잉크 표정+Mode 1 투명 돔 속 매트 화이트 뇌·#27D8FF 혈관·무발광 매트 앰버 보상핵이 완벽 조합되며 상단 27% 어두운 주방 보케가 HookTitle 가독성에 최적(cand_02는 푸딩 그릇 하단 잘림, cand_03은 내부 주황 발광 [EXCL]).",
+      "rank_1_sha256": "5243c21867159bd1ca529152013bcbd1fef574901307580dc501c6a799449c1a"
+    },
+    {
+      "slot_id": "J02_hook_mode1_bedside_sleep_anomaly",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "J02. 0.0초 침대 각성/수면마비 역설 + Mode 1 투명 두상 뇌간 잠금",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_02.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_03.png",
+        "cand_02.png",
+        "cand_01.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_03은 이불을 꼭 쥔 정면 앵글 + 거대한 2D 잉크 경악 눈 + 대칭 Ep #31 매트 뇌·중앙 앰버 뇌간핵 + 상단 38% 순수 다크 네이비 벽 여백으로 0.0초 스크롤 정지력 압도적(cand_01은 표정이 밋밋하고 뇌 축 불규칙, cand_02는 이마 앞 앰버가 네모난 플라스틱 경첩처럼 보임).",
+      "rank_1_sha256": "1c8d7c7b4f4c6e974409b85f59da9ef2799c2bad66be87b02f184aa7883bf298"
+    },
+    {
+      "slot_id": "J03_hook_bizarre_experiment_prop_closeup",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "J03. 0.0초 기묘한 실험 개입 클로즈업 (Ep #6 76% 스타일 거대 헤드폰)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_03.png",
+      "excluded_candidates": [
+        {
+          "filename": "cand_01.png",
+          "reason": "[EXCL] Tier-1 텍스트/숫자 차단: 우하단 빈티지 듀얼 VU 미터 눈금 호와 노브 주변에 왜곡된 미세 숫자·외계어 각인 발견."
+        }
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_02는 2인 민머리 비닐 인물(충격 표정 피험자 + 거대 빈티지 헤드폰 씌우는 연구자)이 초근접 구도로 잡히고 책상 위 무숫자 회중시계·케이블이 깔끔하며 텍스트/숫자 0% 및 상단 38% 깨끗한 벽 여백 확보(cand_01은 VU 미터 미세 왜곡 숫자 [EXCL], cand_03은 원거리 구도 및 왼손 뭉개짐).",
+      "rank_1_sha256": "c051784f8bcaa000b6afec1c259bfc4df756df32a536545b37eff2d81712db6e"
+    },
+    {
+      "slot_id": "J04_hook_paradox_prop_split_tabletop",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "J04. 0.0초 손 클로즈업 역설 소품 (빈 투명 캡슐 분리)",
+      "verdict": "REGEN_REQUIRED",
+      "rank_1": null,
+      "rank_2": null,
+      "excluded_candidates": [
+        {
+          "filename": "cand_01.png",
+          "reason": "[EXCL] Tier-1 거대 캡슐 스케일 왜곡(직경 ~185px, 길이 ~460px = 아래 약병 전체 높이와 동일, 유리 소주잔처럼 보임) + 우상단 밝은 창문 띠."
+        },
+        {
+          "filename": "cand_02.png",
+          "reason": "[EXCL] Tier-1 거대 캡슐 스케일 왜곡(약병보다 큰 4~5배 캡슐) + 약병 흰 뚜껑이 닫힌 채 위에 캡슐을 여는 물리 모순."
+        },
+        {
+          "filename": "cand_03.png",
+          "reason": "[EXCL] Tier-1 극단적 거대 캡슐 스케일 왜곡(직경 ~230px > 약병 입구보다 넓음) + 오른손 3지 벙어리장갑 손가락 결함."
+        }
+      ],
+      "valid_candidates": [],
+      "needs_regen": true,
+      "regen_prescription_ko": "J04 단 1개 슬롯만 0크레딧 3후보 재생성 요청: 엄지·검지 끝으로만 살짝 집은 정상 미니어처 크기의 빈 투명 캡슐(약병 입구 직경의 <= 25~30% 크기, Ep11 C05 R2 수준) + 뚜껑 열린 갈색 약병과 옆에 내려둔 흰 뚜껑 + 상단 25% 균일 다크 보케.",
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": false,
+        "thumbnail_to_0s_promise_kept": false
+      },
+      "reason_ko": "3후보 모두 캡슐이 아래 갈색 약병 입구보다 크거나 같은 4~5배 거대 컵 스케일로 왜곡되어 시청자 직관 붕괴(Lock 2 실패). 1슬롯 2분 재생성 필수."
+    },
+    {
+      "slot_id": "J05_hook_mode2_instant_brain_shock_open",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "J05. 0.0초 즉시 Mode 2 절개 뇌 충격 오픈 (상단 HookTitle 여백 확보)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_01.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_03.png",
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_03은 Ep #31 매트 화이트 피질·#27D8FF 혈관·깔끔한 타원 절개창 속 매트 앰버 시상/변연계 핵 + 좌우 무크롭 여백 + 상단 33% 순수 #040711 네이비 여백 완벽(cand_01은 우측 후두엽 2~3% 미세 잘림, cand_02는 절개창 한가운데를 시안 혈관이 가로질러 방해).",
+      "rank_1_sha256": "3c37d60242b05da8002f6a7bb8b97a2f295e4b3e56033acd6683a1c9cc6144d2"
+    },
+    {
+      "slot_id": "J06_hook_extreme_2d_ink_shock_reaction",
+      "category": "J_hooks",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "J06. 0.0초 초근접 2D 잉크 충격 표정 + 트리거 소품 (HookTitle 세이프존)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "excluded_candidates": [
+        {
+          "filename": "cand_03.png",
+          "reason": "[EXCL] R87-H3 Tier-1 헤드룸 충돌: 정수리 Y=398px (20.7%)로 118pt HookTitle 하단(Y=420px)과 -22px 직접 겹침."
+        }
+      ],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_01.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_02는 정수리 Y=514px (26.8%)로 HookTitle(Y=240..420px) 아래 +94px의 넉넉한 다크 보케 여유를 확보하면서도 강렬한 2D 잉크 충격 표정+머그컵+약병 소품 완벽(cand_01은 여유 +25px로 다소 타이트, cand_03은 -22px 충돌 [EXCL]).",
+      "rank_1_sha256": "7a660ebfd7fbea9c42edb1c7c3c55f1fc1c969db5815c76e9626568e8b065c17"
+    },
+    {
+      "slot_id": "K01_contrast_active_vs_blocked_fluid_tubes",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "K01. 비공간 유체 흐름 A vs B (활성 시안 파동관 vs 클램프 차단 정체관)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_02는 완벽 대칭 수직 탑다운 유리관 2줄로 좌측 #27D8FF 활성 파동 흐름과 우측 나사 클램프 모래시계 압착·슬레이트 정체를 0.5초 만에 무텍스트 직관 전달(cand_01은 열린 앞단 부자연, cand_03은 클램프가 관을 조이지 못해 차단 직관 약함).",
+      "rank_1_sha256": "ef4c442639201de263c10745ae0c1d962617dc17a9111a2a7048bff60f09eb45"
+    },
+    {
+      "slot_id": "K02_contrast_squeezed_vs_stalled_sponge_basins",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "K02. 비공간 촉각 세척 A vs B (스펀지 압착 맑은 수조 vs 정체 탁수 수조)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": "cand_01.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_02.png",
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_02는 직각 실험실 유리 수조 2개에서 좌측 민머리 비닐 양손의 스펀지 압착+기포+햇빛 물결 카우스틱스와 우측 미동 없는 탁한 앰버 수조의 대비가 가장 선명(cand_01은 플라스틱통 느낌, cand_03은 강한 수직 그림자·손가락 뭉개짐).",
+      "rank_1_sha256": "88bef4f6cc507b461242a8705f9e5c1a2a9608b1b9750eddfa65f2e8a04515ba"
+    },
+    {
+      "slot_id": "K03_contrast_twin_tabletop_stimulus_ab",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "K03. 비공간 실험 vs 대조 2분할 테이블 (Ep #13 초콜릿 푸딩 vs 플레인 요거트)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png",
+        "cand_03.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_01은 중앙 오크 칸막이 좌우로 동일 크기 트레이·그릇·하단 대칭 스푼에 광택 초콜릿 푸딩 vs 순백 플레인 요거트가 1:1 거울 대칭으로 배치되어 Ep #13 실험 대비에 완벽(cand_02/03은 좌우 스푼 위치가 위/아래 엇갈려 비대칭).",
+      "rank_1_sha256": "17aab0400e0240b0deef258b79a79768e78eae14548da024c93b3de5a4cf1d77"
+    },
+    {
+      "slot_id": "K04_contrast_dual_receptor_chemical_lock_panel",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "K04. 비공간 신경 스위치/이중 잠금 A vs B (단일 열림 vs 이중 자물쇠 차단)",
+      "verdict": "PASS",
+      "rank_1": "cand_03.png",
+      "rank_2": "cand_02.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_03.png",
+        "cand_02.png",
+        "cand_01.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_03은 사방 여백이 넉넉한 통합 매트 2.5D 교육 모형 보드 위 좌측 앰버 단일 열림 레버 vs 우측 차콜 이중 자물쇠 빔 고정 대비가 텍스트 0%로 깔끔(cand_01은 자물쇠 고리 엉킴 아티팩트, cand_02는 우측 자물쇠 가장자리 잘림).",
+      "rank_1_sha256": "7ba6f0e9cbef5ce9623c2d4804a97dc72cb97d2a0cb7d2c43f8b6be234da0140"
+    },
+    {
+      "slot_id": "K05_contrast_scale_flat_vs_internal_surge_split",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "K05. 비공간 겉변화 0 vs 내부 뇌 재배선 역설 (Ep #13 무숫자 체중계 0 vs 활성 뇌 돔)",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png",
+        "cand_02.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_01은 정면 대칭 구도에서 좌측 바늘 12시 정중앙 무숫자 화이트 저울(0% 왜곡 숫자)과 우측 둥근 아크릴 종형 돔 속 Ep #31 매트 화이트 뇌·#27D8FF 혈관·유기적 매트 앰버 내부 핵 + 균일 다크웜 보케 여백이 완벽(cand_02는 납작 원통 유리+유령 반사, cand_03은 좌상단 창문 눈부심+기하학적 빈 쐐기).",
+      "rank_1_sha256": "aa53e6571a3fd2bafdcb813e3ccdcdf4ed360092b81666165d08db6f54ed3971"
+    },
+    {
+      "slot_id": "K06_contrast_a12_dual_brain_state_transition_pair",
+      "category": "K_nonspatial_contrast",
+      "asset_type": "start_end_transition_pair",
+      "title_ko": "K06. 비공간 A12 상하 쌍둥이 뇌 2단계 상태 전이 쌍 (Start 중립 → End 상단 앰버/하단 슬레이트)",
+      "verdict": "PASS",
+      "rank_1": "cand_02_end.png",
+      "rank_2": "cand_03_end.png",
+      "rank_1_start_filename": "cand_02_start.png",
+      "rank_1_end_filename": "cand_02_end.png",
+      "excluded_candidates": [],
+      "valid_candidates": [
+        "cand_02_end.png",
+        "cand_03_end.png",
+        "cand_01_end.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_02(Start→End)는 shape_IoU=0.9877의 완벽한 1:1 픽셀 고정 + 무발광 매트 앰버(상단)/매트 차콜슬레이트(하단) 동일 고랑 경계 전환 + 가장 넓은 중앙 갭(148px, 7.7%)과 상단 177px(9.2%) 여백으로 PatrickHand 비교차 분할 콜아웃에 최적(cand_01은 중앙 갭 41px로 협소, cand_03은 상단 여백 145px).",
+      "rank_1_start_sha256": "6d2ad8f0a5d5baf7e2c46fee3caf80139a47cc038fcea32a819256c1531d7c5c",
+      "rank_1_end_sha256": "5d93173de0ffa3bad236122daabff05ccf80aa32e942a699bb65bdadc163ba1a"
+    },
+    {
+      "slot_id": "C01b_spatial_corridor_with_anchor_prop",
+      "category": "C_v2_spatial_arrows",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "C01b. 공간 적격 전용 고정 경로 + 미니어처 버스 소품 앵커",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_03.png",
+      "excluded_candidates": [
+        {
+          "filename": "cand_02.png",
+          "reason": "[EXCL] Tier-1 물리·시각 논리 오류 + 각도 위반: 빨간 2층 버스 전면 유리창·헤드라이트가 아래쪽(역주행)을 향해 상향 #FF2525 화살표와 정면 모순 + 65° 사선 투시(90° 수직 탑다운 위반)."
+        }
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_03.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_01은 완벽한 90° 수직 탑다운 영국 캠퍼스 석재 대로 위 #FF2525 직선 화살표와 상향 정방향 미니어처 빨간 버스가 정합(cand_02는 버스 역주행+사선 각도 [EXCL], cand_03은 버스가 가늘어 빨간 화살표와 대비 약함).",
+      "rank_1_sha256": "9dc6bb3c654a63f74244e4b90ada5e00b9dc4c64d26bcd1899950aadc5dc1962"
+    },
+    {
+      "slot_id": "C02b_spatial_dual_route_prop_legend",
+      "category": "C_v2_spatial_arrows",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "C02b. 공간 적격 전용 이중 경로 소품 범례 (좌 시안 블랙캡 vs 우 크림슨 버스)",
+      "verdict": "PASS",
+      "rank_1": "cand_02.png",
+      "rank_2": null,
+      "excluded_candidates": [
+        {
+          "filename": "cand_01.png",
+          "reason": "[EXCL] Tier-1 공간 위상 붕괴: 좌측 시안 3D 경로가 36%·55~65% Y 구간의 벽돌 주택 옥상과 밀폐 정원을 그대로 관통 돌파."
+        },
+        {
+          "filename": "cand_03.png",
+          "reason": "[EXCL] Tier-1 옥상 관통 및 소품 융합: 좌측 시안 경로가 건물 지붕 위로 올라가 막다른 정원에 박히고, 우측 빨간 버스가 #FF2525 화살촉 목 부분에 융합."
+        }
+      ],
+      "valid_candidates": [
+        "cand_02.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_02는 3후보 중 유일하게 좌측 우회 시안 경로(끝단 블랙캡)와 우측 직선 #FF2525 경로(끝단 빨간 2층 버스) 모두 100% 포장 도로 위만 주행하며 건물·옥상 관통 0%(cand_01/03은 명백한 옥상 관통 및 소품 융합 [EXCL]).",
+      "rank_1_sha256": "6886293bb2001eac1910ff5331cb7a2ebf7621ca40234c11208f076e30f998b2"
+    },
+    {
+      "slot_id": "C03b_spatial_doorway_sever_with_prop",
+      "category": "C_v2_spatial_arrows",
+      "asset_type": "single_keyframe_anchor",
+      "title_ko": "C03b. 공간 적격 전용 문지방 단절 + 흰 신발상자/빨간 큐브 앵커",
+      "verdict": "PASS",
+      "rank_1": "cand_01.png",
+      "rank_2": "cand_02.png",
+      "excluded_candidates": [
+        {
+          "filename": "cand_03.png",
+          "reason": "[EXCL] Tier-1 열린 문지방 누락: 중앙 흰 벽이 화면 좌우 끝까지 완전히 막혀 있어 두 방을 잇는 열린 문지방 통로가 보이지 않으며 하단 빨간 바가 빈 상자·큐브와 어긋나 부유."
+        }
+      ],
+      "valid_candidates": [
+        "cand_01.png",
+        "cand_02.png"
+      ],
+      "lock2_viewer_checks": {
+        "silent_3s_scroll_stop": true,
+        "narration_visual_logic_match": true,
+        "thumbnail_to_0s_promise_kept": true
+      },
+      "reason_ko": "cand_01은 완벽한 90° 평면도 절개 문지방(양측 나무 문틀+열린 통로) 바로 앞에서 뭉툭한 직각 #FF2525 바가 정지하고 상단 오크 방 100% 공백 + 하단 닫힌 흰 상자·빨간 큐브 앵커 완벽(cand_02는 상단 연속 흰 벽 인방+광각 왜곡, cand_03은 막힌 벽 [EXCL]).",
+      "rank_1_sha256": "b8e6c8d7761c26c6d31c080fe52e72dfc3ce9816cf9b0c185944539ecad5747f"
+    }
+  ]
+}

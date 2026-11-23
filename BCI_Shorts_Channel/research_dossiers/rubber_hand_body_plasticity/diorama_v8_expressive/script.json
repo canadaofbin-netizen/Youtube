@@ -1,0 +1,214 @@
+{
+  "schema": 8,
+  "schema_version": 8,
+  "dossier_schema_version": 2,
+  "profile": "neuro_diorama",
+  "style_profile": "expressive_25d_v8",
+  "format_profile": "shorts_expressive_v8",
+  "shorts_format_profile": "shorts_expressive_v8",
+  "prosody_mode": "expressive_us_v8",
+  "voice_preset": "elevenlabs_v4",
+  "foil_voice_preset": "elevenlabs_v4_male",
+  "foil_sentence_indices": [],
+  "opening_mode": "case_stamp",
+  "core_reveal_sentence_index": 15,
+  "sentence_beats": [
+    "case_stamp",
+    "setup",
+    "promise",
+    "rehook",
+    "myth",
+    "evidence",
+    "conflict",
+    "rehook",
+    "evidence",
+    "evidence",
+    "evidence",
+    "escalation",
+    "evidence",
+    "rehook",
+    "core",
+    "mechanism",
+    "payoff",
+    "payoff",
+    "payoff",
+    "climax_cut"
+  ],
+  "prosody_gears": [
+    "rush",
+    "brisk",
+    "brisk",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "rush",
+    "brisk",
+    "brisk",
+    "stamp",
+    "rush",
+    "stamp",
+    "rush",
+    "brisk",
+    "stamp",
+    "brisk",
+    "brisk",
+    "brisk",
+    "stamp"
+  ],
+  "sentence_speakers": [
+    "narrator",
+    "narrator",
+    "researcher",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "mini_cortex",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator",
+    "narrator"
+  ],
+  "project_id": "v8_ep06_rubber_hand_illusion",
+  "pillar": "brain_basics",
+  "everyday_domain": "anxiety",
+  "dossier": "rubber_hand_body_plasticity",
+  "language": "en-US",
+  "title": "How a Fake Rubber Hand Hijacks Your Brain",
+  "doi": "10.1038/35784",
+  "secondary_doi": "10.1126/science.1097011",
+  "mechanism_doi": "10.1016/j.psycom.2022.100058",
+  "omit_experiment_nicknames": [],
+  "viewer_description": "At the University of Pittsburgh in 1998, Matthew Botvinick and Jonathan Cohen hid a volunteer's real left hand behind a standing divider and placed a lifelike rubber hand right in front of them. When two small paintbrushes stroked the hidden real fingers and the visible rubber fingers at the exact same moment, volunteers started feeling touch coming straight out of the rubber hand in under a minute.\n\nOffsetting the brush strokes by just half a second broke the illusion right away. Brain imaging later showed that the premotor cortex fuses synchronized sight and touch to claim a limb, and threatening that rubber hand triggers a real sweat response and alarm inside the insula.\n\nResearch: Botvinick & Cohen, University of Pittsburgh (1998).",
+  "debate_question": "Have you ever flinched in your chair when something happened to your hand inside a video game or VR headset?",
+  "offcenter_creator_bet": "",
+  "cameo_prompt": "",
+  "us_anti_clone_v7": true,
+  "acts": [
+    {
+      "act": 1,
+      "name": "Pittsburgh Standing Partition & Dual Paintbrush Setup",
+      "sentences": [
+        "In nineteen ninety-eight at Pittsburgh, neuroscientists hid each volunteer's left hand behind a screen beside a fake rubber hand!",
+        "Two small paintbrushes stroked the hidden real fingers and the visible rubber fingers together.",
+        "Keep your eyes fixed on the rubber hand in front of you while I brush both hands.",
+        "Why did healthy adults suddenly swear that lifeless rubber glove was their own living hand?"
+      ]
+    },
+    {
+      "act": 2,
+      "name": "Hardwired Skin Myth & Sixty-Second Body Ownership Jump",
+      "sentences": [
+        "Most people assume your sense of body ownership is permanently wired into your skin.",
+        "Yet within forty-five to sixty seconds — shorter than a commercial break — touch jumped straight into the rubber fingers!",
+        "Blindfolded afterward, volunteers pointed under the table toward their real hand and drifted toward the fake one."
+      ]
+    },
+    {
+      "act": 3,
+      "name": "Mini-Cortex Half-Second Delay Control & Threat Sweat Surge",
+      "sentences": [
+        "Hold on! What happens if those two paintbrushes fall out of sync by half a second?",
+        "Researchers repeated the exact test with a half-second brush delay — roughly one heartbeat apart.",
+        "Instantly the illusion vanished, and the rubber glove looked like a dead prop again.",
+        "Twisting the rubber wrist backward broke the spell too, proving timing and hand shape must match.",
+        "Then in later scanner tests, scientists raised a threat right over the adopted rubber hand!",
+        "Real palm sweat spiked on the spot as volunteers jerked their hidden real hand back!"
+      ]
+    },
+    {
+      "act": 4,
+      "name": "Premotor Action Planner & Insula Body-Feeling Alarm",
+      "sentences": [
+        "Wait — why would your body sweat in panic over a piece of lifeless rubber?",
+        "Your premotor cortex — your action planner — fuses synced sight and touch to claim a limb as yours.",
+        "Once claimed, any strike to that fake hand fires your insula — your body-feeling center — in real alarm!"
+      ]
+    },
+    {
+      "act": 5,
+      "name": "Virtual Reality Ledge Flinch & Bionic Limb Mirror",
+      "sentences": [
+        "That is why your stomach drops when your virtual-reality hand nears a high ledge.",
+        "It is also how bionic prosthetics feel real once touch sensors fire in sync with sight."
+      ]
+    },
+    {
+      "act": 6,
+      "name": "Live Multisensory Hand Alignment Rule",
+      "sentences": [
+        "Whenever learning a sport or instrument, watch your hands closely as each motion lands.",
+        "Your body borders are redrawn live every second by whatever sight and touch agree on."
+      ]
+    }
+  ],
+  "sentences": [
+    "In nineteen ninety-eight at Pittsburgh, neuroscientists hid each volunteer's left hand behind a screen beside a fake rubber hand!",
+    "Two small paintbrushes stroked the hidden real fingers and the visible rubber fingers together.",
+    "Keep your eyes fixed on the rubber hand in front of you while I brush both hands.",
+    "Why did healthy adults suddenly swear that lifeless rubber glove was their own living hand?",
+    "Most people assume your sense of body ownership is permanently wired into your skin.",
+    "Yet within forty-five to sixty seconds — shorter than a commercial break — touch jumped straight into the rubber fingers!",
+    "Blindfolded afterward, volunteers pointed under the table toward their real hand and drifted toward the fake one.",
+    "Hold on! What happens if those two paintbrushes fall out of sync by half a second?",
+    "Researchers repeated the exact test with a half-second brush delay — roughly one heartbeat apart.",
+    "Instantly the illusion vanished, and the rubber glove looked like a dead prop again.",
+    "Twisting the rubber wrist backward broke the spell too, proving timing and hand shape must match.",
+    "Then in later scanner tests, scientists raised a threat right over the adopted rubber hand!",
+    "Real palm sweat spiked on the spot as volunteers jerked their hidden real hand back!",
+    "Wait — why would your body sweat in panic over a piece of lifeless rubber?",
+    "Your premotor cortex — your action planner — fuses synced sight and touch to claim a limb as yours.",
+    "Once claimed, any strike to that fake hand fires your insula — your body-feeling center — in real alarm!",
+    "That is why your stomach drops when your virtual-reality hand nears a high ledge.",
+    "It is also how bionic prosthetics feel real once touch sensors fire in sync with sight.",
+    "Whenever learning a sport or instrument, watch your hands closely as each motion lands.",
+    "Your body borders are redrawn live every second by whatever sight and touch agree on."
+  ],
+  "data_stamps": [
+    {
+      "sentence_index": 6,
+      "mode": "study",
+      "preset": "line",
+      "chart": "line",
+      "style": "ink_pen",
+      "title": "Rubber Hand Ownership Onset",
+      "unit": "s",
+      "series": [
+        {
+          "start_label": "Fastest Onset",
+          "label": "Full Ownership",
+          "values": [
+            45.0,
+            60.0
+          ],
+          "unit": "s"
+        }
+      ],
+      "doi": "10.1038/35784",
+      "source_citation": "Botvinick & Cohen (1998)"
+    },
+    {
+      "sentence_index": 11,
+      "mode": "illustrative",
+      "preset": "curve_marker",
+      "chart": "curve_marker",
+      "style": "ink_pen",
+      "fn": "exp_decay",
+      "title": "Multisensory Synchrony Window",
+      "concept": "Visuotactile Temporal Binding Decay",
+      "x_label": "Brush Stroke Delay (ms)",
+      "y_label": "Body Ownership Illusion",
+      "doi": "",
+      "source_citation": ""
+    }
+  ]
+}

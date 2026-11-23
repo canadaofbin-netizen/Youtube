@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "slug": "shapiro_emdr_trauma_saccades",
   "topic": "Francine Shapiro (1989) & Jinhee Baek (2019): Bilateral Eye Saccades, Working-Memory Taxing & Fear-Circuit Suppression",
   "pillar": "brain_health",
@@ -40,7 +40,27 @@
     },
     {
       "fact": "On the 0-to-10 Subjective Units of Disturbance (SUD) scale, the bilateral saccade group plunged from a mean distress of ~7.45 down toward ~0.13 within a single 50-minute session, whereas the no-eye-movement control condition hovered near ~7.6-8.3 until crossed over.",
-      "source_id": "SRC1"
+      "source_id": "SRC1",
+      "stats": {
+        "mode": "study",
+        "preset": "line",
+        "format": "trajectory",
+        "title": "Trauma Distress Score (SUD)",
+        "unit": "SUD",
+        "series": [
+          {
+            "start_label": "Pre-Saccade Score",
+            "label": "Post-Saccade Score",
+            "values": [
+              7.45,
+              0.13
+            ],
+            "unit": "SUD"
+          }
+        ],
+        "doi": "10.1002/jts.2490020207",
+        "source_citation": "Shapiro (1989)"
+      }
     },
     {
       "fact": "For twenty-five years, fierce skepticism raged: critics like Richard McNally noted early dismantling trials had mixed eye-movement isolation results and mocked vague popular talk of 'syncing left and right hemispheres'.",
@@ -56,7 +76,19 @@
     },
     {
       "fact": "Single-unit and optogenetic recordings in Baek et al. (2019) traced the exact three-synapse circuit: alternating bilateral visual tracking activates the midbrain superior colliculus to excites mediodorsal thalamus to drives feedforward inhibition that silences fear-encoding neurons in the basolateral amygdala.",
-      "source_id": "SRC2"
+      "source_id": "SRC2",
+      "stats": {
+        "mode": "illustrative",
+        "preset": "curve_marker",
+        "format": "illustrative_curve",
+        "fn": "exp_decay",
+        "title": "Amygdala Fear Suppression",
+        "concept": "Collicular-Thalamic Amygdala Inhibition",
+        "x_label": "Bilateral Saccade Sets",
+        "y_label": "Amygdala Fear Activity",
+        "doi": "",
+        "source_citation": ""
+      }
     },
     {
       "fact": "Today, the World Health Organization (WHO) and VA/DoD endorse EMDR alongside trauma-focused CBT as first-line evidence-based PTSD therapies.",
@@ -129,5 +161,37 @@
   ],
   "reenactment_track": "track_b",
   "reenactment_track_subtier": "B_scene_bible_anchor",
-  "offcenter_creator_bet": "Honest take: side-to-side eye sweeps work — taxing visual working memory dims vivid flashbacks without erasing facts. Does walking outdoors help untangle stuck memories for you?"
+  "offcenter_creator_bet": "Honest take: side-to-side eye sweeps work — taxing visual working memory dims vivid flashbacks without erasing facts. Does walking outdoors help untangle stuck memories for you?",
+  "everyday_domain": "memory",
+  "primary_doi": "10.1002/jts.2490020207",
+  "three_layer_formula": {
+    "everyday_problem": "Why walking briskly forward through a park while talking through a hard problem (optic flow + bilateral stepping) often feels less overwhelming than sitting frozen in a dark room.",
+    "psychology_experiment": {
+      "source_id": "SRC1",
+      "doi": "10.1002/jts.2490020207",
+      "source_ids": [
+        "SRC1"
+      ],
+      "dois": [
+        "10.1002/jts.2490020207"
+      ],
+      "summary": "Francine Shapiro (1989). Efficacy of the eye movement desensitization procedure in the treatment of traumatic memories. Journal of Traumatic Stress."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC2",
+      "doi": "10.1038/s41586-019-0931-y",
+      "source_ids": [
+        "SRC2"
+      ],
+      "dois": [
+        "10.1038/s41586-019-0931-y"
+      ],
+      "summary": "Jinhee Baek, Sukchan Lee, Taesup Cho, Seong-Wook Kim et al. (2019). Neural circuits underlying a psychotherapeutic regimen for fear disorders. Nature."
+    }
+  },
+  "debate_ignition": {
+    "prebunk_myth": "Eye movements work by magically 'synchronizing your creative right brain with your logical left brain'.",
+    "open_verdict_question": "In the exact same situation, do you think your brain would follow the automatic circuit or override it on the spot?",
+    "offcenter_creator_bet": "Honest take: side-to-side eye sweeps work — taxing visual working memory dims vivid flashbacks without erasing facts. Does walking outdoors help untangle stuck memories for you?"
+  }
 }

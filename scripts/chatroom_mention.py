@@ -9,9 +9,11 @@ or newly created top-level 07_Youtube conversations in Antigravity's SQLite DB) 
 from __future__ import annotations
 
 import argparse
+import concurrent.futures
 import json
 import re
 import sqlite3
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -19,6 +21,7 @@ from typing import Any
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_REGISTRY_PATH = WORKSPACE_ROOT / ".agents" / "chatrooms.json"
 DEFAULT_DB_PATH = Path("/home/canadaofbin/.gemini/antigravity-cli/conversation_summaries.db")
+DEFAULT_BRAIN_DIR = Path("/home/canadaofbin/.gemini/antigravity-cli/brain")
 WORKSPACE_TAG = "07_Youtube"
 
 # Matches @mention tokens preceded by start-of-string or whitespace/punctuation (ignores emails foo@bar)
@@ -90,10 +93,21 @@ def query_live_db_chatrooms(
             ws_str = ws_uris or ""
             if workspace_filter and workspace_filter not in ws_str:
                 continue
+            cid_s = str(cid)
+            clean_title = str(title or "").strip()
+            # Skip conversations deleted in UI (missing brain/<cid> transcript) when querying live Antigravity DB
+            if (
+                db_path == DEFAULT_DB_PATH
+                and DEFAULT_BRAIN_DIR.is_dir()
+                and not (DEFAULT_BRAIN_DIR / cid_s / ".system_generated" / "logs" / "transcript.jsonl").is_file()
+            ):
+                continue
+            if not clean_title:
+                continue
             out.append(
                 {
-                    "conversation_id": str(cid),
-                    "title": str(title or "").strip() or str(cid)[:8],
+                    "conversation_id": cid_s,
+                    "title": clean_title,
                     "step_count": int(steps or 0),
                     "last_modified_time": str(mtime or ""),
                     "status": str(status or ""),
@@ -125,7 +139,23 @@ def sync_registry(
 ) -> dict[str, Any]:
     reg = load_registry(registry_path)
     live_rows = query_live_db_chatrooms(db_path=db_path)
-    by_id = {c["conversation_id"]: c for c in reg.get("chatrooms", []) if c.get("conversation_id")}
+    enforce_live_transcript = (
+        registry_path == DEFAULT_REGISTRY_PATH
+        and db_path == DEFAULT_DB_PATH
+        and DEFAULT_BRAIN_DIR.is_dir()
+    )
+    kept_rooms = [
+        c
+        for c in reg.get("chatrooms", [])
+        if c.get("conversation_id")
+        and (
+            not enforce_live_transcript
+            or (DEFAULT_BRAIN_DIR / str(c["conversation_id"]) / ".system_generated" / "logs" / "transcript.jsonl").is_file()
+        )
+    ]
+    pruned = len(reg.get("chatrooms", [])) - len(kept_rooms)
+    reg["chatrooms"] = kept_rooms
+    by_id = {c["conversation_id"]: c for c in kept_rooms}
 
     added = 0
     for row in live_rows:
@@ -134,7 +164,7 @@ def sync_registry(
             by_id[cid]["title"] = row["title"] or by_id[cid].get("title", "")
             by_id[cid]["last_modified_time"] = row["last_modified_time"]
             by_id[cid]["status"] = row["status"]
-        else:
+        elif row["title"] != "YouTube Daily Report Redesign":
             handle = _slug_handle(row["title"])
             entry = {
                 "handle": handle,
@@ -153,7 +183,7 @@ def sync_registry(
     if write:
         registry_path.parent.mkdir(parents=True, exist_ok=True)
         registry_path.write_text(json.dumps(reg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return {"registry": reg, "added": added, "live_count": len(live_rows)}
+    return {"registry": reg, "added": added, "pruned": pruned, "live_count": len(live_rows)}
 
 
 def _substring_match_room(key: str, rooms: list[dict[str, Any]]) -> dict[str, Any] | None:
@@ -284,7 +314,75 @@ def main(argv: list[str] | None = None) -> int:
     p_res.add_argument("text", help="Prompt text containing @Chatroom mentions")
     p_res.add_argument("--strict", action="store_true", help="Exit 1 if no mention resolved or any unresolved")
 
+    p_wake = sub.add_parser("wake", help="Wake a sleeping/unloaded chatroom via official agy --conversation CLI")
+    p_wake.add_argument("handle", help="Target @Chatroom handle or conversation_id (e.g. @Operator)")
+    p_wake.add_argument("prompt", help="Task prompt to deliver & execute immediately")
+    p_wake.add_argument("--timeout", default="0", help="agy --print-timeout value (default: 0 = wait until turn finishes)")
+
+    sub.add_parser("wake-daemons", help="Wake all active chatrooms & restore @Daily_Report/@QA_Scheduler/@Topic_Radar daemon crons after server restart")
+
     args = parser.parse_args(argv)
+
+    if args.cmd == "wake":
+        tok = args.handle if str(args.handle).startswith("@") else f"@{args.handle}"
+        out = resolve_mentions(f"{tok} {args.prompt}", registry_path=args.registry, db_path=args.db)
+        if not out["resolved"]:
+            print(json.dumps({"ok": False, "error": f"Unresolved handle: {args.handle}"}, ensure_ascii=False))
+            return 1
+        target = out["resolved"][0]
+        cid = target["conversation_id"]
+        proc = subprocess.run(
+            [
+                "agy",
+                "--conversation",
+                cid,
+                "--dangerously-skip-permissions",
+                "-p",
+                args.prompt,
+                "--print-timeout",
+                str(args.timeout),
+            ],
+            capture_output=True,
+            text=True,
+        )
+        print(
+            json.dumps(
+                {
+                    "ok": proc.returncode == 0,
+                    "handle": target["handle"],
+                    "conversation_id": cid,
+                    "returncode": proc.returncode,
+                    "stdout_tail": (proc.stdout or "")[-600:],
+                    "stderr_tail": (proc.stderr or "")[-300:],
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0 if proc.returncode == 0 else proc.returncode
+
+    if args.cmd == "wake-daemons":
+        daemon_specs = [
+            ("@Daily_Report", "e3210c73-cc41-4432-87b1-c158efe9cadb", "[Auto-Wake] Verify `manage_task(Action='list')` and re-register daily 07:00 UTC YouTube Studio report cron (`IsDaemon=True`) if cleared."),
+            ("@QA_Scheduler", "ef8185bb-5afd-4859-b697-2fe07f1ecf1c", "[Auto-Wake] Verify `manage_task(Action='list')` and re-register daily 08:00 UTC QA Scheduler cron (`IsDaemon=True`) if cleared."),
+            ("@Topic_Radar", "0ffee83a-d9de-4520-a177-7d3b57dc01dc", "[Auto-Wake] Verify `manage_task(Action='list')` and re-register Monday 09:30 UTC weekly topic research cron (`IsDaemon=True`) if cleared."),
+            ("@Research", "ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c", "[Auto-Wake] Verify `manage_task(Action='list')` and re-register standing 6h inbox watchdog cron (`0 */6 * * *`, `IsDaemon=True`) if cleared."),
+            ("@Operator", "1f9808d4-ebac-4b58-a570-45c8f1f00a85", "[Auto-Wake] Server restart wakeup check; process any pending inbox tasks or confirm standby."),
+        ]
+
+        def _w(spec: tuple[str, str, str]) -> dict[str, Any]:
+            h, cid, pr = spec
+            r = subprocess.run(
+                ["agy", "--conversation", cid, "--dangerously-skip-permissions", "-p", pr, "--print-timeout", "90s"],
+                capture_output=True,
+                text=True,
+            )
+            return {"handle": h, "conversation_id": cid, "returncode": r.returncode}
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(daemon_specs)) as pool:
+            results = list(pool.map(_w, daemon_specs))
+        print(json.dumps({"woken": results}, ensure_ascii=False, indent=2))
+        return 0
 
     if args.cmd == "sync":
         res = sync_registry(registry_path=args.registry, db_path=args.db, write=True)

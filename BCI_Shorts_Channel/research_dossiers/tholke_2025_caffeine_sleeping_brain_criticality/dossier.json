@@ -1,0 +1,199 @@
+{
+  "schema_version": 2,
+  "slug": "tholke_2025_caffeine_sleeping_brain_criticality",
+  "topic": "2025 Brain Scan: Why Afternoon Coffee Keeps Your Sleeping Brain Wired Even If You Fall Asleep",
+  "pillar": "brain_news",
+  "everyday_domain": "sleep",
+  "created_at": "2026-11-16T09:40:00+00:00",
+  "status": "ready",
+  "visual_mode": "NEURO_BIOLOGY",
+  "visual_mode_reason": "Pairs University of Montreal's 2025 overnight sleep-EEG caffeine crossover trial and everyday 3 PM espresso routines (R72/R79-M physical espresso cup & bedtime lamp action) with 3D cyan MNI152 thalamic-prefrontal criticality bursts overriding deep NREM slow waves (R78).",
+  "setup_18w": "Forty adults swallowed caffeine or placebo capsules before overnight brainwave recordings across two laboratory nights.",
+  "primary_doi": "10.1038/s42003-025-08090-z",
+  "primary_case": {
+    "title": "Philipp Thölke, Julie Carrier & Karim Jerbi's 2025 University of Montreal Overnight Sleep-EEG Caffeine Criticality Crossover Study",
+    "year": 2025,
+    "place": "Center for Advanced Research in Sleep Medicine, University of Montreal, Canada",
+    "summary": "In a double-blind crossover trial of 40 healthy adults (ages 20–58), Philipp Thölke, Julie Carrier, and Karim Jerbi (2025, Communications Biology) recorded full-night sleep EEG after caffeine versus placebo—revealing that even after sleepers lose consciousness, caffeine pushes the sleeping cortex out of synchronized deep recovery into an active, wake-like critical regime.",
+    "people": [
+      {
+        "name": "Philipp Thölke, Julie Carrier & Karim Jerbi",
+        "role": "University of Montreal neuroscientists (Communications Biology, 2025) who discovered caffeine shifts sleeping human NREM brainwaves into wake-like criticality",
+        "source_id": "SRC1"
+      },
+      {
+        "name": "Christopher Drake, Timothy Roehrs & Thomas Roth",
+        "role": "Henry Ford Sleep Disorders Center investigators (2013) who proved caffeine 6 hours before bed steals over an hour of objective sleep without sleepers noticing",
+        "source_id": "SRC2"
+      },
+      {
+        "name": "Carissa Gardiner & Sleep Meta-Analysis Team",
+        "role": "Sleep Medicine Reviews (2023) authors who synthesized 24 trials establishing the 8.8-hour pre-bedtime coffee cutoff",
+        "source_id": "SRC5"
+      }
+    ]
+  },
+  "three_layer_formula": {
+    "everyday_problem": "Bragging that a 3 PM coffee never stops you from falling asleep at 11 PM—yet waking up at 7 AM with heavy eyes and unrefreshed brain fog.",
+    "psychology_experiment": {
+      "source_id": "SRC2",
+      "doi": "10.5664/jcsm.3170",
+      "source_ids": [
+        "SRC2",
+        "SRC5"
+      ],
+      "dois": [
+        "10.5664/jcsm.3170",
+        "10.1016/j.smrv.2023.101764"
+      ],
+      "summary": "Drake et al. (2013, JCSM) gave volunteers caffeine 0, 3, or 6 hours before habitual bedtime and found even 6-hour-early caffeine significantly fractured objective home sleep while sleepers underestimated the loss; Gardiner et al. (2023) confirmed a 45-minute average total sleep reduction across 24 trials."
+    },
+    "neuroscience_mechanism": {
+      "source_id": "SRC1",
+      "doi": "10.1038/s42003-025-08090-z",
+      "year": 2025,
+      "source_ids": [
+        "SRC1",
+        "SRC6"
+      ],
+      "dois": [
+        "10.1038/s42003-025-08090-z",
+        "10.1126/scitranslmed.aac5125"
+      ],
+      "summary": "Thölke, Carrier & Jerbi (2025, Communications Biology) analyzed overnight sleep EEG in 40 adults and proved caffeine flattens the 1/f spectral slope and increases neural complexity during NREM sleep, locking thalamocortical networks near wake-like criticality while Burke et al. (2015) showed evening caffeine delays the human circadian clock."
+    },
+    "psychology_studies": [
+      {
+        "source_id": "SRC2",
+        "doi": "10.5664/jcsm.3170",
+        "year": 2013,
+        "summary": "Drake et al. (2013, JCSM) 0, 3, and 6-hour pre-bedtime caffeine home sleep disruption study."
+      },
+      {
+        "source_id": "SRC5",
+        "doi": "10.1016/j.smrv.2023.101764",
+        "year": 2023,
+        "summary": "Gardiner et al. (2023, Sleep Medicine Reviews) 24-study meta-analysis quantifying the 8.8-hour coffee cutoff and 45-minute sleep loss."
+      }
+    ],
+    "neuroscience_studies": [
+      {
+        "source_id": "SRC1",
+        "doi": "10.1038/s42003-025-08090-z",
+        "year": 2025,
+        "summary": "Thölke et al. (2025, Communications Biology) 40-adult sleep EEG discovery of caffeine-induced NREM brain criticality."
+      },
+      {
+        "source_id": "SRC6",
+        "doi": "10.1126/scitranslmed.aac5125",
+        "year": 2015,
+        "summary": "Burke et al. (2015, Science Translational Medicine) human in-vivo proof that evening caffeine delays endogenous circadian melatonin phase."
+      }
+    ]
+  },
+  "core_facts": [
+    {
+      "fact": "In 2025 (Communications Biology), Philipp Thölke, Julie Carrier, and Karim Jerbi at the University of Montreal recorded full-night sleep EEG across 40 healthy adults (ages 20 to 58) in a double-blind crossover comparing pre-sleep caffeine capsules against identical placebo capsules.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Even while volunteers lay completely unconscious in non-rapid eye movement (NREM) sleep, Thölke et al. (2025) found caffeine significantly increased cortical signal complexity, flattened the 1/f spectral slope, and weakened long-range temporal correlations—pushing the sleeping brain into an active, wake-like critical state.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "Thölke et al. (2025) also uncovered a striking adult age split: while NREM sleep complexity surged across both younger and middle-aged sleepers (41 to 58 years old), REM-stage criticality shifts were stronger in younger adults because adenosine A1 receptor density naturally declines across midlife.",
+      "source_id": "SRC1"
+    },
+    {
+      "fact": "In a 24-study systematic review and meta-analysis, Gardiner et al. (2023, Sleep Medicine Reviews) found caffeine cut total nighttime sleep by 45 minutes, lowered sleep efficiency by 7%, and shaved 11.4 minutes off deep slow-wave N3 sleep while adding 6.1 minutes of shallow Stage-1 sleep.",
+      "source_id": "SRC5"
+    },
+    {
+      "fact": "Gardiner et al. (2023, Sleep Medicine Reviews) calculated exact evidence-based cutoffs: to avoid losing total sleep time, a standard cup of coffee (107 mg) must be finished at least 8.8 hours before bedtime, whereas a stronger 217.5 mg dose requires 13.2 hours of clearance.",
+      "source_id": "SRC5",
+      "stats": {
+        "mode": "study",
+        "preset": "bar_compare",
+        "format": "group_means",
+        "title": "Safe Pre-Bed Caffeine Cutoff",
+        "unit": "h",
+        "bars": [
+          {
+            "label": "Standard Coffee",
+            "value": 8.8,
+            "unit": "h"
+          },
+          {
+            "label": "Double-Shot Dose",
+            "value": 13.2,
+            "unit": "h"
+          }
+        ],
+        "doi": "10.1016/j.smrv.2023.101764",
+        "source_citation": "Gardiner et al. (2023)"
+      }
+    },
+    {
+      "fact": "Christopher Drake, Timothy Roehrs, John Shambroom, and Thomas Roth (2013, Journal of Clinical Sleep Medicine) tested fixed caffeine doses taken 0, 3, or 6 hours before habitual bedtime and proved even caffeine consumed 6 hours before bed significantly disrupted objective home sleep (p < 0.05).",
+      "source_id": "SRC2"
+    },
+    {
+      "fact": "In a 10-day double-blind crossover trial of habitual coffee drinkers, Weibel, Lin, Landolt, and Reichert (2021, Journal of Biological Rhythms) showed regular daytime caffeine delayed REM sleep promotion and degraded subjective morning sleep quality—proving daily tolerance does not fully shield sleep architecture.",
+      "source_id": "SRC3"
+    },
+    {
+      "fact": "Tina Burke and Kenneth Wright (2015, Science Translational Medicine) revealed caffeine hits a second biological switch beyond adenosine receptors: an evening double-espresso dose delayed the human master circadian melatonin clock by roughly 40 minutes—about half the shift of bright bedroom light.",
+      "source_id": "SRC6"
+    },
+    {
+      "fact": "Reichert, Deboer, and Landolt (2022, Journal of Sleep Research) and Clark and Landolt (2017, Sleep Medicine Reviews) showed caffeine competitively blocks adenosine A1 and A2A receptors without clearing built-up adenosine—masking sleepiness while stealing deep delta-wave synchronized recovery.",
+      "source_id": "SRC4"
+    }
+  ],
+  "wow_facts": [
+    {
+      "fact": "Falling asleep fast after an afternoon coffee does not mean your brain escaped caffeine—2025 Montreal sleep-EEG scans caught unconscious NREM brains humming in a wired, wake-like critical state all night long.",
+      "why_surprising": "Shatters the #1 dinner-table brag ('I can drink espresso at 5 PM and sleep like a log') by separating unconsciousness from neural restoration.",
+      "source_id": "SRC1",
+      "rank": 1
+    },
+    {
+      "fact": "Across 24 controlled trials, Gardiner et al. (2023) found even a modest 107 mg cup of coffee needs 8.8 hours of clearance before bedtime—meaning a 2:30 PM pour still clips deep slow-wave sleep at 11:00 PM.",
+      "why_surprising": "Most adults assume a 4-to-5-hour afternoon cutoff is plenty, unaware of caffeine's slow hepatic half-life and A2A receptor hold.",
+      "source_id": "SRC5",
+      "rank": 2
+    },
+    {
+      "fact": "Evening caffeine doesn't just block sleepiness—Burke et al. (2015) proved it physically sets back your hypothalamic circadian melatonin clock by 40 minutes, mimicking westward jet lag.",
+      "why_surprising": "Explains why one late Friday dinner espresso makes waking up Saturday and Monday mornings feel strangely mistimed.",
+      "source_id": "SRC6",
+      "rank": 3
+    }
+  ],
+  "misconceptions": [
+    {
+      "myth": "If you fall asleep within ten minutes after afternoon coffee, caffeine has zero effect on your sleep.",
+      "truth": "Thölke et al. (2025) and Drake et al. (2013) proved sleepers remain unaware while caffeine flattens NREM slow-wave synchrony and shifts the sleeping cortex toward wake-like criticality.",
+      "source_id": "SRC1"
+    },
+    {
+      "myth": "Drinking coffee every single day builds complete immunity so your nighttime sleep waves return to normal.",
+      "truth": "Weibel et al.'s (2021) controlled crossover trial showed habitual daily caffeine consumers still suffered delayed REM promotion and reduced sleep quality compared with placebo.",
+      "source_id": "SRC3"
+    }
+  ],
+  "everyday_hooks": [
+    "Drinking a 3:00 PM office coffee, falling asleep fine at 11:00 PM, and wondering why your forehead still feels heavy at 7:00 AM.",
+    "Ordering a post-dinner restaurant espresso because 'caffeine never keeps me up' while your sleeping NREM brain loses synchronized deep waves.",
+    "Moving your last caffeinated cup before 1:30 PM (the 9-hour rule) and feeling clean morning clarity return within three days."
+  ],
+  "debate_ignition": {
+    "prebunk_myth": "Millions of adults swear afternoon coffee doesn't touch their sleep just because they fall asleep fast—until EEG sensors look under the hood.",
+    "open_verdict_question": "After seeing how afternoon caffeine wires your sleeping brain waves, will you cut off coffee 9 hours before bed or keep your 3 PM cup?",
+    "offcenter_creator_bet": "My bet: passing out isn't deep recovery — do you stop coffee by 1 PM or drink it late?"
+  },
+  "offcenter_creator_bet": "My bet: passing out isn't deep recovery — do you stop coffee by 1 PM or drink it late?",
+  "reenactment_track": "track_b",
+  "reenactment_track_subtier": "B_scene_bible_anchor",
+  "linked_projects": []
+}

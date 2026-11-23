@@ -2,7 +2,7 @@
 Comprehensive verification for:
   1. 90s (`1m30s`) Shorts default (`shorts_90s_v7`) & `shorts_180s_v7` / `micro_short_v7` preservation
   2. Longform deferral (`LONGFORM_DEFERRED = True`) CLI guard + override flags
-  3. Monthly & daily `Omni 1.1 Flash` -> `0-credit` `Veo 3.1 - Lite [Lower Priority]` auto-tier & `SharedOmniCreditBudget`
+  3. Monthly & daily `Omni 1.2 Flash` -> `0-credit` `Veo 3.1 - Lite [Lower Priority]` auto-tier & `SharedOmniCreditBudget`
   4. `<30m` bottleneck upgrades (stagger constants, single-wave 28-clip capacity, persistent SHA-256 cache, unmanned CV-verified QA signoff)
   5. Canonical `AAB_<project_id>` Google Flow room naming, `flow-clean --local-only`, and `/tmp` hygiene
   6. Cross-process CDP anti-tab-stealing isolation (`/tmp/aab_cdp_leases.json`, `Target.createTarget(..., background=True)`,
@@ -78,7 +78,7 @@ def test_shorts_90s_default_constants_and_ssot_parity() -> None:
     assert cfg.LONGFORM_DEFERRED is True
     assert cfg.FLOW_TAB_OPEN_STAGGER_SEC == 2.5
     assert cfg.FLOW_SUBMIT_STAGGER_SEC == 3.0
-    assert cfg.UNMANNED_QA_SIGNOFF_DEFAULT is True
+    assert cfg.UNMANNED_QA_SIGNOFF_DEFAULT is False
 
     constants_md = (cfg.WORKSPACE_ROOT / ".agents" / "rules" / "production_constants.md").read_text(encoding="utf-8")
     for required_name in (
@@ -381,13 +381,13 @@ def test_flow_credits_overlay_parsing_and_monthly_daily_rollover(
     assert ok_same is False
     assert reason_same == "exhausted_within_active_window"
 
-    # Next UTC day (+50 daily credit top-up rollover) -> automatically re-probes Omni 1.1 Flash!
+    # Next UTC day (+50 daily credit top-up rollover) -> automatically re-probes Omni 1.2 Flash!
     next_day_ts = dt.datetime(2026, 11, 6, 0, 5, tzinfo=dt.timezone.utc).timestamp()
     ok_daily, reason_daily = should_reprobe_primary_omni(now_ts=next_day_ts, reprobe_ttl_sec=999_999.0)
     assert ok_daily is True
     assert reason_daily == "daily_credit_refill_rollover"
 
-    # Scheduled monthly reset timestamp elapsed -> automatically re-probes Omni 1.1 Flash!
+    # Scheduled monthly reset timestamp elapsed -> automatically re-probes Omni 1.2 Flash!
     reset_ts = dt.datetime(2026, 11, 17, 0, 5, tzinfo=dt.timezone.utc).timestamp()
     ok_sched, reason_sched = should_reprobe_primary_omni(now_ts=reset_ts, reprobe_ttl_sec=999_999.0)
     assert ok_sched is True
@@ -453,6 +453,8 @@ def test_canonical_flow_room_naming_and_tmp_cleanup(tmp_path: Path) -> None:
     locks_dir = fake_tmp / "aab_locks"
     locks_dir.mkdir()
     (locks_dir / "flow_credit_state.lock").write_text("", encoding="utf-8")
+    report_lock = fake_tmp / "aab_studio_report.lock"
+    report_lock.write_text("", encoding="utf-8")
     user_note = fake_tmp / "my_personal_notes.txt"
     user_note.write_text("keep me", encoding="utf-8")
 
@@ -461,7 +463,6 @@ def test_canonical_flow_room_naming_and_tmp_cleanup(tmp_path: Path) -> None:
         fake_tmp / ".aab_manifest_12345.tmp",
         fake_tmp / ".aab_kb_999.tmp",
         fake_tmp / ".aab_asset_idx_111.tmp",
-        fake_tmp / "aab_studio_report.lock",
         fake_tmp / "aab_preflight_voice_01.mp3",
         fake_tmp / "fimg_cand_0.png",
         fake_bridge / "partial_video.mp4.crdownload",
@@ -480,6 +481,7 @@ def test_canonical_flow_room_naming_and_tmp_cleanup(tmp_path: Path) -> None:
     assert rep["removed_dirs_count"] == 2
     assert lease_json.exists(), "aab_cdp_leases.json must never be deleted by flow-clean"
     assert locks_dir.exists(), "aab_locks directory must never be deleted by flow-clean"
+    assert report_lock.exists(), ".lock files must never be deleted by flow-clean"
     assert user_note.exists(), "Unrelated user files in /tmp must never be touched"
     for sf in stale_files:
         assert not sf.exists()
@@ -559,7 +561,9 @@ def test_persistent_sha256_cache_and_unmanned_posthoc_signoff(
         edl_sha256=edl_sha,
         expected_cut_count=28,
     )
-    assert val_res["valid"] is True, f"Unmanned signoff failed R64 validation: {val_res}"
+    # R85 Law: unmanned_cv_verified_signoff is unconditionally invalid (must require real VLM/human visual sign-off)
+    assert val_res["valid"] is False
+    assert any("unmanned_cv_verified_signoff_forbidden" in iss for iss in val_res["issues"])
 
 
 # ---------------------------------------------------------------------------
@@ -1497,9 +1501,10 @@ def test_single_canonical_flow_room_reuse_across_waves_shards_and_cooldown_plus_
     Regression lock for single-room Google Flow reuse (AGENTS.md 1-room-per-episode lock):
       1. `allocate_dedicated_flow_project_tab` reuses `existing_project_url` AND existing `AAB_<project_id>`
          dashboard cards without clicking `button.new-project-button`.
-      2. `_run_shard_worker` across shards, waves, and `'unusual activity'` cooldowns ALWAYS uses canonical
+      2. `_run_shard_worker` across shards, waves, and transient tile-error retries ALWAYS uses canonical
          `AAB_<project_id>` (zero `__clips_s*_w*` names) and reuses `flow_rate_state['canonical_project_url']`
-         in-place without spinning up extra Flow project URLs.
+         in-place without spinning up extra Flow project URLs (while `"unusual activity"` halts immediately
+         under the Zero-Bypass Halt Guard).
     """
     import collections
     from pipeline import flow_diorama_sharded_worker as sw
@@ -1638,14 +1643,14 @@ def test_single_canonical_flow_room_reuse_across_waves_shards_and_cooldown_plus_
             if "classifyTile" in expr and "hasNewSrc" in expr:
                 poll_count[0] += 1
                 if poll_count[0] == 1:
-                    # Trigger 'unusual activity' on first poll — worker MUST reload same room in-place (not open wave 2!)
+                    # Trigger a transient tile error on first poll — worker MUST retry in canonical room in-place (not open wave 2!)
                     return {
                         "ready": 0,
                         "rendering": 0,
                         "hasNewSrc": False,
                         "topKey": "",
                         "hadErr": True,
-                        "errText": "Unusual activity detected. Please wait a few moments.",
+                        "errText": "Temporary tile generation error.",
                     }
                 return {"ready": 1, "rendering": 0, "hasNewSrc": True, "topKey": f"https://v/{poll_count[0]}", "hadErr": False}
             if "classifyTile" in expr:
@@ -1663,8 +1668,8 @@ def test_single_canonical_flow_room_reuse_across_waves_shards_and_cooldown_plus_
         return True
 
     async def _fake_dl(dst_mp4: Path, **_kw: Any) -> dict[str, Any]:
-        dst_mp4.write_bytes(b"1" * 400_000)
-        return {"sha256": f"sha_{dst_mp4.stem}_{poll_count[0]}", "file_size_bytes": 400_000, "source_download_filename": dst_mp4.name}
+        dst_mp4.write_bytes(b"1" * 1_050_000)
+        return {"sha256": f"sha_{dst_mp4.stem}_{poll_count[0]}", "file_size_bytes": 1_050_000, "source_download_filename": dst_mp4.name}
 
     monkeypatch.setattr(sw, "allocate_dedicated_flow_project_tab", _spy_alloc_tab)
     monkeypatch.setattr(sw, "DirectCDPClient", _ShardCDP)
@@ -1728,7 +1733,7 @@ def test_single_canonical_flow_room_reuse_across_waves_shards_and_cooldown_plus_
         )
     )
 
-    # Shard 1 survived unusual-activity cooldown in-place (1 tab allocation, NOT 2!) and Shard 2 reused Shard 1's canonical URL!
+    # Shard 1 survived transient tile-error retry in-place (1 tab allocation, NOT 2!) and Shard 2 reused Shard 1's canonical URL!
     assert len(alloc_calls) == 2
     assert alloc_calls[0]["project_id"] == "v8_pilot_02_test"
     assert alloc_calls[0]["room_name"] == "AAB_v8_pilot_02_test"
@@ -1782,7 +1787,7 @@ def test_audit_item1_receipt_prompt_and_ref_sha_guard_invalidates_stale_clips(
     )
 
     clip_p = native_dir / "clip_1.mp4"
-    clip_p.write_bytes(b"M" * 400_000)
+    clip_p.write_bytes(b"M" * 1_050_000)
 
     # Case 1: Legacy receipt missing prompt_sha -> rejected, clip deleted & popped for regen
     ok_leg, reason_leg = sw.clip_receipt_matches_fingerprints({"clip_index": 1}, fp_v1)
@@ -1799,7 +1804,7 @@ def test_audit_item1_receipt_prompt_and_ref_sha_guard_invalidates_stale_clips(
     assert not clip_p.exists()
 
     # Case 2: Exact prompt_sha + start_ref_sha256 + end_ref_sha256 match -> reused (`None` popped, file preserved)
-    clip_p.write_bytes(b"M" * 400_000)
+    clip_p.write_bytes(b"M" * 1_050_000)
     matching_rec = {
         "clip_index": 1,
         "reference_attached": True,
@@ -1834,7 +1839,7 @@ def test_audit_item1_receipt_prompt_and_ref_sha_guard_invalidates_stale_clips(
     assert not clip_p.exists()
 
     # Case 4: End reference image bytes change -> stale clip deleted & popped for regeneration
-    clip_p.write_bytes(b"M" * 400_000)
+    clip_p.write_bytes(b"M" * 1_050_000)
     e_ref.write_bytes(b"END_PNG_V2_CHANGED")
     popped_ref_drift = sw._pop_next_pending_clip(
         collections.deque([dict(spec)]),
@@ -1869,7 +1874,7 @@ def test_audit_item3_script_newer_than_audio_master_mtime_and_hash_guard(tmp_pat
     p_dir = tmp_path / "ep_stale_guard"
     for sub in ("02_script", "03_visuals/flow_native_clips", "04_audio", "05_assembly"):
         (p_dir / sub).mkdir(parents=True, exist_ok=True)
-    for i in range(1, 15):
+    for i in range(1, 21):
         (p_dir / "03_visuals" / "flow_native_clips" / f"clip_{i}.mp4").write_bytes(b"0" * 4096)
 
     sc_path = p_dir / "02_script" / "script.json"
@@ -2028,8 +2033,8 @@ def test_audit_item4_and_8_download_missed_rescan_and_two_miss_abort_partial_sum
             # Clip 1: 1st download misses, gallery re-scan (2nd call) recovers WITHOUT resubmitting!
             if dl_calls_by_clip[clip_key] == 1:
                 return None
-            dst_mp4.write_bytes(b"1" * 400_000)
-            return {"sha256": "sha_clip_1_ok", "file_size_bytes": 400_000, "source_download_filename": "clip_1.mp4"}
+            dst_mp4.write_bytes(b"1" * 1_050_000)
+            return {"sha256": "sha_clip_1_ok", "file_size_bytes": 1_050_000, "source_download_filename": "clip_1.mp4"}
         # Clip 2: always misses both primary download and re-scan -> must abort after 2 tries (4 dl calls: 2 tries x (primary+rescan))
         return None
 
@@ -2080,10 +2085,9 @@ def test_audit_item4_and_8_download_missed_rescan_and_two_miss_abort_partial_sum
     assert partial["missing_or_failed_clip_indices"] == [2]
     assert any("download_missed_abort" in d["error"] for d in partial["failed_clip_details"])
 
-    # Audit Item 6: finally cleanup ran with project_id AND protected canonical room URL on partial failure
-    assert len(clean_calls) == 1
-    assert clean_calls[0]["project_id"] == "ep_dl_miss"
-    assert clean_calls[0]["exclude_project_urls"] == ["https://flow.google.com/project/canon-room-1234"]
+    # Room Preservation Lock: by default (`FLOW_AUTO_CLEANUP_ON_SUCCESS == False`), episode rooms are NEVER deleted
+    assert sw.FLOW_AUTO_CLEANUP_ON_SUCCESS is False
+    assert len(clean_calls) == 0
 
 
 def test_audit_item5_v8_yunet_skin_or_hair_leak_advisory_vs_real_flesh() -> None:
@@ -2110,6 +2114,39 @@ def test_audit_item5_v8_yunet_skin_or_hair_leak_advisory_vs_real_flesh() -> None
     confirmed_skin, meta_skin = sw.verify_v8_yunet_skin_or_hair_leak(skin_roi, (40, 40, 160, 160, 0.84))
     assert confirmed_skin is True
     assert meta_skin["skin_ratio"] > 0.20
+
+    # 3a) Warm amber-lit cream 2.5D vinyl with 2D ink eyes (high skin_ratio >= 0.45, low hemoglobin) -> MODERATE_SUSPECT (confirmed=False, no false worker retry!)
+    amber_skin_roi = np.full((240, 240, 3), (145, 196, 224), dtype=np.uint8)
+    amber_skin_roi[0:50, 40:60] = (24, 28, 36)
+    cv2.line(amber_skin_roi, (78, 78), (108, 76), (20, 20, 22), 5)
+    cv2.line(amber_skin_roi, (132, 76), (162, 78), (20, 20, 22), 5)
+    confirmed_amber_skin, meta_amber_skin = sw.verify_v8_yunet_skin_or_hair_leak(
+        amber_skin_roi, (40, 40, 160, 160, 0.85)
+    )
+    assert confirmed_amber_skin is False
+    assert meta_amber_skin["suspect_tier"] == "MODERATE_SUSPECT"
+    assert meta_amber_skin["skin_ratio"] >= 0.45
+
+    # 3b) True cream-white bald 2.5D vinyl (low saturation, skin_ratio < 0.45, 2D ink eyes) -> advisory pass
+    cream_vinyl_roi = np.full((240, 240, 3), (195, 224, 236), dtype=np.uint8)
+    cream_vinyl_roi[0:50, 40:60] = (24, 28, 36)
+    cv2.circle(cream_vinyl_roi, (95, 110), 10, (20, 20, 22), -1)
+    cv2.circle(cream_vinyl_roi, (145, 110), 10, (20, 20, 22), -1)
+    confirmed_cream_vinyl, meta_cream_vinyl = sw.verify_v8_yunet_skin_or_hair_leak(
+        cream_vinyl_roi, (40, 40, 160, 160, 0.85)
+    )
+    assert confirmed_cream_vinyl is False
+    assert meta_cream_vinyl["skin_ratio"] < 0.45
+
+    # 4) Dark hair cap wrapping crown + temples -> HIGH_SUSPECT confirmed leak
+    hair_cap_roi = np.full((240, 240, 3), (145, 180, 224), dtype=np.uint8)
+    hair_cap_roi[15:72, 48:192] = (18, 20, 24)   # dark crown hair
+    hair_cap_roi[65:125, 35:68] = (18, 20, 24)   # dark temple wrap
+    confirmed_hair_cap, meta_hair_cap = sw.verify_v8_yunet_skin_or_hair_leak(
+        hair_cap_roi, (40, 40, 160, 160, 0.88)
+    )
+    assert confirmed_hair_cap is True
+    assert meta_hair_cap["scalp_dark_hair"] >= 0.25
 
 
 def test_audit_item6_stale_seed_canonical_url_updates_across_shards_and_excludes_in_cleanup(
@@ -2172,8 +2209,8 @@ def test_audit_item6_stale_seed_canonical_url_updates_across_shards_and_excludes
             return {"ready": 0, "rendering": 0, "srcs": [], "topKey": ""}
 
     async def _dl(dst_mp4: Path, **_kw: Any) -> dict[str, Any]:
-        dst_mp4.write_bytes(b"2" * 400_000)
-        return {"sha256": f"s_{dst_mp4.stem}", "file_size_bytes": 400_000, "source_download_filename": dst_mp4.name}
+        dst_mp4.write_bytes(b"2" * 1_050_000)
+        return {"sha256": f"s_{dst_mp4.stem}", "file_size_bytes": 1_050_000, "source_download_filename": dst_mp4.name}
 
     async def _sub(_c: Any, _p: str, *_a: Any, **kw: Any) -> bool:
         if kw.get("submission_meta_out") is not None:
