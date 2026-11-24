@@ -127,7 +127,7 @@ flowchart LR
 ## 5. 썸네일 시각 법칙 및 '자기복제 피로(Template Cannibalization)'
 
 ````carousel
-![메가 히트작 썸네일 9종: 단색 배경 + 2~4단어 고딕 카피 + 구체적 사물/행동 은유](./psychtoons_media/sheet1_hits.jpg)
+![메가 히트작 썸네일 9종: 단색 배경 + 2~4단어 고딕 카피 + 구체적 사물/행동 은유](../01_YouTube_CEO/benchmark_media/sheet1_hits.jpg)
 <!-- slide -->
 ![후반기 부진작 9종: 히트 구도(뇌 들고 있는 인물, 총알 막기, 독서 뇌) 재탕 시 -97%~-99% 급락](./psychtoons_media/sheet3_p2_underperformers.jpg)
 ````

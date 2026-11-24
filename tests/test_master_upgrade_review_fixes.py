@@ -13,7 +13,7 @@ import cv2
 import numpy as np
 import pytest
 
-from pipeline import cli, config, flow_ingredients, longform_assembler, news_radar, thumbnail_studio
+from pipeline import cli, config, flow_ingredients, news_radar, thumbnail as thumbnail_studio
 from pipeline.config import (
     DOSSIERS_DIR,
     FLOW_ZERO_CREDIT_IMAGE_MODEL,
@@ -23,15 +23,11 @@ from pipeline.config import (
     PILLAR_DEFAULT_STYLE_MAP,
     TITLE_MAX_CHARS_DIORAMA,
 )
-from pipeline.diorama_batch_orchestrator import build_editorial_description_from_dossier
-from pipeline.prompt_quality_v5 import validate_production_diorama_v6
-from pipeline.reference_image_qa import _dhash_64
+from pipeline.batch_runner import build_editorial_description_from_dossier
+from pipeline.prompt_gate import validate_production_diorama_v6
+from pipeline.ref_qa import _dhash_64
 from pipeline.studio.community import CommunityManager, _find_matching_dossier_dir
-from pipeline.studio.sanitize_scheduled_metadata import (
-    build_diversified_description,
-    diversify_clone_title,
-)
-from pipeline.studio.studio_watchdog import cleanup_idle_whale_tabs
+from pipeline.studio.watchdog import cleanup_idle_whale_tabs
 
 
 class _FakeFlowImageCDPClient:
@@ -183,7 +179,7 @@ def test_generate_flow_image_batch_refuses_to_save_or_register_when_candidates_f
 
     monkeypatch.setattr(urllib.request, "urlopen", lambda req, timeout=20: _FakeResp())
     registered_calls: list[str] = []
-    import pipeline.reference_image_qa as rqa
+    import pipeline.ref_qa as rqa
 
     async def _noop_clear(_c: Any) -> None:
         return None
@@ -209,125 +205,8 @@ def test_generate_flow_image_batch_refuses_to_save_or_register_when_candidates_f
     assert registered_calls == []
 
 
-@pytest.mark.slow
-def test_cmd_longform_assemble_end_to_end_4k_mp4_tpad_and_thumbnails(
-    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
-):
-    monkeypatch.setattr(config, "PROJECTS_DIR", str(tmp_path))
-    monkeypatch.setattr(longform_assembler, "PROJECTS_DIR", str(tmp_path))
-    monkeypatch.setattr(thumbnail_studio, "PROJECTS_DIR", str(tmp_path))
-
-    proj_dir = tmp_path / "lf_test_01"
-    vis_dir = proj_dir / "03_visuals" / "flow_native_clips"
-    aud_dir = proj_dir / "04_audio"
-    vis_dir.mkdir(parents=True)
-    aud_dir.mkdir(parents=True)
-
-    # Create 3 short 16:9 native clips (12 frames @ 24fps = 0.50s each -> 1.50s total video)
-    for idx, color in enumerate([(220, 210, 195), (195, 215, 225), (210, 225, 205)], start=1):
-        mp4_path = vis_dir / f"clip_{idx}.mp4"
-        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        writer = cv2.VideoWriter(str(mp4_path), fourcc, 24.0, (640, 360))
-        for f_i in range(12):
-            frame = np.full((360, 640, 3), color, dtype=np.uint8)
-            cv2.circle(frame, (160 + f_i * 18, 180), 48, (80, 110, 160), -1)
-            writer.write(frame)
-        writer.release()
-
-    (proj_dir / "03_visuals" / "visual_plan.json").write_text(
-        json.dumps(
-            {
-                "clips": [
-                    {"index": 1, "act": 1},
-                    {"index": 2, "act": 1},
-                    {"index": 3, "act": 2, "chapter_break": True},
-                ]
-            }
-        ),
-        encoding="utf-8",
-    )
-
-    # Create a 2.40s 48kHz stereo WAV narration (> 1.50s video so tpad MUST preserve full audio without -shortest cutoff)
-    wav_path = aud_dir / "audio_master.wav"
-    sr = 48000
-    n_samples = int(sr * 2.40)
-    with wave.open(str(wav_path), "wb") as wf:
-        wf.setnchannels(2)
-        wf.setsampwidth(2)
-        wf.setframerate(sr)
-        frames = bytearray()
-        for n in range(n_samples):
-            val = int(6000.0 * math.sin(2.0 * math.pi * 220.0 * (n / sr)))
-            frames.extend(struct.pack("<hh", val, val))
-        wf.writeframes(bytes(frames))
-
-    cli.cmd_longform_assemble(argparse.Namespace(project="lf_test_01", hook_text="WHY SILENT BABIES RACE"))
-
-    out_mp4 = proj_dir / "05_assembly" / config.LONGFORM_FINAL_MP4_FILENAME
-    rep_path = proj_dir / "05_assembly" / "longform_assembly_report.json"
-    assert out_mp4.exists() and out_mp4.stat().st_size > 10_000
-    assert rep_path.exists()
-    rep = json.loads(rep_path.read_text(encoding="utf-8"))
-    assert rep["passed"] is True
-    assert rep["chapter_starts"] == [0, 2]
-
-    cap = cv2.VideoCapture(str(out_mp4))
-    w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-    h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-    fps = float(cap.get(cv2.CAP_PROP_FPS))
-    fc = float(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    cap.release()
-    assert (w, h) == (LONGFORM_VIDEO_WIDTH, LONGFORM_VIDEO_HEIGHT)
-    assert abs(fps - LONGFORM_VIDEO_FPS) < 0.5
-    # Video stream was padded to cover the full 2.40s narration rather than truncated at 1.50s
-    assert (fc / fps) >= 2.35
-
-    for v in ("A", "B", "C"):
-        t_png = proj_dir / "06_publish" / f"thumb_longform_{v}.png"
-        assert t_png.exists()
-        im = cv2.imread(str(t_png))
-        assert im is not None
-        assert (im.shape[1], im.shape[0]) == (LONGFORM_VIDEO_WIDTH, LONGFORM_VIDEO_HEIGHT)
 
 
-def test_porcelain_rebalanced_queue_65_of_65_gate_clean_and_authentic_descriptions():
-    import concurrent.futures
-    from pipeline.flow_prompt_builder import build_flow_prompts
-    from pipeline.publish import validate_diorama_paradox_title
-
-    q_path = Path(config.CHANNEL_ROOT) / "porcelain_rebalanced_queue.json"
-    if not q_path.exists():
-        pytest.skip("Optional porcelain_rebalanced_queue.json not present on disk")
-    q = json.loads(q_path.read_text(encoding="utf-8"))
-    ready = q["queue"]
-    assert len(ready) == 65
-
-    slugs = {it["slug"] for it in ready}
-    assert "phineas_gage_iron_rod" not in slugs
-    assert not (Path(DOSSIERS_DIR) / "phineas_gage_iron_rod" / "diorama_v7_porcelain").exists()
-
-    def _check_item(it: dict[str, Any]) -> None:
-        assert it["pillar"] in PILLAR_DEFAULT_STYLE_MAP
-        pdir = Path(it["porcelain_dir"])
-        plan, narrations, script_doc = cli._load_gate_inputs(pdir)
-        clips = build_flow_prompts(plan, narrations)
-        issues = list(validate_production_diorama_v6(plan, narrations, clips, script_doc=script_doc))
-        raw_title = str(script_doc.get("title") or plan.get("title") or "").strip()
-        if raw_title:
-            issues.extend(validate_diorama_paradox_title(raw_title))
-        assert issues == [], f"{it['slug']} failed prompt-gate: {issues}"
-        sc = json.loads((pdir / "script.json").read_text(encoding="utf-8"))
-        md = json.loads((pdir / "metadata.json").read_text(encoding="utf-8"))
-        act_sents = [s for a in sc.get("acts", []) for s in a.get("sentences", [])]
-        if act_sents:
-            assert act_sents == sc["sentences"], f"{it['slug']} acts != sentences"
-        desc = md.get("description", "")
-        assert not desc.startswith("experiment_chronicle"), f"{it['slug']} leaked template ID"
-        assert ". . ." not in desc, f"{it['slug']} leaked empty citation dots"
-        assert "-  (" not in desc, f"{it['slug']} leaked empty author citation"
-
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-        list(pool.map(_check_item, ready))
 
 
 def test_community_line1_question_above_fold_and_reenact_dossier_lookup():
@@ -359,24 +238,6 @@ def test_editorial_description_and_metadata_sanitizer_parse_real_dossier_citatio
     assert doi == "10.1098/rspb.2000.1576"
     assert "#Shorts" in tags
 
-    # Overlong non-clone title is capped <= TITLE_MAX_CHARS_DIORAMA
-    long_title = "Skeptics Called Colored Numbers Fake Poetry, Yet Synesthetes Crushed a One-Second Camouflage Test"
-    assert len(long_title) > TITLE_MAX_CHARS_DIORAMA
-    capped = diversify_clone_title(long_title, index_seed=2)
-    assert len(capped) <= TITLE_MAX_CHARS_DIORAMA
-
-    # build_diversified_description synthesizes from dossier rather than copying script sentences verbatim
-    div_desc = build_diversified_description(
-        project_id="reenact_01_ainsworth_strange_situation",
-        metadata={"title": "1970 Strange Situation: Why Quiet Babies Hid Racing Hearts", "doi": "10.2307/1127388"},
-        script={
-            "dossier": "ainsworth_strange_situation",
-            "sentences": ["UNIQUE_SCRIPT_SENTENCE_ONE_DO_NOT_COPY!", "UNIQUE_SCRIPT_SENTENCE_TWO_DO_NOT_COPY!"],
-        },
-        index_seed=1,
-    )
-    assert "UNIQUE_SCRIPT_SENTENCE_ONE_DO_NOT_COPY" not in div_desc
-    assert "https://doi.org/10.2307/1127388" in div_desc
 
 
 def test_watchdog_cleanup_idle_whale_tabs_and_news_radar_canonical_pillars(

@@ -27,7 +27,7 @@ from pipeline.config import (
     R68D_BANNED_AI_CLICHES,
     R68D_DESCRIPTION_WORD_RANGE,
 )
-from pipeline.diorama_batch_orchestrator import _default_metadata_from_script_and_dossier
+from pipeline.batch_runner import _default_metadata_from_script_and_dossier
 from pipeline.publish import (
     PublishStage,
     _scrub_experiment_nicknames,

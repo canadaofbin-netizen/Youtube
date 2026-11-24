@@ -31,7 +31,46 @@ STAGE_NAMES = [
     "06_publish"
 ]
 
+PURGED_TEMP_BACKUP_STAGE_PREFIXES: tuple[str, ...] = (
+    "03_visuals/flow_downloads/",
+    "03_visuals/legacy_clips_backup/",
+    "03_visuals/clips_backup_pre_r85",
+    "03_visuals/flow_native_clips_sparse20_backup/",
+    "03_visuals/previs_guides/",
+    "03_visuals/brain_simulator_clips/",
+    "03_visuals/flow_screenshots/",
+    "04_audio/tts_fallback/",
+    "04_audio/tts_diorama",
+)
+
+
+def _is_excluded_manifest_relpath(stage_name: str, rel_posix: str) -> bool:
+    """Returns True for ephemeral browser downloads, temp scratch, and backup folders excluded from manifest tracking."""
+    full_rel = f"{stage_name}/{rel_posix}"
+    if full_rel.startswith(PURGED_TEMP_BACKUP_STAGE_PREFIXES):
+        return True
+    parts = [p for p in rel_posix.split("/") if p]
+    for part in parts[:-1]:
+        if (
+            part in ("flow_downloads", "flow_screenshots")
+            or part.startswith((".tmp_", "_tmp_"))
+            or part.endswith("_backup")
+        ):
+            return True
+    if parts and parts[-1].startswith((".tmp_", "_tmp_")):
+        return True
+    return False
+
 _CLIP_INDEX_RE = re.compile(r"(\d+)")
+
+
+def compute_sha256(path: Path | str) -> str:
+    """Computes full hex SHA-256 digest of a file on disk."""
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def numeric_clip_sort_key(path: Path | str) -> tuple[int, str]:
@@ -127,7 +166,8 @@ class ProjectStorage:
         if not self.log_file.exists():
             self.append_log("INFO", f"Initialized project structure (title={title!r}, pillar={pillar!r})")
         for stage_name in STAGE_NAMES:
-            (self.project_dir / stage_name).mkdir(parents=True, exist_ok=True)
+            if stage_name != "01_ideation":
+                (self.project_dir / stage_name).mkdir(parents=True, exist_ok=True)
 
         with self._lock, self._manifest_file_lock(self.project_dir):
             if not self.manifest_path.exists():
@@ -332,7 +372,7 @@ class ProjectStorage:
         return target
 
     def load_json(self, stage_name: str, filename: str) -> Any | None:
-        target = self.get_stage_dir(stage_name) / filename
+        target = self.project_dir / stage_name / filename
         if not target.exists() or target.stat().st_size == 0:
             return None
         try:
@@ -365,7 +405,7 @@ class ProjectStorage:
         return target
 
     def load_text(self, stage_name: str, filename: str) -> str | None:
-        target = self.get_stage_dir(stage_name) / filename
+        target = self.project_dir / stage_name / filename
         if not target.exists():
             return None
         with open(target, "r", encoding="utf-8") as f:
@@ -392,17 +432,22 @@ class ProjectStorage:
             issues = []
 
             for stage_name, stage_data in manifest.get("stages", {}).items():
-                stage_dir = self.get_stage_dir(stage_name)
-                for rel_path, meta in stage_data.get("artifacts", {}).items():
-                    total_artifacts += 1
+                stage_dir = self.project_dir / stage_name
+                arts_map = stage_data.get("artifacts", {})
+                for rel_path, meta in list(arts_map.items()):
                     file_path = stage_dir / rel_path
                     if not file_path.exists():
+                        if _is_excluded_manifest_relpath(stage_name, rel_path):
+                            arts_map.pop(rel_path, None)
+                            continue
+                        total_artifacts += 1
                         issues.append({
                             "stage": stage_name,
                             "artifact": rel_path,
                             "error": "File missing on disk",
                         })
                         continue
+                    total_artifacts += 1
 
                     curr_size = file_path.stat().st_size
                     if curr_size != meta.get("size_bytes"):
@@ -459,6 +504,16 @@ class ProjectStorage:
             now_iso = datetime.now(timezone.utc).isoformat()
             if status:
                 mdata["status"] = status
+            if not mdata.get("title") or not mdata.get("pillar"):
+                sc_p = p_dir / "02_script" / "script.json"
+                if sc_p.is_file():
+                    with contextlib.suppress(Exception):
+                        sc_d = json.loads(sc_p.read_text(encoding="utf-8"))
+                        if isinstance(sc_d, dict):
+                            if not mdata.get("title") and sc_d.get("title"):
+                                mdata["title"] = str(sc_d["title"])
+                            if not mdata.get("pillar") and sc_d.get("pillar"):
+                                mdata["pillar"] = str(sc_d["pillar"])
             mdata["updated_at"] = now_iso
             from pipeline.media_cache import fast_file_sha256
 
@@ -469,6 +524,8 @@ class ProjectStorage:
                     for fp in sorted(sdir.rglob("*")):
                         if fp.is_file() and not fp.name.startswith(".tmp_"):
                             rel = fp.relative_to(sdir).as_posix()
+                            if _is_excluded_manifest_relpath(s_name, rel):
+                                continue
                             arts[rel] = {
                                 "sha256": fast_file_sha256(fp),
                                 "size_bytes": fp.stat().st_size,

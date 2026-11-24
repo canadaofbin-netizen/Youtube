@@ -20,13 +20,13 @@ import cv2
 import numpy as np
 
 from pipeline.config import YUNET_FACE_MODEL_PATH
-from pipeline.flow_prompt_builder import build_flow_prompts, write_flow_prompts_json
-from pipeline.porcelain_anchor_pack import (
+from pipeline.prompt_builder import build_flow_prompts, write_flow_prompts_json
+from pipeline.reference_pack import (
     populate_porcelain_reference_contract,
     sanitize_porcelain_contract_text,
 )
-from pipeline.prompt_quality_v5 import validate_scene_state_continuity
-from pipeline.reference_image_qa import (
+from pipeline.prompt_gate import validate_scene_state_continuity
+from pipeline.ref_qa import (
     build_reference_image_specs,
     inspect_reference_image_pack,
     register_reference_image,
@@ -36,8 +36,8 @@ from pipeline.research_dossier import (
     evaluate_media_reenactment_suitability,
     normalize_scene_prop,
 )
-from pipeline.scene_blueprint import cast_lock_entries
-from pipeline.source_reenactment import (
+from pipeline.depiction_rules import cast_lock_entries
+from pipeline.archival_media import (
     detect_human_faces_yunet,
     sanitize_structural_frame_bgr,
     validate_reenactment_non_infringement,
@@ -529,7 +529,7 @@ def test_track_b_contract_compiler_and_reference_qa_defaults(tmp_path: Path) -> 
     assert 6 <= len(all_specs) <= 9
     write_reference_image_specs(proj_dir, specs_payload)
 
-    from pipeline.reference_image_qa import auto_populate_reference_semantic_review
+    from pipeline.ref_qa import auto_populate_reference_semantic_review
 
     # Synthesize valid distinct 9:16 high-key textured PNGs and register provenance without semantic review file
     ref_dir = proj_dir / "03_visuals" / "reference_images"
@@ -707,8 +707,8 @@ def test_adversarial_suitability_bw_vs_powerpoint_and_silent_subject(tmp_path: P
 
 def test_wardrobe_semicolon_classifier_plaque_sanitizer_and_track_a_rq5_wiring(tmp_path: Path, monkeypatch) -> None:
     from pipeline.depiction_rules import PromptComposer
-    from pipeline.porcelain_anchor_pack import ensure_porcelain_reference_pack
-    from pipeline.source_reenactment import _parse_section_window
+    from pipeline.reference_pack import ensure_porcelain_reference_pack
+    from pipeline.archival_media import _parse_section_window
 
     # 1. Anti-plaque sanitizer strips quoted chart titles & percentages while preserving word-internal apostrophes
     cleaned = sanitize_porcelain_contract_text(
@@ -890,7 +890,7 @@ def test_wardrobe_semicolon_classifier_plaque_sanitizer_and_track_a_rq5_wiring(t
     def _boom_translate(*_args, **_kwargs):
         raise RuntimeError("simulated browser abort")
 
-    import pipeline.source_reenactment as sr_mod
+    import pipeline.archival_media as sr_mod
 
     monkeypatch.setattr(sr_mod, "extract_source_edl", _boom_extract)
     monkeypatch.setattr(sr_mod, "translate_porcelain_keyframes", _boom_translate)

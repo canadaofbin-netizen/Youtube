@@ -707,7 +707,7 @@ def stage_canonical_slot_to_project(
         shutil.copy2(resolved["abs_path"], tmp_dst)
         os.replace(tmp_dst, dst_p)
 
-    from pipeline.reference_image_qa import register_reference_image
+    from pipeline.ref_qa import register_reference_image
 
     register_reference_image(p_dir, fname, _source_tag_for_version(resolved["library_version"]))
     record_project_canonical_slot_usage(

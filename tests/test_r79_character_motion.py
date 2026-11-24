@@ -22,9 +22,9 @@ from pipeline.depiction_rules import (
     load_expression_acting_lexicon,
     validate_expressive_v8_scene,
 )
-from pipeline.diorama_assembler import _select_v7_source_window
-from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract
-from pipeline.flow_prompt_builder import _compose_expressive_v8_context_split_scene
+from pipeline.assembler import _select_v7_source_window
+from pipeline.episode_qa import verify_final_mp4_against_contract
+from pipeline.prompt_builder import _compose_expressive_v8_context_split_scene
 
 
 def test_r79m_lexicon_and_camera_descriptors_are_smudge_and_warp_free() -> None:

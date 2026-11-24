@@ -43,7 +43,7 @@ from pipeline.cdp_tab_lease import (
     release_and_close_leased_tab,
 )
 from pipeline.studio.config import DEFAULT_CDP_HOST, DEFAULT_CDP_PORT
-from pipeline.studio.whale_session import DirectCDPClient
+from pipeline.studio.browser_session import DirectCDPClient
 
 DEFAULT_INSTAGRAM_ENV_PATH = Path.home() / ".config" / "aab" / "instagram.env"
 DEFAULT_YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@AllAboutBrainOfficial"

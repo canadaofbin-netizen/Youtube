@@ -936,7 +936,7 @@ class MediaIntegrityValidator:
         audio_analysis: dict[str, Any] = {}
         check_6_audio_speech = True
         if is_final and check_audio and probe["has_audio_stream"]:
-            from pipeline.video_autopsy import VideoAutopsyEngine
+            from pipeline.media_probe import VideoAutopsyEngine
             audio_analysis = VideoAutopsyEngine.inspect_audio_stream(path)
             max_allowed_dead_air = max_allowed_dead_air_sec(dur)
             check_6_audio_speech = bool(

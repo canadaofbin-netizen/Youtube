@@ -772,7 +772,7 @@ def research_depth_report(
     if orphan:
         issues.append(f"{len(orphan)} core_facts cite a source_id missing from 01_sources.json, e.g. '{orphan[0]}'")
     from pipeline.config import DATA_STAMP_MAX_PER_EPISODE
-    from pipeline.data_stamp_overlay import validate_r70_m9_stat_integrity
+    from pipeline.stamp_overlay import validate_r70_m9_stat_integrity
 
     stats_entries: list[tuple[int, dict[str, Any]]] = []
     for idx_f, f_obj in enumerate(facts, start=1):
@@ -1078,7 +1078,7 @@ def diorama_seed_from_dossier(
     if int(schema_version) == PROMPT_SCHEMA_VERSION_V8 or (
         int(schema_version) >= PROMPT_SCHEMA_VERSION_V7 and resolved_style == EXPRESSIVE_25D_V8_STYLE_PROFILE
     ):
-        from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
+        from pipeline.reference_pack import populate_expressive_v8_reference_contract
 
         seeded_v8: dict[str, Any] = {
             "schema": PROMPT_SCHEMA_VERSION_V8,
@@ -1203,7 +1203,7 @@ def diorama_seed_from_dossier(
                 vp_path.write_text(json.dumps(seeded_v8, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             sc_path = draft_dir / "script.json"
             if overwrite or not sc_path.exists():
-                from pipeline.data_stamp_overlay import seed_data_stamps_from_dossier
+                from pipeline.stamp_overlay import seed_data_stamps_from_dossier
 
                 deb_ign = d_meta.get("debate_ignition") if isinstance(d_meta.get("debate_ignition"), dict) else {}
                 fact_lines = [
@@ -1270,7 +1270,7 @@ def diorama_seed_from_dossier(
             "outro_title_lines": ["", ""],
         }
         if resolved_style == PORCELAIN_V7_STYLE_PROFILE:
-            from pipeline.porcelain_anchor_pack import populate_porcelain_reference_contract
+            from pipeline.reference_pack import populate_porcelain_reference_contract
 
             seeded_v7["voice_preset"] = DEFAULT_DIORAMA_VOICE_PRESET
             seeded_v7["prosody_mode"] = DIORAMA_V7_US_PROSODY_MODE
@@ -1518,7 +1518,7 @@ def evaluate_media_reenactment_suitability(
         MEDIA_MIN_CINEMA_YEAR,
         MEDIA_MIN_MOTION_DIFF,
     )
-    from pipeline.source_reenactment import detect_human_faces_yunet
+    from pipeline.archival_media import detect_human_faces_yunet
 
     analysis_meta: dict[str, Any] = {}
     a_dir = Path(analysis_dir) if analysis_dir is not None else None

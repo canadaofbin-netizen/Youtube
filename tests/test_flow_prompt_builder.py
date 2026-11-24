@@ -8,7 +8,7 @@ import re
 from pathlib import Path
 
 from pipeline.config import CLIP_ROLE_SEQUENCES, WORKSPACE_ROOT, clip_roles, pivot_clip_index
-from pipeline.flow_prompt_builder import (
+from pipeline.prompt_builder import (
     build_flow_prompts,
     compute_clip_target_duration,
     infer_visual_plan,
@@ -18,9 +18,6 @@ from pipeline.flow_prompt_builder import (
     validate_flow_prompts,
     validate_narrations,
 )
-from pipeline.prompts_db import MANIFEST_JSON_PATH, SQLITE_DB_PATH, lookup_topic_from_db
-from pipeline.qa_gates import run_preflight_qa
-from pipeline.topics_catalog import ALL_PSYCHOLOGY_100_TOPICS, PSYCHOLOGY_TOPICS
 
 GOLDEN_MD_PATH = Path(
     os.environ.get("AAB_GOLDEN_CAPGRAS_MD")
@@ -87,43 +84,13 @@ def _dummy_narrations_for_count(n: int) -> list[str]:
     return out
 
 
-def test_capgras_golden_builds_and_validates_cleanly() -> None:
-    golden = next(t for t in PSYCHOLOGY_TOPICS if str(t.get("project_id", "")).startswith("psych_05"))
-    narrations = [str(s) for s in golden["clip_narrations"]]
-    plan = load_visual_plan(topic_item=golden)
-    clips = build_flow_prompts(plan, narrations)
-
-    assert len(clips) == 10
-    assert validate_narrations(narrations) == []
-    assert validate_flow_prompts(clips) == []
-    assert clips[0]["role"] == "setup"
-    assert clips[4]["role"] == "pivot"
-    assert clips[9]["role"] == "conclusion"
-
-    if GOLDEN_MD_PATH.exists():
-        md_text = GOLDEN_MD_PATH.read_text(encoding="utf-8")
-        blocks = re.findall(r"```\r?\n(.*?)\r?\n```", md_text, flags=re.DOTALL)
-        assert len(blocks) == 10
-        for idx, block in enumerate(blocks):
-            assert clips[idx]["prompt"] == block.strip(), f"Clip {idx + 1} diverged from golden reference"
 
 
-def test_all_100_psychology_topics_validate_across_5_to_10_clips() -> None:
-    assert len(ALL_PSYCHOLOGY_100_TOPICS) == 100
-    for n in (5, 6, 7, 8, 9, 10):
-        narrations = _dummy_narrations_for_count(n)
-        assert validate_narrations(narrations) == []
-        for topic_item in ALL_PSYCHOLOGY_100_TOPICS[:15]:
-            plan = load_visual_plan(topic_item=topic_item)
-            clips = build_flow_prompts(plan, narrations)
-            assert len(clips) == n
-            assert validate_flow_prompts(clips) == [], f"Failed for {topic_item.get('project_id')} n={n}"
 
 
 def test_validator_rejects_banned_tokens_and_invalid_structures() -> None:
-    golden = next(t for t in PSYCHOLOGY_TOPICS if str(t.get("project_id", "")).startswith("psych_05"))
-    narrations = [str(s) for s in golden["clip_narrations"]]
-    plan = load_visual_plan(topic_item=golden)
+    narrations = _dummy_narrations_for_count(10)
+    plan = infer_visual_plan(topic="Capgras Impostor Delusion", pillar_id=4)
     base_clips = build_flow_prompts(plan, narrations)
 
     for bad_snippet in (
@@ -166,29 +133,8 @@ def test_sanitizer_preserves_allow_listed_anatomy_and_environments() -> None:
     assert sanitize_prompt_for_flow(spoken, is_spoken_dialogue=True) == spoken
 
 
-def test_3000_prompt_database_manifest_and_lookup() -> None:
-    assert SQLITE_DB_PATH.exists()
-    assert MANIFEST_JSON_PATH.exists()
-    manifest = json.loads(MANIFEST_JSON_PATH.read_text(encoding="utf-8"))
-    assert manifest["schema_version"] == 4
-    assert manifest["total_topics"] == 3000
-    assert manifest["neuroscience_topics"] == 1500
-    assert manifest["psychology_topics"] == 1500
-    assert manifest["qa_verification"]["all_3000_pass"] is True
-
-    for tid in ("brain_0001", "brain_1500", "psych_0001", "psych_1500"):
-        bundle = lookup_topic_from_db(tid)
-        assert bundle["topic"]["topic_id"] == tid
-        assert len(bundle["flow_10clip_prompts"]) == 10
-        assert len(bundle["flow_5clip_prompts"]) == 5
-        assert validate_flow_prompts(bundle["flow_10clip_prompts"]) == []
-        assert validate_flow_prompts(bundle["flow_5clip_prompts"]) == []
 
 
-def test_preflight_qa_passes_contract_v4_lock() -> None:
-    report = run_preflight_qa(require_live_cdp=False)
-    assert report["passed"] is True
-    assert report["checks"]["contract_v4_golden_prompt_lock"]["passed"] is True
 
 
 def test_dynamic_8s_10s_duration_routing_and_cutoff_risk() -> None:
@@ -216,24 +162,6 @@ def test_dynamic_8s_10s_duration_routing_and_cutoff_risk() -> None:
 
 
 def test_character_motion_2beat_actions_and_31_O2CmlKOk_brain_lock() -> None:
-    target_prefixes = ("psych_04", "psych_08", "psych_11", "psych_18")
-    for prefix in target_prefixes:
-        topic_item = next(t for t in ALL_PSYCHOLOGY_100_TOPICS if str(t.get("project_id", "")).startswith(prefix))
-        narrations = [str(s) for s in topic_item["clip_narrations"]]
-        plan = load_visual_plan(topic_item=topic_item)
-        clips = build_flow_prompts(plan, narrations)
-        assert validate_flow_prompts(clips, check_character_motion=True) == [], f"Failed for {prefix}"
-        assert validate_character_motion(clips) == [], f"Character motion failed for {prefix}"
-        for idx in (3, 4):
-            assert "bright white studio gallery" in clips[idx]["scene"].lower()
-            assert "matte-white brain" in clips[idx]["scene"].lower()
-            assert "architectural cross-section cutaway" in clips[idx]["scene"].lower()
-        for idx in (3, 4, 5, 6, 7):
-            s_low = clips[idx]["scene"].lower()
-            assert "particles" not in s_low
-            assert "sparks" not in s_low
-            assert "electric" not in s_low
-
     inferred_plan = infer_visual_plan(topic="Synaptic Plasticity", pillar_id=1)
     inferred_clips = build_flow_prompts(inferred_plan, _dummy_narrations_for_count(10))
     assert validate_flow_prompts(inferred_clips, check_character_motion=True) == []

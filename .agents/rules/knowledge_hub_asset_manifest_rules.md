@@ -7,7 +7,7 @@ description: "Load when updating asset_manifest.json, asset_library/index.jsonl,
 
 Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Constants: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Code: [`pipeline/asset_manifest.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/asset_manifest.py), [`pipeline/knowledge_hub.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/knowledge_hub.py)
 
-## R50 — Per-Clip Asset Manifest (`main.py asset-manifest`)
+## R50 — Per-Clip Asset Manifest (`pipeline/asset_manifest.py`)
 - `05_assembly/asset_manifest.json` + `BCI_Shorts_Channel/asset_library/index.jsonl` log per-clip `asset_id`, grammar, camera, SHA-256, prompt, Flow model/URL, EDL in/out, R64 `clarity_score`, and reuse hints (`aspect`-neutral scene text via `flow_prompt_prefix(aspect)`).
 
 ## R50-B — Knowledge Hub (`main.py kb sync --project <id>`)

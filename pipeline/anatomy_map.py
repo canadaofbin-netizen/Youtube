@@ -985,3 +985,88 @@ def build_neural_state_clip_clause(
     if anc_end is not None and anc_end["canonical"] != anc["canonical"]:
         return f"Bright sapphire-blue and amber-gold optical pulse glides smoothly along crystal tract from {t_a} into glowing {t_b}."
     return f"Warm amber-gold and sapphire-blue optical pulses ripple smoothly across the luminous borosilicate crystal {t_a}."
+
+
+# --- Migrated MNI152 3D Neuroanatomy Atlas Manifest & Region Key Helpers ---
+import json as _json
+from pathlib import Path as _Path
+
+ATLAS_DIR = _Path(__file__).resolve().parents[1] / "pipeline" / "assets" / "neuro_atlas_3d"
+ATLAS_NPZ_PATH = ATLAS_DIR / "neuro_atlas_mni152.npz"
+ATLAS_MANIFEST_PATH = ATLAS_DIR / "manifest.json"
+
+
+def load_atlas_manifest() -> dict[str, Any]:
+    if not ATLAS_MANIFEST_PATH.is_file():
+        raise FileNotFoundError(f"Missing 3D neuroanatomy manifest at {ATLAS_MANIFEST_PATH}.")
+    return _json.loads(ATLAS_MANIFEST_PATH.read_text(encoding="utf-8"))
+
+
+def normalize_atlas_region_key(region_text: str | None, manifest: dict[str, Any] | None = None) -> str:
+    """Maps a canonical/alias region string onto a valid key in `neuro_atlas_3d/manifest.json`."""
+    mf = manifest or load_atlas_manifest()
+    regions = mf.get("regions") or {}
+    raw = str(region_text or "").strip().lower()
+    if not raw:
+        return "prefrontal cortex"
+    if raw in regions:
+        return raw
+    if any(k in raw for k in ("eye", "retina", "optic nerve", "optic chiasm", "optic tract")):
+        return "eyes" if "eyes" in regions else "primary visual cortex"
+    if any(k in raw for k in ("cochlea", "inner ear", "ear canal", "auditory nerve", "ear")):
+        return "inner ear" if "inner ear" in regions else "auditory cortex"
+    if "fusiform" in raw or "face area" in raw or "face patch" in raw:
+        return "fusiform face area"
+    if "visual cortex" in raw or "occipital" in raw or raw == "v1":
+        return "primary visual cortex"
+    if "auditory" in raw or "heschl" in raw or raw == "a1":
+        return "auditory cortex"
+    if "hippocamp" in raw or "seahorse" in raw:
+        return "hippocampus"
+    if "amygdala" in raw:
+        return "amygdala"
+    if "insula" in raw:
+        return "insula" if "insula" in regions else "somatosensory cortex"
+    if "thalam" in raw:
+        return "thalamus"
+    if "brainstem" in raw or "locus coeruleus" in raw or "pons" in raw or "medulla" in raw:
+        return "brainstem"
+    if "callosum" in raw:
+        return "corpus callosum" if "corpus callosum" in regions else "anterior cingulate cortex"
+    if "ventromedial" in raw or "vmpfc" in raw:
+        return "ventromedial prefrontal cortex"
+    if "dorsolateral" in raw or "dlpfc" in raw:
+        return "dorsolateral prefrontal cortex"
+    if "anterior cingulate" in raw or "cingulate" in raw or raw == "acc":
+        return "anterior cingulate cortex"
+    if "parietal" in raw:
+        return "posterior parietal cortex" if "posterior parietal cortex" in regions else "somatosensory cortex"
+    if "somatosensory" in raw:
+        return "somatosensory cortex"
+    if "premotor" in raw:
+        return "premotor cortex"
+    if "motor" in raw:
+        return "motor cortex"
+    if "temporal" in raw:
+        return "fusiform face area" if "fusiform face area" in regions else "auditory cortex"
+    if "prefrontal" in raw or "frontal lobe" in raw or "frontal" in raw:
+        return "prefrontal cortex"
+    canon = resolve_region(raw)
+    if canon and canon.lower() in regions:
+        return canon.lower()
+    if canon and canon in regions:
+        return canon
+    return "prefrontal cortex"
+
+
+def is_brain_simulator_clip_spec(clip_spec: dict[str, Any] | None) -> bool:
+    """Detects legacy R76/R84 Blender simulator specs (permanently banned for active R85+ Flow brain episodes)."""
+    if not isinstance(clip_spec, dict):
+        return False
+    render_eng = str(clip_spec.get("render_engine") or "").strip().lower()
+    if render_eng == "blender_3d_simulator":
+        return True
+    if render_eng == "google_flow" or bool(clip_spec.get("r78m_flow_prompt")):
+        return False
+    grammar = str(clip_spec.get("grammar") or clip_spec.get("visual_grammar") or "").strip()
+    return grammar == "brain_simulator_3d"

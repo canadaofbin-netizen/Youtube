@@ -23,12 +23,11 @@ from PIL import Image
 
 import pipeline.config as cfg
 from pipeline import (
-    anatomy_label_overlay as alo,
+    anatomy_overlay as alo,
     anatomy_map,
-    brain_simulator_blender as bsb,
-    dynamic_episode_qa as dq,
-    elevenlabs_tts as el,
-    prosody as pr,
+    episode_qa as dq,
+    tts as el,
+    prosody_qa as pr,
 )
 
 
@@ -58,76 +57,6 @@ def test_r78_anatomy_map_functional_names() -> None:
     assert anatomy_map.ANATOMY_SCREEN_ANCHORS["ventromedial prefrontal cortex"]["short_role"] == "Reality-Checker"
 
 
-def test_r78m_blender_dual_material_camera_and_sq6(tmp_path: Path) -> None:
-    hex_c = bsb.CLINICAL_PALETTE_HEX["cortex"]
-    assert hex_c == "#B8C0C7"
-    r_c, g_c, b_c = int(hex_c[1:3], 16), int(hex_c[3:5], 16), int(hex_c[5:7], 16)
-    assert b_c > g_c > r_c, f"Expected cool silver-gray B > G > R, got {hex_c}"
-    assert bsb.R78M_MATERIAL_MODES == ("xray_glass", "cool_matte_silver_31")
-
-    manifest = json.loads(bsb.ATLAS_MANIFEST_PATH.read_text(encoding="utf-8"))
-    tract = bsb.resolve_anatomical_tract_points("fusiform face area", "amygdala", manifest)
-
-    p1 = bsb._plan_drone_camera_keyframes(
-        {"camera_move": "1p_nerve_canyon_drone"},
-        manifest,
-        "fusiform face area",
-        "amygdala",
-        tract,
-    )
-    assert p1["camera_move"] == "1p_nerve_canyon_drone"
-    assert p1["lens_mm"] == 32.0
-    assert len(p1["eye_waypoints_m"]) == 4
-
-    p3 = bsb._plan_drone_camera_keyframes(
-        {"camera_move": "3p_region_shutdown_pullout"},
-        manifest,
-        "fusiform face area",
-        "amygdala",
-        tract,
-    )
-    assert p3["camera_move"] == "3p_region_shutdown_pullout"
-    assert p3["lens_mm"] == 42.0
-    assert len(p3["eye_waypoints_m"]) == 4
-
-    runner_src = bsb._build_blender_runner_script(
-        tmp_path / "cfg.json",
-        tmp_path / "frames",
-        tmp_path / "track.json",
-    )
-    assert "clip_start = 0.0015" in runner_src
-    assert "xray_glass" in runner_src
-    assert "mid_sagittal_split" in runner_src
-
-    fake_frames = [
-        {
-            "anchors": {
-                "start": {"x_px": 360.0 + i * 2.0, "y_px": 920.0},
-                "end": {"x_px": 680.0, "y_px": 940.0},
-            }
-        }
-        for i in range(15)
-    ]
-    fake_cfg = {
-        "start_key": "fusiform face area",
-        "end_key": "amygdala",
-        "neural_state": "severed",
-        "tract_pts_mm": tract,
-        "anchors_mm": {
-            "start": tract[0],
-            "end": tract[-1],
-        },
-    }
-    qa = bsb.evaluate_simulator_qa(
-        render_cfg=fake_cfg,
-        manifest=manifest,
-        track_doc={"frames": fake_frames},
-        pixel_stats={"mean_luma": 10.5, "max_p995_luma": 238.0, "file_size_bytes": 250000},
-        width=1080,
-        height=1920,
-    )
-    assert qa["gates"]["SQ6_zero_glow_clinical_exposure"] is True
-    assert qa["passed"] is True
 
 
 def test_r78m_dual_callout_uncrossed_dq10_and_suppression() -> None:
@@ -285,7 +214,7 @@ def test_r78v_5tone_voice_settings_cache_and_p11_f0_gate(tmp_path: Path) -> None
 
 
 def test_r78v_p10_open_loop_accepts_insider_reveal_and_surprised_lift(tmp_path: Path) -> None:
-    from pipeline import prosody as pr
+    from pipeline import prosody_qa as pr
 
     sr = 16000
     dur = 40.0

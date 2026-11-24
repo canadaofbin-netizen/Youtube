@@ -18,8 +18,8 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 from pipeline import config as cfg
-from pipeline import thumbnail_studio as ts
-from pipeline.prompt_quality_v5 import validate_thumbnail_block_v7
+from pipeline import thumbnail as ts
+from pipeline.prompt_gate import validate_thumbnail_block_v7
 
 
 def _make_synthetic_r65_v4_split_bgr(*, bright: bool = True, active_bottom: bool = True, seed: int = 0) -> np.ndarray:

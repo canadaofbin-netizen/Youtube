@@ -3,7 +3,7 @@
   "generated_at_utc": "2026-11-19T17:44:00.852767+00:00",
   "mode": "seed_boost",
   "node_count": 24,
-  "edge_count": 13,
+  "edge_count": 12,
   "two_cycle_count": 0,
   "two_cycles": [],
   "nodes": [
@@ -649,33 +649,6 @@
       "action": "apply_link"
     },
     {
-      "source_project_id": "v8_ep08_capgras_imposter_delusion",
-      "source_video_id": "_p05nIlU9xs",
-      "source_title": "When Your Own Parents Look Like Impostors",
-      "source_pillar": "brain_history",
-      "source_visual_mode": "NEURO_BIOLOGY",
-      "source_visibility": "scheduled",
-      "source_views": 0,
-      "source_impressions": 0,
-      "target_type": "short",
-      "target_project_id": "psych_05_capgras_imposter_delusion",
-      "target_video_id": "lZv3_UAWScI",
-      "target_title": "When You Believe Your Family Are Imposters",
-      "affinity_score": 0.8348,
-      "affinity_breakdown": {
-        "total": 0.8348,
-        "anatomy": 0.8214,
-        "pillar_mode": 1.0,
-        "lexical": 1.0,
-        "retention_seed": 0.375,
-        "behavioral_reweighted": false
-      },
-      "link_reason": "same_pillar_semantic_chain",
-      "playlist_title": "Brain History & Evolution | How Humanity Found the Mind",
-      "existing_playlist_verified": false,
-      "action": "apply_link"
-    },
-    {
       "source_project_id": "v8_ep08_capgras_imposter_delusion_r77",
       "source_video_id": "Atd0Pi9HPg4",
       "source_title": "Why His Mom Felt Fake Until She Called",
@@ -812,35 +785,6 @@
     }
   ],
   "execution_results": [
-    {
-      "schema_version": 1,
-      "project_id": "diorama_25_false_memory_elizabeth_loftus",
-      "source_video_id": "yp5Qlf0Fo34",
-      "source_title": "You Think Memory Works Like a Camera, Yet One Word Made Witnesses See Fake Broken Glass",
-      "source_pillar": "brain_history",
-      "source_visibility": "scheduled",
-      "target_type": "short",
-      "target_project_id": "diorama_22_baars_global_workspace_theater",
-      "target_video_id": "kDBafW58J0Q",
-      "target_title": "You Think Consciousness Multitasks, Yet Your Brain Broadcasts Only One Thought at a Time",
-      "matched_card_title": "",
-      "match_mode": "",
-      "affinity_score": 0.4883,
-      "link_reason": "cross_pillar_affinity_bridge",
-      "dom_readback_text": "",
-      "playlist_title": "Brain History & Evolution | How Humanity Found the Mind",
-      "playlist_verified": true,
-      "playlist_created": false,
-      "playlist_readback_text": "Brain History & Evolution | How Humanity Found the Mind",
-      "save_result": {
-        "saved": true,
-        "dirty": true,
-        "reason": "saved_and_confirmed"
-      },
-      "status": "target_card_not_found",
-      "verified": false,
-      "verified_at_utc": "2026-11-02T13:13:05.167898+00:00"
-    },
     {
       "schema_version": 1,
       "project_id": "diorama_07_invisible_gorilla_attention",
@@ -1047,36 +991,6 @@
       "verified_at_utc": "2026-11-15T20:59:28.617226+00:00"
     },
     {
-      "schema_version": 1,
-      "project_id": "v8_ep08_capgras_imposter_delusion",
-      "source_video_id": "_p05nIlU9xs",
-      "source_title": "When Your Own Parents Look Like Impostors",
-      "source_pillar": "brain_history",
-      "source_visibility": "scheduled",
-      "target_type": "short",
-      "target_project_id": "psych_05_capgras_imposter_delusion",
-      "target_video_id": "lZv3_UAWScI",
-      "target_title": "When You Believe Your Family Are Imposters",
-      "matched_card_title": "When You Believe Your Family Are Imposters",
-      "match_mode": "video_id",
-      "affinity_score": 0.8348,
-      "link_reason": "same_pillar_semantic_chain",
-      "dom_readback_text": "Related video When You Believe Your Family Are Imposters",
-      "playlist_title": null,
-      "playlist_verified": false,
-      "playlist_skipped_reason": "playlists_permanently_disabled_r75",
-      "playlist_created": false,
-      "playlist_readback_text": "",
-      "save_result": {
-        "saved": true,
-        "dirty": true,
-        "reason": "saved_and_confirmed"
-      },
-      "status": "linked_verified",
-      "verified": true,
-      "verified_at_utc": "2026-11-14T10:20:13.289523+00:00"
-    },
-    {
       "project_id": "v8_ep08_capgras_imposter_delusion_r77",
       "source_video_id": "Atd0Pi9HPg4",
       "target_video_id": "u5mQNZWNjiw",
@@ -1205,5 +1119,5 @@
       "verified_at_utc": "2026-11-19T17:44:47.868494+00:00"
     }
   ],
-  "verified_count": 13
+  "verified_count": 12
 }

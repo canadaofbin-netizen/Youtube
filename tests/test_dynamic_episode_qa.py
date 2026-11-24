@@ -11,18 +11,18 @@ import pytest
 
 from pipeline import config as cfg
 from pipeline.depiction_rules import LiteralAnalogyCutawayRule, validate_zero_flesh_and_crystal_specimen
-from pipeline.dynamic_episode_qa import (
+from pipeline.episode_qa import (
     compile_episode_qa_contract,
     compute_ceramic_highlight_ratio,
     compute_green_turf_ratio,
     verify_clip_multimodal_contract,
     verify_pre_flow_contract,
 )
-from pipeline.flow_prompt_builder import build_flow_prompts
+from pipeline.prompt_builder import build_flow_prompts
 from pipeline.plain_language import to_display_text, to_expressive_tts_text
 
 ROOT = Path(cfg.WORKSPACE_ROOT)
-GOLDEN_V65_DIR = ROOT / "BCI_Shorts_Channel" / "research_dossiers" / "phineas_gage_iron_rod" / "diorama_v6_dynamic"
+GOLDEN_V65_DIR = ROOT / "tests" / "fixtures" / "gage_v65_golden"
 
 
 def test_phineas_phonetic_tts_vs_clean_subtitle_display() -> None:
@@ -117,7 +117,7 @@ def test_gate2_green_turf_and_ceramic_cv_signatures(tmp_path: Path) -> None:
 
 @pytest.mark.slow
 def test_verify_final_mp4_against_contract_save_report_false_is_zero_write() -> None:
-    from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract
+    from pipeline.episode_qa import verify_final_mp4_against_contract
 
     gage_v7 = cfg.PROJECTS_DIR / "gage_diorama_v7_lowpoly"
     if not (gage_v7 / "05_assembly" / "final_shorts_1080x1920.mp4").exists():
@@ -138,7 +138,7 @@ def test_verify_final_mp4_against_contract_save_report_false_is_zero_write() -> 
 
 
 def test_is_r85_mid_cut_electric_arc_flash_distinguishes_push_in_zoom_from_arc_burst() -> None:
-    from pipeline.dynamic_episode_qa import is_r85_mid_cut_electric_arc_flash
+    from pipeline.episode_qa import is_r85_mid_cut_electric_arc_flash
 
     # (a) Monotonic camera push-in onto already-lit solid #27D8FF lobe -> NOT an arc flash
     push_in_curve = [0.0153, 0.0263, 0.0462, 0.0658, 0.0776, 0.0973, 0.1247, 0.1395, 0.1353]

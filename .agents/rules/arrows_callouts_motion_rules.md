@@ -17,9 +17,9 @@ Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtu
 - **`R78-V`**: 5-tone `Siren` gears (`surprised_lift`, `insider_reveal`, `hushed_suspense`, `deadpan_drop`, `action`); `P11` `F0` span is Tier-2.
 
 ## R79-M — Subject+Verb Integrity & State-A Lock
-- Foreground `[Explicit Cast Subject] + [Physical Action Verb]` (`[r79m_missing_subject]`, `[r79m_missing_action_verb]`, `[r79m_dangling_truncation]`), crisp 2D black ink step-snap (`[r79m_ink_smudge_ban]`), rigid straight walls (`[r79m_wall_warp_ban]`). Motion floor (`DQ_R79`) is Tier-2; only freeze `DQ7` blocks.
+- Foreground `[Explicit Cast Subject] + [Physical Action Verb]` (`[r79m_missing_subject]`, `[r79m_missing_action_verb]`, `[r79m_dangling_truncation]`), rigid straight walls (`[r79m_wall_warp_ban]`), and `R88` faceless hands/silhouette acting on `Ep #13+` *(2D black ink step-snap `[r79m_ink_smudge_ban]` applies only to frozen `Ep #01–#12`)*. Motion floor is Tier-2; only freeze `DQ7` blocks.
 
-## R80 & R87-A — Conditional `#FF2525` 3D Arrows vs `Category K` (`Tier-1 #8`, `pipeline/spatial_arrow_guide.py`)
+## R80 & R87-A — Conditional `#FF2525` 3D Arrows vs `Category K` (`Tier-1 #8`, `pipeline/arrow_guide.py`)
 - **`R87-A`**: Require explicit `spatial_arrow_eligible: bool` (never auto-seed `r80_mode=True` on non-spatial dossiers).
   - `False` (pharmacology/sleep/diet/pain/emotion/bias): Hard-bans `spatial_3d_arrow_diorama`; routes to `Category K` (`K01–K05`) tactile prop contrast + `K06/A12` dual-brain contrast.
   - `True` (navigation/doorway/maze): Requires `C01b–C03b` prop-anchored `#FF2525` 3D arrows (`adaptive_landmark_zigzag`, `fixed_linear_corridor`, `doorway_boundary_sever`, `dual_route_race_lanes`, `dual_speed_race_lanes`), named architecture, and bans single-arrow `fixed_linear_corridor` on binary comparison (`side by side`/`vs`).

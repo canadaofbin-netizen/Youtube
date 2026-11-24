@@ -214,8 +214,31 @@ def get_speed_cache_dir() -> Path:
     return root
 
 
-def enforce_ram_scratch_budget(max_total_bytes: int = AAB_SHM_MAX_TOTAL_BYTES) -> dict[str, int]:
+def clean_stale_shm_leftovers() -> int:
+    """Safely removes abandoned manual ep09/ep10 review/backup artifacts under `/dev/shm` without touching active scratch or Chrome."""
+    removed = 0
+    if os.name == "nt" or not AAB_SHM_MOUNT_ROOT.is_dir():
+        return 0
+    for p in list(AAB_SHM_MOUNT_ROOT.iterdir()):
+        nm = p.name
+        if nm.startswith(("review_ep09_r82", "aab_ep10_pre_r82_backup", "backup_ep09_r82_old_refs")):
+            try:
+                if p.is_dir():
+                    shutil.rmtree(p, ignore_errors=True)
+                else:
+                    p.unlink(missing_ok=True)
+                removed += 1
+            except OSError:
+                continue
+    return removed
+
+
+def enforce_ram_scratch_budget(max_total_bytes: int | None = None) -> dict[str, int]:
     """Prunes `speed_cache` subtrees under `/dev/shm/aab_scratch` so RAM-disk usage stays <= `max_total_bytes` (22 GiB)."""
+    from pipeline.hardware_profile import resolve_dynamic_shm_budget_bytes
+    if max_total_bytes is None:
+        max_total_bytes = resolve_dynamic_shm_budget_bytes()
+    clean_stale_shm_leftovers()
     removed_staged = prune_speed_cache_subdir("staged", int(_MAX_STAGED_BYTES))
     removed_tts = prune_speed_cache_subdir("tts_npz", int(MAX_TTS_NPZ_BYTES))
     removed_cv = prune_speed_cache_subdir("posthoc_cv", int(MAX_POSTHOC_CV_BYTES))
@@ -275,6 +298,56 @@ def enforce_ram_scratch_budget(max_total_bytes: int = AAB_SHM_MAX_TOTAL_BYTES) -
         "removed_tts_npz": removed_tts,
         "removed_posthoc_cv": removed_cv,
         "removed_global": removed_global,
+    }
+
+
+def release_session_speed_cache(
+    *,
+    clear_staged: bool = True,
+    clear_segments: bool = True,
+    clear_orphan_scratch: bool = True,
+) -> dict[str, int]:
+    """
+    Releases heavy session-scoped RAM scratch (`speed_cache/staged`, `speed_cache/segments`,
+    and orphan `aab_oflow_*` / `aab_sim_clip_*` files) once assembly/QA completes so
+    `/dev/shm/aab_scratch` never holds multi-GiB idle media between runs.
+    """
+    removed_staged = 0
+    removed_segs = 0
+    removed_orphans = 0
+    cache_root = get_speed_cache_dir()
+    with _CACHE_LOCK:
+        if clear_staged:
+            staged_dir = cache_root / "staged"
+            if staged_dir.is_dir():
+                for p in list(staged_dir.iterdir()):
+                    if p.is_file():
+                        with contextlib.suppress(OSError):
+                            p.unlink(missing_ok=True)
+                            removed_staged += 1
+        if clear_segments:
+            seg_root = cache_root / "segments"
+            if seg_root.is_dir():
+                for p in list(seg_root.rglob("*")):
+                    if p.is_file() and p.suffix.lower() == ".mp4":
+                        with contextlib.suppress(OSError):
+                            p.unlink(missing_ok=True)
+                            removed_segs += 1
+        if clear_orphan_scratch:
+            scratch_root = get_ram_scratch_root()
+            if scratch_root.is_dir():
+                for p in list(scratch_root.iterdir()):
+                    if p.name.startswith(("aab_oflow_", "aab_sim_clip_")):
+                        with contextlib.suppress(OSError):
+                            if p.is_dir() and not p.is_symlink():
+                                shutil.rmtree(p, ignore_errors=True)
+                            else:
+                                p.unlink(missing_ok=True)
+                            removed_orphans += 1
+    return {
+        "removed_staged": removed_staged,
+        "removed_segments": removed_segs,
+        "removed_orphans": removed_orphans,
     }
 
 
@@ -624,7 +697,7 @@ def cached_asr_word_timeline(mp4_path: Path, *, cpu_threads: int | None = None) 
     import re
     import subprocess
 
-    from pipeline.voice_fallback import _ffmpeg, _whisper_model
+    from pipeline.audio_utils import _ffmpeg, _whisper_model
 
     local_mp4, sha256 = stage_local_file(Path(mp4_path))
     hit = get_cached_json("mp4_asr_v2", sha256)
@@ -669,43 +742,134 @@ def cached_asr_word_timeline(mp4_path: Path, *, cpu_threads: int | None = None) 
 def shared_mp4_decode_session(
     mp4_path: Path,
     frame_indices: set[int] | None = None,
+    *,
+    cache_all_frames: bool | None = None,
+    cpu_budget: int | None = None,
 ) -> Iterator[dict[str, Any]]:
     """
-    Context manager that decodes `mp4_path` from local `/tmp` in ONE sequential pass,
-    caching requested full-res BGR frames in thread-local memory for the duration of the `with` block
-    (e.g., across `verify_final_mp4_against_contract` + `run_posthoc_semantic_qa` + `VideoAutopsyEngine`),
-    and immediately freeing frame memory on exit without colliding across concurrent worker threads.
+    64GB Max-RAM Single-Pass MP4 Decode & Parallel Precompute Session (`MemAvailable >= 12 GiB` OOM Guard):
+      - Stages `mp4_path` onto `/dev/shm` once, opens `cv2.VideoCapture` **EXACTLY ONCE**, and sequentially
+        decodes the entire video stream.
+      - When `MemAvailable - 12 GiB` allows (e.g., ~14.9 GiB for an 80s 30fps 1080x1920 MP4 vs ~39-48 GiB budget),
+        caches 100% of full-res BGR frames in Python RAM (`all_frames_cached=True`) so downstream
+        `DQ7/8/9/10/Border`, `R64` post-hoc QA, `12-up` sheet rendering, and `VideoAutopsyEngine` perform
+        ZERO additional `cv2.VideoCapture` opens!
+      - Parallelizes per-frame downsampling (`even_small_bgr`, `grays_270x480`, `flicker_64x36`) across all
+        8 vCPUs (`ThreadPoolExecutor`, OpenCV releases the GIL) and immediately frees all RAM on block exit.
     """
+    from concurrent.futures import ThreadPoolExecutor
+    from pipeline.cdp_tab_lease import get_aab_locks_dir
+    from pipeline.hardware_profile import (
+        AAB_MIN_MEM_AVAILABLE_HEADROOM_BYTES,
+        read_mem_available_bytes,
+        resolve_cpu_budget,
+        resolve_dynamic_ram_budget_bytes,
+    )
+    try:
+        import fcntl as _ram_fcntl
+    except ImportError:  # pragma: no cover
+        _ram_fcntl = None  # type: ignore[assignment]
+
     local_mp4, sha256 = stage_local_file(Path(mp4_path))
     cap = cv2.VideoCapture(str(local_mp4))
-    fps = float(cap.get(cv2.CAP_PROP_FPS) or 24.0)
+    fps = float(cap.get(cv2.CAP_PROP_FPS) or 30.0)
     total_fc = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
+    vid_w = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) or 1080)
+    vid_h = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) or 1920)
+
+    ram_budget = resolve_dynamic_ram_budget_bytes()
+    est_full_bytes = max(1, total_fc) * max(1, vid_w) * max(1, vid_h) * 3
+    if cache_all_frames is None:
+        # Cache 100% of full-res frames whenever frame_indices is omitted (or full cache fits <= 70% of dynamic RAM budget)
+        full_ram_mode = bool(
+            ram_budget >= 2 * 1024**3 and est_full_bytes <= int(ram_budget * 0.70)
+        )
+    else:
+        full_ram_mode = bool(cache_all_frames and est_full_bytes <= max(256 * 1024**2, ram_budget))
+
+    ram_lock_fh = None
+    if full_ram_mode and _ram_fcntl is not None:
+        try:
+            lock_dir = get_aab_locks_dir()
+            lock_dir.mkdir(parents=True, exist_ok=True)
+            ram_lock_fh = (lock_dir / "full_ram_decode.lock").open("a+", encoding="utf-8")
+            _ram_fcntl.flock(ram_lock_fh.fileno(), _ram_fcntl.LOCK_EX | _ram_fcntl.LOCK_NB)
+        except OSError:
+            # Another process is concurrently holding a full-RAM decode session; fall back to selective caching
+            full_ram_mode = False
+            if ram_lock_fh is not None:
+                with contextlib.suppress(OSError):
+                    ram_lock_fh.close()
+                ram_lock_fh = None
+
     frames_map: dict[int, np.ndarray] = {}
     even_small_bgr: dict[int, np.ndarray] = {}
+    grays_270x480: list[np.ndarray] = []
+    flicker_64x36: list[np.ndarray] = []
     decoded_fc = 0
+    has_env_mem_override = bool(os.environ.get("AAB_MEM_AVAILABLE_BYTES_OVERRIDE", "").strip())
 
-    wanted = {max(0, min(max(0, total_fc - 1), int(i))) for i in (frame_indices or set())} if total_fc > 0 else set()
+    wanted = (
+        {max(0, min(max(0, total_fc - 1), int(i))) for i in (frame_indices or set())}
+        if (total_fc > 0 and not full_ram_mode)
+        else set(frame_indices or set())
+    )
+
+    n_workers = resolve_cpu_budget(cpu_budget)
+    batch_buf: list[tuple[int, np.ndarray]] = []
+    batch_size = 64
+
+    def _downsample_one(item: tuple[int, np.ndarray]) -> tuple[int, np.ndarray | None, np.ndarray, np.ndarray]:
+        idx_f, bgr_f = item
+        sm_180 = cv2.resize(bgr_f, (180, 320), interpolation=cv2.INTER_AREA) if (idx_f % 2 == 0) else None
+        g_270 = cv2.cvtColor(cv2.resize(bgr_f, (270, 480), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+        g_64 = cv2.cvtColor(cv2.resize(bgr_f, (64, 36), interpolation=cv2.INTER_AREA), cv2.COLOR_BGR2GRAY)
+        return idx_f, sm_180, g_270, g_64
+
+    def _flush_batch(pool: ThreadPoolExecutor) -> None:
+        nonlocal full_ram_mode
+        if not batch_buf:
+            return
+        for idx_f, sm_180, g_270, g_64 in pool.map(_downsample_one, batch_buf):
+            if sm_180 is not None:
+                even_small_bgr[idx_f] = sm_180
+            grays_270x480.append(g_270)
+            flicker_64x36.append(g_64)
+        batch_buf.clear()
+        if full_ram_mode and not has_env_mem_override:
+            if read_mem_available_bytes() < AAB_MIN_MEM_AVAILABLE_HEADROOM_BYTES:
+                full_ram_mode = False
+
     if cap.isOpened():
-        while True:
-            ok, frm = cap.read()
-            if not ok or frm is None:
-                break
-            cur_i = decoded_fc
-            decoded_fc += 1
-            if cur_i % 2 == 0:
-                even_small_bgr[cur_i] = cv2.resize(frm, (180, 320), interpolation=cv2.INTER_AREA)
-            if cur_i in wanted:
-                frames_map[cur_i] = frm
+        with ThreadPoolExecutor(max_workers=max(1, n_workers)) as pool:
+            while True:
+                ok, frm = cap.read()
+                if not ok or frm is None:
+                    break
+                cur_i = decoded_fc
+                decoded_fc += 1
+                if full_ram_mode or (cur_i in wanted):
+                    frames_map[cur_i] = frm
+                batch_buf.append((cur_i, frm))
+                if len(batch_buf) >= batch_size:
+                    _flush_batch(pool)
+            _flush_batch(pool)
         cap.release()
 
     session = {
         "sha256": sha256,
         "local_mp4": local_mp4,
         "fps": fps,
-        "header_fc": total_fc,
+        "width": vid_w,
+        "height": vid_h,
+        "header_fc": total_fc or decoded_fc,
         "decoded_fc": decoded_fc,
+        "all_frames_cached": full_ram_mode,
+        "ram_budget_bytes": ram_budget,
         "frames": frames_map,
         "even_small_bgr": even_small_bgr,
+        "grays_270x480": grays_270x480,
+        "flicker_64x36": flicker_64x36,
     }
     prev = getattr(_SESSION_TLS, "active_frame_session", None)
     _SESSION_TLS.active_frame_session = session
@@ -715,6 +879,14 @@ def shared_mp4_decode_session(
         _SESSION_TLS.active_frame_session = prev
         frames_map.clear()
         even_small_bgr.clear()
+        grays_270x480.clear()
+        flicker_64x36.clear()
+        if ram_lock_fh is not None:
+            if _ram_fcntl is not None:
+                with contextlib.suppress(OSError):
+                    _ram_fcntl.flock(ram_lock_fh.fileno(), _ram_fcntl.LOCK_UN)
+            with contextlib.suppress(OSError):
+                ram_lock_fh.close()
 
 
 def get_active_mp4_session(sha256: str) -> dict[str, Any] | None:
@@ -726,13 +898,13 @@ def get_active_mp4_session(sha256: str) -> dict[str, Any] | None:
 
 def decode_needed_frames(local_mp4: Path, sha256: str, needed_fidxs: set[int]) -> tuple[float, int, dict[int, np.ndarray]]:
     """
-    Returns `(fps, total_fc, frame_cache)` using the active `shared_mp4_decode_session`
-    when available (retrieving any extra indices on demand), or a single sequential pass.
+    Returns `(fps, total_fc, frame_cache)` from the active `shared_mp4_decode_session`
+    with ZERO extra `cv2.VideoCapture` calls when `all_frames_cached` or `needed_fidxs` are cached.
     """
     sess = get_active_mp4_session(sha256)
     if sess is not None:
         fps = float(sess["fps"])
-        total_fc = int(sess["header_fc"] or sess["decoded_fc"])
+        total_fc = int(sess["decoded_fc"] or sess["header_fc"])
         cached_frames: dict[int, np.ndarray] = sess["frames"]
         out: dict[int, np.ndarray] = {}
         missing: list[int] = []
@@ -740,7 +912,7 @@ def decode_needed_frames(local_mp4: Path, sha256: str, needed_fidxs: set[int]) -
             clamped = max(0, min(max(0, total_fc - 1), int(idx)))
             if clamped in cached_frames:
                 out[clamped] = cached_frames[clamped]
-            else:
+            elif not sess.get("all_frames_cached"):
                 missing.append(clamped)
         if missing:
             cap = cv2.VideoCapture(str(local_mp4))
@@ -758,7 +930,7 @@ def decode_needed_frames(local_mp4: Path, sha256: str, needed_fidxs: set[int]) -
         return fps, total_fc, out
 
     cap = cv2.VideoCapture(str(local_mp4))
-    fps = float(cap.get(cv2.CAP_PROP_FPS) or 24.0)
+    fps = float(cap.get(cv2.CAP_PROP_FPS) or 30.0)
     total_fc = int(cap.get(cv2.CAP_PROP_FRAME_COUNT) or 0)
     frame_cache: dict[int, np.ndarray] = {}
     if needed_fidxs and total_fc > 0:

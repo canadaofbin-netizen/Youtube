@@ -17,12 +17,11 @@ from typing import Any
 import pytest
 
 from pipeline.config import PROJECTS_DIR
-from pipeline.diorama_assembler import load_diorama_script_sentences
-from pipeline.diorama_batch_orchestrator import _collect_auto_heal_plan, _plan_lock_mapping_issues
-from pipeline.diorama_pipeline_runner import parse_pipeline_specs
-from pipeline.dynamic_episode_qa import compile_episode_qa_contract
-from pipeline.flow_prompt_builder import build_flow_prompts
-from pipeline.prosody import evaluate_prosody_gates, evaluate_prosody_gates_on_audio
+from pipeline.assembler import load_diorama_script_sentences
+from pipeline.batch_runner import _collect_auto_heal_plan, _plan_lock_mapping_issues
+from pipeline.episode_qa import compile_episode_qa_contract
+from pipeline.prompt_builder import build_flow_prompts
+from pipeline.prosody_qa import evaluate_prosody_gates, evaluate_prosody_gates_on_audio
 
 
 @pytest.mark.slow
@@ -79,7 +78,7 @@ def test_plan_lock_mapping_detects_ep16_dq3() -> None:
 
 
 def test_autoheal_skips_script_level_failures(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    monkeypatch.setattr("pipeline.diorama_batch_orchestrator.PROJECTS_DIR", tmp_path)
+    monkeypatch.setattr("pipeline.batch_runner.PROJECTS_DIR", tmp_path)
     pid = "diorama_test_autoheal"
     asm_dir = tmp_path / pid / "05_assembly"
     asm_dir.mkdir(parents=True, exist_ok=True)
@@ -129,7 +128,7 @@ def test_autoheal_skips_script_level_failures(tmp_path: Path, monkeypatch: pytes
 
 
 def test_render_timeout_early_abort(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
-    import pipeline.flow_diorama_sharded_worker as sw
+    import pipeline.flow_worker as sw
 
     fake_clock = {"t": 1000.0}
 
@@ -240,14 +239,4 @@ def test_render_timeout_early_abort(tmp_path: Path, monkeypatch: pytest.MonkeyPa
     assert (tmp_path / "03_visuals" / "flow_native_clips" / "clip_11.mp4").exists()
 
 
-def test_parse_pipeline_specs() -> None:
-    specs = parse_pipeline_specs(
-        "diorama_18_greene_trolley_dilemma_dual_process,"
-        "delgado_stimoceiver_bull_stop:diorama_21_delgado_stimoceiver_bull:bci_tech"
-    )
-    assert len(specs) == 2
-    assert specs[0]["slug"] == "greene_trolley_dilemma_dual_process"
-    assert specs[0]["pillar"] == "bci_ethics"
-    assert specs[1]["project_id"] == "diorama_21_delgado_stimoceiver_bull"
-    assert specs[1]["slug"] == "delgado_stimoceiver_bull_stop"
-    assert specs[1]["pillar"] == "bci_tech"
+

@@ -9,7 +9,7 @@
   3. **`Canonical Asset Library v1` (`42` slots) + `v1.1` (`43` slots) = `85` Locked Anchors** — 100% preserved unchanged (`v1.2` is strictly additive).
 - **Workspace SSOT Copy**: [`r87_hook_and_conditional_arrow_spec.md`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/research/r87_hook_and_conditional_arrow_spec.md)
 
-![R87-H Forensic Hook Comparison: Top 5 (74.7-84.2% Viewed) vs Bottom 5 + Live Ep #10](./r87_top5_vs_bot5_ep10_hook_forensics.jpg)
+![R87-H Forensic Hook Comparison: Top 5 (74.7-84.2% Viewed) vs Bottom 5 + Live Ep #10](../01_YouTube_CEO/r87_top5_vs_bot5_ep10_hook_forensics.jpg)
 
 ---
 

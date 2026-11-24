@@ -35,7 +35,7 @@
 
 ## 2. [핵심 1] 첫 문장(`0.0~3.5s`, `S1`) 오프닝 유형 분류 & 조회수 타율 비교 (`Do They Start With a Question?`)
 
-![미국 6대 채널 S1 오프닝 유형별 조회수 배율 및 점유율 비교](./us_narration_opening_multipliers.png)
+![미국 6대 채널 S1 오프닝 유형별 조회수 배율 및 점유율 비교](../01_YouTube_CEO/us_narration_opening_multipliers.png)
 
 > [!TIP]
 > **인사말·범퍼 제거 기준**: 쇼츠 `112`편 중 **`93.8%`(`105`편)는 인사말이 `0.0초`(완전 생략)**이며, 롱폼에서 등장하는 고정 시그니처(`"Hey, Vsauce, Michael here"`, `"Welcome to Huberman Lab..."`) 및 스폰서 프리롤(`"Thanks to CuriosityStream..."`)은 정규식 파서로 제거하여 **순수 본문 첫 문장(`S1`, `0.0~3.5s` 호흡 단위)**을 기준으로 계측했다.
@@ -77,7 +77,7 @@
 
 ## 3. [핵심 2] 대학교·논문·학자 권위(`Credibility / Study Stamp`) 등장 타이밍 분포
 
-![미국 6대 채널 권위 스탬프 등장 타이밍, WPM 호흡, 전문용어 도입 및 엔딩 공식](./us_citation_timing_and_pacing.png)
+![미국 6대 채널 권위 스탬프 등장 타이밍, WPM 호흡, 전문용어 도입 및 엔딩 공식](../01_YouTube_CEO/us_citation_timing_and_pacing.png)
 
 ### 3-1. 학술 권위(`University / Professor / Study / Researchers / Clinical Case`) 첫 등장 타임스탬프 분포 (`n = 69`)
 

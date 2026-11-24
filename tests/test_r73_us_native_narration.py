@@ -14,10 +14,10 @@ import json
 from typing import Any
 
 from pipeline import config as cfg
-from pipeline.flow_prompt_builder import validate_r72_open_world_drone_and_real_refs
-from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
-from pipeline.prompt_quality_v5 import validate_production_diorama_v6, validate_script_spine_v8_report
-from pipeline.prosody import plan_sentence_prosody
+from pipeline.prompt_builder import validate_r72_open_world_drone_and_real_refs
+from pipeline.reference_pack import populate_expressive_v8_reference_contract
+from pipeline.prompt_gate import validate_production_diorama_v6, validate_script_spine_v8_report
+from pipeline.prosody_qa import plan_sentence_prosody
 
 
 def _r73_flagship_sentences() -> list[str]:

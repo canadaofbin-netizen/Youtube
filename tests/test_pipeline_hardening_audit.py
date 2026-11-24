@@ -25,7 +25,7 @@ from pipeline import config as cfg
 # 1. Credit-Aware Dual-Tier Flow Engine (`Omni 1.2 Flash` -> `0-Credit` Fallback)
 # ==============================================================================
 def test_dual_tier_flow_engine_auto_fallback_and_zero_credit_safety(monkeypatch) -> None:
-    from pipeline import flow_diorama_sharded_worker as fdsw
+    from pipeline import flow_worker as fdsw
     from pipeline.flow_browser import (
         CHECK_CREDIT_EXHAUSTION_JS,
         DISMISS_CREDIT_DIALOG_JS,
@@ -166,7 +166,7 @@ def test_flow_browser_verify_v5_regex_and_async_harvest_lock(tmp_path: Path, mon
 def test_video_autopsy_audio_harshness_lufs_and_dedup_time_import(tmp_path: Path) -> None:
     import wave
 
-    from pipeline.video_autopsy import VideoAutopsyEngine
+    from pipeline.media_probe import VideoAutopsyEngine
 
     sr = 48000
     t = np.arange(int(2.4 * sr), dtype=np.float32) / float(sr)
@@ -217,7 +217,7 @@ def test_video_autopsy_audio_harshness_lufs_and_dedup_time_import(tmp_path: Path
 # 4. Pre-Upload QA Bundle & R64 Semantic Review Lock (`uploader` & `qa_gates`)
 # ==============================================================================
 def test_publish_ready_qa_bundle_and_r64_upload_lock(tmp_path: Path) -> None:
-    from pipeline.qa_gates import verify_publish_ready_qa_bundle as qg_verify
+    from pipeline.studio.uploader import verify_publish_ready_qa_bundle as qg_verify
     from pipeline.storage import ProjectStorage
     from pipeline.studio.uploader import verify_publish_ready_qa_bundle as up_verify
 
@@ -325,7 +325,7 @@ def test_slot_4_2000_et_and_us_dst_kst_conversion() -> None:
 # ==============================================================================
 def test_voice_fallback_kokoro_mapping_f0_zero_and_fuse_atomic_storage(tmp_path: Path) -> None:
     from pipeline.storage import ProjectStorage
-    from pipeline.voice_fallback import resolve_diorama_voice_preset
+    from pipeline.audio_utils import resolve_diorama_voice_preset
 
     p_def, spec_def = resolve_diorama_voice_preset("")
     assert p_def == "elevenlabs_v4"
@@ -344,14 +344,6 @@ def test_voice_fallback_kokoro_mapping_f0_zero_and_fuse_atomic_storage(tmp_path:
 def test_gear12_doi_integrity_word_boundaries_display_numerals_and_studio_guards(tmp_path: Path) -> None:
     from pipeline.depiction_rules import DioramaV7PromptComposer, LowPolyWorldRule
     from pipeline.plain_language import to_display_text
-    from pipeline.researcher import TopicResearcher
-    from pipeline.storage import ProjectStorage
-    from pipeline.studio.ab_tester import ThumbnailABTester
-
-    researcher = TopicResearcher()
-    # "rubber hand illusion" shares only the generic word "hand" with "alien hand" in split_brain_1962 -> must NOT match split_brain_1962
-    vault_hit = researcher.match_historical_vault("rubber hand illusion body ownership")
-    assert vault_hit is None or vault_hit["id"] != "split_brain_1962"
 
     # Single-digit measurement units convert cleanly to compact subtitle numerals
     disp = to_display_text("The rod flew six feet in three seconds across two rooms.")
@@ -367,33 +359,13 @@ def test_gear12_doi_integrity_word_boundaries_display_numerals_and_studio_guards
     assert ".." not in composed
     assert ", ." not in composed
 
-    # Live-mode ThumbnailABTester must return awaiting_real_metrics when impressions == 0 (never fake demo clicks)
-    projects_root = tmp_path / "projects"
-    st = ProjectStorage("ab_live_guard", title="AB Guard", pillar="brain_health", projects_dir=projects_root)
-    st.save_json(
-        "06_publish",
-        "ab_test_manifest.json",
-        {
-            "project_id": "ab_live_guard",
-            "current_active_variant": "A",
-            "variants": {
-                "A": {"impressions": 0, "clicks": 0},
-                "B": {"impressions": 0, "clicks": 0},
-                "C": {"impressions": 0, "clicks": 0},
-            },
-        },
-    )
-    tester = ThumbnailABTester(cdp_port=9222, projects_dir=projects_root)
-    live_res = tester.evaluate_significance("ab_live_guard", dry_run=False)
-    assert live_res["status"] == "awaiting_real_metrics"
-    assert live_res["winner_variant"] is None
 
 
 # ==============================================================================
 # 8. Batch Orchestrator Smart Auto-Heal (`shift_edl_source_window` vs Regen)
 # ==============================================================================
 def test_batch_orchestrator_smart_auto_heal_plan_separates_edl_vs_regen(tmp_path: Path, monkeypatch) -> None:
-    from pipeline import diorama_batch_orchestrator as dbo
+    from pipeline import batch_runner as dbo
 
     fake_projects = tmp_path / "projects"
     pid = "diorama_heal_case"

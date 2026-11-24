@@ -11,31 +11,31 @@
 
 | Sheet | Category | Slots | Purpose & Continuity Locks | Contact Sheet (`[*REC #1*]` Green Border) |
 |---|---|---|---|---|
-| `01` | **`F_transitions`** | `12` (`F01`–`F09`) | `Omni 1.1 Flash` (`Start+End`) 전용 장면 전환 쌍 (`F03a END == F03b START` SHA-256 데이지체인 잠금 + `F04` 해면 스펀지 ↔ 시상·뇌실 형태 브리지) | [canonical_v1_1_01_F_transitions_sheet.jpg](./canonical_v1_1_01_F_transitions_sheet.jpg) |
-| `02` | **`A_brain_expansion`** | `7` (`A13`–`A19`) | `1P` 백질 신경다발 협곡(`A13`), 시냅스 간극(`A14`), 뇌실 CSF(`A15`), 시신경(`A16`), 뇌-척수 전신(`A17`), 양측 해마 관상단면(`A18`), 전대상피질(`A19`) | [canonical_v1_1_02_A_brain_expansion_sheet.jpg](./canonical_v1_1_02_A_brain_expansion_sheet.jpg) |
-| `03` | **`E_environments_expansion`** | `6` (`E11`–`E16`) | 빈 방(`E11` 야간 침실, `E12` 진료실, `E13` 도심 산책로) + 주인공 배치 쌍(`E14`–`E16`) | [canonical_v1_1_03_E_environments_expansion_sheet.jpg](./canonical_v1_1_03_E_environments_expansion_sheet.jpg) |
-| `04` | **`G_experimental_props`** | `9` (`G01`–`G09`) | 듀얼 MRI 라이트박스(`G01`), 비닐 두상 EEG 캡(`G02`), 무표기 약병(`G03`), 3D 미로(`G04`), 거리 지도(`G05`), 무숫자 초시계(`G06`), 차폐 상자(`G07`), 도형 자극 카드(`G08`), 파형 스마트폰(`G09`) | [canonical_v1_1_04_G_props_sheet.jpg](./canonical_v1_1_04_G_props_sheet.jpg) |
-| `05` | **`H_misconception_flip_props`** | `4` (`H01`–`H04`) | 통념 반전(`R86` F2) 전용 물리 소품: 자물쇠 아크릴 뇌 상자(`H01`), 꺼진 토글 전구(`H02`), 분리 유리 커넥터(`H03`), 물리 `#FF2525` X 블록(`H04`) | [canonical_v1_1_05_H_misconception_sheet.jpg](./canonical_v1_1_05_H_misconception_sheet.jpg) |
-| `06` | **`I_layout_composition_frames`** | `5` (`I01`–`I05`) | 상단 `R70-M` 차트 여백 72% 프레임(`I01`, `I02`), 상단 `R81` 콜아웃 안전 여백 단면(`I03`), `R65 v4` 50/50 두개골 절개 썸네일(`I04`), 따뜻한 엔딩 클로즈업(`I05`) | [canonical_v1_1_06_I_layouts_sheet.jpg](./canonical_v1_1_06_I_layouts_sheet.jpg) |
+| `01` | **`F_transitions`** | `12` (`F01`–`F09`) | `Omni 1.1 Flash` (`Start+End`) 전용 장면 전환 쌍 (`F03a END == F03b START` SHA-256 데이지체인 잠금 + `F04` 해면 스펀지 ↔ 시상·뇌실 형태 브리지) | [canonical_v1_1_01_F_transitions_sheet.jpg](../01_YouTube_CEO/v1_1_01_category_F_transitions_12pairs_sheet.jpg) |
+| `02` | **`A_brain_expansion`** | `7` (`A13`–`A19`) | `1P` 백질 신경다발 협곡(`A13`), 시냅스 간극(`A14`), 뇌실 CSF(`A15`), 시신경(`A16`), 뇌-척수 전신(`A17`), 양측 해마 관상단면(`A18`), 전대상피질(`A19`) | [canonical_v1_1_02_A_brain_expansion_sheet.jpg](../01_YouTube_CEO/v1_1_02_category_A_brain_expansion_sheet.jpg) |
+| `03` | **`E_environments_expansion`** | `6` (`E11`–`E16`) | 빈 방(`E11` 야간 침실, `E12` 진료실, `E13` 도심 산책로) + 주인공 배치 쌍(`E14`–`E16`) | [canonical_v1_1_03_E_environments_expansion_sheet.jpg](../01_YouTube_CEO/v1_1_03_category_E_environments_expansion_sheet.jpg) |
+| `04` | **`G_experimental_props`** | `9` (`G01`–`G09`) | 듀얼 MRI 라이트박스(`G01`), 비닐 두상 EEG 캡(`G02`), 무표기 약병(`G03`), 3D 미로(`G04`), 거리 지도(`G05`), 무숫자 초시계(`G06`), 차폐 상자(`G07`), 도형 자극 카드(`G08`), 파형 스마트폰(`G09`) | [canonical_v1_1_04_G_props_sheet.jpg](../01_YouTube_CEO/v1_1_04_category_G_experimental_props_sheet.jpg) |
+| `05` | **`H_misconception_flip_props`** | `4` (`H01`–`H04`) | 통념 반전(`R86` F2) 전용 물리 소품: 자물쇠 아크릴 뇌 상자(`H01`), 꺼진 토글 전구(`H02`), 분리 유리 커넥터(`H03`), 물리 `#FF2525` X 블록(`H04`) | [canonical_v1_1_05_H_misconception_sheet.jpg](../01_YouTube_CEO/v1_1_05_category_H_misconception_props_sheet.jpg) |
+| `06` | **`I_layout_composition_frames`** | `5` (`I01`–`I05`) | 상단 `R70-M` 차트 여백 72% 프레임(`I01`, `I02`), 상단 `R81` 콜아웃 안전 여백 단면(`I03`), `R65 v4` 50/50 두개골 절개 썸네일(`I04`), 따뜻한 엔딩 클로즈업(`I05`) | [canonical_v1_1_06_I_layouts_sheet.jpg](../01_YouTube_CEO/v1_1_06_category_I_layout_frames_sheet.jpg) |
 
 ---
 
 ## 2. Visual Contact Sheets (`[*REC #1*]` Highlighted · `[EXCL]` Dimmed)
 
 ````carousel
-![Category F — 12 Scene Transition Pairs](./canonical_v1_1_01_F_transitions_sheet.jpg)
+![Category F — 12 Scene Transition Pairs](../01_YouTube_CEO/v1_1_01_category_F_transitions_12pairs_sheet.jpg)
 <!-- slide -->
 ![F04 Metaphor Sponge -> Thalamus+CSF Shape Bridge Zoom](./v1_1_f04_pair1_start_vs_end_fixed.jpg)
 <!-- slide -->
-![Category A+ — Brain Expansion (A13–A19)](./canonical_v1_1_02_A_brain_expansion_sheet.jpg)
+![Category A+ — Brain Expansion (A13–A19)](../01_YouTube_CEO/v1_1_02_category_A_brain_expansion_sheet.jpg)
 <!-- slide -->
-![Category E+ — Environments Expansion (E11–E16)](./canonical_v1_1_03_E_environments_expansion_sheet.jpg)
+![Category E+ — Environments Expansion (E11–E16)](../01_YouTube_CEO/v1_1_03_category_E_environments_expansion_sheet.jpg)
 <!-- slide -->
-![Category G — Experimental Props (G01–G09)](./canonical_v1_1_04_G_props_sheet.jpg)
+![Category G — Experimental Props (G01–G09)](../01_YouTube_CEO/v1_1_04_category_G_experimental_props_sheet.jpg)
 <!-- slide -->
-![Category H — Misconception Flip Props (H01–H04)](./canonical_v1_1_05_H_misconception_sheet.jpg)
+![Category H — Misconception Flip Props (H01–H04)](../01_YouTube_CEO/v1_1_05_category_H_misconception_props_sheet.jpg)
 <!-- slide -->
-![Category I — Layout & Headroom Frames (I01–I05)](./canonical_v1_1_06_I_layouts_sheet.jpg)
+![Category I — Layout & Headroom Frames (I01–I05)](../01_YouTube_CEO/v1_1_06_category_I_layout_frames_sheet.jpg)
 ````
 
 ---

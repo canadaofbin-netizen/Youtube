@@ -10,10 +10,10 @@ from pipeline.config import (
     R80_SPATIAL_FLIGHT_SPEED_RAMP_RANGE,
 )
 from pipeline.depiction_rules import ExpressiveV8PromptComposer, validate_expressive_v8_scene
-from pipeline.diorama_assembler import build_v7_dynamic_edl
-from pipeline.prompt_quality_v5 import validate_r76_brain_simulator_and_pacing_contract
-from pipeline.real_world_reference_builder import URBAN_LANDMARK_QUERY_MAP
-from pipeline.spatial_arrow_guide import (
+from pipeline.assembler import build_v7_dynamic_edl
+from pipeline.prompt_gate import validate_r76_brain_simulator_and_pacing_contract
+from pipeline.real_world_refs import URBAN_LANDMARK_QUERY_MAP
+from pipeline.arrow_guide import (
     build_r80_flow_scene_clause,
     build_r80_keyframe_prompt,
     render_r80_arrow_layout_guide,
@@ -238,7 +238,7 @@ def test_spatial_3d_arrow_diorama_allows_outdoor_lawn_greenery_without_neon_spil
     """Outdoor spatial_3d_arrow_diorama aerial quads (e.g. collegiate lawns ~20% green) must not falsely trip neon_green_fluorescent_spill."""
     import cv2
     import numpy as np
-    from pipeline.flow_diorama_sharded_worker import inspect_diorama_clip_cv
+    from pipeline.flow_worker import inspect_diorama_clip_cv
 
     mp4_path = tmp_path / "outdoor_quad_arrow.mp4"
     w, h, fps = 720, 1280, 12
@@ -281,7 +281,7 @@ def test_spatial_3d_arrow_diorama_allows_doorway_partition_wall_while_blocking_t
     """Top-down doorway partition wall with open central gap (~0.78 seam) passes on spatial_3d_arrow_diorama, while full edge-to-edge split screen (>=0.92) still fails."""
     import cv2
     import numpy as np
-    from pipeline.flow_diorama_sharded_worker import (
+    from pipeline.flow_worker import (
         detect_unintended_horizontal_split_seam,
         inspect_diorama_clip_cv,
     )

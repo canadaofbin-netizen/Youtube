@@ -10,7 +10,7 @@ import cv2
 import numpy as np
 import pytest
 
-from pipeline import cli, config, flow_ingredients, source_reenactment
+from pipeline import cli, config, flow_ingredients, archival_media as source_reenactment
 
 
 class _StubFlowCDPClient:
@@ -286,9 +286,9 @@ def test_translate_porcelain_keyframes_x1_first_x2_retry_force_and_unusual_activ
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     import pipeline.cdp_tab_lease as lease_mod
-    import pipeline.flow_live_single_worker as worker_mod
+    import pipeline.flow_single_worker as worker_mod
     import pipeline.flow_workspace as ws_mod
-    import pipeline.studio.whale_session as whale_mod
+    import pipeline.studio.browser_session as whale_mod
 
     async def _noop_async(*_a: Any, **_kw: Any) -> Any:
         return None
@@ -455,7 +455,6 @@ def test_cli_defaults_and_zero_hardcoded_batch_count_4_across_codebase(
     captured: dict[str, Any] = {}
     monkeypatch.setattr(cli, "cmd_reenact_refs", lambda ns: captured.__setitem__("rr", ns))
     monkeypatch.setattr(cli, "cmd_porcelain_refs", lambda ns: captured.__setitem__("pr", ns))
-    monkeypatch.setattr(cli, "cmd_longform_refs", lambda ns: captured.__setitem__("lf", ns))
 
     monkeypatch.setattr(sys, "argv", ["main.py", "reenact-refs", "--project", "p1", "--slug", "s1"])
     cli.main()
@@ -470,10 +469,6 @@ def test_cli_defaults_and_zero_hardcoded_batch_count_4_across_codebase(
     assert captured["pr"].batch_count is None
     assert captured["pr"].refs == "kf_c05,kf_c12"
     assert captured["pr"].force is True
-
-    monkeypatch.setattr(sys, "argv", ["main.py", "longform-refs", "--project", "lf1"])
-    cli.main()
-    assert captured["lf"].batch_count is None
 
     # 3) Zero hardcoded `batch_count=4` remaining anywhere in pipeline/ or scripts/
     repo_root = Path(config.WORKSPACE_ROOT)

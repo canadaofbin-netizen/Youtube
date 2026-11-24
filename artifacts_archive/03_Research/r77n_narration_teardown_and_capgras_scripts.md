@@ -50,7 +50,7 @@
 
 ## 2. `TRUkQ1wbV2E` vs 우리 `Ep #8 v2` 포렌식 비교 & 실패 원인 5가지
 
-![truk_vs_ep08_narration_diagnostics](./truk_vs_ep08_narration_diagnostics.png)
+![truk_vs_ep08_narration_diagnostics](../01_YouTube_CEO/truk_vs_ep08_narration_diagnostics.png)
 
 | 계측 지표 | `TRUkQ1wbV2E` (1.88M) | 우리 `Ep #8 v2` (기존) | `Script A` (뇌-전용 8컷) | `Script B` (`Ep #8 v3` 전체) |
 |---|---|---|---|---|

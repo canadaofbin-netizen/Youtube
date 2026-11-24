@@ -1,5 +1,5 @@
 """
-Unit & integration tests for R65 Thumbnail Studio & In-Video Cover Frame (`pipeline/thumbnail_studio.py`).
+Unit & integration tests for R65 Thumbnail Studio & In-Video Cover Frame (`pipeline/thumbnail.py`).
 """
 
 from __future__ import annotations
@@ -15,11 +15,10 @@ from PIL import Image, ImageDraw
 import pytest
 
 from pipeline import config as cfg
-from pipeline import thumbnail_studio as ts
-from pipeline.flow_prompt_builder import build_diorama_v7_prompts
-from pipeline.prompt_quality_v5 import validate_production_diorama_v6, validate_thumbnail_block_v7
+from pipeline import thumbnail as ts
+from pipeline.prompt_builder import build_diorama_v7_prompts
+from pipeline.prompt_gate import validate_production_diorama_v6, validate_thumbnail_block_v7
 from pipeline.storage import ProjectStorage
-from pipeline.studio.ab_tester import ThumbnailABTester
 from pipeline.studio.uploader import StudioUploader, verify_publish_ready_qa_bundle
 
 
@@ -330,94 +329,6 @@ def test_validate_thumbnail_block_v7_and_hero_prompt_clause() -> None:
     assert "single focal subject centered in crisp silhouette" not in rendered[0]["scene"].lower()
 
 
-def test_shorts_ab_tester_retire_and_uploader_cover_receipt(tmp_path: Path) -> None:
-    p_dir = _seed_diorama_v7_thumb_project(tmp_path)
-    projects_dir = p_dir.parent
-    pid = p_dir.name
-
-    rep = ts.run(p_dir, force=True, strict=True)
-    assert rep["passed"] is True
-
-    # Seed QA bundle reports so StudioUploader.prepare_upload_payload runs full QA lock
-    asm_dir = p_dir / "05_assembly"
-    final_mp4 = asm_dir / "final_shorts_1080x1920.mp4"
-    mp4_sha = hashlib.sha256(final_mp4.read_bytes()).hexdigest()
-    edl_sha = hashlib.sha256((asm_dir / "edit_decision_list.json").read_bytes()).hexdigest()
-    (asm_dir / "video_autopsy_report.json").write_text(json.dumps({"passed": True, "final_mp4_sha256": mp4_sha}), encoding="utf-8")
-    (asm_dir / "dynamic_episode_qa_report.json").write_text(json.dumps({"passed": True, "final_mp4_sha256": mp4_sha}), encoding="utf-8")
-    (asm_dir / cfg.POSTHOC_SEMANTIC_QA_REPORT_FILENAME).write_text(
-        json.dumps({"passed": True, "final_mp4_sha256": mp4_sha, "edl_sha256": edl_sha, "cut_count": 7, "cuts": [{"cut_index": i} for i in range(1, 8)]}),
-        encoding="utf-8",
-    )
-    distinct_notes = [
-        "Over-shoulder wooden desk shows two gloved hands pausing above four color-coded card decks.",
-        "Macro tabletop view reveals brass calipers measuring sweat response tracing across warm cream paper.",
-        "Wide sunlit laboratory corridor frames faceted researcher walking past pastel mint filing cabinets.",
-        "Split comparison screen contrasts erratic red gambling stack against calm blue conservative deck.",
-        "Translucent pastel brain model highlights ventromedial prefrontal cortex glowing coral above desk.",
-        "Close tactile angle captures index finger hesitating over risky deck before sliding right.",
-        "Final wide room pull-back holds steady over balanced card stacks under warm gallery window.",
-    ]
-    (asm_dir / cfg.POSTHOC_SEMANTIC_REVIEW_FILENAME).write_text(
-        json.dumps(
-            {
-                "project_id": pid,
-                "schema": "R64_posthoc_semantic_review_v1",
-                "review_origin": "manual_or_vlm_template",
-                "final_mp4_sha256": mp4_sha,
-                "edl_sha256": edl_sha,
-                "cut_count": 7,
-                "cuts": [
-                    {
-                        "cut_index": i,
-                        "clip_index": min(6, i),
-                        "auto_populated": False,
-                        "expresses_intended_meaning": True,
-                        "action_needed": "none",
-                        "observed_visual_summary": distinct_notes[i - 1],
-                    }
-                    for i in range(1, 8)
-                ],
-            }
-        ),
-        encoding="utf-8",
-    )
-    ProjectStorage.sync_existing_manifest_from_disk(p_dir, status="ASSEMBLED")
-
-    # 1. ThumbnailABTester returns not_applicable_shorts on neuro_diorama Shorts
-    tester = ThumbnailABTester(cdp_port=9222, projects_dir=projects_dir)
-    swap_res = tester.swap_to_variant(pid, "B", dry_run=True)
-    assert swap_res["status"] == "not_applicable_shorts"
-    assert swap_res["swap_success"] is False
-
-    # 2. StudioUploader deprecates & skips --burn-first-frame on neuro_diorama and writes cover_frame_sec receipt
-    uploader = StudioUploader(cdp_port=9222, projects_dir=projects_dir)
-    with warnings.catch_warnings(record=True) as caught:
-        warnings.simplefilter("always")
-        payload = uploader.prepare_upload_payload(pid, visibility="unlisted", burn_first_frame=True)
-    assert any(issubclass(w.category, DeprecationWarning) for w in caught)
-    assert "burnin" not in payload["video_path"].name
-    assert payload["cover_frame_sec"] == rep["cover_frame_sec"]
-
-    receipt = uploader.upload_project(pid, visibility="unlisted", dry_run=True)
-    assert receipt["cover_frame_sec"] == rep["cover_frame_sec"]
-    assert receipt["cover_action"] == "select_frame_in_mobile_app"
-
-    # 3. Failing thumbnail_report.json blocks production upload but warns on backfill_soft
-    rep_path = p_dir / "06_publish" / cfg.THUMBNAIL_REPORT_FILENAME
-    bad_rep = dict(rep, passed=False, failed_gates=["TQ7_hook_lexical"], mode="production")
-    rep_path.write_text(json.dumps(bad_rep), encoding="utf-8")
-    ProjectStorage.sync_existing_manifest_from_disk(p_dir, status="ASSEMBLED")
-    qa_hard = verify_publish_ready_qa_bundle(p_dir)
-    assert qa_hard["passed"] is False
-    assert any("thumbnail_qa_not_passed" in x for x in qa_hard["issues"])
-
-    soft_rep = dict(bad_rep, mode="backfill_soft")
-    rep_path.write_text(json.dumps(soft_rep), encoding="utf-8")
-    ProjectStorage.sync_existing_manifest_from_disk(p_dir, status="ASSEMBLED")
-    qa_soft = verify_publish_ready_qa_bundle(p_dir)
-    assert qa_soft["passed"] is True
-    assert qa_soft["warnings"]
 
 
 def test_r65_v4_baked_top_label_shelf_nudge_and_plan_r85_mode_propagation() -> None:

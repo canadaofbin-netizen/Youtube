@@ -21,7 +21,7 @@ from pipeline.cdp_tab_lease import enable_background_focus_emulation, leased_cdp
 from pipeline.config import BANNED_COMMENT_VIOLENCE_TOKENS, CHANNEL_ROOT
 from pipeline.studio.community import PRE_DOCUMENT_AUTOPLAY_KILL_JS
 from pipeline.studio.config import CHANNEL_ID, DEFAULT_CDP_PORT
-from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
 STUDIO_COMMENTS_INBOX_URL = f"https://studio.youtube.com/channel/{CHANNEL_ID}/comments/inbox"
 DEFAULT_PENDING_REPLIES_PATH = CHANNEL_ROOT / "reports" / "daily" / "pending_comment_replies.json"

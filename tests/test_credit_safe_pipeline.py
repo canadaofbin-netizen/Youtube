@@ -19,16 +19,16 @@ from pipeline.config import (
     FLOW_OMNI_HERO_MAX_CLIPS,
     FLOW_OMNI_MAX_ATTEMPTS_PER_CLIP,
 )
-from pipeline.diorama_batch_orchestrator import render_keyframe_contact_sheet
-from pipeline.elevenlabs_tts import (
+from pipeline.batch_runner import render_keyframe_contact_sheet
+from pipeline.tts import (
     extract_word_timestamps_from_alignment,
     format_v4_tagged_sentence,
     is_episode_fully_cached,
     load_elevenlabs_api_key,
     synthesize_elevenlabs_v4_episode,
 )
-from pipeline.flow_diorama_sharded_worker import resolve_effective_clip_engine_mode
-from pipeline.flow_prompt_builder import (
+from pipeline.flow_worker import resolve_effective_clip_engine_mode
+from pipeline.prompt_builder import (
     assign_hero_omni_engines,
     normalize_clip_engine_tag,
     validate_flow_credit_safety_lint,
@@ -282,7 +282,7 @@ def test_task4_elevenlabs_v4_cache_stitching_and_alignment(tmp_path: Path) -> No
 
 
 def test_task5_three_voice_repertory_cast_routing_and_per_speaker_continuity(tmp_path: Path) -> None:
-    from pipeline.elevenlabs_tts import load_cast_registry
+    from pipeline.tts import load_cast_registry
 
     reg = load_cast_registry()
     cast = reg["cast"]
@@ -390,7 +390,7 @@ def test_task6_prompt_diet_strips_ui_boilerplate() -> None:
 
 
 def test_task7_r70_data_stamp_validation_and_rgba_rendering() -> None:
-    from pipeline.data_stamp_overlay import render_data_stamp_rgba_frame, validate_data_stamps
+    from pipeline.stamp_overlay import render_data_stamp_rgba_frame, validate_data_stamps
 
     sents = [
         "In 2013 at the University of Rochester, researchers broke a promise to four-year-olds right before the Marshmallow Test!",
@@ -433,75 +433,10 @@ def test_task7_r70_data_stamp_validation_and_rgba_rendering() -> None:
     assert int(frame[int(1920 * 0.65) :, :, 3].max()) == 0
 
 
-def test_task8_previs_refinements_e1_to_e8(tmp_path: Path) -> None:
-    from pipeline.previs_blender import (
-        CAMERA_MOVE_PREVIS_PRESETS,
-        auto_synthesize_plan_previs_specs,
-        load_location_registry,
-        previs_conformance_qa,
-    )
-
-    assert len(CAMERA_MOVE_PREVIS_PRESETS) >= 12
-    assert "dolly_zoom_vertigo" in CAMERA_MOVE_PREVIS_PRESETS
-    assert "crane_swoop_dive" in CAMERA_MOVE_PREVIS_PRESETS
-    loc_reg = load_location_registry()
-    assert "university_playroom" in loc_reg.get("locations", loc_reg)
-
-    plan = {
-        "clips": [
-            {
-                "clip_number": 1,
-                "scene_id": "S01",
-                "grammar": "expressive_vinyl_world",
-                "camera_move": "dolly_zoom_vertigo",
-                "location_id": "university_playroom",
-                "cast": "a child in a yellow sweater sitting at the table and a researcher standing",
-                "action": "reaches toward the marshmallow on the plate",
-            },
-            {
-                "clip_number": 2,
-                "scene_id": "S02",
-                "grammar": "expressive_hands_closeup",
-                "camera_move": "crane_swoop_dive",
-                "location_id": "university_playroom",
-                "cast": "a child reaching across the oak table",
-                "action": "nudges broken crayon stubs on the saucer",
-            },
-        ]
-    }
-    auto_plan = auto_synthesize_plan_previs_specs(plan)
-    p1 = auto_plan["clips"][0]["previs"]
-    p2 = auto_plan["clips"][1]["previs"]
-    # Same location_id reuses identical room_blocks layout
-    assert p1["room_blocks"] == p2["room_blocks"]
-    # Child actor gets child archetype height (~1.05m) & seated/reaching pose
-    assert any(float(a.get("height_m", 1.72)) <= 1.20 for a in p1["actors"])
-
-    # E7 conformance QA check on matching vs mismatched silhouettes
-    previs_png = tmp_path / "previs.png"
-    good_kf = tmp_path / "good_kf.png"
-    bad_kf = tmp_path / "bad_kf.png"
-    bg = np.full((320, 180, 3), 130, dtype=np.uint8)
-    img_prev = bg.copy()
-    img_prev[100:220, 50:120] = (191, 44, 123)  # BGR for #7B2CBF Royal Violet
-    cv2.imwrite(str(previs_png), img_prev)
-
-    img_good = np.full((320, 180, 3), 235, dtype=np.uint8)
-    img_good[102:218, 52:118] = (40, 40, 40)
-    cv2.imwrite(str(good_kf), img_good)
-
-    img_bad = np.full((320, 180, 3), 235, dtype=np.uint8)
-    img_bad[10:50, 130:175] = (40, 40, 40)
-    cv2.imwrite(str(bad_kf), img_bad)
-
-    qa_good = previs_conformance_qa(previs_png, good_kf)
-    qa_bad = previs_conformance_qa(previs_png, bad_kf)
-    assert qa_good["passed"] is True and qa_good["iou"] >= 0.35
-    assert qa_bad["passed"] is False and qa_bad["iou"] < 0.35
 
 
 def test_bgm_vibrato_phase_bounded_and_elevenlabs_music_v25_payload_and_bank_cache(tmp_path: Path) -> None:
-    from pipeline.elevenlabs_music import (
+    from pipeline.bgm import (
         synthesize_or_load_elevenlabs_bgm,
         synthesize_tonal_fixed_underscore,
     )
@@ -576,7 +511,7 @@ def test_no_framerate_blend_in_v8_filtergraph() -> None:
     import inspect
 
     from pipeline import config as cfg
-    from pipeline.diorama_assembler import _render_cut_segment, build_v7_dynamic_edl
+    from pipeline.assembler import _render_cut_segment, build_v7_dynamic_edl
 
     assert cfg.EXPRESSIVE_V8_CURVE_RAMP is False
     render_code_lines = [l for l in inspect.getsource(_render_cut_segment).splitlines() if not l.strip().startswith("#")]
@@ -586,7 +521,7 @@ def test_no_framerate_blend_in_v8_filtergraph() -> None:
 
 
 def test_data_stamp_hero_progressive_strokes_and_arrow_natural_stroke() -> None:
-    from pipeline.data_stamp_overlay import compute_natural_arrow_geometry, render_data_stamp_rgba_frame
+    from pipeline.stamp_overlay import compute_natural_arrow_geometry, render_data_stamp_rgba_frame
 
     stamp = {
         "sentence_index": 13,
@@ -633,7 +568,7 @@ def test_data_stamp_hero_progressive_strokes_and_arrow_natural_stroke() -> None:
 
 
 def test_anatomy_label_anchor_resolves() -> None:
-    from pipeline.anatomy_label_overlay import render_anatomy_callout_rgba_frame
+    from pipeline.anatomy_overlay import render_anatomy_callout_rgba_frame
     from pipeline.anatomy_map import resolve_anatomy_screen_anchor
 
     na = resolve_anatomy_screen_anchor("nucleus accumbens")

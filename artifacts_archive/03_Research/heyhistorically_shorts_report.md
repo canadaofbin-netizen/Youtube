@@ -101,7 +101,7 @@ flowchart LR
 ````carousel
 ![Era 1 초기 포맷(Ching Shih, 1,007만 뷰): 하단 번인 자막 부재 및 상대적으로 정적인 2.82초 컷 호흡](./heyhistorically_media/extra_sheet.jpg)
 <!-- slide -->
-![Era 2 역대 1위작(WW2 대체역사, 2,839만 뷰): Doodlie 캐릭터 + 검열 우회 은유(HATE MAIL) + Y=74% 레드 강조 자막](./heyhistorically_media/ww2_28M.jpg)
+![Era 2 역대 1위작(WW2 대체역사, 2,839만 뷰): Doodlie 캐릭터 + 검열 우회 은유(HATE MAIL) + Y=74% 레드 강조 자막](../01_YouTube_CEO/benchmark_media/ww2_28M.jpg)
 <!-- slide -->
 ![Era 2 대표작(How to be POPE, 2,096만 뷰): GTA/RPG UI + 우측 상단 YEARS PASSED 카운터 + Pomni 카메오 + 48.2s 일시정지 유도 문서](./heyhistorically_media/pope_21M.jpg)
 <!-- slide -->

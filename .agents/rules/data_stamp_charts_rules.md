@@ -5,7 +5,7 @@ description: "Load when authoring or validating R70/R70-M intuitive 1x1 study Da
 
 # Data Stamps & Tracked Anatomy Leader Lines (`R70/R70-M`, `R71/R71-B`)
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Constants: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Code: [`pipeline/data_stamp_overlay.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/data_stamp_overlay.py), [`pipeline/anatomy_label_overlay.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/anatomy_label_overlay.py)
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Constants: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Code: [`pipeline/stamp_overlay.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/stamp_overlay.py), [`pipeline/anatomy_overlay.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/anatomy_overlay.py)
 
 ## R70 / R70-M — Intuitive `1x1` Hand-Drawn Data Stamp (`pipeline/charts/`)
 - **Safe Zone & Presets**: Programmatic overlay in `Y = 12%..62%` (`max_y_frac <= 0.62`, `DATA_STAMP_Y_FRAC_RANGE`), `X <= 910px` (`<= 2` stamps/ep, `1x1` single-panel across `bar_compare`, `arc_gauge`, `dot_array`, `line`, `curve_marker`, `scatter_fit`; academic violin/box/CI/SD banned).

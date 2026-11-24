@@ -23,9 +23,7 @@ from pipeline.publish import build_clean_episode_tags, validate_episode_tags_hyg
 from pipeline.studio import config as studio_cfg
 from pipeline.studio.community import PRE_DOCUMENT_AUTOPLAY_KILL_JS, CommunityManager
 from pipeline.studio.reporter import StudioAnalyticsReporter, normalize_pillar_id
-from pipeline.studio.sanitize_scheduled_metadata import sanitize_scheduled_projects
 from pipeline.studio.short_linker import ShortLinkGraph, StudioShortLinker
-from pipeline.studio.unschedule_retired_shorts import _switch_single_scheduled_to_private
 from pipeline.studio.uploader import StudioUploader
 
 
@@ -119,14 +117,14 @@ def test_r75_on_disk_metadata_and_live_purification_receipts() -> None:
         assert str(meta["description"]).endswith("#shorts")
         assert validate_episode_tags_hygiene(meta["tags"], meta["pillar"], raise_on_error=False) == []
 
-    pl_receipt = root / "reports" / "studio_playlist_purge_receipt.json"
+    pl_receipt = cfg.CHANNEL_ROOT / "reports" / "studio_playlist_purge_receipt.json"
     assert pl_receipt.is_file()
     pl_doc = json.loads(pl_receipt.read_text(encoding="utf-8"))
     assert pl_doc["status"] == "purged_zero_verified"
     assert pl_doc["remaining_count"] == 0
     assert pl_doc["deleted_count"] == 7
 
-    vid_receipt = root / "reports" / "studio_r75_video_tag_purification_receipt.json"
+    vid_receipt = cfg.CHANNEL_ROOT / "reports" / "studio_r75_video_tag_purification_receipt.json"
     assert vid_receipt.is_file()
     vid_doc = json.loads(vid_receipt.read_text(encoding="utf-8"))
     assert vid_doc["status"] == "verified_live"
@@ -231,12 +229,6 @@ def test_r75_zero_self_bounce_pin_guards_and_watch_fallback_disabled(
     comm_src = inspect.getsource(CommunityManager)
     assert "Page.addScriptToEvaluateOnNewDocument" in comm_src
 
-    # 2. Scheduler never calls post_and_pin_comment right after Scheduled upload
-    import pipeline.studio_batch_100_scheduler as sched_mod
-
-    sched_src = inspect.getsource(sched_mod)
-    assert "post_and_pin_comment(" not in sched_src
-
     # 3. reporter.py ALLOW_WATCH_PAGE_FALLBACK is False and _fetch_watch_page_fallback returns {} without HTTP
     assert studio_cfg.ALLOW_WATCH_PAGE_FALLBACK is False
     rep_gen = StudioAnalyticsReporter(cdp_port=9222, reports_dir=tmp_path / "reports")
@@ -308,98 +300,3 @@ def test_r75_zero_self_bounce_pin_guards_and_watch_fallback_disabled(
     assert res_fresh["organic_views"] == 12
 
 
-def test_r75_metadata_freeze_windows_visibility_monotonicity_and_duration_gate(tmp_path: Path) -> None:
-    now_ref = datetime(2026, 11, 12, 22, 0, tzinfo=timezone.utc)
-    graph = ShortLinkGraph(projects_dir=tmp_path, now_utc=now_ref)
-
-    # 1. Pre-release 3.0h freeze on Scheduled video (+2.0h until go-live -> locked; +5.0h -> unlocked)
-    locked_sched, reason_sched = graph.is_seed_locked(
-        {
-            "visibility": "scheduled",
-            "scheduled_at_utc": (now_ref + timedelta(hours=2.0)).isoformat(),
-        }
-    )
-    assert locked_sched is True and "pre_release_freeze" in reason_sched
-
-    unlocked_sched, _ = graph.is_seed_locked(
-        {
-            "visibility": "scheduled",
-            "scheduled_at_utc": (now_ref + timedelta(hours=5.0)).isoformat(),
-        }
-    )
-    assert unlocked_sched is False
-
-    # 2. Post-release 24.0h freeze on Public video (+6.0h -> locked; +26.0h -> unlocked)
-    locked_pub, reason_pub = graph.is_seed_locked(
-        {
-            "visibility": "public",
-            "published_at_utc": (now_ref - timedelta(hours=6.0)).isoformat(),
-        }
-    )
-    assert locked_pub is True and "24.0h" in reason_pub
-
-    unlocked_pub, _ = graph.is_seed_locked(
-        {
-            "visibility": "public",
-            "published_at_utc": (now_ref - timedelta(hours=26.0)).isoformat(),
-        }
-    )
-    assert unlocked_pub is False
-
-    # 3. sanitize_scheduled_projects skips Scheduled videos within 3.0h of go-live
-    pid_imminent = "v8_imminent_sched"
-    (tmp_path / pid_imminent / "06_publish").mkdir(parents=True, exist_ok=True)
-    (tmp_path / pid_imminent / "02_script").mkdir(parents=True, exist_ok=True)
-    (tmp_path / pid_imminent / "06_publish" / "upload_receipt.json").write_text(
-        json.dumps(
-            {
-                "status": "scheduled",
-                "visibility": "schedule",
-                "video_id": "Imminent001",
-                "scheduled_at_utc": (now_ref + timedelta(hours=1.5)).isoformat(),
-            },
-            indent=2,
-        ),
-        encoding="utf-8",
-    )
-    (tmp_path / pid_imminent / "06_publish" / "metadata.json").write_text(
-        json.dumps({"title": "Why Your Brain Freezes at Doorways", "description": "Story.\n\n#shorts"}, indent=2),
-        encoding="utf-8",
-    )
-    (tmp_path / pid_imminent / "02_script" / "script.json").write_text(
-        json.dumps({"schema": 8, "title": "Why Your Brain Freezes at Doorways", "sentences": ["Hello!"]}, indent=2),
-        encoding="utf-8",
-    )
-    san_res = sanitize_scheduled_projects(projects_dir=tmp_path, dry_run=True, now_utc=now_ref)
-    assert any(s.get("project_id") == pid_imminent and "freeze" in str(s.get("reason")) for s in san_res["skipped"])
-
-    # 4. Visibility monotonicity: public -> unlisted / public -> private blocked unless allow_emergency_demote=True
-    with pytest.raises(ValueError, match="R75"):
-        studio_cfg.validate_visibility_transition("public", "unlisted")
-    with pytest.raises(ValueError, match="R75"):
-        studio_cfg.validate_visibility_transition("public", "private")
-    assert studio_cfg.validate_visibility_transition("public", "unlisted", allow_emergency_demote=True) is True
-    assert studio_cfg.validate_visibility_transition("scheduled", "public") is True
-
-    with pytest.raises(ValueError, match="R75"):
-        asyncio.run(
-            _switch_single_scheduled_to_private(
-                object(),
-                project_id="v8_test_pub",
-                video_id="CustomPub01",
-                current_visibility="public",
-            )
-        )
-
-    # 5. < 88.0s R75 duration gate for new v8 projects vs <= 120.0s grandfathering for v8_pilot_01..03 & v8_ep04..06
-    assert cfg.SHORTS_EXPRESSIVE_V8_DURATION_TARGET_RANGE_SEC == (62.0, 86.0)
-    assert cfg.SHORTS_EXPRESSIVE_V8_R75_MAX_SEC == 88.0
-    assert cfg.SHORTS_EXPRESSIVE_V8_WORD_COUNT_MIN == 145
-    assert cfg.shorts_duration_range_for_profile("shorts_expressive_v8", project_id="v8_ep07_harvard_reversible_choice_paradox") == (
-        61.5,
-        88.0,
-    )
-    assert cfg.shorts_duration_range_for_profile("shorts_expressive_v8", project_id="v8_ep06_bedtime_todo_list_sleep") == (
-        61.5,
-        120.0,
-    )

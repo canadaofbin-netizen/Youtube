@@ -5,7 +5,6 @@ community comment pinning, sequential A/B testing with Z-score significance,
 and bulk unlisted staging queue management.
 """
 
-from pipeline.studio.ab_tester import ThumbnailABTester
 from pipeline.studio.community import CommunityManager
 from pipeline.studio.config import (
     AFFINITY_WEIGHTS,
@@ -56,7 +55,6 @@ from pipeline.studio.config import (
     get_pillar_default_slot,
     get_slot_info,
 )
-from pipeline.studio.queue_manager import StagingQueueManager
 from pipeline.studio.reporter import StudioAnalyticsReporter
 from pipeline.studio.short_linker import (
     ShortLinkGraph,
@@ -64,7 +62,7 @@ from pipeline.studio.short_linker import (
     write_studio_publish_receipt,
 )
 from pipeline.studio.uploader import StudioUploader
-from pipeline.studio.whale_session import WhaleSessionController
+from pipeline.studio.browser_session import WhaleSessionController
 
 __all__ = [
     "AFFINITY_WEIGHTS",
@@ -114,11 +112,9 @@ __all__ = [
     "YOUTUBE_WATCH_BASE_URL",
     "CommunityManager",
     "ShortLinkGraph",
-    "StagingQueueManager",
     "StudioAnalyticsReporter",
     "StudioShortLinker",
     "StudioUploader",
-    "ThumbnailABTester",
     "WhaleSessionController",
     "get_pillar_default_slot",
     "get_slot_info",

@@ -1,9 +1,9 @@
 # ALL ABOUT BRAIN — 30-Episode Golden Slate & Dynamic Priority Queue (`Ep #10 ~ Ep #39`)
 
-- **Generated (UTC)**: `2026-11-16T05:17:45.111845+00:00`
+- **Generated (UTC)**: `2026-11-24T11:35:46.325216+00:00`
 - **Validation Status**: **`30 / 30` `Schema v2` Ready (`0` errors, `100%` Crossref DOI verified, `31/31` MNI152 Atlas compatible, `R75` clean)**
 - **Portfolio Split**: Track 1 New Everyday (`15`) + Track 2 Top Remodels (`11`) + Track 3 2025–2026 Breaking (`4`) = **`30` Episodes**
-- **Weekly Auto-Replenishment Cron**: `30 9 * * 1` (Every Monday `09:30 UTC` via `scripts/weekly_topic_research_runner.py`, Queue Ceiling `35` Champion-Challenger)
+- **Weekly Auto-Replenishment Cron**: `30 9 * * 1` (Every Monday `09:30 UTC` via `scripts/run_topic_radar.py`, Queue Ceiling `35` Champion-Challenger)
 
 | Rank | Ep | Target Slot (ET) | Score | Track | Domain / Pillar | Slug & Working Topic | Primary Circuit (`#27D8FF`) | Outbound Anchor |
 |---:|---|---|---:|---|---|---|---|---|

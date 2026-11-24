@@ -16,8 +16,8 @@ from pipeline.config import (
     DIORAMA_VOICE_PRESETS,
     STORYTELLER_VOCAL_FILTER_FEMALE,
 )
-from pipeline.flow_prompt_builder import render_prompt
-from pipeline.prosody import (
+from pipeline.prompt_builder import render_prompt
+from pipeline.prosody_qa import (
     base_rate_for_mode,
     classify_prosody_gears,
     rate_to_speed,
@@ -29,7 +29,7 @@ from pipeline.publish import (
     strip_internal_pipeline_tokens,
     validate_diorama_paradox_title,
 )
-from pipeline.voice_fallback import (
+from pipeline.audio_utils import (
     STORYTELLER_VOCAL_FILTER,
     resolve_diorama_voice_preset,
 )
@@ -186,7 +186,7 @@ def test_us_title_archetypes_and_editorial_description_sanitization():
 
 
 def test_asr_tokens_folds_double_s_coarticulated_inflections():
-    from pipeline.prosody import _asr_tokens
+    from pipeline.prosody_qa import _asr_tokens
 
     assert _asr_tokens("But here is the twist: goodbye tears missed the real story!") == _asr_tokens(
         "But here is the twist goodbye tears miss the real story"

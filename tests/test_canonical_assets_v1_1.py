@@ -168,7 +168,7 @@ def test_v1_1_selectors_and_excluded_slot_rejection() -> None:
 
 
 def test_r88_faceless_master_bindings_and_dotted_eye_staged_guard() -> None:
-    from pipeline.porcelain_anchor_pack import build_r85_canonical_master_bindings
+    from pipeline.reference_pack import build_r85_canonical_master_bindings
 
     # 1. Under r88_faceless=True, environment & character selectors never return E*_staged cartoon-dot-eye rooms
     assert select_canonical_environment_slot("fmri suite", staged=True, r88_faceless=True) == "E02_mri_suite_empty"
@@ -206,3 +206,116 @@ def test_r88_faceless_master_bindings_and_dotted_eye_staged_guard() -> None:
     assert by_alias["expressive_conflict_master.png"] == "E02_mri_suite_empty"
     assert by_alias["species_opt1_sheet.png"] == "A01_mode1_translucent_head_lateral"
     assert not any(sid.endswith("_staged") for sid, _, _ in bindings)
+
+
+# --- Merged from test_canonical_assets_v1_2.py ---
+from pipeline.canonical_assets import get_canonical_root  # noqa: E402
+from pipeline.config import REF_IMAGE_SOURCE_CANONICAL_V1_2  # noqa: E402
+
+EXPECTED_V1_2_USER_PICKS: dict[str, str | tuple[str, str]] = {
+    "J01_hook_mode1_daily_action_xray_alert": "cand_01.png",
+    "J02_hook_mode1_bedside_sleep_anomaly": "cand_03.png",
+    "J03_hook_bizarre_experiment_prop_closeup": "cand_02.png",
+    "J05_hook_mode2_instant_brain_shock_open": "cand_03.png",
+    "J06_hook_extreme_2d_ink_shock_reaction": "cand_02.png",
+    "K01_contrast_active_vs_blocked_fluid_tubes": "cand_02.png",
+    "K02_contrast_squeezed_vs_stalled_sponge_basins": "cand_02.png",
+    "K03_contrast_twin_tabletop_stimulus_ab": "cand_01.png",
+    "K04_contrast_dual_receptor_chemical_lock_panel": "cand_03.png",
+    "K05_contrast_scale_flat_vs_internal_surge_split": "cand_01.png",
+    "K06_contrast_a12_dual_brain_state_transition_pair": ("cand_02_start.png", "cand_02_end.png"),
+    "C01b_spatial_corridor_with_anchor_prop": "cand_01.png",
+    "C02b_spatial_dual_route_prop_legend": "cand_02.png",
+    "C03b_spatial_doorway_sever_with_prop": "cand_01.png",
+}
+
+EXPECTED_V1_2_EXCLUDED: tuple[tuple[str, str], ...] = (
+    ("J01_hook_mode1_daily_action_xray_alert", "cand_03.png"),
+    ("J03_hook_bizarre_experiment_prop_closeup", "cand_01.png"),
+    ("J04_hook_paradox_prop_split_tabletop", "cand_01.png"),
+    ("J04_hook_paradox_prop_split_tabletop", "cand_02.png"),
+    ("J04_hook_paradox_prop_split_tabletop", "cand_03.png"),
+    ("J06_hook_extreme_2d_ink_shock_reaction", "cand_03.png"),
+    ("C01b_spatial_corridor_with_anchor_prop", "cand_02.png"),
+    ("C02b_spatial_dual_route_prop_legend", "cand_01.png"),
+    ("C02b_spatial_dual_route_prop_legend", "cand_03.png"),
+    ("C03b_spatial_doorway_sever_with_prop", "cand_03.png"),
+)
+
+
+def test_canonical_v1_2_manifest_locked_14_of_15_and_unified_99_slots() -> None:
+    doc = load_canonical_manifest(version="v1_2", require_approved=True)
+    assert doc["status"] == "locked"
+    assert doc["sha256_locked"] is True
+    assert doc["approved_slot_count"] == 14
+    assert doc["deferred_slot_count"] == 1
+    assert doc["locked_file_count"] == 15
+    assert doc["excluded_candidate_count"] == 10
+
+    v1_sha = compute_file_sha256(get_canonical_root("v1") / "manifest.json")
+    v1_1_sha = compute_file_sha256(get_canonical_root("v1_1") / "manifest.json")
+    assert v1_sha == doc["parent_locked_libraries"]["v1"]["manifest_sha256"]
+    assert v1_1_sha == doc["parent_locked_libraries"]["v1_1"]["manifest_sha256"]
+
+    active_84 = list_all_approved_canonical_slots(verify_sha256=True)
+    assert len(active_84) == 84
+    unified = list_all_approved_canonical_slots(verify_sha256=True, include_retired_r88=True)
+    assert len(unified) == 99
+
+    for sid, expected_pick in EXPECTED_V1_2_USER_PICKS.items():
+        if isinstance(expected_pick, tuple):
+            pair = resolve_canonical_transition_pair(sid, version="v1_2", verify_sha256=True)
+            assert pair["start"]["approved_filename"] == expected_pick[0]
+            assert pair["end"]["approved_filename"] == expected_pick[1]
+            assert pair["start"]["abs_path"].is_file()
+            assert pair["end"]["abs_path"].is_file()
+        else:
+            res = resolve_canonical_approved_slot(sid, version="v1_2", verify_sha256=True)
+            assert res["library_version"] == "v1_2"
+            assert res["approved_filename"] == expected_pick
+            assert res["abs_path"].is_file()
+
+
+def test_canonical_v1_2_deferred_j04_and_10_excluded_outliers_blocked() -> None:
+    with pytest.raises(CanonicalAssetError, match="deferred_flow_unusual_activity"):
+        resolve_canonical_approved_slot("J04_hook_paradox_prop_split_tabletop", version="v1_2")
+
+    v12_root = get_canonical_root("v1_2")
+    for sid, fn in EXPECTED_V1_2_EXCLUDED:
+        p = v12_root / "candidates" / sid / fn
+        assert is_retired_derivative_anchor(p) is True, f"[EXCL] outlier must be blocked: {p}"
+
+    assert is_retired_derivative_anchor(v12_root / "candidates" / "J01_hook_mode1_daily_action_xray_alert" / "cand_02.png") is True
+    assert is_retired_derivative_anchor(v12_root / "candidates" / "J01_hook_mode1_daily_action_xray_alert" / "cand_01.png") is False
+    assert is_retired_derivative_anchor(v12_root / "candidates" / "K06_contrast_a12_dual_brain_state_transition_pair" / "cand_02_start.png") is False
+    assert is_retired_derivative_anchor(v12_root / "candidates" / "K06_contrast_a12_dual_brain_state_transition_pair" / "cand_02_end.png") is False
+    assert is_retired_derivative_anchor(v12_root / "candidates" / "K06_contrast_a12_dual_brain_state_transition_pair" / "cand_01_end.png") is True
+
+
+def test_canonical_v1_2_stage_ep13_anchors_and_tamper_detection(tmp_path: Path) -> None:
+    proj = tmp_path / "v8_ep13_stage_test"
+    (proj / "03_visuals" / "reference_images").mkdir(parents=True)
+
+    st_j01 = stage_canonical_slot_to_project(proj, "J01_hook_mode1_daily_action_xray_alert", version="v1_2")
+    st_k03 = stage_canonical_slot_to_project(proj, "K03_contrast_twin_tabletop_stimulus_ab", version="v1_2")
+    st_k05 = stage_canonical_slot_to_project(proj, "K05_contrast_scale_flat_vs_internal_surge_split", version="v1_2")
+    st_k06 = stage_canonical_transition_pair_to_project(proj, "K06_contrast_a12_dual_brain_state_transition_pair", version="v1_2")
+
+    assert st_j01["staged_path"].is_file()
+    assert st_k03["staged_path"].is_file()
+    assert st_k05["staged_path"].is_file()
+    assert st_k06["start"]["staged_path"].is_file()
+    assert st_k06["end"]["staged_path"].is_file()
+
+    prov = json.loads((proj / "03_visuals" / "reference_images" / "provenance.json").read_text(encoding="utf-8"))
+    assert prov[st_j01["staged_filename"]] == REF_IMAGE_SOURCE_CANONICAL_V1_2
+    assert prov[st_k06["end"]["staged_filename"]] == REF_IMAGE_SOURCE_CANONICAL_V1_2
+
+    val_ok = validate_project_canonical_provenance(proj)
+    assert val_ok["passed"] is True, val_ok["issues"]
+    assert val_ok["locked_file_count"] == 5
+
+    st_k03["staged_path"].write_bytes(st_k03["staged_path"].read_bytes() + b"\x00")
+    val_bad = validate_project_canonical_provenance(proj)
+    assert val_bad["passed"] is False
+    assert any("canonical_sha256_mismatch" in i for i in val_bad["issues"])

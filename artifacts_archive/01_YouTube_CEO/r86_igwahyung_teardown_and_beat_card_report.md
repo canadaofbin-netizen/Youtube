@@ -14,7 +14,7 @@
   - Longform 4편: [sheet_long_iilvvE43t0A.jpg](file:///home/canadaofbin/.gemini/antigravity-cli/brain/ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c/scratch/r86/sheet_long_iilvvE43t0A.jpg) (`'적게 먹고 운동해라'는 틀렸습니다`, `193,492`회) · [sheet_long_igi0t8WAGt4.jpg](file:///home/canadaofbin/.gemini/antigravity-cli/brain/ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c/scratch/r86/sheet_long_igi0t8WAGt4.jpg) (`뇌과학과 자유의지`, `146,585`회) · [sheet_long_1VLTdjF7wm4.jpg](file:///home/canadaofbin/.gemini/antigravity-cli/brain/ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c/scratch/r86/sheet_long_1VLTdjF7wm4.jpg) (`내 몸의 주인 착각·마이크로바이옴`, `49,988`회) · [sheet_long_zUJY2QP7GuI.jpg](file:///home/canadaofbin/.gemini/antigravity-cli/brain/ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c/scratch/r86/sheet_long_zUJY2QP7GuI.jpg) (`기억 편집 뇌 속 마스터키`, `24,702`회)
 - **정량 데이터셋 JSON SSOT**: [r86_igwahyung_teardown_dataset.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/research/r86_igwahyung_teardown_dataset.json)
 
-![이과형 10편(Shorts 6 · Longform 4) vs 우리 11월 17일 4편(94컷) — 9종 시각 기능 비율 및 컷 페이싱 정량 비교](../03_Research/r86_igwahyung_vs_aab_9functions_and_pacing.png)
+![이과형 10편(Shorts 6 · Longform 4) vs 우리 11월 17일 4편(94컷) — 9종 시각 기능 비율 및 컷 페이싱 정량 비교](./r86_igwahyung_vs_aab_9functions_and_pacing.png)
 
 ---
 

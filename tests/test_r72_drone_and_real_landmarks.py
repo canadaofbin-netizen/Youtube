@@ -9,20 +9,15 @@ import numpy as np
 import pytest
 
 import pipeline.config as cfg
-from pipeline.diorama_assembler import build_v7_dynamic_edl
-from pipeline.dynamic_episode_qa import compile_episode_qa_contract
-from pipeline.flow_prompt_builder import (
+from pipeline.assembler import build_v7_dynamic_edl
+from pipeline.episode_qa import compile_episode_qa_contract
+from pipeline.prompt_builder import (
     build_diorama_v7_prompts,
     validate_expressive_v8_prompts,
     validate_r72_open_world_drone_and_real_refs,
 )
-from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
-from pipeline.previs_blender import (
-    is_outdoor_or_architectural_clip,
-    render_previs_keyframes,
-    synthesize_default_previs_spec_for_clip,
-)
-from pipeline.real_world_reference_builder import (
+from pipeline.reference_pack import populate_expressive_v8_reference_contract
+from pipeline.real_world_refs import (
     build_sanitized_9x16_structural_guide,
     ensure_quarantine_dir,
     evaluate_rq_real_alignment,
@@ -132,44 +127,6 @@ def test_r72_real_world_three_category_resolution_quarantine_and_rq_real(tmp_pat
     assert not q_dir.exists()
 
 
-def test_r72_previs_v22_open_world_drone_trajectory_and_k1_relay_seam(tmp_path: Path) -> None:
-    clip_01 = {
-        "index": 1,
-        "location_id": "campus_quad_aerial_01",
-        "grammar": "expressive_exterior_establishing",
-        "camera_move": "drone_aerial_approach",
-        "cast": ["researcher"],
-        "action_2beat": "Sweeps from high campus aerial down toward arched brick facade.",
-    }
-    clip_02 = {
-        "index": 2,
-        "location_id": "architectural_cutaway_portal_01",
-        "grammar": "architectural_cutaway_portal",
-        "camera_move": "fpv_window_portal_breach",
-        "cast": ["researcher", "student"],
-        "action_2beat": "Glides straight through sliced brick facade into bright darkroom lab.",
-    }
-    assert is_outdoor_or_architectural_clip(clip_01) is True
-    assert is_outdoor_or_architectural_clip(clip_02) is True
-
-    # Verify indoor 3.75m frustum clamp is bypassed on aerial drone shots (z=13.5m preserved!)
-    pv_01 = synthesize_default_previs_spec_for_clip(clip_01, 1)
-    pv_02 = synthesize_default_previs_spec_for_clip(clip_02, 2)
-
-    assert pv_01["camera_start"]["pos"][2] >= 12.0, f"Aerial start height was clamped: {pv_01['camera_start']}"
-    assert pv_01["camera_end"]["pos"] == pv_02["camera_start"]["pos"], (
-        f"Clip 1 End (K1) and Clip 2 Start (K1) camera positions must match 1:1! "
-        f"{pv_01['camera_end']['pos']} vs {pv_02['camera_start']['pos']}"
-    )
-    assert pv_02["camera_end"]["pos"][1] > pv_02["camera_start"]["pos"][1]
-
-    res_01 = render_previs_keyframes(pv_01, out_dir=tmp_path, cut_id="S01", backend="workbench_cpu")
-    res_02 = render_previs_keyframes(pv_02, out_dir=tmp_path, cut_id="S02", backend="workbench_cpu")
-    assert res_01["visibility_gate_start"]["passed"] is True
-    assert res_02["visibility_gate_end"]["passed"] is True
-    for p_str in (res_01["start_png"], res_01["end_png"], res_02["end_png"]):
-        img = cv2.imread(p_str, cv2.IMREAD_COLOR)
-        assert img is not None and img.shape in ((960, 540, 3), (1920, 1080, 3))
 
 
 def _build_r72_24_clip_plan_and_sentences() -> tuple[list[dict[str, Any]], dict[str, Any]]:

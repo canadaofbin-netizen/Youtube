@@ -5,7 +5,7 @@
 - **JSON 영수증**: [`research_screening_v1_2.json`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1_2/research_screening_v1_2.json)
 - **워크스페이스 SSOT**: [`canonical_assets_v1_2_research_screening_report.md`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/research/canonical_assets_v1_2_research_screening_report.md)
 
-![Canonical v1.2 Key Rank-1 Picks vs Excluded Outliers](./canonical_v1_2_research_key_picks_and_exclusions.jpg)
+![Canonical v1.2 Key Rank-1 Picks vs Excluded Outliers](../01_YouTube_CEO/canonical_v1_2_research_key_picks_and_exclusions.jpg)
 
 ---
 

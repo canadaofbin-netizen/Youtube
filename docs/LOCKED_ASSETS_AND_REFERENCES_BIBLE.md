@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > **Single Source of Truth (`100%` Derived from Disk Manifests — Do Not Hand-Edit)**:
-> Generated deterministically by [`build_locked_assets_bible.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/build_locked_assets_bible.py). Run `python -X utf8 scripts/build_locked_assets_bible.py --check` to verify byte-for-byte parity and all SHA-256 locks.
+> Generated deterministically by [`verify_assets_bible.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/verify_assets_bible.py). Run `python -X utf8 scripts/verify_assets_bible.py --check` to verify byte-for-byte parity and all SHA-256 locks.
 
 - **Golden Style Canary Sheet**: [ALL_ABOUT_BRAIN_GOLDEN_STYLE_SHEET.jpg](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/docs/assets_preview/ALL_ABOUT_BRAIN_GOLDEN_STYLE_SHEET.jpg) (`2160x3553` RGB JPEG, `1,531,708` bytes, SHA-256 `fcd1d22d4c1d`)
 - **Master Pipeline Blueprint**: [ALL_ABOUT_BRAIN_MASTER_PIPELINE.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/docs/ALL_ABOUT_BRAIN_MASTER_PIPELINE.md)
@@ -345,9 +345,9 @@
 ### 5.3 Knowledge Base `reusable_packs/` (`6` JSON Packs)
 | Pack Filename | Entries | Notes / Schema | Bytes | Updated / Schema Tag | File Link | SHA-256[:12] |
 |---|---:|---|---:|---|---|---|
-| `analogies_registry.json` | `16` | registry items | `23,378` | `2026-11-19T17:35:52.924628+00:00` | [analogies_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/analogies_registry.json) | `347182948a10` |
-| `brain_models_registry.json` | `180` | registry items | `266,432` | `2026-11-19T17:35:52.931540+00:00` | [brain_models_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/brain_models_registry.json) | `d1996aa50a3f` |
+| `analogies_registry.json` | `16` | registry items | `23,378` | `2026-11-24T11:33:40.407874+00:00` | [analogies_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/analogies_registry.json) | `f3c77e7a2bdf` |
+| `brain_models_registry.json` | `187` | registry items | `274,913` | `2026-11-24T11:33:40.411471+00:00` | [brain_models_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/brain_models_registry.json) | `f3b3ae29a981` |
 | `cast_registry.json` | `4` | 6 body archetypes | `2,249` | `aab_cast_registry_v1` | [cast_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/cast_registry.json) | `a2f2ea54b653` |
 | `location_registry.json` | `19` | 3D previs blockout locations | `17,944` | `aab_previs_location_registry_v2` | [location_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/location_registry.json) | `597acd8dfdac` |
-| `locations_and_props_registry.json` | `225` | registry items | `353,847` | `2026-11-19T17:35:52.942804+00:00` | [locations_and_props_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/locations_and_props_registry.json) | `e8463acdba62` |
-| `prompts_golden_bank.json` | `389` | 24 grammars | `617,911` | `2026-11-19T17:35:52.907737+00:00` | [prompts_golden_bank.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/prompts_golden_bank.json) | `b2474c108b83` |
+| `locations_and_props_registry.json` | `236` | registry items | `371,886` | `2026-11-24T11:33:40.419358+00:00` | [locations_and_props_registry.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/locations_and_props_registry.json) | `b8b8bbe61967` |
+| `prompts_golden_bank.json` | `393` | 24 grammars | `624,527` | `2026-11-24T11:33:40.395697+00:00` | [prompts_golden_bank.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/knowledge_base/reusable_packs/prompts_golden_bank.json) | `b9e49b807c06` |

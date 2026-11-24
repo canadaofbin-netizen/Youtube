@@ -19,14 +19,14 @@ import numpy as np
 import pytest
 
 import pipeline.config as cfg
-import pipeline.elevenlabs_tts as el_mod
-import pipeline.voice_fallback as vf_mod
-from pipeline.elevenlabs_tts import ElevenLabsUnavailableError, synthesize_elevenlabs_v4_sentence
-from pipeline.flow_diorama_sharded_worker import (
+import pipeline.tts as el_mod
+import pipeline.audio_utils as vf_mod
+from pipeline.tts import ElevenLabsUnavailableError, synthesize_elevenlabs_v4_sentence
+from pipeline.flow_worker import (
     _reinforce_porcelain_cv_retry_prompt,
     inspect_diorama_clip_cv,
 )
-from pipeline.voice_fallback import resolve_diorama_voice_preset, synthesize_continuous_diorama_track
+from pipeline.audio_utils import resolve_diorama_voice_preset, synthesize_continuous_diorama_track
 
 
 def _make_valid_mp3_bytes(sr: int = 44100, dur_sec: float = 0.6) -> bytes:

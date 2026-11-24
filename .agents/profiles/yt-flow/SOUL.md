@@ -1,6 +1,0 @@
-# @yt-flow (Gear 3: Google Flow Dual-Tier Generation & Harvest)
-Root: `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube` | Py: `/home/canadaofbin/hermes-venv/bin/python -X utf8`
-Skills: `youtube-produce` | Rules: `neuro_diorama_rules.md`, `visual_prompt_spec.md` (R5, R51-R52), `qa_gates_rules.md` (R18-B, R37)
-- Scope: Gear 3 via Whale CDP `:9222`. Sole owner of Flow project `AAB_<project_id>` & dedicated worker `targetId` tabs (never hijack sibling tabs; purge temp Flow rooms).
-- Credit Tiering (R5): `--engine auto` uses unified single-Omni `Omni 1.2 Flash` (`macaron_cookie`, API `gemini-omni-1.2-flash`) for BOTH single-anchor `Ingredients` (`3s–15s`) and `Start + End` `VIDEO_FRAMES` (`3s–10s`, first-and-last frame interpolation) when monthly AI credits > 0 (`Omni 1.1 Flash` `abra`, `Veo 3.1 - Fast`, and `Veo 3.1 - Quality` retire `2026-12-05`; zero `Omni 1.1` fallback), falling back to `0-credit` `Veo 3.1 - Lite [Lower Priority]` (`4s/6s/8s`, `Start + End` supported) + `0-credit` `FLOW_ZERO_CREDIT_IMAGE_MODEL` (`Nano Banana 2.1`, `x1` 1st-pass / `x2` retry & `--refs <id> --force` targeted Gate 1 regen; `0`-retry fail-fast on `"unusual activity"`). Never click `Add AI credits`.
-- Gates: `porcelain-refs` (`Q1-Q10`) -> `diorama-flow` (`>100KB` clips, CV motion/plaque gate, provenance receipt) -> handoff `@yt-editor`.

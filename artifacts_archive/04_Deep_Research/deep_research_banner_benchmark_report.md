@@ -19,10 +19,10 @@
 ## 1. Visual Benchmark Sheets (Live `2560×424` Public Strips with `1546×423` Mobile Overlay)
 
 ### Group A — Global Science, Medical & Documentary Leaders (`n=9`)
-![Group A: 9 Global Science, Medical & Documentary Channel Banners](./bench_sheet_1_science.jpg)
+![Group A: 9 Global Science, Medical & Documentary Channel Banners](../01_YouTube_CEO/bench_sheet_1_science.jpg)
 
 ### Group B — Viral 3D / Shorts Explainers (`n=5`) vs `ALL ABOUT BRAIN v2` (`Red` & `Cyan`)
-![Group B: 5 Viral Shorts & Explainer Banners vs ALL ABOUT BRAIN v2](./bench_sheet_2_shorts_and_aab.jpg)
+![Group B: 5 Viral Shorts & Explainer Banners vs ALL ABOUT BRAIN v2](../01_YouTube_CEO/bench_sheet_2_shorts_and_aab.jpg)
 
 ---
 
@@ -74,7 +74,7 @@ Inspected directly in [`banner_youtube_2560x1440_red.png`](file:///home/canadaof
 
 All three proof-of-concept comps below were built read-only from our existing `1080×1920` `canonical_assets/v1/A_brain/` masters (`A01`, `A02`, `A03`) and fonts (`AABCondensed-Black.ttf`, `Inter-Variable.ttf`), verifying zero safe-zone clipping inside `1546×423`:
 
-![ALL ABOUT BRAIN — 3 Banner Redesign Formulas Proof-of-Concept Comps](./aab_redesign_3_concepts_mockup.jpg)
+![ALL ABOUT BRAIN — 3 Banner Redesign Formulas Proof-of-Concept Comps](../01_YouTube_CEO/aab_redesign_3_concepts_mockup.jpg)
 
 ### Blueprint Comparison & Exact `2560×1440` Production Coordinates
 

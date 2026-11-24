@@ -8,7 +8,7 @@
 ## §1. Channel Identity, 4 Core DNA Pillars & "Mute & Hide Name Test"
 
 - **Channel Coordinates**: `ALL ABOUT BRAIN` (`@AllAboutBrainOfficial`), US English (`en-US`), Category `Education` (`Academic system = United States`), KR Tax/AdSense residence.
-- **`Ep #31` Brand Identity Pack (`BCI_Shorts_Channel/brand_assets/v2_ep31_rebrand/`)**: Locked `800×800` circular-safe channel avatars (`logo_A_ep31_gypsum_cyan.png` #1, `logo_B_mode1_xray_skull.png`, `logo_C_split_cyan_crimson.png`) + `2560×1440` banner (`banner_youtube_2560x1440.png`, text locked inside `[507..2053, 508..931]` universal safe zone), generated & parity-verified via [`build_brand_identity_pack.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/build_brand_identity_pack.py).
+- **`Ep #31` Brand Identity Pack (`BCI_Shorts_Channel/brand_assets/v2_ep31_rebrand/`)**: Locked `800×800` circular-safe channel avatars (`logo_A_ep31_gypsum_cyan.png` #1, `logo_B_mode1_xray_skull.png`, `logo_C_split_cyan_crimson.png`) + `2560×1440` banner (`banner_youtube_2560x1440.png`, text locked inside `[507..2053, 508..931]` universal safe zone), generated & parity-verified via [`verify_brand_assets.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/verify_brand_assets.py).
 - **Active Shorts Format (`expressive_25d_v8`)**: `1080×1920 @ 30fps`, **`61.5–88.0s`** (`SHORTS_EXPRESSIVE_V8_R75_MAX_SEC = 88.0s`), `18–28` unique `1:1` clips (`R82`), Solo `Siren` (`elevenlabs_v4`), **`100%` Google Flow native (`0` external paid video/image APIs)**. *(Legacy `porcelain_cinematic_v7` `24fps ~90s` & `16:9` longform deferred until Shorts KPIs scale.)*
 
 ### 1.1 The 4 Core DNA Pillars (Immutable Channel Identities)
@@ -30,31 +30,26 @@
 
 ---
 
-## §2. 7-Chatroom `R83 v2` Domain VP Governance
+## §2. `Fresh-Room` `R83 v3` Single-Owner Governance & 64GB Max-RAM Architecture
 
-All work operates strictly across **7 Web-UI Chatrooms** (`0` `agy -p` headless workers; dispatch only via `send_message` resolved by [`chatroom_mention.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/chatroom_mention.py)). SSOT: [`governance_roles.md`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/governance_roles.md) & [`chatrooms.json`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/chatrooms.json).
+All work operates under the **`Fresh-Room` Single-Owner Model (`R83 v3`)** (replaces the retired 7-Chatroom `R83 v2` topology; `0` standing multi-day rooms, `0` `chatrooms.json`, `0` cross-room `send_message` ping-pong, `0` `agy -p`). SSOT: [`governance_roles.md`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/governance_roles.md).
 
-| Chatroom | `conversation_id` | VP Scope & Subagent Tier (`R83-8`) | Hard Prohibitions (`Never`) |
-|---|---|---|---|
-| **`@YouTube_CEO`** | `b57c97a8-6324-4c31-a2bb-16b25e28dd55` | Group CEO: user intent, plans, approve/reject + **read-only** Gate 3 verify (`0` subagents) | Edit code/assets, render/upload, sign Gate 1/2 cuts, spawn subagents |
-| **`@Operator`** | `1f9808d4-ebac-4b58-a570-45c8f1f00a85` | Eng & Prod VP: `pipeline/*.py`, Gears 2–4, Flow rendering, assembly, root MP4 (`inherit` only) | One-off episode hacks, parallel CDP writes, touch `Public` videos, `flash`/`flash_lite` |
-| **`@Research`** | `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c` | Quality & Vision VP: Gate 1/2 VLM sign-off, Canonical screening, Lock 4/5 (`12–15` img `inherit` shards max `3`) | `flash`/`flash_lite`, code edits, Flow renders, Studio |
-| **`@Deep_Research`** | `8c666be9-5bad-43d9-b91a-e7ba2b936c62` | Deep Research VP: external teardowns, algorithm/policy/prompt synthesis (`inherit` only) | `flash`/`flash_lite`, code edits, Flow renders, Studio, Gate 1/2 cut sign-off |
-| **`@Daily_Report`** | `e3210c73-cc41-4432-87b1-c158efe9cadb` | Analytics VP: `07:00 UTC` read-only Studio KPI + `[RETENTION_REGRESSION_ALERT]` (VP serial; `inherit` only) | Any Studio mutation, `flash`/`flash_lite` |
-| **`@QA_Scheduler`** | `ef8185bb-5afd-4859-b697-2fe07f1ecf1c` | Dist VP: `08:00 UTC` `HOLD/THROTTLE/GO` + Gear 5 upload & 5-Asset plan (VP serial; `inherit` only) | Upload without CEO verify receipt, parallel browser uploads, `flash`/`flash_lite` |
-| **`@Topic_Radar`** | `0ffee83a-d9de-4520-a177-7d3b57dc01dc` | Discovery VP: Mon `09:30 UTC` DOI + Schema v2 dossier queue (`inherit` only) | Unverified/composite claims, renders, publishing, `flash`/`flash_lite` |
-
-### `R83-5..8` Operational Protocol
-- **`R83-5` (CEO Read-Only)**: CEO reads code/logs, re-runs `pytest`, inspects `/tmp` frames, replays QA, checks DOIs (writes only CEO governance docs when explicitly requested by user).
-- **`R83-6` (Verify-Before-Relay)**: CEO independently verifies every `[*_DONE]` receipt (`PASS`/`REJECT` + evidence) before reporting upstream.
-- **`R83-7` (`Delta Receipt <= 400 tok`)**: Concise structured handoffs (`STATUS`, `TARGET`, `CHANGED_FILES`, `VERIFY_CMD`, `ARTIFACT_PATH`, `subagents: <spawned>/<killed> (active=0)`; raw logs stay on disk; missing evidence triggers auto-`REJECT`).
-- **`R83-8` (`G1–G5` & `R83-8-V`)**:
-  - `G1`: Max **`1`** CDP `9222` browser worker at a time (serial tab lease via `cdp_tab_manager.py`).
-  - `G2`: **`100%` `Model="inherit"` ONLY** across all 6 VP rooms (user selects each room's model directly; `flash`/`flash_lite`/`pro` overrides permanently retired).
-  - `G3`: Disjoint file writes on `fuse.rclone` (zero overlapping edits).
-  - `G4`: Strictly ephemeral subagents (`0` daemon/cron, **`0` `manage_subagents(list)` polling loops** — wait for reactive wakeup; **mandatory `manage_subagents(kill)`** immediately upon `R83-8-V` verify, confirmed `active=0` in `Delta Receipt`).
-  - `G5`: Concurrency cap **max `2` concurrent `inherit` subagents per VP** (`@Research` read-only vision shards max `3`) to eliminate `429 RESOURCE_EXHAUSTED` quota spikes.
-  - `R83-8-V`: VP verifies its own subagent outputs directly before upstream relay.
+- **`1 Task / 1 Episode = 1 Fresh Chatroom (`0k` Start)`**: Start every episode production, code upgrade, or audit in a fresh conversation (`0k` context) and close on completion (run `/compact` before reaching `120k` tokens on long sessions).
+- **Zero Self-Signoff & Clean Ephemeral Vision Subagent (`Gate 1` & `Gate 2`)**:
+  - `UNMANNED_QA_SIGNOFF_DEFAULT = False`; main-room auto-signoff and raw full-res PNG loading in main context are permanently banned.
+  - At Gate 1 / Gate 2, render `1536×1536` `12-up` coarse sheets + `<= 384px` suspect crops (`scripts/render_qa_sheets.py` / `posthoc-qa`), invoke ONE clean `Independent Visual Reviewer (Gate 1/2)` subagent (`Model="inherit"`, zero prior history), record adversarial `Wrong / Exact Where / What Instead` + SHA-256 notes, and **immediately `kill` (`active=0`)** so `0` images accumulate in main context.
+- **Zero-Token Daily Ops & Compact CLI**:
+  - Daily Studio KPI, Watchdog, and QA Scheduler checks run headlessly via [`scripts/run_daily_ops_headless.sh`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/run_daily_ops_headless.sh) (`0` LLM tokens).
+  - Default CLI QA outputs emit `<= 1,800 B` Compact JSON (`--verbose-json` only when debugging); use `main.py ep status <id>` and `main.py qa-summary --project <id>` instead of ad-hoc `python -c` probes.
+- **`R83-8` Ephemeral Subagent Guardrails (`G1–G5`)**:
+  - `G1`: Max **`1`** CDP `9222` browser worker at a time (`cdp_tab_manager.py`, never close Tier-1 anchor tabs).
+  - `G2`: `Model="flash"` allowed for mechanical search/log/schema chores; `Model="inherit"` required for VLM Gate 1/2, scripts, and core architecture.
+  - `G3`: Disjoint file writes on `fuse.rclone` (use `/dev/shm/aab_scratch` before atomic commit; use `rclone purge` for bulk Drive folder deletions).
+  - `G4`: `0` daemons, `0` polling loops — wait reactively and `kill` immediately after verify (`active=0`).
+  - `G5`: Max `2` concurrent `inherit` subagents (`3` vision shards). Never add QA exemptions; fix `pipeline/*.py`.
+- **`64GB Max-RAM` (`MemAvailable >= 12 GiB` OOM Guard) & Domain-Split Codebase**:
+  - [`hardware_profile.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/hardware_profile.py) & [`media_cache.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/media_cache.py) dynamically allocate up to `MemAvailable - 12 GiB` on the `64 GiB / 0B Swap` host, decoding `final_shorts_1080x1920.mp4` in **one single `cv2.VideoCapture` pass** into RAM and scanning `episode_qa` + `posthoc_qa` + `media_probe` across 8 vCPUs in parallel before immediate memory release.
+  - Split domain modules: [`config.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/config.py) (`config_{paths,flow,qa,v8}.py`), [`assembler.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/assembler.py) (`assembler_{audio,subtitles,edl}.py`), [`episode_qa.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/episode_qa.py) (`episode_qa_gates.py`), and [`studio/reporter.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/studio/reporter.py) (`reporter_{scrape,analytics,charts}.py`).
 
 ---
 
@@ -62,27 +57,27 @@ All work operates strictly across **7 Web-UI Chatrooms** (`0` `agy -p` headless 
 
 ```mermaid
 flowchart LR
-    G1["Gear 1: @Topic_Radar<br/>DOI + Schema v2 Dossier"] --> G2["Gear 2: @Operator<br/>Script + Visual Plan + prompt-gate"]
-    G2 --> G3R["Gear 3a: Keyframe Pack<br/>porcelain-refs (Nano Banana x1/x2) -> ref-qa"]
-    G3R --> Gate1{"Gate 1 (@Research)<br/>1536x1536 -> <=384px"}
+    G1["Gear 1: Research<br/>DOI + Schema v2 Dossier"] --> G2["Gear 2: Script + Plan<br/>Script + Visual Plan + prompt-gate"]
+    G2 --> G3R["Gear 3a: Keyframe Pack<br/>ep run --until gate1 / refs -> ref-qa"]
+    G3R --> Gate1{"Gate 1 (Ephemeral VLM)<br/>1536x1536 -> <=384px"}
     Gate1 -- REJECT --> G3R
     Gate1 -- PASS --> G3V["Gear 3b: Flow Video<br/>Omni 1.2 Flash -> Veo 3.1 Lite"]
     G3V --> G4["Gear 4: Audio-First Assemble<br/>Solo Siren + DIS 30fps + ASS/R70/R81 + R65"]
-    G4 --> QA["Machine QA Chain<br/>episode-qa + posthoc-qa + prosody-qa + qa-summary"]
-    QA --> Gate2{"Gate 2 (@Research)<br/>posthoc_viewer_strips + DQ8"}
+    G4 --> QA["Single-Pass 8-Core QA<br/>episode-qa + posthoc-qa + prosody-qa + qa-summary"]
+    QA --> Gate2{"Gate 2 (Ephemeral VLM)<br/>posthoc_viewer_strips + DQ8"}
     Gate2 -- REJECT --> G3V
-    Gate2 -- PASS --> Gate3{"Gate 3 (@YouTube_CEO)<br/>Read-Only Verify Receipt"}
-    Gate3 -- PASS --> G5["Gear 5: @QA_Scheduler<br/>YT Scheduled + 5-Asset IG/TikTok + Watchdog"]
+    Gate2 -- PASS --> Gate3{"Release Verify<br/>verify + QA + SHA-256 Receipt"}
+    Gate3 -- PASS --> G5["Gear 5: Studio & Dist<br/>YT Scheduled + 5-Asset IG/TikTok + Watchdog"]
 ```
 
-| Gear | Owner | Key Commands (`python -X utf8 main.py <cmd>` / Utility Scripts) | Primary Outputs |
+| Gear | Skill / Workflow | Key Commands (`python -X utf8 main.py <cmd>` / Utility Scripts) | Primary Outputs |
 |---|---|---|---|
-| **1 Research** | `@Topic_Radar` | `news-radar`, `research`, `dossier init\|yt-search\|yt-analyze\|audit-media --write\|validate --require-v2\|seed` | `research_dossiers/<slug>/{01..08,dossier.json}` |
-| **2 Script+Plan** | `@Operator` | `prompt-gate --dir <d>`, `chart-preview --project <id>`, `audit-prompts` | `{script.json, visual_plan.json, metadata.json, flow_all_in_one_prompts.json}` |
-| **3 Flow Assets** | `@Operator` | `porcelain-refs --project <id> --slug <slug>`, `ref-qa --project <id>`, `diorama-flow --project <id> --engine auto` | `03_visuals/{reference_images, flow_native_clips}/`, `reference_provenance.json` |
-| **4 Assembly+QA** | `@Operator` | `diorama-assemble --project <id> --posthoc-qa`, `verify`, `autopsy`, `episode-qa`, `posthoc-qa`, `prosody-qa`, `thumbnail`, `qa-summary --project <id> --summary` *(Phase-3 spec)*, `kb sync --project <id>` | `05_assembly/final_shorts_1080x1920.mp4`, root `final_shorts_<id>.mp4`, `thumbnail_selected.png` |
-| **VLM, Brand & Bible Tools** | `@Research` / `@Operator` | `scripts/render_vlm_triage_sheets.py`, `scripts/build_locked_assets_bible.py [--check]`, `scripts/build_brand_identity_pack.py [--check]` | `1536×1536` triage sheets, `<=384×384` crops, Golden Style Sheet & Bible parity, `v2_ep31_rebrand/` logos & banner |
-| **5 Studio & Dist** | `@QA_Scheduler` / `@Daily_Report` | `multi-bundle`, `studio-upload`, `studio-queue`, `studio-link`, `studio-pin`, `studio-quiz`, `studio-settings`, `studio-watchdog`, `studio-inbox`, `studio-report`, `qa-scheduler`, `ig-publish`, `tiktok-publish` | `06_publish/{upload_receipt.json, multi_platform_bundle/}`, `reports/daily/` |
+| **1 Research** | `youtube-research` | `news-radar`, `dossier init\|yt-search\|yt-analyze\|audit-media --write\|validate --require-v2\|seed` | `research_dossiers/<slug>/{01..08,dossier.json}` |
+| **2 Script+Plan** | `youtube-script` | `prompt-gate --dir <d>`, `chart-preview --project <id>` | `{script.json, visual_plan.json, metadata.json, flow_all_in_one_prompts.json}` |
+| **3 Flow Assets** | `youtube-produce` | `ep status <id>`, `ep run <id> --until gate1`, `refs --project <id> --slug <slug>`, `ref-qa --project <id>`, `flow --project <id> --engine auto` | `03_visuals/{reference_images, flow_native_clips}/`, `reference_provenance.json` |
+| **4 Assembly+QA** | `youtube-produce` | `ep run <id> --until gate2\|ready`, `assemble --project <id> --posthoc-qa`, `verify`, `autopsy`, `episode-qa`, `posthoc-qa`, `prosody-qa`, `thumbnail`, `qa-summary --project <id>`, `kb sync --project <id>` | `05_assembly/final_shorts_1080x1920.mp4`, root `final_shorts_<id>.mp4`, `thumbnail_selected.png` |
+| **VLM, Brand & Bible Tools** | Ephemeral VLM / `Fresh-Room` | `scripts/render_qa_sheets.py`, `scripts/verify_assets_bible.py [--check]`, `scripts/verify_brand_assets.py [--check]` | `1536×1536` triage sheets, `<=384×384` crops, Golden Style Sheet & Bible parity, `v2_ep31_rebrand/` logos & banner |
+| **5 Studio & Dist** | `youtube-studio` / `qa-scheduler` / `youtube-report` | `multi-bundle`, `studio-upload`, `studio-link`, `studio-pin`, `studio-quiz`, `studio-settings`, `studio-watchdog`, `studio-inbox`, `studio-report`, `qa-scheduler`, `ig-publish`, `tiktok-publish`, `scripts/run_daily_ops_headless.sh` | `06_publish/{upload_receipt.json, multi_platform_bundle/}`, `reports/daily/` |
 
 ---
 
@@ -109,7 +104,7 @@ flowchart LR
 - **`1 Core Fact per 15s` Mute Check**: Pair concrete visual action with programmatic `R70-M` Data Stamps (`<= 2`/ep) and `R81` `PatrickHand` callouts so muted `2fps` storyboards convey `>= 1` concrete empirical fact every `~15s`.
 - **`R73` Plain US English**: Target `FK <= 6.2–6.5`, `<= 22` words/sentence, `<= 2` hard anatomical terms (Plain-First glossed within `±8` words, e.g. *"your brain's threat alarm, the amygdala"*), zero AI clichés (`delve`, `pivotal`, `tapestry`, `furthermore`, `testament to`), zero pseudo-jargon caveman compounds (`BANNED_R77N_PSEUDO_JARGON_COMPOUNDS`). Normalize spoken vs visual numbers cleanly via `R49-T` (`to_expressive_tts_text` / `to_display_text`).
 - **`R1` Single-Study DOI Lock**: All numbers in spoken narration, `DataStamp` charts, and captions must match verified `01_sources.json` DOIs (`0` rounding drift, `0` fake `"Concept"` badges on empirical claims, explicit species tagging for animal studies).
-- **`R86` Semantic Beat Cards & `R68-D` Description**: Every cut declares `claim`, `viewer_must_understand`, `visual_proof_type` (`<= 2` consecutive same type, `<= 2` `reaction`/ep, `0` `decorative`), `visual_register` (`story` vs `diagram`), `concrete_referent`, `concept_id` + `state_delta`, and `anti_filler_check`. `viewer_description` (`55–135w`) uses **2 plain declarative paragraphs + `Research: <Author> et al., <Institution> (<Year>).`** (`0` em-dashes, semicolons, DOIs, hashtags, or AI clichés) + optional `Image credit:` lines strictly for `R88-A` `direct_insert_cc_by` archival inserts + `1`-sentence casual `?` `pinned_comment`; titles `4–8` words `<= 55` chars (`R68`).
+- **`R86` Semantic Beat Cards & `R68-D` Description**: Every cut declares `claim`, `viewer_must_understand`, `visual_proof_type` (`<= 2` consecutive same type, `<= 2` `reaction`/ep, `0` `decorative`), `visual_register` (`story` vs `diagram`), `concrete_referent`, `concept_id` + `state_delta`, and `anti_filler_check`. `viewer_description` (`55–135w`) uses **2 plain declarative paragraphs + `Research: <Author> et al., <Institution> (<Year>).`** (`0` em-dashes, semicolons, DOIs, hashtags, or AI clichés) + optional `Image credit:` / `Video credit:` lines strictly for `R88-A` / `R89` `direct_insert_cc_by` archival cuts + `1`-sentence casual `?` `pinned_comment`; titles `4–8` words `<= 55` chars (`R68`).
 
 ---
 
@@ -136,11 +131,11 @@ flowchart LR
 1. **Audio Master (`R58`, `R76`, `R78-V`)**: Synthesize narration first via `elevenlabs_v4` Solo `Siren` (`el_siren_v4`, `ELEVENLABS_VOICE_SIREN_ID = "eXpIbVcVbLo8ZJQDlDnl"`, `wsola = 1.0`, `STORYTELLER_VOCAL_FILTER_EXPRESSIVE_V8`, 5-tone `prosody_gears`), mixed with `curious_marimba_strings` 2ch stereo BGM (`-21.5 dB` duck / `-16.5 dB` breath), normalized to **`-14.0 LUFS`** & **`<= -1.5 dBTP`** via oversampled limiter + de-esser (`0` `asetrate`/`afftdn`/`agate`).
 2. **30fps Optical Flow & Audio-First EDL (`R77`, `R82`)**: Upsample `24 -> 30fps` using bidirectional half-res `cv2.DISOpticalFlow` (`0%` frame-duplication judder); assemble `1:1` zero-reuse EDL (`18–28` cuts; `1.90–4.25s` human cuts / `4.20–6.80s` poised `<= 15°` brain cuts across `42–58%` share; `<= 13` styled transitions, `<= 15` overlap frames).
 3. **ASS Subtitles & `HookTitle` (`R87-H3`)**: Render using `AABCondensed-Black.ttf` — `HookTitle` `118pt` (`0.00–2.20s`, `MarginV=238`, `#FFFFFF` + `#FFE14A`) + `Default` `82pt` (`Outline=5.5`, `Shadow=1.5`, `MarginV=510`, `MarginL=80`, `MarginR=165`, `<= 3w`, `#FFE600` keyword highlight).
-4. **`R70-M` `1×1` `study` Charts (`pipeline/data_stamp_overlay.py`)**: `<= 2` Data Stamps per episode in `Y ∈ [12%, 62%]`, `X <= 910px`, across 6 clean presets (`bar_compare`, `arc_gauge`, `dot_array`, `line`, `curve_marker`, `scatter_fit`); `study` badge mandatory for verified DOIs (`0` fake `"Concept"` badges, `0px` digit/loop collision, `>= 2.0s` clearance from `R81` callouts).
-5. **`R81` `PatrickHand` Callouts (`pipeline/anatomy_label_overlay.py`)**: `PatrickHand-Regular.ttf` (`72–84px` 1-line / `64–82px` 2-line stack), **`0px` strikethrough** (`+10px` underline gap), smoothed `DISOpticalFlow` + silhouette-clamped tracking (`Y ∈ [395, 1350]`).
-6. **`R65 v4` 50/50 In-Skull Thumbnail (`pipeline/thumbnail_studio.py`)**: `in_skull_cutaway_split_v4` (`x2` Nano Banana `2.1`, `conditioning_paths=None`), horizontal 50/50 split (dormant top vs active bottom brain + `#FF2525` pointer), `<= 3w` micro-labels inside `2:3` shelf safe zone (`y = 150..1495`, `y >= 1520` title mask clear), `< 1.95 MB` (`TQ4/6/7/8/9`).
-7. **`R88-A` Legal Archival Photo / B-Roll Inserts (`pipeline/archival_insert_builder.py`)**: Strictly `PD / CC0 / CC-BY` ONLY (`CC-BY-SA`, `CC-BY-NC`, `CC-BY-ND`, editorial/fair-use banned; `flow_upload_count = 0`), **`YuNet` `0-Face` privacy gate** (sole explicit opt-in: deceased `pre-1931` `PD/CC0` portrait), capped at **`<= 2` inserts/ep**, **`2.0–4.0s`** each, **`<= 8%`** total episode duration share; rendered locally (`1080×1920 @ 30fps` Ken Burns `1.00x -> 1.08x` over `#080C16` museum matte) with conditional `CC-BY` visual pill (`y=1140..1210`), SHA-256 tamper verification in `diorama_assembler` + `DQ8`, and trailing `Image credit:` line only for `direct_insert_cc_by`.
-8. **`R89` Archival & Supplementary Experiment Video (`pipeline/archival_video_builder.py`)**: Zero Fair Use gambling; permits ONLY verified Tier 1 (`17 U.S.C. § 105` intramural federal work, `CC0 1.0`, verified `<= 1930` silent PD) and Tier 2 (`CC BY 4.0`/`3.0` journal supplementary movies passing carve-out caption scan), `0%` audio (`-an`), optional `crop_box`, **`5fps` `YuNet < 0.42`**, **`Cut >= 2` (`>= 2.20s`)**, combined **`R88-A + R89 <= 2` cuts & `<= 10%` share**; renders Mode 1 (`split_sync`: top video + synced bottom `Ep #31` brain) or Mode 2 (`viewfinder_locator`: `828×770` viewfinder + `200×200` `A01` porcelain badge) strictly inside `(80, 288, 908, 1218)` + conditional `Video credit:` attribution in `publish.py`.
+4. **`R70-M` `1×1` `study` Charts (`pipeline/stamp_overlay.py`)**: `<= 2` Data Stamps per episode in `Y ∈ [12%, 62%]`, `X <= 910px`, across 6 clean presets (`bar_compare`, `arc_gauge`, `dot_array`, `line`, `curve_marker`, `scatter_fit`); `study` badge mandatory for verified DOIs (`0` fake `"Concept"` badges, `0px` digit/loop collision, `>= 2.0s` clearance from `R81` callouts).
+5. **`R81` `PatrickHand` Callouts (`pipeline/anatomy_overlay.py`)**: `PatrickHand-Regular.ttf` (`72–84px` 1-line / `64–82px` 2-line stack), **`0px` strikethrough** (`+10px` underline gap), smoothed `DISOpticalFlow` + silhouette-clamped tracking (`Y ∈ [395, 1350]`).
+6. **`R65 v4` 50/50 In-Skull Thumbnail (`pipeline/thumbnail.py`)**: `in_skull_cutaway_split_v4` (`x2` Nano Banana `2.1`, `conditioning_paths=None`), horizontal 50/50 split (dormant top vs active bottom brain + `#FF2525` pointer), `<= 3w` micro-labels inside `2:3` shelf safe zone (`y = 150..1495`, `y >= 1520` title mask clear), `< 1.95 MB` (`TQ4/6/7/8/9`).
+7. **`R88-A` Legal Archival Photo / B-Roll Inserts (`pipeline/archival_insert.py`)**: Strictly `PD / CC0 / CC-BY` ONLY (`CC-BY-SA`, `CC-BY-NC`, `CC-BY-ND`, editorial/fair-use banned; `flow_upload_count = 0`), **`YuNet` `0-Face` privacy gate** (sole explicit opt-in: deceased `pre-1931` `PD/CC0` portrait), capped at **`<= 2` inserts/ep**, **`2.0–4.0s`** each, **`<= 8%`** total episode duration share; rendered locally (`1080×1920 @ 30fps` Ken Burns `1.00x -> 1.08x` over `#080C16` museum matte) with conditional `CC-BY` visual pill (`y=1140..1210`), SHA-256 tamper verification in `pipeline/assembler.py` + `DQ8`, and trailing `Image credit:` line only for `direct_insert_cc_by`.
+8. **`R89` Archival & Supplementary Experiment Video (`pipeline/archival_video.py`)**: Zero Fair Use gambling; permits ONLY verified Tier 1 (`17 U.S.C. § 105` intramural federal work, `CC0 1.0`, verified `<= 1930` silent PD) and Tier 2 (`CC BY 4.0`/`3.0` journal supplementary movies passing carve-out caption scan), `0%` audio (`-an`), optional `crop_box`, **`5fps` `YuNet < 0.42`**, **`Cut >= 2` (`>= 2.20s`)**, combined **`R88-A + R89 <= 2` cuts & `<= 10%` share**; renders Mode 1 (`split_sync`: top video + synced bottom `Ep #31` brain) or Mode 2 (`viewfinder_locator`: `828×770` viewfinder + `200×200` `A01` porcelain badge) strictly inside `(80, 288, 908, 1218)` + conditional `Video credit:` attribution in `publish.py`.
 9. **Single Deliverable (`R25`)**: `05_assembly/final_shorts_1080x1920.mp4` mirrored to root `07_Youtube/final_shorts_<project_id>.mp4`.
 
 ---
@@ -164,12 +159,12 @@ Run sequentially: `prompt-gate` → `ref-qa` (`Q1–Q11`) → `verify` → `auto
   11. `0` machine auto-signoff, `0` prompt-copied reviews, `0` stale SHA-256 receipts (`R64`, `R85`)
   12. `Public` video safety, `R4` AI disclosure, `No-Draft` scheduled warmup, `0` creator self-bounce (`R30-B`, `R35`, `R37`, `R75`)
 
-### 7.2 3-Gate Human/VLM Sign-Off & Coarse-to-Fine Vision Triage
+### 7.2 Ephemeral VLM Sign-Off (`Gate 1` & `Gate 2`) & Coarse-to-Fine Vision Triage
 - **`UNMANNED_QA_SIGNOFF_DEFAULT = False`**: Production halts at `REVIEW_PENDING` (`exit 2`) until:
-  - **Gate 1 (`@Research`)**: Signs SHA-256-bound `reference_semantic_review.json` + `R87` Lock 2 booleans (`silent_3s_scroll_stop`, `narration_visual_logic_match`, `thumbnail_to_0s_promise_kept`).
-  - **Gate 2 (`@Research`)**: Inspects `posthoc_viewer_strips/sheet_*.jpg` + `dq8_suspect_contact_sheet.jpg` and signs `posthoc_semantic_review.json` (`>= 20`-char unique `observed_visual_summary` per cut).
-  - **Gate 3 (`@YouTube_CEO`)**: Independent read-only audit, sending `[CEO_VERIFY_PASS] <project_id>` to `@QA_Scheduler` (who records `05_assembly/ceo_verify_receipt.json`).
-- **Coarse-to-Fine 2-Stage VLM Triage (`scripts/render_vlm_triage_sheets.py`, `-88~91%` Vision Tokens)**:
+  - **Gate 1 (`Independent Visual Reviewer`)**: Signs SHA-256-bound `reference_semantic_review.json` + `R87` Lock 2 booleans (`silent_3s_scroll_stop`, `narration_visual_logic_match`, `thumbnail_to_0s_promise_kept`).
+  - **Gate 2 (`Independent Visual Reviewer`)**: Inspects `posthoc_viewer_strips/sheet_*.jpg` + `dq8_suspect_contact_sheet.jpg` and signs `posthoc_semantic_review.json` (`>= 20`-char unique `observed_visual_summary` per cut).
+  - **Release Readiness (`verify` + Local Receipt)**: Verifies `verify` INTACT + Tier-1 `episode-qa` PASS + SHA-256-matched `posthoc_semantic_review.json` + `05_assembly/ceo_verify_receipt.json` before `studio-upload` / `qa-scheduler` `GO`.
+- **Coarse-to-Fine 2-Stage VLM Triage (`scripts/render_qa_sheets.py`, `-88~91%` Vision Tokens)**:
   1. **Stage 1 (`1536×1536` `12-up` Square Sheets)**: Tile-aligned contact sheets (`~1,032–1,120` tok/sheet) screened inside ephemeral `inherit` vision shards (`12–15` imgs/shard, max `3` shards, killed immediately after verdict).
   2. **Stage 2 (`<= 384×384` Detail Crops)**: Single-tile (`258` tok) high-res crops ONLY for flagged/rejected/`DQ8 HIGH_SUSPECT` cuts.
 - **Adversarial Critique Protocol (Weakness-First)**: Zero generic praise; list biggest defect first using mandatory 3-tuple: **`Wrong`** (exact defect) / **`Exact Where`** (cut/second/word/px) / **`What Instead`** (concrete replacement), paired with the `"Mute & Hide Name Test"`.
@@ -193,6 +188,6 @@ Run sequentially: `prompt-gate` → `ref-qa` (`Q1–Q11`) → `verify` → `auto
 5. **Instagram `4:5` (`1080×1350`) 6-Slide Carousel** (non-Reel day `>= +18h` gap / `>= +24h` post-Reel, `2–3/wk` cap, center `3:4` safe zone; Instagram Notes, ManyChat DMs & Story Highlights excluded).
 - **Daily Zero-Bounce Inbox Routine**: `main.py studio-inbox --scan-only`.
 
-### 8.3 Daily Watchdogs & Lock 4 Retention Alert (`07:00` / `08:00 UTC`)
-- **`07:00 UTC` `@Daily_Report` (`main.py studio-report`)**: Read-only Studio Analytics scrape (`ALLOW_WATCH_PAGE_FALLBACK = False`) generating traffic-light reports + charts and emitting **`[RETENTION_REGRESSION_ALERT]`** (`Lock 4`) whenever `>= 2` consecutive `+48h` qualifying videos drop below `Viewed < 70.0%` or `APV < 60.0%`.
-- **`08:00 UTC` `@QA_Scheduler` (`main.py qa-scheduler`)**: Enforces all 6 permanent anti-trap guardrails + `R75` hygiene + `ceo_verify_receipt.json` gate, outputs `HOLD / THROTTLE / GO` + 5-Asset schedule, and `main.py studio-watchdog` promotes elapsed `Scheduled -> Public` and backfills eligible `R35` / `R35-B` tasks.
+### 8.3 Zero-Token Daily Watchdogs & Lock 4 Retention Alert (`07:00` / `08:00 UTC`)
+- **`07:00 UTC` Headless Report (`main.py studio-report` / `scripts/run_daily_ops_headless.sh`)**: Read-only Studio Analytics scrape (`ALLOW_WATCH_PAGE_FALLBACK = False`) generating traffic-light reports + charts and emitting **`[RETENTION_REGRESSION_ALERT]`** (`Lock 4`) whenever `>= 2` consecutive `+48h` qualifying videos drop below `Viewed < 70.0%` or `APV < 60.0%`.
+- **`08:00 UTC` Headless Scheduler (`main.py qa-scheduler` / `main.py studio-watchdog`)**: Enforces all 6 permanent anti-trap guardrails + `R75` hygiene + local release receipt gate, outputs `HOLD / THROTTLE / GO` + 5-Asset schedule, and `main.py studio-watchdog` promotes elapsed `Scheduled -> Public` and backfills eligible `R35` / `R35-B` tasks.

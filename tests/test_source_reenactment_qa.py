@@ -8,8 +8,8 @@ import numpy as np
 import pytest
 
 from pipeline.config import PORCELAIN_V7_STYLE_PROFILE, WORKSPACE_ROOT
-from pipeline.reference_image_qa import _dhash_64
-from pipeline.source_reenactment import (
+from pipeline.ref_qa import _dhash_64
+from pipeline.archival_media import (
     _ensure_outside_workspace,
     compute_5gram_sha256_set,
     render_reenactment_comparison_sheet,
@@ -209,9 +209,9 @@ def test_flow_zero_credit_batch_constants_and_adaptive_planner():
         FLOW_ZERO_CREDIT_VIDEO_MAX_BATCH,
         REENACT_IMAGE_BACKENDS,
     )
-    from pipeline.flow_diorama_sharded_worker import compute_zero_credit_batch_plan
-    from pipeline.flow_live_single_worker import _normalize_engine_mode
-    from pipeline.source_reenactment import translate_porcelain_keyframes_async
+    from pipeline.flow_worker import compute_zero_credit_batch_plan
+    from pipeline.flow_single_worker import _normalize_engine_mode
+    from pipeline.archival_media import translate_porcelain_keyframes_async
 
     assert DEFAULT_REENACT_IMAGE_BACKEND == "flow"
     assert REENACT_IMAGE_BACKENDS == ("flow",)
@@ -253,7 +253,7 @@ def test_flow_zero_credit_batch_constants_and_adaptive_planner():
 
 
 def test_dynamic_episode_qa_gate2_enforces_reenactment_dhash_lock(tmp_path: Path):
-    from pipeline.dynamic_episode_qa import verify_clip_multimodal_contract, write_episode_qa_contract
+    from pipeline.episode_qa import verify_clip_multimodal_contract, write_episode_qa_contract
 
     proj_dir, _, src_gray = _build_synthetic_reenactment_project(tmp_path)
     vp = json.loads((proj_dir / "03_visuals" / "visual_plan.json").read_text(encoding="utf-8"))

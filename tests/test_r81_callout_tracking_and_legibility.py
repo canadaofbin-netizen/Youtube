@@ -8,11 +8,11 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from pipeline import anatomy_label_overlay as alo
+from pipeline import anatomy_overlay as alo
 from pipeline import config as cfg
-from pipeline import dynamic_episode_qa as dq
-from pipeline.diorama_assembler import resolve_overlay_window_conflicts
-from pipeline.flow_prompt_builder import build_expressive_v8_prompts
+from pipeline import episode_qa as dq
+from pipeline.assembler import resolve_overlay_window_conflicts
+from pipeline.prompt_builder import build_expressive_v8_prompts
 
 
 def test_r81_xl_typography_auto_stack_and_zero_strikethrough() -> None:

@@ -921,7 +921,7 @@ async def leased_cdp_tab(
     heartbeat, yields `(DirectCDPClient, target_id, lease_owner_id)`, and guarantees
     safe `release_and_close_leased_tab` cleanup on exit.
     """
-    from pipeline.studio.whale_session import DirectCDPClient
+    from pipeline.studio.browser_session import DirectCDPClient
 
     eff_owner = str(owner_id or make_lease_owner_id(purpose or "leased_tab")).strip()
     target = await asyncio.to_thread(

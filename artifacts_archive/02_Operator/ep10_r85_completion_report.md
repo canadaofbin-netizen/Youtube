@@ -34,5 +34,5 @@
 
 ### Visual Proof Sheets
 - Gate 2 Viewer Sheets `01–04`: [`ep10_gate2_r2_viewer_sheet_01.jpg`](./ep10_gate2_r2_viewer_sheet_01.jpg), [`02`](./ep10_gate2_r2_viewer_sheet_02.jpg), [`03`](./ep10_gate2_r2_viewer_sheet_03.jpg), [`04`](./ep10_gate2_r2_viewer_sheet_04.jpg)
-- `DQ8` `12/12` Clean Vinyl Face Crops: [`ep10_gate2_r2_dq8_suspect_sheet.jpg`](./ep10_gate2_r2_dq8_suspect_sheet.jpg)
+- `DQ8` `12/12` Clean Vinyl Face Crops: [`ep10_gate2_r2_dq8_suspect_sheet.jpg`](./ep10_gate2_dq8_suspect_sheet.jpg)
 - `@Research` Independent 5-Point Verification Board: [`ep10_gate2_final_4fixes_board.jpg`](../03_Research/ep10_gate2_final_4fixes_board.jpg)

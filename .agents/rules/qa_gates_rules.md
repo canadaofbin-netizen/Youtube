@@ -13,7 +13,7 @@ Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtu
 2. **Tier-2 Advisory**: Minor vinyl ear/nose contour, `Q2/3/5/6/8/9/10`, `DQ2/4/5/R76_share/R79`, `P1–P6/P8/P10/P11`, `TQ1–TQ3`, `FK/sentence/jargon`, `1 vs 2` stamps.
 
 ## 2. `P0-3` Adversarial Gate 1/2, `"Mute & Hide Name Test"` & `R87` Locks
-- `UNMANNED_QA_SIGNOFF_DEFAULT = False`: `porcelain-refs`, `diorama-flow`, `diorama-assemble`, `posthoc-qa` halt in `REVIEW_PENDING` (`exit 2`) until `@Research` inspects Coarse-to-Fine sheets (`1536×1536` 12-up + `<=384×384` crops) and signs `reference_semantic_review.json` (Gate 1) & `posthoc_semantic_review.json` (Gate 2).
+- `UNMANNED_QA_SIGNOFF_DEFAULT = False`: `ep run`, `refs`, `flow`, `assemble`, `posthoc-qa` halt in `REVIEW_PENDING` (`exit 2`) until `Independent Visual Reviewer (Gate 1/2)` inspects Coarse-to-Fine sheets (`1536×1536` 12-up + `<=384×384` crops) and signs `reference_semantic_review.json` (Gate 1) & `posthoc_semantic_review.json` (Gate 2).
 - **Adversarial Defect-First Format (`P0-3`)**: Zero praise preamble; list largest defects first as **`Wrong / Exact Where / What Instead`**, verify the **`"Mute & Hide Name Test"`** (channel DNA unmistakable at `0.0s` muted & unnamed), and check `Semantic ID` uniqueness across recent episodes.
 - **`R87` (`Ep #13+`)**: `prompt-gate` (`validate_r87_hook_contract`, `validate_r87_spatial_arrow_eligibility`, Lock 3), `episode-qa` (`DQ10` `82pt`+`HookTitle`, `DQ_R87_hook_and_arrow_lock`), `prosody-qa` (`P_R87_s01_duration <= 3.50s`), Lock 2 (`silent_3s_scroll_stop`, `narration_visual_logic_match`, `thumbnail_to_0s_promise_kept`), Lock 4 `+48h` `detect_retention_regression_alert`.
 

@@ -40,7 +40,7 @@
 ````carousel
 ![Ep #8 Rule R74-B × R71-B 3-Stage Neural Pathway Proof (Previs v2.4 -> Flow B1 Ref -> Final MP4)](./ep08_r74b_r71b_pathway_proof.png)
 <!-- slide -->
-![Ep #8 R65 v4 50/50 In-Skull Cutaway Split Thumbnail (PHONE VOICE / FAKE MOM?!)](./ep08_r65v4_thumbnail_var_A.png)
+![Ep #8 R65 v4 50/50 In-Skull Cutaway Split Thumbnail (PHONE VOICE / FAKE MOM?!)](../01_YouTube_CEO/ep08_r65v4_thumbnail_var_A.png)
 <!-- slide -->
 ![YouTube Studio Video Details — Ep #8 Scheduled (_p05nIlU9xs)](./studio_edit_ep08.png)
 <!-- slide -->
@@ -62,7 +62,7 @@
   - **전수 QA 통과**: `prompt-gate PASS` · `ref-qa 100.0 (36/36)` · `episode-qa 100.0 (17/17)` · `posthoc-qa 96.7 (17/17, min 95.0)` · `prosody-qa 10/10` · `autopsy PASS`
 
 ````carousel
-![Ep #8 v2 Rule R76 Deterministic Blender 4.2 MNI152 3D Brain Simulator 7-Cut Proof](./ep08_r76_brain_simulator_drone_proof.png)
+![Ep #8 v2 Rule R76 Deterministic Blender 4.2 MNI152 3D Brain Simulator 7-Cut Proof](../01_YouTube_CEO/ep08_r76_brain_simulator_drone_proof.png)
 <!-- slide -->
-![Ep #8 Frozen v1 (R74) vs Rebuilt v2 (Rule R76 + R76-P) Comparison](./ep08_v1_vs_r76_comparison.png)
+![Ep #8 Frozen v1 (R74) vs Rebuilt v2 (Rule R76 + R76-P) Comparison](../01_YouTube_CEO/ep08_v1_vs_r76_comparison.png)
 ````

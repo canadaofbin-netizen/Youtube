@@ -1,0 +1,23 @@
+[project]
+name = "all-about-brain-shorts"
+version = "8.3.0"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["F401", "TID251"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"pipeline.previs_blender".msg = "Retired: manual Blender previs is permanently removed; use 100% Google Flow native."
+"pipeline.brain_simulator_blender".msg = "Retired: manual Blender brain simulator is permanently removed; use 100% Google Flow Ep #31 brain."
+"pipeline.topics_catalog".msg = "Retired: static 17k-LOC topics_catalog removed; use database/published_legacy_topics.json."
+"pipeline.prompts_db".msg = "Retired: 3,000-topic prompts_db removed."
+"pipeline.voice_fallback".msg = "Renamed/slimmed: use pipeline.audio_utils and pipeline.tts (ElevenLabs v4 Solo Siren)."
+"pipeline.qa_gates".msg = "Retired: use pipeline.prompt_gate, ref_qa, episode_qa, posthoc_qa, prosody_qa, media_probe."
+"pipeline.clip_qa_contract".msg = "Retired: use pipeline.episode_qa and pipeline.storage.compute_sha256."
+"pipeline.deliverable_overwatch".msg = "Retired: use main.py ep status / qa-summary."
+"pipeline.researcher".msg = "Retired: use pipeline.research_dossier and scripts/run_topic_radar.py."
+"scripts.chatroom_mention".msg = "Retired under R83 v3 Fresh-Room architecture (7-room system removed)."

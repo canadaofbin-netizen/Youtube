@@ -1,7 +1,7 @@
 {
-  "updated_at_utc": "2026-11-23T05:27:45.106539+00:00",
-  "episodes_indexed": 48,
-  "total_cuts_evaluated": 1352,
+  "updated_at_utc": "2026-11-24T11:33:40.426293+00:00",
+  "episodes_indexed": 19,
+  "total_cuts_evaluated": 664,
   "overall_mean_clarity": 96.9,
   "overall_min_clarity": 92.6,
   "golden_prompts_banked": 393,
@@ -10,62 +10,62 @@
   "locations_indexed": 236,
   "episodes_by_voice_preset": {
     "andrew_v7": {
-      "episodes": 4,
-      "mean_wpm": 183.4,
+      "episodes": 1,
+      "mean_wpm": 168.3,
       "mean_clarity": 97.0
     },
     "el_siren_v4": {
-      "episodes": 9,
-      "mean_wpm": 170.5,
+      "episodes": 7,
+      "mean_wpm": 168.4,
       "mean_clarity": 96.8
     },
     "elevenlabs_v4": {
-      "episodes": 6,
-      "mean_wpm": 162.9,
+      "episodes": 5,
+      "mean_wpm": 165.0,
       "mean_clarity": 96.3
     },
     "emma_v7": {
-      "episodes": 11,
-      "mean_wpm": 174.8,
-      "mean_clarity": 97.0
+      "episodes": 1,
+      "mean_wpm": 188.8,
+      "mean_clarity": 97.3
     },
     "unspecified": {
-      "episodes": 18,
-      "mean_wpm": 172.9,
+      "episodes": 5,
+      "mean_wpm": 169.3,
       "mean_clarity": 97.0
     }
   },
   "clarity_by_grammar": {
     "architectural_cutaway_portal": {
-      "cuts": 5,
+      "cuts": 3,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 95.4,
-      "min_clarity": 93.9
+      "mean_clarity": 96.1,
+      "min_clarity": 94.1
     },
     "brain_simulator_3d": {
-      "cuts": 29,
+      "cuts": 14,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.5,
+      "mean_clarity": 96.1,
       "min_clarity": 94.9
     },
     "expressive_cameo_world": {
-      "cuts": 7,
+      "cuts": 5,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.6,
+      "mean_clarity": 96.3,
       "min_clarity": 94.2
     },
     "expressive_exterior_establishing": {
-      "cuts": 39,
+      "cuts": 25,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.6,
-      "min_clarity": 95.0
+      "min_clarity": 95.2
     },
     "expressive_hands_closeup": {
-      "cuts": 33,
+      "cuts": 29,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.8,
@@ -86,10 +86,10 @@
       "min_clarity": 95.5
     },
     "expressive_reaction_closeup": {
-      "cuts": 22,
+      "cuts": 16,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.1,
+      "mean_clarity": 97.0,
       "min_clarity": 94.3
     },
     "expressive_split_contrast": {
@@ -100,60 +100,60 @@
       "min_clarity": 96.8
     },
     "expressive_vinyl_world": {
-      "cuts": 95,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 96.7,
-      "min_clarity": 92.6
-    },
-    "expressive_xray_brain": {
-      "cuts": 62,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 96.0,
-      "min_clarity": 93.2
-    },
-    "lowpoly_cutaway_section": {
-      "cuts": 65,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 97.2,
-      "min_clarity": 95.4
-    },
-    "lowpoly_fullbleed_world": {
-      "cuts": 222,
+      "cuts": 76,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.8,
-      "min_clarity": 93.6
+      "min_clarity": 92.6
     },
-    "lowpoly_hands_closeup": {
-      "cuts": 325,
+    "expressive_xray_brain": {
+      "cuts": 52,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
+      "mean_clarity": 96.2,
+      "min_clarity": 93.2
+    },
+    "lowpoly_cutaway_section": {
+      "cuts": 30,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 97.3,
+      "min_clarity": 95.4
+    },
+    "lowpoly_fullbleed_world": {
+      "cuts": 79,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.8,
       "min_clarity": 94.4
     },
-    "lowpoly_literal_analogy": {
-      "cuts": 129,
+    "lowpoly_hands_closeup": {
+      "cuts": 118,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
       "min_clarity": 94.4
     },
+    "lowpoly_literal_analogy": {
+      "cuts": 39,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.8,
+      "min_clarity": 95.3
+    },
     "lowpoly_matte_brain": {
-      "cuts": 111,
+      "cuts": 30,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.2,
-      "min_clarity": 95.9
+      "min_clarity": 96.7
     },
     "lowpoly_pov_hands": {
-      "cuts": 109,
+      "cuts": 49,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.1,
-      "min_clarity": 95.9
+      "mean_clarity": 97.2,
+      "min_clarity": 96.1
     },
     "porcelain_cutaway_section": {
       "cuts": 3,
@@ -207,59 +207,59 @@
   },
   "clarity_by_camera_move": {
     "1p_nerve_canyon_drone": {
-      "cuts": 3,
+      "cuts": 2,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.4,
+      "mean_clarity": 96.3,
       "min_clarity": 95.8
     },
     "3p_region_shutdown_pullout": {
-      "cuts": 6,
+      "cuts": 4,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.4,
+      "mean_clarity": 96.2,
       "min_clarity": 95.5
     },
     "circuit_cooperation_drone": {
-      "cuts": 10,
+      "cuts": 4,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.8,
+      "mean_clarity": 96.1,
       "min_clarity": 94.9
     },
     "clean_pullback_reveal": {
-      "cuts": 50,
+      "cuts": 19,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 95.2
     },
     "crane_swoop_dive": {
-      "cuts": 7,
+      "cuts": 6,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.0,
       "min_clarity": 94.9
     },
     "dolly_zoom_vertigo": {
-      "cuts": 10,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 96.6,
-      "min_clarity": 95.4
-    },
-    "drone_aerial_approach": {
-      "cuts": 9,
-      "weak_cuts": 0,
-      "pass_rate_pct": 100.0,
-      "mean_clarity": 96.6,
-      "min_clarity": 95.3
-    },
-    "drone_high_orbit_drop": {
-      "cuts": 3,
+      "cuts": 8,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.8,
+      "min_clarity": 96.4
+    },
+    "drone_aerial_approach": {
+      "cuts": 7,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.5,
+      "min_clarity": 95.3
+    },
+    "drone_high_orbit_drop": {
+      "cuts": 2,
+      "weak_cuts": 0,
+      "pass_rate_pct": 100.0,
+      "mean_clarity": 96.5,
       "min_clarity": 96.5
     },
     "drone_landmark_ascend": {
@@ -270,10 +270,10 @@
       "min_clarity": 95.2
     },
     "drone_skyline_pullback": {
-      "cuts": 3,
+      "cuts": 2,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
+      "mean_clarity": 96.9,
       "min_clarity": 96.3
     },
     "fpv_3d_flight": {
@@ -284,80 +284,80 @@
       "min_clarity": 94.7
     },
     "fpv_window_portal_breach": {
-      "cuts": 5,
+      "cuts": 3,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 95.4,
-      "min_clarity": 93.9
+      "mean_clarity": 96.1,
+      "min_clarity": 94.1
     },
     "gentle_push_in": {
-      "cuts": 241,
+      "cuts": 147,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.9,
       "min_clarity": 92.6
     },
     "global_system_orbit_drone": {
-      "cuts": 3,
+      "cuts": 1,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.1,
-      "min_clarity": 96.0
+      "mean_clarity": 96.3,
+      "min_clarity": 96.3
     },
     "locked_tripod": {
-      "cuts": 662,
+      "cuts": 280,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.1,
       "min_clarity": 94.3
     },
     "neural_fpv_dive_in": {
-      "cuts": 5,
+      "cuts": 3,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 95.3,
-      "min_clarity": 94.5
+      "mean_clarity": 95.5,
+      "min_clarity": 94.7
     },
     "neural_fpv_pullback_out": {
-      "cuts": 7,
+      "cuts": 4,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 94.8,
-      "min_clarity": 93.5
+      "mean_clarity": 95.4,
+      "min_clarity": 93.7
     },
     "neural_macro_orbit_hold": {
-      "cuts": 7,
+      "cuts": 6,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.1,
       "min_clarity": 95.3
     },
     "neural_tract_relay_flight": {
-      "cuts": 5,
+      "cuts": 3,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.0,
-      "min_clarity": 94.3
+      "mean_clarity": 96.8,
+      "min_clarity": 96.6
     },
     "orbital_3d_arc_sweep": {
-      "cuts": 33,
+      "cuts": 25,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.4,
       "min_clarity": 94.2
     },
     "pan_left": {
-      "cuts": 85,
+      "cuts": 37,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
-      "min_clarity": 93.6
+      "min_clarity": 95.3
     },
     "pan_right": {
-      "cuts": 115,
+      "cuts": 55,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
+      "mean_clarity": 96.9,
       "min_clarity": 94.4
     },
     "portal_dive_flight": {
@@ -368,25 +368,25 @@
       "min_clarity": 93.2
     },
     "sensory_to_brain_drone": {
-      "cuts": 7,
+      "cuts": 3,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.4,
+      "mean_clarity": 96.0,
       "min_clarity": 95.6
     },
     "tilt_down": {
-      "cuts": 19,
+      "cuts": 7,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.6,
-      "min_clarity": 94.7
+      "min_clarity": 95.2
     },
     "tilt_up": {
-      "cuts": 29,
+      "cuts": 9,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 95.6,
-      "min_clarity": 94.0
+      "mean_clarity": 95.3,
+      "min_clarity": 94.4
     },
     "topdown_3d_route_glide": {
       "cuts": 9,
@@ -396,10 +396,10 @@
       "min_clarity": 96.4
     },
     "vertical_90_topdown_dive": {
-      "cuts": 2,
+      "cuts": 1,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 97.0,
+      "mean_clarity": 96.6,
       "min_clarity": 96.6
     },
     "whip_pan_occlusion": {
@@ -412,46 +412,46 @@
   },
   "clarity_by_act": {
     "act_1": {
-      "cuts": 267,
+      "cuts": 130,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
-      "min_clarity": 93.9
+      "min_clarity": 94.1
     },
     "act_2": {
-      "cuts": 231,
+      "cuts": 111,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
       "min_clarity": 94.7
     },
     "act_3": {
-      "cuts": 230,
+      "cuts": 113,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
-      "mean_clarity": 96.9,
+      "mean_clarity": 96.8,
       "min_clarity": 92.6
     },
     "act_4": {
-      "cuts": 202,
+      "cuts": 101,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.7,
       "min_clarity": 93.2
     },
     "act_5": {
-      "cuts": 217,
+      "cuts": 108,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 97.0,
-      "min_clarity": 93.5
+      "min_clarity": 94.4
     },
     "act_6": {
-      "cuts": 205,
+      "cuts": 101,
       "weak_cuts": 0,
       "pass_rate_pct": 100.0,
       "mean_clarity": 96.8,
-      "min_clarity": 93.6
+      "min_clarity": 94.4
     }
   },
   "top_defect_modes": []

@@ -13,8 +13,8 @@ import inspect
 
 import pytest
 
-import pipeline.voice_fallback as vf_mod
-from pipeline.diorama_assembler import (
+import pipeline.audio_utils as vf_mod
+from pipeline.assembler import (
     _atomic_copy_file,
     _merge_xfade_group_multistage,
     _render_cut_segment,
@@ -341,3 +341,295 @@ class TestGuard4VirtualLockedEdlFrameRequirements:
         # Passing explicit tts_res produces identical frame requirements
         res_explicit = compute_locked_edl_cut_frame_requirements(proj_dir, tts_res=voice_report, safety_pad_frames=6)
         assert res_explicit["edl_frame_map"] == fmap
+
+
+
+class TestGuard5MaxRamOomHeadroomAndSinglePassMp4Session:
+    """Guard 5: 64GB Max-RAM (`MemAvailable >= 12 GiB` OOM guard) + Single-Pass `cv2.VideoCapture` MP4 Scanner."""
+
+    def test_mem_available_12gib_oom_headroom_and_zero_swap_boundary(self, monkeypatch: pytest.MonkeyPatch) -> None:
+        from pipeline.hardware_profile import (
+            AAB_MIN_MEM_AVAILABLE_HEADROOM_BYTES,
+            read_mem_available_bytes,
+            resolve_dynamic_ram_budget_bytes,
+        )
+
+        assert AAB_MIN_MEM_AVAILABLE_HEADROOM_BYTES == 12 * 1024**3
+
+        # Live host telemetry check
+        live_avail = read_mem_available_bytes()
+        assert live_avail > 0
+
+        # 52 GiB available -> 40 GiB usable pool
+        monkeypatch.setenv("AAB_MEM_AVAILABLE_BYTES_OVERRIDE", str(52 * 1024**3))
+        assert resolve_dynamic_ram_budget_bytes() == 40 * 1024**3
+
+        # Boundary: exactly 12 GiB available -> 0 B pool (protects 0B-Swap host from OOM)
+        monkeypatch.setenv("AAB_MEM_AVAILABLE_BYTES_OVERRIDE", str(12 * 1024**3))
+        assert resolve_dynamic_ram_budget_bytes() == 0
+
+        # Below 12 GiB (8 GiB) -> clamped to 0 B (never negative)
+        monkeypatch.setenv("AAB_MEM_AVAILABLE_BYTES_OVERRIDE", str(8 * 1024**3))
+        assert resolve_dynamic_ram_budget_bytes() == 0
+
+    def test_single_pass_mp4_session_opens_videocapture_once_and_frees_ram_on_exit(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        import cv2
+        import numpy as np
+        from pipeline.media_cache import decode_needed_frames, shared_mp4_decode_session
+        from pipeline.posthoc_qa import evaluate_cut_temporal_smoothness
+        from pipeline.media_probe import VideoAutopsyEngine
+
+        mp4_p = tmp_path / "single_pass_test.mp4"
+        w, h, fps = 180, 320, 30.0
+        writer = cv2.VideoWriter(str(mp4_p), cv2.VideoWriter_fourcc(*"mp4v"), fps, (w, h))
+        for i in range(45):
+            frm = np.full((h, w, 3), 40 + (i * 3) % 180, dtype=np.uint8)
+            cv2.circle(frm, (40 + i * 2, 160), 22, (240, 220, 90), -1)
+            writer.write(frm)
+        writer.release()
+
+        monkeypatch.setenv("AAB_SCRATCH_DIR", str(tmp_path / "shm_scratch"))
+        monkeypatch.setenv("AAB_SPEED_CACHE_DIR", str(tmp_path / "shm_scratch" / "speed_cache"))
+        monkeypatch.setenv("AAB_MEM_AVAILABLE_BYTES_OVERRIDE", str(48 * 1024**3))
+        real_vc = cv2.VideoCapture
+        vc_calls: list[str] = []
+
+        def _spy_vc(*args: Any, **kwargs: Any) -> Any:
+            vc_calls.append(str(args[0]) if args else "")
+            return real_vc(*args, **kwargs)
+
+        cuts_spec = [
+            {"cut_index": 1, "out_start_sec": 0.0, "out_end_sec": 0.75, "camera_move": "push_in_slow", "grammar": "expressive_vinyl_world"},
+            {"cut_index": 2, "out_start_sec": 0.75, "out_end_sec": 1.50, "camera_move": "pull_back_slow", "grammar": "expressive_xray_brain"},
+        ]
+        with patch("cv2.VideoCapture", side_effect=_spy_vc):
+            with shared_mp4_decode_session(mp4_p) as sess:
+                assert sess["all_frames_cached"] is True
+                assert sess["decoded_fc"] == 45
+                assert len(sess["grays_270x480"]) == 45
+                assert len(sess["flicker_64x36"]) == 45
+
+                _, fc_d, f_map = decode_needed_frames(sess["local_mp4"], sess["sha256"], {0, 15, 30, 44})
+                assert fc_d == 45 and set(f_map.keys()) == {0, 15, 30, 44}
+
+                sm_rep = evaluate_cut_temporal_smoothness(mp4_p, cuts_spec)
+                assert set(sm_rep.keys()) == {1, 2}
+
+                vs_rep = VideoAutopsyEngine.inspect_video_stream(mp4_p, expected_duration_sec=1.5)
+                assert vs_rep["decoded_frame_count"] == 45
+
+            # All frame buffers MUST be cleared immediately on context exit
+            assert sess["frames"] == {}
+            assert sess["even_small_bgr"] == {}
+            assert sess["grays_270x480"] == []
+            assert sess["flicker_64x36"] == []
+
+        assert len(vc_calls) == 1, f"Expected single VideoCapture pass, got {len(vc_calls)}: {vc_calls}"
+
+
+class TestGuard6EpisodeRunnerAndWorkflowStateMachine:
+    """Guard 6: `pipeline.episode_runner` (`main.py ep`) & `workflows/produce_episode.py` state machine."""
+
+    def test_episode_status_ladder_and_published_mutation_guard(self, tmp_path: Path) -> None:
+        from pipeline.episode_runner import get_episode_status, run_episode_until
+
+        missing = get_episode_status(str(tmp_path / "does_not_exist"))
+        assert missing["exists"] is False and missing["stage"] == "missing"
+
+        with pytest.raises(FileNotFoundError):
+            run_episode_until(str(tmp_path / "does_not_exist"))
+
+        proj = tmp_path / "v8_ep99_runner_test"
+        (proj / "02_script").mkdir(parents=True)
+        (proj / "03_visuals").mkdir(parents=True)
+        (proj / "05_assembly").mkdir(parents=True)
+        (proj / "06_publish").mkdir(parents=True)
+        (proj / "02_script" / "script.json").write_text(
+            json.dumps({"sentences": [{"text": "Hook line."}, {"text": "Second line."}]}), encoding="utf-8"
+        )
+        (proj / "03_visuals" / "visual_plan.json").write_text(
+            json.dumps({"clips": [{"clip_number": 1}, {"clip_number": 2}]}), encoding="utf-8"
+        )
+
+        st1 = get_episode_status(str(proj))
+        assert st1["exists"] is True and st1["stage"] == "script_and_plan_ready"
+
+        # Simulate Gate 2 passed without root MP4 yet -> gate2_passed_pending_packaging (not script_and_plan_ready!)
+        (proj / "05_assembly" / "final_shorts_1080x1920.mp4").write_bytes(b"0" * 600_000)
+        (proj / "05_assembly" / "dynamic_episode_qa_report.json").write_text(json.dumps({"passed": True}), encoding="utf-8")
+        (proj / "05_assembly" / "video_autopsy_report.json").write_text(json.dumps({"passed": True}), encoding="utf-8")
+        (proj / "05_assembly" / "posthoc_semantic_qa_report.json").write_text(
+            json.dumps({"cv_passed": True, "passed": True}), encoding="utf-8"
+        )
+        st2 = get_episode_status(str(proj))
+        assert st2["stage"] == "gate2_passed_pending_packaging"
+
+        # Published project MUST refuse mutation in run_episode_until
+        (proj / "06_publish" / "upload_receipt.json").write_text(
+            json.dumps({"video_id": "abc123XYZ", "visibility": "PUBLIC"}), encoding="utf-8"
+        )
+        st3 = get_episode_status(str(proj))
+        assert st3["stage"] == "published:PUBLIC"
+        with pytest.raises(RuntimeError, match="Refusing to mutate published project"):
+            run_episode_until(str(proj), until="gate1")
+
+        # CLI `main.py ep status` exits cleanly on existing project and raises SystemExit(1) on missing project
+        import sys
+        import pipeline.cli as cli_mod
+        old_argv = sys.argv
+        try:
+            sys.argv = ["main.py", "ep", "status", str(proj)]
+            assert cli_mod.main() in (0, None)
+            sys.argv = ["main.py", "ep", "status", str(tmp_path / "missing_xyz")]
+            with pytest.raises(SystemExit) as exc_info:
+                cli_mod.main()
+            assert exc_info.value.code == 1
+        finally:
+            sys.argv = old_argv
+
+    def test_episode_runner_gate2_resume_preserves_signed_mp4_sha_and_writes_verify_receipt(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        """
+        Regression test for `run_episode_until(..., until="ready")` after Gate 2 sign-off:
+          - Must NOT re-run `assemble_diorama_project` when `final_shorts_1080x1920.mp4` already exists and
+            `pending_flow` is False (otherwise re-encoding invalidates the signed `posthoc_semantic_review.json` SHA).
+          - Must check `run_thumbnail_studio` pass status, sync `00_project_manifest.json` from disk, verify
+            `all_intact == True`, and write `05_assembly/ceo_verify_receipt.json`.
+        """
+        import pipeline.assembler as asm_mod
+        import pipeline.batch_runner as br_mod
+        import pipeline.cli as cli_mod
+        import pipeline.episode_qa as eq_mod
+        import pipeline.episode_runner as er_mod
+        import pipeline.media_probe as mp_mod
+        import pipeline.posthoc_qa as ph_mod
+        import pipeline.prompt_builder as pb_mod
+        import pipeline.prompt_gate as pg_mod
+        import pipeline.ref_qa as rq_mod
+        import pipeline.reference_pack as rp_mod
+        import pipeline.thumbnail as th_mod
+
+        monkeypatch.setenv("AAB_SCRATCH_DIR", str(tmp_path / "shm_scratch"))
+        monkeypatch.setenv("AAB_SPEED_CACHE_DIR", str(tmp_path / "shm_scratch" / "speed_cache"))
+
+        projects_root = tmp_path / "projects"
+        proj = projects_root / "v8_ep98_gate2_resume"
+        for sub in ("02_script", "03_visuals/reference_images", "03_visuals/flow_native_clips", "04_audio", "05_assembly", "06_publish"):
+            (proj / sub).mkdir(parents=True, exist_ok=True)
+        (proj / "02_script" / "script.json").write_text(
+            json.dumps({"title": "Why Sleep Washes Your Brain", "pillar": "brain_health", "sentences": ["Line 1.", "Line 2."]}),
+            encoding="utf-8",
+        )
+        (proj / "03_visuals" / "visual_plan.json").write_text(
+            json.dumps({"clips": [{"clip_number": 1, "scene": "clean studio"}, {"clip_number": 2, "scene": "clean lab"}]}),
+            encoding="utf-8",
+        )
+        # Partial reference pack: 1 PNG exists, but cv_pre_generation_ready is initially False -> must still invoke ensure_porcelain_reference_pack!
+        (proj / "03_visuals" / "reference_images" / "ref_01.png").write_bytes(b"\x89PNG\r\n\x1a\n" + b"0" * 128)
+        (proj / "04_audio" / "audio_master.wav").write_bytes(b"RIFF" + b"0" * 256)
+        final_mp4 = proj / "05_assembly" / "final_shorts_1080x1920.mp4"
+        final_mp4.write_bytes(b"SIGNED_MP4_BYTES_" + b"X" * 60_000)
+        orig_mp4_bytes = final_mp4.read_bytes()
+
+        monkeypatch.setattr(
+            cli_mod,
+            "_load_gate_inputs",
+            lambda _d: (
+                {"style_profile": "expressive_25d_v8", "clips": []},
+                ["Line 1.", "Line 2."],
+                {"style_profile": "expressive_25d_v8", "title": "Why Sleep Washes Your Brain", "pillar": "brain_health"},
+            ),
+        )
+        monkeypatch.setattr(pb_mod, "build_flow_prompts", lambda _p, _n: [{"clip_number": 1, "scene": "clean studio"}])
+        monkeypatch.setattr(pg_mod, "validate_production_diorama_v6", lambda *_a, **_kw: [])
+        monkeypatch.setattr(pb_mod, "validate_flow_credit_safety_lint", lambda *_a, **_kw: [])
+        monkeypatch.setattr(pb_mod, "is_diorama_v6_plan", lambda *_a, **_kw: True)
+        monkeypatch.setattr(eq_mod, "write_episode_qa_contract", lambda *_a, **_kw: (proj / "03_visuals" / "episode_qa_contract.json", {}))
+
+        ensure_calls: list[Path] = []
+        monkeypatch.setattr(rp_mod, "ensure_porcelain_reference_pack", lambda p_d, **_kw: ensure_calls.append(Path(p_d)) or {"pre_generation_ready": True})
+        rq_iter = iter([
+            {"cv_pre_generation_ready": False, "pre_generation_ready": False},
+            {"cv_pre_generation_ready": True, "pre_generation_ready": True, "regenerate_image_ids": []},
+        ])
+        monkeypatch.setattr(rq_mod, "inspect_reference_image_pack", lambda *_a, **_kw: next(rq_iter))
+        monkeypatch.setattr(er_mod, "has_pending_human_flow_clips", lambda *_a, **_kw: (False, 0))
+        monkeypatch.setattr(asm_mod, "verify_script_audio_freshness", lambda *_a, **_kw: {"fresh": True})
+
+        assemble_calls: list[Path] = []
+        monkeypatch.setattr(asm_mod, "assemble_diorama_project", lambda p_d, **_kw: assemble_calls.append(Path(p_d)) or {"final_mp4": str(final_mp4)})
+        monkeypatch.setattr(ph_mod, "run_posthoc_semantic_qa", lambda *_a, **_kw: {"cv_passed": True, "passed": True, "viewer_sheets": []})
+        monkeypatch.setattr(eq_mod, "verify_final_mp4_against_contract", lambda *_a, **_kw: {"passed": True})
+        monkeypatch.setattr(mp_mod.VideoAutopsyEngine, "inspect_project", classmethod(lambda cls, *_a, **_kw: {"passed": True}))
+        def _stub_thumb(p_d: Path, **_kw: Any) -> dict[str, Any]:
+            (Path(p_d) / "06_publish" / "thumbnail_report.json").write_text('{"passed": true}', encoding="utf-8")
+            return {"passed": True}
+
+        monkeypatch.setattr(th_mod, "run", _stub_thumb)
+
+        res = er_mod.run_episode_until(str(proj), until="ready")
+        assert len(ensure_calls) == 1, "Partial ref pack with cv_pre_generation_ready=False must call ensure_porcelain_reference_pack"
+        assert assemble_calls == [], "Already-assembled & fresh MP4 must NOT be re-encoded on Gate 2 resume"
+        assert final_mp4.read_bytes() == orig_mp4_bytes
+        assert res["status"] == "READY_TO_PUBLISH"
+        assert res["all_intact"] is True
+        assert (projects_root / "final_shorts_v8_ep98_gate2_resume.mp4").read_bytes() == orig_mp4_bytes
+        assert (proj / "05_assembly" / "ceo_verify_receipt.json").is_file()
+
+
+    def test_episode_runner_auto_renders_r88a_and_r89_archival_clips(
+        self, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+    ) -> None:
+        import pipeline.archival_insert as ai_mod
+        import pipeline.archival_video as av_mod
+        import pipeline.assembler as asm_mod
+        import pipeline.cli as cli_mod
+        import pipeline.episode_qa as eq_mod
+        import pipeline.episode_runner as er_mod
+        import pipeline.media_probe as mp_mod
+        import pipeline.posthoc_qa as ph_mod
+        import pipeline.prompt_builder as pb_mod
+        import pipeline.prompt_gate as pg_mod
+        import pipeline.ref_qa as rq_mod
+
+        proj = tmp_path / "projects" / "v8_ep99_r88a_r89_wiring"
+        for sub in ("02_script", "03_visuals/reference_images", "03_visuals/flow_native_clips", "04_audio", "05_assembly", "06_publish"):
+            (proj / sub).mkdir(parents=True, exist_ok=True)
+        (proj / "02_script" / "script.json").write_text(json.dumps({"title": "Sleep Pupil Arousal", "pillar": "brain_health", "sentences": ["S1.", "S2."]}), encoding="utf-8")
+        (proj / "03_visuals" / "visual_plan.json").write_text(json.dumps({"clips": [{"clip_number": 1, "scene": "lab"}]}), encoding="utf-8")
+        (proj / "03_visuals" / "reference_images" / "ref_01.png").write_bytes(b"\x89PNG\r\n\x1a\n" + b"0" * 64)
+        (proj / "03_visuals" / "archival_inserts_manifest.json").write_text(json.dumps({"inserts": [{"clip_number": 2}]}), encoding="utf-8")
+        (proj / "03_visuals" / "archival_videos_manifest.json").write_text(json.dumps({"videos": [{"clip_number": 3}]}), encoding="utf-8")
+        (proj / "04_audio" / "audio_master.wav").write_bytes(b"RIFF" + b"0" * 128)
+        final_mp4 = proj / "05_assembly" / "final_shorts_1080x1920.mp4"
+
+        monkeypatch.setattr(cli_mod, "_load_gate_inputs", lambda _d: ({"style_profile": "expressive_25d_v8", "clips": []}, ["S1.", "S2."], {"style_profile": "expressive_25d_v8"}))
+        monkeypatch.setattr(pb_mod, "build_flow_prompts", lambda _p, _n: [{"clip_number": 1, "scene": "lab"}])
+        monkeypatch.setattr(pg_mod, "validate_production_diorama_v6", lambda *_a, **_kw: [])
+        monkeypatch.setattr(pb_mod, "validate_flow_credit_safety_lint", lambda *_a, **_kw: [])
+        monkeypatch.setattr(pb_mod, "is_diorama_v6_plan", lambda *_a, **_kw: True)
+        monkeypatch.setattr(eq_mod, "write_episode_qa_contract", lambda *_a, **_kw: (proj / "03_visuals" / "episode_qa_contract.json", {}))
+        monkeypatch.setattr(rq_mod, "inspect_reference_image_pack", lambda *_a, **_kw: {"cv_pre_generation_ready": True, "pre_generation_ready": True, "regenerate_image_ids": []})
+        monkeypatch.setattr(er_mod, "has_pending_human_flow_clips", lambda *_a, **_kw: (False, 0))
+        monkeypatch.setattr(asm_mod, "verify_script_audio_freshness", lambda *_a, **_kw: {"fresh": True})
+
+        r88a_calls: list[Path] = []
+        r89_calls: list[Path] = []
+        monkeypatch.setattr(ai_mod, "render_archival_insert_clips", lambda p_d, **_kw: r88a_calls.append(Path(p_d)) or {"rendered": [2]})
+        monkeypatch.setattr(av_mod, "render_archival_video_clips", lambda p_d, **_kw: r89_calls.append(Path(p_d)) or {"rendered": [3]})
+        def _fake_assemble(_d: object, **_kw: object) -> dict[str, str]:
+            final_mp4.write_bytes(b"MP4" * 20_000)
+            return {"final_mp4": str(final_mp4)}
+
+        monkeypatch.setattr(asm_mod, "assemble_diorama_project", _fake_assemble)
+        monkeypatch.setattr(ph_mod, "run_posthoc_semantic_qa", lambda *_a, **_kw: {"cv_passed": True, "passed": False, "viewer_sheets": []})
+        monkeypatch.setattr(eq_mod, "verify_final_mp4_against_contract", lambda *_a, **_kw: {"passed": True})
+        monkeypatch.setattr(mp_mod.VideoAutopsyEngine, "inspect_project", classmethod(lambda cls, *_a, **_kw: {"passed": True}))
+
+        res = er_mod.run_episode_until(str(proj), until="gate2")
+        assert len(r88a_calls) == 1 and r88a_calls[0] == proj
+        assert len(r89_calls) == 1 and r89_calls[0] == proj
+        assert res["status"] == "PAUSED_AT_GATE2"

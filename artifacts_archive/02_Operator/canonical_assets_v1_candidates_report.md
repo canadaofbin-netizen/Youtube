@@ -9,25 +9,25 @@
 - **매니페스트 (`42`슬롯 · `128`후보 `SHA-256` · 프롬프트 · 출처 · 사용 규칙)**: [manifest.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1/manifest.json)
 - **`@Research` 1차 전수 선별 영수증**: [research_screening_v1.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1/research_screening_v1.json)
 - **카테고리별 비교·후보 시트 (6종)**:
-  1. **원본 `31_O2CmlKOk` 4프레임 vs `A01~A12` 1순위 1:1 대조 시트**: [canonical_v1_00_brain_vs_31_sheet.jpg](./canonical_v1_00_brain_vs_31_sheet.jpg) ([원본 경로](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1/sheets/00_A_brain_vs_31_O2CmlKOk_comparison_sheet.jpg))
-  2. **Category A — 뇌 12슬롯 전체 후보 시트 (`Rank 1~2`: `89~96%` 고밀도 혈관 보강안 / `Rank 3~4`: 중형 비교안)**: [canonical_v1_01_A_brain_sheet.jpg](./canonical_v1_01_A_brain_sheet.jpg)
-  3. **Category B — 캐릭터 체형(4)·표정(6)·의상(5) 15슬롯 시트**: [canonical_v1_02_B_characters_sheet.jpg](./canonical_v1_02_B_characters_sheet.jpg)
-  4. **Category C — `R80` `#FF2525` 탑다운 3D 대조 화살표 3슬롯 시트**: [canonical_v1_03_C_arrows_sheet.jpg](./canonical_v1_03_C_arrows_sheet.jpg)
-  5. **Category D — `120ft` 고고도 캠퍼스·병원 드론 2슬롯 시트**: [canonical_v1_04_D_drone_sheet.jpg](./canonical_v1_04_D_drone_sheet.jpg)
-  6. **Category E — 5대 반복 장소 빈 방(`E01~E05`) & 1인 스케일 배치(`E06~E10`) 10슬롯 시트**: [canonical_v1_05_E_environments_sheet.jpg](./canonical_v1_05_E_environments_sheet.jpg)
+  1. **원본 `31_O2CmlKOk` 4프레임 vs `A01~A12` 1순위 1:1 대조 시트**: [canonical_v1_00_brain_vs_31_sheet.jpg](../01_YouTube_CEO/00_A_brain_vs_31_O2CmlKOk_comparison_sheet.jpg) ([원본 경로](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/BCI_Shorts_Channel/canonical_assets/v1/sheets/00_A_brain_vs_31_O2CmlKOk_comparison_sheet.jpg))
+  2. **Category A — 뇌 12슬롯 전체 후보 시트 (`Rank 1~2`: `89~96%` 고밀도 혈관 보강안 / `Rank 3~4`: 중형 비교안)**: [canonical_v1_01_A_brain_sheet.jpg](../01_YouTube_CEO/01_category_A_brain_candidates_sheet.jpg)
+  3. **Category B — 캐릭터 체형(4)·표정(6)·의상(5) 15슬롯 시트**: [canonical_v1_02_B_characters_sheet.jpg](../01_YouTube_CEO/02_category_B_characters_candidates_sheet.jpg)
+  4. **Category C — `R80` `#FF2525` 탑다운 3D 대조 화살표 3슬롯 시트**: [canonical_v1_03_C_arrows_sheet.jpg](../01_YouTube_CEO/03_category_C_arrows_r80_candidates_sheet.jpg)
+  5. **Category D — `120ft` 고고도 캠퍼스·병원 드론 2슬롯 시트**: [canonical_v1_04_D_drone_sheet.jpg](../01_YouTube_CEO/04_category_D_drone_120ft_candidates_sheet.jpg)
+  6. **Category E — 5대 반복 장소 빈 방(`E01~E05`) & 1인 스케일 배치(`E06~E10`) 10슬롯 시트**: [canonical_v1_05_E_environments_sheet.jpg](../01_YouTube_CEO/05_category_E_environments_candidates_sheet.jpg)
 
 ````carousel
-![원본 31_O2CmlKOk vs A01-A12 1:1 대조 시트](./canonical_v1_00_brain_vs_31_sheet.jpg)
+![원본 31_O2CmlKOk vs A01-A12 1:1 대조 시트](../01_YouTube_CEO/00_A_brain_vs_31_O2CmlKOk_comparison_sheet.jpg)
 <!-- slide -->
-![Category A: 뇌 A01-A12 후보 시트](./canonical_v1_01_A_brain_sheet.jpg)
+![Category A: 뇌 A01-A12 후보 시트](../01_YouTube_CEO/01_category_A_brain_candidates_sheet.jpg)
 <!-- slide -->
-![Category B: 캐릭터 B01-B15 후보 시트](./canonical_v1_02_B_characters_sheet.jpg)
+![Category B: 캐릭터 B01-B15 후보 시트](../01_YouTube_CEO/02_category_B_characters_candidates_sheet.jpg)
 <!-- slide -->
-![Category C: R80 화살표 C01-C03 후보 시트](./canonical_v1_03_C_arrows_sheet.jpg)
+![Category C: R80 화살표 C01-C03 후보 시트](../01_YouTube_CEO/03_category_C_arrows_r80_candidates_sheet.jpg)
 <!-- slide -->
-![Category D: 120ft 드론 D01-D02 후보 시트](./canonical_v1_04_D_drone_sheet.jpg)
+![Category D: 120ft 드론 D01-D02 후보 시트](../01_YouTube_CEO/04_category_D_drone_120ft_candidates_sheet.jpg)
 <!-- slide -->
-![Category E: 반복 장소 E01-E10 후보 시트](./canonical_v1_05_E_environments_sheet.jpg)
+![Category E: 반복 장소 E01-E10 후보 시트](../01_YouTube_CEO/05_category_E_environments_candidates_sheet.jpg)
 ````
 
 ---

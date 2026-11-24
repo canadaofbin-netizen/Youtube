@@ -21,7 +21,6 @@ if str(WORKSPACE_ROOT) not in sys.path:
 from pipeline.config import PROJECTS_DIR
 from pipeline.publish import PublishStage
 from pipeline.storage import ProjectStorage
-from pipeline.studio.ab_tester import ThumbnailABTester
 from pipeline.studio.community import CommunityManager
 from pipeline.studio.config import (
     CHANNEL_ID,
@@ -36,7 +35,6 @@ from pipeline.studio.config import (
     get_pillar_default_slot,
     get_slot_info,
 )
-from pipeline.studio.queue_manager import StagingQueueManager
 from pipeline.studio.uploader import StudioUploader
 
 
@@ -167,21 +165,6 @@ def test_publish_stage_thumbnail_variants(tmp_path):
     assert manifest["statistical_evaluation"]["metric"] == "Search & Browse CTR"
 
 
-def test_z_score_calculation():
-    """Validates Two-Proportion Z-Test statistical calculations."""
-    # Test equal proportions
-    res_equal = ThumbnailABTester.calculate_z_score(50, 1000, 50, 1000)
-    assert res_equal["z_score"] == 0.0
-    assert res_equal["p_value"] == 1.0
-    assert not res_equal["statistically_significant"]
-
-    # Test statistically significant difference (p < 0.05, |Z| > 1.96)
-    # A: 50 / 1000 = 5.0%, B: 100 / 1000 = 10.0%
-    res_sig = ThumbnailABTester.calculate_z_score(50, 1000, 100, 1000)
-    assert res_sig["statistically_significant"] is True
-    assert res_sig["p_value"] < 0.001
-    assert abs(res_sig["z_score"]) > 1.96
-    assert res_sig["winner"] == "var_2"
 
 
 def _seed_hermetic_studio_project(
@@ -198,7 +181,7 @@ def _seed_hermetic_studio_project(
     import cv2
     import numpy as np
     from pipeline.config import clip_roles
-    from pipeline.flow_prompt_builder import build_flow_prompts
+    from pipeline.prompt_builder import build_flow_prompts
 
     storage = ProjectStorage(project_id, title=title, pillar=pillar, projects_dir=projects_dir)
     asm_dir = storage.get_stage_dir("05_assembly")
@@ -330,145 +313,7 @@ def test_community_manager_comment_payload(tmp_path):
     assert receipt["pinned"] is True
 
 
-def test_ab_tester_sequential_swap_and_eval(tmp_path):
-    """Validates A/B tester sequential rotation and statistical evaluation (both challenger and baseline wins)."""
-    proj_id = "psych_03_split_brain_dual_consciousness"
-    _seed_hermetic_studio_project(tmp_path, proj_id)
-    tester = ThumbnailABTester(cdp_port=9222, projects_dir=tmp_path)
-
-    # Test swap to specific variant
-    swap_res = tester.swap_to_variant(proj_id, "B", dry_run=True)
-    assert swap_res["active_variant"] == "B"
-
-    # Test swap next (B -> C)
-    swap_next_res = tester.swap_next(proj_id, dry_run=True)
-    assert swap_next_res["active_variant"] == "C"
-
-    # Test statistical significance evaluation: Challenger C wins
-    custom_metrics_c_wins = {
-        "A": {"impressions": 2000, "clicks": 100},  # 5% CTR
-        "B": {"impressions": 2000, "clicks": 160},  # 8% CTR
-        "C": {"impressions": 2000, "clicks": 240}   # 12% CTR
-    }
-    eval_c = tester.evaluate_significance(proj_id, metrics=custom_metrics_c_wins, dry_run=True)
-    assert eval_c["conclusive"] is True
-    assert eval_c["winner_variant"] == "C"
-    assert eval_c["statistical_test"] == "Two-Proportion Z-Test"
-
-    # Test statistical significance evaluation: Baseline A wins
-    custom_metrics_a_wins = {
-        "A": {"impressions": 2000, "clicks": 200},  # 10% CTR
-        "B": {"impressions": 2000, "clicks": 100},  # 5% CTR
-        "C": {"impressions": 2000, "clicks": 80}    # 4% CTR
-    }
-    eval_a = tester.evaluate_significance(proj_id, metrics=custom_metrics_a_wins, dry_run=True)
-    assert eval_a["conclusive"] is True, "Baseline Variant A victory failed to conclude"
-    assert eval_a["winner_variant"] == "A", f"Expected Variant A winner, got {eval_a['winner_variant']}"
 
 
-def test_staging_queue_planner(tmp_path):
-    """Validates StagingQueueManager prime-slot and 5-slot calendar distribution, v5 gate, and booked-slot preservation."""
-    projects_root = tmp_path / "projects"
-    tmp_queue = tmp_path / "staging_queue.json"
 
-    # 1. Published live project -> must be archived to history and never re-scheduled (R34)
-    _seed_hermetic_studio_project(
-        projects_root,
-        "psych_01_habit_loop_basal_ganglia",
-        pillar="brain_health",
-        v5_ready=False,
-        live_receipt={
-            "project_id": "psych_01_habit_loop_basal_ganglia",
-            "video_id": "p4ou90cHt50",
-            "shorts_url": "https://www.youtube.com/shorts/p4ou90cHt50",
-            "title": "Why Deep Brain Loops Lock Habits on Autopilot",
-            "visibility": "public",
-            "status": "published_public",
-        },
-    )
-    # 2. Legacy v4 unpublished draft -> must be blocked by default (R18-V5)
-    _seed_hermetic_studio_project(
-        projects_root,
-        "psych_07_stanford_prison_deindividuation",
-        pillar="bci_ethics",
-        v5_ready=False,
-    )
-    # 3. Two v5-passing ready projects -> eligible for scheduling
-    _seed_hermetic_studio_project(projects_root, "v5_ready_alpha", pillar="bci_tech", v5_ready=True)
-    _seed_hermetic_studio_project(projects_root, "v5_ready_beta", pillar="brain_history", v5_ready=True)
-
-    # Seed an upcoming already-booked slot on 2026-10-28 Slot 2 to verify zero double-booking (R30-B)
-    tmp_queue.write_text(
-        json.dumps({
-            "version": "1.0",
-            "channel_handle": "@AllAboutBrainOfficial",
-            "slots_per_day": 2,
-            "scheduled_items": [
-                {
-                    "schedule_id": "2026-10-28_slot2",
-                    "date": "2026-10-28",
-                    "slot_id": 2,
-                    "slot_name": "Midday_Peak",
-                    "time_et": "12:00",
-                    "target_time_et": "2026-10-28 12:00 ET",
-                    "project_id": "v5_booked_upcoming",
-                    "video_id": "BookedVid01",
-                    "title": "Already Scheduled Future Short",
-                    "pillar": "bci_tech",
-                    "status": "scheduled_public",
-                }
-            ],
-            "history": [],
-        }),
-        encoding="utf-8",
-    )
-
-    queue_mgr = StagingQueueManager(queue_file=tmp_queue, cdp_port=9222, projects_dir=projects_root)
-    ready = queue_mgr.scan_ready_projects()
-    ready_pids = {r["project_id"] for r in ready}
-    assert ready_pids == {"v5_ready_alpha", "v5_ready_beta"}
-    assert "psych_01_habit_loop_basal_ganglia" not in ready_pids
-    assert "psych_07_stanford_prison_deindividuation" not in ready_pids
-
-    # Stage-gated default (daily_prime_only=True -> 1 Short/day = 3 slots over 3 days)
-    plan_prime = queue_mgr.plan_5_slot_schedule(days=3, start_date="2026-10-28", daily_prime_only=True)
-    assert plan_prime["planned_days"] == 3
-    assert plan_prime["total_slots"] == 3
-    assert plan_prime["preserved_future_slots"] == 1
-    assert plan_prime["assigned_slots"] == 3  # 1 preserved booked (Oct 28) + 2 new v5 ready (Oct 29, Oct 30)
-
-    # First day (2026-10-28 Slot 2) must remain occupied by v5_booked_upcoming without double-booking Oct 28!
-    slot_map = {(it["date"], it["slot_id"]): it for it in plan_prime["items"]}
-    assert slot_map[("2026-10-28", 2)]["project_id"] == "v5_booked_upcoming"
-    assert slot_map[("2026-10-28", 2)]["status"] == "scheduled_public"
-    assert ("2026-10-28", 4) not in slot_map
-    assert slot_map[("2026-10-29", 4)]["time_et"] == "19:30"
-    assert slot_map[("2026-10-30", 4)]["time_et"] == "19:30"
-
-    # Explicit 2-slot mode (slots_per_day=2 -> 6 slots over 3 days)
-    plan_two = queue_mgr.plan_5_slot_schedule(days=3, start_date="2026-10-28", slots_per_day=2)
-    assert plan_two["total_slots"] == 6
-    assert plan_two["assigned_slots"] == 3
-
-    # Full 5-slot calendar mode (daily_prime_only=False -> 5 slots/day = 15 slots over 3 days)
-    plan = queue_mgr.plan_5_slot_schedule(days=3, start_date="2026-10-28", daily_prime_only=False)
-    assert plan["planned_days"] == 3
-    assert plan["total_slots"] == 15
-    assert plan["assigned_slots"] == 3
-
-    # Verify ZERO duplicate projects scheduled & history preserved
-    assigned_ids = [item["project_id"] for item in plan["items"] if item["project_id"]]
-    assert len(assigned_ids) == len(set(assigned_ids)), f"Duplicate projects found in schedule: {assigned_ids}"
-    assert set(assigned_ids) == {"v5_booked_upcoming", "v5_ready_alpha", "v5_ready_beta"}
-    assert "psych_01_habit_loop_basal_ganglia" not in assigned_ids
-    assert plan["vacant_slots"] == plan["total_slots"] - len(assigned_ids)
-
-    saved_q = queue_mgr.load_queue()
-    hist_pids = {h["project_id"] for h in saved_q.get("history", [])}
-    assert "psych_01_habit_loop_basal_ganglia" in hist_pids
-
-    summary = queue_mgr.get_status_summary()
-    assert summary["total_completed_projects"] == 3
-    assert summary["published_or_live_count"] == 1
-    assert summary["v5_ready_unpublished_count"] == 2
 

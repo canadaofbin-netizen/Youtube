@@ -14,7 +14,7 @@
 
 ## 1. 전 구간 정량 요약 및 타임라인 리듬 대시보드
 
-![_73R9pQF5oM 전 구간 샷 길이 리듬, 광류 카메라 속도 곡선, 무빙 벡터 분포 및 24->30fps 엔진 지문](./media/chart_timeline_motion_and_transitions.png)
+![_73R9pQF5oM 전 구간 샷 길이 리듬, 광류 카메라 속도 곡선, 무빙 벡터 분포 및 24->30fps 엔진 지문](../01_YouTube_CEO/arch_dict_media/chart_timeline_motion_and_transitions.png)
 
 | 핵심 측정 지표 | 실측 수치 | 연출적 의미 |
 |---|---|---|
@@ -42,7 +42,7 @@
 
 단순히 카메라만 움직이는 것이 아니라 **① 카메라 궤적(Camera Rig)**과 **② 건축 디오라마 물리 모션(Staging Physics)**을 역할을 나누어 결합한 8가지 시그니처 무빙입니다.
 
-![_73R9pQF5oM 8대 시그니처 카메라 및 인씬 물리 무빙 추출 스트립](./media/strip_camera_moves_8types.jpg)
+![_73R9pQF5oM 8대 시그니처 카메라 및 인씬 물리 무빙 추출 스트립](../01_YouTube_CEO/arch_dict_media/strip_camera_moves_8types.jpg)
 
 | ID | 무빙 패턴명 | 대표 구간 (`실측 샷`) | 카메라 벡터 & 속도 곡선 | 인씬(In-Scene) 피사체 움직임 | Google Flow (`Start+End` / I2V) 재현 프롬프트 공식 |
 |---|---|---|---|---|---|
@@ -73,7 +73,7 @@ flowchart LR
 
 ### 7대 장면 전환 기법 프레임 단위 분해
 
-![_73R9pQF5oM 7대 장면 전환 메커니즘 프레임 추출 스트립](./media/strip_scene_transitions_types.jpg)
+![_73R9pQF5oM 7대 장면 전환 메커니즘 프레임 추출 스트립](../01_YouTube_CEO/arch_dict_media/strip_scene_transitions_types.jpg)
 
 1. **`T1` 상하 분할 비교 와이프 (`Split-Screen Stack Wipe`, `00:07.8–00:10.1`)**
    - **작동 방식**: 단일 전경 샷 위에 가로 분할선이 생기며 상단(`2010` 목조 광화문)과 하단(`1968` 콘크리트 광화문)을 동시에 미세 `Pull-Out` 시켜 "겉모습이 똑같다"는 명제를 2초 만에 직관화합니다.

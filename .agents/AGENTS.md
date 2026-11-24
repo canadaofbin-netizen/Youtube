@@ -3,7 +3,7 @@
 - **Channel**: `@AllAboutBrainOfficial` (`UC4FeioYYv9X04Di07_MfZ7g`) | **Root**: `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube` (`fuse.rclone`, 0 symlinks)
 - **Py**: `/home/canadaofbin/hermes-venv/bin/python -X utf8` | **Live SSOT**: [`pipeline/config.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/config.py) · [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) (direct-read)
 - **Human+AI Bibles**: [ALL_ABOUT_BRAIN_MASTER_PIPELINE.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/docs/ALL_ABOUT_BRAIN_MASTER_PIPELINE.md) · [LOCKED_ASSETS_AND_REFERENCES_BIBLE.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/docs/LOCKED_ASSETS_AND_REFERENCES_BIBLE.md)
-- **7-Chatroom Charter**: [governance_roles.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/governance_roles.md) (`always_on`) · [chatrooms.json](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/chatrooms.json) (`scripts/chatroom_mention.py resolve`)
+- **Fresh-Room Charter**: [governance_roles.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/governance_roles.md) (`always_on`, `R83 v3`: `1` task/ep = `1` fresh `0k` room + ephemeral Vision Reviewer + Zero-Token `scripts/run_daily_ops_headless.sh`)
 - **Active Engine Lock**: `expressive_25d_v8` (`1080x1920 @ 30fps`, `61.5–88s`), `elevenlabs_v4` Solo `Siren`, `100%` Google Flow native (`0` API): unified `Omni 1.2 Flash` (`Start+End` `3–10s`) → `Veo 3.1 Lite` (`0` cr), `Nano Banana 2.1` `x1` first-pass / `x2` retry.
 
 ## 1. 5-Gear Skills & CLI Map (`main.py <cmd>`)
@@ -11,15 +11,15 @@
 |---|---|---|
 | 1 Research | [youtube-research](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-research/SKILL.md) | `news-radar`, `dossier init\|validate --require-v2\|audit-media` |
 | 2 Script+Plan | [youtube-script](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-script/SKILL.md) | `prompt-gate --dir <d>`, `chart-preview --project <id>` |
-| 3–4 Produce+QA | [youtube-produce](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-produce/SKILL.md) | `porcelain-refs`, `ref-qa`, `diorama-flow`, `diorama-assemble`, `episode-qa`, `posthoc-qa`, `qa-summary`, `thumbnail` |
+| 3–4 Produce+QA | [youtube-produce](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-produce/SKILL.md) | `ep status\|run`, `refs`, `ref-qa`, `flow`, `assemble`, `episode-qa`, `posthoc-qa`, `qa-summary`, `thumbnail` |
 | 5 Studio | [youtube-studio](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-studio/SKILL.md) | `multi-bundle`, `studio-upload`, `studio-pin`, `studio-link`, `studio-quiz`, `studio-watchdog` |
 | 5 Analytics | [youtube-report](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/youtube-report/SKILL.md) | `studio-report` (`07:00 UTC` read-only KPI + Lock 4 alert) |
 | 5 Dist QA | [qa-scheduler](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/skills/qa-scheduler/SKILL.md) | `qa-scheduler` (`08:00 UTC` `HOLD/GO`, 5-Asset stagger, IG/TikTok) |
 
-## 2. Atomic Rules Map (`26` Files in `.agents/rules/` — Load Only What Your Task Needs)
+## 2. Atomic Rules Map (`25` Files in `.agents/rules/` — Load Only What Your Task Needs)
 | Rule IDs | Owner File (`.agents/rules/`) | Task Scope |
 |---|---|---|
-| `R83` (`R83-1..8`) | `governance_roles.md` (`always_on`) | 7-room VP charter, `G1–G5` (`100%` `inherit`), `R83-8-V`, `Delta Receipt` |
+| `R83` (`R83-1..8`) | `governance_roles.md` (`always_on`) | `Fresh-Room` (`0k` per ep/task), ephemeral Gate 1/2 VLM, `G1–G5` (`flash`/`inherit`), Zero-Token ops |
 | Live Constants | `production_constants.md` (direct-read) | `pipeline/config.py` 1:1 SSOT locks & symbol index |
 | `R1, R3, R15, R49-T, R73` | `content_quality_rules.md` | DOI/species accuracy, US English (`FK<=6.5`), TTS safety |
 | `P1, R20` | `pillars_domain_rules.md` | 7 academic pillars & 5 everyday domains balance |
@@ -38,7 +38,7 @@
 | `R56–R61` | `diorama_assembly_subtitles_rules.md` | Audio-First EDL, `82pt/#FFE600/MarginV=510` ASS, 5-archetype titles |
 | `R62–R64` | `episode_qa_triage_rules.md` | `DQ` triage, `DQ8` crops, `P7/P9`, 4×3 flicker, post-hoc QA |
 | `R65` | `thumbnail_r65_rules.md` | `R65 v4` 50/50 in-skull cutaway thumbnail (`x2`, `TQ4/6/7/8/9`) |
-| `R66, R67` | `archival_reenactment_rules.md` | `porcelain_cinematic_v7` baseline & `1:1` quarantine reenactment |
+| `R66, R67` (Archived) | `_archive/archival_reenactment_rules.md` | Archived `porcelain_cinematic_v7` baseline & `1:1` quarantine reenactment |
 | `R70/R70-M, R71/R71-B` | `data_stamp_charts_rules.md` | `1x1` `study` Data Stamps, `max_y_frac`, anatomy labels |
 | `R68, R72/R72-R` | `real_world_drone_refs_rules.md` | `expressive_25d_v8` world, `120ft` drones, Wikimedia refs |
 | `R82, R86, R87-H` | `hook_pacing_beatcard_rules.md` | `118pt HookTitle`, `<=12w` hook, dual-speed pacing, Beat Cards |

@@ -986,7 +986,7 @@ def sync_all_projects_to_knowledge_base(
             ph_rep = None
             if needs_missing_posthoc:
                 try:
-                    from pipeline.posthoc_semantic_qa import resolve_project_final_mp4, run_posthoc_semantic_qa
+                    from pipeline.posthoc_qa import resolve_project_final_mp4, run_posthoc_semantic_qa
 
                     resolve_project_final_mp4(d)
                     ph_rep = run_posthoc_semantic_qa(d, render_strips=True, run_asr_sync=False, save_report=True)

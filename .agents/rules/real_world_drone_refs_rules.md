@@ -14,7 +14,7 @@ Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtu
 
 ## R72 / R72-R — `120ft` Institution Drone & Open-License Real Refs (`Tier-1 #3 & #7`)
 - **True `120ft` Drone (`Tier-1 #7`)**: `S01–S04` includes a genuine `~120ft/30m` campus/hospital/institute aerial drone cut (`>= 25%` outdoor human scenes).
-- **3-Category Hygiene & Open License (`Tier-1 #3`, `pipeline/real_world_reference_builder.py`)**: Quarantines Wikimedia plates in `/tmp/aab_real_refs/<project_id>/` (`institution`, `urban_setting`, `scientific_apparatus` + `NEUROANATOMY_CUTAWAY_MAP`), generates via `0-credit` Flow `Image`, purges `/tmp`, blocks `FEMA`/ruin/`Waarschuwing`/`mg bottle`/alphabet blocks/`digifoto`, and mandates open licenses (`Public Domain`, `CC0`, `CC-BY`, `CC-BY-SA`) + `source_url` in `real_world_refs_manifest.json` & `reference_provenance.json`.
+- **3-Category Hygiene & Open License (`Tier-1 #3`, `pipeline/real_world_refs.py`)**: Quarantines Wikimedia plates in `/tmp/aab_real_refs/<project_id>/` (`institution`, `urban_setting`, `scientific_apparatus` + `NEUROANATOMY_CUTAWAY_MAP`), generates via `0-credit` Flow `Image`, purges `/tmp`, blocks `FEMA`/ruin/`Waarschuwing`/`mg bottle`/alphabet blocks/`digifoto`, and mandates open licenses (`Public Domain`, `CC0`, `CC-BY`, `CC-BY-SA`) + `source_url` in `real_world_refs_manifest.json` & `reference_provenance.json`.
 
-## R73 — US Native Spoken Narration (`pipeline/prompt_quality_v5.py`)
+## R73 — US Native Spoken Narration (`pipeline/prompt_gate.py`)
 - Defaults to `EXPRESSIVE_V8_DEFAULT_OPENING_MODE = "immediate_brain_shock"` across `EXPRESSIVE_V8_US_NATIVE_OPENING_MODES` + `S02–S04` institution bridge (`0.42s` pause) + `mic_drop`/`seamless_loop` close; bans `"Have you ever..."`/`"Did you know..."` and AI clichés. `FK <= 6.5`, `<= 22w`/sentence, `<= 2` plain-first glossed neuro terms (`Tier-2`).

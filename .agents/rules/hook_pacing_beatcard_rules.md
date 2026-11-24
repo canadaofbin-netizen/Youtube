@@ -14,7 +14,7 @@ Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtu
 - **Design Targets (`Tier-2` flexible `±0.4s` / `35–62%`)**: Brisk `1.90–4.25s` 2-beat human cuts vs poised `4.20–6.80s` (`42–58%` share, `<= 15°` single-plane parallax, zero 90° spin) 3D brain cuts across `18–28` cuts.
 - **Mandatory `S01–S04` `120ft` Institution Drone (`Tier-1 #7`)**: Real campus/hospital/institute aerial shot with `R85_DRONE_ALTITUDE_LOCK_CLAUSE` (`"120ft altitude, figures read as tiny dots"`) and zero ground walking verbs (`walk`, `stride`, `jog`).
 
-## R86 — Semantic Beat Contract (`Tier-1 #5 & #6`, `pipeline/flow_prompt_builder.py`, `pipeline/prompt_quality_v5.py`)
+## R86 — Semantic Beat Contract (`Tier-1 #5 & #6`, `pipeline/prompt_builder.py`, `pipeline/prompt_gate.py`)
 - **Required Per-Cut Beat Card**: `claim`, `viewer_must_understand`, `visual_proof_type` (`mechanism`, `comparison`, `causal_arrow`, `scale`, `misconception_flip`, `data`, `metaphor`, `reaction` `<=2`/ep; `0` `decorative`), `visual_register` (`story` 2.5D vinyl with `0` overlays vs `diagram` 31-brain / `R80` arrow / `R70` stamp on clean backdrop), `concrete_referent` (in `scene`), `metaphor_continuity_id` (`3–5` cuts + `bridge_element`), `concept_id` + `state_delta` (`0` zero-delta brain repeats), 3-step `misconception_flip` (`mechanism_seed`), `< 3` consecutive identical proof types, and `anti_filler_check`.
 
 ## R87-H — `0.0–3.0s` Hook Recovery & 3-App Safe Zone (`Ep #13+`)

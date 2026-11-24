@@ -23,7 +23,7 @@ from pipeline.config import (
     DATA_STAMP_MODES,
     DATA_STAMP_PRESETS,
 )
-from pipeline.data_stamp_overlay import render_data_stamp_rgba_frame
+from pipeline.stamp_overlay import render_data_stamp_rgba_frame
 
 
 def test_r70m_v31_intuitive_diet_constants_and_routing() -> None:
@@ -161,7 +161,7 @@ def test_legacy_bar_compare_detection() -> None:
 
 def test_signed_bar_compare_three_point_line_and_hundredths_fmt() -> None:
     from pipeline.charts.layers import _display_unit, _fmt_val
-    from pipeline.data_stamp_overlay import _format_num
+    from pipeline.stamp_overlay import _format_num
 
     assert _display_unit("uV^2") == "\u03bcV\u00b2"
     assert _fmt_val(0.08, "uV^2") == "0.08 \u03bcV\u00b2"
@@ -246,7 +246,7 @@ def test_line_and_legacy_bar_zero_stroke_collision() -> None:
     from PIL import Image, ImageDraw
     from pipeline.charts.axes import build_panel_viewport
     from pipeline.charts.layers import compute_line_label_layout
-    from pipeline.data_stamp_overlay import (
+    from pipeline.stamp_overlay import (
         _load_hand_font,
         compute_natural_arrow_geometry,
         resolve_multiplier_badge_placement,

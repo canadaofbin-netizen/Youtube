@@ -39,7 +39,7 @@ from pipeline.cdp_tab_lease import (
     renew_tab_lease,
 )
 from pipeline.studio.config import DEFAULT_CDP_HOST, DEFAULT_CDP_PORT
-from pipeline.studio.whale_session import DirectCDPClient, cleanup_staged_bridge_files
+from pipeline.studio.browser_session import DirectCDPClient, cleanup_staged_bridge_files
 
 DEFAULT_GOOGLE_ACCOUNT_EMAIL = "canadaofbin@gmail.com"
 DEFAULT_YOUTUBE_CHANNEL_HANDLE = "@AllAboutBrainOfficial"

@@ -26,15 +26,11 @@ import pytest
 
 from pipeline import config, research_dossier as rd
 from pipeline.depiction_rules import CastDepictionRule, PorcelainWorldRule, validate_porcelain_v7_scene
-from pipeline.diorama_batch_orchestrator import _is_already_completed
-from pipeline.flow_diorama_sharded_worker import _soften_veo_false_positive_words
-from pipeline.flow_prompt_builder import build_flow_prompts
-from pipeline.longform_prompt_builder import compile_longform_plan_from_dossier, initialize_longform_project
-from pipeline.longform_publish import prepare_longform_publish_package
-from pipeline.longform_qa import run_longform_qa
-from pipeline.longform_refs import sanitize_longform_16x9_guide_frame
-from pipeline.prompt_quality_v5 import validate_anti_clone_uniqueness, validate_production_diorama_v6
-from pipeline.reference_image_qa import _dhash_64
+from pipeline.batch_runner import _is_already_completed
+from pipeline.flow_worker import _soften_veo_false_positive_words
+from pipeline.prompt_builder import build_flow_prompts
+from pipeline.prompt_gate import validate_anti_clone_uniqueness, validate_production_diorama_v6
+from pipeline.ref_qa import _dhash_64
 from pipeline.studio.community import CommunityManager, validate_debate_pinned_comment_line1
 
 
@@ -367,48 +363,6 @@ def test_schema_v2_dossier_validation_and_longform_init_gate(tmp_path: Path):
     assert val_no_edl["ready"] is False
     assert any("08_reenactment_edl.json" in x for x in val_no_edl["issues"])
 
-    # Long-Form init & compile must block when dossier fails Schema v2
-    lf_root = tmp_path / "projects_longform"
-    mini_spec = {
-        "dossier_slug": "glymphatic_sleep_toxins",
-        "title": "Why 8 Hours on Sleeping Pills Leaves Your Brain Unwashed",
-        "pillar": "brain_health",
-        "everyday_domain": "sleep",
-        "chapters": [
-            {
-                "chapter_number": i,
-                "title": f"Ch {i}",
-                "sentences": [
-                    {"text": "Natural slow waves pump clear fluid through deep brain channels.", "gear": "explain"},
-                    {"text": "Would you pick five natural hours or eight sedated ones?", "gear": "stamp", "beat_break": True},
-                ],
-                "visual_templates": [{"grammar": "porcelain_fullbleed_world", "camera": "gentle_push_in", "scene": "Minimalist sleep lab"}],
-            }
-            for i in range(1, 8)
-        ],
-    }
-    with pytest.raises(ValueError, match="Schema v2 validation"):
-        initialize_longform_project(
-            "longform_01_test_gate",
-            mini_spec,
-            projects_longform_dir=lf_root,
-            dossiers_dir=d_root,
-        )
-    with pytest.raises(ValueError, match="Schema v2 validation"):
-        compile_longform_plan_from_dossier(d_dir, save=False)
-
-    # Restore valid 08_reenactment_edl.json -> both succeed
-    _populate_complete_schema_v2_dossier(d_root, "glymphatic_sleep_toxins", track="track_a", neuro_year=2019)
-    init_ok = initialize_longform_project(
-        "longform_01_test_gate",
-        mini_spec,
-        projects_longform_dir=lf_root,
-        dossiers_dir=d_root,
-    )
-    assert init_ok["chapter_count"] == 7
-    compiled_ok = compile_longform_plan_from_dossier(d_dir, save=False)
-    assert compiled_ok["slug"] == "glymphatic_sleep_toxins"
-
     # 3. Schema v1 backward compatibility when require_schema_v2=False, rejected when require_schema_v2=True
     d_v1_doc = json.loads((d_dir / "dossier.json").read_text(encoding="utf-8"))
     d_v1_doc["schema_version"] = 1
@@ -496,202 +450,8 @@ def test_stage2_open_verdict_two_sentence_close_and_frozen_reenact_01():
     assert validate_anti_clone_uniqueness(narrs_v2, []) == []
 
 
-def test_longform_16x9_guide_aspect_preservation_and_lfq10_rq_gates(tmp_path: Path):
-    # Create a 4:3 (640x480) archival frame with a perfect circle in the center + VHS bottom bar + neon corner poster
-    src_4x3 = np.full((480, 640, 3), (185, 190, 195), dtype=np.uint8)
-    cv2.circle(src_4x3, (320, 220), 90, (55, 60, 65), -1)  # dark circle on light lab wall
-    src_4x3[435:475, 80:560] = 250  # bright VHS caption strip
-    src_4x3[10:90, 10:110] = (10, 20, 240)  # saturated red corner poster
-
-    src_path = tmp_path / "raw_4x3.png"
-    out_path = tmp_path / "guide_16x9.png"
-    cv2.imwrite(str(src_path), src_4x3)
-
-    rep = sanitize_longform_16x9_guide_frame(src_path, out_path)
-    assert rep["resolution"] == [1920, 1080]
-    assert rep["aspect_preserved"] is True
-    assert rep["side_pad_px"] == [240, 240]
-
-    out_img = cv2.imread(str(out_path))
-    assert out_img is not None and out_img.shape == (1080, 1920, 3)
-
-    # Side extensions must be bright matte studio tone (NOT black pillarbox bars)
-    assert float(out_img[:, :200].mean()) > 120.0
-    assert float(out_img[:, 1720:].mean()) > 120.0
-
-    # Central dark circle must stay circular (w/h ~= 1.00, NOT stretched to 1.33!)
-    gray = cv2.cvtColor(out_img, cv2.COLOR_BGR2GRAY)
-    mask_dark = (gray < 110).astype(np.uint8)
-    ys, xs = np.where(mask_dark > 0)
-    circle_w = int(xs.max() - xs.min())
-    circle_h = int(ys.max() - ys.min())
-    aspect_circle = circle_w / max(1, circle_h)
-    assert 0.90 <= aspect_circle <= 1.10, f"4:3 -> 16:9 stretched circle horizontally: {aspect_circle:.3f}"
-
-    # Verify LFQ10 runs RQ1-RQ5 on Track A Long-Form projects and catches pixel-clone dHash (< 10)
-    d_root = tmp_path / "dossiers"
-    _populate_complete_schema_v2_dossier(d_root, "lf_rq_topic", track="track_a", neuro_year=2020)
-    lf_root = tmp_path / "projects_longform"
-    spec = {
-        "dossier_slug": "lf_rq_topic",
-        "title": "Why 6 Hours of Sleep Blinds Your Brain to Its Own Mistakes",
-        "pillar": "brain_health",
-        "everyday_domain": "sleep",
-        "chapters": [
-            {
-                "chapter_number": i,
-                "title": f"Stage {i}",
-                "sentences": [
-                    {
-                        "text": "Could a sleeping pill mute the brain's fluid pump overnight?"
-                        if i == 4
-                        else "Slow vascular waves pull clear fluid across deep cortical channels.",
-                        "gear": "explain",
-                        "citation_id": f"cite_{i}" if i in (2, 3, 5) else None,
-                    },
-                    {
-                        "text": "Would you trust five natural hours or eight sedated hours?"
-                        if i == 7
-                        else "Researchers measured reaction lapses climbing across fourteen restricted nights.",
-                        "gear": "stamp",
-                        "beat_break": True,
-                    },
-                ],
-                "visual_templates": [
-                    {
-                        "grammar": "porcelain_living_brain" if i in (3, 5) else "porcelain_fullbleed_world",
-                        "brain_mode": "sagittal_coronal_cutaway" if i in (3, 5) else None,
-                        "camera": "gentle_push_in",
-                        "conditioning_track": "track_a" if i == 2 else "track_b",
-                        "anchor_id": "ref_lf_reenact_1" if i == 2 else ("ref_lf_brain_1" if i in (3, 5) else "ref_lf_env_1"),
-                        "scene": "Bright neuroimaging sleep laboratory with porcelain sleeper in white mesh EEG cap",
-                    }
-                ],
-            }
-            for i in range(1, 8)
-        ],
-        "citation_cards": [
-            {"id": "cite_2", "authors": "Van Dongen et al.", "year": 2003, "journal": "Sleep", "doi": "10.1093/sleep/26.2.117", "finding": "6h sleep blindness"},
-            {"id": "cite_3", "authors": "Fultz et al.", "year": 2019, "journal": "Science", "doi": "10.1126/science.aax5440", "finding": "20s CSF waves"},
-            {"id": "cite_5", "authors": "Hauglund et al.", "year": 2025, "journal": "Cell", "doi": "10.1016/j.cell.2024.11.027", "finding": "Zolpidem pump block"},
-        ],
-        "reference_anchors": [
-            {
-                "id": "ref_lf_reenact_1",
-                "filename": "ref_lf_reenact_1.png",
-                "conditioning_track": "track_a",
-                "role": "environment_cast",
-                "prompt": "16:9 porcelain sleep lab",
-            },
-            {
-                "id": "ref_lf_brain_1",
-                "filename": "ref_lf_brain_1.png",
-                "conditioning_track": "track_b",
-                "role": "brain_master",
-                "prompt": "16:9 Contained Living 4-Color 3D Brain",
-            },
-        ],
-    }
-    initialize_longform_project("longform_88_rq", spec, projects_longform_dir=lf_root, dossiers_dir=d_root)
-    p_dir = lf_root / "longform_88_rq"
-    ref_dir = p_dir / "03_visuals" / "reference_images"
-    ref_dir.mkdir(parents=True, exist_ok=True)
-    cv2.imwrite(str(ref_dir / "ref_lf_reenact_1.png"), out_img)
-    cv2.imwrite(str(ref_dir / "ref_lf_brain_1.png"), out_img)
-    clone_hash = _dhash_64(cv2.cvtColor(out_img, cv2.COLOR_BGR2GRAY))
-
-    # Write source_edl.json with IDENTICAL dHash -> LFQ10 RQ2 MUST fail!
-    (p_dir / "03_visuals" / "source_edl.json").write_text(
-        json.dumps(
-            {
-                "slug": "lf_rq_topic",
-                "shot_count": 3,
-                "sanitization_verified": True,
-                "source_dhash_64_list": [clone_hash],
-                "source_5gram_sha256_list": [],
-                "shots": [{"shot_index": 1, "source_start_dhash_64": clone_hash}],
-            }
-        ),
-        encoding="utf-8",
-    )
-    (p_dir / "03_visuals" / "reference_image_qa_report.json").write_text(
-        json.dumps({"cv_pre_generation_ready": True, "images": []}),
-        encoding="utf-8",
-    )
-    qa_clone = run_longform_qa(p_dir, require_refs=True)
-    assert qa_clone["gates"]["LFQ10_reference_pack_16x9_qa"]["passed"] is False
-    assert any("RQ2" in x for x in qa_clone["gates"]["LFQ10_reference_pack_16x9_qa"]["issues"])
-
-    # Flip all 64 bits of source dHash -> distance == 64 -> LFQ10 RQ1-RQ5 passes!
-    inv_hash = f"{(int(clone_hash, 16) ^ ((1 << 64) - 1)):016x}"
-    (p_dir / "03_visuals" / "source_edl.json").write_text(
-        json.dumps(
-            {
-                "slug": "lf_rq_topic",
-                "shot_count": 3,
-                "sanitization_verified": True,
-                "source_dhash_64_list": [inv_hash],
-                "source_5gram_sha256_list": [],
-                "shots": [{"shot_index": 1, "source_start_dhash_64": inv_hash}],
-            }
-        ),
-        encoding="utf-8",
-    )
-    qa_distinct = run_longform_qa(p_dir, require_refs=True)
-    assert qa_distinct["gates"]["LFQ10_reference_pack_16x9_qa"]["passed"] is True, qa_distinct["gates"]["LFQ10_reference_pack_16x9_qa"]
 
 
-def test_community_schema_v2_override_and_longform_publish_metadata_order(tmp_path: Path):
-    d_root = tmp_path / "dossiers"
-    _populate_complete_schema_v2_dossier(d_root, "glymphatic_sleep_toxins", track="track_a", neuro_year=2019)
-
-    lf_root = tmp_path / "projects_longform"
-    custom_bet = "My bet: 5 real hours beat pills — sedatives mute the 20-second vessel pump that washes brain waste. Honest pick: 5 real hours or 8 sedated?"
-    spec = {
-        "dossier_slug": "glymphatic_sleep_toxins",
-        "title": "Why 8 Hours on Sleeping Pills Leaves Your Brain Unwashed",
-        "pillar": "brain_health",
-        "everyday_domain": "sleep",
-        "offcenter_creator_bet": custom_bet,
-        "primary_doi": "10.1126/science.aax5440",
-        "chapters": [
-            {
-                "chapter_number": i,
-                "title": f"Part {i}",
-                "sentences": [
-                    {"text": "Coupled slow waves pull clear cerebrospinal fluid into human ventricles.", "gear": "explain"},
-                    {"text": "Would you take five real hours or eight sedated ones?", "gear": "stamp", "beat_break": True},
-                ],
-                "visual_templates": [{"grammar": "porcelain_fullbleed_world", "camera": "gentle_push_in", "scene": "Minimalist sleep lab"}],
-            }
-            for i in range(1, 8)
-        ],
-    }
-    initialize_longform_project(
-        "longform_01_glymphatic_sleep_toxins",
-        spec,
-        projects_longform_dir=lf_root,
-        dossiers_dir=d_root,
-    )
-    p_dir = lf_root / "longform_01_glymphatic_sleep_toxins"
-
-    # 1. Verify Schema v2 dossier overrides legacy _DIORAMA_NATURAL_PACKAGES['glymphatic_sleep_toxins'] (which talked about 'mice' / Lulu Xie)
-    cm = CommunityManager(projects_dir=lf_root, dossiers_root=d_root)
-    syn = cm._synthesize_from_dossier(d_root / "glymphatic_sleep_toxins")
-    assert syn is not None
-    joined_p = " ".join(syn["paragraphs"])
-    assert "Van Dongen" in joined_p
-    assert "Fultz" in joined_p
-    assert "live mice" not in joined_p
-
-    # 2. Verify prepare_longform_publish_package writes metadata.json BEFORE staging prepared_comment.json
-    meta_out = prepare_longform_publish_package(p_dir)
-    assert meta_out["pinned_comment_valid"] is True
-    assert meta_out["pinned_comment_line1"].startswith("My bet: 5 real hours beat pills")
-    staged = json.loads((p_dir / "06_publish" / "prepared_comment.json").read_text(encoding="utf-8"))
-    line1 = staged["comment_text"].splitlines()[0].strip()
-    assert validate_debate_pinned_comment_line1(line1, full_comment=staged["comment_text"]) == []
-    assert "10.1126/science.aax5440" in staged["comment_text"]
 
 
 def test_batch_orchestrator_is_already_completed_rejects_legacy_profiles(tmp_path: Path):

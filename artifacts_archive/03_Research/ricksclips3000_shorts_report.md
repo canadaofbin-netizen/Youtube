@@ -37,7 +37,7 @@ flowchart LR
 ````carousel
 ![Era 2 구형 포맷(마인크래프트 네더 파쿠르 배경 위 해외 웹코믹 말풍선 순차 더빙)](./ricksclips_media/117_sword_era2_10M.jpg)
 <!-- slide -->
-![Era 3 현재 포맷 1위작(3,154만 뷰): 2D 스틱맨 + 3D 궁전·지진계 내부 단면도 시네마틱 결합](./ricksclips_media/012_jar_31M.jpg)
+![Era 3 현재 포맷 1위작(3,154만 뷰): 2D 스틱맨 + 3D 궁전·지진계 내부 단면도 시네마틱 결합](../01_YouTube_CEO/benchmark_media/012_jar_31M.jpg)
 ````
 
 ---
@@ -107,9 +107,9 @@ Era 3 25편은 동일 성우·동일 그림체로 진행된 자연 통제 실험
 ````carousel
 ![엔진 A 대표작(2,075만 뷰): 비웃는 보스(보라색 얼굴) → 동전/종이 틈새 비교 → 뱀처럼 휜 선로 열차 추락 칼컷](./ricksclips_media/001_railroad_21M.jpg)
 <!-- slide -->
-![엔진 B 대표작(1,656만 뷰): 2인칭 무보직 방 감금 → LABOR LAW 자물쇠·CAREER DEVELOPMENT ROOM 세계관 내 텍스트](./ricksclips_media/010_japan_17M.jpg)
+![엔진 B 대표작(1,656만 뷰): 2인칭 무보직 방 감금 → LABOR LAW 자물쇠·CAREER DEVELOPMENT ROOM 세계관 내 텍스트](../01_YouTube_CEO/benchmark_media/010_japan_17M.jpg)
 <!-- slide -->
-![최신작 Pink Prison Cell: P-618 페인트 배합식 다이어제틱 도면 + 15분 초과 폭주 클라이맥스 칼컷](./ricksclips_media/000_pinkcell_2M_1d.jpg)
+![최신작 Pink Prison Cell: P-618 페인트 배합식 다이어제틱 도면 + 15분 초과 폭주 클라이맥스 칼컷](../01_YouTube_CEO/benchmark_media/000_pinkcell_2M_1d.jpg)
 ````
 
 ---

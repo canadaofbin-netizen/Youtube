@@ -59,7 +59,7 @@ from pipeline.studio.short_linker import (
     is_valid_youtube_video_id,
     write_studio_publish_receipt,
 )
-from pipeline.studio.whale_session import (
+from pipeline.studio.browser_session import (
     DirectCDPClient,
     WhaleSessionController,
     cleanup_staged_bridge_files,
@@ -129,6 +129,7 @@ def verify_publish_ready_qa_bundle(
     require_prosody_qa: bool | None = None,
     require_ref_qa: bool | None = None,
     require_reenact_qa: bool | None = None,
+    require_r64_review: bool | None = None,
 ) -> dict[str, Any]:
     """
     Mandatory Post-Assembly QA & R64 Semantic Review Lock before YouTube Studio upload:
@@ -143,6 +144,8 @@ def verify_publish_ready_qa_bundle(
          - When `require_semantic_review=True`, `05_assembly/posthoc_semantic_review.json` passes `validate_posthoc_semantic_review(...)["valid"] == True`.
     """
     from pipeline.media_cache import fast_file_sha256
+    if require_r64_review is not None:
+        require_semantic_review = bool(require_r64_review)
 
     p_dir = Path(project_dir)
     project_id = p_dir.name
@@ -340,7 +343,7 @@ def verify_publish_ready_qa_bundle(
                     reenact_qa_ok = True
 
         if require_semantic_review:
-            from pipeline.posthoc_semantic_qa import validate_posthoc_semantic_review
+            from pipeline.posthoc_qa import validate_posthoc_semantic_review
 
             edl_doc = _read_json_dict(edl_path)
             expected_cuts = int(
@@ -904,7 +907,7 @@ class StudioUploader:
     async def _read_chip_bar_values(self, client: DirectCDPClient, container_selector: str) -> list[str]:
         if not hasattr(client, "send"):
             return []
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         res = await client.eval(
             rf"""(() => {{
@@ -931,7 +934,7 @@ class StudioUploader:
         """Deterministically clears all Polymer ytcp-chip items in `container_selector` and inserts `target_values`."""
         if not hasattr(client, "send"):
             return []
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         # 1. Click #clear-button ("Delete all") if present & visible
         await client.eval(
@@ -1055,7 +1058,7 @@ class StudioUploader:
         Uses `__isVisibleEl` (bounding-rect check) because `tp-yt-iron-dropdown` overlays are `position: fixed`
         (`offsetParent === null`), and always dismisses any residual open listbox before returning.
         """
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         labels = system_labels or [
             DEFAULT_EDUCATION_ACADEMIC_SYSTEM,
@@ -1132,7 +1135,7 @@ class StudioUploader:
         category_labels: list[str] | None = None,
     ) -> str:
         """Selects Category (`Education` / `교육`) on a YouTube Studio `ytcp-form-select` control and locks `Academic system = United States`."""
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         labels = category_labels or [DEFAULT_VIDEO_CATEGORY, DEFAULT_VIDEO_CATEGORY_KO]
         sel_parts = [s.strip() for s in select_selector.split(",") if s.strip()]
@@ -1210,7 +1213,7 @@ class StudioUploader:
            - Category = Education (교육)
         Strictly verifies live DOM state without masking empty/mismatched values.
         """
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         now_iso = datetime.now(timezone.utc).isoformat()
         if dry_run:
@@ -1679,7 +1682,7 @@ class StudioUploader:
         from pipeline.config import WORKSPACE_ROOT
         from pipeline.cdp_tab_lease import leased_cdp_tab
         from pipeline.publish import validate_episode_tags_hygiene
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         playlists_url = f"https://studio.youtube.com/channel/{CHANNEL_ID}/content/playlists"
         now_iso = datetime.now(timezone.utc).isoformat()
@@ -1829,7 +1832,6 @@ class StudioUploader:
                 await self._prepare_leased_tab_for_close(client)
 
         receipt_targets = [
-            Path(WORKSPACE_ROOT) / "reports" / "studio_playlist_purge_receipt.json",
             Path(WORKSPACE_ROOT) / "BCI_Shorts_Channel" / "reports" / "studio_playlist_purge_receipt.json",
         ]
         if receipt_path is not None and Path(receipt_path) not in receipt_targets:
@@ -1903,7 +1905,7 @@ class StudioUploader:
         from pipeline.cdp_tab_lease import leased_cdp_tab
         from pipeline.publish import validate_episode_tags_hygiene
         from pipeline.studio.short_linker import ShortLinkGraph
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         if protected_video_ids is None:
             graph = ShortLinkGraph(projects_dir=PROJECTS_DIR)
@@ -2082,8 +2084,13 @@ class StudioUploader:
         ws_root = Path(workspace_root) if workspace_root is not None else WORKSPACE_ROOT
         projects_root = (ws_root / "BCI_Shorts_Channel" / "projects") if workspace_root is not None else PROJECTS_DIR
         art_dir = ws_root / "artifacts_archive" / "01_YouTube_CEO" / "channel_art_and_cast"
+        brand_dir = ws_root / "BCI_Shorts_Channel" / "brand_assets" / "v2_ep31_rebrand"
         avatar_drafts = sorted(str(p.relative_to(ws_root)) for p in art_dir.glob("avatar_*.jpg")) if art_dir.exists() else []
+        if not avatar_drafts and brand_dir.exists():
+            avatar_drafts = sorted(str(p.relative_to(ws_root)) for p in brand_dir.glob("logo_*.png"))
         banner_drafts = sorted(str(p.relative_to(ws_root)) for p in art_dir.glob("banner_*.jpg")) if art_dir.exists() else []
+        if not banner_drafts and brand_dir.exists():
+            banner_drafts = sorted(str(p.relative_to(ws_root)) for p in brand_dir.glob("banner_youtube_2560x1440*.*"))
         cast_sheets = sorted(str(p.relative_to(ws_root)) for p in art_dir.glob("cast_*.jpg")) if art_dir.exists() else []
         proof_path = art_dir / "youtube_live_published_proof.jpg"
         live_art_replaced = False
@@ -2206,7 +2213,7 @@ class StudioUploader:
             get_tab_lease,
             leased_cdp_tab,
         )
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         leased_tid = ""
         focus_emulated = False
@@ -2650,7 +2657,7 @@ class StudioUploader:
 
         # An Automatic Dubbing checkbox is present AND checked -> uncheck and click Save
         from pipeline.cdp_tab_lease import enable_background_focus_emulation, leased_cdp_tab
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         uncheck_js = rf"""(() => {{
             {_DEEP_QUERY_HELPER_JS}
@@ -2750,7 +2757,7 @@ class StudioUploader:
 
         from pipeline.cdp_tab_lease import enable_background_focus_emulation, leased_cdp_tab
         from pipeline.studio.community import PRE_DOCUMENT_AUTOPLAY_KILL_JS
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         async with leased_cdp_tab(
             "about:blank",
@@ -2983,7 +2990,7 @@ class StudioUploader:
             cover_frame_sec = payload.get("cover_frame_sec")
             if thumb_path and Path(thumb_path).exists():
                 try:
-                    from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS as _DQ_THUMB
+                    from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS as _DQ_THUMB
                     has_visible_wiz_thumb = bool(await client.eval(f"""(() => {{
                         {_DQ_THUMB}
                         const el = __queryAllDeep('ytcp-thumbnails-compact-editor-uploader')[0];
@@ -3139,7 +3146,7 @@ class StudioUploader:
                 storage._write_manifest(manifest)
                 return receipt
 
-            from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+            from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
             video_link_js = f"""
             (() => {{
@@ -3509,7 +3516,7 @@ class StudioUploader:
         video_id: str,
     ) -> dict[str, Any]:
         """Reads `.tablecell-visibility` and `.tablecell-date` for `video_id` on `/videos/short` (or `/videos/upload`)."""
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         urls = [
             f"{STUDIO_BASE_URL}/videos/short",
@@ -3559,7 +3566,7 @@ class StudioUploader:
     ) -> bool:
         """Opens `/video/<video_id>/edit`, sets Schedule date/time via Edit-Draft wizard or visibility modal, and commits."""
         from pipeline.cdp_tab_lease import enable_background_focus_emulation
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         edit_url = f"https://studio.youtube.com/video/{video_id}/edit"
         await client.send("Page.navigate", {"url": edit_url})
@@ -3734,7 +3741,7 @@ class StudioUploader:
         """
         from pipeline.cdp_tab_lease import leased_cdp_tab
         from pipeline.publish import validate_episode_tags_hygiene
-        from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+        from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
         async def _scan() -> dict[str, Any]:
             drafts: list[dict[str, str]] = []

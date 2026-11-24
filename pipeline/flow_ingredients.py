@@ -1476,7 +1476,7 @@ async def generate_flow_image_batch(
     out_p = Path(out_path)
     out_p.parent.mkdir(parents=True, exist_ok=True)
 
-    from pipeline.reference_image_qa import inspect_single_reference_image, register_reference_image
+    from pipeline.ref_qa import inspect_single_reference_image, register_reference_image
 
     def _dhash_64(bgr_arr: np.ndarray) -> int:
         gray = cv2.cvtColor(bgr_arr, cv2.COLOR_BGR2GRAY)
@@ -1704,68 +1704,6 @@ async def generate_flow_image_batch(
     }
 
 
-async def upload_multi_ingredients_v83(
-    client: Any,
-    reference_paths: list[Path | str],
-    *,
-    motion_guide_mp4: Path | str | None = None,
-    max_ingredients: int | None = None,
-) -> dict[str, Any]:
-    """
-    Schema v8.3 Multi-Ingredient & Previs Motion Guide uploader (`Omni 1.2 Flash` Ingredients mode).
-    Attaches up to `FLOW_OMNI_MAX_INGREDIENTS_V83` (`8` when `FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83` is True,
-    or `2` when flag is False) reference PNGs plus an optional `3.0s` Blender Previs motion guide MP4.
-    """
-    cap = (
-        int(max_ingredients)
-        if max_ingredients is not None
-        else (int(FLOW_OMNI_MAX_INGREDIENTS_V83) if FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83 else 2)
-    )
-    cap = max(1, min(int(FLOW_OMNI_MAX_INGREDIENTS_V83), cap))
-
-    await clear_prompt_ingredients(client)
-    await set_flow_video_input_mode(client, use_frames=False)
-
-    ordered_files: list[Path] = []
-    seen_names: set[str] = set()
-    for raw_p in reference_paths or []:
-        p = Path(raw_p)
-        if p.exists() and p.is_file() and p.name not in seen_names:
-            seen_names.add(p.name)
-            ordered_files.append(p)
-        if len(ordered_files) >= cap:
-            break
-
-    if motion_guide_mp4 is not None and FLOW_OMNI_ENABLE_MULTI_INGREDIENTS_V83 and len(ordered_files) < cap:
-        mp4_p = Path(motion_guide_mp4)
-        if mp4_p.exists() and mp4_p.is_file() and mp4_p.name not in seen_names:
-            seen_names.add(mp4_p.name)
-            ordered_files.append(mp4_p)
-
-    uploaded: list[str] = []
-    attached: list[str] = []
-    for f_path in ordered_files:
-        ok_up = await upload_file_to_flow(client, f_path)
-        if ok_up:
-            uploaded.append(f_path.name)
-        ok_att = await attach_uploaded_by_name(client, f_path.name)
-        if ok_att:
-            attached.append(f_path.name)
-
-    chip_cnt = await count_chips(client)
-    return {
-        "ready": len(attached) > 0 and chip_cnt >= len(attached),
-        "input_mode": "VIDEO_REFERENCES",
-        "max_ingredients_cap": cap,
-        "uploaded": uploaded,
-        "attached": attached,
-        "chip_count": chip_cnt,
-        "motion_guide_attached": bool(
-            motion_guide_mp4 and Path(motion_guide_mp4).name in attached
-        ),
-    }
-
-
 __all__ = [
     "assert_model_settings",
     "attach_frame_slot_by_name",
@@ -1781,7 +1719,6 @@ __all__ = [
     "clear_prompt_ingredients",
     "prepare_reference_frames",
     "upload_file_to_flow",
-    "upload_multi_ingredients_v83",
     "upload_start_end_frames_to_flow",
 ]
 

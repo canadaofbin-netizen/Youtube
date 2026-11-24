@@ -57,11 +57,11 @@ def test_agents_md_budget_and_bidirectional_rules_mapping() -> None:
     assert len(lines) <= 60, f"AGENTS.md line budget exceeded: {len(lines)}"
 
     active_listed, archive_rels = _parse_agents_section2_rule_paths(txt)
-    assert len(active_listed) == 26, f"Expected 26 active rules in AGENTS.md Section 2, got {len(active_listed)}"
-    assert len(set(active_listed)) == 26, "Duplicate active rule entries in AGENTS.md Section 2"
+    assert len(active_listed) == 25, f"Expected 25 active rules in AGENTS.md Section 2, got {len(active_listed)}"
+    assert len(set(active_listed)) == 25, "Duplicate active rule entries in AGENTS.md Section 2"
 
     disk_active = sorted(p.name for p in RULES_DIR.glob("*.md"))
-    assert len(disk_active) == 26, f"Expected 26 active files in .agents/rules/, found {len(disk_active)}: {disk_active}"
+    assert len(disk_active) == 25, f"Expected 25 active files in .agents/rules/, found {len(disk_active)}: {disk_active}"
     assert set(active_listed) == set(disk_active), (
         f"AGENTS.md <-> .agents/rules mismatch! "
         f"missing_from_disk={set(active_listed) - set(disk_active)}, "
@@ -71,7 +71,7 @@ def test_agents_md_budget_and_bidirectional_rules_mapping() -> None:
     for rel in active_listed + archive_rels:
         assert (RULES_DIR / rel).is_file(), f"Broken AGENTS.md rule path: {rel}"
 
-    for arch_name in ("retired_rules_2026-11-18.md", "retired_constants_v4_v7_2026-11-18.md"):
+    for arch_name in ("retired_rules_2026-11-18.md", "retired_constants_v4_v7_2026-11-18.md", "archival_reenactment_rules.md"):
         arch_path = ARCHIVE_DIR / arch_name
         assert arch_path.is_file(), f"Missing archive file: {arch_path}"
         assert not arch_path.read_text(encoding="utf-8").startswith("---\n"), f"{arch_name} must not have YAML frontmatter"
@@ -104,7 +104,7 @@ def test_rules_frontmatter_tier_and_token_budget() -> None:
             model_decision_files.append(p.name)
 
     assert always_on_files == ["governance_roles.md"]
-    assert len(model_decision_files) == 24
+    assert len(model_decision_files) == 23
 
 
 def test_zero_stale_contradictions_and_upgrades_present() -> None:
@@ -119,10 +119,10 @@ def test_zero_stale_contradictions_and_upgrades_present() -> None:
                 hits.append(f"{path.relative_to(ROOT)} matched {label}")
     assert hits == [], f"Stale contradictions found: {hits}"
 
-    # Legacy v7 notes offloaded to references/legacy_v7.md & youtube-script/SKILL.md <= 6,500 B
+    # youtube-script/SKILL.md stays compact (<= 6,500 B) with retired v7 notes removed
     script_skill = SKILLS_DIR / "youtube-script" / "SKILL.md"
     legacy_v7 = SKILLS_DIR / "youtube-script" / "references" / "legacy_v7.md"
-    assert legacy_v7.is_file()
+    assert not legacy_v7.exists()
     assert len(script_skill.read_bytes()) <= 6_500, f"youtube-script/SKILL.md exceeds 6,500 B: {len(script_skill.read_bytes())}"
 
     script_txt = script_skill.read_text(encoding="utf-8")

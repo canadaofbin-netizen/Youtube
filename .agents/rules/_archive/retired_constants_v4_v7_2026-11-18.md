@@ -291,7 +291,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `EXPRESSIVE_V8_VIDEO_FPS` / `EXPRESSIVE_V8_DISSOLVE_FRAMES` / `EXPRESSIVE_V8_DISSOLVE_8_FRAMES` / `EXPRESSIVE_V8_PORTAL_ZOOM_FRAMES` / `EXPRESSIVE_V8_WHIP_PAN_FRAMES` / `EXPRESSIVE_V8_MAX_STYLED_TRANSITIONS` / `EXPRESSIVE_V8_MAX_OVERLAP_FRAMES` / `EXPRESSIVE_V8_MAX_ALPHA_DISSOLVE_FRAMES` / `EXPRESSIVE_V8_MAX_HARD_JUMP_CUTS` / `EXPRESSIVE_V8_DISSOLVE_SEC` / `EXPRESSIVE_V8_OUTRO_TAIL_SEC` / `EXPRESSIVE_V8_OUTRO_TAIL_RANGE_SEC` | `30` / `6` / `8` / `10` / `8` / `4` / `10` / `6` / `1` / `0.25` / `0.20` / `(0.16, 0.25)` | Native `30fps` Track-V1 spatial camera transitions (`<= 4` styled transitions, `DQ13`) & `0.20s` climax cut |
 | `EXPRESSIVE_V8_SUBTITLE_FONT_SIZE` / `EXPRESSIVE_V8_SUBTITLE_OUTLINE_WIDTH` / `EXPRESSIVE_V8_SUBTITLE_SHADOW_DEPTH` / `EXPRESSIVE_V8_SUBTITLE_MARGIN_V` / `EXPRESSIVE_V8_SUBTITLE_MAX_WORDS` / `EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_HEX` (`EXPRESSIVE_V8_SUBTITLE_HIGHLIGHT_ASS_BGR`) / `EXPRESSIVE_V8_MIN_LUMA` / `EXPRESSIVE_V8_MIN_SATURATION` | `64` / `3.5` / `0.0` / `521` / `2` / `"#FFFFFF"` (`"&H00FFFFFF&"`) / `28.0` / `26.0` | Clean pure-white `1-2w` `AAB Condensed Black` subtitle (`MarginV=521`, `0` top banners) & story-matched atmospheric luma floor (`28.0`) |
 | `EXPRESSIVE_V8_WPM_TARGET_RANGE` / `EXPRESSIVE_V8_WPM_ALLOWED_RANGE` / `EXPRESSIVE_V8_PROSODY_MODE` / `EXPRESSIVE_V8_PROSODY_BASE_RATE` / `EXPRESSIVE_V8_PROSODY_GEAR_RATES` / `EXPRESSIVE_V8_PROSODY_GEARS` / `EXPRESSIVE_V8_VOICE_PRESET` / `EXPRESSIVE_V8_FOIL_VOICE_PRESET` / `EXPRESSIVE_V8_ALLOWED_SPEAKER_ROLES` / `EXPRESSIVE_V8_MAX_VOICES_PER_EPISODE` / `EXPRESSIVE_V8_MIN_NARRATOR_SHARE` / `EXPRESSIVE_V8_FOIL_SENTENCE_RANGE` / `EXPRESSIVE_V8_REQUIRE_FOIL` / `EXPRESSIVE_V8_CLAUSE_CROSSFADE_SEC` / `EXPRESSIVE_V8_FIRST_ONSET_TARGET_SEC` / `STORYTELLER_VOCAL_FILTER_EXPRESSIVE_V8` | `(165.0, 205.0)` / `(135.0, 225.0)` / `"expressive_us_v8"` / `"+10%"` / `{rush:"+14%", brisk:"+10%", stamp:"+4%"}` / `1.14/1.10/1.04` / `"elevenlabs_v4"` / `"elevenlabs_v4_male"` / `("narrator", "researcher", "mini_cortex", "foil")` / `3` / `0.75` / `(0, 0)` / `False` / `0.020` / `0.0` / `145Hz +3.2dB warmth` | Sole fail-fast ElevenLabs `v4` 3-Voice Repertory Cast (`narrator`=`Roger` `>=75%`, `researcher`=`Hope`, `mini_cortex`=`Laura`, `<=3` voices) |
-| `DATA_STAMP_MIN_PER_EPISODE` / `DATA_STAMP_MAX_PER_EPISODE` / `DATA_STAMP_Y_FRAC_RANGE` / `UNIVERSAL_SAFE_X_RIGHT_PX` / `DATA_STAMP_ILLUSTRATION_TAG` / `DATA_STAMP_MODES` / `DATA_STAMP_LAYER_TYPES` / `DATA_STAMP_PRESETS` / `DATA_STAMP_MAX_PANELS` / `DATA_STAMP_MAX_LAYERS_PER_PANEL` / `DATA_STAMP_MAX_GROUPS` / `DATA_STAMP_MAX_SCATTER_POINTS` | `2` / `2` / `(0.12, 0.62)` / `910` / `"Concept"` / `("study", "illustrative")` / `8` layers / `6` presets / `1` / `2` / `3` / `80` | `R70` / `R70-M` 3-platform safe-zone (`Y >= 12%`, `X <= 910px`) programmatic hand-drawn chart engine (`pipeline/data_stamp_overlay.py`, `pipeline/charts/`) |
+| `DATA_STAMP_MIN_PER_EPISODE` / `DATA_STAMP_MAX_PER_EPISODE` / `DATA_STAMP_Y_FRAC_RANGE` / `UNIVERSAL_SAFE_X_RIGHT_PX` / `DATA_STAMP_ILLUSTRATION_TAG` / `DATA_STAMP_MODES` / `DATA_STAMP_LAYER_TYPES` / `DATA_STAMP_PRESETS` / `DATA_STAMP_MAX_PANELS` / `DATA_STAMP_MAX_LAYERS_PER_PANEL` / `DATA_STAMP_MAX_GROUPS` / `DATA_STAMP_MAX_SCATTER_POINTS` | `2` / `2` / `(0.12, 0.62)` / `910` / `"Concept"` / `("study", "illustrative")` / `8` layers / `6` presets / `1` / `2` / `3` / `80` | `R70` / `R70-M` 3-platform safe-zone (`Y >= 12%`, `X <= 910px`) programmatic hand-drawn chart engine (`pipeline/stamp_overlay.py`, `pipeline/charts/`) |
 | `EXPRESSIVE_V8_BGM_START_DBFS` / `EXPRESSIVE_V8_BGM_PEAK_DBFS` / `EXPRESSIVE_V8_BGM_TAIL_DBFS` / `EXPRESSIVE_V8_AMBIENCE_DBFS` (`EXPRESSIVE_V8_ROOM_AMBIENCE_DBFS`) / `EXPRESSIVE_V8_FOLEY_PEAK_DBFS` / `EXPRESSIVE_V8_GAP_WINDOW_RANGE_SEC` / `EXPRESSIVE_V8_TARGET_LUFS` / `EXPRESSIVE_V8_TRUE_PEAK_MAX_DBTP` / `EXPRESSIVE_V8_VOICED_RATIO_MIN` / `EXPRESSIVE_V8_FOLEY_TYPES` | `-25.0` / `-18.0` / `-18.0` / `-30.0` / `-14.5` / `(0.18, 0.55)` / `-14.0` / `-1.5` / `0.72` / `("thud", "whoosh", "click", "pop", "crystal_shimmer", "heartbeat_thump")` | Rising dark-suspense tonal underscore BGM (`-25 -> -18 dBFS`) + stereo room air + camera-transition/gap Foley |
 | `R68_TITLE_WORD_RANGE` / `R68_TITLE_MAX_CHARS` / `R68_DESCRIPTION_HASHTAG_COUNT` / `R68_DESCRIPTION_HASHTAG_MAX` | `(4, 8)` / `55` / `1` / `1` | R68 paradox/common-noun title (`4-8` words, `<= 55` chars) & single clean `#shorts` routing tag in description (`0` hashtags in title) [R68,R75] |
 | `R68D_DESCRIPTION_WORD_RANGE` / `R68D_BANNED_AI_CLICHES` | `(55, 135)` / `25` tokens (`"—"`, `" -- "`, `"documentary case briefing on"`, `"turns out,"`, `"what's wild is"`, `"here's the catch"`, `"visuals and voice"`, `"delve"`, ...) | `R68-D` Zero-AI-Smell plain 2-paragraph YouTube description + `Research:` citation line & DOI/em-dash/cliché hard gate [R68-D] |
@@ -380,7 +380,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `ALLOW_EXTERNAL_PAID_APIS` | `False` | Zero external paid API policy lock [R5] |
 | `ALLOW_STATIC_IMAGE_VIDEO_FALLBACK` | `False` | Anti-placeholder policy lock |
 
-## 7. R65 v4 In-Skull 3D Cutaway Split & v2 Thumbnail Studio (`pipeline/thumbnail_studio.py`)
+## 7. R65 v4 In-Skull 3D Cutaway Split & v2 Thumbnail Studio (`pipeline/thumbnail.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `R65_V4_THUMBNAIL_PROFILE` / `DEFAULT_SHORTS_THUMBNAIL_PROFILE` | `"in_skull_cutaway_split_v4"` | Default `9:16` Shorts 0.3s meaning-clear `50/50` in-skull cutaway split cover (`conditioning_paths=None`, zero mannequins; optional `R65_V4_DARK_PARADOX_PROFILE = "dark_void_paradox_v4"`) [R65] |
@@ -414,7 +414,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `THUMB_MIN_FILE_BYTES` / `SHORTS_THUMB_MAX_BYTES` | `80_000` / `1_950_000` | Minimum & maximum PNG file size `R31` `TQ6` [R31,TQ6] |
 | `DIORAMA_V7_REQUIRE_THUMBNAIL_BLOCK` | `True` | Requires + stamp headline `R65` [R65] |
 
-## 8. R70 v2 / R70-M v3.1 Intuitive Hand-Drawn HERO Data Stamp, R71 Anatomy Leader-Line & ElevenLabs Music v2.5 (`pipeline/data_stamp_overlay.py`, `pipeline/charts/`, `pipeline/anatomy_label_overlay.py`, `pipeline/elevenlabs_music.py`)
+## 8. R70 v2 / R70-M v3.1 Intuitive Hand-Drawn HERO Data Stamp, R71 Anatomy Leader-Line & ElevenLabs Music v2.5 (`pipeline/stamp_overlay.py`, `pipeline/charts/`, `pipeline/anatomy_overlay.py`, `pipeline/bgm.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `DATA_STAMP_Y_FRAC_RANGE` / `UNIVERSAL_SAFE_X_RIGHT_PX` / `DATA_STAMP_HERO_MODE` | `(0.12, 0.62)` / `910` / `True` | 3-platform HERO safe-zone graph viewport (`Y >= 12%`, `X <= 910px`) [R70] |
@@ -437,7 +437,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `EXPRESSIVE_V8_KEYWORD_BEAT_TARGET_SEC` / `EXPRESSIVE_V8_DUAL_HARVEST_WINDOWS_SEC` / `EXPRESSIVE_V8_STATE_SWAP_MIN_HIST_CORR` / `EXPRESSIVE_V8_MIN_P15_CENTER_SHARPNESS` | `2.0` / `((0.25, 2.15), (5.20, 7.40))` / `0.90` / `1.65` | `2.0s` keyword impact cutter (`R58-K`), dual-harvest NLE windows (`A₁ -> B -> A₂`), `T2` state-swap histogram correlation, & `C1` mid-clip motion-blur spike gate [R58-K,R64] |
 | `EXPRESSIVE_V8_CAMERA_Z_FORWARD_TARGET_RATIO` / `EXPRESSIVE_V8_CAMERA_FAST_FPV_MAX_RATIO` / `EXPRESSIVE_V8_CAMERA_ORBIT_MAX_RATIO` / `EXPRESSIVE_V8_CAMERA_LOCKED_MIN_RATIO` | `0.55` / `0.25` / `0.30` / `0.15` | `R55-B` Z-axis forward family (`gentle_push_in` + `fpv_dive_glide`), fast FPV `<= 25%`, single-scale Orbit `<= 30%`, locked/reaction `>= 15%` [R55-B] |
 
-## 10. Rule R72 + R72-R Open-World Drone, Landmark Refs & Rule R73 US Native Spoken Narration (`pipeline/real_world_reference_builder.py`, `pipeline/prompt_quality_v5.py`, `pipeline/prosody.py`)
+## 10. Rule R72 + R72-R Open-World Drone, Landmark Refs & Rule R73 US Native Spoken Narration (`pipeline/real_world_refs.py`, `pipeline/prompt_gate.py`, `pipeline/prosody_qa.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `EXPRESSIVE_V8_DRONE_CAMERA_MOVES` / `EXPRESSIVE_V8_MIN_OUTDOOR_OR_ARCH_RATIO` / `EXPRESSIVE_V8_MIN_DRONE_FLIGHT_RATIO` / `EXPRESSIVE_V8_MAX_CONSECUTIVE_SAME_INDOOR_LOC` | `("drone_aerial_approach", "fpv_window_portal_breach", "drone_high_orbit_drop", "vertical_90_topdown_dive", "drone_skyline_pullback")` / `0.35` / `0.35` / `2` | `R72` open-world architectural scale (`>= 35%` outdoor/arch, `>= 35%` drone/FPV flight, `<= 2` consecutive indoor room) [R72] |
@@ -449,7 +449,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `EXPRESSIVE_V8_MAX_HARD_JARGON_TERMS` / `EXPRESSIVE_V8_IMMEDIATE_GLOSS_WINDOW_WORDS` | `2` / `8` | `R73` `Plain-First` jargon gate (`<= 2` hard neuro terms, immediate plain-English gloss within `+-8` words) [R73] |
 | `SHORTS_EXPRESSIVE_V8_R73_SENTENCE_WORDS_MAX` / `EXPRESSIVE_V8_MAX_FK_GRADE` / `EXPRESSIVE_V8_ENDING_MODES` / `EXPRESSIVE_V8_DEFAULT_ENDING_MODE` | `22` / `6.2` / `("mic_drop", "seamless_loop")` / `"mic_drop"` | `R73` spoken brevity (`<= 22w`/sentence, `FK <= 6.2`), `EXPRESSIVE_V8_BANNED_AI_CLICHES`, `EXPRESSIVE_V8_US_NATIVE_PIVOT_BRIDGES`, & ending modes [R73] |
 
-## 11. Rule R76 & R76-P — Solo `Siren` Voice × Deterministic `Blender 4.2` MNI152 3D Brain Simulator × Anti-Noise Pacing (`pipeline/brain_simulator_blender.py`, `pipeline/anatomy_label_overlay.py`)
+## 11. Rule R76 & R76-P — Solo `Siren` Voice × Deterministic `Blender 4.2` MNI152 3D Brain Simulator × Anti-Noise Pacing (`pipeline/brain_simulator_blender.py`, `pipeline/anatomy_overlay.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `ELEVENLABS_VOICE_SIREN_ID` / `EXPRESSIVE_V8_R76_VOICE_PRESET` | `"eXpIbVcVbLo8ZJQDlDnl"` / `"el_siren_v4"` | Solo `100%` narrator lock (`Siren`), `0` foil voices (`EXPRESSIVE_V8_FOIL_SENTENCE_RANGE = (0, 0)`) [R76] |
@@ -460,7 +460,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `EXPRESSIVE_V8_R76_HUMAN_MIN_CUT_SEC` / `EXPRESSIVE_V8_R76_BRAIN_SIM_MIN_CUT_SEC` / `EXPRESSIVE_V8_R76_MAX_CUT_SEC` / `EXPRESSIVE_V8_R76_AVG_CUT_TARGET_RANGE` | `2.80` / `3.80` / `6.50` / `(3.40, 5.20)` | Anti-noise cut duration floors, ceiling & target mean cut rhythm [R76-P] |
 | `EXPRESSIVE_V8_R76_MIN_HUMAN_OUTDOOR_RATIO` | `0.25` | Minimum outdoor/architectural share computed across human diorama clips (`<= 2` consecutive same indoor loc) [R76] |
 
-## 12. Rule R78-M / R78-H / R78-V Constants (`pipeline/config.py`, `pipeline/elevenlabs_tts.py`, `pipeline/prosody.py`)
+## 12. Rule R78-M / R78-H / R78-V Constants (`pipeline/config.py`, `pipeline/tts.py`, `pipeline/prosody_qa.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `R78M_BRAIN_MATERIAL_MODES` | `("xray_glass", "cool_matte_silver_31")` | Dual hero brain materials: Mode 1 X-Ray Glass & Mode 2 Cool Matte Silver (`#9CA5AC~#C7CCD2`, `B > R`, zero `#DFDDD7` warm ivory) [R78-M] |
@@ -468,14 +468,14 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `EXPRESSIVE_V8_PROSODY_GEARS` / `EXPRESSIVE_V8_PROSODY_GEAR_RATES` | `+ ("surprised_lift", "insider_reveal", "hushed_suspense", "deadpan_drop")` (`1.06`, `1.04`, `1.02`, `0.98`) | 5-tone expressive `Solo Siren` micro-rates + `R78V_GEAR_VOICE_SETTINGS` `(tag, stability, style)` [R78-V] |
 | `PROSODY_P11_F0_SPAN_MIN_ST` / `PROSODY_P11_LIFT_VS_DROP_MIN_ST` | `6.5` / `1.2` | Acoustic pitch-variance gate `P11_siren_5tone_f0_range` (`p90-p10 F0 >= 6.5 st`, lift vs drop `>= 1.2 st`) [R78-V] |
 
-## 13. Rule R80 — `신비한 건축사전` 3D Volumetric Arrow Diorama × `@RicksClips3000` Spatial Micro-Relay (`pipeline/spatial_arrow_guide.py`, `pipeline/diorama_assembler.py`)
+## 13. Rule R80 — `신비한 건축사전` 3D Volumetric Arrow Diorama × `@RicksClips3000` Spatial Micro-Relay (`pipeline/arrow_guide.py`, `pipeline/assembler.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `EXPRESSIVE_V8_VISUAL_GRAMMARS` / `EXPRESSIVE_V8_DRONE_CAMERA_MOVES` | `+ ("spatial_3d_arrow_diorama",)` / `+ ("drone_landmark_ascend", "topdown_3d_route_glide")` | Native 3D volumetric `#FF2525` spatial arrow diorama grammar + 2-cut landmark-ascend -> 90° top-down route relay [R80] |
 | `EXPRESSIVE_V8_SPATIAL_RELAY_MIN_CUT_SEC` / `R80_SPATIAL_FLIGHT_SPEED_RAMP_RANGE` | `2.20` / `(1.24, 1.42)` | `@RicksClips3000` `2.4s–3.2s` 2-cut spatial micro-relay floor inside `R76-P` + ballistic impulse speed-ramp window [R80] |
 | `R80_3D_ARROW_ACCENT_HEX` / `R80_SPATIAL_ARROW_MODES` | `"#FF2525"` / `("adaptive_landmark_zigzag", "fixed_linear_corridor", "doorway_boundary_sever", "dual_speed_race_lanes", "split_hemisphere_watch")` | `RQ-Arrow` CV tortuosity (`>= 1.35` zigzag vs `<= 1.08` straight) & physical ground-shadow verification [R80] |
 
-## 14. Rule R81 & R82 — XL Hand-Ink Callout Tracking & Dual-Speed Cognitive Pacing (`pipeline/anatomy_label_overlay.py`, `pipeline/config.py`, `pipeline/diorama_assembler.py`)
+## 14. Rule R81 & R82 — XL Hand-Ink Callout Tracking & Dual-Speed Cognitive Pacing (`pipeline/anatomy_overlay.py`, `pipeline/config.py`, `pipeline/assembler.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `R81_CALLOUT_XL_SINGLE_LINE_MIN_PX..MAX_PX` / `R81_CALLOUT_XL_STACK_MIN_PX..MAX_PX` / `R81_CALLOUT_UNDERLINE_GAP_PX` | `72..84` / `64..82` / `10` | XL mobile `PatrickHand` sizing, auto 2-line hub stack & `0px` strikethrough gap [R81] |
@@ -490,7 +490,7 @@ Master Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/0
 | `R84_MATTE_ROUGHNESS_RANGE` / `R84_DEEP_CUTAWAY_REGIONS` | `(0.58, 0.65)` / `14` deep parcels | View-aligned `EXACT` Boolean surgical cutaway & dorsal `Corpus Callosum` landmark contrast [R84] |
 | `R84_STACKED_CUTAWAY_ZOOM` / `R84_DASHED_BASELINE_WIDTH_PX` / `R84_DASHED_BASELINE_DASH_GAP_PX` | `2.5` / `3` / `(22, 9)` | `9:16` Top/Bottom `2.5x` `split_vstack` cohort compare + `#EDF2F7` `1.0x` dashed baseline contour [R84] |
 
-## 16. Rule R85 & R86 — `100%` Google Flow Ep #31 Brain, QA Honesty & Semantic Beat Contract (`pipeline/config.py`, `pipeline/porcelain_anchor_pack.py`, `pipeline/flow_prompt_builder.py`)
+## 16. Rule R85 & R86 — `100%` Google Flow Ep #31 Brain, QA Honesty & Semantic Beat Contract (`pipeline/config.py`, `pipeline/reference_pack.py`, `pipeline/prompt_builder.py`)
 | Constant | Value | Rule / Note |
 |---|---|---|
 | `UNMANNED_QA_SIGNOFF_DEFAULT` / `R85_BRAIN_RENDER_ENGINE` | `False` / `"google_flow"` | Prohibits unmanned semantic sign-off (`REVIEW_PENDING`) & locks `100%` Google Flow Ep #31 brain rendering [R85] |

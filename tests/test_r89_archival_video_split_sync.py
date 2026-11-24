@@ -18,11 +18,11 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from pipeline.archival_insert_builder import (  # noqa: E402
+from pipeline.archival_insert import (  # noqa: E402
     ARCHIVAL_MANIFEST_REL,
     render_archival_insert_clips,
 )
-from pipeline.archival_video_builder import (  # noqa: E402
+from pipeline.archival_video import (  # noqa: E402
     ARCHIVAL_VIDEOS_MANIFEST_REL,
     ARCHIVAL_VIDEO_CLIPS_DIRNAME,
     audit_archival_video_eligibility,
@@ -40,11 +40,11 @@ from pipeline.config import (  # noqa: E402
     R89_MODE2_LOCATOR_BADGE_BOX,
     R89_MODE2_VIEWFINDER_BOX,
 )
-from pipeline.diorama_assembler import (  # noqa: E402
+from pipeline.assembler import (  # noqa: E402
     _resolve_diorama_clip_files,
     enforce_combined_r88a_r89_edl_contract,
 )
-from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract  # noqa: E402
+from pipeline.episode_qa import verify_final_mp4_against_contract  # noqa: E402
 from pipeline.publish import (  # noqa: E402
     extract_cc_by_archival_video_credits,
     format_v8_viewer_story_description,
@@ -332,7 +332,7 @@ def test_r89_crop_face_privacy_motion_cut_and_budget_gates(
             return [[20.0, 20.0, 60.0, 60.0, max(score_threshold + 0.35, 0.85)]]
         return []
 
-    monkeypatch.setattr("pipeline.archival_video_builder.detect_human_faces_yunet", _marker_face_detector)
+    monkeypatch.setattr("pipeline.archival_video.detect_human_faces_yunet", _marker_face_detector)
 
     face_left_src = tmp_path / "face_left_monitor_right.mp4"
     _write_motion_mp4(face_left_src, paint_face_marker_left=True)
@@ -895,7 +895,7 @@ def test_r89_dynamic_episode_qa_pass_and_failure_gates(
             return [[20.0, 20.0, 60.0, 60.0, max(score_threshold + 0.35, 0.88)]]
         return []
 
-    monkeypatch.setattr("pipeline.source_reenactment.detect_human_faces_yunet", _marker_detector)
+    monkeypatch.setattr("pipeline.archival_media.detect_human_faces_yunet", _marker_detector)
     proj_badge, _mp4_badge = _setup_r89_dq_episode(tmp_path, "r89_dq_badge_masked", face_in_badge_only=True)
     res_badge = verify_final_mp4_against_contract(proj_badge)
     assert res_badge["gates"]["DQ8_zero_uncanny_skin_gore"]["passed"] is True, res_badge["gates"]["DQ8_zero_uncanny_skin_gore"]

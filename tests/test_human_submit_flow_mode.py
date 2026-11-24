@@ -10,8 +10,8 @@ from typing import Any
 
 import pytest
 
-import pipeline.flow_diorama_sharded_worker as worker_mod
-from pipeline.flow_diorama_sharded_worker import (
+import pipeline.flow_worker as worker_mod
+from pipeline.flow_worker import (
     FlowCircuitBreakerError,
     _run_shard_worker,
     _submit_diorama_prompt_zero_credit,

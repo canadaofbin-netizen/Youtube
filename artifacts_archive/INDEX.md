@@ -1,46 +1,33 @@
 # ALL ABOUT BRAIN — Archived Reports & Artifacts (`artifacts_archive/`)
 
 - **Workspace**: `/home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube`
-- **Auto-Sync Hooks**: `.agents/hooks.json` + `~/.gemini/config/hooks.json` (`PostToolUse` + `Stop`) via `scripts/sync_artifacts_archive.py`
-- **Manual Full Sync**: `/home/canadaofbin/hermes-venv/bin/python -X utf8 scripts/sync_artifacts_archive.py --sync-all`
-- **Archive Totals**: **356** Markdown reports/artifacts + **1475** media/chart assets (**1831** total files)
+- **Auto-Sync Hook**: `.agents/hooks.json` (`Stop`) via `scripts/sync_archive.py`
+- **Manual Full Sync**: `/home/canadaofbin/hermes-venv/bin/python -X utf8 scripts/sync_archive.py --sync-all`
+- **Archive Totals**: **217** Markdown reports/artifacts + **800** media/chart assets (**1017** total files)
 
-## Chatroom Folders Summary
+## Archived Folders Summary
 
-| Folder | Chatroom | Conversation ID | `.md` Reports | Media / Assets | Total Files |
-|---|---|---|---:|---:|---:|
-| [`01_YouTube_CEO/`](./01_YouTube_CEO/) | @YouTube_CEO | `b57c97a8-6324-4c31-a2bb-16b25e28dd55` | 103 | 436 | 539 |
-| [`02_Operator/`](./02_Operator/) | @Operator | `1f9808d4-ebac-4b58-a570-45c8f1f00a85` | 12 | 152 | 164 |
-| [`02_Research/`](./02_Research/) | `02_Research` | `02_Research` | 8 | 110 | 118 |
-| [`03_Daily_Report/`](./03_Daily_Report/) | `03_Daily_Report` | `03_Daily_Report` | 44 | 145 | 189 |
-| [`03_Research/`](./03_Research/) | @Research | `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c` | 21 | 128 | 149 |
-| [`04_Daily_Report/`](./04_Daily_Report/) | `04_Daily_Report` | `04_Daily_Report` | 54 | 175 | 229 |
-| [`04_Deep_Research/`](./04_Deep_Research/) | @Deep_Research | `8c666be9-5bad-43d9-b91a-e7ba2b936c62` | 5 | 4 | 9 |
-| [`04_Headquarters/`](./04_Headquarters/) | `04_Headquarters` | `04_Headquarters` | 9 | 20 | 29 |
-| [`04_Operator/`](./04_Operator/) | `04_Operator` | `04_Operator` | 2 | 38 | 40 |
-| [`05_Channel_Art/`](./05_Channel_Art/) | `05_Channel_Art` | `05_Channel_Art` | 1 | 8 | 9 |
-| [`05_Daily_Report/`](./05_Daily_Report/) | @Daily_Report | `e3210c73-cc41-4432-87b1-c158efe9cadb` | 56 | 181 | 237 |
-| [`05_Headquarters/`](./05_Headquarters/) | `05_Headquarters` | `05_Headquarters` | 9 | 20 | 29 |
-| [`05_QA_Scheduler/`](./05_QA_Scheduler/) | `05_QA_Scheduler` | `05_QA_Scheduler` | 8 | 3 | 11 |
-| [`06_Channel_Art/`](./06_Channel_Art/) | `06_Channel_Art` | `06_Channel_Art` | 1 | 8 | 9 |
-| [`06_QA_Scheduler/`](./06_QA_Scheduler/) | @QA_Scheduler | `ef8185bb-5afd-4859-b697-2fe07f1ecf1c` | 9 | 15 | 24 |
-| [`06_Report_Redesign/`](./06_Report_Redesign/) | `06_Report_Redesign` | `06_Report_Redesign` | 1 | 5 | 6 |
-| [`06_Topic_Radar/`](./06_Topic_Radar/) | `06_Topic_Radar` | `06_Topic_Radar` | 1 | 0 | 1 |
-| [`07_QA_Scheduler/`](./07_QA_Scheduler/) | `07_QA_Scheduler` | `07_QA_Scheduler` | 3 | 3 | 6 |
-| [`07_Report_Redesign/`](./07_Report_Redesign/) | `07_Report_Redesign` | `07_Report_Redesign` | 1 | 5 | 6 |
-| [`07_Topic_Radar/`](./07_Topic_Radar/) | @Topic_Radar | `0ffee83a-d9de-4520-a177-7d3b57dc01dc` | 2 | 0 | 2 |
-| [`08_Report_Redesign/`](./08_Report_Redesign/) | `08_Report_Redesign` | `08_Report_Redesign` | 1 | 5 | 6 |
-| [`08_Topic_Radar/`](./08_Topic_Radar/) | `08_Topic_Radar` | `08_Topic_Radar` | 1 | 0 | 1 |
-| [`09_Report_Redesign/`](./09_Report_Redesign/) | `09_Report_Redesign` | `09_Report_Redesign` | 1 | 5 | 6 |
-| [`conv_3aa5c914/`](./conv_3aa5c914/) | `conv_3aa5c914` | `conv_3aa5c914` | 1 | 4 | 5 |
-| [`conv_8a60150d/`](./conv_8a60150d/) | `conv_8a60150d` | `conv_8a60150d` | 1 | 5 | 6 |
-| [`conv_f1bedda0/`](./conv_f1bedda0/) | `conv_f1bedda0` | `conv_f1bedda0` | 1 | 0 | 1 |
+| Folder | Conversation ID | `.md` Reports | Media / Assets | Total Files |
+|---|---|---:|---:|---:|
+| [`01_YouTube_CEO/`](./01_YouTube_CEO/) | `b57c97a8-6324-4c31-a2bb-16b25e28dd55` | 103 | 406 | 509 |
+| [`02_Operator/`](./02_Operator/) | `1f9808d4-ebac-4b58-a570-45c8f1f00a85` | 12 | 109 | 121 |
+| [`03_Research/`](./03_Research/) | `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c` | 15 | 58 | 73 |
+| [`04_Daily_Report/`](./04_Daily_Report/) | `e3210c73-cc41-4432-87b1-c158efe9cadb` | 56 | 181 | 237 |
+| [`04_Deep_Research/`](./04_Deep_Research/) | `8c666be9-5bad-43d9-b91a-e7ba2b936c62` | 5 | 0 | 5 |
+| [`04_Headquarters/`](./04_Headquarters/) | `8c7f8d97-664d-4d6b-9ef8-b17e721354f9` | 9 | 18 | 27 |
+| [`05_Channel_Art/`](./05_Channel_Art/) | `3c2fa53b-b43c-4f67-9dfd-0e5c86581f67` | 1 | 7 | 8 |
+| [`05_QA_Scheduler/`](./05_QA_Scheduler/) | `ef8185bb-5afd-4859-b697-2fe07f1ecf1c` | 9 | 15 | 24 |
+| [`06_Report_Redesign/`](./06_Report_Redesign/) | `06_Report_Redesign` | 1 | 5 | 6 |
+| [`06_Topic_Radar/`](./06_Topic_Radar/) | `0ffee83a-d9de-4520-a177-7d3b57dc01dc` | 2 | 0 | 2 |
+| [`conv_3aa5c914/`](./conv_3aa5c914/) | `conv_3aa5c914` | 1 | 1 | 2 |
+| [`conv_f1bedda0/`](./conv_f1bedda0/) | `conv_f1bedda0` | 3 | 0 | 3 |
 
-## `01_YouTube_CEO` (@YouTube_CEO — `b57c97a8-6324-4c31-a2bb-16b25e28dd55`)
-> Judge & verifier hub (R83-5..7): aligns user intent, decides root causes/plans/rejections, delegates ALL execution to the 6 work rooms via send_message, and independently re-verifies every [*_DONE] report (read-only) before reporting PASS/REJECT to the user
+## `01_YouTube_CEO` (`b57c97a8-6324-4c31-a2bb-16b25e28dd55`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
+| [`signature_character_comparison_report.md`](./01_YouTube_CEO/signature_character_comparison_report.md) | `@AllAboutBrainOfficial` 시그니처 캐릭터 종족 3안(`안 1` · `안 2` · `안 3`) 실물 렌더링 비교 보고서 | 10.0 KB | 2026-11-24 11:32 UTC |
+| [`r86_igwahyung_teardown_and_beat_card_report.md`](./01_YouTube_CEO/r86_igwahyung_teardown_and_beat_card_report.md) | R86 벤치마크 심층 해부: 『이과형』 문장→화면 번역 공식(`10`편 · `106`문장 실측) 및 우리 포맷 이식 설계서 | 56.4 KB | 2026-11-24 11:32 UTC |
 | [`ep13_final_release_preview.md`](./01_YouTube_CEO/ep13_final_release_preview.md) | 🏆 `Ep #13` (`v8_ep13_snack_reward_rewiring`) 최종 완성본 프리뷰 — **전 게이트 `19/19 PASS`** | 3.9 KB | 2026-11-23 05:28 UTC |
 | [`g1_chat_attached_screenshot_preview.md`](./01_YouTube_CEO/g1_chat_attached_screenshot_preview.md) | Grace 상담원에게 첨부한 스크린샷 확인 | 459 B | 2026-11-23 03:06 UTC |
 | [`ep13_final_4cuts_manual_sheet.md`](./01_YouTube_CEO/ep13_final_4cuts_manual_sheet.md) | `Ep #13` 마지막 `4`컷 (`19/19 PASS` 마감용) 원클릭 복붙 시트 | 6.8 KB | 2026-11-22 23:27 UTC |
@@ -69,7 +56,6 @@
 | [`canonical_assets_v1_research_screening_report.md`](./01_YouTube_CEO/canonical_assets_v1_research_screening_report.md) | 고정 시각 자산 라이브러리 v1 (`canonical_assets/v1`) 1차 전수 육안 선별 보고서 (`42`슬롯 · `138`후보) | 12.6 KB | 2026-11-18 10:37 UTC |
 | [`r86_beat_cards_ep09_12_summary.md`](./01_YouTube_CEO/r86_beat_cards_ep09_12_summary.md) | [과제 B + DQ8 추가분] 4편(`Ep #9–#12`) 교체 컷 `R85 + R86` Beat Card 설계 요약서 (`56`컷 전수 검증본) | 31.2 KB | 2026-11-18 05:45 UTC |
 | [`r85_r86_rule_3tier_triage_table.md`](./01_YouTube_CEO/r85_r86_rule_3tier_triage_table.md) | ALL ABOUT BRAIN 규칙 · QA 게이트 3등급 구조조정안 (`R1~R86` 전수 분류) | 17.6 KB | 2026-11-18 04:00 UTC |
-| [`r86_igwahyung_teardown_and_beat_card_report.md`](./01_YouTube_CEO/r86_igwahyung_teardown_and_beat_card_report.md) | R86 벤치마크 심층 해부: 『이과형』 문장→화면 번역 공식(`10`편 · `106`문장 실측) 및 우리 포맷 이식 설계서 | 56.4 KB | 2026-11-18 02:19 UTC |
 | [`r85_verified_data_and_reference_audit.md`](./01_YouTube_CEO/r85_verified_data_and_reference_audit.md) | R85 원문 수치 재검증 · 신경해부 표준 도판(`R85-R`) · 4편 레퍼런스 전수 점검 보고서 | 16.2 KB | 2026-11-18 01:50 UTC |
 | [`r86_igwahyung_teardown_and_semantic_beat_plan.md`](./01_YouTube_CEO/r86_igwahyung_teardown_and_semantic_beat_plan.md) | 이과형 채널 분석 + R86 의미 기반 장면 설계(Semantic Beat Contract) 계획 | 7.0 KB | 2026-11-18 01:28 UTC |
 | [`r85_root_cause_reverification_and_fix_plan.md`](./01_YouTube_CEO/r85_root_cause_reverification_and_fix_plan.md) | R85 근본 원인 재검증 & 4편(`Ep #9–#12`) 수정 계획 | 21.2 KB | 2026-11-18 01:06 UTC |
@@ -141,131 +127,58 @@
 | [`boost_time_and_bottleneck_analysis.md`](./01_YouTube_CEO/boost_time_and_bottleneck_analysis.md) | 작업 종료 기준 전 구간 소요 시간 및 병목 정량 분석 보고서 | 7.6 KB | 2026-11-08 02:20 UTC |
 | [`zdy_hxq_voice_and_camera_forensic_report.md`](./01_YouTube_CEO/zdy_hxq_voice_and_camera_forensic_report.md) | `ZDy3xXA2iHk` & `HxqtHI62otM` 보이스 · 카메라 무빙 정밀 포렌식 분석 보고서 (컨펌 대기본) | 12.5 KB | 2026-11-07 14:33 UTC |
 | [`expanded_cast_and_channel_art_report.md`](./01_YouTube_CEO/expanded_cast_and_channel_art_report.md) | `@AllAboutBrainOfficial` 확장 시그니처 배우단(`18종`) & 다인원 유튜브 채널 아트 시안 보고서 | 6.3 KB | 2026-11-07 04:15 UTC |
-| [`signature_character_comparison_report.md`](./01_YouTube_CEO/signature_character_comparison_report.md) | `@AllAboutBrainOfficial` 시그니처 캐릭터 종족 3안(`안 1` · `안 2` · `안 3`) 실물 렌더링 비교 보고서 | 10.0 KB | 2026-11-07 00:15 UTC |
 | [`implementation_plan.md`](./01_YouTube_CEO/implementation_plan.md) | ALL ABOUT BRAIN (`07_Youtube`) 통합 마스터 실행 계획서 (`v3` — 컨펌 대기본) | 18.6 KB | 2026-11-05 17:07 UTC |
 | [`benchmark_success_formula_report.md`](./01_YouTube_CEO/benchmark_success_formula_report.md) | 벤치마크 3대 채널 성공 공식 추출, `@RicksClips3000` 제작 공정 역설계 & 장면 전환(`lnYLIWP2l-I`) 마스터 보고서 | 35.4 KB | 2026-11-05 05:56 UTC |
 
-- **Embedded Media & Charts (436 files)**: `root` (332 files), [`arch_dict_media/`](./01_YouTube_CEO/arch_dict_media/) (3 files), [`backup_pilot02_andrew_v8/`](./01_YouTube_CEO/backup_pilot02_andrew_v8/) (11 files), [`benchmark_media/`](./01_YouTube_CEO/benchmark_media/) (9 files), [`channel_art_and_cast/`](./01_YouTube_CEO/channel_art_and_cast/) (22 files), [`forensics_zdy_hxq/`](./01_YouTube_CEO/forensics_zdy_hxq/) (5 files), [`psych_cat_media/`](./01_YouTube_CEO/psych_cat_media/) (3 files), [`signature_cast/`](./01_YouTube_CEO/signature_cast/) (12 files), [`thumb_benchmark_media/`](./01_YouTube_CEO/thumb_benchmark_media/) (39 files)
+- **Embedded Media & Charts (406 files)**: `root` (313 files), [`arch_dict_media/`](./01_YouTube_CEO/arch_dict_media/) (3 files), [`backup_pilot02_andrew_v8/`](./01_YouTube_CEO/backup_pilot02_andrew_v8/) (9 files), [`benchmark_media/`](./01_YouTube_CEO/benchmark_media/) (9 files), [`channel_art_and_cast/`](./01_YouTube_CEO/channel_art_and_cast/) (15 files), [`forensics_zdy_hxq/`](./01_YouTube_CEO/forensics_zdy_hxq/) (5 files), [`psych_cat_media/`](./01_YouTube_CEO/psych_cat_media/) (3 files), [`signature_cast/`](./01_YouTube_CEO/signature_cast/) (10 files), [`thumb_benchmark_media/`](./01_YouTube_CEO/thumb_benchmark_media/) (39 files)
 
-## `02_Operator` (@Operator — `1f9808d4-ebac-4b58-a570-45c8f1f00a85`)
-> Dedicated engineering & production execution room (Gears 2-4 + global pipeline code, Rule R82+ upgrades, pytest, Omni 1.2 Flow rendering, assembly, 10-gate QA, multi-bundle & top-level MP4 export)
+## `02_Operator` (`1f9808d4-ebac-4b58-a570-45c8f1f00a85`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
+| [`walkthrough.md`](./02_Operator/walkthrough.md) | `@Operator` 마스터 실행 완료 보고서 — `Rule R74-B × R71-B` 파이프라인 구축 & 정통 뇌과학 플래그십 `Ep #8` (`_p05nIlU`... | 9.7 KB | 2026-11-24 11:32 UTC |
+| [`ep10_r85_completion_report.md`](./02_Operator/ep10_r85_completion_report.md) | Ep10 (`v8_ep10_sleep_pill_brain_wash`) — `R85` / `R86` + `Canonical v1+v1.1` Completion Re... | 4.6 KB | 2026-11-24 11:32 UTC |
+| [`canonical_assets_v1_candidates_report.md`](./02_Operator/canonical_assets_v1_candidates_report.md) | Canonical Asset Library v1 — 후보군 구축 및 검증 보고서 (`status: "candidate"`) | 8.9 KB | 2026-11-24 11:32 UTC |
+| [`canonical_assets_v1_1_candidates_report.md`](./02_Operator/canonical_assets_v1_1_candidates_report.md) | Canonical Asset Library `v1.1` — Candidate Pack (`43` Slots / `137` PNGs) | 6.8 KB | 2026-11-24 11:32 UTC |
 | [`ep12_r85_completion_report.md`](./02_Operator/ep12_r85_completion_report.md) | Ep12 (`v8_ep12_doorway_effect_memory`) — `R85` / `R86` + `Canonical v1+v1.1` Completion Re... | 8.2 KB | 2026-11-19 17:36 UTC |
 | [`ep11_r85_completion_report.md`](./02_Operator/ep11_r85_completion_report.md) | Ep11 (`v8_ep11_open_label_placebo_pain`) — `R85` / `R86` + `Canonical v1+v1.1` Completion ... | 5.6 KB | 2026-11-19 15:09 UTC |
-| [`ep10_r85_completion_report.md`](./02_Operator/ep10_r85_completion_report.md) | Ep10 (`v8_ep10_sleep_pill_brain_wash`) — `R85` / `R86` + `Canonical v1+v1.1` Completion Re... | 4.6 KB | 2026-11-19 13:48 UTC |
 | [`canonical_assets_v1_1_locked_report.md`](./02_Operator/canonical_assets_v1_1_locked_report.md) | Canonical Asset Library `v1.1` Lock & Unified `85`-Slot Pipeline Integration Report | 4.1 KB | 2026-11-18 22:51 UTC |
 | [`ep09_r85_completion_report.md`](./02_Operator/ep09_r85_completion_report.md) | `Ep09` (`v8_ep09_maguire_london_taxi_hippocampus_r82`) — `R85`/`R86` + `Canonical v1` Comp... | 5.2 KB | 2026-11-18 21:20 UTC |
-| [`canonical_assets_v1_1_candidates_report.md`](./02_Operator/canonical_assets_v1_1_candidates_report.md) | Canonical Asset Library `v1.1` — Candidate Pack (`43` Slots / `137` PNGs) | 6.6 KB | 2026-11-18 19:05 UTC |
-| [`canonical_assets_v1_candidates_report.md`](./02_Operator/canonical_assets_v1_candidates_report.md) | Canonical Asset Library v1 — 후보군 구축 및 검증 보고서 (`status: "candidate"`) | 8.6 KB | 2026-11-18 11:29 UTC |
 | [`rules_3tier_and_dq8_completion_report.md`](./02_Operator/rules_3tier_and_dq8_completion_report.md) | `[RULES_DQ8_DONE]` — `DQ8` 2단계 의심 분류·크롭 추출 재설계 및 규칙 3등급 구조재편 완료 보고서 | 19.2 KB | 2026-11-18 05:35 UTC |
 | [`dq8_redesign_and_3tier_rules_execution_plan.md`](./02_Operator/dq8_redesign_and_3tier_rules_execution_plan.md) | `DQ8` 재설계 실측 · 규칙 3등급 구조재편 · `R86` 통합 실행 계획서 (`[PLANS_READY]`) | 25.5 KB | 2026-11-18 04:12 UTC |
 | [`r85_phase0_2_and_r86_completion_report.md`](./02_Operator/r85_phase0_2_and_r86_completion_report.md) | R85 Phase 0–2 & R86 Phase 2.5 구현·검증 완료 보고 (`[R85_PHASE0-2_DONE]`) | 11.0 KB | 2026-11-18 03:45 UTC |
-| [`walkthrough.md`](./02_Operator/walkthrough.md) | `@Operator` 마스터 실행 완료 보고서 — `Rule R74-B × R71-B` 파이프라인 구축 & 정통 뇌과학 플래그십 `Ep #8` (`_p05nIlU`... | 9.7 KB | 2026-11-13 18:32 UTC |
 | [`task.md`](./02_Operator/task.md) | `@Operator` 실행 보드 — `@YouTube_CEO` 승인 지시사항 전수 이행 | 17.2 KB | 2026-11-13 18:32 UTC |
 
-- **Embedded Media & Charts (152 files)**: `root` (152 files)
+- **Embedded Media & Charts (109 files)**: `root` (109 files)
 
-## `02_Research`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`ricks_clips_character_motion_lexicon.md`](./02_Research/ricks_clips_character_motion_lexicon.md) | 2.5D 일반 캐릭터 모션 & 표정 표준 사전 (`expressive_25d_v8`) | 20.2 KB | 2026-11-15 01:14 UTC |
-| [`r77n_narration_teardown_and_capgras_scripts.md`](./02_Research/r77n_narration_teardown_and_capgras_scripts.md) | `TRUkQ1wbV2E` 나레이션 포렌식 분석, `Rule R77-N` 개정안 & 3D 뇌-전용·전체 대본 리라이트 (`Ep #8 Capgras`) | 26.5 KB | 2026-11-14 00:16 UTC |
-| [`us_neuro_psychology_narration_report.md`](./02_Research/us_neuro_psychology_narration_report.md) | 미국 6대 공신력 뇌과학·심리학 채널 나레이션 정량 해부 보고서 (`n = 160` Videos) | 46.5 KB | 2026-11-12 01:39 UTC |
-| [`psychology_cat_full_teardown_report.md`](./02_Research/psychology_cat_full_teardown_report.md) | `@심리학고양이` (`UCaJkv4faBajjsDGq2YPJN0A`) 전방위 심층 벤치마크 해부 보고서 | 49.4 KB | 2026-11-11 17:18 UTC |
-| [`shinbihan_architecture_thumbnail_teardown.md`](./02_Research/shinbihan_architecture_thumbnail_teardown.md) | `'신비한 건축사전'` × `'@심리학고양이'` 썸네일 통합 포렌식 해부 및 `ALL ABOUT BRAIN (v8)` 이식·코드 감사 최종 보고서 | 41.5 KB | 2026-11-11 16:31 UTC |
-| [`ricksclips3000_shorts_report.md`](./02_Research/ricksclips3000_shorts_report.md) | `@RicksClips3000` (Ricks Clips) 쇼츠 성공 공식 심층 분석 보고서 | 15.1 KB | 2026-11-05 02:36 UTC |
-| [`psychtoonshq_videos_report.md`](./02_Research/psychtoonshq_videos_report.md) | `@PsychToonsHQ` (PsychToons) 성공 공식 심층 분석 보고서 | 19.3 KB | 2026-11-05 02:36 UTC |
-| [`heyhistorically_shorts_report.md`](./02_Research/heyhistorically_shorts_report.md) | `@HeyHistorically` (Historically) 쇼츠 성공 공식 심층 분석 보고서 | 14.9 KB | 2026-11-05 02:36 UTC |
-
-- **Embedded Media & Charts (110 files)**: `root` (6 files), [`heyhistorically_media/`](./02_Research/heyhistorically_media/) (4 files), [`psych_cat_media/`](./02_Research/psych_cat_media/) (44 files), [`psychtoons_media/`](./02_Research/psychtoons_media/) (10 files), [`ricksclips_media/`](./02_Research/ricksclips_media/) (5 files), [`thumb_benchmark_media/`](./02_Research/thumb_benchmark_media/) (41 files)
-
-## `03_Daily_Report`
+## `03_Research` (`ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
-| [`youtube_video_detail_report_2026_11_16.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_16.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-16) | 48.2 KB | 2026-11-16 07:53 UTC |
-| [`youtube_daily_report_2026_11_16.md`](./03_Daily_Report/youtube_daily_report_2026_11_16.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-16) | 9.5 KB | 2026-11-16 07:53 UTC |
-| [`youtube_video_detail_report_2026_11_15.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_15.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-15) | 38.0 KB | 2026-11-15 07:07 UTC |
-| [`youtube_daily_report_2026_11_15.md`](./03_Daily_Report/youtube_daily_report_2026_11_15.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-15) | 8.9 KB | 2026-11-15 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_14.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_14.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-14) | 30.1 KB | 2026-11-14 07:06 UTC |
-| [`youtube_daily_report_2026_11_14.md`](./03_Daily_Report/youtube_daily_report_2026_11_14.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-14) | 8.4 KB | 2026-11-14 07:06 UTC |
-| [`youtube_video_detail_report_2026_11_13.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_13.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-13) | 30.1 KB | 2026-11-13 07:08 UTC |
-| [`youtube_daily_report_2026_11_13.md`](./03_Daily_Report/youtube_daily_report_2026_11_13.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-13) | 8.5 KB | 2026-11-13 07:08 UTC |
-| [`youtube_video_detail_report_2026_11_12.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_12.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-12) | 34.2 KB | 2026-11-12 07:12 UTC |
-| [`youtube_daily_report_2026_11_12.md`](./03_Daily_Report/youtube_daily_report_2026_11_12.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-12) | 8.5 KB | 2026-11-12 07:11 UTC |
-| [`youtube_video_detail_report_2026_11_11.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_11.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-11) | 35.2 KB | 2026-11-11 07:07 UTC |
-| [`youtube_daily_report_2026_11_11.md`](./03_Daily_Report/youtube_daily_report_2026_11_11.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-11) | 8.5 KB | 2026-11-11 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_10.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_10.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-10) | 35.2 KB | 2026-11-10 07:07 UTC |
-| [`youtube_daily_report_2026_11_10.md`](./03_Daily_Report/youtube_daily_report_2026_11_10.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-10) | 8.5 KB | 2026-11-10 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_09.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_09.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-09) | 32.8 KB | 2026-11-09 07:06 UTC |
-| [`youtube_daily_report_2026_11_09.md`](./03_Daily_Report/youtube_daily_report_2026_11_09.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-09) | 8.4 KB | 2026-11-09 07:06 UTC |
-| [`youtube_video_detail_report_2026_11_07.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_07.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-07) | 32.8 KB | 2026-11-07 07:07 UTC |
-| [`youtube_daily_report_2026_11_07.md`](./03_Daily_Report/youtube_daily_report_2026_11_07.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-07) | 8.4 KB | 2026-11-07 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_06.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_06.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-06) | 32.8 KB | 2026-11-06 07:06 UTC |
-| [`youtube_daily_report_2026_11_06.md`](./03_Daily_Report/youtube_daily_report_2026_11_06.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-06) | 8.4 KB | 2026-11-06 07:06 UTC |
-| [`youtube_video_detail_report_2026_11_05.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_05.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-05) | 32.0 KB | 2026-11-05 07:07 UTC |
-| [`youtube_daily_report_2026_11_05.md`](./03_Daily_Report/youtube_daily_report_2026_11_05.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-05) | 8.5 KB | 2026-11-05 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_04.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_04.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-04) | 25.1 KB | 2026-11-04 07:05 UTC |
-| [`youtube_daily_report_2026_11_04.md`](./03_Daily_Report/youtube_daily_report_2026_11_04.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-04) | 7.9 KB | 2026-11-04 07:05 UTC |
-| [`youtube_video_detail_report_2026_11_03.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_03.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-03) | 25.2 KB | 2026-11-03 07:05 UTC |
-| [`youtube_daily_report_2026_11_03.md`](./03_Daily_Report/youtube_daily_report_2026_11_03.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-03) | 7.9 KB | 2026-11-03 07:05 UTC |
-| [`youtube_video_detail_report_2026_11_02.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_02.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-02) | 25.3 KB | 2026-11-02 07:10 UTC |
-| [`youtube_daily_report_2026_11_02.md`](./03_Daily_Report/youtube_daily_report_2026_11_02.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-02) | 8.0 KB | 2026-11-02 07:09 UTC |
-| [`youtube_video_detail_report_2026_11_01.md`](./03_Daily_Report/youtube_video_detail_report_2026_11_01.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-01) | 22.6 KB | 2026-11-01 07:06 UTC |
-| [`youtube_daily_report_2026_11_01.md`](./03_Daily_Report/youtube_daily_report_2026_11_01.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-01) | 7.8 KB | 2026-11-01 07:06 UTC |
-| [`youtube_video_detail_report_2026_10_31.md`](./03_Daily_Report/youtube_video_detail_report_2026_10_31.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-31) | 20.3 KB | 2026-10-31 07:11 UTC |
-| [`youtube_daily_report_2026_10_31.md`](./03_Daily_Report/youtube_daily_report_2026_10_31.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-31) | 7.8 KB | 2026-10-31 07:11 UTC |
-| [`youtube_video_detail_report_2026_10_30.md`](./03_Daily_Report/youtube_video_detail_report_2026_10_30.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-30) | 19.2 KB | 2026-10-30 07:06 UTC |
-| [`youtube_daily_report_2026_10_30.md`](./03_Daily_Report/youtube_daily_report_2026_10_30.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-30) | 7.7 KB | 2026-10-30 07:06 UTC |
-| [`youtube_video_detail_report_2026_10_29.md`](./03_Daily_Report/youtube_video_detail_report_2026_10_29.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-29) | 16.4 KB | 2026-10-29 07:06 UTC |
-| [`youtube_daily_report_2026_10_29.md`](./03_Daily_Report/youtube_daily_report_2026_10_29.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-29) | 7.9 KB | 2026-10-29 07:06 UTC |
-| [`youtube_video_detail_report_2026_10_28.md`](./03_Daily_Report/youtube_video_detail_report_2026_10_28.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-28) | 16.3 KB | 2026-10-28 07:14 UTC |
-| [`youtube_daily_report_2026_10_28.md`](./03_Daily_Report/youtube_daily_report_2026_10_28.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-28) | 7.9 KB | 2026-10-28 07:14 UTC |
-| [`youtube_video_detail_report_2026_10_27.md`](./03_Daily_Report/youtube_video_detail_report_2026_10_27.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-27) | 16.4 KB | 2026-10-27 13:48 UTC |
-| [`youtube_daily_report_2026_10_27.md`](./03_Daily_Report/youtube_daily_report_2026_10_27.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-27) | 7.8 KB | 2026-10-27 07:03 UTC |
-| [`youtube_daily_report_2026_10_26.md`](./03_Daily_Report/youtube_daily_report_2026_10_26.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-26) | 7.7 KB | 2026-10-26 07:02 UTC |
-| [`youtube_daily_report_2026_10_25.md`](./03_Daily_Report/youtube_daily_report_2026_10_25.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-25) | 7.0 KB | 2026-10-25 07:09 UTC |
-| [`youtube_daily_report_2026_10_24.md`](./03_Daily_Report/youtube_daily_report_2026_10_24.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-24) | 7.3 KB | 2026-10-24 11:28 UTC |
-| [`youtube_daily_report_2026_10_23.md`](./03_Daily_Report/youtube_daily_report_2026_10_23.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-23) | 6.1 KB | 2026-10-23 07:02 UTC |
-
-- **Embedded Media & Charts (145 files)**: `root` (145 files)
-
-## `03_Research` (@Research — `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c`)
-> Quality & Visual QA VP: Gate 1/2 VLM vision sign-off, Canonical asset screening, Lock 4/5 retention & cut-by-cut diagnostics, and scientific/visual comparison blueprint design
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`canonical_assets_v1_2_research_screening_report.md`](./03_Research/canonical_assets_v1_2_research_screening_report.md) | Canonical Asset Library v1.2 — `@Research` VP 네이티브 `1080×1920` 전수 스크리닝 보고서 (`R83-8` · `R83`... | 6.5 KB | 2026-11-20 03:01 UTC |
-| [`r87_hook_and_conditional_arrow_spec.md`](./03_Research/r87_hook_and_conditional_arrow_spec.md) | ALL ABOUT BRAIN — Rule R87 Global Pipeline Upgrade Design Spec (`R87-H` 3-Second Hook Reco... | 56.2 KB | 2026-11-20 01:34 UTC |
+| [`us_neuro_psychology_narration_report.md`](./03_Research/us_neuro_psychology_narration_report.md) | 미국 6대 공신력 뇌과학·심리학 채널 나레이션 정량 해부 보고서 (`n = 160` Videos) | 46.5 KB | 2026-11-24 11:32 UTC |
+| [`shinbihan_architecture_thumbnail_teardown.md`](./03_Research/shinbihan_architecture_thumbnail_teardown.md) | `'신비한 건축사전'` × `'@심리학고양이'` 썸네일 통합 포렌식 해부 및 `ALL ABOUT BRAIN (v8)` 이식·코드 감사 최종 보고서 | 42.1 KB | 2026-11-24 11:32 UTC |
+| [`ricksclips3000_shorts_report.md`](./03_Research/ricksclips3000_shorts_report.md) | `@RicksClips3000` (Ricks Clips) 쇼츠 성공 공식 심층 분석 보고서 | 15.1 KB | 2026-11-24 11:32 UTC |
+| [`r87_hook_and_conditional_arrow_spec.md`](./03_Research/r87_hook_and_conditional_arrow_spec.md) | ALL ABOUT BRAIN — Rule R87 Global Pipeline Upgrade Design Spec (`R87-H` 3-Second Hook Reco... | 56.2 KB | 2026-11-24 11:32 UTC |
+| [`r86_igwahyung_teardown_and_beat_card_report.md`](./03_Research/r86_igwahyung_teardown_and_beat_card_report.md) | R86 벤치마크 심층 해부: 『이과형』 문장→화면 번역 공식(`10`편 · `106`문장 실측) 및 우리 포맷 이식 설계서 | 56.4 KB | 2026-11-24 11:32 UTC |
+| [`r77n_narration_teardown_and_capgras_scripts.md`](./03_Research/r77n_narration_teardown_and_capgras_scripts.md) | `TRUkQ1wbV2E` 나레이션 포렌식 분석, `Rule R77-N` 개정안 & 3D 뇌-전용·전체 대본 리라이트 (`Ep #8 Capgras`) | 26.5 KB | 2026-11-24 11:32 UTC |
+| [`psychtoonshq_videos_report.md`](./03_Research/psychtoonshq_videos_report.md) | `@PsychToonsHQ` (PsychToons) 성공 공식 심층 분석 보고서 | 19.3 KB | 2026-11-24 11:32 UTC |
+| [`psychology_cat_full_teardown_report.md`](./03_Research/psychology_cat_full_teardown_report.md) | `@심리학고양이` (`UCaJkv4faBajjsDGq2YPJN0A`) 전방위 심층 벤치마크 해부 보고서 | 49.5 KB | 2026-11-24 11:32 UTC |
+| [`heyhistorically_shorts_report.md`](./03_Research/heyhistorically_shorts_report.md) | `@HeyHistorically` (Historically) 쇼츠 성공 공식 심층 분석 보고서 | 14.9 KB | 2026-11-24 11:32 UTC |
+| [`canonical_assets_v1_2_research_screening_report.md`](./03_Research/canonical_assets_v1_2_research_screening_report.md) | Canonical Asset Library v1.2 — `@Research` VP 네이티브 `1080×1920` 전수 스크리닝 보고서 (`R83-8` · `R83`... | 6.6 KB | 2026-11-24 11:32 UTC |
 | [`canonical_assets_v1_1_research_screening_report.md`](./03_Research/canonical_assets_v1_1_research_screening_report.md) | Canonical Asset Library `v1.1` — `@Research` 전수 시각 선별 보고서 (`43 Slots / 137 Candidates`) | 6.4 KB | 2026-11-18 19:08 UTC |
-| [`canonical_v1_1_transition_and_gap_spec_report.md`](./03_Research/canonical_v1_1_transition_and_gap_spec_report.md) | 고정 시각 자산 라이브러리 v1.1 설계 명세서 — 장면 전환(`Category F`) & 누락 기반 자산(`A+ · E+ · G · H · I`) | 19.3 KB | 2026-11-18 12:20 UTC |
-| [`canonical_assets_v1_research_screening_report.md`](./03_Research/canonical_assets_v1_research_screening_report.md) | 고정 시각 자산 라이브러리 v1 (`canonical_assets/v1`) 1차 전수 육안 선별 보고서 (`42`슬롯 · `138`후보) | 12.6 KB | 2026-11-18 10:36 UTC |
 | [`r86_beat_cards_ep09_12_summary.md`](./03_Research/r86_beat_cards_ep09_12_summary.md) | [과제 B + DQ8 추가분] 4편(`Ep #9–#12`) 교체 컷 `R85 + R86` Beat Card 설계 요약서 (`56`컷 전수 검증본) | 31.3 KB | 2026-11-18 05:44 UTC |
-| [`r85_r86_rule_3tier_triage_table.md`](./03_Research/r85_r86_rule_3tier_triage_table.md) | ALL ABOUT BRAIN 규칙 · QA 게이트 3등급 구조조정안 (`R1~R86` 전수 분류) | 17.6 KB | 2026-11-18 04:00 UTC |
-| [`r86_igwahyung_teardown_and_beat_card_report.md`](./03_Research/r86_igwahyung_teardown_and_beat_card_report.md) | R86 벤치마크 심층 해부: 『이과형』 문장→화면 번역 공식(`10`편 · `106`문장 실측) 및 우리 포맷 이식 설계서 | 56.4 KB | 2026-11-18 02:18 UTC |
-| [`r85_verified_data_and_reference_audit.md`](./03_Research/r85_verified_data_and_reference_audit.md) | R85 원문 수치 재검증 · 신경해부 표준 도판(`R85-R`) · 4편 레퍼런스 전수 점검 보고서 | 16.2 KB | 2026-11-18 01:49 UTC |
-| [`four_videos_94cuts_full_audit_and_31brain_restoration.md`](./03_Research/four_videos_94cuts_full_audit_and_31brain_restoration.md) | 4개 영상(`Ep #9 · #10 · #11 · #12`, 총 `94`컷) 전수 포렌식 결함 감사 & `31_O2CmlKOk` 시그니처 AI 뇌 메커니즘 복원 설... | 23.4 KB | 2026-11-18 00:23 UTC |
-| [`brain_anatomy_clarity_and_anti_ai_audit_report.md`](./03_Research/brain_anatomy_clarity_and_anti_ai_audit_report.md) | 뇌 해부 묘사 직관성 · 정확성 · 탈(脫)AI 심층 감사 및 차세대 3D 시각화 설계 보고서 | 19.0 KB | 2026-11-17 11:49 UTC |
 | [`veo31_flow_prompt_best_practices_r82.md`](./03_Research/veo31_flow_prompt_best_practices_r82.md) | 최신 Google Flow / Veo 3.1 영상 생성 프롬프트 베스트 프랙티스 & 파이프라인 4대 문법 이식 설계서 | 9.8 KB | 2026-11-17 10:11 UTC |
 | [`ep10_11_12_r82_upgrade_blueprint.md`](./03_Research/ep10_11_12_r82_upgrade_blueprint.md) | `Ep #10 · #11 · #12` `Rule R82` 심층 문제점 진단 및 리메이크 설계서 | 21.9 KB | 2026-11-17 10:11 UTC |
 | [`ricks_clips_character_motion_lexicon.md`](./03_Research/ricks_clips_character_motion_lexicon.md) | 2.5D 일반 캐릭터 모션 & 표정 표준 사전 (`expressive_25d_v8`) | 20.2 KB | 2026-11-15 01:14 UTC |
-| [`r77n_narration_teardown_and_capgras_scripts.md`](./03_Research/r77n_narration_teardown_and_capgras_scripts.md) | `TRUkQ1wbV2E` 나레이션 포렌식 분석, `Rule R77-N` 개정안 & 3D 뇌-전용·전체 대본 리라이트 (`Ep #8 Capgras`) | 26.5 KB | 2026-11-14 00:16 UTC |
-| [`us_neuro_psychology_narration_report.md`](./03_Research/us_neuro_psychology_narration_report.md) | 미국 6대 공신력 뇌과학·심리학 채널 나레이션 정량 해부 보고서 (`n = 160` Videos) | 46.5 KB | 2026-11-12 01:39 UTC |
-| [`psychology_cat_full_teardown_report.md`](./03_Research/psychology_cat_full_teardown_report.md) | `@심리학고양이` (`UCaJkv4faBajjsDGq2YPJN0A`) 전방위 심층 벤치마크 해부 보고서 | 49.4 KB | 2026-11-11 17:18 UTC |
-| [`shinbihan_architecture_thumbnail_teardown.md`](./03_Research/shinbihan_architecture_thumbnail_teardown.md) | `'신비한 건축사전'` × `'@심리학고양이'` 썸네일 통합 포렌식 해부 및 `ALL ABOUT BRAIN (v8)` 이식·코드 감사 최종 보고서 | 41.5 KB | 2026-11-11 16:31 UTC |
-| [`ricksclips3000_shorts_report.md`](./03_Research/ricksclips3000_shorts_report.md) | `@RicksClips3000` (Ricks Clips) 쇼츠 성공 공식 심층 분석 보고서 | 15.1 KB | 2026-11-05 02:36 UTC |
-| [`psychtoonshq_videos_report.md`](./03_Research/psychtoonshq_videos_report.md) | `@PsychToonsHQ` (PsychToons) 성공 공식 심층 분석 보고서 | 19.3 KB | 2026-11-05 02:36 UTC |
-| [`heyhistorically_shorts_report.md`](./03_Research/heyhistorically_shorts_report.md) | `@HeyHistorically` (Historically) 쇼츠 성공 공식 심층 분석 보고서 | 14.9 KB | 2026-11-05 02:36 UTC |
 
-- **Embedded Media & Charts (128 files)**: `root` (24 files), [`heyhistorically_media/`](./03_Research/heyhistorically_media/) (4 files), [`psych_cat_media/`](./03_Research/psych_cat_media/) (44 files), [`psychtoons_media/`](./03_Research/psychtoons_media/) (10 files), [`ricksclips_media/`](./03_Research/ricksclips_media/) (5 files), [`thumb_benchmark_media/`](./03_Research/thumb_benchmark_media/) (41 files)
+- **Embedded Media & Charts (58 files)**: `root` (12 files), [`heyhistorically_media/`](./03_Research/heyhistorically_media/) (3 files), [`psych_cat_media/`](./03_Research/psych_cat_media/) (30 files), [`psychtoons_media/`](./03_Research/psychtoons_media/) (9 files), [`ricksclips_media/`](./03_Research/ricksclips_media/) (2 files), [`thumb_benchmark_media/`](./03_Research/thumb_benchmark_media/) (2 files)
 
-## `04_Daily_Report`
+## `04_Daily_Report` (`e3210c73-cc41-4432-87b1-c158efe9cadb`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
+| [`youtube_video_detail_report_2026_11_22.md`](./04_Daily_Report/youtube_video_detail_report_2026_11_22.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-22) | 57.6 KB | 2026-11-22 07:08 UTC |
+| [`youtube_daily_report_2026_11_22.md`](./04_Daily_Report/youtube_daily_report_2026_11_22.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-22) | 10.6 KB | 2026-11-22 07:08 UTC |
 | [`youtube_video_detail_report_2026_11_21.md`](./04_Daily_Report/youtube_video_detail_report_2026_11_21.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-21) | 55.3 KB | 2026-11-21 10:11 UTC |
 | [`youtube_daily_report_2026_11_21.md`](./04_Daily_Report/youtube_daily_report_2026_11_21.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-21) | 10.2 KB | 2026-11-21 10:11 UTC |
 | [`youtube_video_detail_report_2026_11_20.md`](./04_Daily_Report/youtube_video_detail_report_2026_11_20.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-20) | 53.1 KB | 2026-11-20 07:08 UTC |
@@ -321,22 +234,19 @@
 | [`youtube_daily_report_2026_10_24.md`](./04_Daily_Report/youtube_daily_report_2026_10_24.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-24) | 7.3 KB | 2026-10-24 11:28 UTC |
 | [`youtube_daily_report_2026_10_23.md`](./04_Daily_Report/youtube_daily_report_2026_10_23.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-23) | 6.1 KB | 2026-10-23 07:02 UTC |
 
-- **Embedded Media & Charts (175 files)**: `root` (175 files)
+- **Embedded Media & Charts (181 files)**: `root` (181 files)
 
-## `04_Deep_Research` (@Deep_Research — `8c666be9-5bad-43d9-b91a-e7ba2b936c62`)
-> Deep Research & Strategy VP: deep external multi-source research, competitor/viral-format teardowns, YouTube/IG/TikTok algorithm & policy analysis, prompt-engineering & tool reverse-engineering, and long-horizon neuroscience literature deep dives
+## `04_Deep_Research` (`8c666be9-5bad-43d9-b91a-e7ba2b936c62`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
-| [`deep_research_archival_video_split_sync_report.md`](./04_Deep_Research/deep_research_archival_video_split_sync_report.md) | Archival & Supplementary Experiment Video Policy (`R89` Split-Sync Architecture) | 26.3 KB | 2026-11-22 01:01 UTC |
-| [`deep_research_banner_benchmark_report.md`](./04_Deep_Research/deep_research_banner_benchmark_report.md) | YouTube Channel Banner Global Benchmark & Redesign Architecture (`ALL ABOUT BRAIN`) | 18.1 KB | 2026-11-21 22:41 UTC |
+| [`deep_research_banner_benchmark_report.md`](./04_Deep_Research/deep_research_banner_benchmark_report.md) | YouTube Channel Banner Global Benchmark & Redesign Architecture (`ALL ABOUT BRAIN`) | 18.1 KB | 2026-11-24 11:32 UTC |
+| [`deep_research_archival_video_split_sync_report.md`](./04_Deep_Research/deep_research_archival_video_split_sync_report.md) | Archival & Supplementary Experiment Video Policy (`R89` Split-Sync Architecture) | 26.3 KB | 2026-11-24 11:32 UTC |
 | [`deep_research_real_experiment_photos_policy_report.md`](./04_Deep_Research/deep_research_real_experiment_photos_policy_report.md) | `@Deep_Research` 규정·저작권·수익화 심층 검증 리포트: 실제 실험·장치·아카이브 사진의 본편 직접 삽입 가능 범위 및 내부 파이프라인 개정 청사진 | 21.5 KB | 2026-11-21 18:02 UTC |
 | [`deep_research_agent_and_pipeline_token_optimization_report.md`](./04_Deep_Research/deep_research_agent_and_pipeline_token_optimization_report.md) | `@Deep_Research` 심층 리포트: 에이전트 아키텍처 & 5-Gear 제작 파이프라인 토큰 최적화 마스터 블루프린트 | 32.1 KB | 2026-11-21 16:53 UTC |
 | [`deep_research_miro_inkbeat_semantic_id_report.md`](./04_Deep_Research/deep_research_miro_inkbeat_semantic_id_report.md) | `@Deep_Research` 심층 분석 리포트: `mr miro` (`WTqUoZt4k8g` + `inkbeat-shorts.zip`), Google `Sema`... | 42.5 KB | 2026-11-21 16:39 UTC |
 
-- **Embedded Media & Charts (4 files)**: `root` (4 files)
-
-## `04_Headquarters`
+## `04_Headquarters` (`8c7f8d97-664d-4d6b-9ef8-b17e721354f9`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
@@ -350,109 +260,21 @@
 | [`implementation_plan.md`](./04_Headquarters/implementation_plan.md) | ALL ABOUT BRAIN 통합 파이프라인 마스터 업데이트 계획서 (`/plan`) | 40.8 KB | 2026-11-02 19:02 UTC |
 | [`us_youtube_success_master_plan.md`](./04_Headquarters/us_youtube_success_master_plan.md) | 🇺🇸 ALL ABOUT BRAIN 미국 시장 성공 공식 마스터 플랜 (HQ 통합본) | 13.7 KB | 2026-11-02 18:29 UTC |
 
-- **Embedded Media & Charts (20 files)**: `root` (20 files)
+- **Embedded Media & Charts (18 files)**: `root` (18 files)
 
-## `04_Operator`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`walkthrough.md`](./04_Operator/walkthrough.md) | `@Operator` 마스터 실행 완료 보고서 — `Rule R74-B × R71-B` 파이프라인 구축 & 정통 뇌과학 플래그십 `Ep #8` (`_p05nIlU`... | 9.7 KB | 2026-11-13 18:32 UTC |
-| [`task.md`](./04_Operator/task.md) | `@Operator` 실행 보드 — `@YouTube_CEO` 승인 지시사항 전수 이행 | 17.2 KB | 2026-11-13 18:32 UTC |
-
-- **Embedded Media & Charts (38 files)**: `root` (38 files)
-
-## `05_Channel_Art`
+## `05_Channel_Art` (`3c2fa53b-b43c-4f67-9dfd-0e5c86581f67`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
 | [`channel_art_v8_renewal_report.md`](./05_Channel_Art/channel_art_v8_renewal_report.md) | `@AllAboutBrainOfficial` 공식 채널 아트 리뉴얼 (`vinyl_toon_25d_v8`) | 8.7 KB | 2026-11-05 16:30 UTC |
 
-- **Embedded Media & Charts (8 files)**: `root` (8 files)
+- **Embedded Media & Charts (7 files)**: `root` (7 files)
 
-## `05_Daily_Report` (@Daily_Report — `e3210c73-cc41-4432-87b1-c158efe9cadb`)
-> Daily 07:00 UTC YouTube Studio read-only KPI funnel & traffic-light growth report + PNG chart generator
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`youtube_video_detail_report_2026_11_22.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_22.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-22) | 57.6 KB | 2026-11-22 07:08 UTC |
-| [`youtube_daily_report_2026_11_22.md`](./05_Daily_Report/youtube_daily_report_2026_11_22.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-22) | 10.6 KB | 2026-11-22 07:08 UTC |
-| [`youtube_video_detail_report_2026_11_21.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_21.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-21) | 55.3 KB | 2026-11-21 10:11 UTC |
-| [`youtube_daily_report_2026_11_21.md`](./05_Daily_Report/youtube_daily_report_2026_11_21.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-21) | 10.2 KB | 2026-11-21 10:11 UTC |
-| [`youtube_video_detail_report_2026_11_20.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_20.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-20) | 53.1 KB | 2026-11-20 07:08 UTC |
-| [`youtube_daily_report_2026_11_20.md`](./05_Daily_Report/youtube_daily_report_2026_11_20.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-20) | 10.1 KB | 2026-11-20 07:08 UTC |
-| [`youtube_video_detail_report_2026_11_19.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_19.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-19) | 50.6 KB | 2026-11-19 07:07 UTC |
-| [`youtube_daily_report_2026_11_19.md`](./05_Daily_Report/youtube_daily_report_2026_11_19.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-19) | 10.6 KB | 2026-11-19 07:07 UTC |
-| [`youtube_daily_report_2026_11_18.md`](./05_Daily_Report/youtube_daily_report_2026_11_18.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-18) | 10.4 KB | 2026-11-18 08:13 UTC |
-| [`youtube_video_detail_report_2026_11_18.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_18.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-18) | 50.6 KB | 2026-11-18 08:08 UTC |
-| [`youtube_video_detail_report_2026_11_17.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_17.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-17) | 50.6 KB | 2026-11-17 07:08 UTC |
-| [`youtube_daily_report_2026_11_17.md`](./05_Daily_Report/youtube_daily_report_2026_11_17.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-17) | 9.7 KB | 2026-11-17 07:08 UTC |
-| [`youtube_video_detail_report_2026_11_16.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_16.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-16) | 48.2 KB | 2026-11-16 07:53 UTC |
-| [`youtube_daily_report_2026_11_16.md`](./05_Daily_Report/youtube_daily_report_2026_11_16.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-16) | 9.5 KB | 2026-11-16 07:53 UTC |
-| [`youtube_video_detail_report_2026_11_15.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_15.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-15) | 38.0 KB | 2026-11-15 07:07 UTC |
-| [`youtube_daily_report_2026_11_15.md`](./05_Daily_Report/youtube_daily_report_2026_11_15.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-15) | 8.9 KB | 2026-11-15 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_14.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_14.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-14) | 30.1 KB | 2026-11-14 07:06 UTC |
-| [`youtube_daily_report_2026_11_14.md`](./05_Daily_Report/youtube_daily_report_2026_11_14.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-14) | 8.4 KB | 2026-11-14 07:06 UTC |
-| [`youtube_video_detail_report_2026_11_13.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_13.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-13) | 30.1 KB | 2026-11-13 07:08 UTC |
-| [`youtube_daily_report_2026_11_13.md`](./05_Daily_Report/youtube_daily_report_2026_11_13.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-13) | 8.5 KB | 2026-11-13 07:08 UTC |
-| [`youtube_video_detail_report_2026_11_12.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_12.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-12) | 34.2 KB | 2026-11-12 07:12 UTC |
-| [`youtube_daily_report_2026_11_12.md`](./05_Daily_Report/youtube_daily_report_2026_11_12.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-12) | 8.5 KB | 2026-11-12 07:11 UTC |
-| [`youtube_video_detail_report_2026_11_11.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_11.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-11) | 35.2 KB | 2026-11-11 07:07 UTC |
-| [`youtube_daily_report_2026_11_11.md`](./05_Daily_Report/youtube_daily_report_2026_11_11.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-11) | 8.5 KB | 2026-11-11 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_10.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_10.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-10) | 35.2 KB | 2026-11-10 07:07 UTC |
-| [`youtube_daily_report_2026_11_10.md`](./05_Daily_Report/youtube_daily_report_2026_11_10.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-10) | 8.5 KB | 2026-11-10 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_09.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_09.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-09) | 32.8 KB | 2026-11-09 07:06 UTC |
-| [`youtube_daily_report_2026_11_09.md`](./05_Daily_Report/youtube_daily_report_2026_11_09.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-09) | 8.4 KB | 2026-11-09 07:06 UTC |
-| [`youtube_video_detail_report_2026_11_07.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_07.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-07) | 32.8 KB | 2026-11-07 07:07 UTC |
-| [`youtube_daily_report_2026_11_07.md`](./05_Daily_Report/youtube_daily_report_2026_11_07.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-07) | 8.4 KB | 2026-11-07 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_06.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_06.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-06) | 32.8 KB | 2026-11-06 07:06 UTC |
-| [`youtube_daily_report_2026_11_06.md`](./05_Daily_Report/youtube_daily_report_2026_11_06.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-06) | 8.4 KB | 2026-11-06 07:06 UTC |
-| [`youtube_video_detail_report_2026_11_05.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_05.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-05) | 32.0 KB | 2026-11-05 07:07 UTC |
-| [`youtube_daily_report_2026_11_05.md`](./05_Daily_Report/youtube_daily_report_2026_11_05.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-05) | 8.5 KB | 2026-11-05 07:07 UTC |
-| [`youtube_video_detail_report_2026_11_04.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_04.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-04) | 25.1 KB | 2026-11-04 07:05 UTC |
-| [`youtube_daily_report_2026_11_04.md`](./05_Daily_Report/youtube_daily_report_2026_11_04.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-04) | 7.9 KB | 2026-11-04 07:05 UTC |
-| [`youtube_video_detail_report_2026_11_03.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_03.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-03) | 25.2 KB | 2026-11-03 07:05 UTC |
-| [`youtube_daily_report_2026_11_03.md`](./05_Daily_Report/youtube_daily_report_2026_11_03.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-03) | 7.9 KB | 2026-11-03 07:05 UTC |
-| [`youtube_video_detail_report_2026_11_02.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_02.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-02) | 25.3 KB | 2026-11-02 07:10 UTC |
-| [`youtube_daily_report_2026_11_02.md`](./05_Daily_Report/youtube_daily_report_2026_11_02.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-02) | 8.0 KB | 2026-11-02 07:09 UTC |
-| [`youtube_video_detail_report_2026_11_01.md`](./05_Daily_Report/youtube_video_detail_report_2026_11_01.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-11-01) | 22.6 KB | 2026-11-01 07:06 UTC |
-| [`youtube_daily_report_2026_11_01.md`](./05_Daily_Report/youtube_daily_report_2026_11_01.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-11-01) | 7.8 KB | 2026-11-01 07:06 UTC |
-| [`youtube_video_detail_report_2026_10_31.md`](./05_Daily_Report/youtube_video_detail_report_2026_10_31.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-31) | 20.3 KB | 2026-10-31 07:11 UTC |
-| [`youtube_daily_report_2026_10_31.md`](./05_Daily_Report/youtube_daily_report_2026_10_31.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-31) | 7.8 KB | 2026-10-31 07:11 UTC |
-| [`youtube_video_detail_report_2026_10_30.md`](./05_Daily_Report/youtube_video_detail_report_2026_10_30.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-30) | 19.2 KB | 2026-10-30 07:06 UTC |
-| [`youtube_daily_report_2026_10_30.md`](./05_Daily_Report/youtube_daily_report_2026_10_30.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-30) | 7.7 KB | 2026-10-30 07:06 UTC |
-| [`youtube_video_detail_report_2026_10_29.md`](./05_Daily_Report/youtube_video_detail_report_2026_10_29.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-29) | 16.4 KB | 2026-10-29 07:06 UTC |
-| [`youtube_daily_report_2026_10_29.md`](./05_Daily_Report/youtube_daily_report_2026_10_29.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-29) | 7.9 KB | 2026-10-29 07:06 UTC |
-| [`youtube_video_detail_report_2026_10_28.md`](./05_Daily_Report/youtube_video_detail_report_2026_10_28.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-28) | 16.3 KB | 2026-10-28 07:14 UTC |
-| [`youtube_daily_report_2026_10_28.md`](./05_Daily_Report/youtube_daily_report_2026_10_28.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-28) | 7.9 KB | 2026-10-28 07:14 UTC |
-| [`youtube_video_detail_report_2026_10_27.md`](./05_Daily_Report/youtube_video_detail_report_2026_10_27.md) | 🎬 ALL ABOUT BRAIN — 개별 영상 세부 보고서 (2026-10-27) | 16.4 KB | 2026-10-27 13:48 UTC |
-| [`youtube_daily_report_2026_10_27.md`](./05_Daily_Report/youtube_daily_report_2026_10_27.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-27) | 7.8 KB | 2026-10-27 07:03 UTC |
-| [`youtube_daily_report_2026_10_26.md`](./05_Daily_Report/youtube_daily_report_2026_10_26.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-26) | 7.7 KB | 2026-10-26 07:02 UTC |
-| [`youtube_daily_report_2026_10_25.md`](./05_Daily_Report/youtube_daily_report_2026_10_25.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-25) | 7.0 KB | 2026-10-25 07:09 UTC |
-| [`youtube_daily_report_2026_10_24.md`](./05_Daily_Report/youtube_daily_report_2026_10_24.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-24) | 7.3 KB | 2026-10-24 11:28 UTC |
-| [`youtube_daily_report_2026_10_23.md`](./05_Daily_Report/youtube_daily_report_2026_10_23.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-23) | 6.1 KB | 2026-10-23 07:02 UTC |
-
-- **Embedded Media & Charts (181 files)**: `root` (181 files)
-
-## `05_Headquarters`
+## `05_QA_Scheduler` (`ef8185bb-5afd-4859-b697-2fe07f1ecf1c`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
-| [`walkthrough.md`](./05_Headquarters/walkthrough.md) | ALL ABOUT BRAIN 마스터 파이프라인 업그레이드 & 1호 재현 테스트 영상 완결 보고서 (`Walkthrough`) | 23.2 KB | 2026-11-04 12:46 UTC |
-| [`shorts_takedown_30ep_daily_plan.md`](./05_Headquarters/shorts_takedown_30ep_daily_plan.md) | 예약 영상(`19편`) 전수 내리기 · `reenact_01` 동일 퀄리티 하드락 · `30편` 생성 및 `하루 1개` 쇼츠 마스터 플랜 | 22.1 KB | 2026-11-04 03:57 UTC |
-| [`standalone_longform_pipeline_plan.md`](./05_Headquarters/standalone_longform_pipeline_plan.md) | 독립 `16:9` (`1920x1080` 1080p) 롱폼 파이프라인 & 1호 테스트 영상(`수면`) 구현 명세서 | 7.7 KB | 2026-11-04 01:54 UTC |
-| [`shorts_to_longform_audit_and_roadmap.md`](./05_Headquarters/shorts_to_longform_audit_and_roadmap.md) | 📺 `ALL ABOUT BRAIN` 쇼츠 → 롱폼(`16:9`) 전환 흔적 전수 감사 보고서 | 6.7 KB | 2026-11-03 23:55 UTC |
-| [`comment_debate_paradigm_strategy.md`](./05_Headquarters/comment_debate_paradigm_strategy.md) | 💬 `ALL ABOUT BRAIN` 댓글창 폭발 패러다임 전환 전략서 | 11.1 KB | 2026-11-03 23:24 UTC |
-| [`research_and_reenactment_bridge_plan.md`](./05_Headquarters/research_and_reenactment_bridge_plan.md) | 리서치 원본 영상 선별 & Dual-Track(`R67` / `R66-Anchor`) 자동 레퍼런스 연결 구현 계획서 | 24.2 KB | 2026-11-03 21:29 UTC |
-| [`pacing_and_continuity_upgrade_plan.md`](./05_Headquarters/pacing_and_continuity_upgrade_plan.md) | 장면 전환 호흡 · 핵심 장면 밀도 · 공간 연속성 파이프라인 개선 계획서 (`/plan`) | 21.4 KB | 2026-11-03 08:34 UTC |
-| [`implementation_plan.md`](./05_Headquarters/implementation_plan.md) | ALL ABOUT BRAIN 통합 파이프라인 마스터 업데이트 계획서 (`/plan`) | 40.8 KB | 2026-11-02 19:02 UTC |
-| [`us_youtube_success_master_plan.md`](./05_Headquarters/us_youtube_success_master_plan.md) | 🇺🇸 ALL ABOUT BRAIN 미국 시장 성공 공식 마스터 플랜 (HQ 통합본) | 13.7 KB | 2026-11-02 18:29 UTC |
-
-- **Embedded Media & Charts (20 files)**: `root` (20 files)
-
-## `05_QA_Scheduler`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
+| [`qa_schedule_plan_2026-11-22.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-22.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-22) | 11.8 KB | 2026-11-22 08:00 UTC |
 | [`qa_schedule_plan_2026-11-21.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-21.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-21) | 12.8 KB | 2026-11-21 10:18 UTC |
 | [`qa_schedule_plan_2026-11-20.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-20.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-20) | 10.9 KB | 2026-11-20 08:05 UTC |
 | [`qa_schedule_plan_2026-11-19.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-19.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-19) | 10.4 KB | 2026-11-19 22:26 UTC |
@@ -461,31 +283,6 @@
 | [`qa_schedule_plan_2026-11-16.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-16.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-16) | 10.6 KB | 2026-11-16 08:01 UTC |
 | [`qa_schedule_plan_2026-11-15.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-15.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-15) | 10.5 KB | 2026-11-15 08:01 UTC |
 | [`qa_schedule_plan_2026-11-14.md`](./05_QA_Scheduler/qa_schedule_plan_2026-11-14.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & Execution Plan (2026-11-14) | 4.4 KB | 2026-11-14 10:10 UTC |
-
-- **Embedded Media & Charts (3 files)**: `root` (3 files)
-
-## `06_Channel_Art`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`channel_art_v8_renewal_report.md`](./06_Channel_Art/channel_art_v8_renewal_report.md) | `@AllAboutBrainOfficial` 공식 채널 아트 리뉴얼 (`vinyl_toon_25d_v8`) | 8.7 KB | 2026-11-05 16:30 UTC |
-
-- **Embedded Media & Charts (8 files)**: `root` (8 files)
-
-## `06_QA_Scheduler` (@QA_Scheduler — `ef8185bb-5afd-4859-b697-2fe07f1ecf1c`)
-> Daily 08:00 UTC cross-platform QA gatekeeper & Gear 5 Studio/IG/TikTok publishing scheduler
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`qa_schedule_plan_2026-11-22.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-22.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-22) | 11.8 KB | 2026-11-22 08:00 UTC |
-| [`qa_schedule_plan_2026-11-21.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-21.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-21) | 12.8 KB | 2026-11-21 10:18 UTC |
-| [`qa_schedule_plan_2026-11-20.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-20.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-20) | 10.9 KB | 2026-11-20 08:05 UTC |
-| [`qa_schedule_plan_2026-11-19.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-19.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-19) | 10.4 KB | 2026-11-19 22:26 UTC |
-| [`qa_schedule_plan_2026-11-18.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-18.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-18) | 15.1 KB | 2026-11-18 08:14 UTC |
-| [`qa_schedule_plan_2026-11-17.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-17.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-17) | 12.4 KB | 2026-11-17 08:01 UTC |
-| [`qa_schedule_plan_2026-11-16.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-16.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-16) | 10.6 KB | 2026-11-16 08:01 UTC |
-| [`qa_schedule_plan_2026-11-15.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-15.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-15) | 10.5 KB | 2026-11-15 08:01 UTC |
-| [`qa_schedule_plan_2026-11-14.md`](./06_QA_Scheduler/qa_schedule_plan_2026-11-14.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & Execution Plan (2026-11-14) | 4.4 KB | 2026-11-14 10:10 UTC |
 
 - **Embedded Media & Charts (15 files)**: `root` (15 files)
 
@@ -497,78 +294,25 @@
 
 - **Embedded Media & Charts (5 files)**: `root` (5 files)
 
-## `06_Topic_Radar`
+## `06_Topic_Radar` (`0ffee83a-d9de-4520-a177-7d3b57dc01dc`)
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
+| [`ep14_r89_pilot_candidates.md`](./06_Topic_Radar/ep14_r89_pilot_candidates.md) | `Ep #14` `R89` Supplementary-Video Pilot Candidates (`CC BY 4.0` · `0-Face` Pixel-Audited) | 17.3 KB | 2026-11-22 14:26 UTC |
 | [`weekly_topic_radar_refresh_2026_11_16.md`](./06_Topic_Radar/weekly_topic_radar_refresh_2026_11_16.md) | Weekly Topic Radar Report (`2026-11-16` · Monday `09:30 UTC` Cron Iteration #1) | 5.6 KB | 2026-11-16 10:03 UTC |
-
-## `07_QA_Scheduler`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`qa_schedule_plan_2026-11-16.md`](./07_QA_Scheduler/qa_schedule_plan_2026-11-16.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-16) | 10.6 KB | 2026-11-16 08:01 UTC |
-| [`qa_schedule_plan_2026-11-15.md`](./07_QA_Scheduler/qa_schedule_plan_2026-11-15.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & 5-Asset Execution Plan (2026-11-15) | 10.5 KB | 2026-11-15 08:01 UTC |
-| [`qa_schedule_plan_2026-11-14.md`](./07_QA_Scheduler/qa_schedule_plan_2026-11-14.md) | 🗓️ ALL ABOUT BRAIN — Multi-Platform QA Schedule & Execution Plan (2026-11-14) | 4.4 KB | 2026-11-14 10:10 UTC |
-
-- **Embedded Media & Charts (3 files)**: `root` (3 files)
-
-## `07_Report_Redesign`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`youtube_daily_report_2026_10_22.md`](./07_Report_Redesign/youtube_daily_report_2026_10_22.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-22) | 5.9 KB | 2026-10-22 20:09 UTC |
-
-- **Embedded Media & Charts (5 files)**: `root` (5 files)
-
-## `07_Topic_Radar` (@Topic_Radar — `0ffee83a-d9de-4520-a177-7d3b57dc01dc`)
-> Weekly Monday 09:30 UTC rolling topic discovery & Gear 1 Schema v2 dossier queue chief (30-35 Golden Buffer)
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`ep14_r89_pilot_candidates.md`](./07_Topic_Radar/ep14_r89_pilot_candidates.md) | `Ep #14` `R89` Supplementary-Video Pilot Candidates (`CC BY 4.0` · `0-Face` Pixel-Audited) | 17.3 KB | 2026-11-22 14:26 UTC |
-| [`weekly_topic_radar_refresh_2026_11_16.md`](./07_Topic_Radar/weekly_topic_radar_refresh_2026_11_16.md) | Weekly Topic Radar Report (`2026-11-16` · Monday `09:30 UTC` Cron Iteration #1) | 5.6 KB | 2026-11-16 10:03 UTC |
-
-## `08_Report_Redesign`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`youtube_daily_report_2026_10_22.md`](./08_Report_Redesign/youtube_daily_report_2026_10_22.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-22) | 5.9 KB | 2026-10-22 20:09 UTC |
-
-- **Embedded Media & Charts (5 files)**: `root` (5 files)
-
-## `08_Topic_Radar`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`weekly_topic_radar_refresh_2026_11_16.md`](./08_Topic_Radar/weekly_topic_radar_refresh_2026_11_16.md) | Weekly Topic Radar Report (`2026-11-16` · Monday `09:30 UTC` Cron Iteration #1) | 5.6 KB | 2026-11-16 10:03 UTC |
-
-## `09_Report_Redesign`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`youtube_daily_report_2026_10_22.md`](./09_Report_Redesign/youtube_daily_report_2026_10_22.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-22) | 5.9 KB | 2026-10-22 20:09 UTC |
-
-- **Embedded Media & Charts (5 files)**: `root` (5 files)
 
 ## `conv_3aa5c914`
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
-| [`_73R9pQF5oM_motion_and_transition_report.md`](./conv_3aa5c914/_73R9pQF5oM_motion_and_transition_report.md) | `_73R9pQF5oM` (신비한 건축사전) 장면 무빙 · 장면 전환 전수 추출 보고서 | 19.3 KB | 2026-11-09 22:55 UTC |
+| [`_73R9pQF5oM_motion_and_transition_report.md`](./conv_3aa5c914/_73R9pQF5oM_motion_and_transition_report.md) | `_73R9pQF5oM` (신비한 건축사전) 장면 무빙 · 장면 전환 전수 추출 보고서 | 19.4 KB | 2026-11-24 11:32 UTC |
 
-- **Embedded Media & Charts (4 files)**: `root` (1 files), [`media/`](./conv_3aa5c914/media/) (3 files)
-
-## `conv_8a60150d`
-
-| Report / Artifact | Heading | Size | Last Modified |
-|---|---|---:|---|
-| [`youtube_daily_report_2026_10_22.md`](./conv_8a60150d/youtube_daily_report_2026_10_22.md) | 🚦 ALL ABOUT BRAIN — Daily Growth Report (2026-10-22) | 5.9 KB | 2026-10-22 20:09 UTC |
-
-- **Embedded Media & Charts (5 files)**: `root` (5 files)
+- **Embedded Media & Charts (1 files)**: `root` (1 files)
 
 ## `conv_f1bedda0`
 
 | Report / Artifact | Heading | Size | Last Modified |
 |---|---|---:|---|
-| [`implementation_plan.md`](./conv_f1bedda0/implementation_plan.md) | `07_Youtube` 전체 슬림화 · QA 통폐합 · 토큰 누수 차단 마스터 계획 (검증 완료판) | 30.8 KB | 2026-11-23 22:57 UTC |
+| [`wave2_full_optimization_plan.md`](./conv_f1bedda0/wave2_full_optimization_plan.md) | `07_Youtube` Wave 2 전 폴더·전 파일 전수 감사 및 통합 최적화 계획 | 24.8 KB | 2026-11-24 08:47 UTC |
+| [`walkthrough.md`](./conv_f1bedda0/walkthrough.md) | `07_Youtube` 전체 최적화 · 리네이밍 · 토큰 누수 차단 완료 보고서 (Walkthrough) | 11.4 KB | 2026-11-24 06:29 UTC |
+| [`implementation_plan.md`](./conv_f1bedda0/implementation_plan.md) | `07_Youtube` 전체 슬림화 · QA 통폐합 · 토큰 누수 차단 마스터 계획 (검증 완료판) | 30.9 KB | 2026-11-23 22:58 UTC |

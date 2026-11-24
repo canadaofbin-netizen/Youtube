@@ -6,7 +6,7 @@ Master Parity & Implementation Tests (`Track 3` + Bible/Docs Parity):
   - P1-6: Intra-cut 4x3 (64x36) 1-frame luma flicker detector + planned fast move exemption
   - Tier A-1: CLI --summary flag & `main.py qa-summary` <= 2000B digest
   - Tier S-3: Coarse 1536x1536 (4x3) & fine <=384x384 VLM triage sheets
-  - Track 2 Parity: `scripts/build_locked_assets_bible.py --check`, docs, golden sheet, 99 canonical slots,
+  - Track 2 Parity: `scripts/verify_assets_bible.py --check`, docs, golden sheet, 99 canonical slots,
     4 Ep #31 originals, 15 sheets, 4 fonts, 2 BGMs, and 6 KB JSON registries.
 """
 
@@ -93,7 +93,7 @@ def test_p0_2_selective_color_and_act_lighting_arc() -> None:
         SceneDepictionRule,
         resolve_act_lighting_hint,
     )
-    from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
+    from pipeline.reference_pack import populate_expressive_v8_reference_contract
 
     expected_clause = "warm muted low-saturation architectural backdrop isolating the vivid full-color hero prop"
     assert SELECTIVE_COLOR_BACKDROP_CLAUSE == expected_clause
@@ -175,7 +175,7 @@ def test_p1_4_hero_low_angle_and_alternating_camera_moves() -> None:
         EXPRESSIVE_V8_SUPPLEMENTAL_CAMERA_DESCRIPTORS,
         resolve_alternating_camera_move,
     )
-    from pipeline.flow_prompt_builder import build_expressive_v8_prompts, validate_expressive_v8_prompts
+    from pipeline.prompt_builder import build_expressive_v8_prompts, validate_expressive_v8_prompts
 
     expected_desc = "Subtle upward low-angle hero framing (~40% frame fill) with smooth disembodied push-in."
     assert EXPRESSIVE_V8_COMPACT_CAMERA_DESCRIPTORS["hero_low_angle"] == expected_desc
@@ -231,7 +231,7 @@ def test_p1_4_hero_low_angle_and_alternating_camera_moves() -> None:
 
 
 def test_p1_6_intracut_luma_flicker_detector() -> None:
-    from pipeline.posthoc_semantic_qa import detect_intracut_grid_luma_flicker
+    from pipeline.posthoc_qa import detect_intracut_grid_luma_flicker
 
     # 1. Smooth slowly drifting gradient frames -> 0 flicker spikes
     smooth_frames = [
@@ -366,7 +366,7 @@ def test_tier_a1_compact_qa_digest_and_cli_qa_summary(tmp_path: Path) -> None:
 
 
 def test_tier_s3_vlm_triage_sheets_and_fine_crops(tmp_path: Path) -> None:
-    from scripts.render_vlm_triage_sheets import (
+    from scripts.render_qa_sheets import (
         render_coarse_triage_sheets,
         render_fine_suspect_crops,
     )
@@ -408,7 +408,7 @@ def test_tier_s3_vlm_triage_sheets_and_fine_crops(tmp_path: Path) -> None:
             sys.executable,
             "-X",
             "utf8",
-            "scripts/render_vlm_triage_sheets.py",
+            "scripts/render_qa_sheets.py",
             "--files",
             *[str(p) for p in img_paths[:4]],
             "--suspects",
@@ -434,12 +434,12 @@ def test_tier_s3_vlm_triage_sheets_and_fine_crops(tmp_path: Path) -> None:
 
 
 def test_master_docs_and_assets_bible_parity() -> None:
-    bible_script = WORKSPACE_ROOT / "scripts" / "build_locked_assets_bible.py"
+    bible_script = WORKSPACE_ROOT / "scripts" / "verify_assets_bible.py"
     bible_md = WORKSPACE_ROOT / "docs" / "LOCKED_ASSETS_AND_REFERENCES_BIBLE.md"
     master_md = WORKSPACE_ROOT / "docs" / "ALL_ABOUT_BRAIN_MASTER_PIPELINE.md"
     golden_jpg = WORKSPACE_ROOT / "docs" / "assets_preview" / "ALL_ABOUT_BRAIN_GOLDEN_STYLE_SHEET.jpg"
 
-    assert bible_script.exists(), "Missing scripts/build_locked_assets_bible.py"
+    assert bible_script.exists(), "Missing scripts/verify_assets_bible.py"
     proc = subprocess.run(
         [sys.executable, "-X", "utf8", str(bible_script), "--check"],
         cwd=str(WORKSPACE_ROOT),
@@ -447,7 +447,7 @@ def test_master_docs_and_assets_bible_parity() -> None:
         text=True,
         check=False,
     )
-    assert proc.returncode == 0, f"build_locked_assets_bible.py --check failed:\n{proc.stdout}\n{proc.stderr}"
+    assert proc.returncode == 0, f"verify_assets_bible.py --check failed:\n{proc.stdout}\n{proc.stderr}"
     check_json = json.loads(proc.stdout)
     assert check_json.get("passed") is True
 

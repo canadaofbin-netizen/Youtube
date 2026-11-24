@@ -5,7 +5,7 @@ description: "Load when auditing, rendering, or QA-checking R89 Split-Sync or Vi
 
 # `R89` Archival & Supplementary Experiment Video (`Split-Sync` & `Viewfinder`)
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Constants: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Code: [`pipeline/archival_video_builder.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/archival_video_builder.py)
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Constants: [production_constants.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/production_constants.md) | Code: [`pipeline/archival_video.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/archival_video.py)
 
 ## 1. Zero-Fair-Use-Gambling 3-Tier Clearance (`audit_archival_video_eligibility`)
 - **Tier 1 (`direct_insert_pd_cc0`)**: Verified `17 U.S.C. § 105` **intramural** federal agency recordings (`NIH intramural`, `NIMH`, `DARPA`, `NASA`, `NARA` — NEVER NIH/DARPA university grant clips), `CC0 1.0`, or verified `<= 1930` silent PD films.

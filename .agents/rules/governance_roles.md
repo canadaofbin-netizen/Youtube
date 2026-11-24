@@ -1,25 +1,27 @@
 ---
 trigger: always_on
-description: "ALL ABOUT BRAIN 7-chatroom Domain VP & Ephemeral Subagent charter (R83 v2): single always_on SSOT for CEO judge/verify-only, 6 Domain VPs (G1-G5 & R83-8-V, 100% inherit), and compact Delta Receipts."
+description: "ALL ABOUT BRAIN Fresh-Room Single-Owner & Ephemeral Subagent Charter (R83 v3): 0k fresh chatroom per episode/task, clean ephemeral Vision Reviewer subagents for Gate 1/2 (zero image buildup in main context), CDP serial lock, and compact CLI discipline."
 ---
 
-# Governance & Roles (`R83 v2` — Single `always_on` SSOT)
+# Governance & Operating Architecture (`R83 v3` — `Fresh-Room` Single `always_on` SSOT)
 
-## 7 Web-UI Chatrooms (`0` `agy -p` | CEO `0` subagents | 6 VPs use ephemeral subagents per `R83-8`)
-| Room | conversation_id | VP Scope & Subagent Tier | Never |
-|---|---|---|---|
-| `@YouTube_CEO` | `b57c97a8-6324-4c31-a2bb-16b25e28dd55` | Group CEO: intent, plans, approve/reject + **read-only** Gate 3 verify | Edit code/assets, render/upload, sign cuts, spawn subagents |
-| `@Operator` | `1f9808d4-ebac-4b58-a570-45c8f1f00a85` | Eng & Prod VP: `pipeline/*.py`, Gears 2–4, root MP4 (`inherit` only) | One-off hacks, parallel CDP/writes, touch Public videos, `flash`/`flash_lite` |
-| `@Research` | `ffbdfca1-9c07-48b3-9b1e-3e3045d67c0c` | Quality & Vision VP: Gate 1/2, Canonical, Lock 4/5 (`12–15` img `inherit` shards max `3`) | `flash`/`flash_lite`, code edits, Flow renders, Studio |
-| `@Deep_Research` | `8c666be9-5bad-43d9-b91a-e7ba2b936c62` | Deep Research VP: external teardowns, algorithm/policy/prompt synthesis (`inherit` only) | `flash`/`flash_lite`, code edits, Flow renders, Studio, Gate 1/2 sign-off |
-| `@Daily_Report` | `e3210c73-cc41-4432-87b1-c158efe9cadb` | Analytics VP: `07:00 UTC` read-only KPI + `[RETENTION_REGRESSION_ALERT]` (VP serial; `inherit` only) | Any Studio mutation, `flash`/`flash_lite` |
-| `@QA_Scheduler` | `ef8185bb-5afd-4859-b697-2fe07f1ecf1c` | Dist VP: `08:00 UTC` `HOLD/GO` + Gear 5 upload (VP serial; `inherit` only) | Upload without CEO receipts, parallel browser uploads, `flash`/`flash_lite` |
-| `@Topic_Radar` | `0ffee83a-d9de-4520-a177-7d3b57dc01dc` | Discovery VP: Mon `09:30 UTC` DOI + Schema v2 (`inherit` only) | Unverified claims, renders, publishing, `flash`/`flash_lite` |
+## 1. `Fresh-Room` Single-Owner Model (`R83-1..4` — Replaces Retired 7-Room Routing)
+- **1 Task / 1 Episode = 1 Fresh Chatroom (`0k` Start)**: Start every episode production, code upgrade, or audit in a fresh conversation (`0k` context) and close on completion (`0` standing multi-day rooms, `0` `chatrooms.json`, `0` cross-room `send_message` ping-pong, `0` `agy -p`).
+- **Context Ceiling (`<= 120k`)**: Checkpoint state (`main.py ep status <id>`) and run `/compact` before reaching `120k` tokens.
+- **Zero-Token Daily Ops**: Run daily KPI/watchdog/schedule checks headlessly via OS `crontab` (`scripts/run_daily_ops_headless.sh` -> `studio-report`, `studio-watchdog`, `qa-scheduler`, `0` LLM tokens).
+- **Compact CLI First**: Default CLI QA outputs stay `<= 1.8 KB` (`--verbose-json` only when debugging). Use `main.py ep status <id>` and `main.py qa-summary --project <id>` instead of ad-hoc `python -c` state probes.
 
-Dispatch only via `send_message` (resolve via `scripts/chatroom_mention.py resolve`).
+## 2. Independent Visual Review (`Gate 1` & `Gate 2`) & Immutable Locks (`R83-5..7`)
+- **Zero Self-Signoff (`UNMANNED_QA_SIGNOFF_DEFAULT = False`)**: Main room auto-signoff and raw full-res PNG loading in main context are strictly banned.
+- **Clean Ephemeral Vision Subagent (`Gate 1` Refs & `Gate 2` Final Cuts)**:
+  1. Render `12-up` coarse sheets (`1536x1536` JPEG) + `<= 384px` suspect crops (`scripts/render_qa_sheets.py` / `posthoc-qa`).
+  2. Invoke ONE fresh `Independent Visual Reviewer (Gate 1/2)` subagent (`Model="inherit"`, zero prior history) with ONLY sheet/crop paths and beat map.
+  3. Record adversarial `Wrong / Exact Where / What Instead` + SHA-256 notes to `reference_semantic_review.json` / `posthoc_semantic_review.json`, then **immediately `kill` (`active=0`)** so `0` images remain in main context.
+- **Immutable Safety Locks**: Never mutate/delete `Public` YouTube videos (`24+` live) or `canonical_assets/` (`99` SHA-locked slots). Export completed MP4s to `07_Youtube/final_shorts_<project_id>.mp4` and verify local QA + release receipt before `studio-upload`.
 
-## `R83-5..8` Verification, Subagents & `Delta Receipt`
-- **R83-5 (CEO Read-Only)**: CEO reads code/logs, runs `pytest`, inspects `/tmp/` frames, replays QA, checks DOIs (sole write exception: CEO governance docs on explicit user request).
-- **R83-6 (Verify-Before-Relay)**: Independently verify every `[*_DONE]` with `PASS/REJECT` + evidence before relaying.
-- **R83-7 (`Delta Receipt <= 400 tok`)**: Every `[*_DONE]` reports concisely (`<= 400 tok` target): changed files+lines, exact command+counts, absolute artifact paths, defect/visual notes, and `subagents: <spawned>/<killed> (active=0)` (no evidence → auto-`REJECT`; full dumps stay on disk).
-- **R83-8 (`G1–G5` & `R83-8-V`)**: `G1` Max `1` CDP `9222` browser worker (serial via `cdp_tab_manager.py`); `G2` **`100%` `Model="inherit"` ONLY** across all 6 VP rooms (user chooses each room's model; `flash`/`flash_lite`/`pro` overrides banned); `G3` disjoint `fuse.rclone` writes; `G4` ephemeral (`0` daemon/cron, **`0` `manage_subagents(list)` polling loops** — wait reactively; **mandatory `manage_subagents(kill)`** immediately after verify, reporting `active=0`); `G5` concurrency cap **max `2` active `inherit` subagents/VP** (`@Research` read-only vision shards max `3`) to prevent `429` spikes; `R83-8-V` VP verifies own subagents BEFORE upstream relay. Never add QA exemptions; fix the source.
+## 3. Ephemeral Subagent Guardrails (`R83-8`: `G1–G5`)
+- **G1 (Serial Browser)**: Max `1` CDP `9222` worker via `cdp_tab_manager.py` (never close Tier-1 anchor tabs).
+- **G2 (Model Tiering)**: `Model="flash"` allowed for mechanical search/log/schema chores; `Model="inherit"` required for VLM Gate 1/2, scripts, and core architecture.
+- **G3 (Disjoint Writes)**: Parallel workers write to disjoint paths (`/dev/shm/aab_scratch` before atomic commit to `fuse.rclone`).
+- **G4 (Lifecycle)**: `0` daemons, `0` polling loops — wait reactively and `kill` immediately after verify (`active=0`).
+- **G5 (Cap)**: Max `2` concurrent `inherit` subagents (max `3` vision shards). Never add QA exemptions; fix `pipeline/*.py`.

@@ -52,7 +52,7 @@ from pipeline.studio.config import (
     STUDIO_TAB_RECYCLE_INTERVAL,
     YOUTUBE_WATCH_BASE_URL,
 )
-from pipeline.studio.whale_session import (
+from pipeline.studio.browser_session import (
     _DEEP_QUERY_HELPER_JS,
     DirectCDPClient,
     WhaleSessionController,

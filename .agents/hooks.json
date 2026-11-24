@@ -1,21 +1,9 @@
 {
   "artifact-auto-archive": {
-    "PostToolUse": [
-      {
-        "matcher": "write_file|edit_file|write_to_file|replace_file_content|multi_replace_file_content|file_write|code_action|file_change|write_blob|generate_image",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/canadaofbin/hermes-venv/bin/python -S -X utf8 /home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/sync_artifacts_archive.py --hook post-tool-use",
-            "timeout": 20
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "type": "command",
-        "command": "/home/canadaofbin/hermes-venv/bin/python -S -X utf8 /home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/sync_artifacts_archive.py --hook stop",
+        "command": "/home/canadaofbin/hermes-venv/bin/python -S -X utf8 /home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/sync_archive.py --hook stop",
         "timeout": 20
       }
     ]

@@ -16,56 +16,21 @@ from pipeline.config import (
     PRE_R66_FROZEN_PROJECT_PREFIXES,
     SHORTS_THUMB_MAX_BYTES,
 )
-from pipeline.prompt_quality_v5 import (
+from pipeline.prompt_gate import (
     _PRE_R65_ASSEMBLED_DOSSIERS,
     validate_takeaway_bridge_grammar,
 )
-from pipeline.prosody import evaluate_prosody_gates_on_audio
+from pipeline.prosody_qa import evaluate_prosody_gates_on_audio
 from pipeline.research_dossier import resolve_dossier_for_project
 from pipeline.studio.community import (
     _strip_emojis_and_bullets,
     validate_debate_pinned_comment_line1,
 )
 from pipeline.studio.config import SLOT_TIMETABLE
-from pipeline.studio.queue_manager import StagingQueueManager
-from pipeline.studio.studio_watchdog import scan_go_live_transitions
-from pipeline.studio.unschedule_retired_shorts import (
-    PROTECTED_PUBLIC_VIDEO_IDS,
-    RETIRED_LOWPOLY_SCHEDULED_WHITELIST,
-    _is_scheduled_visibility_label,
-    resolve_retired_projects,
-)
-from pipeline.studio.us_diorama_timetable import build_us_prime_timetable
-from pipeline.thumbnail_studio import _atomic_save_pil_png
+from pipeline.studio.watchdog import scan_go_live_transitions
+from pipeline.thumbnail import _atomic_save_pil_png
 
 
-def test_phase1_retired_whitelist_and_public_protection():
-    all_19 = resolve_retired_projects("diorama_08..26")
-    assert len(all_19) == 19
-    assert all_19[0] == ("diorama_08_maguire_london_taxi_hippocampus", "4jNxwVMMxQo")
-    assert all_19[-1] == ("diorama_26_clark_doll_experiment_bias", "whXcmzZygN8")
-
-    # Zero overlap with the 15 protected Public/frozen videos (R34 + R75 v8 Public protection)
-    whitelist_vids = {vid for _, vid in all_19}
-    assert whitelist_vids.isdisjoint(PROTECTED_PUBLIC_VIDEO_IDS)
-    assert len(PROTECTED_PUBLIC_VIDEO_IDS) == 15
-    assert {"soUNqH7UyKw", "7W8zIOMKPrQ"}.issubset(PROTECTED_PUBLIC_VIDEO_IDS)
-
-    for pub_tok in (
-        "diorama_01_hm_lab_B_dynamic",
-        "diorama_07_invisible_gorilla_attention",
-        "t8Z_Q8oB9MY",
-        "psych_01_habit_loop_basal_ganglia",
-        "reenact_01_ainsworth_strange_situation",
-    ):
-        with pytest.raises(ValueError, match="NOT in the 19-item retired Scheduled whitelist"):
-            resolve_retired_projects(pub_tok)
-
-    assert _is_scheduled_visibility_label("Scheduled") is True
-    assert _is_scheduled_visibility_label("예약됨") is True
-    assert _is_scheduled_visibility_label("Public") is False
-    assert _is_scheduled_visibility_label("공개") is False
-    assert _is_scheduled_visibility_label("") is False
 
 
 def test_phase1_watchdog_parses_scheduled_time_et_and_verifies_video_id_match(tmp_path: Path):
@@ -132,9 +97,9 @@ def test_phase2_global_emma_us_v7_defaults_and_unfrozen_08_26():
 
 
 def test_phase2_flow_worker_fail_closed_and_track_a_no_silent_fallback():
-    import pipeline.flow_diorama_sharded_worker as fw
-    import pipeline.porcelain_anchor_pack as pap
-    import pipeline.source_reenactment as sr
+    import pipeline.flow_worker as fw
+    import pipeline.reference_pack as pap
+    import pipeline.archival_media as sr
 
     fw_src = inspect.getsource(fw)
     assert "lite_supports_ref = False" not in fw_src
@@ -148,10 +113,10 @@ def test_phase2_flow_worker_fail_closed_and_track_a_no_silent_fallback():
 
 
 def test_phase2_voice_hard_lock_and_acoustic_p3_gear_tempo(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
-    import pipeline.elevenlabs_tts as el_mod
-    import pipeline.prosody as prosody_mod
-    import pipeline.voice_fallback as vf
-    from pipeline.elevenlabs_tts import ElevenLabsUnavailableError
+    import pipeline.tts as el_mod
+    import pipeline.prosody_qa as prosody_mod
+    import pipeline.audio_utils as vf
+    from pipeline.tts import ElevenLabsUnavailableError
 
     def _raise_el(*_a, **_kw):
         raise ElevenLabsUnavailableError("elevenlabs transient outage")
@@ -310,72 +275,22 @@ def test_phase2_explicit_slug_map_and_takeaway_bridge_grammar():
         assert validate_takeaway_bridge_grammar(good) == [], f"Unexpected grammar issue on: {good}"
 
 
-def test_phase3_one_short_per_day_1930_est_scheduler(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
-    assert SLOT_TIMETABLE[4]["time_et"] == "19:30"
-
-    qm = StagingQueueManager(projects_dir=tmp_path / "projects", queue_file=tmp_path / "queue.json")
-    mock_projects = [
-        {"project_id": f"diorama_{30 + i}_ep", "pillar": "brain_health", "title": f"Ep {i}", "recommended_slot": 4}
-        for i in range(5)
-    ]
-    monkeypatch.setattr(qm, "scan_ready_projects", lambda **kw: list(mock_projects))
-    plan = qm.plan_5_slot_schedule(days=5, start_date="2026-11-05")
-    items = plan["items"]
-    assert len(items) == 5
-    dates = [item["date"] for item in items]
-    assert len(set(dates)) == 5  # Strictly 1 Short per day!
-    assert all(item["slot_id"] == 4 and item["time_et"] == "19:30" for item in items)
-
-    # US prime timetable across 7 days (including Sunday) must schedule exactly 7 Shorts at 19:30 EST
-    # and NEVER spill a Short into Sunday's 09:30 EST longform_4k slot!
-    eps = [
-        {"project_id": f"diorama_{40 + i}_ep", "pillar": "brain_health", "format_profile": "neuro_diorama"}
-        for i in range(10)
-    ]
-    tt = build_us_prime_timetable(eps, start_date="2026-11-04", days=7)
-    short_slots = [s for s in tt["slots"] if s["preferred_format"] == "neuro_diorama"]
-    lf_slots = [s for s in tt["slots"] if s["preferred_format"] == "longform_4k"]
-    assert len(short_slots) == 7
-    assert [s["date"] for s in short_slots] == [
-        "2026-11-04",
-        "2026-11-05",
-        "2026-11-06",
-        "2026-11-07",
-        "2026-11-08",
-        "2026-11-09",
-        "2026-11-10",
-    ]
-    assert all(s["slot_code"].endswith("_PRIME") and s["time_et"] == "19:30" and s["tz_abbr"] == "EST" for s in short_slots)
-    assert all(s["project_id"] is not None for s in short_slots)
-    assert len(lf_slots) == 1
-    assert lf_slots[0]["weekday"] == "Sun" and lf_slots[0]["time_et"] == "09:30"
-    assert lf_slots[0]["project_id"] is None
 
 
-def test_prosody_asr_tokens_and_daily_30_specs():
-    from pipeline.diorama_batch_orchestrator import DIORAMA_DAILY_30_SPECS
-    from pipeline.prosody import _asr_tokens
+def test_prosody_asr_tokens_normalization():
+    from pipeline.prosody_qa import _asr_tokens
 
     assert _asr_tokens("drivers map 25 000 streets") == _asr_tokens("drivers map twenty-five thousand streets")
     assert _asr_tokens("in 2000 dr eleanor maguire") == _asr_tokens("In two thousand, Doctor Eleanor Maguire")
-    assert len(DIORAMA_DAILY_30_SPECS) == 30
-    assert sorted({int(s["wave"]) for s in DIORAMA_DAILY_30_SPECS}) == [1, 2, 3, 4, 5, 6]
-    assert len({s["project_id"] for s in DIORAMA_DAILY_30_SPECS}) == 30
-    assert len({s["slug"] for s in DIORAMA_DAILY_30_SPECS}) == 30
 
 
 def test_reviewer_regressions_provenance_dq6_heal_and_preflight_qa(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     import cv2
 
-    import pipeline.diorama_batch_orchestrator as dbo
-    import pipeline.flow_diorama_sharded_worker as fw
-    from pipeline.porcelain_anchor_pack import sanitize_porcelain_contract_text
-    from pipeline.qa_gates import run_preflight_qa
-    from pipeline.thumbnail_studio import _has_head_occlusion_in_hook_band, run_thumbnail_qa
-
-    # 1. Stage-1 preflight QA must pass with emma_v7 + dynamic_us_v7 SSOT lock
-    s1 = run_preflight_qa(require_live_cdp=False)
-    assert s1["passed"] is True, f"Stage 1 preflight QA failed: {s1}"
+    import pipeline.batch_runner as dbo
+    import pipeline.flow_worker as fw
+    from pipeline.reference_pack import sanitize_porcelain_contract_text
+    from pipeline.thumbnail import _has_head_occlusion_in_hook_band, run_thumbnail_qa
 
     # 2. _persist_receipt_snapshot source must preserve reference_image + reference_attached (never strip them!)
     fn_src = inspect.getsource(fw.run_sharded_diorama_flow_generation)

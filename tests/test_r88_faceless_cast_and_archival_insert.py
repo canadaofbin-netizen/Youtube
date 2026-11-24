@@ -31,7 +31,7 @@ import numpy as np
 from PIL import Image
 import pytest
 
-from pipeline.archival_insert_builder import (
+from pipeline.archival_insert import (
     ARCHIVAL_CLIPS_DIRNAME,
     ARCHIVAL_MANIFEST_REL,
     R88A_CLIP_DURATION_RANGE,
@@ -52,21 +52,21 @@ from pipeline.config import (
     R88_RETIRED_CARTOON_CAST_SLOTS,
     WORKSPACE_ROOT,
 )
-from pipeline.diorama_assembler import _resolve_diorama_clip_files
-from pipeline.dynamic_episode_qa import verify_final_mp4_against_contract
-from pipeline.flow_diorama_sharded_worker import compute_porcelain_flesh_leak_ratio
-from pipeline.posthoc_semantic_qa import (
+from pipeline.assembler import _resolve_diorama_clip_files
+from pipeline.episode_qa import verify_final_mp4_against_contract
+from pipeline.flow_worker import compute_porcelain_flesh_leak_ratio
+from pipeline.posthoc_qa import (
     detect_circular_lens_border_intrusion,
     evaluate_cut_temporal_smoothness,
 )
-from pipeline.prompt_quality_v5 import validate_r88_faceless_cast_contract
+from pipeline.prompt_gate import validate_r88_faceless_cast_contract
 from pipeline.publish import (
     PublishStage,
     extract_cc_by_archival_credits,
     format_v8_viewer_story_description,
     validate_v8_viewer_description,
 )
-from pipeline.real_world_reference_builder import (
+from pipeline.real_world_refs import (
     classify_media_license,
     validate_real_world_refs_manifest,
 )
@@ -799,15 +799,15 @@ def test_r88_cast_lock_ep13_prompt_gate_and_brand_identity_pack() -> None:
     assert pg_rep.get("passed") is True
     assert pg_rep.get("issues") == []
 
-    # 4. scripts/build_brand_identity_pack.py --check (800x800 logos + 2560x1440 banner inside [507..2053, 508..931])
+    # 4. scripts/verify_brand_assets.py --check (800x800 logos + 2560x1440 banner inside [507..2053, 508..931])
     brand_proc = subprocess.run(
-        [sys.executable, "-X", "utf8", "scripts/build_brand_identity_pack.py", "--check"],
+        [sys.executable, "-X", "utf8", "scripts/verify_brand_assets.py", "--check"],
         cwd=str(WORKSPACE_ROOT),
         capture_output=True,
         text=True,
         check=False,
     )
-    assert brand_proc.returncode == 0, f"build_brand_identity_pack.py --check failed:\n{brand_proc.stdout}\n{brand_proc.stderr}"
+    assert brand_proc.returncode == 0, f"verify_brand_assets.py --check failed:\n{brand_proc.stdout}\n{brand_proc.stderr}"
     brand_rep = json.loads(brand_proc.stdout)
     assert brand_rep.get("passed") is True
     assert brand_rep.get("sha256_matches") is True
@@ -935,7 +935,7 @@ def test_finish_jh_banner_cli_on_synthetic_16x9(tmp_path: Path) -> None:
     arr = Image.new("RGB", (1920, 1080), (24, 62, 79))
     arr.save(src_16x9)
 
-    script_path = Path(WORKSPACE_ROOT) / "scripts" / "build_brand_identity_pack.py"
+    script_path = Path(WORKSPACE_ROOT) / "scripts" / "verify_brand_assets.py"
     out_notes = tmp_path / "out_jh_notes.png"
     out_clean = tmp_path / "out_jh_no_notes.png"
 
@@ -975,7 +975,7 @@ def test_finish_jh_banner_cli_on_synthetic_16x9(tmp_path: Path) -> None:
 
 def test_r65_v4_thumbnail_prompt_honors_r88_faceless_cast_and_preserves_legacy() -> None:
     from pipeline.config import R88_BANNED_CARTOON_FACE_TOKENS
-    from pipeline.thumbnail_studio import build_r65_v4_in_skull_split_prompt
+    from pipeline.thumbnail import build_r65_v4_in_skull_split_prompt
 
     r88_plan = {
         "r88_mode": True,
@@ -1032,7 +1032,7 @@ def test_thumbnail_studio_propagates_flow_circuit_breaker_and_captures_warning_p
     import base64
     import io
     from pipeline import flow_ingredients
-    from pipeline import thumbnail_studio as ts
+    from pipeline import thumbnail as ts
     from pipeline.flow_browser import FlowCircuitBreakerError
 
     proj = tmp_path / "v8_ep13_thumb_halt"
@@ -1173,9 +1173,9 @@ def test_thumbnail_studio_propagates_flow_circuit_breaker_and_captures_warning_p
         return True
 
     released: list[str] = []
-    monkeypatch.setattr("pipeline.flow_live_single_worker.allocate_dedicated_flow_project_tab", _fake_alloc_thumb)
+    monkeypatch.setattr("pipeline.flow_single_worker.allocate_dedicated_flow_project_tab", _fake_alloc_thumb)
     monkeypatch.setattr("pipeline.flow_workspace.rename_active_flow_project", _fake_rename)
-    monkeypatch.setattr("pipeline.studio.whale_session.DirectCDPClient", _FakeCDPContext)
+    monkeypatch.setattr("pipeline.studio.browser_session.DirectCDPClient", _FakeCDPContext)
     monkeypatch.setattr("pipeline.flow_ingredients.generate_flow_image_batch", lambda *_a, **_kw: asyncio.sleep(0, result=res_img))
     monkeypatch.setattr(
         "pipeline.cdp_tab_lease.release_and_close_leased_tab",
@@ -1193,8 +1193,8 @@ def test_flow_diorama_room_receipt_seeding_and_zero_bypass_halt_guard(
     import asyncio
     import base64
     import io
-    from pipeline import flow_diorama_sharded_worker as fdsw
-    from pipeline import flow_live_single_worker as flsw
+    from pipeline import flow_worker as fdsw
+    from pipeline import flow_single_worker as flsw
     from pipeline.cdp_tab_lease import get_tab_lease, release_tab_lease
     from pipeline.flow_browser import FlowCircuitBreakerError
 
@@ -1340,7 +1340,7 @@ def test_flow_diorama_room_receipt_seeding_and_zero_bypass_halt_guard(
     monkeypatch.setattr(fdsw, "load_diorama_script_sentences", lambda _p: (["Short test hook."], {}))
     monkeypatch.setattr(fdsw, "build_diorama_v6_prompts", lambda _vp, _s: [dict(clip_spec)])
     monkeypatch.setattr(fdsw, "write_flow_prompts_json", lambda _p, _c: None)
-    monkeypatch.setattr("pipeline.dynamic_episode_qa.write_episode_qa_contract", lambda *_a: (None, {}))
+    monkeypatch.setattr("pipeline.episode_qa.write_episode_qa_contract", lambda *_a: (None, {}))
     monkeypatch.setattr(fdsw, "allocate_dedicated_flow_project_tab", _fake_alloc_worker)
     monkeypatch.setattr(fdsw, "DirectCDPClient", _HaltShardClient)
     monkeypatch.setattr(fdsw, "rename_active_flow_project", lambda *_a, **_kw: asyncio.sleep(0, result=True))
@@ -1364,7 +1364,7 @@ def test_flow_antibot_modal_filter_and_dynamic_omni_episode_cap() -> None:
     import subprocess
     from pipeline.config import FLOW_OMNI_CREDIT_COST_WITH_REF, compute_dynamic_omni_episode_budget
     from pipeline.flow_browser import FLOW_DETECT_ANTIBOT_HALT_JS
-    from pipeline.flow_diorama_sharded_worker import resolve_effective_clip_engine_mode
+    from pipeline.flow_worker import resolve_effective_clip_engine_mode
 
     # 1. Verify errSnips precedence + passive anchor ignore + visible interactive bframe detection via Node
     node_script = f"""
@@ -1434,7 +1434,7 @@ console.log('ANTIBOT_FILTER_OK');
 
 
 def test_dq8_glossy_chocolate_bowl_routes_to_moderate_gate2_without_weakening_skin_high_suspect() -> None:
-    from pipeline.dq8_suspect_classifier import classify_dq8_yunet_box
+    from pipeline.skin_qa import classify_dq8_yunet_box
 
     # 1. Mixed dark chocolate (V<75) + lit brown swirls (V>=75, high a*) in white ceramic bowl -> MODERATE_SUSPECT
     bowl = np.full((300, 300, 3), 235, dtype=np.uint8)  # bright white ceramic outer rim

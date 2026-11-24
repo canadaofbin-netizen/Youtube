@@ -26,7 +26,7 @@ from pipeline.publish import (
 )
 from pipeline.studio.community import PRE_DOCUMENT_AUTOPLAY_KILL_JS
 from pipeline.studio.config import CHANNEL_ID, DEFAULT_CDP_PORT
-from pipeline.studio.whale_session import _DEEP_QUERY_HELPER_JS
+from pipeline.studio.browser_session import _DEEP_QUERY_HELPER_JS
 
 ET_TZ = ZoneInfo("America/New_York")
 

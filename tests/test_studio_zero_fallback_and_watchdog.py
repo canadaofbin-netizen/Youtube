@@ -7,17 +7,12 @@ from pathlib import Path
 import pytest
 
 from pipeline.studio.reporter import StudioAnalyticsReporter
-from pipeline.studio.sanitize_scheduled_metadata import (
-    build_diversified_description,
-    sanitize_scheduled_projects,
-)
 from pipeline.studio.short_linker import ShortLinkGraph, StudioShortLinker
-from pipeline.studio.studio_watchdog import (
+from pipeline.studio.watchdog import (
     audit_staging_queue_integrity,
     run_studio_watchdog,
     scan_go_live_transitions,
 )
-from pipeline.studio.us_diorama_timetable import build_us_prime_timetable
 
 
 def test_reporter_zero_fallback_never_injects_synthetic_profiles_when_not_dry_run(
@@ -225,70 +220,3 @@ def test_short_linker_public_targets_only_and_merge_existing(tmp_path: Path):
     assert edges_by_src["diorama_01_pub"]["target_video_id"] == "PubVideo002"
 
 
-def test_us_prime_timetable_dst_notification_cap_and_legacy_psych_guard(tmp_path: Path):
-    # Legacy psych_* rejected by default
-    with pytest.raises(ValueError, match="Legacy psych_"):
-        build_us_prime_timetable([{"project_id": "psych_01_old", "pillar": "brain_health"}])
-
-    # Standard v7 episodes across winter EST (Nov) and summer EDT (Jul)
-    eps = [
-        {"project_id": f"diorama_{i:02d}_case", "pillar": "brain_health", "format_profile": "neuro_diorama"}
-        for i in range(1, 10)
-    ]
-    winter = build_us_prime_timetable(eps, start_date="2026-11-16", days=7)  # Monday in EST
-    summer = build_us_prime_timetable(eps, start_date="2026-07-06", days=2)  # Monday in EDT
-    assert winter["slots"][0]["tz_abbr"] == "EST"
-    assert summer["slots"][0]["tz_abbr"] == "EDT"
-
-    # Strictly <= 3 subscriber notifications per day
-    by_day: dict[str, int] = {}
-    for s in winter["slots"]:
-        if s["notify_subscribers"]:
-            by_day[s["date"]] = by_day.get(s["date"], 0) + 1
-    assert all(cnt <= 3 for cnt in by_day.values())
-
-    # Queue audit detects duplicate slots and legacy psych items
-    q_file = tmp_path / "staging_queue.json"
-    q_file.write_text(
-        json.dumps(
-            {
-                "scheduled_items": [
-                    {"project_id": "diorama_01", "date": "2026-11-14", "slot_id": 1, "status": "scheduled"},
-                    {"project_id": "diorama_01", "date": "2026-11-14", "slot_id": 1, "status": "scheduled"},
-                    {"project_id": "psych_99", "date": "2026-11-15", "slot_id": 2, "status": "archived"},
-                ]
-            }
-        ),
-        encoding="utf-8",
-    )
-    q_audit = audit_staging_queue_integrity(queue_file=q_file, projects_dir=tmp_path)
-    assert q_audit["healthy"] is False
-    assert q_audit["duplicate_projects"] == ["diorama_01"]
-    assert q_audit["legacy_psych_items"] == 1
-
-    # Sanitize scheduled metadata updates scheduled project only, skipping public project
-    s_root = tmp_path / "sched_test"
-    for pid, vis in [("diorama_pub", "public"), ("diorama_sched", "scheduled")]:
-        (s_root / pid / "06_publish").mkdir(parents=True)
-        (s_root / pid / "02_script").mkdir(parents=True)
-        (s_root / pid / "06_publish" / "upload_receipt.json").write_text(
-            json.dumps({"video_id": "ValidVid123", "visibility": vis}),
-            encoding="utf-8",
-        )
-        (s_root / pid / "06_publish" / "metadata.json").write_text(
-            json.dumps({"title": f"{pid}: Brain Case", "doi": "10.2307/1127388", "description": "Old boilerplate"}),
-            encoding="utf-8",
-        )
-        (s_root / pid / "02_script" / "script.json").write_text(
-            json.dumps({"sentences": ["Lead sentence one.", "Lead sentence two."]}),
-            encoding="utf-8",
-        )
-    san_res = sanitize_scheduled_projects(projects_dir=s_root, dry_run=False, apply_studio_dom=False)
-    assert [u["project_id"] for u in san_res["updated"]] == ["diorama_sched"]
-    desc_new = build_diversified_description(
-        project_id="diorama_sched",
-        metadata={"title": "Brain Case", "doi": "10.2307/1127388"},
-        script={"sentences": ["Lead one.", "Lead two."]},
-        index_seed=2,
-    )
-    assert "Source & Verification: https://doi.org/10.2307/1127388" in desc_new

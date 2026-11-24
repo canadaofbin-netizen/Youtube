@@ -121,7 +121,7 @@ def _make_valid_r87_nonspatial_plan_and_script() -> tuple[dict, dict, list[str]]
 
 
 def test_r87_h1_h2_valid_nonspatial_plan_passes() -> None:
-    from pipeline.prompt_quality_v5 import (
+    from pipeline.prompt_gate import (
         validate_r87_hook_contract,
         validate_r87_spatial_arrow_eligibility,
     )
@@ -132,7 +132,7 @@ def test_r87_h1_h2_valid_nonspatial_plan_passes() -> None:
 
 
 def test_r87_h1_cut1_duration_thumb_mismatch_and_lock3_anchor() -> None:
-    from pipeline.prompt_quality_v5 import validate_r87_hook_contract
+    from pipeline.prompt_gate import validate_r87_hook_contract
 
     plan, script_doc, lines = _make_valid_r87_nonspatial_plan_and_script()
     plan["clips"][0]["duration_sec"] = 3.10
@@ -147,7 +147,7 @@ def test_r87_h1_cut1_duration_thumb_mismatch_and_lock3_anchor() -> None:
 
 
 def test_r87_h2_prosody_s01_duration_ceiling(tmp_path: Path) -> None:
-    from pipeline.prosody import _compute_core_prosody_gates
+    from pipeline.prosody_qa import _compute_core_prosody_gates
 
     proj = tmp_path / "v8_ep13_prosody_test"
     (proj / "04_audio").mkdir(parents=True)
@@ -202,7 +202,7 @@ def test_r87_h2_prosody_s01_duration_ceiling(tmp_path: Path) -> None:
 
 
 def test_r87_h3_hooktitle_and_82pt_yellow_ass_generation(tmp_path: Path) -> None:
-    from pipeline.diorama_assembler import generate_diorama_ass_subtitles
+    from pipeline.assembler import generate_diorama_ass_subtitles
 
     ass_p = tmp_path / "subtitles.ass"
     vp = {
@@ -235,8 +235,8 @@ def test_r87_h3_hooktitle_and_82pt_yellow_ass_generation(tmp_path: Path) -> None
 
 
 def test_r87_a_spatial_eligible_true_accepts_c02b_and_blocks_legacy_c02() -> None:
-    from pipeline.flow_prompt_builder import _compose_expressive_v8_context_split_scene
-    from pipeline.prompt_quality_v5 import validate_r87_spatial_arrow_eligibility
+    from pipeline.prompt_builder import _compose_expressive_v8_context_split_scene
+    from pipeline.prompt_gate import validate_r87_spatial_arrow_eligibility
 
     good_plan = {
         "style_profile": "expressive_25d_v8",
@@ -367,9 +367,9 @@ def test_canonical_v1_2_loader_blocks_candidate_and_resolves_approved_pair(tmp_p
 
 
 def test_r87_lock2_gate1_and_gate2_viewer_common_sense_booleans(tmp_path: Path) -> None:
-    from pipeline.clip_qa_contract import compute_sha256
-    from pipeline.posthoc_semantic_qa import validate_posthoc_semantic_review
-    from pipeline.reference_image_qa import (
+    from pipeline.storage import compute_sha256
+    from pipeline.posthoc_qa import validate_posthoc_semantic_review
+    from pipeline.ref_qa import (
         REF_IMAGES_DIRNAME,
         REF_SEMANTIC_REVIEW_FILENAME,
         validate_semantic_review,

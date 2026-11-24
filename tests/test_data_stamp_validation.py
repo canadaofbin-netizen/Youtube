@@ -6,12 +6,12 @@ and 110-dossier `core_facts[].stats` integrity).
 
 from __future__ import annotations
 
-from pipeline.data_stamp_overlay import (
+from pipeline.stamp_overlay import (
     seed_data_stamps_from_dossier,
     validate_data_stamps,
     validate_r70_m9_stat_integrity,
 )
-from pipeline.diorama_assembler import resolve_overlay_window_conflicts
+from pipeline.assembler import resolve_overlay_window_conflicts
 
 
 def test_study_and_illustrative_concept_validation() -> None:
@@ -277,7 +277,7 @@ def test_upper_chart_headroom_luma_distinguishes_dark_i02_void_from_bright_rooms
     """Canonical I02 lower-44% dark-void brain backdrops (upper Y=8..42% luma < 24) skip redundant blur+dim scrim while bright rooms keep it."""
     import cv2
     import numpy as np
-    from pipeline.data_stamp_overlay import _measure_upper_chart_headroom_luma
+    from pipeline.stamp_overlay import _measure_upper_chart_headroom_luma
 
     w, h = 540, 960
     fourcc = cv2.VideoWriter_fourcc(*"mp4v")
@@ -308,7 +308,7 @@ def test_dark_void_i02_subject_top_detection_and_compact_chart_zero_overlap(tmp_
     """Line & bar_compare Study charts compacted for Canonical I02 lower brains stay strictly above the detected brain crown with >=40px dark-void margin."""
     import cv2
     import numpy as np
-    from pipeline.data_stamp_overlay import (
+    from pipeline.stamp_overlay import (
         _detect_dark_void_lower_subject_top_y,
         render_data_stamp_rgba_frame,
     )

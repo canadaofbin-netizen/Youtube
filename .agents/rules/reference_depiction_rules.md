@@ -7,13 +7,13 @@ description: "Load when generating, staging, or auditing 9:16 reference image pa
 
 Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Refs: [real_world_drone_refs_rules.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/real_world_drone_refs_rules.md) | Archive: [retired_rules_2026-11-18.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/rules/_archive/retired_rules_2026-11-18.md)
 
-## 1. `9:16` Keyframe Pack (`main.py porcelain-refs`)
+## 1. `9:16` Keyframe Pack (`main.py refs` / `porcelain-refs`)
 - `0-credit` Flow `Image` (`Nano Banana 2.1`): `x1` 1st-pass (`FLOW_ZERO_CREDIT_IMAGE_BATCH_COUNT=1`), `x2` CV retry / `--refs <id> --force` Gate 1 regen (`FLOW_ZERO_CREDIT_IMAGE_RETRY_BATCH_COUNT=2`); fail-fast `0`-retry on `"unusual activity"`:
   - **World / Drone / `R80` Anchors**: `expressive_25d_v8` sheets + sanitized `/tmp/aab_real_refs/<project_id>/` guides (`Track B` `R72-R` / `Track A` `R67`). Closeups & `R80` arrows emit `Start+End`.
   - **`R85` Ep #31 Brain (`build_r85_31_brain_keyframe_spec`)**: `31_O2CmlKOk` plates (`ep31_orig_mode1_head_9x16.png`, `ep31_orig_mode2_lateral_9x16.png`, `ep31_orig_mode2_dorsal_9x16.png`, `ep31_orig_mode2_vessel_macro_9x16.png`) + `NEUROANATOMY_CUTAWAY_MAP` Wikimedia + off-screen `/tmp/aab_real_refs/<project_id>/guides/` MNI152 (`0%` direct exposure).
 
 ## 2. Provenance & `ref-qa` (`main.py ref-qa`, `Q1–Q11`)
-- **Tier-1 Blockers**: `real_world_refs_manifest.json` open license (`PD/CC0/CC-BY/CC-BY-SA`, `source_url`, blocklist); `reference_provenance.json` on `03_visuals/reference_images/*.png`; `Q1` (`9:16`), `Q4` (`0` flesh leak), `Q7` (`0` burned text), `Q11` (`@Research` Gate 1 `reference_semantic_review.json`; `auto_cv_verified_v7` banned).
+- **Tier-1 Blockers**: `real_world_refs_manifest.json` open license (`PD/CC0/CC-BY/CC-BY-SA`, `source_url`, blocklist); `reference_provenance.json` on `03_visuals/reference_images/*.png`; `Q1` (`9:16`), `Q4` (`0` flesh leak), `Q7` (`0` burned text), `Q11` (`Independent Visual Reviewer (Gate 1/2)` Gate 1 `reference_semantic_review.json`; `auto_cv_verified_v7` banned).
 - **Tier-2 Advisories**: `Q2, Q3, Q5, Q6, Q8/Q9, Q10`.
 
 ## 3. `84` Active + `15` Retired `R88` Slots (`99` Locked) & `Semantic ID` 5-Guard

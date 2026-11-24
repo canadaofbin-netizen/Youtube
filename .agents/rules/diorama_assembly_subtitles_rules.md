@@ -9,7 +9,7 @@ Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtu
 
 ## R56 — Zero-Flesh Vinyl Cast & Zero In-Scene AI Text (`Tier-1 #2 & #9`)
 - **[Tier-1 Hard Block]**: Zero photorealistic human skin, hair, beards/stubble, photoreal eyeballs/lips, department-store mannequins, or burned-in AI gibberish text/plaques/watermarks (`"9:16"`, `"museum"`, `"plinth"`, `"sign"`, `"label"` banned in scene prompts unless in `<=2`-token `diegetic_text_allowlist`).
-- **[Tier-2 Advisory (`R56-C`)]**: Smooth earless/noseless silhouette preferred in prompts, while minor cream-vinyl ear/nose contours on bald 2.5D vinyl figures with 2D black ink eyes never reject a clip.
+- **[Tier-2 Advisory (`R56-C`)]**: Smooth earless/noseless silhouette preferred; `v8_ep13+` enforces **`R88` faceless architectural porcelain (`0` eyes/mouth/eyebrows)**, while minor vinyl contours on frozen `Ep #01–#12` (`PRE_R88_FROZEN_V8_PROJECTS`) never reject a historical clip.
 
 ## R57 — 6-Act US English Spine & Debate Ignition
 - **100% US English (`en-US`)**: Plain conversational storytelling (`DIORAMA_BANNED_SLOGAN_OPENERS`, `DIORAMA_BANNED_WEAK_HOOK_PREFIXES` `"Imagine..."`, `DIORAMA_BANNED_AI_CLICHES` banned). Shorts ceiling `<= SHORTS_HARD_CEILING_SEC` (`<= 88.0s` on active `R75` `v8`).

@@ -670,8 +670,8 @@ def extract_cc_by_archival_credits(project_dir_or_manifest: Path | str | dict[st
     if not isinstance(doc, dict):
         return []
 
-    from pipeline.archival_insert_builder import normalize_cc_by_label
-    from pipeline.real_world_reference_builder import classify_media_license
+    from pipeline.archival_insert import normalize_cc_by_label
+    from pipeline.real_world_refs import classify_media_license
 
     entries = doc.get("inserts")
     if not isinstance(entries, list):
@@ -728,8 +728,8 @@ def extract_cc_by_archival_video_credits(project_dir_or_manifest: Path | str | d
     if not isinstance(doc, dict):
         return []
 
-    from pipeline.archival_insert_builder import normalize_cc_by_label
-    from pipeline.real_world_reference_builder import classify_media_license
+    from pipeline.archival_insert import normalize_cc_by_label
+    from pipeline.real_world_refs import classify_media_license
 
     entries = doc.get("videos")
     if not isinstance(entries, list):
@@ -1534,7 +1534,7 @@ class PublishStage:
             clips_exist = any((p_dir / "03_visuals" / "flow_native_clips").glob("*.mp4")) if (p_dir / "03_visuals" / "flow_native_clips").exists() else False
             mp4_exists = (p_dir / "05_assembly" / "final_shorts_1080x1920.mp4").exists()
             if edl_exists or clips_exist or mp4_exists:
-                from pipeline import thumbnail_studio
+                from pipeline import thumbnail as thumbnail_studio
 
                 thumbnail_studio.run(p_dir, force=True, strict=False)
                 return {
@@ -1876,7 +1876,7 @@ class PublishStage:
 - [ ] **Pinned Comment:** Academic DOI reference & cognitive dissonance question pinned at top
 """
         self.storage.save_text("06_publish", "upload_checklist.md", checklist_md)
-        bundle_info = export_multi_platform_bundle(self.storage.project_dir, copy_video=True)
+        bundle_info = export_multi_platform_bundle(self.storage.project_dir, copy_video=False)
 
         self.storage.update_stage_status("06_publish", "completed")
         return {
@@ -1942,6 +1942,40 @@ def _truncate_line_under_limit(text: str, max_chars: int = 90) -> str:
         cut = cut.rsplit(" ", 1)[0].rstrip(" ,;:-—")
     suffix = "?" if line.endswith("?") else "."
     return f"{cut}{suffix}"[:max_chars]
+
+
+def resolve_bundle_video_path(project_dir: Path | str) -> Path | None:
+    """
+    Resolves the clean 9:16 MP4 for Instagram Reels / TikTok publishing:
+      1. `06_publish/multi_platform_bundle/video_clean.mp4` if present & non-empty
+      2. `source_video_relpath` inside `bundle_manifest.json` or `upload_checklist.json`
+      3. `05_assembly/final_shorts_1080x1920.mp4` (or `episode_full.mp4` / `final_video.mp4`)
+    """
+    raw_p = Path(project_dir)
+    p_dir = raw_p if raw_p.exists() or raw_p.is_absolute() else (PROJECTS_DIR / str(project_dir))
+    if not p_dir.exists() and (PROJECTS_DIR / raw_p.name).exists():
+        p_dir = PROJECTS_DIR / raw_p.name
+
+    bundle_dir = p_dir / "06_publish" / "multi_platform_bundle"
+    direct_vid = bundle_dir / "video_clean.mp4"
+    if direct_vid.is_file() and direct_vid.stat().st_size > 0:
+        return direct_vid
+
+    for mf_name in ("bundle_manifest.json", "upload_checklist.json"):
+        mf_path = bundle_dir / mf_name
+        if mf_path.is_file():
+            try:
+                doc = json.loads(mf_path.read_text(encoding="utf-8"))
+                rel_v = str((doc if isinstance(doc, dict) else {}).get("source_video_relpath") or "").strip()
+                if rel_v:
+                    cand_v = p_dir / rel_v
+                    if cand_v.is_file() and cand_v.stat().st_size > 0:
+                        return cand_v
+            except Exception:
+                pass
+
+    src_video, _, _ = _probe_project_video_metrics(p_dir)
+    return src_video
 
 
 def _probe_project_video_metrics(
@@ -2549,7 +2583,7 @@ def _select_niche_hashtags(
 def export_multi_platform_bundle(
     project_dir: Path | str,
     *,
-    copy_video: bool = True,
+    copy_video: bool = False,
 ) -> dict[str, Any]:
     """
     Exports a 3-platform-ready TikTok & Instagram Reels distribution bundle into
@@ -2693,7 +2727,7 @@ def export_multi_platform_bundle(
     dst_reels.write_text(reels_caption, encoding="utf-8")
 
     # 5. Render 6-slide 4:5 (1080x1350, 90px margin) Instagram Carousel + carousel_caption.txt
-    from pipeline.instagram_card_builder import (
+    from pipeline.instagram_cards import (
         extract_episode_carousel_slides,
         render_carousel_4x5_slides,
     )
@@ -2788,6 +2822,11 @@ def export_multi_platform_bundle(
         "cover_safe_zone_check": cover_safe_zone_check,
         "carousel_safe_zone_check": carousel_safe_zone_check,
         "copy_video": bool(copy_video),
+        "source_video_relpath": (
+            str(src_video.relative_to(p_dir)).replace("\\", "/")
+            if (src_video is not None and src_video.is_file() and p_dir in src_video.parents)
+            else "05_assembly/final_shorts_1080x1920.mp4"
+        ),
         "files": files_map,
     }
     dst_checklist.write_text(json.dumps(checklist_doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

@@ -1,7 +1,7 @@
 """youtube-produce runner: `diorama-episode` single-episode entry point safety."""
 import pytest
 
-from pipeline import diorama_batch_orchestrator as orch
+from pipeline import batch_runner as orch
 
 
 def test_single_episode_refuses_published_project(tmp_path, monkeypatch):

@@ -9,7 +9,7 @@ Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtu
 
 ## R30, R30-B & R75-S — Prime Slots (`12:00` / `19:30 ET`), `>=3.0h` Warmup & `No-Draft`
 - **Prime Cadence**: `<10K` subs schedule into US ET Prime Slots (`12:00 ET` Slot 2 / `19:30 ET` Slot 4; `>= 4.0h` gap; hold `16:9` Longform). Instant `Public` banned (`MIN_SCHEDULE_WARMUP_MINUTES = 180` `3.0h` warmup; `<= 88.0s` `R75` Shorts ceiling).
-- **`No-Draft` & QA Lock**: `_async_upload_direct_cdp_inner` verifies `/videos/short` `Scheduled` visibility, heals `Draft`, and requires SHA-256-valid `video_autopsy_report.json`, `dynamic_episode_qa_report.json`, `@Research`-signed `posthoc_semantic_review.json`, and `thumbnail_report.json` (`thumbnail_selected.png`).
+- **`No-Draft` & QA Lock**: `_async_upload_direct_cdp_inner` verifies `/videos/short` `Scheduled` visibility, heals `Draft`, and requires SHA-256-valid `video_autopsy_report.json`, `dynamic_episode_qa_report.json`, `Independent Visual Reviewer (Gate 1/2)`-signed `posthoc_semantic_review.json`, and `thumbnail_report.json` (`thumbnail_selected.png`).
 - **R32 (`not_applicable_shorts`)**: Shorts A/B thumbnail test is disabled in Desktop Studio (`swap_to_variant` returns `status: "not_applicable_shorts"` without CDP).
 
 ## R4, R34, R36, R36-B & R75 — `Public` Safety, Playlist Ban & Auto-Dubbing Check

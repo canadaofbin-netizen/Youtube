@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 import pytest
 
 from pipeline.studio.uploader import StudioUploader
-from pipeline.studio.whale_session import DirectCDPClient
+from pipeline.studio.browser_session import DirectCDPClient
 
 
 class _FakeScheduleCDPClient(DirectCDPClient):

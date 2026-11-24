@@ -13,11 +13,11 @@ import numpy as np
 import pytest
 
 from pipeline import config as cfg
-from pipeline.dynamic_episode_qa import (
+from pipeline.episode_qa import (
     _is_unified_brain_cut,
     verify_final_mp4_against_contract,
 )
-from pipeline.prompt_quality_v5 import (
+from pipeline.prompt_gate import (
     validate_production_diorama_v6,
     validate_r87_hook_contract,
     validate_r87_spatial_arrow_eligibility,

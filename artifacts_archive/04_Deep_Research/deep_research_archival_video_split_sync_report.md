@@ -108,7 +108,7 @@ Measured directly against [`pipeline/config.py`](file:///home/canadaofbin/gdrive
   - **Bottom UI + ASS Subtitles**: YouTube Shorts & Reels bottom chrome covers bottom `672px` (`Y=1248..1920`; TikTok `660px`), and our locked `v8` ASS subtitles (`82pt` `AABCondensed-Black`, `MarginV=510`, `MarginL=80`, `MarginR=165`, [`L1317-1325`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/config.py#L1317-L1325)) occupy **`Y ≈ 1235..1410, X = 80..915`**.
   - **Cut 1 Hook Exclusion**: Cut 1 (`0.00–2.20s`) carries `118pt HookTitle` at `MarginV=238` (`Y ≈ 238..415`, [`L1154-1163`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/config.py#L1154-L1163)). **Therefore `R89` video inserts are forbidden on Cut 1 (`Cut >= 2`, `start_sec >= 2.20s`)**.
 
-![R89 Archival Video Dual-Mode Blueprint (1080x1920 Safe-Zone Architecture)](./r89_video_split_sync_modes_blueprint.jpg)
+![R89 Archival Video Dual-Mode Blueprint (1080x1920 Safe-Zone Architecture)](../01_YouTube_CEO/r89_video_split_sync_modes_blueprint.jpg)
 
 ### Exact Pixel Specifications & `Gear 4` / `QA` Fit
 

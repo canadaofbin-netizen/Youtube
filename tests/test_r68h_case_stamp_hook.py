@@ -15,7 +15,7 @@ import sys
 from pathlib import Path
 
 from pipeline import config as cfg
-from pipeline.prompt_quality_v5 import (
+from pipeline.prompt_gate import (
     validate_production_diorama_v6,
     validate_script_spine_v8,
     validate_script_spine_v8_report,

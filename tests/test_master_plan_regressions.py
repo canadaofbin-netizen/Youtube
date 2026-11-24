@@ -28,21 +28,20 @@ import pytest
 
 from pipeline import cdp_tab_lease as ctl
 from pipeline import config as cfg
-from pipeline import diorama_batch_orchestrator as dbo
-from pipeline import flow_diorama_sharded_worker as sw
+from pipeline import batch_runner as dbo
+from pipeline import flow_worker as sw
 from pipeline import research_dossier as rd
-from pipeline.diorama_assembler import (
+from pipeline.assembler import (
     _execute_xfade_batch_ffmpeg,
     _probe_segment_frame_count,
     _render_cut_segment,
 )
-from pipeline.source_reenactment import purge_reenactment_quarantine
+from pipeline.archival_media import purge_reenactment_quarantine
 from pipeline.storage import ProjectStorage
 from pipeline.studio.config import STUDIO_SELECTORS
-from pipeline.studio.queue_manager import StagingQueueManager
-from pipeline.studio.studio_watchdog import cleanup_idle_whale_tabs
+from pipeline.studio.watchdog import cleanup_idle_whale_tabs
 from pipeline.studio.uploader import StudioUploader
-from pipeline.studio.whale_session import WhaleSessionController
+from pipeline.studio.browser_session import WhaleSessionController
 from scripts.workspace_hygiene import audit_workspace_hygiene
 
 
@@ -328,22 +327,6 @@ def test_phase2_studio_tab_isolation_and_open_lease_cleanup(
     assert "inflight_blank_1" not in closed_ids
 
 
-def test_queue_manager_locked_atomic_save_and_corrupt_load_guard(tmp_path: Path) -> None:
-    """StagingQueueManager writes atomically and refuses to reset corrupt non-empty staging_queue.json to {}."""
-    qm = StagingQueueManager(queue_file=tmp_path / "staging_queue.json", projects_dir=tmp_path / "projects")
-    sample_q = {"version": "2.0", "scheduled_slots": [{"project_id": "v8_pilot_01", "slot_id": "slot_2_evening"}]}
-    qm.save_queue(sample_q)
-    assert qm.queue_file.exists()
-    assert list(tmp_path.glob(".tmp_*")) == []
-    loaded = qm.load_queue()
-    assert loaded["scheduled_slots"][0]["project_id"] == "v8_pilot_01"
-
-    # Corrupt non-empty file -> must raise RuntimeError (NEVER silently reset non-empty staging_queue.json to {})
-    qm.queue_file.write_text("{corrupt_truncated_json", encoding="utf-8")
-    with pytest.raises(RuntimeError, match="Refusing to reset non-empty staging_queue.json"):
-        qm.load_queue()
-
-
 def test_c3_c4_quarantine_slug_scoping_and_candidate_filename_isolation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -353,7 +336,7 @@ def test_c3_c4_quarantine_slug_scoping_and_candidate_filename_isolation(
     (q_root / "ep_beta").mkdir(parents=True)
     (q_root / "ep_alpha" / "frame.png").write_bytes(b"A")
     (q_root / "ep_beta" / "frame.png").write_bytes(b"B")
-    monkeypatch.setattr("pipeline.source_reenactment.REENACT_QUARANTINE_ROOT", q_root)
+    monkeypatch.setattr("pipeline.archival_media.REENACT_QUARANTINE_ROOT", q_root)
 
     with pytest.raises(ValueError, match="non-empty episode slug"):
         purge_reenactment_quarantine(slug="")
@@ -505,7 +488,7 @@ def test_c1_multiround_13cut_mixed_timebase_xfade_exact_frames(tmp_path: Path) -
     """C1 multi-round (>4 cuts, 13->4->1) xfade normalizes mixed input timebases (1/15360 vs 1/30000) without truncation."""
     import subprocess
     import imageio_ffmpeg
-    from pipeline.diorama_assembler import _merge_xfade_group_multistage, _probe_segment_frame_count
+    from pipeline.assembler import _merge_xfade_group_multistage, _probe_segment_frame_count
 
     ff = imageio_ffmpeg.get_ffmpeg_exe()
     fps = 30
@@ -549,8 +532,8 @@ def test_whale_session_controller_close_and_about_blank_lease_reuse(
     import io
     import urllib.request
     from pipeline import cdp_tab_lease as ctl
-    from pipeline.studio.studio_watchdog import cleanup_idle_whale_tabs
-    from pipeline.studio.whale_session import WhaleSessionController
+    from pipeline.studio.watchdog import cleanup_idle_whale_tabs
+    from pipeline.studio.browser_session import WhaleSessionController
 
     lease_file = tmp_path / "aab_cdp_leases_9222.json"
     monkeypatch.setenv("AAB_CDP_LEASES_PATH", str(lease_file))
@@ -612,10 +595,10 @@ def test_whale_session_controller_close_and_about_blank_lease_reuse(
 
 def test_full_22clip_r68_context_split_episode_passes_all_gate1_validators(tmp_path: Path) -> None:
     """Full 15-sentence / 22-clip R68 context-split episode passes validate_expressive_v8_prompts, validate_production_diorama_v6 & Gate 1."""
-    from pipeline.dynamic_episode_qa import verify_pre_flow_contract
-    from pipeline.flow_prompt_builder import build_flow_prompts, validate_expressive_v8_prompts
-    from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
-    from pipeline.prompt_quality_v5 import validate_production_diorama_v6
+    from pipeline.episode_qa import verify_pre_flow_contract
+    from pipeline.prompt_builder import build_flow_prompts, validate_expressive_v8_prompts
+    from pipeline.reference_pack import populate_expressive_v8_reference_contract
+    from pipeline.prompt_gate import validate_production_diorama_v6
 
     lines = [
         "He taped a small mirror right onto his own front door!",

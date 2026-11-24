@@ -33,7 +33,7 @@ from pipeline.studio.config import (
     YOUTUBE_WATCH_BASE_URL,
 )
 from pipeline.studio.short_linker import normalize_visibility, write_studio_publish_receipt
-from pipeline.studio.whale_session import WhaleSessionController
+from pipeline.studio.browser_session import WhaleSessionController
 
 PRE_DOCUMENT_AUTOPLAY_KILL_JS: str = """(() => {
     try {

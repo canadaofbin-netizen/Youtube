@@ -5,12 +5,12 @@ description: "Load when working on project directory layout (00_project_manifest
 
 # Project Storage, Flow Room & Archive Hygiene (`R11–R12`, `R19`, `R28–R29`)
 
-Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Code: [`pipeline/storage.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/storage.py) | Archive Hook: [`scripts/sync_artifacts_archive.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/sync_artifacts_archive.py)
+Index: [AGENTS.md](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/.agents/AGENTS.md) | Code: [`pipeline/storage.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/pipeline/storage.py) | Archive Hook: [`scripts/sync_archive.py`](file:///home/canadaofbin/gdrive/Kyubin_Yun_Workspace/07_Youtube/scripts/sync_archive.py)
 
 ## R11–R12 — Project & Shared Workspace Layout (`ProjectStorage`)
 `BCI_Shorts_Channel/projects/<project_id>/`:
 - `00_project_manifest.json`: Stage status, `word_count`, `doi`, timestamps (`R29` atomic temp-write auto-repair).
-- `01_ideation/`: `research_card.json` (`story_context`, `doi`, `visual_plan`).
+- `01_ideation/`: Optional `research_card.json` (created lazily only when written).
 - `02_script/`: `script.json`, `script.md`, `qa_report.json`.
 - `03_visuals/`: `visual_plan.json`, `reference_image_specs.json`, `reference_images/`, `flow_all_in_one_prompts.json`, `flow_provenance_receipt.json`, `flow_native_clips/`.
 - `04_audio/`: `audio_master.wav`, `subtitles.ass`, `prosody_report.json`.
@@ -23,9 +23,9 @@ Shared under `BCI_Shorts_Channel/`: `research_dossiers/<slug>/`, `knowledge_base
 ## Flow Rooms, `fuse.rclone` & `artifacts_archive/`
 - **Flow Room**: `AAB_<project_id>` (`1` room/ep; `FLOW_AUTO_CLEANUP_ON_SUCCESS = False` — NEVER delete Flow rooms/assets). Claim dedicated `targetId` tabs (`allocate_dedicated_flow_project_tab`); never touch sibling tabs.
 - **FUSE Mount**: `/home/canadaofbin/gdrive` is `fuse.rclone` (`0` POSIX symlinks); use `rclone delete`/`rclone purge --fast-list` for bulk media cleanup.
-- **Artifacts Archive**: `.agents/hooks.json` runs `scripts/sync_artifacts_archive.py` to mirror active chatroom brain reports/charts into `artifacts_archive/` and update `artifacts_archive/INDEX.md`.
+- **Artifacts Archive**: `.agents/hooks.json` runs `scripts/sync_archive.py` to mirror active chatroom brain reports/charts into `artifacts_archive/` and update `artifacts_archive/INDEX.md`.
 
 ## R19, R28, R29 — Ending, Test & Recovery Locks
 - **R19**: Independent elevated conclusion scene; zero loop-back to Clip 1.
 - **R28**: `tests/` (`pytest.ini`) use `tmp_path` only and never mutate `BCI_Shorts_Channel/projects/`.
-- **R29**: Atomic temp-writes; `PipelineOrchestrator.resume_project(project_id)` resumes cleanly.
+- **R29**: Atomic temp-writes; `main.py ep run <project_id>` resumes cleanly from on-disk stage receipts.

@@ -28,32 +28,31 @@ import numpy as np
 import pytest
 
 import pipeline.config as cfg
-from pipeline.brain_simulator_blender import render_brain_simulator_clip
-from pipeline.data_stamp_overlay import render_data_stamp_rgba_frame, validate_data_stamps
-from pipeline.flow_diorama_sharded_worker import verify_v8_yunet_skin_or_hair_leak
-from pipeline.flow_prompt_builder import build_expressive_v8_prompts, compose_scene_from_r86_beat_card
-from pipeline.porcelain_anchor_pack import build_r85_31_brain_keyframe_spec
-from pipeline.posthoc_semantic_qa import (
+from pipeline.stamp_overlay import render_data_stamp_rgba_frame, validate_data_stamps
+from pipeline.flow_worker import verify_v8_yunet_skin_or_hair_leak
+from pipeline.prompt_builder import build_expressive_v8_prompts, compose_scene_from_r86_beat_card
+from pipeline.reference_pack import build_r85_31_brain_keyframe_spec
+from pipeline.posthoc_qa import (
     auto_signoff_posthoc_semantic_review,
     run_posthoc_semantic_qa,
     validate_posthoc_semantic_review,
 )
-from pipeline.prompt_quality_v5 import (
+from pipeline.prompt_gate import (
     validate_r85_drone_and_viewpoint_locks,
     validate_r86_semantic_beat_contract,
 )
-from pipeline.real_world_reference_builder import (
+from pipeline.real_world_refs import (
     NEUROANATOMY_CUTAWAY_MAP,
     is_commons_candidate_blocked,
      purge_real_world_quarantine,
     render_mni152_guide_silhouette,
 )
-from pipeline.reference_image_qa import (
+from pipeline.ref_qa import (
     auto_populate_reference_semantic_review,
     validate_semantic_review,
     write_semantic_review_template,
 )
-from pipeline.source_reenactment import detect_non_porcelain_human_faces_yunet, extract_dq8_scene_roi
+from pipeline.archival_media import detect_non_porcelain_human_faces_yunet, extract_dq8_scene_roi
 
 
 FIXTURE_DIR = cfg.WORKSPACE_ROOT / "tests" / "fixtures" / "r85_verify"
@@ -80,8 +79,6 @@ def test_r85_constants_and_ssot_locks() -> None:
     )
     assert cfg.is_r85_flow_31_brain_plan({"r85_mode": True}) is True
     assert cfg.is_r76_v8_plan({"r85_mode": True}, project_id="v8_ep09_maguire_london_taxi_hippocampus_r82") is False
-    with pytest.raises(RuntimeError, match="retired under Rule R85"):
-        render_brain_simulator_clip({"r85_mode": True, "brain_region": "hippocampus"}, "/tmp/r85_blocked.mp4")
 
 
 def test_r85_1_yunet_real_defect_frames_vs_clean_bald_vinyl_keyframes() -> None:
@@ -627,8 +624,8 @@ def test_r86_semantic_beat_contract_catches_ep12_filler_and_r84_zero_delta() -> 
 
 
 def test_dq8_65_labeled_fixture_zero_high_fp_and_zero_missed_defects(tmp_path: Path) -> None:
-    from pipeline.dq8_suspect_classifier import classify_dq8_yunet_box, save_dq8_suspect_evidence
-    from pipeline.posthoc_semantic_qa import init_posthoc_semantic_review_template
+    from pipeline.skin_qa import classify_dq8_yunet_box, save_dq8_suspect_evidence
+    from pipeline.posthoc_qa import init_posthoc_semantic_review_template
 
     fix_dir = cfg.WORKSPACE_ROOT / "tests" / "fixtures" / "dq8_labeled_65"
     manifest = json.loads((fix_dir / "manifest.json").read_text(encoding="utf-8"))
@@ -741,7 +738,7 @@ def test_dq8_65_labeled_fixture_zero_high_fp_and_zero_missed_defects(tmp_path: P
 
 def test_rules_restructure_under_24kb_frontmatter_and_open_license_lock(tmp_path: Path) -> None:
     import re
-    from pipeline.real_world_reference_builder import validate_real_world_refs_manifest
+    from pipeline.real_world_refs import validate_real_world_refs_manifest
 
     agents_md = cfg.WORKSPACE_ROOT / ".agents" / "AGENTS.md"
     rules_dir = cfg.WORKSPACE_ROOT / ".agents" / "rules"
@@ -756,9 +753,9 @@ def test_rules_restructure_under_24kb_frontmatter_and_open_license_lock(tmp_path
     assert 2_000 <= len(gov_txt.encode("utf-8")) <= 4_000
     assert "trigger: always_on" in gov_txt
 
-    # Exact 26 active .agents/rules/*.md files + strict size & frontmatter policy
+    # Exact 25 active .agents/rules/*.md files + strict size & frontmatter policy
     rule_mds = sorted(rules_dir.glob("*.md"))
-    assert len(rule_mds) == 26
+    assert len(rule_mds) == 25
     for p in rule_mds:
         b_len = len(p.read_bytes())
         assert b_len < 24_000, f"{p.name} exceeds 24,000 bytes: {b_len}"
@@ -775,7 +772,7 @@ def test_rules_restructure_under_24kb_frontmatter_and_open_license_lock(tmp_path
             assert re.search(r"^description:\s*\S+", fm, flags=re.MULTILINE), f"{p.name} missing description"
 
     # Zero-Deletion archives exist without frontmatter
-    for arch_fn in ("retired_rules_2026-11-18.md", "retired_constants_v4_v7_2026-11-18.md"):
+    for arch_fn in ("retired_rules_2026-11-18.md", "retired_constants_v4_v7_2026-11-18.md", "archival_reenactment_rules.md"):
         ap = archive_dir / arch_fn
         assert ap.is_file()
         assert not ap.read_text(encoding="utf-8").startswith("---\n")
@@ -825,8 +822,8 @@ def test_rules_restructure_under_24kb_frontmatter_and_open_license_lock(tmp_path
 
 
 def test_r85_7_ep31_brain_style_fidelity_and_vfx_ban() -> None:
-    from pipeline.porcelain_anchor_pack import R85_EP31_MASTER_STYLE_PROMPT, R85_EP31_MODE1_STYLE_PROMPT
-    from pipeline.reference_image_qa import evaluate_r85_ep31_brain_style_fidelity
+    from pipeline.reference_pack import R85_EP31_MASTER_STYLE_PROMPT, R85_EP31_MODE1_STYLE_PROMPT
+    from pipeline.ref_qa import evaluate_r85_ep31_brain_style_fidelity
 
     # 1. Spec builder & prompt lint block banned AI VFX tokens + retired 2nd-gen derivative anchors
     spec_ok = build_r85_31_brain_keyframe_spec(
@@ -943,10 +940,10 @@ def test_r85_8_canonical_v1_approved_lock_retired_anchor_ban_and_provenance(tmp_
         stage_canonical_slot_to_project,
         validate_project_canonical_provenance,
     )
-    from pipeline.flow_prompt_builder import build_diorama_v7_prompts, validate_diorama_v7_prompts
-    from pipeline.porcelain_anchor_pack import ensure_expressive_v8_reference_pack
-    from pipeline.reference_image_qa import inspect_reference_image_pack
-    from pipeline.source_reenactment import resolve_keyframe_conditioning_and_prompt
+    from pipeline.prompt_builder import build_diorama_v7_prompts, validate_diorama_v7_prompts
+    from pipeline.reference_pack import ensure_expressive_v8_reference_pack
+    from pipeline.ref_qa import inspect_reference_image_pack
+    from pipeline.archival_media import resolve_keyframe_conditioning_and_prompt
 
     # 1. Verify live canonical_assets/v1 manifest & all 42 SHA-256 locks (27 active + 15 Zero-Deletion R88 retired)
     manifest = load_canonical_manifest("v1", require_approved=True)
@@ -1097,9 +1094,9 @@ def test_r85_8_canonical_v1_approved_lock_retired_anchor_ban_and_provenance(tmp_
 
 def test_r85_9_gate2_global_fixes_chart_wcag_callout_targets_seahorse_and_arc_flash() -> None:
     from PIL import Image
-    from pipeline.anatomy_label_overlay import _parse_callout_xy_pair, render_anatomy_callout_rgba_frame
-    from pipeline.data_stamp_overlay import _build_bright_wall_contrast_card_rgba
-    from pipeline.flow_prompt_builder import sanitize_diorama_scene_for_flow
+    from pipeline.anatomy_overlay import _parse_callout_xy_pair, render_anatomy_callout_rgba_frame
+    from pipeline.stamp_overlay import _build_bright_wall_contrast_card_rgba
+    from pipeline.prompt_builder import sanitize_diorama_scene_for_flow
 
     # 1. Global anti-animal/food metaphor de-literalizer prevents ocean-seahorse hallucinations
     san = sanitize_diorama_scene_for_flow(
@@ -1152,8 +1149,8 @@ def test_r85_9_gate2_global_fixes_chart_wcag_callout_targets_seahorse_and_arc_fl
 
 
 def test_k06_start_end_pair_survives_populate_expressive_v8_reference_contract() -> None:
-    from pipeline.flow_prompt_builder import build_expressive_v8_prompts
-    from pipeline.porcelain_anchor_pack import populate_expressive_v8_reference_contract
+    from pipeline.prompt_builder import build_expressive_v8_prompts
+    from pipeline.reference_pack import populate_expressive_v8_reference_contract
 
     k06_start = "03_visuals/reference_images/canonical_K06_contrast_a12_dual_brain_state_transition_pair_start.png"
     k06_end = "03_visuals/reference_images/canonical_K06_contrast_a12_dual_brain_state_transition_pair_end.png"
@@ -1245,7 +1242,7 @@ def test_k06_start_end_pair_survives_populate_expressive_v8_reference_contract()
 
 def test_r88_overhead_oak_tabletop_hands_only_q4_fidelity(tmp_path: Path) -> None:
     """R88 overhead bird's-eye oak tabletop hands-only POV must pass Q4 when matte-white porcelain hands are present and 0 human faces exist, while still failing if no porcelain is present."""
-    from pipeline.reference_image_qa import inspect_single_reference_image
+    from pipeline.ref_qa import inspect_single_reference_image
 
     # Build synthetic 1080x1920 warm oak tabletop (upper-center ~55% in HSV skin band H~12, S~110, V~165 + sunlit highlights)
     oak_hsv = np.full((1920, 1080, 3), (12, 110, 165), dtype=np.uint8)
@@ -1284,8 +1281,8 @@ def test_r88_overhead_oak_tabletop_hands_only_q4_fidelity(tmp_path: Path) -> Non
 
 def test_r88_overhead_hands_yunet_cocoa_pareidolia_vs_real_skin_face(tmp_path: Path, monkeypatch) -> None:
     """R88 overhead hands-only POV classifies low-conf (<0.75) dark-cocoa+porcelain pareidolia as Gate-1 advisory while still hard-failing real skin faces or conf>=0.75."""
-    import pipeline.source_reenactment as sr_mod
-    from pipeline.reference_image_qa import inspect_single_reference_image
+    import pipeline.archival_media as sr_mod
+    from pipeline.ref_qa import inspect_single_reference_image
 
     oak_hsv = np.full((1920, 1080, 3), (12, 110, 165), dtype=np.uint8)
     oak_hsv[:560, :, 2] = 225

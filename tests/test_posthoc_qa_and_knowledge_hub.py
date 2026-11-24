@@ -1,5 +1,5 @@
 """Comprehensive tests for Rule R64 Post-Hoc Clip-by-Clip Expressive Clarity QA
-(`pipeline/posthoc_semantic_qa.py`) and Rule R50-B Knowledge Hub (`pipeline/knowledge_hub.py`).
+(`pipeline/posthoc_qa.py`) and Rule R50-B Knowledge Hub (`pipeline/knowledge_hub.py`).
 
 Covers:
 1. Schema v7 happy-path dual-stream clarity scoring, viewer contact strips, and SHA-256 review sign-off.
@@ -34,7 +34,7 @@ from pipeline.knowledge_hub import (
     sync_all_projects_to_knowledge_base,
     sync_project_to_knowledge_base,
 )
-from pipeline.posthoc_semantic_qa import (
+from pipeline.posthoc_qa import (
     init_posthoc_semantic_review_template,
     run_posthoc_semantic_qa,
     validate_posthoc_semantic_review,
@@ -994,7 +994,7 @@ def test_split_secondary_clip_attribution_and_corrupted_unused_clip_detection(tm
 def test_v7_source_window_selector_skips_empty_wall_preroll_and_honors_override(tmp_path: Path) -> None:
     """Regression test: _select_v7_source_window must skip [0..1.5s] empty-wall tilt_down pre-roll
     even when bottom-edge motion is non-zero, selecting the [2.0..4.0s] focal-occupied window."""
-    from pipeline.diorama_assembler import _select_v7_source_window
+    from pipeline.assembler import _select_v7_source_window
 
     clip_path = tmp_path / "tilt_down_brain.mp4"
     empty_top_frames: list[np.ndarray] = []
@@ -1019,7 +1019,7 @@ def test_posthoc_qa_multibeat_sentence_analogy_sync_does_not_flag_beat1(tmp_path
     """Regression test: when a sentence ('A metal shield hid Henry's hand and yellow pencil.')
     is split across Beat 1 [0.0..1.0s] and Beat 2 [1.0..2.5s] and 'pencil' is spoken at 2.1s inside Beat 2,
     Beat 1 must NOT be falsely flagged for analogy_audio_visual_desync, whereas true desync outside [0.0..2.5s] MUST fail."""
-    import pipeline.posthoc_semantic_qa as psq
+    import pipeline.posthoc_qa as psq
 
     p_dir = tmp_path / "ep_multibeat_sync"
     for sub in ("02_script", "03_visuals/flow_native_clips", "04_audio", "05_assembly"):

@@ -22,7 +22,7 @@ import pytest
 
 from pipeline import config as cfg
 from pipeline.flow_ingredients import _family_matches_model
-from pipeline.flow_prompt_builder import build_flow_prompts, normalize_clip_engine_tag
+from pipeline.prompt_builder import build_flow_prompts, normalize_clip_engine_tag
 
 
 def test_omni12_config_constants_and_retired_models() -> None:
@@ -179,9 +179,9 @@ def test_family_matches_model_rejects_retired_abra_and_omni11() -> None:
 def test_source_guard_zero_active_omni11_or_abra_routing_in_flow_modules() -> None:
     repo_root = Path(__file__).resolve().parents[1]
     guarded_files = (
-        repo_root / "pipeline" / "flow_prompt_builder.py",
-        repo_root / "pipeline" / "flow_diorama_sharded_worker.py",
-        repo_root / "pipeline" / "flow_live_single_worker.py",
+        repo_root / "pipeline" / "prompt_builder.py",
+        repo_root / "pipeline" / "flow_worker.py",
+        repo_root / "pipeline" / "flow_single_worker.py",
         repo_root / "pipeline" / "flow_ingredients.py",
     )
     banned_patterns = (
@@ -203,7 +203,7 @@ def test_source_guard_zero_active_omni11_or_abra_routing_in_flow_modules() -> No
 def test_sharded_worker_routes_start_end_frames_on_omni12_and_reselects_if_abra(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    import pipeline.flow_diorama_sharded_worker as worker_mod
+    import pipeline.flow_worker as worker_mod
 
     start_png = tmp_path / "start.png"
     end_png = tmp_path / "end.png"
@@ -305,7 +305,7 @@ def test_live_single_worker_falls_back_directly_from_omni12_to_veo_lite(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     import pipeline.flow_ingredients as fi_mod
-    import pipeline.flow_live_single_worker as lsw_mod
+    import pipeline.flow_single_worker as lsw_mod
 
     selected_models: list[str] = []
 
@@ -363,3 +363,169 @@ def test_live_single_worker_falls_back_directly_from_omni12_to_veo_lite(
     assert ev.is_set() is True
     assert res["flow_model"] == cfg.FLOW_ZERO_CREDIT_MODEL
     assert res["credit_tier"] == "zero_credit_fallback"
+
+
+# --- Merged from test_v8_3_omni12_master_upgrade.py ---
+import numpy as np  # noqa: E402
+from pipeline.assembler import (  # noqa: E402
+    build_dual_harvest_edl_windows,
+    lock_audio_durations_onto_visual_plan,
+    resolve_spatial_metric_stamps,
+    split_sentences_at_keyword_beats,
+    verify_state_swap_hist_corr,
+)
+from pipeline.depiction_rules import (  # noqa: E402
+    ExpressiveReactionCloseupRule,
+    ExpressiveRigidPhysicsRule,
+    format_expression_acting_clause,
+    load_expression_acting_lexicon,
+)
+from pipeline.flow_workspace import (  # noqa: E402
+    FLOW_OMNI_CREDIT_COST_NO_REF as WS_NO_REF,
+    FLOW_OMNI_CREDIT_COST_WITH_REF as WS_WITH_REF,
+)
+from pipeline.prompt_builder import validate_v83_camera_and_acting_balance  # noqa: E402
+from pipeline.reference_pack import (  # noqa: E402
+    EXPRESSIVE_V8_PREVIS_CAMERA_ANGLES,
+    populate_expressive_v8_reference_contract,
+)
+from pipeline.studio.uploader import StudioUploader  # noqa: E402
+
+
+def test_component0_translucent_brain_6pack_staged() -> None:
+    ref_dir = cfg.WORKSPACE_ROOT / "BCI_Shorts_Channel" / "reference_style_anchors" / cfg.TRANSLUCENT_BRAIN_V8_REFS_DIRNAME
+    assert ref_dir.is_dir()
+    assert len(cfg.TRANSLUCENT_BRAIN_V8_CANDIDATE_FILENAMES) == 6
+    for fn in cfg.TRANSLUCENT_BRAIN_V8_CANDIDATE_FILENAMES:
+        p = ref_dir / fn
+        assert p.is_file(), f"Missing staged translucent brain ref: {p}"
+        assert p.stat().st_size > 50_000
+
+
+def test_component1_omni12_and_dynamic_budget_parity() -> None:
+    assert cfg.FLOW_PRIMARY_OMNI_MODEL_KEY == "macaron_cookie"
+    assert cfg.FLOW_PRIMARY_OMNI_MODEL_LABEL == "Omni 1.2 Flash"
+    assert WS_NO_REF == 24
+    assert WS_WITH_REF == cfg.FLOW_OMNI_CREDIT_COST_WITH_REF == 24
+    assert cfg.FLOW_ENABLE_720P_LANCZOS_UNSHARP is False
+
+    b_full = cfg.compute_dynamic_omni_episode_budget(1000, clip_count=20)
+    assert b_full["all_omni_possible"] is True
+    assert b_full["max_omni_clips"] == 20
+
+    b_mid = cfg.compute_dynamic_omni_episode_budget(260, clip_count=20)
+    assert b_mid["max_omni_clips"] == 10
+    assert b_mid["zero_credit_fallback_clips"] == 10
+
+    b_low = cfg.compute_dynamic_omni_episode_budget(16, clip_count=20)
+    assert b_low["max_omni_clips"] == 0
+    assert b_low["zero_credit_fallback_clips"] == 20
+
+
+def test_component2_single_start_frame_default_and_previs_nodal_orbit() -> None:
+    assert cfg.EXPRESSIVE_V8_SINGLE_START_FRAME_DEFAULT is True
+    assert "object_portal_macro" not in EXPRESSIVE_V8_PREVIS_CAMERA_ANGLES
+    assert "fpv_aperture_wide" in EXPRESSIVE_V8_PREVIS_CAMERA_ANGLES
+
+    dummy_plan = {
+        "style_profile": "expressive_25d_v8",
+        "v8_3_mode": True,
+        "clips": [
+            {"clip_number": i, "grammar": ("expressive_xray_brain" if i == 12 else "expressive_vinyl_world"), "portal_to_brain": (i == 12)}
+            for i in range(1, 19)
+        ],
+    }
+    populated = populate_expressive_v8_reference_contract(dummy_plan, daisy_chain_keyframes=False)
+    for c in populated["clips"]:
+        if c.get("portal_to_brain"):
+            assert c.get("end_reference_image"), "Portal clip must retain End frame"
+        else:
+            assert c.get("end_reference_image") is None
+            assert c.get("single_start_frame_lock") is True
+
+
+def test_component3_acting_lexicon_and_rigid_physics_grammars() -> None:
+    assert cfg.EXPRESSIVE_ACTING_LEXICON_PATH.is_file()
+    lex = load_expression_acting_lexicon()
+    archetypes = lex.get("expressions", lex.get("archetypes", lex))
+    assert len(archetypes) == 12
+    assert "expressive_reaction_closeup" in cfg.EXPRESSIVE_V8_VISUAL_GRAMMARS
+
+    first_expr_id = next(iter(archetypes.keys()))
+    clause = format_expression_acting_clause(first_expr_id, speaker_role="narrator", compact=True)
+    assert "2D ink" in clause or "ink" in clause.lower()
+
+    react_scene = ExpressiveReactionCloseupRule.compose(
+        expression_id=first_expr_id,
+        speaker_role="mini_cortex",
+        compact=True,
+    )
+    assert "Bust-up close-up" in react_scene
+
+    for rg in cfg.EXPRESSIVE_V8_RIGID_PHYSICS_GRAMMARS:
+        phys_txt = ExpressiveRigidPhysicsRule.compose(rg, subject_or_structure="Subject", compact=True)
+        assert len(phys_txt.split()) >= 8
+
+
+def test_component3_camera_balance_and_edl_helpers() -> None:
+    good_clips = []
+    for idx in range(1, 21):
+        if idx in (1, 2, 3, 4):
+            cam = "fpv_dive_glide"
+        elif idx in (5, 6, 7, 8):
+            cam = "orbital_3d_arc_sweep"
+        elif idx in (9, 10, 11, 12):
+            cam = "locked_tripod"
+        else:
+            cam = "gentle_push_in"
+        good_clips.append(
+            {
+                "clip_number": idx,
+                "camera_move": cam,
+                "grammar": "expressive_reaction_closeup" if idx == 9 else "expressive_vinyl_world",
+                "portal_to_brain": (idx == 4),
+            }
+        )
+    assert validate_v83_camera_and_acting_balance(good_clips) == []
+
+    bad_clips = [dict(c) for c in good_clips]
+    bad_clips[4]["portal_to_brain"] = True
+    errs = validate_v83_camera_and_acting_balance(bad_clips)
+    assert any("orbital_3d_arc_sweep" in e and "portal_to_brain" in e for e in errs)
+
+    spans = [(0.0, 3.2), (3.2, 7.1), (7.1, 11.8)]
+    vp = {"clips": [{"sentence_index": 1, "end_sentence_index": 1}, {"sentence_index": 2, "end_sentence_index": 3}]}
+    locked_vp = lock_audio_durations_onto_visual_plan(vp, spans, enable_extended_durations=True)
+    assert locked_vp["audio_before_flow_locked"] is True
+    assert locked_vp["clips"][0]["render_sec"] == 4
+    assert locked_vp["clips"][1]["render_sec"] == 10
+    assert locked_vp["clips"][0]["forbid_slowmo_stretch"] is True
+
+    beats = split_sentences_at_keyword_beats(
+        [(0.0, 5.4)],
+        ["The researcher promised a second marshmallow, but walked out and broke that promise."],
+        target_beat_sec=2.0,
+    )
+    assert len(beats) >= 2
+    w1, w2 = build_dual_harvest_edl_windows(8.0)
+    assert w1[1] < w2[0]
+
+    grad = np.linspace(20, 220, 64, dtype=np.uint8)
+    img_a = np.dstack([np.tile(grad, (64, 1)), np.tile(grad[:, None], (1, 64)), np.full((64, 64), 110, dtype=np.uint8)])
+    img_b = np.clip(img_a.astype(np.int16) + 2, 0, 255).astype(np.uint8)
+    swap_res = verify_state_swap_hist_corr(img_a, img_b)
+    assert swap_res["passed"] is True
+    stamps = resolve_spatial_metric_stamps(
+        {"spatial_metric_stamps": [{"label": "4x longer", "sentence_index": 2}]},
+        spans,
+    )
+    assert stamps[0]["label"] == "4X LONGER"
+    assert stamps[0]["start_sec"] == 3.2
+
+
+def test_component3_studio_inventory_120s_fields() -> None:
+    rep = StudioUploader.audit_v8_channel_readiness()
+    inv = rep["format_inventory_audit"]
+    assert "shorts_le_89_5s_count" in inv
+    assert "v8_shorts_le_120s_count" in inv
+    assert "legacy_gt_120s_count" in inv

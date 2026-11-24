@@ -12,6 +12,7 @@ Enforces repository cleanliness and FUSE safety:
 from __future__ import annotations
 
 import argparse
+import ast
 import json
 import os
 from pathlib import Path
@@ -27,18 +28,14 @@ APPROVED_ROOT_ENTRIES: frozenset[str] = frozenset(
         ".git",
         ".gitignore",
         ".ignore",
-        ".rgignore",
         "BCI_Shorts_Channel",
-        "Completed_Psychology_100_Shorts",
-        "Hermes youtube worklplace",
         "README.md",
         "artifacts_archive",
         "docs",
         "main.py",
         "pipeline",
-        "produce_psychology_batch.py",
+        "pyproject.toml",
         "pytest.ini",
-        "reports",
         "scripts",
         "tests",
     }
@@ -65,6 +62,55 @@ BANNED_PIPELINE_FILES: frozenset[str] = frozenset(
         "smoketest.py",
         "video_qa_inspector.py",
         "visuals.py",
+    }
+)
+
+BANNED_IMPORT_MODULES: frozenset[str] = frozenset(
+    {
+        # Retired legacy modules (pyproject.toml TID251 parity)
+        "pipeline.previs_blender",
+        "pipeline.brain_simulator_blender",
+        "pipeline.topics_catalog",
+        "pipeline.prompts_db",
+        "pipeline.expand_topics_to_1500",
+        "pipeline.voice_fallback",
+        "pipeline.qa_gates",
+        "pipeline.clip_qa_contract",
+        "pipeline.deliverable_overwatch",
+        "pipeline.researcher",
+        "scripts.chatroom_mention",
+        # Pre-rename legacy module paths (prevent stale import regression)
+        "pipeline.prompt_quality_v5",
+        "pipeline.flow_prompt_builder",
+        "pipeline.porcelain_anchor_pack",
+        "pipeline.real_world_reference_builder",
+        "pipeline.source_reenactment",
+        "pipeline.archival_insert_builder",
+        "pipeline.archival_video_builder",
+        "pipeline.flow_diorama_sharded_worker",
+        "pipeline.flow_live_single_worker",
+        "pipeline.elevenlabs_tts",
+        "pipeline.elevenlabs_music",
+        "pipeline.diorama_assembler",
+        "pipeline.diorama_batch_orchestrator",
+        "pipeline.diorama_pipeline_runner",
+        "pipeline.anatomy_label_overlay",
+        "pipeline.data_stamp_overlay",
+        "pipeline.spatial_arrow_guide",
+        "pipeline.thumbnail_studio",
+        "pipeline.instagram_card_builder",
+        "pipeline.reference_image_qa",
+        "pipeline.dynamic_episode_qa",
+        "pipeline.dq8_suspect_classifier",
+        "pipeline.posthoc_semantic_qa",
+        "pipeline.video_autopsy",
+        "pipeline.studio.whale_session",
+        "pipeline.studio.studio_watchdog",
+        "pipeline.studio.qa_scheduler",
+        "scripts.sync_artifacts_archive",
+        "scripts.render_vlm_triage_sheets",
+        "scripts.build_brand_identity_pack",
+        "scripts.build_locked_assets_bible",
     }
 )
 
@@ -159,7 +205,7 @@ def audit_workspace_hygiene(workspace_root: Path | None = None) -> dict[str, Any
     # 4. Hardcoded machine-specific path check across repo Python code & tests
     self_resolved = Path(__file__).resolve()
     code_targets: list[Path] = []
-    for top_py in ("main.py", "produce_psychology_batch.py"):
+    for top_py in ("main.py",):
         if (root / top_py).is_file():
             code_targets.append(root / top_py)
     for sub in ("pipeline", "scripts", "tests"):
@@ -174,17 +220,39 @@ def audit_workspace_hygiene(workspace_root: Path | None = None) -> dict[str, Any
 
     for py_file in code_targets:
         try:
-            if py_file.resolve() == self_resolved:
-                continue
+            is_self = py_file.resolve() == self_resolved
         except OSError:
-            pass
+            is_self = False
         txt = py_file.read_text(encoding="utf-8", errors="replace")
-        for line_no, line in enumerate(txt.splitlines(), start=1):
-            for tok in _LEGACY_PATH_TOKENS:
-                if tok.lower() in line.lower():
-                    issues.append(
-                        f"[hardcoded_path] {py_file.relative_to(root)}:{line_no} contains legacy hardcoded path {tok!r}"
-                    )
+        if not is_self:
+            for line_no, line in enumerate(txt.splitlines(), start=1):
+                for tok in _LEGACY_PATH_TOKENS:
+                    if tok.lower() in line.lower():
+                        issues.append(
+                            f"[hardcoded_path] {py_file.relative_to(root)}:{line_no} contains legacy hardcoded path {tok!r}"
+                        )
+        try:
+            tree = ast.parse(txt, filename=str(py_file))
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Import):
+                    for alias in node.names:
+                        if alias.name in BANNED_IMPORT_MODULES:
+                            issues.append(
+                                f"[banned_import] {py_file.relative_to(root)}:{node.lineno} imports retired module {alias.name!r}"
+                            )
+                elif isinstance(node, ast.ImportFrom) and node.module:
+                    if node.module in BANNED_IMPORT_MODULES:
+                        issues.append(
+                            f"[banned_import] {py_file.relative_to(root)}:{node.lineno} imports from retired module {node.module!r}"
+                        )
+                    for alias in node.names:
+                        cand_mod = f"{node.module}.{alias.name}"
+                        if cand_mod in BANNED_IMPORT_MODULES:
+                            issues.append(
+                                f"[banned_import] {py_file.relative_to(root)}:{node.lineno} imports retired module {cand_mod!r}"
+                            )
+        except SyntaxError as syn_exc:
+            issues.append(f"[syntax_error] {py_file.relative_to(root)}:{syn_exc.lineno}: {syn_exc.msg}")
 
     return {
         "passed": len(issues) == 0,

@@ -65,7 +65,7 @@
 - **핵심 인상**: 배우들은 모두 `안 1`의 매트 바이닐 2.5D 종족으로 연기해 `0.00s` 몰입을 해치지 않으면서, 클립보드 클립·`15:00` 벽면 타이머 위·새벽 `03:00` 협탁 시계 옆·나무 상자(`TEST`)·유리 머그잔 손잡이 등에 **작고 귀여운 4색 발광 미니 뇌 피규어/키링**이 1초간 숨어 있습니다. 특히 3번째 슬라이드(`opt3_scene_nightstand_easteregg.jpg`)는 일상 공감형 대본(새벽 3시 호텔 첫날밤 **반쪽 뇌만 깨어 보초를 서는 현상**)에서 **왼쪽 반구는 불투명 수면, 오른쪽 반구만 투명 X-Ray 각성**으로 연출한 모습으로, 우리 채널의 확장성을 그대로 증명합니다.
 
 ````carousel
-![안 3 미니 뇌 카메오 디자인 바이블 (opt3_cameo_sheet.jpg): 클립보드 키링 · 03:00 협탁 · TEST 나무상자 · 커피잔에 숨은 4cm 4색 발광 미니 뇌](./signature_cast/opt3_cameo_sheet.jpg)
+![안 3 미니 뇌 카메오 디자인 바이블 (opt3_cameo_sheet.jpg): 클립보드 키링 · 03:00 협탁 · TEST 나무상자 · 커피잔에 숨은 4cm 4색 발광 미니 뇌](./channel_art_and_cast/cast_cameo_minicortex_bible.jpg)
 <!-- slide -->
 ![안 3 실전 갈등 씬 + 이스터에그 (opt3_scene_conflict_easteregg.jpg): 교도관-죄수 대치의 긴장감은 그대로 유지하면서 15:00 타이머 박스 위에 숨어 있는 미니 뇌](./signature_cast/opt3_scene_conflict_easteregg.jpg)
 <!-- slide -->

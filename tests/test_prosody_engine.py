@@ -13,7 +13,7 @@ from pipeline.config import (
     DIORAMA_V7_PROSODY_GEARS,
     DIORAMA_V7_PROSODY_MAX_ADJ_TEMPO_JUMP,
 )
-from pipeline.prosody import (
+from pipeline.prosody_qa import (
     apply_emphasis,
     base_rate_for_mode,
     classify_prosody_gears,
@@ -106,7 +106,7 @@ def test_dynamic_plan_uses_native_gear_rates_without_wsola():
 
 def test_native_gear_slices_taken_from_matching_rate_stream(tmp_path: Path):
     """Offline test stub synthesizes distinct per-gear tempos natively without WSOLA."""
-    import pipeline.voice_fallback as vf
+    import pipeline.audio_utils as vf
 
     p_dir = tmp_path / "stub_gears"
     (p_dir / "03_visuals").mkdir(parents=True)
@@ -164,7 +164,7 @@ def test_emphasis_inserts_pause_and_shifts_words():
 
 
 def test_studio_vocoder_humanizer_and_booth_glue_preserve_exact_length():
-    from pipeline.voice_fallback import _apply_studio_booth_glue, _humanize_vocoder_pcm
+    from pipeline.audio_utils import _apply_studio_booth_glue, _humanize_vocoder_pcm
 
     sr = 48000
     t = np.arange(sr, dtype=np.float32) / float(sr)
@@ -194,7 +194,7 @@ def test_internal_silence_measurement():
 
 
 def test_published_project_guard(tmp_path: Path):
-    from pipeline.diorama_assembler import assemble_diorama_project
+    from pipeline.assembler import assemble_diorama_project
 
     p = tmp_path / "proj"
     (p / "06_publish").mkdir(parents=True)
@@ -204,7 +204,7 @@ def test_published_project_guard(tmp_path: Path):
 
 
 def test_template_review_detector(tmp_path: Path):
-    from pipeline.posthoc_semantic_qa import validate_posthoc_semantic_review
+    from pipeline.posthoc_qa import validate_posthoc_semantic_review
 
     p = tmp_path / "proj"
     (p / "05_assembly").mkdir(parents=True)
@@ -231,9 +231,12 @@ def test_template_review_detector(tmp_path: Path):
 def test_master_hf_chain_is_single_light_deesser():
     """Q-2: HF is no longer attenuated three times (vocal lowpass + -3.8dB + master -3dB EQ + strong deesser)."""
     import pipeline.config as cfg
-    from pipeline.voice_fallback import STORYTELLER_VOCAL_FILTER
+    from pipeline.audio_utils import STORYTELLER_VOCAL_FILTER
 
-    src = (Path(__file__).resolve().parents[1] / "pipeline" / "diorama_assembler.py").read_text(encoding="utf-8")
+    src = "\n".join(
+        p.read_text(encoding="utf-8")
+        for p in sorted((Path(__file__).resolve().parents[1] / "pipeline").glob("assembler*.py"))
+    )
     assert "equalizer=f=6500" not in src
     assert "deesser=i=0.58" not in src
     assert "_cfg.DIORAMA_V7_MASTER_DEESSER" in src

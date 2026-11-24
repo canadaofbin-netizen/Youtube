@@ -305,8 +305,6 @@ def test_vacant_null_slots_and_legacy_v4_inventory_filtering():
        must be excluded from `total_completed_inventory` and `staged_buffer_count` (matching
        `StagingQueueManager.get_status_summary()`).
     """
-    from pipeline.studio.queue_manager import StagingQueueManager
-
     tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_vacant_v4_"))
     try:
         projects_dir = tmp_dir / "BCI_Shorts_Channel" / "projects"
@@ -415,13 +413,6 @@ def test_vacant_null_slots_and_legacy_v4_inventory_filtering():
         queue_file.write_text(json.dumps(queue_payload, indent=2), encoding="utf-8")
         link_graph_file.write_text(json.dumps({"edges": [{"source": "test_01_live_pub"}], "two_cycle_count": 0}), encoding="utf-8")
 
-        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
-        q_summary = qm.get_status_summary()
-        assert q_summary["scheduled_slots_count"] == 0
-        assert q_summary["vacant_slots_count"] == 6
-        assert q_summary["total_completed_projects"] == 1
-        assert q_summary["staged_in_buffer"] == 0
-
         reporter = StudioAnalyticsReporter(
             reports_dir=reports_dir,
             projects_dir=projects_dir,
@@ -473,7 +464,6 @@ def test_mixed_queue_with_v5_ready_project_and_vacant_slots():
     and `StudioAnalyticsReporter` count the v5 project accurately while excluding
     vacant slots and legacy v4 artifacts.
     """
-    from pipeline.studio.queue_manager import StagingQueueManager
     from tests.test_studio_autonomous import _seed_hermetic_studio_project
 
     tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_mixed_v5_"))
@@ -554,12 +544,6 @@ def test_mixed_queue_with_v5_ready_project_and_vacant_slots():
         queue_file.write_text(json.dumps(queue_payload, indent=2), encoding="utf-8")
         link_graph_file.write_text(json.dumps({"edges": [], "two_cycle_count": 0}), encoding="utf-8")
 
-        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
-        q_summary = qm.get_status_summary()
-        assert q_summary["scheduled_slots_count"] == 1
-        assert q_summary["vacant_slots_count"] == 2
-        assert q_summary["total_completed_projects"] == 2
-
         reporter = StudioAnalyticsReporter(
             reports_dir=reports_dir,
             projects_dir=projects_dir,
@@ -599,7 +583,6 @@ def test_archived_history_preserves_cohort_timestamps_slots_and_link_metadata():
     3) Zero stale hardcoded schedule/upload claims in `signal_radar` and `diagnostics`
        when `scheduled_count == 0`, and `simultaneous_publish_count == 0` when unique.
     """
-    from pipeline.studio.queue_manager import StagingQueueManager
     from tests.test_studio_autonomous import _seed_hermetic_studio_project
 
     tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_history_ts_"))
@@ -663,16 +646,36 @@ def test_archived_history_preserves_cohort_timestamps_slots_and_link_metadata():
             encoding="utf-8",
         )
 
-        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
-        qm.plan_5_slot_schedule(days=3, start_date="2026-10-27", daily_prime_only=True)
-
-        saved_queue = json.loads(queue_file.read_text(encoding="utf-8"))
-        hist_by_pid = {h["project_id"]: h for h in saved_queue.get("history", [])}
-        assert hist_by_pid["test_01_oct19"]["date"] == "2026-10-19"
-        assert hist_by_pid["test_01_oct19"]["time_et"] == "12:00"
-        assert hist_by_pid["test_01_oct19"]["slot_id"] == 2
-        assert hist_by_pid["test_02_oct21"]["date"] == "2026-10-21"
-        assert hist_by_pid["test_02_oct21"]["slot_id"] == 2
+        queue_file.write_text(
+            json.dumps(
+                {
+                    "channel_id": "UC4FeioYYv9X04Di07_MfZ7g",
+                    "scheduled_items": [],
+                    "history": [
+                        {
+                            "schedule_id": "2026-10-19_slot2",
+                            "project_id": "test_01_oct19",
+                            "video_id": "p4ou90cHt50",
+                            "date": "2026-10-19",
+                            "time_et": "12:00",
+                            "slot_id": 2,
+                            "status": "published_public",
+                        },
+                        {
+                            "schedule_id": "2026-10-21_slot2",
+                            "project_id": "test_02_oct21",
+                            "video_id": "sP9VZqK1Lm2",
+                            "date": "2026-10-21",
+                            "time_et": "12:00",
+                            "slot_id": 2,
+                            "status": "published_public",
+                        },
+                    ],
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
 
         reporter = StudioAnalyticsReporter(
             reports_dir=reports_dir,
@@ -722,7 +725,6 @@ def test_scheduled_upload_receipt_reconciles_vacant_and_stale_unlisted_queue_slo
     `studio-upload --visibility scheduled` while `staging_queue.json` still holds `vacant`
     (`project_id: null`) or stale `unlisted` status on that slot.
     """
-    from pipeline.studio.queue_manager import StagingQueueManager
     from tests.test_studio_autonomous import _seed_hermetic_studio_project
 
     tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_sched_receipt_"))
@@ -779,13 +781,6 @@ def test_scheduled_upload_receipt_reconciles_vacant_and_stale_unlisted_queue_slo
             encoding="utf-8",
         )
 
-        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
-        q_sum = qm.get_status_summary()
-        assert q_sum["scheduled_slots_count"] == 1
-        assert q_sum["vacant_slots_count"] == 3
-        assert q_sum["staged_in_buffer"] == 1
-        assert q_sum["total_completed_projects"] == 2
-
         reporter = StudioAnalyticsReporter(
             reports_dir=reports_dir,
             projects_dir=projects_dir,
@@ -831,7 +826,6 @@ def test_unrendered_awaiting_render_and_error_queue_items_excluded():
     failed upload queue entries (`status: "error: ..."`) never inflate `scheduled_count`,
     `upcoming_schedule`, or `total_completed_inventory`.
     """
-    from pipeline.studio.queue_manager import StagingQueueManager
     from tests.test_studio_autonomous import _seed_hermetic_studio_project
 
     tmp_dir = Path(tempfile.mkdtemp(prefix="test_reporter_awaiting_render_"))
@@ -871,14 +865,6 @@ def test_unrendered_awaiting_render_and_error_queue_items_excluded():
             }),
             encoding="utf-8",
         )
-
-        qm = StagingQueueManager(queue_file=queue_file, projects_dir=projects_dir)
-        q_sum = qm.get_status_summary()
-        assert q_sum["scheduled_slots_count"] == 0
-        assert q_sum["staged_in_buffer"] == 0
-        assert q_sum["total_completed_projects"] == 1
-        assert q_sum["v5_ready_unpublished_count"] == 1
-        assert q_sum["pending_staging"] == 1
 
         reporter = StudioAnalyticsReporter(
             reports_dir=reports_dir,

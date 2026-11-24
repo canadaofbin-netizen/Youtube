@@ -2604,3 +2604,201 @@ __all__ = [
 
 
 
+
+
+# --- Migrated Scene / Color / Outdoor Location Helpers ---
+import json as _json_dr
+from pathlib import Path as _Path_dr
+
+_OUTDOOR_ENV_KEYWORDS: tuple[str, ...] = (
+    "outdoor", "exterior", "courtyard", "quad", "campus", "portico", "facade", "aerial",
+    "crosswalk", "street", "avenue", "plaza", "square", "bridge", "footbridge", "river",
+    "park", "walkway", "promenade", "market", "pavilion", "stadium", "bleacher", "rooftop",
+    "terrace", "skyline", "subway platform", "underground platform", "station platform",
+    "harvard yard", "cutaway",
+)
+
+
+def hex_to_rgb(color_hex: str) -> tuple[int, int, int]:
+    """Parses `#RRGGBB` into `(R, G, B)` integers in `0..255`."""
+    raw = str(color_hex or "").strip().lstrip("#")
+    if len(raw) != 6 or any(c not in "0123456789abcdefABCDEF" for c in raw):
+        raise ValueError(f"Invalid hex color {color_hex!r}; expected \x27#RRGGBB\x27")
+    return int(raw[0:2], 16), int(raw[2:4], 16), int(raw[4:6], 16)
+
+
+def load_location_registry(path: _Path_dr | None = None) -> dict[str, Any]:
+    from pipeline.config import LOCATION_REGISTRY_PATH
+
+    reg_p = _Path_dr(path) if path is not None else _Path_dr(LOCATION_REGISTRY_PATH)
+    if reg_p.is_file():
+        try:
+            doc = _json_dr.loads(reg_p.read_text(encoding="utf-8"))
+            if isinstance(doc, dict) and isinstance(doc.get("locations"), dict):
+                return doc
+        except Exception:  # noqa: BLE001
+            pass
+    return {"locations": {}}
+
+
+def is_outdoor_or_architectural_clip(
+    clip_or_loc: dict[str, Any] | str | None,
+    *,
+    registry: dict[str, Any] | None = None,
+) -> bool:
+    reg = registry if isinstance(registry, dict) else load_location_registry()
+    locs = reg.get("locations") if isinstance(reg.get("locations"), dict) else {}
+
+    if isinstance(clip_or_loc, dict):
+        if bool(clip_or_loc.get("outdoor")) or bool(clip_or_loc.get("is_outdoor")):
+            return True
+        g_raw = str(clip_or_loc.get("grammar") or clip_or_loc.get("visual_grammar") or "").strip().lower()
+        if g_raw in ("expressive_exterior_establishing", "architectural_cutaway_portal", "spatial_3d_arrow_diorama"):
+            return True
+        loc_id = str(clip_or_loc.get("location_id") or "").strip().lower().replace("-", "_")
+        env_txt = f"{loc_id} {clip_or_loc.get('environment', '')} {clip_or_loc.get('scene', '')}".lower()
+    else:
+        loc_id = str(clip_or_loc or "").strip().lower().replace("-", "_")
+        env_txt = loc_id
+
+    if loc_id:
+        if loc_id in locs and isinstance(locs[loc_id], dict):
+            return bool(locs[loc_id].get("outdoor"))
+        for k_loc, spec_loc in locs.items():
+            if not isinstance(spec_loc, dict):
+                continue
+            aliases = [str(a).strip().lower() for a in (spec_loc.get("aliases") or [])]
+            if k_loc in loc_id or loc_id in k_loc or any(a in loc_id or loc_id in a for a in aliases):
+                if bool(spec_loc.get("outdoor")):
+                    return True
+    return any(kw in env_txt for kw in _OUTDOOR_ENV_KEYWORDS)
+
+
+def format_previs_color_mapping_prompt(
+    color_role_legend: dict[str, dict[str, str]] | None,
+    *,
+    style_profile: str = "expressive_25d_v8",
+    has_character_sheet: bool = True,
+) -> str:
+    legend = dict(color_role_legend or {})
+    mappings: list[str] = []
+    for role_id, meta in legend.items():
+        c_name = str(meta.get("color_name") or role_id).strip()
+        c_hex = str(meta.get("color_hex") or "").strip()
+        t_lbl = str(meta.get("target_label") or role_id).strip()
+        kind = str(meta.get("entity_kind") or "actor")
+        tag = f"{c_name} ({c_hex})" if c_hex else c_name
+        if kind == "prop":
+            mappings.append(f"{tag} box = real-world {t_lbl}")
+        elif has_character_sheet:
+            mappings.append(f"{tag} 3-chunk dummy = {t_lbl} (match Attachment 2 character sheet)")
+        else:
+            mappings.append(f"{tag} 3-chunk dummy = {t_lbl}")
+    mapping_clause = f" Color-to-subject mapping: {'; '.join(mappings)}." if mappings else ""
+    species_clause = (
+        "Replace every dummy marker with smooth matte cream-white vinyl 2.5D characters with bold 2D charcoal ink eyes/mouth and woven fabric clothing"
+        if style_profile == "expressive_25d_v8"
+        else "Replace every dummy marker with articulated matte-white porcelain figures with smooth featureless oval porcelain heads and woven fabric clothing"
+    )
+    return (
+        "Vertical 9:16 full-bleed cinematic miniature diorama photograph. "
+        "Follow camera angle, lens perspective, and 3D spatial placement strictly from Attachment 1 "
+        "(3D blockout previs; simple colored 3-chunk dummies and boxes are position markers ONLY — "
+        f"do NOT copy blocky geometry or solid marker colors). {species_clause}.{mapping_clause}"
+    )
+
+
+def _clean_sb(text: Any) -> str:
+    return re.sub(r"\s+", " ", str(text or "")).strip()
+
+
+def still_prefix(aspect: str = FLOW_ASPECT_SHORTS) -> str:
+    orient = "vertical" if aspect == "9:16" else "horizontal"
+    return f"Generate a single {aspect} {orient} still photograph (one frozen instant, not a video):"
+
+
+def cast_lock_entries(plan: dict[str, Any]) -> list[dict[str, str]]:
+    cast = plan.get("cast") if isinstance(plan.get("cast"), dict) else {}
+    wardrobe = cast.get("wardrobe") if isinstance(cast.get("wardrobe"), dict) else {}
+    out: list[dict[str, str]] = []
+    for key, look in wardrobe.items():
+        if _clean_sb(look):
+            out.append({"id": str(key), "look": _clean_sb(look)})
+    if not out:
+        skip_meta = {"wardrobe", "style", "cast_style", "notes", "cranium", "count", "profile"}
+        ordered_keys: list[str] = ["subject"] if "subject" in cast else []
+        for k in cast.keys():
+            ks = str(k)
+            if ks not in skip_meta and ks not in ordered_keys:
+                ordered_keys.append(ks)
+        for ks in ordered_keys:
+            val = cast.get(ks)
+            if isinstance(val, str) and _clean_sb(val):
+                out.append({"id": ks, "look": _clean_sb(val)})
+    return out
+
+
+def cast_for_shot(plan: dict[str, Any], role: str | None) -> list[dict[str, str]]:
+    entries = cast_lock_entries(plan)
+    if not role:
+        return entries
+    shots = plan.get("shots") if isinstance(plan.get("shots"), dict) else {}
+    shot = shots.get(role) if isinstance(shots.get(role), dict) else {}
+    if isinstance(shot.get("cast"), list) and shot["cast"]:
+        keep = {str(k) for k in shot["cast"]}
+        return [e for e in entries if e["id"] in keep] or entries[:1]
+    return entries[:1]
+
+
+def cast_lock_sentence(plan: dict[str, Any], max_entries: int = 4, role: str | None = None) -> str:
+    entries = cast_for_shot(plan, role)[:max_entries]
+    if not entries:
+        return "Every person is an articulated matte-white porcelain mannequin."
+    body = "; ".join(f"{e['id'].replace('_', ' ')} in {e['look']}" for e in entries)
+    return f"Every person is an articulated matte-white porcelain mannequin, same design in every shot: {body}."
+
+
+def key_visual_for_scene(plan: dict[str, Any], scene_id: Any) -> dict[str, Any] | None:
+    for m in plan.get("must_have_scenes") or []:
+        if isinstance(m, dict) and str(m.get("id")) == str(scene_id) and isinstance(m.get("key_visual"), dict):
+            return m["key_visual"]
+    return None
+
+
+def key_visual_tokens_ok(text: str, key_visual: dict[str, Any]) -> list[str]:
+    low = str(text or "").lower()
+    missing = []
+    for group in key_visual.get("must_show") or []:
+        alts = [a.strip().lower() for a in str(group).split("|") if a.strip()]
+        if alts and not any(re.search(rf"\b{re.escape(a)}\b", low) for a in alts):
+            missing.append(str(group))
+    return missing
+
+
+def key_visual_clip_numbers(plan: dict[str, Any], clips: list[dict[str, Any]]) -> dict[str, list[int]]:
+    out: dict[str, list[int]] = {}
+    for m in plan.get("must_have_scenes") or []:
+        if not (isinstance(m, dict) and isinstance(m.get("key_visual"), dict)):
+            continue
+        sid = str(m.get("id"))
+        out[sid] = [
+            int(c["clip_number"]) for c in clips
+            if str(c.get("scene_id")) == sid and not key_visual_tokens_ok(str(c.get("scene") or ""), m["key_visual"])
+        ]
+    return out
+
+
+def still_frame_prompt(
+    plan: dict[str, Any],
+    role: str,
+    which: str = "start",
+    aspect: str = FLOW_ASPECT_SHORTS,
+    fallback_scene: str = "",
+) -> str:
+    body = _clean_sb(fallback_scene or plan.get("real_environment") or "clean sunlit architectural studio scene")
+    if not body.endswith("."):
+        body += "."
+    return _clean_sb(
+        f"{still_prefix(aspect)} {body} {cast_lock_sentence(plan, role=role)} "
+        "Razor-sharp focus, bright even documentary light, no real human faces, no text, no watermark."
+    )

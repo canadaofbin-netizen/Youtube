@@ -770,8 +770,8 @@ def test_direct_cdp_set_file_input_shadow_dom_and_temp_tab_url_encoding(tmp_path
     """DirectCDPClient.set_file_input pierces Shadow DOM with json imported, and open_temp_direct_client URL-encodes ?v=."""
     import asyncio
     import shutil
-    import pipeline.studio.whale_session as ws_mod
-    from pipeline.studio.whale_session import DirectCDPClient, WhaleSessionController
+    import pipeline.studio.browser_session as ws_mod
+    from pipeline.studio.browser_session import DirectCDPClient, WhaleSessionController
 
     dummy_png = tmp_path / "thumb.png"
     dummy_png.write_bytes(b"\x89PNG\r\n\x1a\n")
